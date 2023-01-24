@@ -2,9 +2,7 @@
 title: "R4BABS"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+hello emma
 
 ```{r}
 1 + 1
