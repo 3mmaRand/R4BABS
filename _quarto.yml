@@ -7,8 +7,16 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Welcome!
+      - href: r4babs1/r4babs1.qmd
+        text: Data Analysis in R for BABS 1
+      - href: r4babs2/r4babs2.qmd
+        text: Data Analysis in R for BABS 2
+      - href: r4babs3/r4babs3.qmd
+        text: Data Analysis in R for BABS 3
+      - href: r4babs4/r4babs4.qmd
+        text: Data Analysis in R for BABS 4
+      - href: about.qmd
 
 format:
   html:
