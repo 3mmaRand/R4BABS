@@ -1,0 +1,37 @@
+---
+title: "Week 6: Understanding file systems"
+---
+
+This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.
+
+### Learning objectives
+
+-   File systems
+
+-   files and directories
+
+-   file names, file extensions, associations with programs
+
+-   using a file explorer
+
+-   saving files
+
+-   file paths
+
+-   using google
+
+### Instructions
+
+1.  Prepare
+
+    i.  
+
+    ii. 
+
+2.  Workshop
+
+3.  Consolidate
+
+    i.  
+
+    ii. 

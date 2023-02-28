@@ -1,0 +1,37 @@
+---
+title: "Week 7: Introduction to R, RStudio and project organisation"
+---
+
+This week you will start writing R code in RStudio and will create your your graph! You will learn about data types such as "numerics" and "characters" and some of the different types of objects in R such as "vectors" and "dataframes". These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.
+
+### Learning objectives
+
+-   use the R command line as a calculator and to assign variables
+
+-   create and use the basic data types in R
+
+-   find their way around the RStudio windows
+
+-   use an RStudio Project to organise work
+
+-   use a script to run R commands
+
+-   create and customise a barplot
+
+-   search and understand manual pages
+
+### Instructions
+
+1.  Prepare
+
+    i.  
+
+    ii. 
+
+2.  Workshop
+
+3.  Consolidate
+
+    i.  
+
+    ii. 

@@ -3,20 +3,111 @@ project:
   output-dir: _site
 
 website:
-  title: "R4BABS"
+  title: "Data Analysis in R "
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Welcome!
-      - href: r4babs1/r4babs1.qmd
-        text: Data Analysis in R for BABS 1
-      - href: r4babs2/r4babs2.qmd
-        text: Data Analysis in R for BABS 2
-      - href: r4babs3/r4babs3.qmd
-        text: Data Analysis in R for BABS 3
-      - href: r4babs4/r4babs4.qmd
-        text: Data Analysis in R for BABS 4
-      - href: about.qmd
+      - text: "Welcome!"
+        file: index.qmd
+      - text: "BABS 1"
+        file:  r4babs1/r4babs1.qmd
+      - text: "BABS 2"
+        file:  r4babs2/r4babs2.qmd
+
+  sidebar:
+    - title: "BABS 1"
+      style: "floating"
+      background: light
+      contents:
+          - href: r4babs1/r4babs1.qmd
+            text: Overview
+          - section: "Week 6"
+            contents: 
+             - href: r4babs1/week-6/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-6/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-6/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-6/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 7"
+            contents: 
+             - href: r4babs1/week-7/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-7/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-7/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-7/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 8"
+            contents: 
+             - href: r4babs1/week-8/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-8/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-8/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-8/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 9"
+            contents: 
+             - href: r4babs1/week-9/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-9/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-9/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-9/study_after_workshop.qmd
+               text: Consolidate!  
+    - title: "BABS 2"
+      style: "floating"
+      background: light
+      contents: 
+          - href: r4babs2/r4babs2.qmd
+            text: Overview
+          - section: "Week 6"
+            contents: 
+             - href: r4babs1/week-6/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-6/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-6/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-6/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 7"
+            contents: 
+             - href: r4babs1/week-7/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-7/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-7/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-7/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 8"
+            contents: 
+             - href: r4babs1/week-8/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-8/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-8/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-8/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 9"
+            contents: 
+             - href: r4babs1/week-9/overview.qmd
+               text: Objectives  
+             - href: r4babs1/week-9/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-9/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-9/study_after_workshop.qmd
+               text: Consolidate!  
 
 format:
   html:
