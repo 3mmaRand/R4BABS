@@ -19,14 +19,6 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages:
-            any::knitr
-            any::tidyverse
-            any::rmarkdown
-            any::downlit
-            any::xml2
       - name: Install additional libraries on Linux
         if: runner.os == 'Linux'
         run: | 
@@ -35,7 +27,13 @@ jobs:
           sudo apt-get install -y libfribidi-dev
           
       - uses: r-lib/actions/setup-renv@v2
-
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages:
+            any::knitr
+            any::rmarkdown
+            any::downlit
+            any::xml2
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/install-quarto@v1
  
