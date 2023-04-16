@@ -35,6 +35,7 @@ jobs:
             any::tidyverse
             any::downlit
             any::xml2
+            any::kableExtra
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/install-quarto@v1
  
