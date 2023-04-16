@@ -22,6 +22,7 @@ FIXME
 - consider adding a scatter plot
 - add an important box for package loading and installing
 - put key in a box not
+- fix the keyboard shortcut characters
 
 # Introduction
 
