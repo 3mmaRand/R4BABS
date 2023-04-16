@@ -33,7 +33,6 @@ jobs:
             any::knitr
             any::rmarkdown
             any tidyverse
-            any:kableExtra
             any::downlit
             any::xml2
       - name: Install Quarto
