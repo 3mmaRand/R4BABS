@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Analysis in R - Overview</title>
+<title>Data Analysis in R - Week 7: Introduction to R, RStudio and project organisation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,16 +80,13 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
- <span class="menu-text">Welcome!</span></a>
+    <a class="nav-link" href="../../index.html">Welcome!</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../r4babs1/r4babs1.html" aria-current="page">
- <span class="menu-text">BABS 1</span></a>
+    <a class="nav-link active" href="../../r4babs1/r4babs1.html" aria-current="page">BABS 1</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../r4babs2/r4babs2.html">
- <span class="menu-text">BABS 2</span></a>
+    <a class="nav-link" href="../../r4babs2/r4babs2.html">BABS 2</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -98,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Overview</h1>
+      <h1 class="quarto-secondary-nav-title">Week 7: Introduction to R, RStudio and project organisation</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -126,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-6/overview.html" class="sidebar-item-text sidebar-link">Objectives</a>
+  <a href="../../r4babs1/week-6/overview.html" class="sidebar-item-text sidebar-link">About</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -156,22 +153,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/overview.html" class="sidebar-item-text sidebar-link active">Objectives</a>
+  <a href="../../r4babs1/week-7/overview.html" class="sidebar-item-text sidebar-link active">About</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/study_before_workshop.qmd" class="sidebar-item-text sidebar-link">Prepare!</a>
+  <a href="../../r4babs1/week-7/study_before_workshop.html" class="sidebar-item-text sidebar-link">Prepare!</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/workshop.qmd" class="sidebar-item-text sidebar-link">Workshop</a>
+  <a href="../../r4babs1/week-7/workshop.html" class="sidebar-item-text sidebar-link">Workshop</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/study_after_workshop.qmd" class="sidebar-item-text sidebar-link">Consolidate!</a>
+  <a href="../../r4babs1/week-7/study_after_workshop.html" class="sidebar-item-text sidebar-link">Consolidate!</a>
   </div>
 </li>
       </ul>
@@ -186,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/overview.html" class="sidebar-item-text sidebar-link">Objectives</a>
+  <a href="../../r4babs1/week-8/overview.html" class="sidebar-item-text sidebar-link">About</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -216,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/overview.html" class="sidebar-item-text sidebar-link">Objectives</a>
+  <a href="../../r4babs1/week-9/overview.html" class="sidebar-item-text sidebar-link">About</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -245,11 +242,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-7-introduction-to-r-rstudio-and-project-organisation" id="toc-week-7-introduction-to-r-rstudio-and-project-organisation" class="nav-link active" data-scroll-target="#week-7-introduction-to-r-rstudio-and-project-organisation">Week 7: Introduction to R, RStudio and project organisation</a>
-  <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -258,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Overview</h1>
+<h1 class="title d-none d-lg-block">Week 7: Introduction to R, RStudio and project organisation</h1>
 </div>
 
 
@@ -266,16 +260,13 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
 
 </header>
 
-<section id="week-7-introduction-to-r-rstudio-and-project-organisation" class="level2">
-<h2 class="anchored" data-anchor-id="week-7-introduction-to-r-rstudio-and-project-organisation">Week 7: Introduction to R, RStudio and project organisation</h2>
-<p>(17C week 2 minus stats) Data structures in R</p>
+<p>This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.</p>
 <section id="learning-objectives" class="level3">
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
 <ul>
@@ -291,13 +282,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="instructions" class="level3">
 <h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
 <ol type="1">
-<li><p>Prepare</p>
+<li><p><a href="../../r4babs1/week-7/study_before_workshop.html">Prepare</a></p>
 <ol type="i">
-<li></li>
-<li></li>
+<li><p>xxxx</p></li>
+<li><p>xxx</p></li>
 </ol></li>
-<li><p>Workshop</p></li>
-<li><p>Consolidate</p>
+<li><p><a href="../../r4babs1/week-7/workshop.html">Workshop</a></p></li>
+<li><p><a href="../../r4babs1/week-7/study_after_workshop.html">Consolidate</a></p>
 <ol type="i">
 <li></li>
 <li></li>
@@ -305,7 +296,6 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -350,24 +340,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -403,42 +376,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>

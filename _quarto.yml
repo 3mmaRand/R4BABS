@@ -25,7 +25,7 @@ website:
           - section: "Week 6"
             contents: 
              - href: r4babs1/week-6/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-6/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-6/workshop.qmd
@@ -35,7 +35,7 @@ website:
           - section: "Week 7"
             contents: 
              - href: r4babs1/week-7/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-7/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-7/workshop.qmd
@@ -45,7 +45,7 @@ website:
           - section: "Week 8"
             contents: 
              - href: r4babs1/week-8/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-8/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-8/workshop.qmd
@@ -55,7 +55,7 @@ website:
           - section: "Week 9"
             contents: 
              - href: r4babs1/week-9/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-9/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-9/workshop.qmd
@@ -71,7 +71,7 @@ website:
           - section: "Week 6"
             contents: 
              - href: r4babs1/week-6/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-6/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-6/workshop.qmd
@@ -81,7 +81,7 @@ website:
           - section: "Week 7"
             contents: 
              - href: r4babs1/week-7/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-7/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-7/workshop.qmd
@@ -91,7 +91,7 @@ website:
           - section: "Week 8"
             contents: 
              - href: r4babs1/week-8/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-8/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-8/workshop.qmd
@@ -101,7 +101,7 @@ website:
           - section: "Week 9"
             contents: 
              - href: r4babs1/week-9/overview.qmd
-               text: Objectives  
+               text: About  
              - href: r4babs1/week-9/study_before_workshop.qmd
                text: Prepare! 
              - href: r4babs1/week-9/workshop.qmd
@@ -114,6 +114,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+
 
 editor: visual
 

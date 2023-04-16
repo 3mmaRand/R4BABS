@@ -8,7 +8,9 @@ this is the start of a journey BABS 1 to 4 which teach you. progression,
 
 ## Learning Data Analysis is important...
 
-Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn's global list of the most in-demand hard skills. \## ... and takes time ...
+Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn's global list of the most in-demand hard skills.
+
+## ... and takes time ...
 
 Part of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you've mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I've have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed.
 
@@ -21,11 +23,3 @@ However, the process is often fun! There is a lot of problem solving which is en
 And because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)
 
 The time and effort you put in to learning "Data Analysis in R" in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to better and/or more quickly: Design your summer term experiment (the antimicrobials practical) and write-up the laboratory report including a reproducible script of analyses and figures contained within it Design and analyse experiments including those for projects in stages 2, 3, and 4 and year-away Evaluate and interpret the data analysis in papers Perform well in assessments Improve your employability!
-
-# Data Analysis in R for BABS 1
-
-# Data Analysis in R for BABS 2
-
-# Data Analysis in R for BABS 3
-
-# Data Analysis in R for BABS 4

@@ -20,16 +20,17 @@ Last week you summarised and plotted single variables. This week you will start 
 
 ### Instructions
 
-1.  Prepare
+1.  [Prepare](study_before_workshop.qmd)
+
+    i.  xxxx
+
+    ii. xxx
+
+2.  [Workshop](workshop.qmd)
+
+3.  [Consolidate](study_after_workshop.qmd)
 
     i.  
 
     ii. 
 
-2.  Workshop
-
-3.  Consolidate
-
-    i.  
-
-    ii. 

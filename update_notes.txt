@@ -1,0 +1,27 @@
+![W](../pics/W.png)   ![](images/do_on_your_computer.png)
+
+![R](../pics/R.png)   ![](images/do_in_R.png)
+
+![GC](../pics/GC.png)  ![](images/do_on_internet.png)
+
+![Q](../pics/Q.png)   ![](images/answer.png) 
+
+
+
+
+ 🥳 Well Done! 🎉
+
+ for adding to _quarto.yml
+filters:
+  - social-share
+share:
+  permalink: "https://3mmarand.github.io/R4BABS/"
+  description: "awesome page"
+  twitter: true
+  facebook: true
+  reddit: true
+  stumble: true
+  tumblr: true
+  linkedin: true
+  email: true
+  mastodon: true

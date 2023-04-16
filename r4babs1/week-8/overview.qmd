@@ -22,15 +22,15 @@ The type of values our data can take is important in how we analyse and visualis
 
 ### Instructions
 
-1.  Prepare
+1.  [Prepare](study_before_workshop.qmd)
 
-    i.  
+    i.  xxxx
 
-    ii. 
+    ii. xxx
 
-2.  Workshop
+2.  [Workshop](workshop.qmd)
 
-3.  Consolidate
+3.  [Consolidate](study_after_workshop.qmd)
 
     i.  
 
