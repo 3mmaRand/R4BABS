@@ -23,6 +23,7 @@ jobs:
         with:
           packages:
             any::knitr
+            any::tidyverse
             any::rmarkdown
             any::downlit
             any::xml2
