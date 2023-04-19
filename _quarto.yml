@@ -5,7 +5,7 @@ project:
 website:
   title: "Data Analysis in R "
   navbar:
-    background: primary
+    background: light
     search: true
     left:
       - text: "Welcome!"
@@ -14,6 +14,13 @@ website:
         file:  r4babs1/r4babs1.qmd
       - text: "BABS 2"
         file:  r4babs2/r4babs2.qmd
+    tools:
+      - icon: twitter
+        href: https://twitter.com/er_13
+        text: Emma's Twitter
+      - icon: github
+        href: https://github.com/3mmaRand/R4BABS
+        text: R4BABS on GitHub
 
   sidebar:
     - title: "BABS 1"
@@ -109,11 +116,22 @@ website:
              - href: r4babs1/week-9/study_after_workshop.qmd
                text: Consolidate!  
 
+execute:
+  echo: true
+  warning: false
+  output: true
+  error: true
+
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+    theme:
+      light: [cosmo, theme.scss]
+    code-copy: true
+    code-link: true
+    code-overflow: wrap
+    code-line-numbers: false
+
+bibliography: references.bib
 
 
 editor: visual

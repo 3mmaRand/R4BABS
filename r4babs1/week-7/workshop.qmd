@@ -1,11 +1,5 @@
 ---
 title: "Introduction to RStudio and your first graphs"
-execute:
-  echo: true
-  warning: false
-  output: true
-  error: true
-bibliography: references.bib
 ---
 
 ```{r}
@@ -15,14 +9,13 @@ library(kableExtra)
 ```
 
 FIXME
-- code files section
-- add reordering the bars by another variable and by reordering the factor
-- axis scale needs adjusting to 25
-- theme classic needs to be added
-- consider adding a scatter plot
-- add an important box for package loading and installing
-- put key in a box not
-- fix the keyboard shortcut characters
+
+\- code files section
+
+\- add reordering the bars by another variable and by reordering the factor
+
+
+\- consider adding a scatter plot
 
 # Introduction
 
@@ -43,6 +36,7 @@ Workshops are not a test. It is expected that you often don't know how to start,
 -   look things up in your own code from earlier workshops
 -   there are no stupid questions
 
+::: callout-note
 ## Key
 
 These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
@@ -54,6 +48,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 ![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
 
 ![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+:::
 
 # Getting started
 
@@ -71,11 +66,11 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 # Exercises
 
-## Coat colour of cats
+## 🐈 Coat colour of cats
 
 ### The goal
 
-We will work with some data on the coat colour of cats. You are going to type data in R, summarise and plot it
+We will work with some data on the coat colour of 62 cats. You are going to type data in R, summarise and plot it
 
 The data are as a frequency table:
 
@@ -101,17 +96,18 @@ coat_data <- data.frame(coat, freq)
 ggplot(data = coat_data, 
        aes(x = reorder(coat, freq, decreasing = TRUE), 
            y = freq)) +
-  geom_col(colour = "black", fill = "white", width = 1) +
+  geom_col(colour = "black", fill = "lightblue", width = 1) +
   scale_x_discrete(name = "Coat colour",
                    expand = c(0, 0)) +
   scale_y_continuous(name = "Number of cats",
-                     expand = c(0, 0)) +
+                     expand = c(0, 0),
+                     limits = c(0, 25)) +
   theme_classic()
 ```
 
 ## Creating the data
 
-Start by making a vector `coat` that holds coat colours
+Start by making a vector called `coat` that holds coat colours
 
 ![](images/do_in_R.png) Write the following in your script:
 
@@ -120,11 +116,11 @@ Start by making a vector `coat` that holds coat colours
 coat <- c("black", "white", "tabby", "ginger", "tortoiseshell", "calico")
 ```
 
-Remember, the shortcut for `<-` is {{< kbd Alt-minus >}}
+Remember, the shortcut for `<-` is Alt+- (hold the Alt key down then hit the minus key ).
 
 Notice I have used a comment. Comment your code as much as possible!
 
-![](images/do_in_R.png) Ensure your cursor is on the line with the command and do {{< kbd mac=Shift-Command-Enter win=Shift-Control-Enter >}} to send the command to the console to be executed.
+![](images/do_in_R.png) Ensure your cursor is on the line with the command and do Control+Enter to send the command to the console to be executed.
 
 ![](images/do_in_R.png) Examine the 'structure' of the `coat` object using `str()`
 
@@ -153,15 +149,19 @@ str(freq)
 sum(freq)
 ```
 
-## Plotting the data with `ggplot()`
+## Packages
 
 Commands like `c()`, `sum()`, and `str()` are in packages which are part the 'base' R system. A package is a collection of related commands. Base packages are installed automatically when you install R.
 
 Other packages, such as `ggplot2` @ggplot2 need to be installed once and then loaded each session. `ggplot2` is one of the `tidyverse` @tidyverse packages.
 
-If you are working on a University computer (or the VDS) you do *not* need to install `tidyverse`.
+::: callout-important
+## Important
 
-If you are working on your own computer or using RStudio cloud you will need to install `tidyverse`.
+If you are working on a University computer (or the VDS) you *do not* need to install `tidyverse`.
+
+If you are working on your own computer or using RStudio cloud you *do* need to install `tidyverse`.
+:::
 
 To install a package:
 
@@ -179,6 +179,8 @@ library(tidyverse)
 ```
 
 You will likely be warned of some function name conflicts but these will not be a problem for you.
+
+## Plotting the data with `ggplot()`
 
 `ggplot()` takes a dataframe for an argument
 
@@ -206,7 +208,6 @@ Click on `coat_data` in the Environment to open a spreadsheet-like view of it.
 ![](images/do_in_R.png) Create a simple barplot using `ggplot` like this:
 
 ```{r}
-#| fig-height: 3.5
 ggplot(data = coat_data, aes(x = coat, y = freq)) +
   geom_col()
 ```
@@ -260,7 +261,7 @@ The manual page has several sections.
 ![](images/do_in_R.png) Change the fill of the bars using `fill`:
 
 ```{r}
-#| eval: false
+
 ggplot(data = coat_data, aes(x = coat, y = freq)) +
   geom_col(fill = "lightblue")
 ```
@@ -275,18 +276,20 @@ Look up by [name](assets/colournames.pdf) or [code](assets/colourhex.pdf)
 
 > Other arguments passed on to layer(). These are often aesthetics, used to set an aesthetic to a fixed value, like colour = "red" or size = 3. They may also be parameters to the paired geom/stat.
 
+We just set the \`fill\` aesthetic to a fixed value.
+
 Further down the manual, there is a section on **Aesthetics** which lists those understood by `geom_col()`
 
-We can set (map) the `fill` aesthetic to a particular colour inside `geom_col()` or map it to a variable inside the `aes()` instead.
+We can set (map) the `fill` aesthetic to a fixed colour inside `geom_col()` *or* map it to a variable from the dataframe inside the `aes()` instead. This means the colour will be different for different values in that variable.
 
-![](images/do_in_R.png) Map the `fill` aesthetic to the `n` variable:
+![](images/do_in_R.png) Map the `fill` aesthetic to the `coat` variable:
 
 ```{r}
 ggplot(data = coat_data, aes(x = coat, y = freq, fill = coat)) +
   geom_col()
 ```
 
-Mapping `fill` to a variable means the colour varies for each value of `coat`
+Note that we have taken `fill = "lightblue"` out of the `geom_col()` and instead put `fill = coat` in the `aes()`.
 
 ![](images/do_in_R.png) Use the manual to put the bars next to each other. Look for the argument that will mean there is no space between the bars.
 
@@ -312,23 +315,14 @@ ggplot(data = coat_data,
 ```
 
 
-::: {.callout-tip}
-## Top Tip
-
-Make your code easier to read by using white space and new lines
-
--   put spaces around `=` , `->` and after `,`
--   use a newline after every comma in a command with lots of arguments
-
-:::
-
-
 We can make changes to the axes using:
 
 -   Changes to a discrete x axis: `scale_x_discrete()`
 -   Changes to a continuous y axis: `scale_y_continuous()`
 
-`ggplot` automatically extends the axes slightly. You can turn this behaviour off with the `expand` argument in `scale_x_discrete()` and `scale_y_continuous()`.
+`ggplot` automatically extends the axes slightly. You can turn this behaviour off with the `expand` argument in `scale_x_discrete()` and `scale_y_continuous()`.[^1]
+
+[^1]: There are also `scale_x_continous()` and `scale_y_discrete()` functions when you have those types of variable
 
 ![](images/do_in_R.png) Remove the gap between the axes and the data:
 
@@ -343,9 +337,24 @@ ggplot(data = coat_data, aes(x = coat, y = freq)) +
 
 Each 'layer' is added to the ggplot() command with a `+`
 
+::: callout-tip
+## Top Tip
+
+Make your code easier to read by using white space and new lines
+
+-   put spaces around `=` , `->` and after `,`
+-   use a newline after every comma in a command with lots of arguments
+:::
+
+
+
+
 ![](images/do_in_R.png) Look up `scale_x_discrete` in the manual and work out how to change the axis title from "coat" to "Coat colour". Also change the *y*-axis title.
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
+
+#---CODING ANSWER---
 ggplot(data = coat_data, aes(x = coat, y = freq)) +
   geom_col(fill = "lightblue", 
            width = 1, 
@@ -358,9 +367,106 @@ ggplot(data = coat_data, aes(x = coat, y = freq)) +
 
 ```
 
+![](images/do_in_R.png) I would prefer to see the *y*-axis extend a little beyond the data and we can change the axis "limits" in the `scale_y_continuous()`
+
+```{r}
+ggplot(data = coat_data, aes(x = coat, y = freq)) +
+  geom_col(fill = "lightblue", 
+           width = 1, 
+           colour = "black") +
+  scale_x_discrete(expand = c(0, 0),
+                   name = "Coat colour") + 
+  scale_y_continuous(expand = c(0, 0),
+                     name = "Number of cats",
+                     limits = c(0, 25)) 
+
+
+```
+
+The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the "theme" of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually[^2] but there are some handy built in themes that apply several changes at once. One of these is `theme_classic()`
+
+
+[^2]: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)
+
+![](images/do_in_R.png) Add `theme_classic()` to the plot:
+
+```{r}
+ggplot(data = coat_data, aes(x = coat, y = freq)) +
+  geom_col(width = 1, 
+           colour = "black",
+           fill = "lightblue") +
+  scale_x_discrete(expand = c(0, 0),
+                   name = "Coat colour") + 
+  scale_y_continuous(expand = c(0, 0),
+                     name = "Number of cats",
+                     limits = c(0, 25)) +
+  theme_classic()
+
+
+```
+
+The default ordering of a categorical variable like `coat` is alphabetical. Often we want to change the order. For example, you might want a "Control" on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (`mutate`) the `coat` variable using `fct_relevel()`.
+
+![](images/do_in_R.png) Make "white" the first category:
+
+```{r}
+coat_data <- coat_data |> 
+  mutate(coat = fct_relevel(coat, "white"))
+```
+
+::: callout-note
+## The pipe `|>`
+`|>` is called the "pipe". A keyboard shortcut is Control+Shift+M
+
+The pipe puts the output of one command (one the left) as input to another command (on the right). It can be read as "and then". You will more about it next week.
+:::
+
+![](images/do_in_R.png) Now plot again.
+
+```{r}
+#| echo: false
+ggplot(data = coat_data, aes(x = coat, y = freq)) +
+  geom_col(width = 1, 
+           colour = "black",
+           fill = "lightblue") +
+  scale_x_discrete(expand = c(0, 0),
+                   name = "Coat colour") + 
+  scale_y_continuous(expand = c(0, 0),
+                     name = "Number of cats",
+                     limits = c(0, 25)) +
+  theme_classic()
+
+
+```
+
+
+
+If you wanted white and then ginger you would do `fct_relevel(coat, c("white", "ginger")`
+
+We can also order the categories by the values in another variable by using `reorder()` in the plot code.
+
+![](images/do_in_R.png) Reorder the categories in `coat` by the the value in `freq`:
+
+```{r}
+ggplot(data = coat_data, 
+       aes(x = reorder(coat, freq, decreasing = TRUE), 
+           y = freq)) +
+  geom_col(width = 1, 
+           colour = "black",
+           fill = "lightblue") +
+  scale_x_discrete(expand = c(0, 0),
+                   name = "Coat colour") + 
+  scale_y_continuous(expand = c(0, 0),
+                     name = "Number of cats",
+                     limits = c(0, 25)) +
+  theme_classic()
+
+
+```
+
 You're finished!
 
-## 🥳 Well Done! 🎉
+# 🥳 Well Done! 🎉
 
 ![](images/r_first_then.png){fig-alt="At the top: fluffy character under a dark cloud waving a white flag at an angry. At the bottom: The fluffy character and the R smiling and dancing together in the sunshine" width="1000"}
 
