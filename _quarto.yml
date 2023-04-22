@@ -6,7 +6,15 @@ website:
   title: "Data Analysis in R "
   navbar:
     background: light
+    twitter-card: true
+    site-url: https://3mmarand.github.io/R4BABS/
+    repo-url: https://github.com/3mmaRand/R4BABS
+    issue-url: https://github.com/3mmaRand/R4BABS/issues/new/choose
+    repo-actions: [edit, issue]
+    page-navigation: true
     search: true
+    page-footer:
+      center: '`r paste("Please cite as: ", cffr::cff_to_bibtex("CITATION.cff"))`'
     left:
       - text: "Welcome!"
         file: index.qmd

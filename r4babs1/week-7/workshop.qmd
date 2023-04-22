@@ -8,15 +8,6 @@ library(tidyverse)
 library(kableExtra)
 ```
 
-FIXME
-
-\- code files section
-
-\- add reordering the bars by another variable and by reordering the factor
-
-
-\- consider adding a scatter plot
-
 # Introduction
 
 ![](images/welcome_to_rstats_twitter.png){fig-alt="two fluffy characters arriving at a door labelled R which has rainbows and butterflies and a welcome mat" width="1000"}
@@ -314,7 +305,6 @@ ggplot(data = coat_data,
            colour = "black")
 ```
 
-
 We can make changes to the axes using:
 
 -   Changes to a discrete x axis: `scale_x_discrete()`
@@ -345,9 +335,6 @@ Make your code easier to read by using white space and new lines
 -   put spaces around `=` , `->` and after `,`
 -   use a newline after every comma in a command with lots of arguments
 :::
-
-
-
 
 ![](images/do_in_R.png) Look up `scale_x_discrete` in the manual and work out how to change the axis title from "coat" to "Coat colour". Also change the *y*-axis title.
 
@@ -385,7 +372,6 @@ ggplot(data = coat_data, aes(x = coat, y = freq)) +
 
 The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the "theme" of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually[^2] but there are some handy built in themes that apply several changes at once. One of these is `theme_classic()`
 
-
 [^2]: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)
 
 ![](images/do_in_R.png) Add `theme_classic()` to the plot:
@@ -416,6 +402,7 @@ coat_data <- coat_data |>
 
 ::: callout-note
 ## The pipe `|>`
+
 `|>` is called the "pipe". A keyboard shortcut is Control+Shift+M
 
 The pipe puts the output of one command (one the left) as input to another command (on the right). It can be read as "and then". You will more about it next week.
@@ -438,8 +425,6 @@ ggplot(data = coat_data, aes(x = coat, y = freq)) +
 
 
 ```
-
-
 
 If you wanted white and then ginger you would do `fct_relevel(coat, c("white", "ginger")`
 
@@ -474,14 +459,12 @@ You're finished!
 
 [Consolidate](study_after_workshop.qmd)
 
-# The Code files
+# The Code file
 
 These contain all the code needed in the workshop even where it is not visible on the webpage.
 
-[Rmd file](01IntroductionToModuleAndRStudio.Rmd) The Rmd file is the file I use to compile the practical. Rmd stands for R markdown. It allows R code and ordinary text to be interweaved to produce well-formatted reports including webpages. If you right-click on the link and choose Save-As, you will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/BIO00017C-Data-Analysis-in-R-2020/blob/main/workshops/01IntroductionToModuleAndRStudio.Rmd).
+The [.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd).
 
-[Plain script file](../scripts/01IntroductionToModuleAndRStudio.R) This is plain script (.R) version of the practical generated from the Rmd. Again, you can save this and open it RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/BIO00017C-Data-Analysis-in-R-2020/blob/main/scripts/01IntroductionToModuleAndRStudio.R).
-
-Pages made with Quarto
+Pages made with Quarto [@allaire2022]
 
 # References
