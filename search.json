@@ -46,21 +46,7 @@
     "href": "r4babs1/week-7/workshop.html",
     "title": "Introduction to RStudio and your first graphs",
     "section": "",
-    "text": "FIXME\n- code files section\n- add reordering the bars by another variable and by reordering the factor\n- consider adding a scatter plot"
-  },
-  {
-    "objectID": "r4babs1/week-7/workshop.html#session-overview",
-    "href": "r4babs1/week-7/workshop.html#session-overview",
-    "title": "Introduction to RStudio and your first graphs",
-    "section": "Session overview",
-    "text": "Session overview\nIn this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it."
-  },
-  {
-    "objectID": "r4babs1/week-7/workshop.html#philosophy",
-    "href": "r4babs1/week-7/workshop.html#philosophy",
-    "title": "Introduction to RStudio and your first graphs",
-    "section": "Philosophy",
-    "text": "Philosophy\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+    "text": "In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it.\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
   },
   {
     "objectID": "r4babs1/week-7/workshop.html#coat-colour-of-cats",
