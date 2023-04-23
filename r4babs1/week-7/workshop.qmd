@@ -312,8 +312,6 @@ We can make changes to the axes using:
 
 `ggplot` automatically extends the axes slightly. You can turn this behaviour off with the `expand` argument in `scale_x_discrete()` and `scale_y_continuous()`.[^1]
 
-[^1]: There are also `scale_x_continous()` and `scale_y_discrete()` functions when you have those types of variable
-
 ![](images/do_in_R.png) Remove the gap between the axes and the data:
 
 ```{r}
@@ -371,8 +369,6 @@ ggplot(data = coat_data, aes(x = coat, y = freq)) +
 ```
 
 The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the "theme" of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually[^2] but there are some handy built in themes that apply several changes at once. One of these is `theme_classic()`
-
-[^2]: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)
 
 ![](images/do_in_R.png) Add `theme_classic()` to the plot:
 
@@ -468,3 +464,7 @@ The [.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd st
 Pages made with Quarto [@allaire2022]
 
 # References
+
+[^1]: There are also `scale_x_continous()` and `scale_y_discrete()` functions when you have those types of variable
+
+[^2]: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)

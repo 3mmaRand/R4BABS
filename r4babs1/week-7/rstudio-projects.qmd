@@ -1,0 +1,75 @@
+---
+title: "RStudio Projects"
+subtitle: "Who, what, why?"
+author: "Emma Rand"
+date: "<br>🔗 [bit.ly/rstudio-projects](https://bit.ly/rstudio-projects)"
+format:
+  revealjs: 
+    theme: [dark, emma.scss]
+    slide-number: true
+---
+
+# Who?
+
+## Audience
+
+-   You teach using R directly
+    -   Becoming a Bioscientist 1 - 4
+    -   IM group project
+    -   PGT
+-   You teach or supervise students using R
+    -   field courses, practical work
+    -   projects
+-   You use R
+
+# What?
+
+## Outline
+
+-   A One-line what
+-   The high-level why
+
+. . . 
+
+-   More detailed why
+-   More detailed what
+
+With demonstration
+
+
+## 📁 An RStudio Project
+
+-   is a folder!
+
+. . . 
+
+-   have been part of the stage 1 and IM stage 3 for \> 5 years
+
+. . .
+
+::: {.small}
+Use an RStudio project containing the script you used to analyse and plot the data for your report, your figures and  and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report. 
+:::
+
+
+# Why?
+
+## Why ask students to RStudio Projects
+
+-  the same reason we keep lab books: reproducibility and validation
+
+. . . 
+
+-  it helps you to work with you most important collaborator
+
+. . . 
+
+Future you!
+
+. . . 
+
+-  Transferable: explicit training in organising their work
+
+
+## Working directories
+
