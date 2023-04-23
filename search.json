@@ -35,6 +35,41 @@
     "text": "Prepare banner"
   },
   {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#audience",
+    "href": "r4babs1/week-7/rstudio-projects.html#audience",
+    "title": "RStudio Projects",
+    "section": "Audience",
+    "text": "Audience\n\nYou teach using R directly\n\nBecoming a Bioscientist 1 - 4\nIM group project\nPGT\n\nYou teach or supervise students using R\n\nfield courses, practical work\nprojects\n\nYou use R"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#outline",
+    "href": "r4babs1/week-7/rstudio-projects.html#outline",
+    "title": "RStudio Projects",
+    "section": "Outline",
+    "text": "Outline\n\nA One-line what\nThe high-level why\n\n\n\nMore detailed why\nMore detailed what\n\nWith demonstration"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
+    "href": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
+    "title": "RStudio Projects",
+    "section": "📁 An RStudio Project",
+    "text": "📁 An RStudio Project\n\nis a folder!\n\n\n\nhave been part of the stage 1 and IM stage 3 for > 5 years\n\n\n\n\nUse an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report."
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-rstudio-projects",
+    "href": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-rstudio-projects",
+    "title": "RStudio Projects",
+    "section": "Why ask students to RStudio Projects",
+    "text": "Why ask students to RStudio Projects\n\nthe same reason we keep lab books: reproducibility and validation\n\n\n\nit helps you to work with you most important collaborator\n\n\n\nFuture you!\n\n\n\nTransferable: explicit training in organising their work"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#working-directories",
+    "href": "r4babs1/week-7/rstudio-projects.html#working-directories",
+    "title": "RStudio Projects",
+    "section": "Working directories",
+    "text": "Working directories"
+  },
+  {
     "objectID": "r4babs1/week-7/overview.html",
     "href": "r4babs1/week-7/overview.html",
     "title": "Week 7: Introduction to R, RStudio and project organisation",
