@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\nAbout me"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Data Analysis in R for Becoming a Bioscientist",
@@ -7,11 +14,46 @@
     "text": "this is the start of a journey BABS 1 to 4 which teach you. progression,\n\n\nReproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills.\n\n\n\nPart of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed.\n\n\n\nHowever, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!\n\n\n\nAnd because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to better and/or more quickly: Design your summer term experiment (the antimicrobials practical) and write-up the laboratory report including a reproducible script of analyses and figures contained within it Design and analyse experiments including those for projects in stages 2, 3, and 4 and year-away Evaluate and interpret the data analysis in papers Perform well in assessments Improve your employability!"
   },
   {
-    "objectID": "r4babs1/week-9/overview.html",
-    "href": "r4babs1/week-9/overview.html",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "objectID": "index.html#learning-data-analysis-is-important",
+    "href": "index.html#learning-data-analysis-is-important",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
     "section": "",
-    "text": "Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. You will also learn how to read data into R from files.\n\nLearning objectives\n\ndescribe some different file types\nread in data in to RStudio from excel files\nsummarise and plot datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nchose summary statistics and plots appropriate for the data types and roles\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
+    "text": "Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills."
+  },
+  {
+    "objectID": "index.html#and-takes-time",
+    "href": "index.html#and-takes-time",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "Part of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed."
+  },
+  {
+    "objectID": "index.html#but-can-be-great-fun",
+    "href": "index.html#but-can-be-great-fun",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "However, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!"
+  },
+  {
+    "objectID": "index.html#and-surprising",
+    "href": "index.html#and-surprising",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "And because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to better and/or more quickly: Design your summer term experiment (the antimicrobials practical) and write-up the laboratory report including a reproducible script of analyses and figures contained within it Design and analyse experiments including those for projects in stages 2, 3, and 4 and year-away Evaluate and interpret the data analysis in papers Perform well in assessments Improve your employability!"
+  },
+  {
+    "objectID": "r4babs1/r4babs1.html",
+    "href": "r4babs1/r4babs1.html",
+    "title": "Data Analysis in R for BABS 1",
+    "section": "",
+    "text": "first of 4 babs modules. four weeks of work. fundamental computing concepts data types, types of variable, role of variables ideas about data organisation using rstudio importing summarising and plotting variables\n\n\nThe BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
+  },
+  {
+    "objectID": "r4babs1/r4babs1.html#module-learning-objectives",
+    "href": "r4babs1/r4babs1.html#module-learning-objectives",
+    "title": "Data Analysis in R for BABS 1",
+    "section": "",
+    "text": "The BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
   },
   {
     "objectID": "r4babs1/week-8/overview.html",
@@ -21,53 +63,116 @@
     "text": "The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we would summarise and visualise them. You will also learn about the “normal distribution” which is the most important continuous distribution. Finally you will discover how to save your figures and place them in word documents.\n\nLearning objectives\n\ndistinguish between data types\nnormal distribution stuff\nread in data in to RStudio from a plain text file\nsummarise and plot single-variable datasets\nchose summary statistics and plots appropriate for the data type\nsave figures to file\ncreate neat reports in Word which include text and figures\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
   },
   {
-    "objectID": "r4babs1/week-6/overview.html",
-    "href": "r4babs1/week-6/overview.html",
-    "title": "Week 6: Understanding file systems",
-    "section": "",
-    "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nAllison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\n\nFile systems\nfiles and directories\nfile names, file extensions, associations with programs\nusing a file explorer\nsaving files\nfile paths\nusing google\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead\n\nWorkshop\nConsolidate"
-  },
-  {
-    "objectID": "r4babs1/week-6/study_before_workshop.html",
-    "href": "r4babs1/week-6/study_before_workshop.html",
-    "title": "Independent Study - before the workshop",
-    "section": "",
-    "text": "Prepare banner"
+    "objectID": "r4babs1/week-7/rstudio-projects.html#outline",
+    "href": "r4babs1/week-7/rstudio-projects.html#outline",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Outline",
+    "text": "Outline\n\nWho\nA One-line what\nThe high-level why\n\n\nMight be enough!\n\n\n\nMore detailed why\nMore detailed what"
   },
   {
     "objectID": "r4babs1/week-7/rstudio-projects.html#audience",
     "href": "r4babs1/week-7/rstudio-projects.html#audience",
-    "title": "RStudio Projects",
+    "title": "RStudio ProjectsWho, what, why?",
     "section": "Audience",
     "text": "Audience\n\nYou teach using R directly\n\nBecoming a Bioscientist 1 - 4\nIM group project\nPGT\n\nYou teach or supervise students using R\n\nfield courses, practical work\nprojects\n\nYou use R"
   },
   {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#outline",
-    "href": "r4babs1/week-7/rstudio-projects.html#outline",
-    "title": "RStudio Projects",
-    "section": "Outline",
-    "text": "Outline\n\nA One-line what\nThe high-level why\n\n\n\nMore detailed why\nMore detailed what\n\nWith demonstration"
-  },
-  {
     "objectID": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
     "href": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
-    "title": "RStudio Projects",
+    "title": "RStudio ProjectsWho, what, why?",
     "section": "📁 An RStudio Project",
-    "text": "📁 An RStudio Project\n\nis a folder!\n\n\n\nhave been part of the stage 1 and IM stage 3 for > 5 years\n\n\n\n\nUse an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report."
+    "text": "📁 An RStudio Project\n\nis a folder!\n\n\n\nhave been part of the stage 1 and IM stage 3 for &gt; 5 years\n\n\n\nStage 1\n\nUse an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report."
   },
   {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-rstudio-projects",
-    "href": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-rstudio-projects",
-    "title": "RStudio Projects",
-    "section": "Why ask students to RStudio Projects",
-    "text": "Why ask students to RStudio Projects\n\nthe same reason we keep lab books: reproducibility and validation\n\n\n\nit helps you to work with you most important collaborator\n\n\n\nFuture you!\n\n\n\nTransferable: explicit training in organising their work"
+    "objectID": "r4babs1/week-7/rstudio-projects.html#y12345678",
+    "href": "r4babs1/week-7/rstudio-projects.html#y12345678",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Y12345678",
+    "text": "Y12345678\ndemo"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#babs-1-4-lo-progression",
+    "href": "r4babs1/week-7/rstudio-projects.html#babs-1-4-lo-progression",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "BABS 1-4 LO progression",
+    "text": "BABS 1-4 LO progression\nBABS 1-5 LO progression"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects",
+    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Why use RStudio Projects",
+    "text": "Why use RStudio Projects\n\nthe same reason we keep lab books: reproducibility and validation\n\n\nIt’s science!\n\n\n\nvia GIPHY"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-1",
+    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-1",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Why use RStudio Projects",
+    "text": "Why use RStudio Projects\n\nTransferable: explicit training in organising work"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-2",
+    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-2",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Why use RStudio Projects",
+    "text": "Why use RStudio Projects\n\n\n\nhelp you to work with your most important collaborator\n\n\n\n\n\nfutureself, CC-BY-NC, by Julen Colomb"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#section",
+    "href": "r4babs1/week-7/rstudio-projects.html#section",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "",
+    "text": "via GIPHY"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#working-directories-and-paths",
+    "href": "r4babs1/week-7/rstudio-projects.html#working-directories-and-paths",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Working directories and Paths",
+    "text": "Working directories and Paths\n\ndirectory means folder\nimportant concepts when you interact with computers without clicking\n\n\nAllison Horst cartoon “code gets the blame”"
   },
   {
     "objectID": "r4babs1/week-7/rstudio-projects.html#working-directories",
     "href": "r4babs1/week-7/rstudio-projects.html#working-directories",
-    "title": "RStudio Projects",
+    "title": "RStudio ProjectsWho, what, why?",
     "section": "Working directories",
-    "text": "Working directories"
+    "text": "Working directories\n\nDefault folder a program will read and write to.\nYou will have some understanding\n\nWord demo"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#paths",
+    "href": "r4babs1/week-7/rstudio-projects.html#paths",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Paths",
+    "text": "Paths\n\nlocation of a file/folder\nappear in the address bar of explorer/finder and browsers\n\ndemo\n\n\nwhen you can’t click, you need the path\n\n\nchaffinch &lt;- read_table(\"chaff.txt\")"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#absolute-path",
+    "href": "r4babs1/week-7/rstudio-projects.html#absolute-path",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Absolute path",
+    "text": "Absolute path\n\nchaffinch &lt;- read_table(\"C:/Users/er13/OneDrive - University of York/Desktop/Desktop/undergrad-teaching-york/BIO00017C/BIO00017C-Data-Analysis-in-R-2020/data/chaff.txt\")\n\n\nOnly exists on my computer!"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#relative-paths",
+    "href": "r4babs1/week-7/rstudio-projects.html#relative-paths",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Relative paths",
+    "text": "Relative paths\n\nlocation of a file/folder relative to the working directory\nIf my working directory is BIO00017C-Data-Analysis-in-R-2020:\n\n\nchaffinch &lt;- read_table(\"data/chaff.txt\")"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#rstudio-projects",
+    "href": "r4babs1/week-7/rstudio-projects.html#rstudio-projects",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "RStudio Projects",
+    "text": "RStudio Projects\n\nSets the working directory to be the project folder\nCode is portable: you send someone the folder and everything just works!"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#demo",
+    "href": "r4babs1/week-7/rstudio-projects.html#demo",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "demo",
+    "text": "demo"
   },
   {
     "objectID": "r4babs1/week-7/overview.html",
@@ -84,18 +189,32 @@
     "text": "In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it.\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
   },
   {
+    "objectID": "r4babs1/week-7/workshop.html#session-overview",
+    "href": "r4babs1/week-7/workshop.html#session-overview",
+    "title": "Introduction to RStudio and your first graphs",
+    "section": "",
+    "text": "In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it."
+  },
+  {
+    "objectID": "r4babs1/week-7/workshop.html#philosophy",
+    "href": "r4babs1/week-7/workshop.html#philosophy",
+    "title": "Introduction to RStudio and your first graphs",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
     "objectID": "r4babs1/week-7/workshop.html#coat-colour-of-cats",
     "href": "r4babs1/week-7/workshop.html#coat-colour-of-cats",
     "title": "Introduction to RStudio and your first graphs",
     "section": "🐈 Coat colour of cats",
-    "text": "🐈 Coat colour of cats\nThe goal\nWe will work with some data on the coat colour of 62 cats. You are going to type data in R, summarise and plot it\nThe data are as a frequency table:\n\n\n\n\nFrequency of coat colours in 62 cats\n \n Coat colour \n    No. cats \n  \n\n\n black \n    23 \n  \n\n white \n    15 \n  \n\n tabby \n    8 \n  \n\n ginger \n    10 \n  \n\n tortoiseshell \n    5 \n  \n\n calico \n    1 \n  \n\n\n\n\nYou will create a figure like this:"
+    "text": "🐈 Coat colour of cats\nThe goal\nWe will work with some data on the coat colour of 62 cats. You are going to type data in R, summarise and plot it\nThe data are as a frequency table:\n\n\n\nFrequency of coat colours in 62 cats\n\nCoat colour\nNo. cats\n\n\n\nblack\n23\n\n\nwhite\n15\n\n\ntabby\n8\n\n\nginger\n10\n\n\ntortoiseshell\n5\n\n\ncalico\n1\n\n\n\n\n\nYou will create a figure like this:"
   },
   {
     "objectID": "r4babs1/week-7/workshop.html#creating-the-data",
     "href": "r4babs1/week-7/workshop.html#creating-the-data",
     "title": "Introduction to RStudio and your first graphs",
     "section": "Creating the data",
-    "text": "Creating the data\nStart by making a vector called coat that holds coat colours\n Write the following in your script:\n\n# coat colours\ncoat <- c(\"black\", \"white\", \"tabby\", \"ginger\", \"tortoiseshell\", \"calico\")\n\nRemember, the shortcut for <- is Alt+- (hold the Alt key down then hit the minus key ).\nNotice I have used a comment. Comment your code as much as possible!\n Ensure your cursor is on the line with the command and do Control+Enter to send the command to the console to be executed.\n Examine the ‘structure’ of the coat object using str()\n\nstr(coat)\n\n chr [1:6] \"black\" \"white\" \"tabby\" \"ginger\" \"tortoiseshell\" \"calico\"\n\n\nIt’s vector of 6 character values, chr\n Create a vector called freq containing the numbers of cats with each coat colour and examine it with str().\n Check sum(freq) gives the answer you expect:\n\n# the total Number of cats\nsum(freq)\n\n[1] 62"
+    "text": "Creating the data\nStart by making a vector called coat that holds coat colours\n Write the following in your script:\n\n# coat colours\ncoat &lt;- c(\"black\", \"white\", \"tabby\", \"ginger\", \"tortoiseshell\", \"calico\")\n\nRemember, the shortcut for &lt;- is Alt+- (hold the Alt key down then hit the minus key ).\nNotice I have used a comment. Comment your code as much as possible!\n Ensure your cursor is on the line with the command and do Control+Enter to send the command to the console to be executed.\n Examine the ‘structure’ of the coat object using str()\n\nstr(coat)\n\n chr [1:6] \"black\" \"white\" \"tabby\" \"ginger\" \"tortoiseshell\" \"calico\"\n\n\nIt’s vector of 6 character values, chr\n Create a vector called freq containing the numbers of cats with each coat colour and examine it with str().\n Check sum(freq) gives the answer you expect:\n\n# the total Number of cats\nsum(freq)\n\n[1] 62"
   },
   {
     "objectID": "r4babs1/week-7/workshop.html#packages",
@@ -109,7 +228,7 @@
     "href": "r4babs1/week-7/workshop.html#plotting-the-data-with-ggplot",
     "title": "Introduction to RStudio and your first graphs",
     "section": "Plotting the data with ggplot()\n",
-    "text": "Plotting the data with ggplot()\n\nggplot() takes a dataframe for an argument\nWe can make a dataframe of the two vectors, coat and freq usinf the data.frame() function.\n Make a dataframe called coat_data\n\ncoat_data <- data.frame(coat, freq)\n\nn was made into a factor (a categorical variable) because there are only 6 values and I want to make a bar plot.\n Check the structure of coat_data\nClick on coat_data in the Environment to open a spreadsheet-like view of it."
+    "text": "Plotting the data with ggplot()\n\nggplot() takes a dataframe for an argument\nWe can make a dataframe of the two vectors, coat and freq usinf the data.frame() function.\n Make a dataframe called coat_data\n\ncoat_data &lt;- data.frame(coat, freq)\n\nn was made into a factor (a categorical variable) because there are only 6 values and I want to make a bar plot.\n Check the structure of coat_data\nClick on coat_data in the Environment to open a spreadsheet-like view of it."
   },
   {
     "objectID": "r4babs1/week-7/workshop.html#a-barplot",
@@ -130,7 +249,14 @@
     "href": "r4babs1/week-7/workshop.html#customising-the-plot",
     "title": "Introduction to RStudio and your first graphs",
     "section": "Customising the plot",
-    "text": "Customising the plot\n Change the fill of the bars using fill:\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(fill = \"lightblue\")\n\n\n\n\nColours can be given by their name, “lightblue” or code, “#ADD8E6”.\nLook up by name or code\n Change the bars to a colour you like.\nfill is one of the arguments covered by .... fill is an ‘aesthetic’. If you look for ... in the list of arguments you will see it says:\n\nOther arguments passed on to layer(). These are often aesthetics, used to set an aesthetic to a fixed value, like colour = “red” or size = 3. They may also be parameters to the paired geom/stat.\n\nWe just set the `fill` aesthetic to a fixed value.\nFurther down the manual, there is a section on Aesthetics which lists those understood by geom_col()\nWe can set (map) the fill aesthetic to a fixed colour inside geom_col() or map it to a variable from the dataframe inside the aes() instead. This means the colour will be different for different values in that variable.\n Map the fill aesthetic to the coat variable:\n\nggplot(data = coat_data, aes(x = coat, y = freq, fill = coat)) +\n  geom_col()\n\n\n\n\nNote that we have taken fill = \"lightblue\" out of the geom_col() and instead put fill = coat in the aes().\n Use the manual to put the bars next to each other. Look for the argument that will mean there is no space between the bars.\n\n\n\n\n\n Use the manual to change the colour of the lines around each bar to black.\n\n\n\n\n\nWe can make changes to the axes using:\n\nChanges to a discrete x axis: scale_x_discrete()\n\nChanges to a continuous y axis: scale_y_continuous()\n\n\nggplot automatically extends the axes slightly. You can turn this behaviour off with the expand argument in scale_x_discrete() and scale_y_continuous().1\n Remove the gap between the axes and the data:\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(fill = \"lightblue\", \n           width = 1, \n           colour = \"black\") +\n  scale_x_discrete(expand = c(0, 0)) + \n  scale_y_continuous(expand = c(0, 0)) \n\n\n\n\nEach ‘layer’ is added to the ggplot() command with a +\n\n\n\n\n\n\nTop Tip\n\n\n\nMake your code easier to read by using white space and new lines\n\nput spaces around = , -> and after ,\n\nuse a newline after every comma in a command with lots of arguments\n\n\n\n Look up scale_x_discrete in the manual and work out how to change the axis title from “coat” to “Coat colour”. Also change the y-axis title.\n\n\n\n\n\n I would prefer to see the y-axis extend a little beyond the data and we can change the axis “limits” in the scale_y_continuous()\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(fill = \"lightblue\", \n           width = 1, \n           colour = \"black\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Coat colour\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of cats\",\n                     limits = c(0, 25)) \n\n\n\n\nThe grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the “theme” of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually2 but there are some handy built in themes that apply several changes at once. One of these is theme_classic()\n Add theme_classic() to the plot:\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(width = 1, \n           colour = \"black\",\n           fill = \"lightblue\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Coat colour\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of cats\",\n                     limits = c(0, 25)) +\n  theme_classic()\n\n\n\n\nThe default ordering of a categorical variable like coat is alphabetical. Often we want to change the order. For example, you might want a “Control” on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (mutate) the coat variable using fct_relevel().\n Make “white” the first category:\n\ncoat_data <- coat_data |> \n  mutate(coat = fct_relevel(coat, \"white\"))\n\n\n\n\n\n\n\nThe pipe |>\n\n\n\n|> is called the “pipe”. A keyboard shortcut is Control+Shift+M\nThe pipe puts the output of one command (one the left) as input to another command (on the right). It can be read as “and then”. You will more about it next week.\n\n\n Now plot again.\n\n\n\n\n\nIf you wanted white and then ginger you would do fct_relevel(coat, c(\"white\", \"ginger\")\nWe can also order the categories by the values in another variable by using reorder() in the plot code.\n Reorder the categories in coat by the the value in freq:\n\nggplot(data = coat_data, \n       aes(x = reorder(coat, freq, decreasing = TRUE), \n           y = freq)) +\n  geom_col(width = 1, \n           colour = \"black\",\n           fill = \"lightblue\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Coat colour\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of cats\",\n                     limits = c(0, 25)) +\n  theme_classic()\n\n\n\n\nYou’re finished!"
+    "text": "Customising the plot\n Change the fill of the bars using fill:\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(fill = \"lightblue\")\n\n\n\n\nColours can be given by their name, “lightblue” or code, “#ADD8E6”.\nLook up by name or code\n Change the bars to a colour you like.\nfill is one of the arguments covered by .... fill is an ‘aesthetic’. If you look for ... in the list of arguments you will see it says:\n\nOther arguments passed on to layer(). These are often aesthetics, used to set an aesthetic to a fixed value, like colour = “red” or size = 3. They may also be parameters to the paired geom/stat.\n\nWe just set the `fill` aesthetic to a fixed value.\nFurther down the manual, there is a section on Aesthetics which lists those understood by geom_col()\nWe can set (map) the fill aesthetic to a fixed colour inside geom_col() or map it to a variable from the dataframe inside the aes() instead. This means the colour will be different for different values in that variable.\n Map the fill aesthetic to the coat variable:\n\nggplot(data = coat_data, aes(x = coat, y = freq, fill = coat)) +\n  geom_col()\n\n\n\n\nNote that we have taken fill = \"lightblue\" out of the geom_col() and instead put fill = coat in the aes().\n Use the manual to put the bars next to each other. Look for the argument that will mean there is no space between the bars.\n\n\n\n\n\n Use the manual to change the colour of the lines around each bar to black.\n\n\n\n\n\nWe can make changes to the axes using:\n\nChanges to a discrete x axis: scale_x_discrete()\n\nChanges to a continuous y axis: scale_y_continuous()\n\n\nggplot automatically extends the axes slightly. You can turn this behaviour off with the expand argument in scale_x_discrete() and scale_y_continuous().1\n Remove the gap between the axes and the data:\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(fill = \"lightblue\", \n           width = 1, \n           colour = \"black\") +\n  scale_x_discrete(expand = c(0, 0)) + \n  scale_y_continuous(expand = c(0, 0)) \n\n\n\n\nEach ‘layer’ is added to the ggplot() command with a +\n\n\n\n\n\n\nTop Tip\n\n\n\nMake your code easier to read by using white space and new lines\n\nput spaces around = , -&gt; and after ,\n\nuse a newline after every comma in a command with lots of arguments\n\n\n\n Look up scale_x_discrete in the manual and work out how to change the axis title from “coat” to “Coat colour”. Also change the y-axis title.\n\n\n\n\n\n I would prefer to see the y-axis extend a little beyond the data and we can change the axis “limits” in the scale_y_continuous()\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(fill = \"lightblue\", \n           width = 1, \n           colour = \"black\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Coat colour\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of cats\",\n                     limits = c(0, 25)) \n\n\n\n\nThe grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the “theme” of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually2 but there are some handy built in themes that apply several changes at once. One of these is theme_classic()\n Add theme_classic() to the plot:\n\nggplot(data = coat_data, aes(x = coat, y = freq)) +\n  geom_col(width = 1, \n           colour = \"black\",\n           fill = \"lightblue\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Coat colour\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of cats\",\n                     limits = c(0, 25)) +\n  theme_classic()\n\n\n\n\nThe default ordering of a categorical variable like coat is alphabetical. Often we want to change the order. For example, you might want a “Control” on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (mutate) the coat variable using fct_relevel().\n Make “white” the first category:\n\ncoat_data &lt;- coat_data |&gt; \n  mutate(coat = fct_relevel(coat, \"white\"))\n\n\n\n\n\n\n\nThe pipe |&gt;\n\n\n\n|&gt; is called the “pipe”. A keyboard shortcut is Control+Shift+M\nThe pipe puts the output of one command (one the left) as input to another command (on the right). It can be read as “and then”. You will more about it next week.\n\n\n Now plot again.\n\n\n\n\n\nIf you wanted white and then ginger you would do fct_relevel(coat, c(\"white\", \"ginger\")\nWe can also order the categories by the values in another variable by using reorder() in the plot code.\n Reorder the categories in coat by the the value in freq:\n\nggplot(data = coat_data, \n       aes(x = reorder(coat, freq, decreasing = TRUE), \n           y = freq)) +\n  geom_col(width = 1, \n           colour = \"black\",\n           fill = \"lightblue\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Coat colour\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of cats\",\n                     limits = c(0, 25)) +\n  theme_classic()\n\n\n\n\nYou’re finished!"
+  },
+  {
+    "objectID": "r4babs1/week-7/workshop.html#footnotes",
+    "href": "r4babs1/week-7/workshop.html#footnotes",
+    "title": "Introduction to RStudio and your first graphs",
+    "section": "Footnotes",
+    "text": "Footnotes\n\nThere are also scale_x_continous() and scale_y_discrete() functions when you have those types of variable↩︎\nModify components of a theme↩︎"
   },
   {
     "objectID": "r4babs1/week-7/study_before_workshop.html",
@@ -140,17 +266,24 @@
     "text": "Prepare banner"
   },
   {
-    "objectID": "r4babs1/r4babs1.html",
-    "href": "r4babs1/r4babs1.html",
-    "title": "Data Analysis in R for BABS 1",
+    "objectID": "r4babs1/week-9/overview.html",
+    "href": "r4babs1/week-9/overview.html",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
     "section": "",
-    "text": "first of 4 babs modules. four weeks of work. fundamental computing concepts data types, types of variable, role of variables ideas about data organisation using rstudio importing summarising and plotting variables\n\n\nThe BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
+    "text": "Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. You will also learn how to read data into R from files.\n\nLearning objectives\n\ndescribe some different file types\nread in data in to RStudio from excel files\nsummarise and plot datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nchose summary statistics and plots appropriate for the data types and roles\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "r4babs1/week-6/overview.html",
+    "href": "r4babs1/week-6/overview.html",
+    "title": "Week 6: Understanding file systems",
     "section": "",
-    "text": "About this site\nAbout me"
+    "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nAllison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\n\nFile systems\nfiles and directories\nfile names, file extensions, associations with programs\nusing a file explorer\nsaving files\nfile paths\nusing google\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead\n\nWorkshop\nConsolidate"
+  },
+  {
+    "objectID": "r4babs1/week-6/study_before_workshop.html",
+    "href": "r4babs1/week-6/study_before_workshop.html",
+    "title": "Independent Study - before the workshop",
+    "section": "",
+    "text": "Prepare banner"
   }
 ]
