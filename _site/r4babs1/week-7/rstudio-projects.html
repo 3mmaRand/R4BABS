@@ -7,10 +7,10 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.1.251">
+  <meta name="generator" content="quarto-1.2.269">
 
   <meta name="author" content="Emma Rand">
-  <title>Data Analysis in R - RStudio Projects</title>
+  <title>Data Analysis in R - RStudio ProjectsWho, what, why?</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,11 +28,77 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -323,13 +389,36 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">RStudio Projects</h1>
-  <p class="subtitle">Who, what, why?</p>
-  <p class="author">Emma Rand</p>
-  <p class="date"><br>🔗 <a href="https://bit.ly/rstudio-projects">bit.ly/rstudio-projects</a></p>
-</section>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">RStudio Projects<br>Who, what, why?</h1>
+  <p class="subtitle"><br>🔗 <a href="https://bit.ly/rstudio-projects">bit.ly/rstudio-projects</a></p>
 
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Emma Rand 
+</div>
+</div>
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li>Who</li>
+<li>A One-line what</li>
+<li>The high-level why</li>
+</ul>
+<div class="fragment">
+<p>Might be enough!</p>
+</div>
+<div class="fragment">
+<ul>
+<li>More detailed why</li>
+<li>More detailed what</li>
+</ul>
+</div>
+</section>
 <section>
 <section id="who" class="title-slide slide level1 center">
 <h1>Who?</h1>
@@ -353,23 +442,9 @@
 </ul>
 </section></section>
 <section>
-<section id="what" class="title-slide slide level1 center">
-<h1>What?</h1>
+<section id="a-one-line-what" class="title-slide slide level1 center">
+<h1>A One-line what</h1>
 
-</section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
-<ul>
-<li>A One-line what</li>
-<li>The high-level why</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>More detailed why</li>
-<li>More detailed what</li>
-</ul>
-<p>With demonstration</p>
-</div>
 </section>
 <section id="an-rstudio-project" class="slide level2">
 <h2>📁 An RStudio Project</h2>
@@ -382,40 +457,161 @@
 </ul>
 </div>
 <div class="fragment">
+<p>Stage 1</p>
 <div class="small">
-<p>Use an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report.</p>
+<p><em>Use an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report</em>.</p>
 </div>
 </div>
+</section>
+<section id="y12345678" class="slide level2">
+<h2>Y12345678</h2>
+<p>demo</p>
+</section>
+<section id="babs-1-4-lo-progression" class="slide level2">
+<h2>BABS 1-4 LO progression</h2>
+<p><a href="https://docs.google.com/spreadsheets/d/1TNvPCdY6_pSxO36N2cx85Q3QbJw3kwEBDRe25C2zdlo/edit#gid=0">BABS 1-5 LO progression</a></p>
 </section></section>
 <section>
-<section id="why" class="title-slide slide level1 center">
-<h1>Why?</h1>
+<section id="the-high-level-why" class="title-slide slide level1 center">
+<h1>The high-level why</h1>
 
 </section>
-<section id="why-ask-students-to-rstudio-projects" class="slide level2">
-<h2>Why ask students to RStudio Projects</h2>
+<section id="why-use-rstudio-projects" class="slide level2">
+<h2>Why use RStudio Projects</h2>
 <ul>
 <li>the same reason we keep lab books: reproducibility and validation</li>
 </ul>
 <div class="fragment">
-<ul>
-<li>it helps you to work with you most important collaborator</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Future you!</p>
-<ul>
-<li>explicit training in organising their work</li>
-</ul>
+<p>It’s science!</p>
+<iframe src="https://giphy.com/embed/qCj1NK1rxtnna" width="528" height="297" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/transparent-qCj1NK1rxtnna">via GIPHY</a>
+</p>
 </div>
 </section>
+<section id="why-use-rstudio-projects-1" class="slide level2">
+<h2>Why use RStudio Projects</h2>
+<ul>
+<li>Transferable: explicit training in organising work</li>
+</ul>
+</section>
+<section id="why-use-rstudio-projects-2" class="slide level2">
+<h2>Why use RStudio Projects</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>help you to work with your most important collaborator</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/future_you.png" width="416"></p>
+<p></p><figcaption>futureself, CC-BY-NC, by Julen Colomb</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="582" height="378" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a>
+</p>
+</section></section>
+<section>
+<section id="more-detailed-why" class="title-slide slide level1 center">
+<h1>More detailed Why</h1>
+
+</section>
+<section id="working-directories-and-paths" class="slide level2">
+<h2>Working directories and Paths</h2>
+<ul>
+<li><p>directory means folder</p></li>
+<li><p>important concepts when you interact with computers without clicking</p></li>
+</ul>
+
+<img data-src="../..\r4babs1/week-6/images/code_gets_the_blame.jpg" alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos" class="r-stretch quarto-figure-center"><p class="caption">Allison Horst cartoon “code gets the blame”</p></section>
 <section id="working-directories" class="slide level2">
 <h2>Working directories</h2>
+<ul>
+<li><p>Default folder a program will read and write to.</p></li>
+<li><p>You will have some understanding</p></li>
+</ul>
+<p>Word demo</p>
+</section>
+<section id="paths" class="slide level2">
+<h2>Paths</h2>
+<ul>
+<li><p>location of a file/folder</p></li>
+<li><p>appear in the address bar of explorer/finder and browsers</p></li>
+</ul>
+<p>demo</p>
+<div class="fragment">
+<ul>
+<li>when you can’t click, you need the path</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>chaffinch <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"chaff.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="absolute-path" class="slide level2">
+<h2>Absolute path</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>chaffinch <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"C:/Users/er13/OneDrive - University of York/Desktop/Desktop/undergrad-teaching-york/BIO00017C/BIO00017C-Data-Analysis-in-R-2020/data/chaff.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Only exists on my computer!</p>
+</div>
+</section>
+<section id="relative-paths" class="slide level2">
+<h2>Relative paths</h2>
+<ul>
+<li><p>location of a file/folder relative to the working directory</p></li>
+<li><p>If my working directory is BIO00017C-Data-Analysis-in-R-2020:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>chaffinch <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"data/chaff.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rstudio-projects" class="slide level2">
+<h2>RStudio Projects</h2>
+<ul>
+<li><p>Sets the working directory to be the project folder</p></li>
+<li><p>Code is portable: you send someone the folder and everything just works!</p></li>
+</ul>
+</section></section>
+<section>
+<section id="more-detailed-what" class="title-slide slide level1 center">
+<h1>More detailed what</h1>
+
+</section>
+<section id="demo" class="slide level2">
+<h2>demo</h2>
+</section></section>
+<section id="summary" class="title-slide slide level1 center">
+<h1>Summary</h1>
+<ul>
+<li>You teach using R directly
+<ul>
+<li>Please use RStudio projects</li>
+<li>Consistency</li>
+<li>Easier for students, Easier for you</li>
+<li>Fewer laptop-out-the-window moments</li>
+</ul></li>
+<li>You teach or supervise students using R
+<ul>
+<li>it’s a just a folder</li>
+</ul></li>
+</ul>
 
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -426,6 +622,7 @@
   <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -447,7 +644,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -618,7 +816,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -627,6 +825,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -665,7 +901,24 @@
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -703,24 +956,42 @@
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>

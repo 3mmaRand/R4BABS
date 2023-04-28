@@ -1,13 +1,29 @@
 ---
-title: "RStudio Projects"
-subtitle: "Who, what, why?"
+title: "RStudio Projects<br>Who, what, why?" 
+subtitle: "<br>🔗 [bit.ly/rstudio-projects](https://bit.ly/rstudio-projects)"
 author: "Emma Rand"
-date: "<br>🔗 [bit.ly/rstudio-projects](https://bit.ly/rstudio-projects)"
 format:
   revealjs: 
-    theme: [dark, emma.scss]
+    theme: [simple, emma.scss]
+    chalkboard: true
+    code-line-numbers: false
     slide-number: true
 ---
+
+## Outline
+
+-   Who
+-   A One-line what
+-   The high-level why
+
+. . .
+
+Might be enough!
+
+. . .
+
+-   More detailed why
+-   More detailed what
 
 # Who?
 
@@ -22,54 +38,148 @@ format:
     -   projects
 -   You use R
 
-# What?
-
-## Outline
-
--   A One-line what
--   The high-level why
-
-. . . 
-
--   More detailed why
--   More detailed what
-
-With demonstration
-
+# A One-line what
 
 ## 📁 An RStudio Project
 
 -   is a folder!
 
-. . . 
+. . .
 
 -   have been part of the stage 1 and IM stage 3 for \> 5 years
 
 . . .
 
-::: {.small}
-Use an RStudio project containing the script you used to analyse and plot the data for your report, your figures and  and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report. 
+Stage 1
+
+::: small
+*Use an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report*.
 :::
 
+## Y12345678
 
-# Why?
+demo
 
-## Why ask students to RStudio Projects
+## BABS 1-4 LO progression
 
--  the same reason we keep lab books: reproducibility and validation
+[BABS 1-5 LO progression](https://docs.google.com/spreadsheets/d/1TNvPCdY6_pSxO36N2cx85Q3QbJw3kwEBDRe25C2zdlo/edit#gid=0)
 
-. . . 
+# The high-level why
 
--  it helps you to work with you most important collaborator
+## Why use RStudio Projects
 
-. . . 
+-   the same reason we keep lab books: reproducibility and validation
 
-Future you!
+. . .
 
-. . . 
+It's science!
 
--  Transferable: explicit training in organising their work
+<iframe src="https://giphy.com/embed/qCj1NK1rxtnna" width="528" height="297" frameBorder="0" class="giphy-embed" allowFullScreen>
 
+</iframe>
+
+<p><a href="https://giphy.com/gifs/transparent-qCj1NK1rxtnna">via GIPHY</a></p>
+
+## Why use RStudio Projects
+
+-   Transferable: explicit training in organising work
+
+## Why use RStudio Projects
+
+::: columns
+::: {.column width="40%"}
+-   help you to work with your most important collaborator
+:::
+
+::: {.column width="60%"}
+![futureself, CC-BY-NC, by Julen Colomb](images/future_you.png){width="416"}
+:::
+:::
+
+## 
+
+<iframe src="https://giphy.com/embed/M11UVCRrc0LUk" width="582" height="378" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+</iframe>
+
+<p><a href="https://giphy.com/gifs/M11UVCRrc0LUk">via GIPHY</a></p>
+
+# More detailed Why
+
+## Working directories and Paths
+
+-   directory means folder
+
+-   important concepts when you interact with computers without clicking
+
+![Allison Horst cartoon "code gets the blame"](/r4babs1/week-6/images/code_gets_the_blame.jpg){fig-alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos"}
 
 ## Working directories
 
+-   Default folder a program will read and write to.
+
+-   You will have some understanding
+
+Word demo
+
+## Paths
+
+-   location of a file/folder
+
+-   appear in the address bar of explorer/finder and browsers
+
+demo
+
+. . .
+
+-   when you can't click, you need the path
+
+```{r}
+#| eval: false
+chaffinch <- read_table("chaff.txt")
+
+```
+
+## Absolute path
+
+```{r}
+#| eval: false
+chaffinch <- read_table("C:/Users/er13/OneDrive - University of York/Desktop/Desktop/undergrad-teaching-york/BIO00017C/BIO00017C-Data-Analysis-in-R-2020/data/chaff.txt")
+
+```
+
+. . .
+
+Only exists on my computer!
+
+## Relative paths
+
+-   location of a file/folder relative to the working directory
+
+-   If my working directory is BIO00017C-Data-Analysis-in-R-2020:
+
+```{r}
+#| eval: false
+chaffinch <- read_table("data/chaff.txt")
+```
+
+## RStudio Projects
+
+-   Sets the working directory to be the project folder
+
+-   Code is portable: you send someone the folder and everything just works!
+
+
+# More detailed what
+
+## demo
+
+# Summary
+
+-   You teach using R directly
+    -   Please use RStudio projects
+    -   Consistency
+    -   Easier for students, Easier for you
+    -   Fewer laptop-out-the-window moments
+-   You teach or supervise students using R
+    -   it's a just a folder
