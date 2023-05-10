@@ -1,0 +1,600 @@
+---
+title: "Types of variable, the normal distribution and summarising data"
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(kableExtra)
+```
+
+# Introduction
+
+![Continuous and Discrete](images/continuous_discrete-01.png){fig-alt="One the left: Continuous data - measures that can have possible infinite values within its range. A cute chick labelled I am 3.1 inches tall, I weigh 34.16 grams. One the right: Discrete observations can only exist at limited values, often counts. A cute octopus labelled I have 8 legs and 4 spots"}
+
+## Session overview
+
+## Philosophy
+
+Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
+
+-   don't worry about making mistakes
+-   don't let what you can not do interfere with what you can do
+-   discussing code with your neighbours will help
+-   look things up in the independent study material
+-   look things up in your own code from earlier workshops
+-   there are no stupid questions
+
+::: callout-note
+## Key
+
+These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+
+![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
+
+![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+
+![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
+
+![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+:::
+
+# Getting started
+
+![](images/do_on_your_computer.png) Start RStudio from the Start menu.
+
+![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Name the RStudio Project 'week-8'.
+
+![](images/do_in_R.png) Make a new script then save it with a name like analysis.R to carry out the rest of the work.
+
+![](images/do_in_R.png) Add a comment to the script: `# Types of variable, the normal distribution and summarising data`
+
+# Exercises
+
+<!-- ## 🐈 Coat colour of cats -->
+
+<!-- ### The goal -->
+
+<!-- We will work with some data on the coat colour of 62 cats. You are going to type data in R, summarise and plot it -->
+
+<!-- The data are as a frequency table: -->
+
+<!-- ```{r} -->
+
+<!-- #| echo: false -->
+
+<!-- coat <- c("black", "white", "tabby", "ginger", "tortoiseshell", "calico") -->
+
+<!-- freq <- c(23, 15, 8, 10, 5, 1) -->
+
+<!-- df <- data.frame(coat, freq) -->
+
+<!-- knitr::kable(df,  -->
+
+<!--              table.attr = "style='width:30%;'", -->
+
+<!--              caption = "Frequency of coat colours in 62 cats", -->
+
+<!--              format = "html", -->
+
+<!--              col.names = c("Coat colour", "No. cats"), -->
+
+<!--              row.names = FALSE) |>   -->
+
+<!--   kable_styling() -->
+
+<!-- ``` -->
+
+<!-- You will create a figure like this: -->
+
+<!-- ```{r} -->
+
+<!-- #| echo: false -->
+
+<!-- coat_data <- data.frame(coat, freq) -->
+
+<!-- ggplot(data = coat_data,  -->
+
+<!--        aes(x = reorder(coat, freq, decreasing = TRUE),  -->
+
+<!--            y = freq)) + -->
+
+<!--   geom_col(colour = "black", fill = "lightblue", width = 1) + -->
+
+<!--   scale_x_discrete(name = "Coat colour", -->
+
+<!--                    expand = c(0, 0)) + -->
+
+<!--   scale_y_continuous(name = "Number of cats", -->
+
+<!--                      expand = c(0, 0), -->
+
+<!--                      limits = c(0, 25)) + -->
+
+<!--   theme_classic() -->
+
+<!-- ``` -->
+
+<!-- ## Creating the data -->
+
+<!-- Start by making a vector called `coat` that holds coat colours -->
+
+<!-- ![](images/do_in_R.png) Write the following in your script: -->
+
+<!-- ```{r} -->
+
+<!-- # coat colours -->
+
+<!-- coat <- c("black", "white", "tabby", "ginger", "tortoiseshell", "calico") -->
+
+<!-- ``` -->
+
+<!-- Remember, the shortcut for `<-` is Alt+- (hold the Alt key down then hit the minus key ). -->
+
+<!-- Notice I have used a comment. Comment your code as much as possible! -->
+
+<!-- ![](images/do_in_R.png) Ensure your cursor is on the line with the command and do Control+Enter to send the command to the console to be executed. -->
+
+<!-- ![](images/do_in_R.png) Examine the 'structure' of the `coat` object using `str()` -->
+
+<!-- ```{r} -->
+
+<!-- str(coat) -->
+
+<!-- ``` -->
+
+<!-- It's vector of 6 character values, `chr` -->
+
+<!-- ![](images/do_in_R.png) Create a vector called `freq` containing the numbers of cats with each coat colour and examine it with `str()`. -->
+
+<!-- ```{r} -->
+
+<!-- #| include: false -->
+
+<!-- #---CODING ANSWER--- -->
+
+<!-- # numbers of cats with each coat colour -->
+
+<!-- freq <- c(23, 15, 8, 10, 5, 1) -->
+
+<!-- str(freq) -->
+
+<!-- ``` -->
+
+<!-- ![](images/do_in_R.png) Check `sum(freq)` gives the answer you expect: -->
+
+<!-- ```{r} -->
+
+<!-- # the total Number of cats -->
+
+<!-- sum(freq) -->
+
+<!-- ``` -->
+
+<!-- ## Packages -->
+
+<!-- Commands like `c()`, `sum()`, and `str()` are in packages which are part the 'base' R system. A package is a collection of related commands. Base packages are installed automatically when you install R. -->
+
+<!-- Other packages, such as `ggplot2` @ggplot2 need to be installed once and then loaded each session. `ggplot2` is one of the `tidyverse` @tidyverse packages. -->
+
+<!-- ::: callout-important -->
+
+<!-- ## Important -->
+
+<!-- If you are working on a University computer (or the VDS) you *do not* need to install `tidyverse`. -->
+
+<!-- If you are working on your own computer or using RStudio cloud you *do* need to install `tidyverse`. -->
+
+<!-- ::: -->
+
+<!-- To install a package: -->
+
+<!-- ![](images/do_in_R.png) Go the Packages tab on the lower right pane. Click Install and type `tidyverse` into the box that appears. -->
+
+<!-- Wait until you get the prompt back. It will take a few moments, be patient! -->
+
+<!-- To use a package which is installed you have to load it with the `library()` function. You will need to do this whether you are working on your own computer or on a University computer -->
+
+<!-- ![](images/do_in_R.png) Load the `tidyverse`: -->
+
+<!-- ```{r} -->
+
+<!-- #| eval: false -->
+
+<!-- library(tidyverse) -->
+
+<!-- ``` -->
+
+<!-- You will likely be warned of some function name conflicts but these will not be a problem for you. -->
+
+<!-- ## Plotting the data with `ggplot()` -->
+
+<!-- `ggplot()` takes a dataframe for an argument -->
+
+<!-- We can make a dataframe of the two vectors, `coat` and `freq` usinf the `data.frame()` function. -->
+
+<!-- ![](images/do_in_R.png) Make a dataframe called `coat_data` -->
+
+<!-- ```{r} -->
+
+<!-- coat_data <- data.frame(coat, freq) -->
+
+<!-- ``` -->
+
+<!-- `n` was made into a factor (a categorical variable) because there are only 6 values and I want to make a bar plot. -->
+
+<!-- ![](images/do_in_R.png) Check the structure of `coat_data` -->
+
+<!-- ```{r} -->
+
+<!-- #| include: false -->
+
+<!-- str(coat_data) -->
+
+<!-- ``` -->
+
+<!-- Click on `coat_data` in the Environment to open a spreadsheet-like view of it. -->
+
+<!-- ## A barplot -->
+
+<!-- ![](images/do_in_R.png) Create a simple barplot using `ggplot` like this: -->
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col() -->
+
+<!-- ``` -->
+
+<!-- `ggplot()` alone creates a blank plot. -->
+
+<!-- `ggplot(data = coat_data)` looks the same. -->
+
+<!-- `aes()` gives the 'Aesthetic mappings'. How variables (columns) are mapped to visual properties (aesthetics) e.g., axes, colour, shapes. -->
+
+<!-- Thus... -->
+
+<!-- `ggplot(data = coat_data, aes(x = coat, y = freq))` produces a plot with axes -->
+
+<!-- `geom_col` A 'Geom' (Geometric object) gives the visual representations of the data: points, lines, bars, boxplots etc. -->
+
+<!-- Note that `ggplot2` is the name of the package and `ggplot()` is its most important command. -->
+
+<!-- ## Using the help manual -->
+
+<!-- 'Arguments' can be added to the `geom_col()` command inside the brackets. -->
+
+<!-- Commands do something and their arguments (in brackets) and can specify: -->
+
+<!-- -   what object to do it to\ -->
+
+<!-- -   how exactly to do it -->
+
+<!-- Many arguments have defaults so you don't always need to supply them. -->
+
+<!-- ![](images/do_in_R.png) Open the manual page for `geom_col()` using: -->
+
+<!-- ```{r} -->
+
+<!-- #| eval: false -->
+
+<!-- ?geom_col -->
+
+<!-- ``` -->
+
+<!-- The manual page has several sections. -->
+
+<!-- -   **Description** an overview of what the command does\ -->
+
+<!-- -   **Usage** lists arguments -->
+
+<!--     -   form: argument name = default value\ -->
+
+<!--     -   some arguments MUST be supplied others have defaults -->
+
+<!--     -   `...` means etc and includes arguments that can be passed to many 'geoms' -->
+
+<!-- -   **Arguments** gives the detail about the arguments -->
+
+<!-- -   **Details** describes how the command works in more detail\ -->
+
+<!-- -   **Value** gives the output of the command -->
+
+<!-- -   Don't be too perturbed by not fully understanding the information -->
+
+<!-- ## Customising the plot -->
+
+<!-- ![](images/do_in_R.png) Change the fill of the bars using `fill`: -->
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(fill = "lightblue") -->
+
+<!-- ``` -->
+
+<!-- Colours can be given by their name, "lightblue" or code, "#ADD8E6". -->
+
+<!-- Look up by [name](assets/colournames.pdf) or [code](assets/colourhex.pdf) -->
+
+<!-- ![](images/do_in_R.png) Change the bars to a colour you like. -->
+
+<!-- `fill` is one of the arguments covered by `...`. `fill` is an 'aesthetic'. If you look for `...` in the list of arguments you will see it says: -->
+
+<!-- > Other arguments passed on to layer(). These are often aesthetics, used to set an aesthetic to a fixed value, like colour = "red" or size = 3. They may also be parameters to the paired geom/stat. -->
+
+<!-- We just set the \`fill\` aesthetic to a fixed value. -->
+
+<!-- Further down the manual, there is a section on **Aesthetics** which lists those understood by `geom_col()` -->
+
+<!-- We can set (map) the `fill` aesthetic to a fixed colour inside `geom_col()` *or* map it to a variable from the dataframe inside the `aes()` instead. This means the colour will be different for different values in that variable. -->
+
+<!-- ![](images/do_in_R.png) Map the `fill` aesthetic to the `coat` variable: -->
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq, fill = coat)) + -->
+
+<!--   geom_col() -->
+
+<!-- ``` -->
+
+<!-- Note that we have taken `fill = "lightblue"` out of the `geom_col()` and instead put `fill = coat` in the `aes()`. -->
+
+<!-- ![](images/do_in_R.png) Use the manual to put the bars next to each other. Look for the argument that will mean there is no space between the bars. -->
+
+<!-- ```{r} -->
+
+<!-- #| echo: false -->
+
+<!-- #---CODING ANSWER--- -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(fill = "lightblue", width = 1) -->
+
+<!-- ``` -->
+
+<!-- ![](images/do_in_R.png) Use the manual to change the colour of the lines around each bar to black. -->
+
+<!-- ```{r} -->
+
+<!-- #| echo: false -->
+
+<!-- #---CODING ANSWER--- -->
+
+<!-- ggplot(data = coat_data, -->
+
+<!--        aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(fill = "lightblue",  -->
+
+<!--            width = 1,  -->
+
+<!--            colour = "black") -->
+
+<!-- ``` -->
+
+<!-- We can make changes to the axes using: -->
+
+<!-- -   Changes to a discrete x axis: `scale_x_discrete()` -->
+
+<!-- -   Changes to a continuous y axis: `scale_y_continuous()` -->
+
+<!-- `ggplot` automatically extends the axes slightly. You can turn this behaviour off with the `expand` argument in `scale_x_discrete()` and `scale_y_continuous()`.[^1] -->
+
+<!-- ![](images/do_in_R.png) Remove the gap between the axes and the data: -->
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(fill = "lightblue",  -->
+
+<!--            width = 1,  -->
+
+<!--            colour = "black") + -->
+
+<!--   scale_x_discrete(expand = c(0, 0)) +  -->
+
+<!--   scale_y_continuous(expand = c(0, 0))  -->
+
+<!-- ``` -->
+
+<!-- Each 'layer' is added to the ggplot() command with a `+` -->
+
+<!-- ::: callout-tip -->
+
+<!-- ## Top Tip -->
+
+<!-- Make your code easier to read by using white space and new lines -->
+
+<!-- -   put spaces around `=` , `->` and after `,` -->
+
+<!-- -   use a newline after every comma in a command with lots of arguments -->
+
+<!-- ::: -->
+
+<!-- ![](images/do_in_R.png) Look up `scale_x_discrete` in the manual and work out how to change the axis title from "coat" to "Coat colour". Also change the *y*-axis title. -->
+
+<!-- ```{r} -->
+
+<!-- #| echo: false -->
+
+<!-- #---CODING ANSWER--- -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(fill = "lightblue",  -->
+
+<!--            width = 1,  -->
+
+<!--            colour = "black") + -->
+
+<!--   scale_x_discrete(expand = c(0, 0), -->
+
+<!--                    name = "Coat colour") +  -->
+
+<!--   scale_y_continuous(expand = c(0, 0), -->
+
+<!--                      name = "Number of cats")  -->
+
+<!-- ``` -->
+
+<!-- ![](images/do_in_R.png) I would prefer to see the *y*-axis extend a little beyond the data and we can change the axis "limits" in the `scale_y_continuous()` -->
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(fill = "lightblue",  -->
+
+<!--            width = 1,  -->
+
+<!--            colour = "black") + -->
+
+<!--   scale_x_discrete(expand = c(0, 0), -->
+
+<!--                    name = "Coat colour") +  -->
+
+<!--   scale_y_continuous(expand = c(0, 0), -->
+
+<!--                      name = "Number of cats", -->
+
+<!--                      limits = c(0, 25))  -->
+
+<!-- ``` -->
+
+<!-- The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the "theme" of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually[^2] but there are some handy built in themes that apply several changes at once. One of these is `theme_classic()` -->
+
+<!-- ![](images/do_in_R.png) Add `theme_classic()` to the plot: -->
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(width = 1,  -->
+
+<!--            colour = "black", -->
+
+<!--            fill = "lightblue") + -->
+
+<!--   scale_x_discrete(expand = c(0, 0), -->
+
+<!--                    name = "Coat colour") +  -->
+
+<!--   scale_y_continuous(expand = c(0, 0), -->
+
+<!--                      name = "Number of cats", -->
+
+<!--                      limits = c(0, 25)) + -->
+
+<!--   theme_classic() -->
+
+<!-- ``` -->
+
+<!-- The default ordering of a categorical variable like `coat` is alphabetical. Often we want to change the order. For example, you might want a "Control" on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (`mutate`) the `coat` variable using `fct_relevel()`. -->
+
+<!-- ![](images/do_in_R.png) Make "white" the first category: -->
+
+<!-- ```{r} -->
+
+<!-- coat_data <- coat_data |>  -->
+
+<!--   mutate(coat = fct_relevel(coat, "white")) -->
+
+<!-- ``` -->
+
+<!-- ::: callout-note -->
+
+<!-- ## The pipe `|>` -->
+
+<!-- `|>` is called the "pipe". A keyboard shortcut is Control+Shift+M -->
+
+<!-- The pipe puts the output of one command (one the left) as input to another command (on the right). It can be read as "and then". You will more about it next week. -->
+
+<!-- ::: -->
+
+<!-- ![](images/do_in_R.png) Now plot again. -->
+
+<!-- ```{r} -->
+
+<!-- #| echo: false -->
+
+<!-- ggplot(data = coat_data, aes(x = coat, y = freq)) + -->
+
+<!--   geom_col(width = 1,  -->
+
+<!--            colour = "black", -->
+
+<!--            fill = "lightblue") + -->
+
+<!--   scale_x_discrete(expand = c(0, 0), -->
+
+<!--                    name = "Coat colour") +  -->
+
+<!--   scale_y_continuous(expand = c(0, 0), -->
+
+<!--                      name = "Number of cats", -->
+
+<!--                      limits = c(0, 25)) + -->
+
+<!--   theme_classic() -->
+
+<!-- ``` -->
+
+<!-- If you wanted white and then ginger you would do `fct_relevel(coat, c("white", "ginger")` -->
+
+<!-- We can also order the categories by the values in another variable by using `reorder()` in the plot code. -->
+
+<!-- ![](images/do_in_R.png) Reorder the categories in `coat` by the the value in `freq`: -->
+
+<!-- ```{r} -->
+
+<!-- ggplot(data = coat_data,  -->
+
+<!--        aes(x = reorder(coat, freq, decreasing = TRUE),  -->
+
+<!--            y = freq)) + -->
+
+<!--   geom_col(width = 1,  -->
+
+<!--            colour = "black", -->
+
+<!--            fill = "lightblue") + -->
+
+<!--   scale_x_discrete(expand = c(0, 0), -->
+
+<!--                    name = "Coat colour") +  -->
+
+<!--   scale_y_continuous(expand = c(0, 0), -->
+
+<!--                      name = "Number of cats", -->
+
+<!--                      limits = c(0, 25)) + -->
+
+<!--   theme_classic() -->
+
+<!-- ``` -->
+
+You're finished!
+
+# 🥳 Well Done! 🎉
+
+![Not normal](images/not_normal.png){fig-alt="two distributions as characters. One is normal (bell-shaped) the other is not"}
+
+# Independent study following the workshop
+
+[Consolidate](study_after_workshop.qmd)
+
+# The Code file
+
+These contain all the code needed in the workshop even where it is not visible on the webpage.
+
+The [.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd).
+
+Pages made with Quarto [@allaire2022]
+
+# References

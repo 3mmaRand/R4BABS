@@ -27,15 +27,7 @@ jobs:
           sudo apt-get install -y libfribidi-dev
           
       - uses: r-lib/actions/setup-renv@v2
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages:
-            any::knitr
-            any::rmarkdown
-            any::tidyverse
-            any::downlit
-            any::xml2
-            any::kableExtra
+
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/install-quarto@v1
  
