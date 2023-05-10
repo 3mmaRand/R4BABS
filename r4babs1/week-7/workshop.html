@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.340">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>Data Analysis in R - Introduction to RStudio and your first graphs</title>
 <style>
 code{white-space: pre-wrap;}
@@ -72,6 +75,7 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
@@ -87,7 +91,8 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -105,12 +110,20 @@ div.csl-indent {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
 </head>
+
 <body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data Analysis in R</span>
@@ -122,7 +135,7 @@ div.csl-indent {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Welcome!</span></a>
   </li>  
@@ -135,13 +148,15 @@ div.csl-indent {
  <span class="menu-text">BABS 2</span></a>
   </li>  
 </ul>
-<div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools ms-auto">
     <a href="https://twitter.com/er_13" title="Emma's Twitter" class="quarto-navigation-tool px-1" aria-label="Emma's Twitter"><i class="bi bi-twitter"></i></a>
     <a href="https://github.com/3mmaRand/R4BABS" title="R4BABS on GitHub" class="quarto-navigation-tool px-1" aria-label="R4BABS on GitHub"><i class="bi bi-github"></i></a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -149,11 +164,15 @@ div.csl-indent {
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r4babs1/r4babs1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
@@ -167,8 +186,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r4babs1/week-6/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
@@ -193,7 +212,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -202,8 +221,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r4babs1/week-7/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
@@ -228,7 +247,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -237,8 +256,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r4babs1/week-8/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
@@ -252,7 +271,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/workshop.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs1/week-8/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
@@ -263,7 +282,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
@@ -272,8 +291,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r4babs1/week-9/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
@@ -298,14 +317,18 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">Introduction to RStudio and your first graphs</h1>
 </div>
 
@@ -319,11 +342,17 @@ div.csl-indent {
   </div>
   
 
-</header><section id="introduction" class="level1"><h1>Introduction</h1>
+</header>
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p><img src="images/welcome_to_rstats_twitter.png" class="img-fluid" alt="two fluffy characters arriving at a door labelled R which has rainbows and butterflies and a welcome mat" width="1000"></p>
-<section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
+<section id="session-overview" class="level2">
+<h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
 <p>In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it.</p>
-</section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
+</section>
+<section id="philosophy" class="level2">
+<h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
 <p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
 <ul>
 <li>don’t worry about making mistakes</li>
@@ -350,26 +379,35 @@ Key
 <p><img src="images/answer.png" class="img-fluid"> A question for you to think about and answer. Record your answers in your script for future reference.</p>
 </div>
 </div>
-</section></section><section id="getting-started" class="level1"><h1>Getting started</h1>
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Go the Files tab in the lower right pane and click on the <code>...</code> on the right. This will open a “Go to folder” window. Navigate to a place on your computer where you keep your work. Click Open.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Also on the Files tab click on <code>New Folder</code>. Type “data-analysis-in-r” in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS1.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Name the RStudio Project ‘week-7’.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like analysis.R to carry out the rest of the work.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Introduction to RStudio and your first graph</code></p>
-</section><section id="exercises" class="level1"><h1>Exercises</h1>
-<section id="coat-colour-of-cats" class="level2"><h2 class="anchored" data-anchor-id="coat-colour-of-cats">🐈 Coat colour of cats</h2>
-<section id="the-goal" class="level3"><h3 class="anchored" data-anchor-id="the-goal">The goal</h3>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="coat-colour-of-cats" class="level2">
+<h2 class="anchored" data-anchor-id="coat-colour-of-cats">🐈 Coat colour of cats</h2>
+<section id="the-goal" class="level3">
+<h3 class="anchored" data-anchor-id="the-goal">The goal</h3>
 <p>We will work with some data on the coat colour of 62 cats. You are going to type data in R, summarise and plot it</p>
 <p>The data are as a frequency table:</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Frequency of coat colours in 62 cats</caption>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Coat colour</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">No. cats</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">black</td>
@@ -397,6 +435,8 @@ Key
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <p>You will create a figure like this:</p>
@@ -405,35 +445,40 @@ Key
 <p><img src="workshop_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section></section><section id="creating-the-data" class="level2"><h2 class="anchored" data-anchor-id="creating-the-data">Creating the data</h2>
+</section>
+</section>
+<section id="creating-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="creating-the-data">Creating the data</h2>
 <p>Start by making a vector called <code>coat</code> that holds coat colours</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Write the following in your script:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># coat colours</span></span>
-<span><span class="va">coat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"white"</span>, <span class="st">"tabby"</span>, <span class="st">"ginger"</span>, <span class="st">"tortoiseshell"</span>, <span class="st">"calico"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># coat colours</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>coat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"white"</span>, <span class="st">"tabby"</span>, <span class="st">"ginger"</span>, <span class="st">"tortoiseshell"</span>, <span class="st">"calico"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Remember, the shortcut for <code>&lt;-</code> is Alt+- (hold the Alt key down then hit the minus key ).</p>
 <p>Notice I have used a comment. Comment your code as much as possible!</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Ensure your cursor is on the line with the command and do Control+Enter to send the command to the console to be executed.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Examine the ‘structure’ of the <code>coat</code> object using <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Examine the ‘structure’ of the <code>coat</code> object using <code>str()</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">coat</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(coat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> chr [1:6] "black" "white" "tabby" "ginger" "tortoiseshell" "calico"</code></pre>
 </div>
 </div>
 <p>It’s vector of 6 character values, <code>chr</code></p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create a vector called <code>freq</code> containing the numbers of cats with each coat colour and examine it with <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a vector called <code>freq</code> containing the numbers of cats with each coat colour and examine it with <code>str()</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Check <code>sum(freq)</code> gives the answer you expect:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># the total Number of cats</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">freq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the total Number of cats</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 62</code></pre>
 </div>
 </div>
-</section><section id="packages" class="level2"><h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>Commands like <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, and <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> are in packages which are part the ‘base’ R system. A package is a collection of related commands. Base packages are installed automatically when you install R.</p>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>Commands like <code>c()</code>, <code>sum()</code>, and <code>str()</code> are in packages which are part the ‘base’ R system. A package is a collection of related commands. Base packages are installed automatically when you install R.</p>
 <p>Other packages, such as <code>ggplot2</code> <span class="citation" data-cites="ggplot2">Wickham (<a href="#ref-ggplot2" role="doc-biblioref">2016</a>)</span> need to be installed once and then loaded each session. <code>ggplot2</code> is one of the <code>tidyverse</code> <span class="citation" data-cites="tidyverse">Wickham et al. (<a href="#ref-tidyverse" role="doc-biblioref">2019</a>)</span> packages.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -452,41 +497,46 @@ Important
 <p>To install a package:</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Go the Packages tab on the lower right pane. Click Install and type <code>tidyverse</code> into the box that appears.</p>
 <p>Wait until you get the prompt back. It will take a few moments, be patient!</p>
-<p>To use a package which is installed you have to load it with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function. You will need to do this whether you are working on your own computer or on a University computer</p>
+<p>To use a package which is installed you have to load it with the <code>library()</code> function. You will need to do this whether you are working on your own computer or on a University computer</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Load the <code>tidyverse</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will likely be warned of some function name conflicts but these will not be a problem for you.</p>
-</section><section id="plotting-the-data-with-ggplot" class="level2"><h2 class="anchored" data-anchor-id="plotting-the-data-with-ggplot">Plotting the data with <code>ggplot()</code>
-</h2>
-<p><code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> takes a dataframe for an argument</p>
-<p>We can make a dataframe of the two vectors, <code>coat</code> and <code>freq</code> usinf the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function.</p>
+</section>
+<section id="plotting-the-data-with-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-the-data-with-ggplot">Plotting the data with <code>ggplot()</code></h2>
+<p><code>ggplot()</code> takes a dataframe for an argument</p>
+<p>We can make a dataframe of the two vectors, <code>coat</code> and <code>freq</code> usinf the <code>data.frame()</code> function.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a dataframe called <code>coat_data</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">coat_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">coat</span>, <span class="va">freq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>coat_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(coat, freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>n</code> was made into a factor (a categorical variable) because there are only 6 values and I want to make a bar plot.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Check the structure of <code>coat_data</code></p>
 <p>Click on <code>coat_data</code> in the Environment to open a spreadsheet-like view of it.</p>
-</section><section id="a-barplot" class="level2"><h2 class="anchored" data-anchor-id="a-barplot">A barplot</h2>
+</section>
+<section id="a-barplot" class="level2">
+<h2 class="anchored" data-anchor-id="a-barplot">A barplot</h2>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a simple barplot using <code>ggplot</code> like this:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coat</span>, y <span class="op">=</span> <span class="va">freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, <span class="fu">aes</span>(<span class="at">x =</span> coat, <span class="at">y =</span> freq)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> alone creates a blank plot.</p>
+<p><code>ggplot()</code> alone creates a blank plot.</p>
 <p><code>ggplot(data = coat_data)</code> looks the same.</p>
-<p><code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> gives the ‘Aesthetic mappings’. How variables (columns) are mapped to visual properties (aesthetics) e.g., axes, colour, shapes.</p>
+<p><code>aes()</code> gives the ‘Aesthetic mappings’. How variables (columns) are mapped to visual properties (aesthetics) e.g., axes, colour, shapes.</p>
 <p>Thus…</p>
 <p><code>ggplot(data = coat_data, aes(x = coat, y = freq))</code> produces a plot with axes</p>
 <p><code>geom_col</code> A ‘Geom’ (Geometric object) gives the visual representations of the data: points, lines, bars, boxplots etc.</p>
-<p>Note that <code>ggplot2</code> is the name of the package and <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> is its most important command.</p>
-</section><section id="using-the-help-manual" class="level2"><h2 class="anchored" data-anchor-id="using-the-help-manual">Using the help manual</h2>
-<p>‘Arguments’ can be added to the <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col()</a></code> command inside the brackets.</p>
+<p>Note that <code>ggplot2</code> is the name of the package and <code>ggplot()</code> is its most important command.</p>
+</section>
+<section id="using-the-help-manual" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-help-manual">Using the help manual</h2>
+<p>‘Arguments’ can be added to the <code>geom_col()</code> command inside the brackets.</p>
 <p>Commands do something and their arguments (in brackets) and can specify:</p>
 <ul>
 <li>what object to do it to<br>
@@ -494,38 +544,34 @@ Important
 <li>how exactly to do it</li>
 </ul>
 <p>Many arguments have defaults so you don’t always need to supply them.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Open the manual page for <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col()</a></code> using:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Open the manual page for <code>geom_col()</code> using:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">geom_col</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>?geom_col</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The manual page has several sections.</p>
 <ul>
-<li>
-<strong>Description</strong> an overview of what the command does<br>
+<li><strong>Description</strong> an overview of what the command does<br>
 </li>
-<li>
-<strong>Usage</strong> lists arguments
+<li><strong>Usage</strong> lists arguments
 <ul>
 <li>form: argument name = default value<br>
 </li>
 <li>some arguments MUST be supplied others have defaults</li>
-<li>
-<code>...</code> means etc and includes arguments that can be passed to many ‘geoms’</li>
-</ul>
+<li><code>...</code> means etc and includes arguments that can be passed to many ‘geoms’</li>
+</ul></li>
+<li><strong>Arguments</strong> gives the detail about the arguments</li>
+<li><strong>Details</strong> describes how the command works in more detail<br>
 </li>
-<li>
-<strong>Arguments</strong> gives the detail about the arguments</li>
-<li>
-<strong>Details</strong> describes how the command works in more detail<br>
-</li>
-<li>
-<strong>Value</strong> gives the output of the command</li>
+<li><strong>Value</strong> gives the output of the command</li>
 <li>Don’t be too perturbed by not fully understanding the information</li>
-</ul></section><section id="customising-the-plot" class="level2"><h2 class="anchored" data-anchor-id="customising-the-plot">Customising the plot</h2>
+</ul>
+</section>
+<section id="customising-the-plot" class="level2">
+<h2 class="anchored" data-anchor-id="customising-the-plot">Customising the plot</h2>
 <p><img src="images/do_in_R.png" class="img-fluid"> Change the fill of the bars using <code>fill</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coat</span>, y <span class="op">=</span> <span class="va">freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, <span class="fu">aes</span>(<span class="at">x =</span> coat, <span class="at">y =</span> freq)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -538,17 +584,17 @@ Important
 <p>Other arguments passed on to layer(). These are often aesthetics, used to set an aesthetic to a fixed value, like colour = “red” or size = 3. They may also be parameters to the paired geom/stat.</p>
 </blockquote>
 <p>We just set the `fill` aesthetic to a fixed value.</p>
-<p>Further down the manual, there is a section on <strong>Aesthetics</strong> which lists those understood by <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col()</a></code></p>
-<p>We can set (map) the <code>fill</code> aesthetic to a fixed colour inside <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col()</a></code> <em>or</em> map it to a variable from the dataframe inside the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> instead. This means the colour will be different for different values in that variable.</p>
+<p>Further down the manual, there is a section on <strong>Aesthetics</strong> which lists those understood by <code>geom_col()</code></p>
+<p>We can set (map) the <code>fill</code> aesthetic to a fixed colour inside <code>geom_col()</code> <em>or</em> map it to a variable from the dataframe inside the <code>aes()</code> instead. This means the colour will be different for different values in that variable.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Map the <code>fill</code> aesthetic to the <code>coat</code> variable:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coat</span>, y <span class="op">=</span> <span class="va">freq</span>, fill <span class="op">=</span> <span class="va">coat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, <span class="fu">aes</span>(<span class="at">x =</span> coat, <span class="at">y =</span> freq, <span class="at">fill =</span> coat)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Note that we have taken <code>fill = "lightblue"</code> out of the <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col()</a></code> and instead put <code>fill = coat</code> in the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code>.</p>
+<p>Note that we have taken <code>fill = "lightblue"</code> out of the <code>geom_col()</code> and instead put <code>fill = coat</code> in the <code>aes()</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Use the manual to put the bars next to each other. Look for the argument that will mean there is no space between the bars.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -563,20 +609,18 @@ Important
 </div>
 <p>We can make changes to the axes using:</p>
 <ul>
-<li>Changes to a discrete x axis: <code><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete()</a></code>
-</li>
-<li>Changes to a continuous y axis: <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a></code>
-</li>
+<li>Changes to a discrete x axis: <code>scale_x_discrete()</code></li>
+<li>Changes to a continuous y axis: <code>scale_y_continuous()</code></li>
 </ul>
-<p><code>ggplot</code> automatically extends the axes slightly. You can turn this behaviour off with the <code>expand</code> argument in <code><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a></code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><code>ggplot</code> automatically extends the axes slightly. You can turn this behaviour off with the <code>expand</code> argument in <code>scale_x_discrete()</code> and <code>scale_y_continuous()</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Remove the gap between the axes and the data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coat</span>, y <span class="op">=</span> <span class="va">freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>, </span>
-<span>           width <span class="op">=</span> <span class="fl">1</span>, </span>
-<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, <span class="fu">aes</span>(<span class="at">x =</span> coat, <span class="at">y =</span> freq)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">1</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -594,8 +638,7 @@ Top Tip
 <div class="callout-body-container callout-body">
 <p>Make your code easier to read by using white space and new lines</p>
 <ul>
-<li>put spaces around <code>=</code> , <code>-&gt;</code> and after <code>,</code>
-</li>
+<li>put spaces around <code>=</code> , <code>-&gt;</code> and after <code>,</code></li>
 <li>use a newline after every comma in a command with lots of arguments</li>
 </ul>
 </div>
@@ -606,43 +649,43 @@ Top Tip
 <p><img src="workshop_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> I would prefer to see the <em>y</em>-axis extend a little beyond the data and we can change the axis “limits” in the <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a></code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> I would prefer to see the <em>y</em>-axis extend a little beyond the data and we can change the axis “limits” in the <code>scale_y_continuous()</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coat</span>, y <span class="op">=</span> <span class="va">freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>, </span>
-<span>           width <span class="op">=</span> <span class="fl">1</span>, </span>
-<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
-<span>                   name <span class="op">=</span> <span class="st">"Coat colour"</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
-<span>                     name <span class="op">=</span> <span class="st">"Number of cats"</span>,</span>
-<span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, <span class="fu">aes</span>(<span class="at">x =</span> coat, <span class="at">y =</span> freq)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">1</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">name =</span> <span class="st">"Coat colour"</span>) <span class="sc">+</span> </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">"Number of cats"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the “theme” of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> but there are some handy built in themes that apply several changes at once. One of these is <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code></p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code> to the plot:</p>
+<p>The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the “theme” of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> but there are some handy built in themes that apply several changes at once. One of these is <code>theme_classic()</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add <code>theme_classic()</code> to the plot:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coat</span>, y <span class="op">=</span> <span class="va">freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">1</span>, </span>
-<span>           colour <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>           fill <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
-<span>                   name <span class="op">=</span> <span class="st">"Coat colour"</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
-<span>                     name <span class="op">=</span> <span class="st">"Number of cats"</span>,</span>
-<span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, <span class="fu">aes</span>(<span class="at">x =</span> coat, <span class="at">y =</span> freq)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span>, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">name =</span> <span class="st">"Coat colour"</span>) <span class="sc">+</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">"Number of cats"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The default ordering of a categorical variable like <code>coat</code> is alphabetical. Often we want to change the order. For example, you might want a “Control” on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (<code>mutate</code>) the <code>coat</code> variable using <code><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel()</a></code>.</p>
+<p>The default ordering of a categorical variable like <code>coat</code> is alphabetical. Often we want to change the order. For example, you might want a “Control” on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (<code>mutate</code>) the <code>coat</code> variable using <code>fct_relevel()</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make “white” the first category:</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">coat_data</span> <span class="op">&lt;-</span> <span class="va">coat_data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>coat <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">coat</span>, <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>coat_data <span class="ot">&lt;-</span> coat_data <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">coat =</span> <span class="fu">fct_relevel</span>(coat, <span class="st">"white"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -665,39 +708,51 @@ The pipe <code>|&gt;</code>
 </div>
 </div>
 <p>If you wanted white and then ginger you would do <code>fct_relevel(coat, c("white", "ginger")</code></p>
-<p>We can also order the categories by the values in another variable by using <code><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder()</a></code> in the plot code.</p>
+<p>We can also order the categories by the values in another variable by using <code>reorder()</code> in the plot code.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Reorder the categories in <code>coat</code> by the the value in <code>freq</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, </span>
-<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">coat</span>, <span class="va">freq</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, </span>
-<span>           y <span class="op">=</span> <span class="va">freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">1</span>, </span>
-<span>           colour <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>           fill <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
-<span>                   name <span class="op">=</span> <span class="st">"Coat colour"</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
-<span>                     name <span class="op">=</span> <span class="st">"Number of cats"</span>,</span>
-<span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(coat, freq, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> freq)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span>, </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">name =</span> <span class="st">"Coat colour"</span>) <span class="sc">+</span> </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">"Number of cats"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>You’re finished!</p>
-</section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
+</section>
+</section>
+<section id="well-done" class="level1">
+<h1>🥳 Well Done! 🎉</h1>
 <p><img src="images/r_first_then.png" class="img-fluid" alt="At the top: fluffy character under a dark cloud waving a white flag at an angry. At the bottom: The fluffy character and the R smiling and dancing together in the sunshine" width="1000"></p>
-</section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
+</section>
+<section id="independent-study-following-the-workshop" class="level1">
+<h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs1/week-7/study_after_workshop.html">Consolidate</a></p>
-</section><section id="the-code-file" class="level1"><h1>The Code file</h1>
+</section>
+<section id="the-code-file" class="level1">
+<h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
 <p>The <a href="../../r4babs1/week-7/workshop.html">.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd">View in Browser</a>.</p>
 <p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span></p>
-</section><section id="references" class="level1">
+</section>
+<section id="references" class="level1">
 
 
 
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
 </div>
@@ -708,10 +763,13 @@ Wickham, Hadley. 2016. <span>“Ggplot2: Elegant Graphics for Data Analysis.”<
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
-<li id="fn1"><p>There are also <code>scale_x_continous()</code> and <code><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_y_discrete()</a></code> functions when you have those types of variable<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>There are also <code>scale_x_continous()</code> and <code>scale_y_discrete()</code> functions when you have those types of variable<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><a href="https://ggplot2.tidyverse.org/reference/theme.html">Modify components of a theme</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
