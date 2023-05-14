@@ -2,10 +2,12 @@
 title: "Independent Study - before the workshop"
 ---
 
-1.  Prepare
+1.  Prepare]
+
 
     i.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
 
     ii. Read [What they forgot to teach you about computers](https://3mmarand.github.io/comp4biosci/what_they_forgot.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
 
     iii. Read [What are R and Rstudio?](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio)
+
