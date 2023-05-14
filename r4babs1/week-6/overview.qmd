@@ -28,12 +28,15 @@ This week you will carry out some independent study to ensure you have some unde
 
     i.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
 
-    ii. Read
+    ii. Read What they forgot to teach you about computers
+    
+    iii. Read What are R and Rstudio?
 
 2.  [Workshop](workshop.qmd)
+   
+    i. Optional: Install R and RStudio
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  
+    i.  Testing your understanding of file system
 
-    ii. 
