@@ -63,18 +63,32 @@
     "text": "The BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
   },
   {
+    "objectID": "r4babs1/week-6/workshop.html",
+    "href": "r4babs1/week-6/workshop.html",
+    "title": "Workshop",
+    "section": "",
+    "text": "There is no formal workshop this week but yu might want to install R and RStudio on your own machine. This is optional because University computers already have R and RStudio installed.\nInstall R and RStudio.\nNote you need a computer - not a tablet."
+  },
+  {
     "objectID": "r4babs1/week-6/study_before_workshop.html",
     "href": "r4babs1/week-6/study_before_workshop.html",
     "title": "Independent Study - before the workshop",
     "section": "",
-    "text": "Prepare banner"
+    "text": "Prepare]\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers in Computational Analysis for Bioscientists\nRead What are R and Rstudio?"
+  },
+  {
+    "objectID": "r4babs1/week-6/study_after_workshop.html",
+    "href": "r4babs1/week-6/study_after_workshop.html",
+    "title": "Independent Study - after the workshop",
+    "section": "",
+    "text": "add learnr quiz about file systems"
   },
   {
     "objectID": "r4babs1/week-6/overview.html",
     "href": "r4babs1/week-6/overview.html",
     "title": "Week 6: Understanding file systems",
     "section": "",
-    "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nAllison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\n\nFile systems\nfiles and directories\nfile names, file extensions, associations with programs\nusing a file explorer\nsaving files\nfile paths\nusing google\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead\n\nWorkshop\nConsolidate"
+    "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nAllison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\n\nFile systems\nfiles and directories\nfile names, file extensions, associations with programs\nusing a file explorer\nsaving files\nfile paths\nusing google\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers\nRead What are R and Rstudio?\n\nWorkshop\n\nOptional: Install R and RStudio\n\nConsolidate\n\nTesting your understanding of file system"
   },
   {
     "objectID": "r4babs1/week-8/workshop.html",
