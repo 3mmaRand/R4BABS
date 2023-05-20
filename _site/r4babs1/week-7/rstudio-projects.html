@@ -7,7 +7,7 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.269">
+  <meta name="generator" content="quarto-1.1.251">
 
   <meta name="author" content="Emma Rand">
   <title>Data Analysis in R - RStudio ProjectsWho, what, why?</title>
@@ -389,19 +389,12 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="center">
   <h1 class="title">RStudio Projects<br>Who, what, why?</h1>
   <p class="subtitle"><br>🔗 <a href="https://bit.ly/rstudio-projects">bit.ly/rstudio-projects</a></p>
-
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Emma Rand 
-</div>
-</div>
-</div>
-
+  <p class="author">Emma Rand</p>
 </section>
+
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
 <ul>
@@ -533,7 +526,7 @@ Emma Rand
 <li><p>important concepts when you interact with computers without clicking</p></li>
 </ul>
 
-<img data-src="../..\r4babs1/week-6/images/code_gets_the_blame.jpg" alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos" class="r-stretch quarto-figure-center"><p class="caption">Allison Horst cartoon “code gets the blame”</p></section>
+<img data-src="../../r4babs1/week-6/images/code_gets_the_blame.jpg" alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos" class="r-stretch quarto-figure-center"><p class="caption">Allison Horst cartoon “code gets the blame”</p></section>
 <section id="working-directories" class="slide level2">
 <h2>Working directories</h2>
 <ul>
@@ -831,15 +824,12 @@ Emma Rand
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -850,6 +840,13 @@ Emma Rand
               window.jQuery(currentSlide).trigger("shown");
             }
           }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
         }
 
         // hookup for slidy
@@ -901,24 +898,7 @@ Emma Rand
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -956,42 +936,24 @@ Emma Rand
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>

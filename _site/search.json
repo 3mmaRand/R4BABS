@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\nAbout me"
+    "text": "About me"
   },
   {
     "objectID": "index.html",
@@ -18,35 +18,161 @@
     "href": "r4babs1/r4babs1.html",
     "title": "Data Analysis in R for BABS 1",
     "section": "",
-    "text": "first of 4 babs modules. four weeks of work. fundamental computing concepts data types, types of variable, role of variables ideas about data organisation using rstudio importing summarising and plotting variables\n\n\nThe BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
+    "text": "How this part of the module is organised\nWeek 6 starts with some independent study to ensure you have some understanding of computer file systems and will introduce you to the concepts of paths and working directories. In weeks 7, 8 and 9 there are some independent study activities covering concepts which are designed to prepare you for the workshop. In the workshop you will apply these concepts in R. After the workshop there is independent study to help you consolidate your learning."
   },
   {
     "objectID": "r4babs1/week-6/overview.html",
     "href": "r4babs1/week-6/overview.html",
     "title": "Week 6: Understanding file systems",
     "section": "",
-    "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nAllison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\n\nFile systems\nfiles and directories\nfile names, file extensions, associations with programs\nusing a file explorer\nsaving files\nfile paths\nusing google\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead\n\nWorkshop\nConsolidate"
+    "text": "Allison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\n\nFile systems\nfiles and directories\nfile names, file extensions, associations with programs\nusing a file explorer\nsaving files\nfile paths\nusing google\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers\nRead What are R and Rstudio?\n\nWorkshop\n\nOptional: Install R and RStudio\n\nConsolidate\n\nTesting your understanding of file system"
+  },
+  {
+    "objectID": "r4babs1/week-6/study_after_workshop.html",
+    "href": "r4babs1/week-6/study_after_workshop.html",
+    "title": "Independent Study - after the workshop",
+    "section": "",
+    "text": "add learnr quiz about file systems"
   },
   {
     "objectID": "r4babs1/week-6/study_before_workshop.html",
     "href": "r4babs1/week-6/study_before_workshop.html",
     "title": "Independent Study - before the workshop",
     "section": "",
-    "text": "Prepare banner"
+    "text": "Prepare]\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers in Computational Analysis for Bioscientists\nRead What are R and Rstudio?"
+  },
+  {
+    "objectID": "r4babs1/week-6/workshop.html",
+    "href": "r4babs1/week-6/workshop.html",
+    "title": "Workshop",
+    "section": "",
+    "text": "Install R and RStudio.\nNote you need a computer - not a tablet."
   },
   {
     "objectID": "r4babs1/week-7/overview.html",
     "href": "r4babs1/week-7/overview.html",
     "title": "Week 7: Introduction to R, RStudio and project organisation",
     "section": "",
-    "text": "This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.\n\nLearning objectives\n\nuse the R command line as a calculator and to assign variables\ncreate and use the basic data types in R\nfind their way around the RStudio windows\nuse an RStudio Project to organise work\nuse a script to run R commands\ncreate and customise a barplot\nsearch and understand manual pages\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
+    "text": "Learning objectives\n\nuse the R command line as a calculator and to assign variables\ncreate and use the basic data types in R\nfind their way around the RStudio windows\nuse an RStudio Project to organise work\nuse a script to run R commands\ncreate and customise a barplot\nsearch and understand manual pages\n\n\n\nInstructions\n\nPrepare\n\nFirst Steps in RStudio: you have the option to read the book or watch some videos\nxxx\n\nWorkshop\nConsolidate"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#outline",
+    "href": "r4babs1/week-7/rstudio-projects.html#outline",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Outline",
+    "text": "Outline\n\nWho\nA One-line what\nThe high-level why\n\n\nMight be enough!\n\n\n\nMore detailed why\nMore detailed what"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#audience",
+    "href": "r4babs1/week-7/rstudio-projects.html#audience",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Audience",
+    "text": "Audience\n\nYou teach using R directly\n\nBecoming a Bioscientist 1 - 4\nIM group project\nPGT\n\nYou teach or supervise students using R\n\nfield courses, practical work\nprojects\n\nYou use R"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
+    "href": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "📁 An RStudio Project",
+    "text": "📁 An RStudio Project\n\nis a folder!\n\n\n\nhave been part of the stage 1 and IM stage 3 for > 5 years\n\n\n\nStage 1\n\nUse an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report."
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#y12345678",
+    "href": "r4babs1/week-7/rstudio-projects.html#y12345678",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Y12345678",
+    "text": "Y12345678\ndemo"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#babs-1-4-lo-progression",
+    "href": "r4babs1/week-7/rstudio-projects.html#babs-1-4-lo-progression",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "BABS 1-4 LO progression",
+    "text": "BABS 1-4 LO progression\nBABS 1-5 LO progression"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects",
+    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Why use RStudio Projects",
+    "text": "Why use RStudio Projects\n\nthe same reason we keep lab books: reproducibility and validation\n\n\nIt’s science!\n\n\n\nvia GIPHY"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-1",
+    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-1",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Why use RStudio Projects",
+    "text": "Why use RStudio Projects\n\nTransferable: explicit training in organising work"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-2",
+    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-2",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Why use RStudio Projects",
+    "text": "Why use RStudio Projects\n\n\n\nhelp you to work with your most important collaborator\n\n\n\n\n\nfutureself, CC-BY-NC, by Julen Colomb"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#section",
+    "href": "r4babs1/week-7/rstudio-projects.html#section",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "",
+    "text": "via GIPHY"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#working-directories-and-paths",
+    "href": "r4babs1/week-7/rstudio-projects.html#working-directories-and-paths",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Working directories and Paths",
+    "text": "Working directories and Paths\n\ndirectory means folder\nimportant concepts when you interact with computers without clicking\n\n\nAllison Horst cartoon “code gets the blame”"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#working-directories",
+    "href": "r4babs1/week-7/rstudio-projects.html#working-directories",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Working directories",
+    "text": "Working directories\n\nDefault folder a program will read and write to.\nYou will have some understanding\n\nWord demo"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#paths",
+    "href": "r4babs1/week-7/rstudio-projects.html#paths",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Paths",
+    "text": "Paths\n\nlocation of a file/folder\nappear in the address bar of explorer/finder and browsers\n\ndemo\n\n\nwhen you can’t click, you need the path\n\n\nchaffinch <- read_table(\"chaff.txt\")"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#absolute-path",
+    "href": "r4babs1/week-7/rstudio-projects.html#absolute-path",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Absolute path",
+    "text": "Absolute path\n\nchaffinch <- read_table(\"C:/Users/er13/OneDrive - University of York/Desktop/Desktop/undergrad-teaching-york/BIO00017C/BIO00017C-Data-Analysis-in-R-2020/data/chaff.txt\")\n\n\nOnly exists on my computer!"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#relative-paths",
+    "href": "r4babs1/week-7/rstudio-projects.html#relative-paths",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "Relative paths",
+    "text": "Relative paths\n\nlocation of a file/folder relative to the working directory\nIf my working directory is BIO00017C-Data-Analysis-in-R-2020:\n\n\nchaffinch <- read_table(\"data/chaff.txt\")"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#rstudio-projects",
+    "href": "r4babs1/week-7/rstudio-projects.html#rstudio-projects",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "RStudio Projects",
+    "text": "RStudio Projects\n\nSets the working directory to be the project folder\nCode is portable: you send someone the folder and everything just works!"
+  },
+  {
+    "objectID": "r4babs1/week-7/rstudio-projects.html#demo",
+    "href": "r4babs1/week-7/rstudio-projects.html#demo",
+    "title": "RStudio ProjectsWho, what, why?",
+    "section": "demo",
+    "text": "demo"
   },
   {
     "objectID": "r4babs1/week-7/study_before_workshop.html",
     "href": "r4babs1/week-7/study_before_workshop.html",
     "title": "Independent Study - before the workshop",
     "section": "",
-    "text": "Prepare banner"
+    "text": "Video\nGetting started with RStudio\n\n\nand\n\n\nVideo\nData Structures and functions"
   },
   {
     "objectID": "r4babs1/week-7/workshop.html",
@@ -109,167 +235,20 @@
     "href": "r4babs1/week-8/overview.html",
     "title": "Week 8: Types of variable, the normal distribution and summarising data",
     "section": "",
-    "text": "The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we would summarise and visualise them. You will also learn about the “normal distribution” which is the most important continuous distribution. Finally you will discover how to save your figures and place them in word documents.\n\nLearning objectives\n\ndistinguish between data types\nnormal distribution stuff\nread in data in to RStudio from a plain text file\nsummarise and plot single-variable datasets\nchose summary statistics and plots appropriate for the data type\nsave figures to file\ncreate neat reports in Word which include text and figures\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
+    "text": "Learning objectives\n\ndistinguish between data types\nnormal distribution stuff\nread in data in to RStudio from a plain text file\nsummarise and plot single-variable datasets\nchose summary statistics and plots appropriate for the data type\nsave figures to file\ncreate neat reports in Word which include text and figures\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html",
+    "href": "r4babs1/week-8/workshop.html",
+    "title": "Types of variable, the normal distribution and summarising data",
+    "section": "",
+    "text": "Getting started\n Start RStudio from the Start menu.\n Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says Project: (None) and choosing New Project, then New Directory, then New Project. Name the RStudio Project ‘week-8’.\n Make a new script then save it with a name like analysis.R to carry out the rest of the work.\n Add a comment to the script: # Types of variable, the normal distribution and summarising data\nExercises\nTO INCLUDE: the workshop example in week 9 needs to align with the river practicals: 3 treatments 0 upstream, discharge point, downstream 6 samples from each point Several groups will work on 1 sample: these are the technical reps Class data will be analysed: students will enter data into a google sheet/form? with cell validation. Emma will download, average over the technical reps and make available: 3 treatments x 6 reps responses: nitrate, phosphate, bacterial counts, algal count, microplastic count, oestrogen, presence/absence of a plasmid\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou’re finished!\n🥳 Well Done! 🎉\n\n\nNot normal\n\n\nIndependent study following the workshop\nConsolidate\nThe Code file\nThese contain all the code needed in the workshop even where it is not visible on the webpage.\nThe .qmd file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, View in Browser.\nPages made with Quarto (Allaire et al. 2022)\n\n\n\n\nReferences\n\nAllaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. Quarto. https://doi.org/10.5281/zenodo.5960048."
   },
   {
     "objectID": "r4babs1/week-9/overview.html",
     "href": "r4babs1/week-9/overview.html",
     "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
     "section": "",
-    "text": "Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. You will also learn how to read data into R from files.\n\nLearning objectives\n\ndescribe some different file types\nread in data in to RStudio from excel files\nsummarise and plot datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nchose summary statistics and plots appropriate for the data types and roles\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#getting-up",
-    "href": "r4babs1/week-7/rstudio-projects.html#getting-up",
-    "title": "RStudio Projects",
-    "section": "Getting up",
-    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#breakfast",
-    "href": "r4babs1/week-7/rstudio-projects.html#breakfast",
-    "title": "RStudio Projects",
-    "section": "Breakfast",
-    "text": "Breakfast\n\nEat eggs\nDrink coffee"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#dinner",
-    "href": "r4babs1/week-7/rstudio-projects.html#dinner",
-    "title": "RStudio Projects",
-    "section": "Dinner",
-    "text": "Dinner\n\nEat spaghetti\nDrink wine"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#going-to-sleep",
-    "href": "r4babs1/week-7/rstudio-projects.html#going-to-sleep",
-    "title": "RStudio Projects",
-    "section": "Going to sleep",
-    "text": "Going to sleep\n\nGet in bed\nCount sheep"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#audience",
-    "href": "r4babs1/week-7/rstudio-projects.html#audience",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Audience",
-    "text": "Audience\n\nYou teach using R directly\n\nBecoming a Bioscientist 1 - 4\nIM group project\nPGT\n\nYou teach or supervise students using R\n\nfield courses, practical work\nprojects\n\nYou use R"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
-    "href": "r4babs1/week-7/rstudio-projects.html#an-rstudio-project",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "📁 An RStudio Project",
-    "text": "📁 An RStudio Project\n\nis a folder!\n\n\n\nhave been part of the stage 1 and IM stage 3 for > 5 years\n\n\n\nStage 1\n\nUse an RStudio project containing the script you used to analyse and plot the data for your report, your figures and and the data itself. The Project should be structured and the script should be well-commented, well-organised and follow good practice in the use of spacing, indentation, and variable naming. It should include all the code required to reproduce data import and formatting as well as the summary information, analyses, and figures in your report."
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#section",
-    "href": "r4babs1/week-7/rstudio-projects.html#section",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "",
-    "text": "via GIPHY"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#outline",
-    "href": "r4babs1/week-7/rstudio-projects.html#outline",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Outline",
-    "text": "Outline\n\nWho\nA One-line what\nThe high-level why\n\n\nMight be enough!\n\n\n\nMore detailed why\nMore detailed what"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-rstudio-projects",
-    "href": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-rstudio-projects",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Why ask students to RStudio Projects",
-    "text": "Why ask students to RStudio Projects\n\nthe same reason we keep lab books: reproducibility and validation\n\n\n\nTransferable: explicit training in organising their work\n\n\n\n\nit helps you to work with you most important collaborator\n\n\n\nFuture you!"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#working-directories",
-    "href": "r4babs1/week-7/rstudio-projects.html#working-directories",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Working directories",
-    "text": "Working directories\n\nDefault folder a program will read and write to.\nYou will have some understanding\n\nWord demo"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#babs-1-4-lo-progression",
-    "href": "r4babs1/week-7/rstudio-projects.html#babs-1-4-lo-progression",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "BABS 1-4 LO progression",
-    "text": "BABS 1-4 LO progression\nBABS 1-5 LO progression"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#y12345678",
-    "href": "r4babs1/week-7/rstudio-projects.html#y12345678",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Y12345678",
-    "text": "Y12345678\ndemo"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-useb-rstudio-projects",
-    "href": "r4babs1/week-7/rstudio-projects.html#why-ask-students-to-useb-rstudio-projects",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Why ask students to useb RStudio Projects",
-    "text": "Why ask students to useb RStudio Projects\n\nthe same reason we keep lab books: reproducibility and validation\n\n\n\nTransferable: explicit training in organising their work\n\n\n\n\nhelp you to work with you most important collaborator\n\n\n\nFuture you!"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#working-directories-and-paths",
-    "href": "r4babs1/week-7/rstudio-projects.html#working-directories-and-paths",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Working directories and Paths",
-    "text": "Working directories and Paths\n\ndirectory means folder\nimportant concepts when you interact with computers without clicking\n\n\nAllison Horst cartoon “code gets the blame”"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#paths",
-    "href": "r4babs1/week-7/rstudio-projects.html#paths",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Paths",
-    "text": "Paths\n\nlocation of a file/folder\nappear in the address bar of explorer/finder and browsers\n\ndemo\n\n\nwhen you can’t click, you need the path\n\n\nchaffinch <- read_table(\"chaff.txt\")"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#absolute-path",
-    "href": "r4babs1/week-7/rstudio-projects.html#absolute-path",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Absolute path",
-    "text": "Absolute path\n\nchaffinch <- read_table(\"C:/Users/er13/OneDrive - University of York/Desktop/Desktop/undergrad-teaching-york/BIO00017C/BIO00017C-Data-Analysis-in-R-2020/data/chaff.txt\")\n\n\nOnly exists on my computer!"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#relative-paths",
-    "href": "r4babs1/week-7/rstudio-projects.html#relative-paths",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Relative paths",
-    "text": "Relative paths\n\nlocation of a file/folder relative to the working directory\nIf my working directory is BIO00017C-Data-Analysis-in-R-2020:\n\n\nchaffinch <- read_table(\"data/chaff.txt\")"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#rstudio-projects",
-    "href": "r4babs1/week-7/rstudio-projects.html#rstudio-projects",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "RStudio Projects",
-    "text": "RStudio Projects\n\nSets the working directory to be the project folder\nCode is portable: you send someone the folder and everything just works!"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects",
-    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Why use RStudio Projects",
-    "text": "Why use RStudio Projects\n\nthe same reason we keep lab books: reproducibility and validation\n\n\nIt’s science!\n\n\n\nvia GIPHY"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-1",
-    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-1",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Why use RStudio Projects",
-    "text": "Why use RStudio Projects\n\nTransferable: explicit training in organising work"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-2",
-    "href": "r4babs1/week-7/rstudio-projects.html#why-use-rstudio-projects-2",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "Why use RStudio Projects",
-    "text": "Why use RStudio Projects\n\n\n\nhelp you to work with your most important collaborator\n\n\n\n\n\nfutureself, CC-BY-NC, by Julen Colomb"
-  },
-  {
-    "objectID": "r4babs1/week-7/rstudio-projects.html#demo",
-    "href": "r4babs1/week-7/rstudio-projects.html#demo",
-    "title": "RStudio ProjectsWho, what, why?",
-    "section": "demo",
-    "text": "demo"
+    "text": "TO INCLUDE: the workshop example needs to align with the river practicals: 3 treatments 0 upstream, discharge point, downstream 6 samples from each point Several groups will work on 1 sample: these are the technical reps Class data will be analysed: students will enter data into a google sheet/form? with cell validation. Emma will download, average over the technical reps and make available: 3 treatments x 6 reps responses: nitrate, phosphate, bacterial counts, algal count, microplastic count, oestrogen, presence/absence of a plasmid\n\nLearning objectives\n\ndescribe some different file types\nread in data in to RStudio from excel files\nsummarise and plot datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nchose summary statistics and plots appropriate for the data types and roles\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\n\n\n\nInstructions\n\nPrepare\n\nxxxx\nxxx\n\nWorkshop\nConsolidate"
   }
 ]

@@ -4,9 +4,10 @@ title: "Independent Study - before the workshop"
 
 1.  Prepare
 
-    i.  **Either** read [First Steps in RStudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/) **OR** watch {{< video videos/Getting started with Rstudio_default.mp4
-    title="Getting started with Rstudio">}} and  {{< video videos/videos/Data Structures and functions_default.mp4
-    title="Data Structures and functions">}}
- 
+    i.  **Either** read [First Steps in RStudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/) **OR** watch
 
+![Getting started with RStudio](videos/Getting%20started%20with%20Rstudio_default.mp4)
 
+and
+
+![Data Structures and functions](videos/Data%20Structures%20and%20functions_default.mp4)

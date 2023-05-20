@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,16 +79,13 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
- <span class="menu-text">Welcome!</span></a>
+    <a class="nav-link" href="../../index.html">Welcome!</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../r4babs1/r4babs1.html" aria-current="page">
- <span class="menu-text">BABS 1</span></a>
+    <a class="nav-link active" href="../../r4babs1/r4babs1.html" aria-current="page">BABS 1</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../r4babs2/r4babs2.html">
- <span class="menu-text">BABS 2</span></a>
+    <a class="nav-link" href="../../r4babs2/r4babs2.html">BABS 2</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -195,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/workshop.qmd" class="sidebar-item-text sidebar-link">Workshop</a>
+  <a href="../../r4babs1/week-8/workshop.html" class="sidebar-item-text sidebar-link">Workshop</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -253,14 +250,20 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
 
 </header>
 
-<p>Prepare banner</p>
+<ol type="1">
+<li><p>Prepare]</p>
+<ol type="i">
+<li><p>Watch an Introduction to Data Analysis in R for BABS 1 - 4</p></li>
+<li><p>Read <a href="https://3mmarand.github.io/comp4biosci/what_they_forgot.html">What they forgot to teach you about computers</a> in <a href="https://3mmarand.github.io/comp4biosci/">Computational Analysis for Bioscientists</a></p></li>
+<li><p>Read <a href="https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio">What are R and Rstudio?</a></p></li>
+</ol></li>
+</ol>
 
 
 
@@ -306,24 +309,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -359,42 +345,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>
