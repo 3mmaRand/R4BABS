@@ -305,13 +305,13 @@
     "href": "r4babs1/week-7/study_before_workshop.html",
     "title": "Independent Study - before the workshop",
     "section": "",
-    "text": "Prepare\n\nEither read First Steps in RStudio in Computational Analysis for Bioscientists OR watch\n\n\n\n\nVideo\nGetting started with RStudio\n\n\nand\n\n\nVideo\nData Structures and functions"
+    "text": "Prepare\n\nEither read First Steps in RStudio in Computational Analysis for Bioscientists OR watch"
   },
   {
     "objectID": "r4babs1/week-7/overview.html",
     "href": "r4babs1/week-7/overview.html",
     "title": "Week 7: Introduction to R, RStudio and project organisation",
     "section": "",
-    "text": "This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.\n\nLearning objectives\n\nuse the R command line as a calculator and to assign variables\ncreate and use the basic data types in R\nfind their way around the RStudio windows\nuse an RStudio Project to organise work\nuse a script to run R commands\ncreate and customise a barplot\nsearch and understand manual pages\n\n\n\nInstructions\n\nPrepare\n\nFirst Steps in RStudio: you have the option to read the book or watch some videos\nxxx\n\nWorkshop\nConsolidate"
+    "text": "This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.\n\nLearning objectives\n\nuse the R command line as a calculator and to assign variables\ncreate and use the basic data types in R\nfind their way around the RStudio windows\nuse an RStudio Project to organise work\nuse a script to run R commands\ncreate and customise a barplot\nsearch and understand manual pages\n\n\n\nInstructions\n\nPrepare\n\nFirst Steps in RStudio: you have the option to 📖 read the book or 📹watch some videos\nxxx\n\nWorkshop\nConsolidate"
   }
 ]

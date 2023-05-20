@@ -39,6 +39,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -294,19 +296,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Either</strong> read <a href="https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html">First Steps in RStudio</a> in <a href="https://3mmarand.github.io/comp4biosci/">Computational Analysis for Bioscientists</a> <strong>OR</strong> watch</li>
 </ol></li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="videos/Getting%20started%20with%20Rstudio_default.mp4" class="img-fluid" controls=""><a href="videos/Getting started with Rstudio_default.mp4">Video</a></video></p>
-<figcaption class="figure-caption">Getting started with RStudio</figcaption>
-</figure>
-</div>
-<p>and</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="videos/Data%20Structures%20and%20functions_default.mp4" class="img-fluid" controls=""><a href="videos/Data Structures and functions_default.mp4">Video</a></video></p>
-<figcaption class="figure-caption">Data Structures and functions</figcaption>
-</figure>
-</div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/Data_Structures_and_functions.mp4"></video></div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/Getting_started_with_Rstudio.mp4"></video></div>
 
 
 
@@ -545,6 +536,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
+<script>videojs(video_shortcode_videojs_video2);</script>
 
 
 
