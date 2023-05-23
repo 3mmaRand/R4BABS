@@ -1,4 +1,6 @@
 
+TO INCLUDE: the workshop example in week 9 needs to align with the river practicals: 3 treatments 0 upstream, discharge point, downstream 6 samples from each point Several groups will work on 1 sample: these are the technical reps Class data will be analysed: students will enter data into a google sheet/form? with cell validation. Emma will download, average over the technical reps and make available: 3 treatments x 6 reps responses: nitrate, phosphate, bacterial counts, algal count, microplastic count, oestrogen, presence/absence of a plasmid
+
 ##############
 ![W](../pics/W.png)   ![](images/do_on_your_computer.png)
 

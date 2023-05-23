@@ -8,6 +8,10 @@ This week you will carry out some independent study to ensure you have some unde
 
 ### Learning objectives
 
+The parentheses after each learning objective indicate where the content covers that objective.
+
+The successful student will be able to:
+
 -   File systems
 
 -   files and directories
@@ -29,14 +33,13 @@ This week you will carry out some independent study to ensure you have some unde
     i.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
 
     ii. Read What they forgot to teach you about computers
-    
+
     iii. Read What are R and Rstudio?
 
 2.  [Workshop](workshop.qmd)
-   
-    i. Optional: Install R and RStudio
+
+    i.  Optional: Install R and RStudio
 
 3.  [Consolidate](study_after_workshop.qmd)
 
     i.  Testing your understanding of file system
-

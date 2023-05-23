@@ -1,0 +1,43 @@
+---
+title: "Independent Study - after the workshop"
+---
+
+
+### means of counts
+
+![](images/do_in_R.png) Summarise the `fly_bristles_means` dataframe by calculating the mean, median, sample size and standard deviation of `mean_count`. 
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+cells |> 
+  summarise(mean = mean(FSC),
+            meadian = median(FSC),
+            n = length(FSC),
+            standard_dev = sd(FSC))
+```
+
+![](images/do_in_R.png) Create an appropriate plot of `fly_bristles_means` dataframe by calculating the mean, median, sample size and standard deviation of `mean_count`. 
+
+
+
+formatting graphs from last week: axis, order of bars, colour of bars
+
+
+
+```{r}
+ggplot(cats, aes(x = coat, y = mass)) +
+  geom_boxplot()
+```
+
+[Changing the order of bars](r4babs1/week-7/workshop.html#changing-the-order-of-bars) from last week.
+
+```{r}
+ggplot(cats, aes(x = reorder(coat, mass), y = mass)) +
+  geom_boxplot()
+```
+
+
+## the pipe: more on understanding it
+barplot with the pipe when to use it or not in plotting

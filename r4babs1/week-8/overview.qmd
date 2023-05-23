@@ -2,31 +2,25 @@
 title: "Week 8: Types of variable, the normal distribution and summarising data"
 ---
 
-The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we would summarise and visualise them. You will also learn about the "normal distribution" which is the most important continuous distribution. Finally you will discover how to save your figures and place them in word documents.
+The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. You will also learn about the "normal distribution" which is the most important continuous distribution. 
 
 ### Learning objectives
 
--   distinguish between data types
+The successful student will be able to:
 
--   normal distribution stuff
+-   distinguish between continuous, discrete, nominal and ordinal variable
 
--   read in data in to RStudio from a plain text file
+-   read in data in to RStudio from a plain text file and Excel files
 
--   summarise and plot single-variable datasets
-
--   chose summary statistics and plots appropriate for the data type
-
--   save figures to file
-
--   create neat reports in Word which include text and figures
+-   summarise and plot variables appropriately for the data type
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  xxxx
+    i.  📖 Read: Ideas about data
 
-    ii. xxx
+    ii. 📖 Read: Working with data in RStudio
 
 2.  [Workshop](workshop.qmd)
 
