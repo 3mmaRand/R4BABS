@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -108,7 +108,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -118,7 +119,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -265,7 +266,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/study_before_workshop.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs1/week-8/study_before_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
@@ -277,7 +278,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/study_after_workshop.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs1/week-8/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -320,10 +321,46 @@ div.csl-indent {
   </li>
     </ul>
     </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#session-overview" id="toc-session-overview" class="nav-link" data-scroll-target="#session-overview">Session overview</a></li>
+  <li><a href="#philosophy" id="toc-philosophy" class="nav-link" data-scroll-target="#philosophy">Philosophy</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#coat-colour-of-cats" id="toc-coat-colour-of-cats" class="nav-link" data-scroll-target="#coat-colour-of-cats">🐈 Coat colour of cats</a>
+  <ul class="collapse">
+  <li><a href="#the-goal" id="toc-the-goal" class="nav-link" data-scroll-target="#the-goal">The goal</a></li>
+  </ul></li>
+  <li><a href="#creating-the-data" id="toc-creating-the-data" class="nav-link" data-scroll-target="#creating-the-data">Creating the data</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#plotting-the-data-with-ggplot" id="toc-plotting-the-data-with-ggplot" class="nav-link" data-scroll-target="#plotting-the-data-with-ggplot">Plotting the data with <code>ggplot()</code></a></li>
+  <li><a href="#a-barplot" id="toc-a-barplot" class="nav-link" data-scroll-target="#a-barplot">A barplot</a></li>
+  <li><a href="#using-the-help-manual" id="toc-using-the-help-manual" class="nav-link" data-scroll-target="#using-the-help-manual">Using the help manual</a></li>
+  <li><a href="#customising-the-plot" id="toc-customising-the-plot" class="nav-link" data-scroll-target="#customising-the-plot">Customising the plot</a>
+  <ul class="collapse">
+  <li><a href="#bar-colour" id="toc-bar-colour" class="nav-link" data-scroll-target="#bar-colour">Bar colour</a></li>
+  <li><a href="#changing-the-axes" id="toc-changing-the-axes" class="nav-link" data-scroll-target="#changing-the-axes">Changing the axes</a></li>
+  <li><a href="#getting-rid-of-the-grey-background" id="toc-getting-rid-of-the-grey-background" class="nav-link" data-scroll-target="#getting-rid-of-the-grey-background">Getting rid of the grey background</a></li>
+  <li><a href="#changing-the-order-of-bars" id="toc-changing-the-order-of-bars" class="nav-link" data-scroll-target="#changing-the-order-of-bars">Changing the order of bars</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
+  <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
+  <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -479,7 +516,7 @@ Key
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p>Commands like <code>c()</code>, <code>sum()</code>, and <code>str()</code> are in packages which are part the ‘base’ R system. A package is a collection of related commands. Base packages are installed automatically when you install R.</p>
-<p>Other packages, such as <code>ggplot2</code> <span class="citation" data-cites="ggplot2">Wickham (<a href="#ref-ggplot2" role="doc-biblioref">2016</a>)</span> need to be installed once and then loaded each session. <code>ggplot2</code> is one of the <code>tidyverse</code> <span class="citation" data-cites="tidyverse">Wickham et al. (<a href="#ref-tidyverse" role="doc-biblioref">2019</a>)</span> packages.</p>
+<p>Other packages, such as <strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">Wickham (<a href="#ref-ggplot2" role="doc-biblioref">2016</a>)</span> need to be installed once and then loaded each session. <strong><code>ggplot2</code></strong> is one of the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">Wickham et al. (<a href="#ref-tidyverse" role="doc-biblioref">2019</a>)</span> packages.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -490,15 +527,15 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are working on a University computer (or the VDS) you <em>do not</em> need to install <code>tidyverse</code>.</p>
-<p>If you are working on your own computer or using RStudio cloud you <em>do</em> need to install <code>tidyverse</code>.</p>
+<p>If you are working on a University computer (or the VDS) you <em>do not</em> need to install <strong><code>tidyverse</code></strong>.</p>
+<p>If you are working on your own computer or using RStudio cloud you <em>do</em> need to install <strong><code>tidyverse</code></strong>.</p>
 </div>
 </div>
 <p>To install a package:</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Go the Packages tab on the lower right pane. Click Install and type <code>tidyverse</code> into the box that appears.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Go the Packages tab on the lower right pane. Click Install and type <strong><code>tidyverse</code></strong> into the box that appears.</p>
 <p>Wait until you get the prompt back. It will take a few moments, be patient!</p>
 <p>To use a package which is installed you have to load it with the <code>library()</code> function. You will need to do this whether you are working on your own computer or on a University computer</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Load the <code>tidyverse</code>:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Load the <strong><code>tidyverse</code></strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -568,6 +605,8 @@ Important
 </section>
 <section id="customising-the-plot" class="level2">
 <h2 class="anchored" data-anchor-id="customising-the-plot">Customising the plot</h2>
+<section id="bar-colour" class="level3">
+<h3 class="anchored" data-anchor-id="bar-colour">Bar colour</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Change the fill of the bars using <code>fill</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> coat_data, <span class="fu">aes</span>(<span class="at">x =</span> coat, <span class="at">y =</span> freq)) <span class="sc">+</span></span>
@@ -607,6 +646,9 @@ Important
 <p><img src="workshop_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="changing-the-axes" class="level3">
+<h3 class="anchored" data-anchor-id="changing-the-axes">Changing the axes</h3>
 <p>We can make changes to the axes using:</p>
 <ul>
 <li>Changes to a discrete x axis: <code>scale_x_discrete()</code></li>
@@ -664,6 +706,9 @@ Top Tip
 <p><img src="workshop_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="getting-rid-of-the-grey-background" class="level3">
+<h3 class="anchored" data-anchor-id="getting-rid-of-the-grey-background">Getting rid of the grey background</h3>
 <p>The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the “theme” of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> but there are some handy built in themes that apply several changes at once. One of these is <code>theme_classic()</code></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add <code>theme_classic()</code> to the plot:</p>
 <div class="cell">
@@ -681,6 +726,9 @@ Top Tip
 <p><img src="workshop_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="changing-the-order-of-bars" class="level3">
+<h3 class="anchored" data-anchor-id="changing-the-order-of-bars">Changing the order of bars</h3>
 <p>The default ordering of a categorical variable like <code>coat</code> is alphabetical. Often we want to change the order. For example, you might want a “Control” on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (<code>mutate</code>) the <code>coat</code> variable using <code>fct_relevel()</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make “white” the first category:</p>
 <div class="cell">
@@ -730,6 +778,7 @@ The pipe <code>|&gt;</code>
 <p>You’re finished!</p>
 </section>
 </section>
+</section>
 <section id="well-done" class="level1">
 <h1>🥳 Well Done! 🎉</h1>
 <p><img src="images/r_first_then.png" class="img-fluid" alt="At the top: fluffy character under a dark cloud waving a white flag at an angry. At the bottom: The fluffy character and the R smiling and dancing together in the sunshine" width="1000"></p>
@@ -741,7 +790,7 @@ The pipe <code>|&gt;</code>
 <section id="the-code-file" class="level1">
 <h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <a href="../../r4babs1/week-7/workshop.html">.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd">View in Browser</a>.</p>
+<p>The <a href="../../r4babs1/week-7/workshop.html">.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd">View in Browser</a>.Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---CODING ANSWER---</code></p>
 <p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span></p>
 </section>
 <section id="references" class="level1">
