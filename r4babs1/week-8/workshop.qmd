@@ -227,11 +227,11 @@ cats |>
 
 `|>` is the pipe and can be produced with Ctrl+Shift+M
 
-This sort of data might be represented with a barchart. You have two options for producing that barchart: 1. plot the summary table using `geom_col()`
+This sort of data might be represented with a barchart. You have two options for producing that barchart: 
+
+1. plot the summary table using `geom_col()`
 
 2.  plot the raw data using `geom_bar()`
-
-colour of cats dplyr table bar chart
 
 We did the first of these [last week](r4babs1/week-7/workshop.html#plotting-the-data-with-ggplot). The `geom_col()` function uses the numbers in a second column to determine how high the bars are. However, the `geom_bar()` function will do the tabulating for you.
 
@@ -297,7 +297,51 @@ If counts have a a high mean and big range, like number of hairs on a person's h
 
 ### Cat mass
 
-cat mass - a a single variable histogram - effect of changing bins dplyr table mean, median,
+The variable `mass` in the `cats` dataframe is continuous. Very many continuous variables have a normal distribution. e normal distribution is also known as the bell-shaped curve. If we had the mass of all the cats in the world, we would find many cats were near the mean and fewer would be away from the mean, either much lighter or much heavier. In fact 68% would be within one standard deviation of the mean and about 96% would be within two standard deviations.
+
+```{r}
+#| echo: false
+mean <- mean(cats$mass)
+sd <-  sd(cats$mass)
+
+ggplot(data = data.frame(x = c(0, 9)), aes(x)) +
+  stat_function(fun = dnorm, n = 101, args = list(mean, sd)) + 
+  scale_y_continuous(breaks = NULL, 
+                     expand = c(0, 0), 
+                     name = "") +
+  scale_x_continuous(name = "Mass (kg)", 
+                     expand = c(0, 0)) +
+  geom_vline(xintercept = mean, size = 2) +
+  geom_vline(xintercept = mean - sd, 
+             colour = "darkcyan", size = 1) +
+  geom_vline(xintercept = mean + sd, 
+             colour = "darkcyan", size = 1) +
+  geom_label(x = mean, y = 0.25, 
+             label = "68%", 
+             colour = "darkcyan", 
+             size = 10, 
+             label.padding = unit(0.5, "lines")) +
+  geom_segment(aes(x = mean - sd, y = 0.225, xend =  mean + sd, yend = 0.225),
+               arrow = arrow(length = unit(0.5, "cm"), ends = "both"),
+               colour = "darkcyan", 
+               size = 1) +
+  geom_vline(xintercept = mean - 2 * sd, 
+             colour = "mediumpurple3", size = 1) +
+  geom_vline(xintercept = mean + 2 * sd, 
+             colour = "mediumpurple3", size = 1) +
+  geom_label(x = mean, y = 0.15, 
+             label = "96%", 
+             colour = "mediumpurple3", 
+             size = 10, 
+             label.padding = unit(0.5, "lines"),) +
+  geom_segment(aes(x = mean -  2 * sd, y = 0.125, xend =  mean + 2 * sd, yend = 0.125),
+               arrow = arrow(length = unit(0.5, "cm"), ends = "both"),
+               colour = "mediumpurple3", 
+               size = 1) +
+  theme_classic()
+
+```
+
 
 ![](images/do_in_R.png) We can find the mean mass with:
 ```{r}
@@ -371,7 +415,7 @@ You can read this as:
 #---CODING ANSWER---
 cells |> 
   summarise(mean = mean(FSC),
-            meadian = median(FSC),
+            median = median(FSC),
             n = length(FSC),
             standard_dev = sd(FSC))
 ```
