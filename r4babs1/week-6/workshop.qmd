@@ -1,7 +1,7 @@
 ---
 title: "Workshop"
 toc: true
-toc-location: left
+toc-location: right
 ---
 
 There is no formal workshop this week but yu might want to install R and RStudio on your own machine. This is optional because University computers already have R and RStudio installed.
