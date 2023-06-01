@@ -1,22 +1,27 @@
 ---
 title: "Independent Study - after the workshop"
-execute: 
-  echo: false
-  include: false
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
 ---
 
-### Means of counts
+# Set up
+
+If you have just opened RStudio you will want to load the packages and import the data.
 
 ```{r}
-# set up
-# pkgs
+#| code-fold: false
 library(tidyverse)
 library(readxl)
+```
 
-# import files used in the homework
+```{r}
+#| code-fold: false
 fly_bristles_means <- read_excel("data-raw/bristles-mean.xlsx")
 cats <- read_csv("data-raw/cat-coats.csv")
 ```
+
+# Exercises
 
 1.  💻 Summarise the `fly_bristles_means` dataframe by calculating the mean, median, sample size, standard deviation and standard error of the `mean_count` variable.
 
@@ -39,7 +44,8 @@ ggplot(fly_bristles_means, aes(x = mean_count)) +
   geom_histogram(bins = 10)
 ```
 
-3.  💻 Can you format the plot 2. by removing the grey background, giving the bars a black outline and the fill colour of your choice and improving the axis format and labelling? You may want to refer to [last week's workshop](r4babs1/week-7/workshop.html).
+3.  💻 Can you format the plot 2. by removing the grey background, giving the bars a black outline and the fill colour of your choice and improving the axis format and labelling? You may want to refer to [last week's workshop](../week-7/workshop.html).
+
 
 ```{r}
 #| code-fold: true
@@ -56,7 +62,7 @@ ggplot(fly_bristles_means, aes(x = mean_count)) +
   theme_classic()
 ```
 
-4.  💻 Amend this code to change the order of the bars by the average mass of each coat colour? [Changing the order of bars](r4babs1/week-7/workshop.html#changing-the-order-of-bars) was covered last week. You may also want to practice formatting the graph nicely.
+4.  💻 Amend this code to change the order of the bars by the average mass of each coat colour? [Changing the order of bars](../week-7/workshop.html#changing-the-order-of-bars) was covered last week. You may also want to practice formatting the graph nicely.
 
 ```{r}
 #| echo: true

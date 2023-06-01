@@ -5,7 +5,7 @@ title: "Week 9: Summarising data in with several variables and the role of varia
 Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by "tidy" data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.
 
 
-TO INCLUDE: the workshop example needs to align with the river practicals: 3 treatments 0 upstream, discharge point, downstream 6 samples from each point Several groups will work on 1 sample: these are the technical reps Class data will be analysed: students will enter data into a google sheet/form? with cell validation. Emma will download, average over the technical reps and make available: 3 treatments x 6 reps responses: nitrate, phosphate, bacterial counts, algal count, microplastic count, oestrogen, presence/absence of a plasmid
+
 
 ### Learning objectives
 

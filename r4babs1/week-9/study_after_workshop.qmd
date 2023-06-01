@@ -1,0 +1,55 @@
+---
+title: "Independent Study - after the workshop"
+execute: 
+  echo: false
+  include: false
+---
+
+### Blood data set
+
+```{r}
+# set up
+# pkgs
+library(tidyverse)
+library(readxl)
+
+```
+
+1.  💻 Summarise the `fly_bristles_means` dataframe by calculating the mean, median, sample size, standard deviation and standard error of the `mean_count` variable.
+
+```{r}
+#| code-fold: true
+fly_bristles_means |> 
+  summarise(mean = mean(mean_count),
+            median = median(mean_count),
+            n = length(mean_count),
+            standard_dev = sd(mean_count),
+            standard_error = standard_dev / sqrt(n))
+```
+
+2.  💻 Create an appropriate plot to show the distribution of `mean_count` in `fly_bristles_means`
+
+```{r}
+#| code-fold: true
+
+ggplot(fly_bristles_means, aes(x = mean_count)) +
+  geom_histogram(bins = 10)
+```
+
+3.  💻 Can you format the plot 2. by removing the grey background, giving the bars a black outline and the fill colour of your choice and improving the axis format and labelling? You may want to refer to [last week's workshop](r4babs1/week-7/workshop.html).
+
+```{r}
+#| code-fold: true
+
+ggplot(fly_bristles_means, aes(x = mean_count)) +
+  geom_histogram(bins = 10, 
+                 colour = "black",
+                 fill = "skyblue") +
+  scale_x_continuous(name = "Number of bristles",
+                     expand = c(0, 0)) +
+  scale_y_continuous(name = "Frequency",
+                     expand = c(0, 0),
+                     limits = c(0, 35)) +
+  theme_classic()
+```
+

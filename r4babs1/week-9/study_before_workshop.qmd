@@ -1,0 +1,10 @@
+---
+title: "Independent Study - before the workshop"
+---
+
+1.  Prepare
+
+    i.  📖 Read [Ideas about data](https://3mmarand.github.io/comp4biosci/ideas_about_data.html)
+    ii.  📖 Read [Working with data in RStudio](https://3mmarand.github.io/comp4biosci/working_with_data_rstudio.html)
+
+

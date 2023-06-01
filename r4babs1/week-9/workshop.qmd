@@ -1,0 +1,306 @@
+---
+title: "Summarising data in with several variables and the role of variables in analysis"
+toc: true
+toc-location: right
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(kableExtra)
+```
+
+# Introduction
+
+
+
+## Session overview
+
+In this workshop you will learn summarise and plot datasets with more than one variable. You will also get more practice with working directories, importing data, formatting figures and the pipe.
+
+## Philosophy
+
+Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
+
+-   don't worry about making mistakes
+-   don't let what you can not do interfere with what you can do
+-   discussing code with your neighbours will help
+-   look things up in the independent study material
+-   look things up in your own code from earlier workshops
+-   there are no stupid questions
+
+::: callout-note
+## Key
+
+These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+
+![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
+
+![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+
+![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
+
+![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+:::
+
+# Getting started
+
+![](images/do_on_your_computer.png) Start RStudio from the Start menu.
+
+![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Name the RStudio Project 'week-9'.
+
+![](images/do_in_R.png) Make a new folder called `data-raw`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+
+![](images/do_in_R.png) Make a new script then save it with a name like `analysis.R` to carry out the rest of the work.
+
+![](images/do_in_R.png) Add a comment to the script: `# Summarising data in with several variables and the role of variables in analysis`
+
+![](images/do_in_R.png) Add code to load the **`tidyverse`** package
+
+# Exercises
+
+## Adiponectin secretion
+
+Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in [adipocytes.txt](data-raw/adipocytes.txt). Each row represents an independent sample of adipocytes and the first column gives the concentration of adiponectin and the second column indicates whether they were treated with nicotinic acid or not.
+
+### Import
+
+![](images/do_on_your_computer.png) Save [adipocytes.txt](data-raw/adipocytes.txt) to your `data-raw` folder
+
+![](images/do_in_R.png) Read the data into a dataframe called `adipocytes`.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+adipocytes <- read_table("data-raw/adipocytes.txt")
+```
+![](images/answer.png) What types of variables do you have in the `adipocytes` dataframe? What role would you expect them to play in analysis?
+
+<!-- #---THINKING ANSWER--- -->
+<!-- there are two variables: `adiponectin` is the response and is continuous -->
+<!-- and `treatment` is explanatory. `treatment` is categorical with two  -->
+<!-- levels (groups). -->
+
+### Summarise
+
+Summarising the data for each treatment group is the next sensible step. The most useful summary statistics for a continuous variable like `adiponectin` are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the `group_by()` and `summarise()` functions along with the functions that do the calculations.
+
+![](images/do_in_R.png) Create a data frame called `adip_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. 
+
+```{r}
+adip_summary <- adipocytes %>%
+  group_by(treatment) %>%
+  summarise(mean = mean(adiponectin),
+            std = sd(adiponectin),
+            n = length(adiponectin),
+            se = std/sqrt(n))
+
+```
+You should get the following numbers:
+
+```{r echo=FALSE}
+knitr::kable(adip_summary) %>% kableExtra::kable_styling()
+```
+
+### Visualise
+
+Most commonly, we put the explanatory variable on the *x* axis and the response variable on the *y* axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.
+
+We are going to create a figure like this:
+
+```{r}
+#| echo: false
+
+ggplot() +
+  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Adiponectin (pg/mL)", 
+                     limits = c(0, 12), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(name = "Treatment", 
+                   labels = c("Control", "Nicotinic acid")) +
+  theme_classic()
+
+```
+
+In this figure, we have the data points themselves which are in `adipocytes` dataframe and the means and standard errors which are in the `adip_summary` dataframe. That is, we have two dataframes we want to plot.
+
+Here you will learn that dataframes and aesthetics can be specified within a `geom_...` (rather than in the `ggplot()`). This is very useful if the geom only applies to some of the data you want to plot.
+
+I will build the plot up in small steps you should edit your existing `ggplot()` command as we go.
+
+
+![](images/do_in_R.png) Plot the data points first.
+```{r}
+#| code-line-numbers: "|2,3"
+ggplot() +
+  geom_point(data = adipocytes, 
+             aes(x = treatment, y = adiponectin))
+```
+
+Notice how we have given the data argument and the aesthetics inside the geom. The variables `treatment` and `adiponectin` are in the `adipocytes` dataframe
+
+![](images/do_in_R.png) So the data points don't overlap, we can add some random jitter in the *x* direction:
+
+```{r}
+#| code-line-numbers: "|4"
+ggplot() +
+  geom_point(data = adipocytes, 
+             aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0))
+```
+
+Note that `position = position_jitter(width = 0.1, height = 0)` is inside the `geom_point()` parentheses, after the `aes()` and a comma.
+
+We've set the vertical jitter to 0 because, in contrast to the categorical *x*-axis,  movement on the *y*-axis has meaning (the adiponectin levels). 
+
+
+![](images/do_in_R.png) Let's make the points a light grey:
+
+```{r}
+#| code-line-numbers: "|5"
+ggplot() +
+  geom_point(data = adipocytes, 
+             aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50")
+```
+
+Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.
+
+![](images/do_in_R.png) Add a `geom_errorbar()` for errorbars:
+
+```{r}
+ggplot() +
+  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean - se, ymax = mean + se),
+                width = 0.3) 
+  
+```
+
+We have specified the `adip_summary` dataframe and the variables `treatment`, `mean` and `se` are in that.
+
+There are several ways you could add the mean. You could use `geom_point()` but I like to use `geom_errorbar()` again with the `ymin` and `ymax` both set to the mean.
+
+![](images/do_in_R.png) Add a `geom_errorbar()` for the mean:
+
+```{r}
+ggplot() +
+  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean, ymax = mean),
+                width = 0.2)
+  
+```
+
+![](images/do_in_R.png) Alter the axis labels and limits:
+
+```{r}
+ggplot() +
+  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Adiponectin (pg/mL)", 
+                     limits = c(0, 12), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(name = "Treatment", 
+                   labels = c("Control", "Nicotinic acid"))
+  
+```
+
+![](images/do_in_R.png) Format the figure in a way that is more suitable for including in a report:
+
+```{r}
+ggplot() +
+  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Adiponectin (pg/mL)", 
+                     limits = c(0, 12), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(name = "Treatment", 
+                   labels = c("Control", "Nicotinic acid")) +
+  theme_classic()
+```  
+
+
+
+## xxx
+
+data set with three groups seals
+
+## xxx
+
+data set with two groups but need pivoting biomass
+
+## xxx
+
+data set with two explanatory periwinkles
+
+---
+
+We did the first of these [last week](r4babs1/week-7/workshop.html#plotting-the-data-with-ggplot). The `geom_col()` function uses the numbers in a second column to determine how high the bars are. However, the `geom_bar()` function will do the tabulating for you.
+
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+fly_bristles |> 
+  group_by(number) |> 
+  count()
+```
+
+
+
+## Look after future you!
+
+Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more.
+
+You're finished!
+
+# 🥳 Well Done! 🎉
+
+![ggplot2 Artwork by Allison Horst](images/ggplot2_masterpiece.png){fig-alt="No information, just for colour. It shows some cute artist characters creating graphs. They ahve boxes of tools labelled geoms and themes. One the wall it says ggplot2: Build a data masterpiece."}
+
+# Independent study following the workshop
+
+[Consolidate](study_after_workshop.qmd)
+
+# The Code file
+
+These contain all the code needed in the workshop even where it is not visible on the webpage.
+
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-9/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---CODING ANSWER---`
+
+Pages made with Quarto [@allaire2022]
+
+# References
