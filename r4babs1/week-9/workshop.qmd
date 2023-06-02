@@ -274,9 +274,7 @@ We did the first of these [last week](r4babs1/week-7/workshop.html#plotting-the-
 #| include: false
 
 #---CODING ANSWER---
-fly_bristles |> 
-  group_by(number) |> 
-  count()
+
 ```
 
 
