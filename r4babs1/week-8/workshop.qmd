@@ -227,9 +227,9 @@ cats |>
 
 `|>` is the pipe and can be produced with Ctrl+Shift+M
 
-This sort of data might be represented with a barchart. You have two options for producing that barchart: 
+This sort of data might be represented with a barchart. You have two options for producing that barchart:
 
-1. plot the summary table using `geom_col()`
+1.  plot the summary table using `geom_col()`
 
 2.  plot the raw data using `geom_bar()`
 
@@ -269,7 +269,7 @@ fly_bristles |>
             IQR(number))
 ```
 
-As the interquartile is `IQR(fly_bristles$number)` and the median is `median(fly_bristles$number)` then 25% flies have `median(fly_bristles$number) - IQR(fly_bristles$number)/2` bristles or fewer and 25% have `median(fly_bristles$number) + IQR(fly_bristles$number)/2` or more.
+As the interquartile is `r IQR(fly_bristles$number)` and the median is `r median(fly_bristles$number)` then 25% flies have `r median(fly_bristles$number) - IQR(fly_bristles$number)/2` bristles or fewer and 25% have `r median(fly_bristles$number) + IQR(fly_bristles$number)/2` or more.
 
 The distribution of counts\[\^4\] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. \[\^4\]: Count data are usually "Poisson" distributed.
 
@@ -342,8 +342,8 @@ ggplot(data = data.frame(x = c(0, 9)), aes(x)) +
 
 ```
 
-
 ![](images/do_in_R.png) We can find the mean mass with:
+
 ```{r}
 cats |> 
   summarise(mean = mean(mass))
@@ -352,6 +352,7 @@ cats |>
 We can add any sort of summary by placing it inside the the summarise parentheses. Each one is separated by a comma. We did this to find the median and the interquatrile range for fly bristles.
 
 ![](images/do_in_R.png) For example, another way to calculate the number of values is to use the `length()` function:
+
 ```{r}
 cats |> 
   summarise(mean = mean(mass),
@@ -373,6 +374,7 @@ cats |>
 A single continuous variable can be plotted using a histogram to show the shape of the distribution.
 
 ![](images/do_in_R.png) Plots a histogram of cats mass:
+
 ```{r}
 ggplot(cats, aes(x = mass)) +
   geom_histogram(bins = 10, colour = "black")
@@ -380,10 +382,10 @@ ggplot(cats, aes(x = mass)) +
 
 Notice that there are no gaps between the bars which reflects that `mass` is continuous. `bins` determines how many groups the variable is divided up into (i.e., the number of bars) and `colour` sets the colour for the outline of the bars. A sample of 62 is a relatively small number of values for plotting a distribution and the number of bins used determines how smooth or normally distributed the values look.
 
-![](images/do_in_R.png) Experiment with the number of bins. Does the number of bins affect how you view the distribution. 
+![](images/do_in_R.png) Experiment with the number of bins. Does the number of bins affect how you view the distribution.
 
-Next week we will practice summarise and plotting data files with several variables but just to give you a taste, we will find summary statistics about mass for each of the coat types.
-![](images/do_in_R.png) The `group_by()` function is used before the summarise() to do calculations for each of the coats:
+Next week we will practice summarise and plotting data files with several variables but just to give you a taste, we will find summary statistics about mass for each of the coat types. ![](images/do_in_R.png) The `group_by()` function is used before the summarise() to do calculations for each of the coats:
+
 ```{r}
 cats |> 
   group_by(coat) |> 
@@ -393,21 +395,19 @@ cats |>
 
 You can read this as:
 
-  > take cats *and then*
-  > group by coat *and then*
-  > summarise by finding the mean of mass and the standard deviation of mass
-
+> take cats *and then* group by coat *and then* summarise by finding the mean of mass and the standard deviation of mass
 
 ![](images/answer.png) Why do we get an `NA` for the standard deviation of the calico cats?
 
 <!-- #---THINKING ANSWER--- -->
 
 <!-- Because there is only one calico cat. The mean of a single value is that  -->
+
 <!-- value but there can be no average by which the values deviation from the mean. -->
 
 ### Cells
 
-![](images/do_in_R.png) Summarise the `cells` dataframe by calculating the mean, median, sample size and standard deviation of `FSC`. 
+![](images/do_in_R.png) Summarise the `cells` dataframe by calculating the mean, median, sample size and standard deviation of `FSC`.
 
 ```{r}
 #| include: false
@@ -436,10 +436,9 @@ cells |>
 
 ### Means of counts
 
-Many things are quite difficult to measure or count and in these cases we often do **technical replicates**. A technical replicate allows us the measure the exact same thing to check how variable the measurement process is. For example, *Drosophila* are small and counting their sternopleural bristles is tricky. In addition, where a bristle is short (young) or broken scientists might vary in whether they count it. Or people or machines might vary in measuring the concentration of the same solution. 
+Many things are quite difficult to measure or count and in these cases we often do **technical replicates**. A technical replicate allows us the measure the exact same thing to check how variable the measurement process is. For example, *Drosophila* are small and counting their sternopleural bristles is tricky. In addition, where a bristle is short (young) or broken scientists might vary in whether they count it. Or people or machines might vary in measuring the concentration of the same solution.
 
-When we do technical replicates we calculate their mean and use that as the measure. This is what is in our `fly_bristles_means` dataframe - the bristles of each of the 96 flies was counted by 5 people and the data are those means. These has an impact on how we plot and summarise the dataset because the distribution of mean counts is continuous! We can use means, standard deviations and histograms. This will be an exercise in [Consolidate](study_after_workshop.qmd). 
-
+When we do technical replicates we calculate their mean and use that as the measure. This is what is in our `fly_bristles_means` dataframe - the bristles of each of the 96 flies was counted by 5 people and the data are those means. These has an impact on how we plot and summarise the dataset because the distribution of mean counts is continuous! We can use means, standard deviations and histograms. This will be an exercise in [Consolidate](study_after_workshop.qmd).
 
 ## Look after future you!
 
