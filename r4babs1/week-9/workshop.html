@@ -343,11 +343,19 @@ div.csl-indent {
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
   <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise">Summarise</a></li>
   <li><a href="#visualise" id="toc-visualise" class="nav-link" data-scroll-target="#visualise">Visualise</a></li>
+  <li><a href="#writing-figures-to-file" id="toc-writing-figures-to-file" class="nav-link" data-scroll-target="#writing-figures-to-file">Writing figures to file</a></li>
   </ul></li>
-  <li><a href="#xxx" id="toc-xxx" class="nav-link" data-scroll-target="#xxx">xxx</a></li>
-  <li><a href="#xxx-1" id="toc-xxx-1" class="nav-link" data-scroll-target="#xxx-1">xxx</a></li>
-  <li><a href="#xxx-2" id="toc-xxx-2" class="nav-link" data-scroll-target="#xxx-2">xxx</a></li>
-  <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
+  <li><a href="#myoglobin-in-seal-muscle" id="toc-myoglobin-in-seal-muscle" class="nav-link" data-scroll-target="#myoglobin-in-seal-muscle">Myoglobin in seal muscle</a>
+  <ul class="collapse">
+  <li><a href="#import-1" id="toc-import-1" class="nav-link" data-scroll-target="#import-1">Import</a></li>
+  <li><a href="#summarise-1" id="toc-summarise-1" class="nav-link" data-scroll-target="#summarise-1">Summarise</a></li>
+  <li><a href="#visualise-1" id="toc-visualise-1" class="nav-link" data-scroll-target="#visualise-1">Visualise</a></li>
+  </ul></li>
+  <li><a href="#pigeons" id="toc-pigeons" class="nav-link" data-scroll-target="#pigeons">Pigeons</a>
+  <ul class="collapse">
+  <li><a href="#tidying-data" id="toc-tidying-data" class="nav-link" data-scroll-target="#tidying-data">Tidying data</a></li>
+  </ul></li>
+  <li><a href="#organising-figures-in-reports" id="toc-organising-figures-in-reports" class="nav-link" data-scroll-target="#organising-figures-in-reports">Organising figures in reports</a></li>
   </ul></li>
   <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
@@ -378,6 +386,12 @@ div.csl-indent {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ggplot2_masterpiece.png" class="img-fluid figure-img" alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."></p>
+<figcaption class="figure-caption">Data data Artwork from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst</figcaption>
+</figure>
+</div>
 <section id="session-overview" class="level2">
 <h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
 <p>In this workshop you will learn summarise and plot datasets with more than one variable. You will also get more practice with working directories, importing data, formatting figures and the pipe.</p>
@@ -419,17 +433,23 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>data-raw</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>analysis.R</code> to carry out the rest of the work.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Summarising data in with several variables and the role of variables in analysis</code></p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add code to load the <strong><code>tidyverse</code></strong> package</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add code to load the <strong><code>tidyverse</code></strong> package <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span></p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
+<p>You are going to learn how to summarise and plot data as follows:</p>
+<ul>
+<li>one continuous response and one nominal explanatory variable with two groups</li>
+<li>one continuous response and one nominal explanatory variable with three groups</li>
+<li>one continuous response and one nominal explanatory variable with two groups but the supplied data first need converting to tidy format</li>
+</ul>
 <section id="adiponectin-secretion" class="level2">
 <h2 class="anchored" data-anchor-id="adiponectin-secretion">Adiponectin secretion</h2>
 <p>Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in <a href="data-raw/adipocytes.txt">adipocytes.txt</a>. Each row represents an independent sample of adipocytes and the first column gives the concentration of adiponectin and the second column indicates whether they were treated with nicotinic acid or not.</p>
 <section id="import" class="level3">
 <h3 class="anchored" data-anchor-id="import">Import</h3>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/adipocytes.txt">adipocytes.txt</a> to your <code>data-raw</code> folder</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>adipocytes</code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>adipocytes</code>. You might want to look up <a href="../week-8/workshop.html#importing-data-from-files">data import from last week</a>.</p>
 <p><img src="images/answer.png" class="img-fluid"> What types of variables do you have in the <code>adipocytes</code> dataframe? What role would you expect them to play in analysis?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- there are two variables: `adiponectin` is the response and is continuous -->
@@ -493,43 +513,56 @@ Key
 </div>
 </div>
 <p>In this figure, we have the data points themselves which are in <code>adipocytes</code> dataframe and the means and standard errors which are in the <code>adip_summary</code> dataframe. That is, we have two dataframes we want to plot.</p>
-<p>Here you will learn that dataframes and aesthetics can be specified within a <code>geom_...</code> (rather than in the <code>ggplot()</code>). This is very useful if the geom only applies to some of the data you want to plot.</p>
-<p>I will build the plot up in small steps you should edit your existing <code>ggplot()</code> command as we go.</p>
+<p>Here you will learn that dataframes and aesthetics can be specified <em>within a <code>geom_xxxx</code></em> (rather than in the <code>ggplot()</code>). This is very useful if the geom only applies to some of the data you want to plot.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip: <code>ggplot()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You put the <code>data</code> argument and <code>aes()</code> inside <code>ggplot()</code> if you want all the <code>geoms</code> to use that dataframe and variables. If you want a different dataframe for a <code>geom</code>, put the <code>data</code> argument and <code>aes()</code> inside the <code>geom_xxxx()</code></p>
+</div>
+</div>
+<p>I will build the plot up in small steps you should edit your <em>existing</em> <code>ggplot()</code> command as we go.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot the data points first.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
-<span id="cb2-3"><a href="#cb2-3"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Notice how we have given the data argument and the aesthetics inside the geom. The variables <code>treatment</code> and <code>adiponectin</code> are in the <code>adipocytes</code> dataframe</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> So the data points don’t overlap, we can add some random jitter in the <em>x</em> direction:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> So the data points don’t overlap, we can add some random jitter in the <em>x</em> direction (edit your existing code):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
-<span id="cb3-3"><a href="#cb3-3"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb3-4"><a href="#cb3-4"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Note that <code>position = position_jitter(width = 0.1, height = 0)</code> is inside the <code>geom_point()</code> parentheses, after the <code>aes()</code> and a comma.</p>
 <p>We’ve set the vertical jitter to 0 because, in contrast to the categorical <em>x</em>-axis, movement on the <em>y</em>-axis has meaning (the adiponectin levels).</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Let’s make the points a light grey:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Let’s make the points a light grey (edit your existing code):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
-<span id="cb4-3"><a href="#cb4-3"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb4-4"><a href="#cb4-4"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
-<span id="cb4-5"><a href="#cb4-5"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for errorbars:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for errorbars (edit your existing code):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
@@ -544,7 +577,7 @@ Key
 </div>
 <p>We have specified the <code>adip_summary</code> dataframe and the variables <code>treatment</code>, <code>mean</code> and <code>se</code> are in that.</p>
 <p>There are several ways you could add the mean. You could use <code>geom_point()</code> but I like to use <code>geom_errorbar()</code> again with the <code>ymin</code> and <code>ymax</code> both set to the mean.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for the mean:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for the mean (edit your existing code):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
@@ -560,7 +593,7 @@ Key
 <p><img src="workshop_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> Alter the axis labels and limits:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Alter the axis labels and limits using <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> (edit your existing code):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
@@ -581,7 +614,8 @@ Key
 <p><img src="workshop_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> Format the figure in a way that is more suitable for including in a report:</p>
+<p>You only need to use <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Format the figure in a way that is more suitable for including in a report using <code>theme_classic()</code> (edit your existing code):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
@@ -604,24 +638,691 @@ Key
 </div>
 </div>
 </section>
+<section id="writing-figures-to-file" class="level3">
+<h3 class="anchored" data-anchor-id="writing-figures-to-file">Writing figures to file</h3>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>figures</code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Edit you ggplot code so that you assign the figure to a variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>adipfig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Adiponectin (pg/mL)"</span>, </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Treatment"</span>, </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Nicotinic acid"</span>)) <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The figure won’t be shown in the Plots tab - the output has gone into <code>adipfig</code> rather than to the Plots tab. To make it appear in the Plots tab type <code>adipfig</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> The <code>ggsave()</code> command will write a ggplot figure to a file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/adipocytes.png"</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> adipfig,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">3</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>figures/adipocytes.png</code> is the name of the file including the relative path. <img src="images/do_in_R.png" class="img-fluid"> Look up <code>ggsave()</code> in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1</p>
 </section>
-<section id="xxx" class="level2">
-<h2 class="anchored" data-anchor-id="xxx">xxx</h2>
-<p>data set with three groups seals</p>
 </section>
-<section id="xxx-1" class="level2">
-<h2 class="anchored" data-anchor-id="xxx-1">xxx</h2>
-<p>data set with two groups but need pivoting biomass</p>
+<section id="myoglobin-in-seal-muscle" class="level2">
+<h2 class="anchored" data-anchor-id="myoglobin-in-seal-muscle">Myoglobin in seal muscle</h2>
+<p>The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in <a href="data-raw/seal.csv">seal.csv</a>. Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.</p>
+<p>The key point here is that the fundmental structure of the seals data is the same as that for the adipocytes data. The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is identical except for the variable names!</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When two datasets have the same number of columns and the response variable and the explanaotry variables have the same data types then the code you need is the same.</p>
+</div>
+</div>
+<section id="import-1" class="level3">
+<h3 class="anchored" data-anchor-id="import-1">Import</h3>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/seal.csv">seal.csv</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>seal</code>. Remember to apply what you learned from last week about importing data.</p>
+<p><img src="images/answer.png" class="img-fluid"> What types of variables do you have in the <code>seal</code> dataframe? What role would you expect them to play in analysis?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- there are two variables: `myoglobin` is the response and is continuous -->
+<!-- and `species` is explanatory. `species` is categorical with three  -->
+<!-- levels (groups). -->
 </section>
-<section id="xxx-2" class="level2">
-<h2 class="anchored" data-anchor-id="xxx-2">xxx</h2>
-<p>data set with two explanatory periwinkles</p>
-<hr>
-<p>We did the first of these <a href="r4babs1/week-7/workshop.html#plotting-the-data-with-ggplot">last week</a>. The <code>geom_col()</code> function uses the numbers in a second column to determine how high the bars are. However, the <code>geom_bar()</code> function will do the tabulating for you.</p>
+<section id="summarise-1" class="level3">
+<h3 class="anchored" data-anchor-id="summarise-1">Summarise</h3>
+<p>We need the same code as we use for the adipocyte data - but the dataframe and the variable are different.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>seal_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.</p>
+<p>You should get the following numbers:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">species</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bladdernose Seal</td>
+<td style="text-align: right;">42.31600</td>
+<td style="text-align: right;">8.020634</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1.464361</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Harbour Seal</td>
+<td style="text-align: right;">49.01033</td>
+<td style="text-align: right;">8.252004</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1.506603</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Weddell Seal</td>
+<td style="text-align: right;">44.66033</td>
+<td style="text-align: right;">7.849816</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1.433174</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
 </section>
-<section id="look-after-future-you" class="level2">
-<h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
-<p>Future you is going to summarise and plot data from the “River practicals”. You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called <code>analysis.R</code>. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: <a href="assets/seals-analysis.R">seals-analysis.R</a>. You may wish to comment your version much more.</p>
+<section id="visualise-1" class="level3">
+<h3 class="anchored" data-anchor-id="visualise-1">Visualise</h3>
+<p>We again need the same code as we use for the adipocyte data but with the <code>seal</code> dataframe and its variables.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create this figure using your previous code as a template. What else will you need to change?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- You will also need to change the axis labels and the axis limits -->
+<p><img src="images/do_in_R.png" class="img-fluid"> Save the figure to a file in your figures folder</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/seal-muscle.png"</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> sealfig,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">3</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="pigeons" class="level2">
+<h2 class="anchored" data-anchor-id="pigeons">Pigeons</h2>
+<p>The data in <a href="data-raw/pigeon.txt">pigeon.txt</a> are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm</p>
+<p><img src="images/interorbital.png" class="img-fluid" alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."> ### Import</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/pigeon.txt">pigeon.txt</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>pigeons</code>.</p>
+<p><img src="images/answer.png" class="img-fluid"> What variables are there in the <code>pigeons</code> dataframe?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- This is not obvious - there are two columns called A and B. -->
+<!-- Both seem to contain contain continuous values, presumably the interorbital -->
+<!-- distances. The A and B seem to be the names of the populations -->
+<p>Hummmm, these data are not organised like the other data sets we have used. The population is given as the column names and the interorbital distances for one population are given in a different column than those for the other population. The first row has data from two pigeons which have nothing in common, they just happen to be the first individual recorded in each population.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">A</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">12.4</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.6</td>
+<td style="text-align: right;">12.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12.3</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.8</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.7</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.6</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12.3</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.5</td>
+<td style="text-align: right;">12.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12.1</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.4</td>
+<td style="text-align: right;">10.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.8</td>
+<td style="text-align: right;">11.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.9</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.9</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.8</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.4</td>
+<td style="text-align: right;">10.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12.0</td>
+<td style="text-align: right;">12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.7</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.5</td>
+<td style="text-align: right;">12.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.8</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.3</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.3</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.5</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.7</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.6</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13.3</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.7</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12.1</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">12.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.8</td>
+<td style="text-align: right;">11.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.4</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.9</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.3</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10.4</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>This data is not in ‘tidy’ [Wickham2014-nl].</p>
+<p>Tidy format has variables in column and observations in rows. All of the distance measurements should be in one column and a second column should give the population.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">population</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">12.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">12.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">12.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">12.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">10.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">10.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">12.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">13.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">12.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">11.1</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Data which is in tidy format is easier to summarise, analyses and plot because the organisation matches the conceptual structure of the data:</p>
+<ul>
+<li>it is more obvious what the variables are because they columns are named with them - in the untidy format, that the measures are distances is not clear and what A and B are isn’t clear</li>
+<li>it is more obvious that there is no relationship between any of the pigeons except for population</li>
+<li>functions are designed to work with variables in columns</li>
+</ul>
+<section id="tidying-data" class="level3">
+<h3 class="anchored" data-anchor-id="tidying-data">Tidying data</h3>
+<p>We can put this data in such a format with the <code>pivot_longer()</code> function from the <code>tidyverse</code>:</p>
+<p><code>pivot_longer()</code> collects the values from specified columns (<code>cols</code>) into a single column (<code>values_to</code>) and creates a column to indicate the group (<code>names_to</code>).</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Put the data in tidy format:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pigeons <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> pigeons, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cols =</span> <span class="fu">everything</span>(), </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">names_to =</span> <span class="st">"population"</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values_to =</span> <span class="st">"distance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment <code>&lt;-</code> Note: the data in the file are unchanged.</p>
+</section>
+</section>
+<section id="organising-figures-in-reports" class="level2">
+<h2 class="anchored" data-anchor-id="organising-figures-in-reports">Organising figures in reports</h2>
+<p>google doc</p>
+<p>Now we will create a word document with some text and figures. I find the best way to include figures in a word document is to use a table with the borders turned off. This can make it easier to control the layout. This is what you are aiming for:</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> open a Google document</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> add some text (it can be any text at all)</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> insert a 2 row x 1 column table</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Put your cursor in the bottom cell of the table and a figure legend.</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Put your cursor in the top cell of the table and choose Insert | Image | Upload from computer and navigate to one of your images.</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Hold down the control key and click on each of the borders until all are selectedd. Then use the Border Width icon to set the width to 0pt</p>
+<!-- ## Look after future you! -->
+<!-- Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more. -->
 <p>You’re finished!</p>
 </section>
 </section>
@@ -629,7 +1330,7 @@ Key
 <h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/ggplot2_masterpiece.png" class="img-fluid figure-img" alt="No information, just for colour. It shows some cute artist characters creating graphs. They ahve boxes of tools labelled geoms and themes. One the wall it says ggplot2: Build a data masterpiece."></p>
+<p><img src="images/ggplot2_masterpiece.png" class="img-fluid figure-img" alt="A fuzzy monster in a beret and scarf, critiquing their own column graph on a canvas in front of them while other assistant monsters (also in berets) carry over boxes full of elements that can be used to customize a graph (like themes and geometric shapes). In the background is a wall with framed data visualizations. Stylized text reads 'ggplot2: build a data masterpiece'"></p>
 <figcaption class="figure-caption">ggplot2 Artwork by Allison Horst</figcaption>
 </figure>
 </div>
@@ -641,7 +1342,7 @@ Key
 <section id="the-code-file" class="level1">
 <h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <a href="../../r4babs1/week-9/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-9/workshop.qmd">View in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---CODING ANSWER---</code></p>
+<p>The <a href="../../r4babs1/week-9/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-9/workshop.qmd">View in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span></p>
 </section>
 <section id="references" class="level1">
@@ -654,6 +1355,9 @@ Key
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
