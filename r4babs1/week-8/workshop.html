@@ -301,19 +301,19 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/study_before_workshop.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs1/week-9/study_before_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/workshop.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs1/week-9/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/study_after_workshop.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs1/week-9/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -321,7 +321,11 @@ div.csl-indent {
   </li>
     </ul>
     </div>
-    <nav id="TOC" role="doc-toc" class="toc-active">
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -350,10 +354,6 @@ div.csl-indent {
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -428,7 +428,7 @@ Key
 <h1>Exercises</h1>
 <section id="importing-data-from-files" class="level2">
 <h2 class="anchored" data-anchor-id="importing-data-from-files">Importing data from files</h2>
-<p>Last week we created data <a href="r4babs1/week-7/workshop.html#creating-the-data">by typing the values in to R</a>. This is not practical when you have added a lot of data to a spreadsheet, or you are using data file that has been supplied to you by a person or a machine. Far more commonly, we import data from a file into R. This requires you know two pieces of information.</p>
+<p>Last week we created data <a href="../week-7/workshop.html#creating-the-data">by typing the values in to R</a>. This is not practical when you have added a lot of data to a spreadsheet, or you are using data file that has been supplied to you by a person or a machine. Far more commonly, we import data from a file into R. This requires you know two pieces of information.</p>
 <ol type="1">
 <li><p>What format the data are in</p>
 <p>The format of the data determines what function you will use to import it and the file extension often indicates format.</p>
@@ -541,7 +541,7 @@ Key
 <li><p>plot the summary table using <code>geom_col()</code></p></li>
 <li><p>plot the raw data using <code>geom_bar()</code></p></li>
 </ol>
-<p>We did the first of these <a href="r4babs1/week-7/workshop.html#plotting-the-data-with-ggplot">last week</a>. The <code>geom_col()</code> function uses the numbers in a second column to determine how high the bars are. However, the <code>geom_bar()</code> function will do the tabulating for you.</p>
+<p>We did the first of these <a href="../week-7/workshop.html#plotting-the-data-with-ggplot">last week</a>. The <code>geom_col()</code> function uses the numbers in a second column to determine how high the bars are. However, the <code>geom_bar()</code> function will do the tabulating for you.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot the coat data using <code>geom_bar</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cats, <span class="fu">aes</span>(<span class="at">x =</span> coat)) <span class="sc">+</span></span>
@@ -569,7 +569,7 @@ Key
 1                6             4</code></pre>
 </div>
 </div>
-<p>As the interquartile is <code>IQR(fly_bristles$number)</code> and the median is <code>median(fly_bristles$number)</code> then 25% flies have <code>median(fly_bristles$number) - IQR(fly_bristles$number)/2</code> bristles or fewer and 25% have <code>median(fly_bristles$number) + IQR(fly_bristles$number)/2</code> or more.</p>
+<p>As the interquartile is 4 and the median is 6 then 25% flies have 4 bristles or fewer and 25% have 8 or more.</p>
 <p>The distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. [^4]: Count data are usually “Poisson” distributed.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> If you want to save the table you created and give the columns better names you can make two adjustments:</p>
 <div class="cell">
@@ -686,7 +686,7 @@ Key
 <section id="the-code-file" class="level1">
 <h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <a href="../../r4babs1/week-8/workshop.html">.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd">View in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---CODING ANSWER---</code></p>
+<p>The <a href="../../r4babs1/week-8/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd">View in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---CODING ANSWER---</code></p>
 <p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span></p>
 </section>
 <section id="references" class="level1">
