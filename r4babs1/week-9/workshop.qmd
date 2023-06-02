@@ -12,6 +12,7 @@ library(kableExtra)
 
 # Introduction
 
+![Data data Artwork from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst](images/ggplot2_masterpiece.png){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."}
 
 
 ## Session overview
@@ -55,9 +56,16 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_in_R.png) Add a comment to the script: `# Summarising data in with several variables and the role of variables in analysis`
 
-![](images/do_in_R.png) Add code to load the **`tidyverse`** package
+![](images/do_in_R.png) Add code to load the **`tidyverse`** package [@tidyverse]
 
 # Exercises
+
+You are going to learn how to summarise and plot data as follows:
+
+-   one continuous response and one nominal explanatory variable with two groups
+-   one continuous response and one nominal explanatory variable with three groups
+-   one continuous response and one nominal explanatory variable with two groups but the supplied data first need converting to tidy format
+
 
 ## Adiponectin secretion
 
@@ -67,7 +75,7 @@ Adiponectin is exclusively secreted from adipose tissue and modulates a number o
 
 ![](images/do_on_your_computer.png) Save [adipocytes.txt](data-raw/adipocytes.txt) to your `data-raw` folder
 
-![](images/do_in_R.png) Read the data into a dataframe called `adipocytes`.
+![](images/do_in_R.png) Read the data into a dataframe called `adipocytes`. You might want to look up [data import from last week](../week-8/workshop.html#importing-data-from-files).
 
 ```{r}
 #| include: false
@@ -99,7 +107,8 @@ adip_summary <- adipocytes %>%
 ```
 You should get the following numbers:
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 knitr::kable(adip_summary) %>% kableExtra::kable_styling()
 ```
 
@@ -133,14 +142,20 @@ ggplot() +
 
 In this figure, we have the data points themselves which are in `adipocytes` dataframe and the means and standard errors which are in the `adip_summary` dataframe. That is, we have two dataframes we want to plot.
 
-Here you will learn that dataframes and aesthetics can be specified within a `geom_...` (rather than in the `ggplot()`). This is very useful if the geom only applies to some of the data you want to plot.
+Here you will learn that dataframes and aesthetics can be specified *within a `geom_xxxx`* (rather than in the `ggplot()`). This is very useful if the geom only applies to some of the data you want to plot.
 
-I will build the plot up in small steps you should edit your existing `ggplot()` command as we go.
+::: {.callout-tip}
+## Tip: `ggplot()`
+
+You put the `data` argument and `aes()` inside `ggplot()` if you want all the `geoms` to use that dataframe and variables. If you want a different dataframe for a `geom`, put the `data` argument and `aes()` inside the `geom_xxxx()`
+
+:::
+
+I will build the plot up in small steps you should edit your *existing* `ggplot()` command as we go.
 
 
 ![](images/do_in_R.png) Plot the data points first.
 ```{r}
-#| code-line-numbers: "|2,3"
 ggplot() +
   geom_point(data = adipocytes, 
              aes(x = treatment, y = adiponectin))
@@ -148,10 +163,9 @@ ggplot() +
 
 Notice how we have given the data argument and the aesthetics inside the geom. The variables `treatment` and `adiponectin` are in the `adipocytes` dataframe
 
-![](images/do_in_R.png) So the data points don't overlap, we can add some random jitter in the *x* direction:
+![](images/do_in_R.png) So the data points don't overlap, we can add some random jitter in the *x* direction (edit your existing code):
 
 ```{r}
-#| code-line-numbers: "|4"
 ggplot() +
   geom_point(data = adipocytes, 
              aes(x = treatment, y = adiponectin),
@@ -163,10 +177,9 @@ Note that `position = position_jitter(width = 0.1, height = 0)` is inside the `g
 We've set the vertical jitter to 0 because, in contrast to the categorical *x*-axis,  movement on the *y*-axis has meaning (the adiponectin levels). 
 
 
-![](images/do_in_R.png) Let's make the points a light grey:
+![](images/do_in_R.png) Let's make the points a light grey (edit your existing code):
 
 ```{r}
-#| code-line-numbers: "|5"
 ggplot() +
   geom_point(data = adipocytes, 
              aes(x = treatment, y = adiponectin),
@@ -176,7 +189,7 @@ ggplot() +
 
 Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.
 
-![](images/do_in_R.png) Add a `geom_errorbar()` for errorbars:
+![](images/do_in_R.png) Add a `geom_errorbar()` for errorbars (edit your existing code):
 
 ```{r}
 ggplot() +
@@ -193,7 +206,7 @@ We have specified the `adip_summary` dataframe and the variables `treatment`, `m
 
 There are several ways you could add the mean. You could use `geom_point()` but I like to use `geom_errorbar()` again with the `ymin` and `ymax` both set to the mean.
 
-![](images/do_in_R.png) Add a `geom_errorbar()` for the mean:
+![](images/do_in_R.png) Add a `geom_errorbar()` for the mean (edit your existing code):
 
 ```{r}
 ggplot() +
@@ -209,7 +222,7 @@ ggplot() +
   
 ```
 
-![](images/do_in_R.png) Alter the axis labels and limits:
+![](images/do_in_R.png) Alter the axis labels and limits using `scale_y_continuous()` and `scale_x_discrete()` (edit your existing code):
 
 ```{r}
 ggplot() +
@@ -230,7 +243,11 @@ ggplot() +
   
 ```
 
-![](images/do_in_R.png) Format the figure in a way that is more suitable for including in a report:
+You only need to use `scale_y_continuous()` and `scale_x_discrete()` to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.
+
+
+
+![](images/do_in_R.png) Format the figure in a way that is more suitable for including in a report using `theme_classic()` (edit your existing code):
 
 ```{r}
 ggplot() +
@@ -251,43 +268,254 @@ ggplot() +
   theme_classic()
 ```  
 
+### Writing figures to file
+
+![](images/do_in_R.png) Make a new folder called `figures`. 
+
+![](images/do_in_R.png) Edit you ggplot code so that you assign the figure to a variable. 
+
+```{r}
+adipfig <- ggplot() +
+  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = adip_summary, 
+                aes(x = treatment, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Adiponectin (pg/mL)", 
+                     limits = c(0, 12), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(name = "Treatment", 
+                   labels = c("Control", "Nicotinic acid")) +
+  theme_classic()
+```
+
+The figure won't be shown in the Plots tab - the output has gone into `adipfig` rather than to the Plots tab. To make it appear in the Plots tab type `adipfig`
+
+![](images/do_in_R.png) The `ggsave()` command will write a ggplot figure to a file:
+
+```{r}
+ggsave("figures/adipocytes.png",
+       plot = adipfig,
+       device = "png",
+       width = 3,
+       height = 3,
+       units = "in",
+       dpi = 300)
+```
+
+`figures/adipocytes.png` is the name of the file including the relative path.
+![](images/do_in_R.png) Look up `ggsave()` in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1
 
 
-## xxx
 
-data set with three groups seals
 
-## xxx
+## Myoglobin in seal muscle
 
-data set with two groups but need pivoting biomass
+The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in [seal.csv](data-raw/seal.csv). Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.
 
-## xxx
+The key point here is that the fundmental structure of the seals data is the same as that for the adipocytes data. The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is identical except for the variable names!
 
-data set with two explanatory periwinkles
+::: {.callout-tip}
+## Tip
 
----
+When two datasets have the same number of columns and the response variable and the explanaotry variables have the same data types then the code you need is the same.
 
-We did the first of these [last week](r4babs1/week-7/workshop.html#plotting-the-data-with-ggplot). The `geom_col()` function uses the numbers in a second column to determine how high the bars are. However, the `geom_bar()` function will do the tabulating for you.
+:::
 
+### Import
+
+![](images/do_on_your_computer.png) Save [seal.csv](data-raw/seal.csv) to your `data-raw` folder
+
+![](images/do_in_R.png) Read the data into a dataframe called `seal`. Remember to apply what you learned from last week about importing data.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+seal <- read_csv("data-raw/seal.csv")
+```
+![](images/answer.png) What types of variables do you have in the `seal` dataframe? What role would you expect them to play in analysis?
+
+<!-- #---THINKING ANSWER--- -->
+<!-- there are two variables: `myoglobin` is the response and is continuous -->
+<!-- and `species` is explanatory. `species` is categorical with three  -->
+<!-- levels (groups). -->
+
+### Summarise
+
+We need the same code as we use for the adipocyte data - but the dataframe and the variable are different.
+
+![](images/do_in_R.png) Create a data frame called `seal_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. 
 
 ```{r}
 #| include: false
 
 #---CODING ANSWER---
 
+seal_summary <- seal %>%
+  group_by(species) %>%
+  summarise(mean = mean(myoglobin),
+            std = sd(myoglobin),
+            n = length(myoglobin),
+            se = std/sqrt(n))
+
+```
+You should get the following numbers:
+
+```{r}
+#| echo: false
+knitr::kable(seal_summary) %>% kableExtra::kable_styling()
 ```
 
+### Visualise
+
+We again need the same code as we use for the adipocyte data but with the `seal` dataframe and its variables.
 
 
-## Look after future you!
+![](images/do_in_R.png) Create this figure using your previous code as a template. What else will you need to change?
 
-Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more.
+<!-- #---THINKING ANSWER--- -->
+<!-- You will also need to change the axis labels and the axis limits -->
+
+```{r}
+#| echo: false
+
+#---CODING ANSWER---
+
+sealfig <- ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Myoglobin concentration",
+                     limits = c(0, 80), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(labels = c("Bladdernose", "Harbour", "Weddell"), 
+                   name = "Seal Species") +
+  theme_classic()
+
+```
+
+![](images/do_in_R.png) Save the figure to a file in your figures folder
+```{r}
+
+ggsave("figures/seal-muscle.png",
+       plot = sealfig,
+       device = "png",
+       width = 3,
+       height = 3,
+       units = "in",
+       dpi = 300)
+```
+
+## Pigeons
+
+The data in [pigeon.txt](data-raw/pigeon.txt) are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm
+
+
+![Interorbital width is the distance between the eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."}
+### Import
+
+![](images/do_on_your_computer.png) Save [pigeon.txt](data-raw/pigeon.txt) to your `data-raw` folder
+
+![](images/do_in_R.png) Read the data into a dataframe called `pigeons`. 
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+pigeons <- read_table("data-raw/pigeon.txt")
+```
+![](images/answer.png) What variables are there in the `pigeons` dataframe? 
+
+<!-- #---THINKING ANSWER--- -->
+<!-- This is not obvious - there are two columns called A and B. -->
+<!-- Both seem to contain contain continuous values, presumably the interorbital -->
+<!-- distances. The A and B seem to be the names of the populations -->
+
+Hummmm, these data are not organised like the other data sets we have used. The population is given as the column names and the interorbital distances for one population are given in a different column than those for the other population. The first row has data from two pigeons which have nothing in common, they just happen to be the first individual recorded in each population.
+
+```{r}
+#| echo: false
+knitr::kable(pigeons) %>% kableExtra::kable_styling()
+```
+
+This data is not in 'tidy' [Wickham2014-nl]. 
+
+Tidy format has variables in column and observations in rows. All of the distance measurements should be in one column and a second column should give the population.
+
+```{r}
+#| echo: false
+pigeons |> 
+  pivot_longer(cols = everything(),
+               names_to = "population",
+               values_to = "distance") |> 
+knitr::kable() %>% kableExtra::kable_styling()
+```
+
+Data which is in tidy format is easier to summarise, analyses and plot because the organisation matches the conceptual structure of the data:
+
+-   it is more obvious what the variables are because they columns are named with them - in the untidy format, that the measures are distances is not clear and what A and B are isn't clear
+-   it is more obvious that there is no relationship between any of the pigeons except for population
+-   functions are designed to work with variables in columns
+
+
+### Tidying data
+
+We can put this data in such a format with the `pivot_longer()` function from the `tidyverse`:
+
+`pivot_longer()` collects the values from specified columns (`cols`) into a single column (`values_to`) and creates a column to indicate the group (`names_to`). 
+
+![](images/do_in_R.png) Put the data in tidy format:
+```{r}
+pigeons <- pivot_longer(data = pigeons, 
+                        cols = everything(), 
+                        names_to = "population", 
+                        values_to = "distance")
+
+```
+
+We have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment `<-`
+Note: the data in the file are unchanged.
+
+
+## Organising figures in reports
+
+google doc
+
+Now we will create a word document with some text and figures. I find the best way to include figures in a word document is to use a table with the borders turned off. This can make it easier to control the layout. This is what you are aiming for: 
+
+
+![](images/do_on_your_computer.png) open a Google document
+
+![](images/do_on_your_computer.png) add some text (it can be any text at all)
+
+![](images/do_on_your_computer.png) insert a 2 row x 1 column table
+
+![](images/do_on_your_computer.png) Put your cursor in the bottom cell of the table and a figure legend.
+
+![](images/do_on_your_computer.png) Put your cursor in the top cell of the table and choose Insert | Image | Upload from computer and navigate to one of your images. 
+
+![](images/do_on_your_computer.png) Hold down the control key and click on each of the borders until all are selectedd. Then use the Border Width icon to set the width to 0pt
+
+<!-- ## Look after future you! -->
+
+<!-- Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more. -->
 
 You're finished!
 
 # 🥳 Well Done! 🎉
 
-![ggplot2 Artwork by Allison Horst](images/ggplot2_masterpiece.png){fig-alt="No information, just for colour. It shows some cute artist characters creating graphs. They ahve boxes of tools labelled geoms and themes. One the wall it says ggplot2: Build a data masterpiece."}
+![ggplot2 Artwork by Allison Horst](images/ggplot2_masterpiece.png){fig-alt="A fuzzy monster in a beret and scarf, critiquing their own column graph on a canvas in front of them while other assistant monsters (also in berets) carry over boxes full of elements that can be used to customize a graph (like themes and geometric shapes). In the background is a wall with framed data visualizations. Stylized text reads 'ggplot2: build a data masterpiece'"}
 
 # Independent study following the workshop
 
@@ -297,7 +525,7 @@ You're finished!
 
 These contain all the code needed in the workshop even where it is not visible on the webpage.
 
-The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-9/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---CODING ANSWER---`
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-9/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with Quarto [@allaire2022]
 

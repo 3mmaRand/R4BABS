@@ -6,51 +6,59 @@ format:
     code-summary: "Answer - don't look until you have tried!"
 ---
 
-### Blood data set
+# Set up
+
+If you have just opened RStudio you will want to load the packages and import the data.
 
 ```{r}
-# set up
-# pkgs
+#| code-fold: false
 library(tidyverse)
 library(readxl)
-
 ```
 
-1.  💻 Summarise the `fly_bristles_means` dataframe by calculating the mean, median, sample size, standard deviation and standard error of the `mean_count` variable.
 
-```{r}
-#| code-fold: true
-fly_bristles_means |> 
-  summarise(mean = mean(mean_count),
-            median = median(mean_count),
-            n = length(mean_count),
-            standard_dev = sd(mean_count),
-            standard_error = standard_dev / sqrt(n))
-```
-
-2.  💻 Create an appropriate plot to show the distribution of `mean_count` in `fly_bristles_means`
+1.  💻 Summarise and plot the `pigeons` dataframe appropriately.
 
 ```{r}
 #| code-fold: true
 
-ggplot(fly_bristles_means, aes(x = mean_count)) +
-  geom_histogram(bins = 10)
-```
+# import
+pigeons <- read_table("data-raw/pigeon.txt")
 
-3.  💻 Can you format the plot 2. by removing the grey background, giving the bars a black outline and the fill colour of your choice and improving the axis format and labelling? You may want to refer to [last week's workshop](r4babs1/week-7/workshop.html).
+# reformat to tidy
+pigeons <- pivot_longer(data = pigeons, 
+                        cols = everything(), 
+                        names_to = "population", 
+                        values_to = "distance")
 
-```{r}
-#| code-fold: true
-
-ggplot(fly_bristles_means, aes(x = mean_count)) +
-  geom_histogram(bins = 10, 
-                 colour = "black",
-                 fill = "skyblue") +
-  scale_x_continuous(name = "Number of bristles",
+# sumnmarise
+pigeons_summary <- pigeons %>%
+  group_by(population) %>%
+  summarise(mean = mean(distance),
+            std = sd(distance),
+            n = length(distance),
+            se = std/sqrt(n))
+# plot
+ggplot() +
+  geom_point(data = pigeons, aes(x = population, y = distance),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = pigeons_summary, 
+                aes(x = population, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = pigeons_summary, 
+                aes(x = population, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Interorbital distance (mm)", 
+                     limits = c(0, 14), 
                      expand = c(0, 0)) +
-  scale_y_continuous(name = "Frequency",
-                     expand = c(0, 0),
-                     limits = c(0, 35)) +
+  scale_x_discrete(name = "Population") +
   theme_classic()
-```
 
+```
+The data in x are a blood data contain x variable
+
+2. 💻 Make a new project
+3. 💻 Make folders for data and for figures
+4. 💻 Import the data
+5. 💻 Summarise and plot variables of your choice

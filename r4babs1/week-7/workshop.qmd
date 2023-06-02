@@ -12,7 +12,7 @@ library(kableExtra)
 
 # Introduction
 
-![](images/welcome_to_rstats_twitter.png){fig-alt="two fluffy characters arriving at a door labelled R which has rainbows and butterflies and a welcome mat" width="1000"}
+![](images/welcome_to_rstats_twitter.png){fig-alt="Two fuzzy monsters standing side-by-side outside of a door frame through which is a magical wonderland of different R communities, with a 'mind blown' rainbow coming out of the one closest to the door. A welcome mat says 'Welcome'." width="1000"}
 
 ## Session overview
 
@@ -463,7 +463,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![](images/r_first_then.png){fig-alt="At the top: fluffy character under a dark cloud waving a white flag at an angry. At the bottom: The fluffy character and the R smiling and dancing together in the sunshine" width="1000"}
+![](images/r_first_then.png){fig-alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…' The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads 'but now it’s like…'”'" width="1000"}
 
 # Independent study following the workshop
 
@@ -473,7 +473,7 @@ You're finished!
 
 These contain all the code needed in the workshop even where it is not visible on the webpage.
 
-The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---CODING ANSWER---`
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with Quarto [@allaire2022]
 
