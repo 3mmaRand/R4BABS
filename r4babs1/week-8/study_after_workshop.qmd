@@ -27,8 +27,8 @@ cats <- read_csv("data-raw/cat-coats.csv")
 1.  💻 Summarise the `fly_bristles_means` dataframe by calculating the mean, median, sample size, standard deviation and standard error of the `mean_count` variable.
 
 ```{r}
-#| code-fold: true
-fly_bristles_means |> 
+#| output: false
+fly_bristles_means_summary <- fly_bristles_means |> 
   summarise(mean = mean(mean_count),
             median = median(mean_count),
             n = length(mean_count),
@@ -39,7 +39,7 @@ fly_bristles_means |>
 2.  💻 Create an appropriate plot to show the distribution of `mean_count` in `fly_bristles_means`
 
 ```{r}
-#| code-fold: true
+#| output: false
 
 ggplot(fly_bristles_means, aes(x = mean_count)) +
   geom_histogram(bins = 10)
@@ -49,7 +49,7 @@ ggplot(fly_bristles_means, aes(x = mean_count)) +
 
 
 ```{r}
-#| code-fold: true
+#| output: false
 
 ggplot(fly_bristles_means, aes(x = mean_count)) +
   geom_histogram(bins = 10, 
@@ -66,15 +66,14 @@ ggplot(fly_bristles_means, aes(x = mean_count)) +
 4.  💻 Amend this code to change the order of the bars by the average mass of each coat colour? [Changing the order of bars](../week-7/workshop.html#changing-the-order-of-bars) was covered last week. You may also want to practice formatting the graph nicely.
 
 ```{r}
-#| echo: true
-#| include: true
+#| code-fold: false
 
 ggplot(cats, aes(x = coat, y = mass)) +
   geom_boxplot()
 ```
 
 ```{r}
-#| code-fold: true
+#| output: false
 ggplot(cats, 
        aes(x = reorder(coat, mass), y = mass)) +
   geom_boxplot(fill = "darkcyan") +
