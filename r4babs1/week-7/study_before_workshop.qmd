@@ -6,8 +6,8 @@ title: "Independent Study - before the workshop"
 
     i.  **Either** 📖 Read [First Steps in RStudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html) in **OR** 📹 Watch
 
-    {{< video videos/Data_Structures_and_functions.mp4 >}}
+    {{< video https://www.youtube.com/watch?v=7oLLjkTNrjY >}}
 
-    {{< video videos/Getting_started_with_Rstudio.mp4 >}}
+    {{< video https://youtu.be/2Ke1FGdaMSI >}}
 
     ii. 📖 Read [Workflow in RStudio](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)

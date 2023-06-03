@@ -4,7 +4,7 @@ title: "Independent Study - before the workshop"
 
 1.  Prepare
 
-    i.  📖 Read [xxx](https://3mmarand.github.io/comp4biosci/xxx.html)
-    ii.  📖 Read [xxx](https://3mmarand.github.io/comp4biosci/xxx.html)
+    i.  📖 Read [Ideas about data](https://3mmarand.github.io/comp4biosci/ideas_about_data.html)
+
 
 

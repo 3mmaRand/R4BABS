@@ -20,8 +20,6 @@ The successful student will be able to:
 
     i.  📖 Read: Ideas about data
 
-    ii. 📖 Read: Working with data in RStudio
-
 2.  [Workshop](workshop.qmd)
 
 3.  [Consolidate](study_after_workshop.qmd)

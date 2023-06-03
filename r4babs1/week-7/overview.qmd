@@ -24,9 +24,9 @@ This week you will start writing R code in RStudio and will create your first gr
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  First Steps in RStudio: **Either** 📖 read the book **OR** 📹watch some videos
+    i.  First Steps in RStudio: **Either** 📖 Read the book **OR** 📹 Watch two videos
 
-    ii. xxx
+    ii. 📖 Read Workflow in RStudio
 
 2.  [Workshop](workshop.qmd)
 
