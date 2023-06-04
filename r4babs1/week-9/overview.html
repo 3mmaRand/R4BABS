@@ -306,14 +306,18 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p><a href="../../r4babs1/week-9/study_before_workshop.html">Prepare</a></p>
 <ol type="i">
-<li><p>xxxx</p></li>
-<li><p>xxx</p></li>
+<li>📖 Read Working with data in RStudio</li>
 </ol></li>
-<li><p><a href="../../r4babs1/week-9/workshop.html">Workshop</a></p></li>
+<li><p><a href="../../r4babs1/week-9/workshop.html">Workshop</a></p>
+<ol type="i">
+<li><p>💻 Summarise and plot datasets with more than one variable.</p></li>
+<li><p>💻 Practice with working directories, importing data, formatting figures and the pipe</p></li>
+<li><p>💻 Lay out text, figures and figure legends in documents</p></li>
+</ol></li>
 <li><p><a href="../../r4babs1/week-9/study_after_workshop.html">Consolidate</a></p>
 <ol type="i">
-<li></li>
-<li></li>
+<li><p>💻 Summarise and plot a dataframe from the workshop</p></li>
+<li><p>💻 Practice the complete RStudio Project worklfow for a new dataset</p></li>
 </ol></li>
 </ol>
 
@@ -552,6 +556,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

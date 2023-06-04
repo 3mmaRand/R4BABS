@@ -8,7 +8,7 @@
 
 <meta name="author" content="Emma Rand">
 
-<title>Data Analysis in R - Summarising data in with several variables and the role of variables in analysis</title>
+<title>Data Analysis in R - Week 9: Summarising data in with several variables and the role of variables in analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -369,7 +369,8 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Summarising data in with several variables and the role of variables in analysis</h1>
+<h1 class="title">Week 9: Summarising data in with several variables and the role of variables in analysis</h1>
+<p class="subtitle lead">Workshop</p>
 </div>
 
 
@@ -394,7 +395,7 @@ div.csl-indent {
 </div>
 <section id="session-overview" class="level2">
 <h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this workshop you will learn summarise and plot datasets with more than one variable. You will also get more practice with working directories, importing data, formatting figures and the pipe.</p>
+<p>In this workshop you will learn to summarise and plot datasets with more than one variable. You will also get more practice with working directories, importing data, formatting figures and the pipe. At the end of the workshop you will learn a method for laying out text, figures and figure legends in documents.</p>
 </section>
 <section id="philosophy" class="level2">
 <h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
@@ -1313,14 +1314,13 @@ Tip
 </section>
 <section id="organising-figures-in-reports" class="level2">
 <h2 class="anchored" data-anchor-id="organising-figures-in-reports">Organising figures in reports</h2>
-<p>google doc</p>
-<p>Now we will create a word document with some text and figures. I find the best way to include figures in a word document is to use a table with the borders turned off. This can make it easier to control the layout. This is what you are aiming for:</p>
+<p>In this section you will learn a way to lay out figures, legends and text in a document. We will be using a google doc but the methods works just as well in Word. I find the best way to include figures in a document so that things don’t move around unexpectedly as you edit is to use a table with the borders turned off. This is what you are aiming for: <a href="https://docs.google.com/document/d/1ksETkp9TjN4wFj9wPQWleUazrNgHEWrpEQkOi4TPQt8">R4BABS-1-seal-example</a>. You are not expect to know what to write in the introduction! I’ve written a little text to make the document look more like a report.</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> open a Google document</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> add some text (it can be any text at all)</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> insert a 2 row x 1 column table</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Put your cursor in the bottom cell of the table and a figure legend.</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Put your cursor in the top cell of the table and choose Insert | Image | Upload from computer and navigate to one of your images.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Hold down the control key and click on each of the borders until all are selectedd. Then use the Border Width icon to set the width to 0pt</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Hold down the control key and click on each of the borders until all are selected. Then use the Border Width icon to set the width to 0pt</p>
 <!-- ## Look after future you! -->
 <!-- Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more. -->
 <p>You’re finished!</p>
@@ -1591,6 +1591,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

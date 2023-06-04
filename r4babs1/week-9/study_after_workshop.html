@@ -8,7 +8,7 @@
 
 <meta name="author" content="Emma Rand">
 
-<title>Data Analysis in R - Independent Study - after the workshop</title>
+<title>Data Analysis in R - Week 9: Summarising data in with several variables and the role of variables in analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -309,7 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Independent Study - after the workshop</h1>
+<h1 class="title">Week 9: Summarising data in with several variables and the role of variables in analysis</h1>
+<p class="subtitle lead">Independent Study to consolidate this week</p>
 </div>
 
 
@@ -374,12 +375,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="study_after_workshop_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The data in x are a blood data contain x variable</p>
 <ol start="2" type="1">
-<li>💻 Make a new project</li>
-<li>💻 Make folders for data and for figures</li>
-<li>💻 Import the data</li>
-<li>💻 Summarise and plot variables of your choice</li>
+<li><p>💻 The data in x are a blood data contain x variable. Create a complete RStudio Project for an analysis of these data. You will need to:</p>
+<ul>
+<li>Make a new project,</li>
+<li>Make folders for data and for figures</li>
+<li>Import the data</li>
+<li>Summarise and plot variables of your choice. It doesn’t matter what you chose - the goal is the practice the project workflow and selecting appropriate plotting and summarising methods for particular data sets.</li>
+</ul></li>
 </ol>
 
 
@@ -617,6 +620,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

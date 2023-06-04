@@ -308,14 +308,14 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p><a href="../../r4babs1/week-7/study_before_workshop.html">Prepare</a></p>
 <ol type="i">
-<li><p>First Steps in RStudio: <strong>Either</strong> 📖 Read the book <strong>OR</strong> 📹 Watch two videos</p></li>
-<li><p>📖 Read Workflow in RStudio</p></li>
+<li>First Steps in RStudio: <strong>Either</strong> 📖 Read the book <strong>OR</strong> 📹 Watch two videos</li>
 </ol></li>
-<li><p><a href="../../r4babs1/week-7/workshop.html">Workshop</a></p></li>
+<li><p><a href="../../r4babs1/week-7/workshop.html">Workshop</a></p>
+<p>i.💻 🐈 Coat colour of cats. Type in some data, perform calculations on, and plot it.</p></li>
 <li><p><a href="../../r4babs1/week-7/study_after_workshop.html">Consolidate</a></p>
 <ol type="i">
-<li></li>
-<li></li>
+<li><p>💻 Create a plot</p></li>
+<li><p>📖 Read Workflow in RStudio</p></li>
 </ol></li>
 </ol>
 
@@ -554,6 +554,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->
