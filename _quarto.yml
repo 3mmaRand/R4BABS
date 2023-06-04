@@ -4,6 +4,15 @@ project:
 
 website:
   title: "Data Analysis in R "
+  page-footer:
+    left: '`r paste("Please cite as: ", cffr::cff_to_bibtex("CITATION.cff"))`'
+    right:
+      - icon: twitter
+        href: https://twitter.com/er_13
+        aria-label: Twitter
+      - icon: github
+        href: https://github.com/3mmaRand/R4BABS
+        aria-label: R4BABS GitHub
   navbar:
     background: light
     twitter-card: true
@@ -13,15 +22,6 @@ website:
     repo-actions: [edit, issue]
     page-navigation: true
     search: true
-    page-footer:
-      left: '`r paste("Please cite as: ", cffr::cff_to_bibtex("CITATION.cff"))`'
-      right:
-        - icon: twitter
-          href: https://twitter.com/er_13
-          aria-label: Quarto Twitter
-        - icon: github
-          href: https://github.com/3mmaRand/R4BABS
-          aria-label: R4BABS GitHub
     left:
       - text: "Welcome!"
         file: index.qmd
