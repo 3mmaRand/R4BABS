@@ -22,8 +22,22 @@ The successful student will be able to:
 
 2.  [Workshop](workshop.qmd)
 
+    i.  💻 Importing data
+    
+    ii. 💻 Summarising discrete data
+    
+    iii. 💻 Summarising count data
+    
+    iv. 💻 Summarising continuous data
+
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  
+    i.  💻 Summarise some data
 
-    ii. 
+    ii. 💻 Plot some data
+    
+    iii. 💻 Format a plot (1)
+    
+    iv. 💻 Format a plot (2)
+    
+    v.  📖 Read Understanding the pipe `|>`

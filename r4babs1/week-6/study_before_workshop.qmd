@@ -1,8 +1,9 @@
 ---
-title: "Independent Study - before the workshop"
+title: "Week 6: Understanding file systems"
+subtitle: "Independent Study to prepare for workshop"
 ---
 
-1.  Prepare]
+1.  Prepare
 
 
     i.  Watch an Introduction to Data Analysis in R for BABS 1 - 4

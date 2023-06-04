@@ -1,5 +1,6 @@
 ---
-title: "Independent Study - before the workshop"
+title: "Week 9: Summarising data in with several variables and the role of variables in analysis"
+subtitle: "Independent Study to prepare for workshop"
 ---
 
 1.  Prepare

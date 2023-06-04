@@ -1,5 +1,6 @@
 ---
-title: "Independent Study - before the workshop"
+title: "Week 7: Introduction to R, RStudio and project organisation"
+subtitle: "Independent Study to prepare for workshop"
 ---
 
 1.  Prepare
@@ -10,4 +11,4 @@ title: "Independent Study - before the workshop"
 
     {{< video https://youtu.be/2Ke1FGdaMSI >}}
 
-    ii. 📖 Read [Workflow in RStudio](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)
+

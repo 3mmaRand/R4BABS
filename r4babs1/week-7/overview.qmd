@@ -26,12 +26,13 @@ This week you will start writing R code in RStudio and will create your first gr
 
     i.  First Steps in RStudio: **Either** 📖 Read the book **OR** 📹 Watch two videos
 
-    ii. 📖 Read Workflow in RStudio
 
 2.  [Workshop](workshop.qmd)
+    
+    i.💻 🐈 Coat colour of cats. Type in some data, perform calculations on, and plot it.
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  
+    i.  💻 Create a plot
 
-    ii. 
+    ii. 📖 Read Workflow in RStudio

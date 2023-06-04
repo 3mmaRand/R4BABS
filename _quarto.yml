@@ -139,6 +139,8 @@ execute:
 
 format:
   html:
+    link-external-icon: true
+    link-external-newwindow: true
     theme:
       light: [cosmo, theme.scss]
     code-copy: true

@@ -1,5 +1,6 @@
 ---
-title: "Independent Study - before the workshop"
+title: "Week 8: Types of variable, the normal distribution and summarising data"
+subtitle: "Independent Study to prepare for workshop"
 ---
 
 1.  Prepare

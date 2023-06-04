@@ -1,5 +1,6 @@
 ---
-title: "Independent Study - after the workshop"
+title: "Week 8: Types of variable, the normal distribution and summarising data"
+subtitle: "Independent Study to consolidate this week"
 format:
   html:
     code-fold: true
@@ -84,4 +85,4 @@ ggplot(cats,
   theme_classic()
 ```
 
-4.  📖 Read [Understanding the pipe `|>`](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)
+5.  📖 Read [Understanding the pipe `|>`](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)

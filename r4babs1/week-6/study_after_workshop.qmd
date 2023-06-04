@@ -1,5 +1,6 @@
 ---
-title: "Independent Study - after the workshop"
+title: "Week 6: Understanding file systems"
+subtitle: "Independent Study to consolidate this week"
 ---
 
 

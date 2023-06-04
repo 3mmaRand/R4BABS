@@ -1,5 +1,6 @@
 ---
-title: "Summarising data in with several variables and the role of variables in analysis"
+title: "Week 9: Summarising data in with several variables and the role of variables in analysis"
+subtitle: "Workshop"
 toc: true
 toc-location: right
 ---
@@ -17,7 +18,7 @@ library(kableExtra)
 
 ## Session overview
 
-In this workshop you will learn summarise and plot datasets with more than one variable. You will also get more practice with working directories, importing data, formatting figures and the pipe.
+In this workshop you will learn to summarise and plot datasets with more than one variable. You will also get more practice with working directories, importing data, formatting figures and the pipe. At the end of the workshop you will learn a method for laying out text, figures and figure legends in documents.
 
 ## Philosophy
 
@@ -490,9 +491,7 @@ Note: the data in the file are unchanged.
 
 ## Organising figures in reports
 
-google doc
-
-Now we will create a word document with some text and figures. I find the best way to include figures in a word document is to use a table with the borders turned off. This can make it easier to control the layout. This is what you are aiming for: 
+In this section you will learn a way to lay out figures, legends and text in a document. We will be using a google doc but the methods works just as well in Word. I find the best way to include figures in a document so that things don't move around unexpectedly as you edit is to use a table with the borders turned off. This is what you are aiming for: [R4BABS-1-seal-example](https://docs.google.com/document/d/1ksETkp9TjN4wFj9wPQWleUazrNgHEWrpEQkOi4TPQt8). You are not expect to know what to write in the introduction! I've written a little text to make the document look more like a report.
 
 
 ![](images/do_on_your_computer.png) open a Google document
@@ -505,7 +504,7 @@ Now we will create a word document with some text and figures. I find the best w
 
 ![](images/do_on_your_computer.png) Put your cursor in the top cell of the table and choose Insert | Image | Upload from computer and navigate to one of your images. 
 
-![](images/do_on_your_computer.png) Hold down the control key and click on each of the borders until all are selectedd. Then use the Border Width icon to set the width to 0pt
+![](images/do_on_your_computer.png) Hold down the control key and click on each of the borders until all are selected. Then use the Border Width icon to set the width to 0pt
 
 <!-- ## Look after future you! -->
 

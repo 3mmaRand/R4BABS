@@ -23,14 +23,19 @@ Last week you summarised and plotted single variables. This week you will start 
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  xxxx
+    i. 📖 Read Working with data in RStudio
 
-    ii. xxx
 
 2.  [Workshop](workshop.qmd)
 
+    i. 💻 Summarise and plot datasets with more than one variable. 
+    
+    ii. 💻  Practice with working directories, importing data, formatting figures and the pipe
+
+    ii. 💻  Lay out text, figures and figure legends in documents 
+
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  
+    i. 💻 Summarise and plot a dataframe from the workshop
 
-    ii. 
+    ii. 💻 Practice the complete RStudio Project worklfow for a new dataset 

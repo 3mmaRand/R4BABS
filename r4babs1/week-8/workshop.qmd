@@ -1,5 +1,6 @@
 ---
-title: "Types of variable, the normal distribution and summarising data"
+title: "Week 8: Types of variable, the normal distribution and summarising data"
+subtitle: "Workshop"
 toc: true
 toc-location: right
 ---

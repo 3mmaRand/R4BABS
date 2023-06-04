@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.3.361">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Emma Rand">
 <title>Data Analysis in R - Introduction to RStudio and your first graphs</title>
 <style>
 code{white-space: pre-wrap;}
@@ -14,9 +15,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -43,48 +45,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -98,8 +71,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -132,11 +104,12 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
@@ -145,165 +118,239 @@ div.csl-indent {
     <span class="navbar-title">Data Analysis in R</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item">
-    <a class="nav-link" href="../../index.html">Welcome!</a>
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Welcome!</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../r4babs1/r4babs1.html" aria-current="page">BABS 1</a>
+    <a class="nav-link active" href="../../r4babs1/r4babs1.html" rel="" target="" aria-current="page">
+ <span class="menu-text">BABS 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../r4babs2/r4babs2.html">BABS 2</a>
+    <a class="nav-link" href="../../r4babs2/r4babs2.html" rel="" target="">
+ <span class="menu-text">BABS 2</span></a>
   </li>  
 </ul>
-<div id="quarto-search" class="" title="Search"></div>
+<div class="quarto-navbar-tools ms-auto">
+    <a href="https://twitter.com/er_13" title="Emma's Twitter" class="quarto-navigation-tool px-1" aria-label="Emma's Twitter"><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/3mmaRand/R4BABS" title="R4BABS GitHub" class="quarto-navigation-tool px-1" aria-label="R4BABS GitHub"><i class="bi bi-github"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Introduction to RStudio and your first graphs</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs1/week-7/overview.html">Week 7</a></li><li class="breadcrumb-item"><a href="../../r4babs1/week-7/workshop.html">Workshop</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/r4babs1.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../r4babs1/r4babs1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Week 6</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Week 6</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-6/overview.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../r4babs1/week-6/overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-6/study_before_workshop.html" class="sidebar-item-text sidebar-link">Prepare!</a>
+  <a href="../../r4babs1/week-6/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-6/workshop.html" class="sidebar-item-text sidebar-link">Workshop</a>
+  <a href="../../r4babs1/week-6/workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-6/study_after_workshop.html" class="sidebar-item-text sidebar-link">Consolidate!</a>
+  <a href="../../r4babs1/week-6/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Week 7</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Week 7</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/overview.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../r4babs1/week-7/overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/study_before_workshop.html" class="sidebar-item-text sidebar-link">Prepare!</a>
+  <a href="../../r4babs1/week-7/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/workshop.html" class="sidebar-item-text sidebar-link active">Workshop</a>
+  <a href="../../r4babs1/week-7/workshop.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-7/study_after_workshop.html" class="sidebar-item-text sidebar-link">Consolidate!</a>
+  <a href="../../r4babs1/week-7/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Week 8</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Week 8</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/overview.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../r4babs1/week-8/overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/study_before_workshop.qmd" class="sidebar-item-text sidebar-link">Prepare!</a>
+  <a href="../../r4babs1/week-8/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/workshop.html" class="sidebar-item-text sidebar-link">Workshop</a>
+  <a href="../../r4babs1/week-8/workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-8/study_after_workshop.qmd" class="sidebar-item-text sidebar-link">Consolidate!</a>
+  <a href="../../r4babs1/week-8/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Week 9</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Week 9</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/overview.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="../../r4babs1/week-9/overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/study_before_workshop.qmd" class="sidebar-item-text sidebar-link">Prepare!</a>
+  <a href="../../r4babs1/week-9/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/workshop.qmd" class="sidebar-item-text sidebar-link">Workshop</a>
+  <a href="../../r4babs1/week-9/workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../r4babs1/week-9/study_after_workshop.qmd" class="sidebar-item-text sidebar-link">Consolidate!</a>
+  <a href="../../r4babs1/week-9/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
       </ul>
 </li>
     </ul>
 </div>
-</nav><!-- margin-sidebar -->
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+<li><a href="#session-overview" id="toc-session-overview" class="nav-link" data-scroll-target="#session-overview">Session overview</a></li>
+  <li><a href="#philosophy" id="toc-philosophy" class="nav-link" data-scroll-target="#philosophy">Philosophy</a></li>
+  </ul>
+</li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+<li>
+<a href="#coat-colour-of-cats" id="toc-coat-colour-of-cats" class="nav-link" data-scroll-target="#coat-colour-of-cats">🐈 Coat colour of cats</a>
+  <ul class="collapse">
+<li><a href="#the-goal" id="toc-the-goal" class="nav-link" data-scroll-target="#the-goal">The goal</a></li>
+  </ul>
+</li>
+  <li><a href="#creating-the-data" id="toc-creating-the-data" class="nav-link" data-scroll-target="#creating-the-data">Creating the data</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#plotting-the-data-with-ggplot" id="toc-plotting-the-data-with-ggplot" class="nav-link" data-scroll-target="#plotting-the-data-with-ggplot">Plotting the data with <code>ggplot()</code></a></li>
+  <li><a href="#a-barplot" id="toc-a-barplot" class="nav-link" data-scroll-target="#a-barplot">A barplot</a></li>
+  <li><a href="#using-the-help-manual" id="toc-using-the-help-manual" class="nav-link" data-scroll-target="#using-the-help-manual">Using the help manual</a></li>
+  <li>
+<a href="#customising-the-plot" id="toc-customising-the-plot" class="nav-link" data-scroll-target="#customising-the-plot">Customising the plot</a>
+  <ul class="collapse">
+<li><a href="#bar-colour" id="toc-bar-colour" class="nav-link" data-scroll-target="#bar-colour">Bar colour</a></li>
+  <li><a href="#changing-the-axes" id="toc-changing-the-axes" class="nav-link" data-scroll-target="#changing-the-axes">Changing the axes</a></li>
+  <li><a href="#getting-rid-of-the-grey-background" id="toc-getting-rid-of-the-grey-background" class="nav-link" data-scroll-target="#getting-rid-of-the-grey-background">Getting rid of the grey background</a></li>
+  <li><a href="#changing-the-order-of-bars" id="toc-changing-the-order-of-bars" class="nav-link" data-scroll-target="#changing-the-order-of-bars">Changing the order of bars</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
+  <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
+  <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">Introduction to RStudio and your first graphs</h1>
+<h1 class="title">Introduction to RStudio and your first graphs</h1>
 </div>
 
 
@@ -311,12 +358,13 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
-<p><img src="images/welcome_to_rstats_twitter.png" class="img-fluid" alt="two fluffy characters arriving at a door labelled R which has rainbows and butterflies and a welcome mat" width="1000"></p>
+<p><img src="images/welcome_to_rstats_twitter.png" class="img-fluid" alt="Two fuzzy monsters standing side-by-side outside of a door frame through which is a magical wonderland of different R communities, with a 'mind blown' rainbow coming out of the one closest to the door. A welcome mat says 'Welcome'." width="1000"></p>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
 <p>In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it.</p>
 </section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
@@ -329,12 +377,12 @@ div.csl-indent {
 <li>look things up in your own code from earlier workshops</li>
 <li>there are no stupid questions</li>
 </ul>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Key
 </div>
 </div>
@@ -360,38 +408,37 @@ Key
 <p>The data are as a frequency table:</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table style="width:30%; margin-left: auto; margin-right: auto;" class="table">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Frequency of coat colours in 62 cats</caption>
- <thead><tr>
-<th style="text-align:left;"> Coat colour </th>
-   <th style="text-align:right;"> No. cats </th>
-  </tr></thead>
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Coat colour</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">No. cats</th>
+</tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;"> black </td>
-   <td style="text-align:right;"> 23 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> white </td>
-   <td style="text-align:right;"> 15 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> tabby </td>
-   <td style="text-align:right;"> 8 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> ginger </td>
-   <td style="text-align:right;"> 10 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> tortoiseshell </td>
-   <td style="text-align:right;"> 5 </td>
-  </tr>
-<tr>
-<td style="text-align:left;"> calico </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">black</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">white</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tabby</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ginger</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tortoiseshell</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">calico</td>
+<td style="text-align: right;">1</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -431,26 +478,26 @@ Key
 </div>
 </section><section id="packages" class="level2"><h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p>Commands like <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, and <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> are in packages which are part the ‘base’ R system. A package is a collection of related commands. Base packages are installed automatically when you install R.</p>
-<p>Other packages, such as <code>ggplot2</code> <span class="citation" data-cites="ggplot2">Wickham (<a href="#ref-ggplot2" role="doc-biblioref">2016</a>)</span> need to be installed once and then loaded each session. <code>ggplot2</code> is one of the <code>tidyverse</code> <span class="citation" data-cites="tidyverse">Wickham et al. (<a href="#ref-tidyverse" role="doc-biblioref">2019</a>)</span> packages.</p>
-<div class="callout-important callout callout-style-default callout-captioned">
+<p>Other packages, such as <strong><code>ggplot2</code></strong> <span class="citation" data-cites="ggplot2">Wickham (<a href="#ref-ggplot2" role="doc-biblioref">2016</a>)</span> need to be installed once and then loaded each session. <strong><code>ggplot2</code></strong> is one of the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">Wickham et al. (<a href="#ref-tidyverse" role="doc-biblioref">2019</a>)</span> packages.</p>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are working on a University computer (or the VDS) you <em>do not</em> need to install <code>tidyverse</code>.</p>
-<p>If you are working on your own computer or using RStudio cloud you <em>do</em> need to install <code>tidyverse</code>.</p>
+<p>If you are working on a University computer (or the VDS) you <em>do not</em> need to install <strong><code>tidyverse</code></strong>.</p>
+<p>If you are working on your own computer or using RStudio cloud you <em>do</em> need to install <strong><code>tidyverse</code></strong>.</p>
 </div>
 </div>
 <p>To install a package:</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Go the Packages tab on the lower right pane. Click Install and type <code>tidyverse</code> into the box that appears.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Go the Packages tab on the lower right pane. Click Install and type <strong><code>tidyverse</code></strong> into the box that appears.</p>
 <p>Wait until you get the prompt back. It will take a few moments, be patient!</p>
 <p>To use a package which is installed you have to load it with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function. You will need to do this whether you are working on your own computer or on a University computer</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Load the <code>tidyverse</code>:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Load the <strong><code>tidyverse</code></strong>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -519,6 +566,7 @@ Important
 <strong>Value</strong> gives the output of the command</li>
 <li>Don’t be too perturbed by not fully understanding the information</li>
 </ul></section><section id="customising-the-plot" class="level2"><h2 class="anchored" data-anchor-id="customising-the-plot">Customising the plot</h2>
+<section id="bar-colour" class="level3"><h3 class="anchored" data-anchor-id="bar-colour">Bar colour</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Change the fill of the bars using <code>fill</code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coat_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">coat</span>, y <span class="op">=</span> <span class="va">freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -558,6 +606,7 @@ Important
 <p><img src="workshop_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section><section id="changing-the-axes" class="level3"><h3 class="anchored" data-anchor-id="changing-the-axes">Changing the axes</h3>
 <p>We can make changes to the axes using:</p>
 <ul>
 <li>Changes to a discrete x axis: <code><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete()</a></code>
@@ -579,12 +628,12 @@ Important
 </div>
 </div>
 <p>Each ‘layer’ is added to the ggplot() command with a <code>+</code></p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Top Tip
 </div>
 </div>
@@ -618,6 +667,7 @@ Top Tip
 <p><img src="workshop_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section><section id="getting-rid-of-the-grey-background" class="level3"><h3 class="anchored" data-anchor-id="getting-rid-of-the-grey-background">Getting rid of the grey background</h3>
 <p>The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the “theme” of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> but there are some handy built in themes that apply several changes at once. One of these is <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code> to the plot:</p>
 <div class="cell">
@@ -635,18 +685,19 @@ Top Tip
 <p><img src="workshop_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section><section id="changing-the-order-of-bars" class="level3"><h3 class="anchored" data-anchor-id="changing-the-order-of-bars">Changing the order of bars</h3>
 <p>The default ordering of a categorical variable like <code>coat</code> is alphabetical. Often we want to change the order. For example, you might want a “Control” on the left or the categories might have an inherent order (e.g., small, medium and large). We can alter (<code>mutate</code>) the <code>coat</code> variable using <code><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel()</a></code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make “white” the first category:</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">coat_data</span> <span class="op">&lt;-</span> <span class="va">coat_data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>coat <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">coat</span>, <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 The pipe <code>|&gt;</code>
 </div>
 </div>
@@ -682,26 +733,26 @@ The pipe <code>|&gt;</code>
 </div>
 </div>
 <p>You’re finished!</p>
-</section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
-<p><img src="images/r_first_then.png" class="img-fluid" alt="At the top: fluffy character under a dark cloud waving a white flag at an angry. At the bottom: The fluffy character and the R smiling and dancing together in the sunshine" width="1000"></p>
+</section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
+<p><img src="images/r_first_then.png" class="img-fluid" alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…' The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads 'but now it’s like…'”'" width="1000"></p>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs1/week-7/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <a href="../../r4babs1/week-7/workshop.html">.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd">View in Browser</a>.</p>
+<p>The <a href="../../r4babs1/week-7/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd">View in Browser</a>.Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span></p>
 </section><section id="references" class="level1">
 
 
 
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-allaire2022" class="csl-entry" role="doc-biblioentry">
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
 </div>
-<div id="ref-ggplot2" class="csl-entry" role="doc-biblioentry">
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
 Wickham, Hadley. 2016. <span>“Ggplot2: Elegant Graphics for Data Analysis.”</span> <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
-<div id="ref-tidyverse" class="csl-entry" role="doc-biblioentry">
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
@@ -735,9 +786,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -749,7 +814,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -785,25 +867,145 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->
