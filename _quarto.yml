@@ -5,7 +5,7 @@ project:
 website:
   title: "Data Analysis in R "
   page-footer:
-    left: '`r paste("Please cite as: ", cffr::cff_to_bibtex("CITATION.cff"))`'
+    left: " `r cffr::cff_to_bibtex("CITATION.cff")` "
     right:
       - icon: twitter
         href: https://twitter.com/er_13
@@ -43,8 +43,10 @@ website:
       background: light
       contents:
           - href: r4babs1/r4babs1.qmd
-            text: Overview
-          - section: "Week 6"
+          - text: ---
+          - text: "R for BABS 1"
+          - text: ---
+          - section: "Week 6: Understanding file systems"
             contents: 
              - href: r4babs1/week-6/overview.qmd
                text: About  
@@ -54,7 +56,7 @@ website:
                text: Workshop
              - href: r4babs1/week-6/study_after_workshop.qmd
                text: Consolidate!  
-          - section: "Week 7"
+          - section: "Week 7: Introduction to R, RStudio and project organisation"
             contents: 
              - href: r4babs1/week-7/overview.qmd
                text: About  
@@ -64,7 +66,7 @@ website:
                text: Workshop
              - href: r4babs1/week-7/study_after_workshop.qmd
                text: Consolidate!  
-          - section: "Week 8"
+          - section: "Week 8: Types of variable, the normal distribution and summarising data"
             contents: 
              - href: r4babs1/week-8/overview.qmd
                text: About  
@@ -74,7 +76,7 @@ website:
                text: Workshop
              - href: r4babs1/week-8/study_after_workshop.qmd
                text: Consolidate!  
-          - section: "Week 9"
+          - section: "Week 9: Summarising data in with several variables and the role of variables in analysis"
             contents: 
              - href: r4babs1/week-9/overview.qmd
                text: About  
@@ -89,48 +91,69 @@ website:
       background: light
       contents: 
           - href: r4babs2/r4babs2.qmd
-            text: Overview
+          - text: ---
+          - text: "R for BABS 2"
+          - text: ---
+          - section: "Week 1"
+            contents: 
+             - href: r4babs2/week-1/overview.qmd
+               text: About  
+             - href: r4babs2/week-1/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-1/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-1/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 2"
+            contents: 
+             - href: r4babs2/week-2/overview.qmd
+               text: About  
+             - href: r4babs2/week-2/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-2/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-2/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 3"
+            contents: 
+             - href: r4babs2/week-3/overview.qmd
+               text: About  
+             - href: r4babs2/week-3/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-3/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-3/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 4"
+            contents: 
+             - href: r4babs2/week-4/overview.qmd
+               text: About  
+             - href: r4babs2/week-4/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-4/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-4/study_after_workshop.qmd
+               text: Consolidate!  
+          - section: "Week 5"
+            contents: 
+             - href: r4babs2/week-5/overview.qmd
+               text: About  
+             - href: r4babs2/week-5/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-5/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-5/study_after_workshop.qmd
+               text: Consolidate!  
           - section: "Week 6"
             contents: 
-             - href: r4babs1/week-6/overview.qmd
+             - href: r4babs2/week-6/overview.qmd
                text: About  
-             - href: r4babs1/week-6/study_before_workshop.qmd
+             - href: r4babs2/week-6/study_before_workshop.qmd
                text: Prepare! 
-             - href: r4babs1/week-6/workshop.qmd
+             - href: r4babs2/week-6/workshop.qmd
                text: Workshop
-             - href: r4babs1/week-6/study_after_workshop.qmd
+             - href: r4babs2/week-6/study_after_workshop.qmd
                text: Consolidate!  
-          - section: "Week 7"
-            contents: 
-             - href: r4babs1/week-7/overview.qmd
-               text: About  
-             - href: r4babs1/week-7/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs1/week-7/workshop.qmd
-               text: Workshop
-             - href: r4babs1/week-7/study_after_workshop.qmd
-               text: Consolidate!  
-          - section: "Week 8"
-            contents: 
-             - href: r4babs1/week-8/overview.qmd
-               text: About  
-             - href: r4babs1/week-8/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs1/week-8/workshop.qmd
-               text: Workshop
-             - href: r4babs1/week-8/study_after_workshop.qmd
-               text: Consolidate!  
-          - section: "Week 9"
-            contents: 
-             - href: r4babs1/week-9/overview.qmd
-               text: About  
-             - href: r4babs1/week-9/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs1/week-9/workshop.qmd
-               text: Workshop
-             - href: r4babs1/week-9/study_after_workshop.qmd
-               text: Consolidate!  
-
 execute:
   echo: true
   warning: false
