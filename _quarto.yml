@@ -103,6 +103,8 @@ website:
                text: Workshop
              - href: r4babs2/week-1/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
+          - text: ---
           - section: "Week 2"
             contents: 
              - href: r4babs2/week-2/overview.qmd
@@ -113,6 +115,7 @@ website:
                text: Workshop
              - href: r4babs2/week-2/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
           - section: "Week 3"
             contents: 
              - href: r4babs2/week-3/overview.qmd
@@ -123,6 +126,7 @@ website:
                text: Workshop
              - href: r4babs2/week-3/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
           - section: "Week 4"
             contents: 
              - href: r4babs2/week-4/overview.qmd
@@ -133,6 +137,7 @@ website:
                text: Workshop
              - href: r4babs2/week-4/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
           - section: "Week 5"
             contents: 
              - href: r4babs2/week-5/overview.qmd
@@ -143,6 +148,7 @@ website:
                text: Workshop
              - href: r4babs2/week-5/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
           - section: "Week 6"
             contents: 
              - href: r4babs2/week-6/overview.qmd

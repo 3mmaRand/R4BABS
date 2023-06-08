@@ -48,7 +48,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Name the RStudio Project 'week-8'.
+![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-1` folder and name the RStudio Project 'week-8'.
 
 ![](images/do_in_R.png) Make a new script then save it with a name like `analysis.R` to carry out the rest of the work.
 

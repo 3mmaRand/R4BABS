@@ -1,0 +1,32 @@
+---
+title: "Week 1: The logic of hypothesis testing and confidence intervals"
+---
+
+This week you will 
+
+### Learning objectives
+
+-   
+
+-  
+
+-   
+
+-   
+
+### Instructions
+
+1.  [Prepare](study_before_workshop.qmd)
+
+    i.  📖 Read the book **OR** 📹 Watch two videos
+
+
+2.  [Workshop](workshop.qmd)
+    
+    i.💻 
+
+3.  [Consolidate](study_after_workshop.qmd)
+
+    i.  💻 
+
+    ii. 📖 Read 

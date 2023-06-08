@@ -50,7 +50,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
 
-![](images/do_in_R.png) Also on the Files tab click on `New Folder`. Type "data-analysis-in-r" in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS1.
+![](images/do_in_R.png) Also on the Files tab click on `New Folder`. Type "data-analysis-in-r-1" in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS1.
 
 ![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Name the RStudio Project 'week-7'.
 
