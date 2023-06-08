@@ -8,7 +8,7 @@
 
 <meta name="author" content="Emma Rand">
 
-<title>Data Analysis in R - Data Analysis in R for BABS 2</title>
+<title>Data Analysis in R - Week 3: Two-sample tests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,22 +24,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data Analysis in R</span>
     </a>
   </div>
@@ -82,15 +84,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Welcome!</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../r4babs1/r4babs1.html" rel="" target="">
+    <a class="nav-link" href="../../r4babs1/r4babs1.html" rel="" target="">
  <span class="menu-text">BABS 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../r4babs2/r4babs2.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="../../r4babs2/r4babs2.html" rel="" target="" aria-current="page">
  <span class="menu-text">BABS 2</span></a>
   </li>  
 </ul>
@@ -106,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../r4babs2/r4babs2.html">Data Analysis in R for BABS 2</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs2/week-3/overview.html">Week 3</a></li><li class="breadcrumb-item"><a href="../../r4babs2/week-3/study_before_workshop.html">Prepare!</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -120,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/r4babs2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../r4babs2/r4babs2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Analysis in R for BABS 2</span></a>
   </div>
 </li>
@@ -136,25 +138,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-1/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-1/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-1/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-1/study_before_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-1/workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-1/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-1/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-1/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -173,25 +175,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-2/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-2/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-2/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-2/study_before_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-2/workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-2/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-2/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-2/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -209,25 +211,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-3/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-3/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-3/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-3/study_before_workshop.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-3/workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-3/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-3/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-3/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -245,25 +247,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-4/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-4/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-4/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-4/study_before_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-4/workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-4/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-4/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-4/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -281,25 +283,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-5/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-5/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-5/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-5/study_before_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-5/workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-5/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-5/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-5/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -317,25 +319,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-6/overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-6/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-6/study_before_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-6/study_before_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prepare!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-6/workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-6/workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r4babs2/week-6/study_after_workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../r4babs2/week-6/study_after_workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Consolidate!</span></a>
   </div>
 </li>
@@ -352,7 +354,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Analysis in R for BABS 2</h1>
+<h1 class="title">Week 3: Two-sample tests</h1>
+<p class="subtitle lead">Independent Study to prepare for workshop</p>
 </div>
 
 
@@ -367,7 +370,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>this is the overview for babs 2 page</p>
+<ol type="1">
+<li><p>Prepare</p>
+<ol type="i">
+<li><strong>Either</strong> 📖 Read <a href="https://3mmarand.github.io/comp4biosci/xx.html">xxxxx</a> in <strong>OR</strong> 📹 Watch</li>
+</ol>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://www.youtube.com/watch?xx"></video></div></li>
+</ol>
 
 
 
@@ -646,6 +655,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

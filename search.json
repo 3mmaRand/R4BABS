@@ -448,10 +448,262 @@
     "text": "About this site\nAbout me"
   },
   {
+    "objectID": "r4babs2/week-1/workshop.html",
+    "href": "r4babs2/week-1/workshop.html",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-1/workshop.html#session-overview",
+    "href": "r4babs2/week-1/workshop.html#session-overview",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-1/workshop.html#philosophy",
+    "href": "r4babs2/week-1/workshop.html#philosophy",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-1/overview.html",
+    "href": "r4babs2/week-1/overview.html",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-1/study_before_workshop.html",
+    "href": "r4babs2/week-1/study_before_workshop.html",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-1/study_after_workshop.html",
+    "href": "r4babs2/week-1/study_after_workshop.html",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
+    "objectID": "r4babs2/week-2/workshop.html",
+    "href": "r4babs2/week-2/workshop.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-2/workshop.html#session-overview",
+    "href": "r4babs2/week-2/workshop.html#session-overview",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-2/workshop.html#philosophy",
+    "href": "r4babs2/week-2/workshop.html#philosophy",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-2/overview.html",
+    "href": "r4babs2/week-2/overview.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-2/study_before_workshop.html",
+    "href": "r4babs2/week-2/study_before_workshop.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-2/study_after_workshop.html",
+    "href": "r4babs2/week-2/study_after_workshop.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
+    "objectID": "r4babs2/week-6/workshop.html",
+    "href": "r4babs2/week-6/workshop.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-6/workshop.html#session-overview",
+    "href": "r4babs2/week-6/workshop.html#session-overview",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-6/workshop.html#philosophy",
+    "href": "r4babs2/week-6/workshop.html#philosophy",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-6/overview.html",
+    "href": "r4babs2/week-6/overview.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-6/study_before_workshop.html",
+    "href": "r4babs2/week-6/study_before_workshop.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-6/study_after_workshop.html",
+    "href": "r4babs2/week-6/study_after_workshop.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
+    "objectID": "r4babs2/week-5/workshop.html",
+    "href": "r4babs2/week-5/workshop.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-5/workshop.html#session-overview",
+    "href": "r4babs2/week-5/workshop.html#session-overview",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-5/workshop.html#philosophy",
+    "href": "r4babs2/week-5/workshop.html#philosophy",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-5/overview.html",
+    "href": "r4babs2/week-5/overview.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-5/study_before_workshop.html",
+    "href": "r4babs2/week-5/study_before_workshop.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-5/study_after_workshop.html",
+    "href": "r4babs2/week-5/study_after_workshop.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
+    "objectID": "r4babs2/week-3/workshop.html",
+    "href": "r4babs2/week-3/workshop.html",
+    "title": "Week 3: Two-sample tests",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-3/workshop.html#session-overview",
+    "href": "r4babs2/week-3/workshop.html#session-overview",
+    "title": "Week 3: Two-sample tests",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-3/workshop.html#philosophy",
+    "href": "r4babs2/week-3/workshop.html#philosophy",
+    "title": "Week 3: Two-sample tests",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-3/overview.html",
+    "href": "r4babs2/week-3/overview.html",
+    "title": "Week 3: Two-sample tests",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-3/study_before_workshop.html",
+    "href": "r4babs2/week-3/study_before_workshop.html",
+    "title": "Week 3: Two-sample tests",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-3/study_after_workshop.html",
+    "href": "r4babs2/week-3/study_after_workshop.html",
+    "title": "Week 3: Two-sample tests",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
     "objectID": "r4babs2/r4babs2.html",
     "href": "r4babs2/r4babs2.html",
     "title": "Data Analysis in R for BABS 2",
     "section": "",
     "text": "this is the overview for babs 2 page"
+  },
+  {
+    "objectID": "r4babs2/week-4/workshop.html",
+    "href": "r4babs2/week-4/workshop.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-4/workshop.html#session-overview",
+    "href": "r4babs2/week-4/workshop.html#session-overview",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-4/workshop.html#philosophy",
+    "href": "r4babs2/week-4/workshop.html#philosophy",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-4/overview.html",
+    "href": "r4babs2/week-4/overview.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-4/study_before_workshop.html",
+    "href": "r4babs2/week-4/study_before_workshop.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-4/study_after_workshop.html",
+    "href": "r4babs2/week-4/study_after_workshop.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
   }
 ]
