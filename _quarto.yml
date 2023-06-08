@@ -44,8 +44,6 @@ website:
       contents:
           - href: r4babs1/r4babs1.qmd
           - text: ---
-          - text: "R for BABS 1"
-          - text: ---
           - section: "Week 6: Understanding file systems"
             contents: 
              - href: r4babs1/week-6/overview.qmd
@@ -56,6 +54,7 @@ website:
                text: Workshop
              - href: r4babs1/week-6/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
           - section: "Week 7: Introduction to R, RStudio and project organisation"
             contents: 
              - href: r4babs1/week-7/overview.qmd
@@ -66,6 +65,7 @@ website:
                text: Workshop
              - href: r4babs1/week-7/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
           - section: "Week 8: Types of variable, the normal distribution and summarising data"
             contents: 
              - href: r4babs1/week-8/overview.qmd
@@ -76,6 +76,7 @@ website:
                text: Workshop
              - href: r4babs1/week-8/study_after_workshop.qmd
                text: Consolidate!  
+          - text: ---
           - section: "Week 9: Summarising data in with several variables and the role of variables in analysis"
             contents: 
              - href: r4babs1/week-9/overview.qmd
@@ -91,8 +92,6 @@ website:
       background: light
       contents: 
           - href: r4babs2/r4babs2.qmd
-          - text: ---
-          - text: "R for BABS 2"
           - text: ---
           - section: "Week 1"
             contents: 
