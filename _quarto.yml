@@ -40,9 +40,10 @@ website:
   sidebar:
     - title: "BABS 1"
       style: "floating"
-      background: light
+      background: primary
       contents:
           - href: r4babs1/r4babs1.qmd
+          - text: ---
           - text: ---
           - section: "Week 6: Understanding file systems"
             contents: 
@@ -89,9 +90,10 @@ website:
                text: Consolidate!  
     - title: "BABS 2"
       style: "floating"
-      background: light
+      background: secondary
       contents: 
           - href: r4babs2/r4babs2.qmd
+          - text: ---
           - text: ---
           - section: "Week 1"
             contents: 
@@ -103,7 +105,6 @@ website:
                text: Workshop
              - href: r4babs2/week-1/study_after_workshop.qmd
                text: Consolidate!  
-          - text: ---
           - text: ---
           - section: "Week 2"
             contents: 
