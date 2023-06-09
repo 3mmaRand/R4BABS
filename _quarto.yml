@@ -5,7 +5,7 @@ project:
 website:
   title: "Data Analysis in R "
   page-footer:
-    left: "`r cffr::cff_to_bibtex('CITATION.cff')`"
+    left: '`r cffr::cff_to_bibtex("CITATION.cff")`'
     right:
       - icon: twitter
         href: https://twitter.com/er_13
@@ -40,7 +40,7 @@ website:
   sidebar:
     - title: "BABS 1"
       style: "floating"
-      background: primary
+      background: light
       contents:
           - href: r4babs1/r4babs1.qmd
           - text: ---
@@ -56,7 +56,7 @@ website:
              - href: r4babs1/week-6/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 7: Introduction to R, RStudio and project organisation"
+          - section: "Week 7: Introduction to R and project organisation"
             contents: 
              - href: r4babs1/week-7/overview.qmd
                text: About  
@@ -67,7 +67,7 @@ website:
              - href: r4babs1/week-7/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 8: Types of variable, the normal distribution and summarising data"
+          - section: "Week 8: Types of variable, summarising and plotting data"
             contents: 
              - href: r4babs1/week-8/overview.qmd
                text: About  
@@ -78,7 +78,7 @@ website:
              - href: r4babs1/week-8/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 9: Summarising data in with several variables and the role of variables in analysis"
+          - section: "Week 9: Summarising data with several variables"
             contents: 
              - href: r4babs1/week-9/overview.qmd
                text: About  
@@ -90,12 +90,12 @@ website:
                text: Consolidate!  
     - title: "BABS 2"
       style: "floating"
-      background: secondary
+      background: light
       contents: 
           - href: r4babs2/r4babs2.qmd
           - text: ---
           - text: ---
-          - section: "Week 1"
+          - section: "Week 1: The logic of hypothesis testing and CI"
             contents: 
              - href: r4babs2/week-1/overview.qmd
                text: About  
@@ -106,7 +106,7 @@ website:
              - href: r4babs2/week-1/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 2"
+          - section: "Week 2: Introduction and regression"
             contents: 
              - href: r4babs2/week-2/overview.qmd
                text: About  
@@ -117,7 +117,7 @@ website:
              - href: r4babs2/week-2/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 3"
+          - section: "Week 3: Two-sample tests"
             contents: 
              - href: r4babs2/week-3/overview.qmd
                text: About  
@@ -128,7 +128,7 @@ website:
              - href: r4babs2/week-3/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 4"
+          - section: "Week 4: One-way ANOVA and Kruskal-Wallis"
             contents: 
              - href: r4babs2/week-4/overview.qmd
                text: About  
@@ -139,7 +139,7 @@ website:
              - href: r4babs2/week-4/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 5"
+          - section: "Week 5: Two-way ANOVA"
             contents: 
              - href: r4babs2/week-5/overview.qmd
                text: About  
@@ -150,7 +150,7 @@ website:
              - href: r4babs2/week-5/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 6"
+          - section: "Week 6: Chi-squared and correlation"
             contents: 
              - href: r4babs2/week-6/overview.qmd
                text: About  

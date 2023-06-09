@@ -4,7 +4,21 @@ title: "Data Analysis in R for Becoming a Bioscientist"
 
 # Overview
 
-this is the start of a journey BABS 1 to 4 which teach you. progression,
+Each semester in Stage 1 and 2 the Becoming a Bioscientist modules progressively train you in:
+
+-   Safe Lab/field practical skills
+
+-   Asking questions, hypothesising and designing research activity
+
+-   Reproducibly recording, handling, analysing and presenting data
+
+-   Interpreting, contextualising and communicating research
+
+-   Professional team work and reflection
+
+
+Each module includes Data Analysis in R training which helps you analyse data but also to understand the literature, design experiments and report the results.
+
 
 ## Learning Data Analysis is important...
 
@@ -22,4 +36,10 @@ However, the process is often fun! There is a lot of problem solving which is en
 
 And because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)
 
-The time and effort you put in to learning "Data Analysis in R" in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to better and/or more quickly: Design your summer term experiment (the antimicrobials practical) and write-up the laboratory report including a reproducible script of analyses and figures contained within it Design and analyse experiments including those for projects in stages 2, 3, and 4 and year-away Evaluate and interpret the data analysis in papers Perform well in assessments Improve your employability!
+The time and effort you put in to learning "Data Analysis in R" in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:
+
+-    better and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.
+
+-   help you evaluate and interpret the data analysis in papers
+
+-   improve your employability!

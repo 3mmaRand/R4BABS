@@ -4,7 +4,7 @@ title: "Data Analysis in R for BABS 1"
 
 # Introduction
 
-first of 4 babs modules. four weeks of work. fundamental computing concepts data types, types of variable, role of variables ideas about data organisation using rstudio importing summarising and plotting variables
+This is the first of the four BABS modules. Over four weeks you will learn some core concepts about scientific computing, types of variable, the role of variables in analysis and how to use RStudio to organise analysis and import, summarise and plot data.
 
 ## Module Learning Objectives
 

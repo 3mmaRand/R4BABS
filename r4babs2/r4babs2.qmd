@@ -2,4 +2,25 @@
 title: "Data Analysis in R for BABS 2"
 ---
 
-this is the overview for babs 2 page
+
+
+# Introduction
+
+This is the second of the four BABS modules. Over six weeks you will learn about the logic of hypothesis testing, confidence intervals, what is meant by a statistical model, two-sample tests and one- and two-way analysis of variance (ANOVA).
+
+## Module Learning Objectives
+
+The BABS2 Module Learning outcomes that relate to the Data Analysis in R content are:
+
+-   Think creatively to address a Grand Challenge by designing investigations with testable hypotheses and rigorous controls
+
+-   Appropriately select classical univariate statistical tests and some non-parametric equivalents to a given scenario and recognise when these are not suitable
+
+-   Use R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically
+
+-   Communicate research in scientific reports and via oral presentation.
+
+# How this part of the module is organised
+
+In weeks 1 to 6 there are some independent study activities covering concepts which are designed to prepare you for the workshop. In the workshop you will apply these concepts in R. After the workshop there is independent study to help you consolidate your learning.
+

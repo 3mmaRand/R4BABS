@@ -10,5 +10,5 @@ subtitle: "Independent Study to prepare for workshop"
 
     ii. Read [What they forgot to teach you about computers](https://3mmarand.github.io/comp4biosci/what_they_forgot.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
 
-    iii. Read [What are R and Rstudio?](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio)
+    iii. Read [What are R and Rstudio?](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio). You only need to read this section, you do not need to the read the rest of the chapter (yet!)
 
