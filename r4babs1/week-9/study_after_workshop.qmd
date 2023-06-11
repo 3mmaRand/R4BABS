@@ -21,7 +21,7 @@ library(readxl)
 1.  💻 Summarise and plot the `pigeons` dataframe appropriately.
 
 ```{r}
-#| code-fold: true
+#| fig-keep: none
 
 # import
 pigeons <- read_table("data-raw/pigeon.txt")
@@ -59,7 +59,20 @@ ggplot() +
 ```
 
 
-2. 💻 The data in x are a blood data contain x variable. Create a complete RStudio Project for an analysis of these data. You will need to:
+2. 💻 The data in [blood.csv](data-raw/blood.csv) are measurements of several blood parameters from fifty people with [Crohn's disease](https://en.wikipedia.org/wiki/Crohn%27s_disease), a lifelong condition where parts of the digestive system become inflamed. Twenty-five of people are in the early stages of diagnosis and 25 have started treatment. The variables in the dataset are:
+
+    -   sodium  - Sodium concentration in umol/L, the average of 5 technical replicates
+    -   potassium - Potassium concentration in umol/L, the average of 5 technical replicates
+    -   B12 Vitamin - B12 in pmol/L, the average of 5 technical replicates
+    -   wbc - White blood cell count in 10^9 /L, the average of 5 technical replicates
+    -   rbc count - Red blood cell count in	10^12 /L, the average of 5 technical replicates
+    -   platlet count - platlet count in	10^9 /L, the average of 5 technical replicates
+    -   inflammation marker - the presence or absence of a marker of inflammation, either 0 or 1 
+    -   status - whether the individual is before or after treatment.
+
+
+
+    Your task is to summarise and plot these data in any sutable way. Create a complete RStudio Project for an analysis of these data. You will need to:
 
     -   Make a new project, 
     -   Make folders for data and for figures

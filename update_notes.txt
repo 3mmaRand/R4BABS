@@ -1,15 +1,31 @@
 
-TO INCLUDE: the workshop example needs to align with the river practicals: 3 treatments 0 upstream, discharge point, downstream 6 samples from each point Several groups will work on 1 sample: these are the technical reps Class data will be analysed: students will enter data into a google sheet/form? with cell validation. Emma will download, average over the technical reps and make available: 3 treatments x 6 reps responses: nitrate, phosphate, bacterial counts, algal count, microplastic count, oestrogen, presence/absence of a plasmid
+#######################
+Needs to go in BABS 2
 
-Do bood sample:
-https://data.world/
-- nitrate
-- phosphate
-- oestrogen
-- bacterial counts
-- algal counts
-- microplastics count
-- presence/absence
+At the end of the workshop you will learn a method for laying out text, figures and figure legends in documents.
+
+## Organising figures in reports
+
+In this section you will learn a way to lay out figures, legends and text in a document. We will be using a google doc but the methods works just as well in Word. I find the best way to include figures in a document so that things don't move around unexpectedly as you edit is to use a table with the borders turned off. This is what you are aiming for: [R4BABS-2-seal-example](https://docs.google.com/document/d/1ksETkp9TjN4wFj9wPQWleUazrNgHEWrpEQkOi4TPQt8). You are not expect to know what to write in the introduction! I've written a little text to make the document look more like a report.
+
+![](images/do_on_your_computer.png) open a Google document
+
+![](images/do_on_your_computer.png) add some text (it can be any text at all)
+
+![](images/do_on_your_computer.png) insert a 2 row x 1 column table
+
+![](images/do_on_your_computer.png) Put your cursor in the bottom cell of the table and a figure legend.
+
+![](images/do_on_your_computer.png) Put your cursor in the top cell of the table and choose Insert \| Image \| Upload from computer and navigate to one of your images.
+
+![](images/do_on_your_computer.png) Hold down the control key and click on each of the borders until all are selected. Then use the Border Width icon to set the width to 0pt
+
+######################
+
+
+
+
+
 
 ##############
 ![W](../pics/W.png)   ![](images/do_on_your_computer.png)
