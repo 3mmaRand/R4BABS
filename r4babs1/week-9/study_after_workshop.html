@@ -376,12 +376,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Population"</span>) <span class="sc">+</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<p><img src="study_after_workshop_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
 </div>
 <ol start="2" type="1">
-<li><p>💻 The data in x are a blood data contain x variable. Create a complete RStudio Project for an analysis of these data. You will need to:</p>
+<li><p>💻 The data in <a href="data-raw/blood.csv">blood.csv</a> are measurements of several blood parameters from fifty people with <a href="https://en.wikipedia.org/wiki/Crohn%27s_disease">Crohn’s disease</a>, a lifelong condition where parts of the digestive system become inflamed. Twenty-five of people are in the early stages of diagnosis and 25 have started treatment. The variables in the dataset are:</p>
+<ul>
+<li>sodium - Sodium concentration in umol/L, the average of 5 technical replicates</li>
+<li>potassium - Potassium concentration in umol/L, the average of 5 technical replicates</li>
+<li>B12 Vitamin - B12 in pmol/L, the average of 5 technical replicates</li>
+<li>wbc - White blood cell count in 10^9 /L, the average of 5 technical replicates</li>
+<li>rbc count - Red blood cell count in 10^12 /L, the average of 5 technical replicates</li>
+<li>platlet count - platlet count in 10^9 /L, the average of 5 technical replicates</li>
+<li>inflammation marker - the presence or absence of a marker of inflammation, either 0 or 1</li>
+<li>status - whether the individual is before or after treatment.</li>
+</ul>
+<p>Your task is to summarise and plot these data in any sutable way. Create a complete RStudio Project for an analysis of these data. You will need to:</p>
 <ul>
 <li>Make a new project,</li>
 <li>Make folders for data and for figures</li>

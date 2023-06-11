@@ -360,7 +360,12 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#tidying-data" id="toc-tidying-data" class="nav-link" data-scroll-target="#tidying-data">Tidying data</a></li>
   </ul></li>
-  <li><a href="#organising-figures-in-reports" id="toc-organising-figures-in-reports" class="nav-link" data-scroll-target="#organising-figures-in-reports">Organising figures in reports</a></li>
+  <li><a href="#ulna-and-height" id="toc-ulna-and-height" class="nav-link" data-scroll-target="#ulna-and-height">Ulna and height</a>
+  <ul class="collapse">
+  <li><a href="#import-2" id="toc-import-2" class="nav-link" data-scroll-target="#import-2">Import</a></li>
+  <li><a href="#summarise-2" id="toc-summarise-2" class="nav-link" data-scroll-target="#summarise-2">Summarise</a></li>
+  <li><a href="#visualise-2" id="toc-visualise-2" class="nav-link" data-scroll-target="#visualise-2">Visualise</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
@@ -400,7 +405,7 @@ div.csl-indent {
 </div>
 <section id="session-overview" class="level2">
 <h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this workshop you will learn to summarise and plot datasets with more than one variable. You will also get more practice with working directories, importing data, formatting figures and the pipe. At the end of the workshop you will learn a method for laying out text, figures and figure legends in documents.</p>
+<p>In this workshop you will learn to summarise and plot datasets with more than one variable and how to write figures to files. You will also get more practice with working directories, importing data, formatting figures and the pipe.</p>
 </section>
 <section id="philosophy" class="level2">
 <h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
@@ -439,7 +444,7 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>data-raw</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>analysis.R</code> to carry out the rest of the work.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Summarising data in with several variables and the role of variables in analysis</code></p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add code to load the <strong><code>tidyverse</code></strong> package <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add code to load the <strong><code>tidyverse</code></strong> package <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span></p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
@@ -448,6 +453,7 @@ Key
 <li>one continuous response and one nominal explanatory variable with two groups</li>
 <li>one continuous response and one nominal explanatory variable with three groups</li>
 <li>one continuous response and one nominal explanatory variable with two groups but the supplied data first need converting to tidy format</li>
+<li>two continuous variables</li>
 </ul>
 <section id="adiponectin-secretion" class="level2">
 <h2 class="anchored" data-anchor-id="adiponectin-secretion">Adiponectin secretion</h2>
@@ -785,11 +791,12 @@ Tip
 <p>Hummmm, these data are not organised like the other data sets we have used. The population is given as the column names and the interorbital distances for one population are given in a different column than those for the other population. The first row has data from two pigeons which have nothing in common, they just happen to be the first individual recorded in each population.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">A</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">A</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">B</th>
 </tr>
 </thead>
 <tbody>
@@ -955,19 +962,20 @@ Tip
 </tr>
 </tbody>
 </table>
-
+</div>
 
 </div>
 </div>
-<p>This data is not in ‘tidy’ [Wickham2014-nl].</p>
+<p>This data is not in ‘tidy’ format <span class="citation" data-cites="Wickham2014-nl">(<a href="#ref-Wickham2014-nl" role="doc-biblioref">Wickham 2014</a>)</span>.</p>
 <p>Tidy format has variables in column and observations in rows. All of the distance measurements should be in one column and a second column should give the population.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">population</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">distance</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">population</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">distance</th>
 </tr>
 </thead>
 <tbody>
@@ -1293,7 +1301,7 @@ Tip
 </tr>
 </tbody>
 </table>
-
+</div>
 
 </div>
 </div>
@@ -1317,18 +1325,76 @@ Tip
 <p>We have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment <code>&lt;-</code> Note: the data in the file are unchanged.</p>
 </section>
 </section>
-<section id="organising-figures-in-reports" class="level2">
-<h2 class="anchored" data-anchor-id="organising-figures-in-reports">Organising figures in reports</h2>
-<p>In this section you will learn a way to lay out figures, legends and text in a document. We will be using a google doc but the methods works just as well in Word. I find the best way to include figures in a document so that things don’t move around unexpectedly as you edit is to use a table with the borders turned off. This is what you are aiming for: <a href="https://docs.google.com/document/d/1ksETkp9TjN4wFj9wPQWleUazrNgHEWrpEQkOi4TPQt8">R4BABS-1-seal-example</a>. You are not expect to know what to write in the introduction! I’ve written a little text to make the document look more like a report.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> open a Google document</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> add some text (it can be any text at all)</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> insert a 2 row x 1 column table</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Put your cursor in the bottom cell of the table and a figure legend.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Put your cursor in the top cell of the table and choose Insert | Image | Upload from computer and navigate to one of your images.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Hold down the control key and click on each of the borders until all are selected. Then use the Border Width icon to set the width to 0pt</p>
+<section id="ulna-and-height" class="level2">
+<h2 class="anchored" data-anchor-id="ulna-and-height">Ulna and height</h2>
+<p>The datasets we have used up to this point, have had a continuous variable and a categorical variable where it makes sense to summarise the response for each of the different groups in the categorical variable and plot the response on the <em>y</em>-axis. We will now summarise a dataset with two continuous variables. The data in <a href="data-raw/height.txt">height.txt</a> are the ulna length (cm) and height (m) of 30 people. In this case, it is more appropriate to summarise both of thee variables and to plot them as a scatter plot.</p>
+<p>We will use <code>summarise()</code> again but we do not need the <code>group_by()</code> function this time. We will also need to use each of the summary functions, such as <code>mean()</code>, twice, once for each variable.</p>
+<section id="import-2" class="level3">
+<h3 class="anchored" data-anchor-id="import-2">Import</h3>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/height.txt">height.txt</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>ulna_heights</code>.</p>
+</section>
+<section id="summarise-2" class="level3">
+<h3 class="anchored" data-anchor-id="summarise-2">Summarise</h3>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>ulna_heights_summary</code> that contains the sample size and means, standard deviations and standard errors for both variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ulna_heights_summary <span class="ot">&lt;-</span> ulna_heights <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">length</span>(ulna),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_ulna =</span> <span class="fu">mean</span>(ulna),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_ulna =</span> <span class="fu">sd</span>(ulna),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_ulna =</span> std_ulna<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_height =</span> <span class="fu">mean</span>(height),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_height =</span> <span class="fu">sd</span>(height),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_height =</span> std_height<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should get the following numbers:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean_ulna</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std_ulna</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">se_ulna</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean_height</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std_height</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">se_height</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">24.72</td>
+<td style="text-align: right;">4.137332</td>
+<td style="text-align: right;">0.75537</td>
+<td style="text-align: right;">1.494</td>
+<td style="text-align: right;">0.2404823</td>
+<td style="text-align: right;">0.0439059</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="visualise-2" class="level3">
+<h3 class="anchored" data-anchor-id="visualise-2">Visualise</h3>
+<p>To plot make a scatter plot we need to use <code>geom_point()</code> again but without any scatter. In this case, it does not really matter which variable is on the <em>x</em>-axis and which is on the <em>y</em>-axis.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make a simple scatter plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ulna_heights, <span class="fu">aes</span>(<span class="at">x =</span> ulna, <span class="at">y =</span> height)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If you have time, you may want to format the figure more appropriately.</p>
 <!-- ## Look after future you! -->
 <!-- Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more. -->
 <p>You’re finished!</p>
+</section>
 </section>
 </section>
 <section id="well-done" class="level1">
@@ -1347,8 +1413,8 @@ Tip
 <section id="the-code-file" class="level1">
 <h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <a href="../../r4babs1/week-9/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-9/workshop.qmd">View in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
-<p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span></p>
+<p>The <a href="../../r4babs1/week-9/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interleaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Qmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-9/workshop.qmd">View in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
+<p>Pages made with Quarto <span class="citation" data-cites="allaire2022">Allaire et al. (<a href="#ref-allaire2022" role="doc-biblioref">2022</a>)</span> using the following packages: knitr <span class="citation" data-cites="knitr">Xie (<a href="#ref-knitr" role="doc-biblioref">2022</a>)</span>, tidyverse <span class="citation" data-cites="tidyverse-2">Wickham et al. (<a href="#ref-tidyverse-2" role="doc-biblioref">2019b</a>)</span>, kableExtra <span class="citation" data-cites="kableExtra">Zhu (<a href="#ref-kableExtra" role="doc-biblioref">2021</a>)</span>.</p>
 </section>
 <section id="references" class="level1">
 
@@ -1361,8 +1427,20 @@ Tip
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
 </div>
+<div id="ref-Wickham2014-nl" class="csl-entry" role="listitem">
+Wickham, Hadley. 2014. <span>“Tidy Data.”</span> <em>Journal of Statistical Software, Articles</em> 59 (10): 1–23. <a href="https://vita.had.co.nz/papers/tidy-data.pdf">https://vita.had.co.nz/papers/tidy-data.pdf</a>.
+</div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019a. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-tidyverse-2" class="csl-entry" role="listitem">
+———, et al. 2019b. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-knitr" class="csl-entry" role="listitem">
+Xie, Yihui. 2022. <span>“Knitr: A General-Purpose Package for Dynamic Report Generation in r.”</span> <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-kableExtra" class="csl-entry" role="listitem">
+Zhu, Hao. 2021. <span>“kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax.”</span> <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
