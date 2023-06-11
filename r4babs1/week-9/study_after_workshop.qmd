@@ -72,9 +72,9 @@ ggplot() +
 
 
 
-    Your task is to summarise and plot these data in any sutable way. Create a complete RStudio Project for an analysis of these data. You will need to:
+    Your task is to summarise and plot these data in any suitable way. Create a complete RStudio Project for an analysis of these data. You will need to:
 
-    -   Make a new project, 
+    -   Make a new project 
     -   Make folders for data and for figures
     -   Import the data
     -   Summarise and plot variables of your choice. It doesn't matter what you chose - the goal is the practice the project workflow and selecting appropriate plotting and summarising methods for particular data sets.
