@@ -551,12 +551,11 @@ Important
 <section id="plotting-the-data-with-ggplot" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-the-data-with-ggplot">Plotting the data with <code>ggplot()</code></h2>
 <p><code>ggplot()</code> takes a dataframe for an argument</p>
-<p>We can make a dataframe of the two vectors, <code>coat</code> and <code>freq</code> usinf the <code>data.frame()</code> function.</p>
+<p>We can make a dataframe of the two vectors, <code>coat</code> and <code>freq</code> using the <code>data.frame()</code> function.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a dataframe called <code>coat_data</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>coat_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(coat, freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>n</code> was made into a factor (a categorical variable) because there are only 6 values and I want to make a bar plot.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Check the structure of <code>coat_data</code></p>
 <p>Click on <code>coat_data</code> in the Environment to open a spreadsheet-like view of it.</p>
 </section>

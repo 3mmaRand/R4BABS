@@ -256,7 +256,7 @@
     "href": "r4babs1/week-7/workshop.html#plotting-the-data-with-ggplot",
     "title": "Week 7: Introduction to RStudio and your first graphs",
     "section": "Plotting the data with ggplot()",
-    "text": "Plotting the data with ggplot()\nggplot() takes a dataframe for an argument\nWe can make a dataframe of the two vectors, coat and freq usinf the data.frame() function.\n Make a dataframe called coat_data\n\ncoat_data &lt;- data.frame(coat, freq)\n\nn was made into a factor (a categorical variable) because there are only 6 values and I want to make a bar plot.\n Check the structure of coat_data\nClick on coat_data in the Environment to open a spreadsheet-like view of it."
+    "text": "Plotting the data with ggplot()\nggplot() takes a dataframe for an argument\nWe can make a dataframe of the two vectors, coat and freq using the data.frame() function.\n Make a dataframe called coat_data\n\ncoat_data &lt;- data.frame(coat, freq)\n\n Check the structure of coat_data\nClick on coat_data in the Environment to open a spreadsheet-like view of it."
   },
   {
     "objectID": "r4babs1/week-7/workshop.html#a-barplot",
