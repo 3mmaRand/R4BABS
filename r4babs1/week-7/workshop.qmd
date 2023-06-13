@@ -178,16 +178,13 @@ You will likely be warned of some function name conflicts but these will not be 
 
 `ggplot()` takes a dataframe for an argument
 
-We can make a dataframe of the two vectors, `coat` and `freq` usinf the `data.frame()` function.
+We can make a dataframe of the two vectors, `coat` and `freq` using the `data.frame()` function.
 
 ![](images/do_in_R.png) Make a dataframe called `coat_data`
 
 ```{r}
 coat_data <- data.frame(coat, freq)
 ```
-
-`n` was made into a factor (a categorical variable) because there are only 6 values and I want to make a bar plot.
-
 ![](images/do_in_R.png) Check the structure of `coat_data`
 
 ```{r}
