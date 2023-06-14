@@ -59,273 +59,29 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 # Exercises
 
-You are going to learn how to summarise and plot data as follows:
+You are going to practice how to summarise and plot data as follows:
 
--   one continuous response and one nominal explanatory variable with two groups
+
 -   one continuous response and one nominal explanatory variable with three groups
 -   one continuous response and one nominal explanatory variable with two groups but the supplied data first need converting to tidy format
 -   two continuous  variables
 
-## Adiponectin secretion
+Note that the [Independent Study to prepare for workshop](study_before_workshop.qmd) covered one continuous response and one nominal explanatory variable with two groups.
 
-Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in [adipocytes.txt](data-raw/adipocytes.txt). Each row represents an independent sample of adipocytes and the first column gives the concentration of adiponectin and the second column indicates whether they were treated with nicotinic acid or not.
-
-### Import
-
-![](images/do_on_your_computer.png) Save [adipocytes.txt](data-raw/adipocytes.txt) to your `data-raw` folder
-
-![](images/do_in_R.png) Read the data into a dataframe called `adipocytes`. You might want to look up [data import from last week](../week-8/workshop.html#importing-data-from-files).
-
-```{r}
-#| include: false
-
-#---CODING ANSWER---
-adipocytes <- read_table("data-raw/adipocytes.txt")
-```
-
-![](images/answer.png) What types of variables do you have in the `adipocytes` dataframe? What role would you expect them to play in analysis?
-
-<!-- #---THINKING ANSWER--- -->
-
-<!-- there are two variables: `adiponectin` is the response and is continuous -->
-
-<!-- and `treatment` is explanatory. `treatment` is categorical with two  -->
-
-<!-- levels (groups). -->
-
-### Summarise
-
-Summarising the data for each treatment group is the next sensible step. The most useful summary statistics for a continuous variable like `adiponectin` are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the `group_by()` and `summarise()` functions along with the functions that do the calculations.
-
-![](images/do_in_R.png) Create a data frame called `adip_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.
-
-```{r}
-adip_summary <- adipocytes %>%
-  group_by(treatment) %>%
-  summarise(mean = mean(adiponectin),
-            std = sd(adiponectin),
-            n = length(adiponectin),
-            se = std/sqrt(n))
-
-```
-
-You should get the following numbers:
-
-```{r}
-#| echo: false
-knitr::kable(adip_summary) %>% kableExtra::kable_styling()
-```
-
-### Visualise
-
-Most commonly, we put the explanatory variable on the *x* axis and the response variable on the *y* axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.
-
-We are going to create a figure like this:
-
-```{r}
-#| echo: false
-
-ggplot() +
-  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean - se, ymax = mean + se),
-                width = 0.3) +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean, ymax = mean),
-                width = 0.2) +
-  scale_y_continuous(name = "Adiponectin (pg/mL)", 
-                     limits = c(0, 12), 
-                     expand = c(0, 0)) +
-  scale_x_discrete(name = "Treatment", 
-                   labels = c("Control", "Nicotinic acid")) +
-  theme_classic()
-
-```
-
-In this figure, we have the data points themselves which are in `adipocytes` dataframe and the means and standard errors which are in the `adip_summary` dataframe. That is, we have two dataframes we want to plot.
-
-Here you will learn that dataframes and aesthetics can be specified *within a `geom_xxxx`* (rather than in the `ggplot()`). This is very useful if the geom only applies to some of the data you want to plot.
-
-::: callout-tip
-## Tip: `ggplot()`
-
-You put the `data` argument and `aes()` inside `ggplot()` if you want all the `geoms` to use that dataframe and variables. If you want a different dataframe for a `geom`, put the `data` argument and `aes()` inside the `geom_xxxx()`
-:::
-
-I will build the plot up in small steps you should edit your *existing* `ggplot()` command as we go.
-
-![](images/do_in_R.png) Plot the data points first.
-
-```{r}
-ggplot() +
-  geom_point(data = adipocytes, 
-             aes(x = treatment, y = adiponectin))
-```
-
-Notice how we have given the data argument and the aesthetics inside the geom. The variables `treatment` and `adiponectin` are in the `adipocytes` dataframe
-
-![](images/do_in_R.png) So the data points don't overlap, we can add some random jitter in the *x* direction (edit your existing code):
-
-```{r}
-ggplot() +
-  geom_point(data = adipocytes, 
-             aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0))
-```
-
-Note that `position = position_jitter(width = 0.1, height = 0)` is inside the `geom_point()` parentheses, after the `aes()` and a comma.
-
-We've set the vertical jitter to 0 because, in contrast to the categorical *x*-axis, movement on the *y*-axis has meaning (the adiponectin levels).
-
-![](images/do_in_R.png) Let's make the points a light grey (edit your existing code):
-
-```{r}
-ggplot() +
-  geom_point(data = adipocytes, 
-             aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50")
-```
-
-Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.
-
-![](images/do_in_R.png) Add a `geom_errorbar()` for errorbars (edit your existing code):
-
-```{r}
-ggplot() +
-  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean - se, ymax = mean + se),
-                width = 0.3) 
-  
-```
-
-We have specified the `adip_summary` dataframe and the variables `treatment`, `mean` and `se` are in that.
-
-There are several ways you could add the mean. You could use `geom_point()` but I like to use `geom_errorbar()` again with the `ymin` and `ymax` both set to the mean.
-
-![](images/do_in_R.png) Add a `geom_errorbar()` for the mean (edit your existing code):
-
-```{r}
-ggplot() +
-  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean - se, ymax = mean + se),
-                width = 0.3) +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean, ymax = mean),
-                width = 0.2)
-  
-```
-
-![](images/do_in_R.png) Alter the axis labels and limits using `scale_y_continuous()` and `scale_x_discrete()` (edit your existing code):
-
-```{r}
-ggplot() +
-  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean - se, ymax = mean + se),
-                width = 0.3) +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean, ymax = mean),
-                width = 0.2) +
-  scale_y_continuous(name = "Adiponectin (pg/mL)", 
-                     limits = c(0, 12), 
-                     expand = c(0, 0)) +
-  scale_x_discrete(name = "Treatment", 
-                   labels = c("Control", "Nicotinic acid"))
-  
-```
-
-You only need to use `scale_y_continuous()` and `scale_x_discrete()` to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.
-
-![](images/do_in_R.png) Format the figure in a way that is more suitable for including in a report using `theme_classic()` (edit your existing code):
-
-```{r}
-ggplot() +
-  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean - se, ymax = mean + se),
-                width = 0.3) +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean, ymax = mean),
-                width = 0.2) +
-  scale_y_continuous(name = "Adiponectin (pg/mL)", 
-                     limits = c(0, 12), 
-                     expand = c(0, 0)) +
-  scale_x_discrete(name = "Treatment", 
-                   labels = c("Control", "Nicotinic acid")) +
-  theme_classic()
-```
-
-### Writing figures to file
-
-![](images/do_in_R.png) Make a new folder called `figures`.
-
-![](images/do_in_R.png) Edit you ggplot code so that you assign the figure to a variable.
-
-```{r}
-adipfig <- ggplot() +
-  geom_point(data = adipocytes, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean - se, ymax = mean + se),
-                width = 0.3) +
-  geom_errorbar(data = adip_summary, 
-                aes(x = treatment, ymin = mean, ymax = mean),
-                width = 0.2) +
-  scale_y_continuous(name = "Adiponectin (pg/mL)", 
-                     limits = c(0, 12), 
-                     expand = c(0, 0)) +
-  scale_x_discrete(name = "Treatment", 
-                   labels = c("Control", "Nicotinic acid")) +
-  theme_classic()
-```
-
-The figure won't be shown in the Plots tab - the output has gone into `adipfig` rather than to the Plots tab. To make it appear in the Plots tab type `adipfig`
-
-![](images/do_in_R.png) The `ggsave()` command will write a ggplot figure to a file:
-
-```{r}
-ggsave("figures/adipocytes.png",
-       plot = adipfig,
-       device = "png",
-       width = 3,
-       height = 3,
-       units = "in",
-       dpi = 300)
-```
-
-`figures/adipocytes.png` is the name of the file including the relative path. ![](images/do_in_R.png) Look up `ggsave()` in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1
 
 ## Myoglobin in seal muscle
 
 The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in [seal.csv](data-raw/seal.csv). Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.
 
-The key point here is that the fundmental structure of the seals data is the same as that for the adipocytes data. The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is identical except for the variable names!
 
-::: callout-tip
-## Tip
 
-When two datasets have the same number of columns and the response variable and the explanaotry variables have the same data types then the code you need is the same.
-:::
+
 
 ### Import
 
 ![](images/do_on_your_computer.png) Save [seal.csv](data-raw/seal.csv) to your `data-raw` folder
 
-![](images/do_in_R.png) Read the data into a dataframe called `seal`. Remember to apply what you learned from last week about importing data.
+![](images/do_in_R.png) Read the data into a dataframe called `seal`. . You might want to look up [data import from last week](../week-8/workshop.html#importing-data-from-files).
 
 ```{r}
 #| include: false
@@ -344,17 +100,32 @@ seal <- read_csv("data-raw/seal.csv")
 
 <!-- levels (groups). -->
 
+
+The key point here is that the fundamental structure of:
+
+-   one continuous response and one nominal explanatory variable with two groups ([adipocytes](data-raw/adipocytes.txt)), and 
+
+-   one continuous response and one nominal explanatory variable with three groups ([seals](data-raw/seal.csv))
+
+is the same! The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is *identical* except for the variable names!
+
+::: callout-tip
+## Tip
+
+When two datasets have the same number of columns and the response variable and the explanatory variables have the same data types then the code you need is the same.
+:::
+
+
+
+
 ### Summarise
 
-We need the same code as we use for the adipocyte data - but the dataframe and the variable are different.
+Summarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like `myoglobin` are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the `group_by()` and `summarise()` functions along with the functions that do the calculations.
+
 
 ![](images/do_in_R.png) Create a data frame called `seal_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.
 
 ```{r}
-#| include: false
-
-#---CODING ANSWER---
-
 seal_summary <- seal %>%
   group_by(species) %>%
   summarise(mean = mean(myoglobin),
@@ -371,22 +142,17 @@ You should get the following numbers:
 knitr::kable(seal_summary) %>% kableExtra::kable_styling()
 ```
 
+
 ### Visualise
 
-We again need the same code as we use for the adipocyte data but with the `seal` dataframe and its variables.
+Most commonly, we put the explanatory variable on the *x* axis and the response variable on the *y* axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.
 
-![](images/do_in_R.png) Create this figure using your previous code as a template. What else will you need to change?
-
-<!-- #---THINKING ANSWER--- -->
-
-<!-- You will also need to change the axis labels and the axis limits -->
+We are going to create a figure like this:
 
 ```{r}
 #| echo: false
 
-#---CODING ANSWER---
-
-sealfig <- ggplot() +
+ggplot() +
   geom_point(data = seal, aes(x = species, y = myoglobin),
              position = position_jitter(width = 0.1, height = 0),
              colour = "gray50") +
@@ -396,19 +162,166 @@ sealfig <- ggplot() +
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean, ymax = mean),
                 width = 0.2) +
-  scale_y_continuous(name = "Myoglobin concentration",
+  scale_y_continuous(name = "Myoglobin (g/kg)", 
                      limits = c(0, 80), 
                      expand = c(0, 0)) +
-  scale_x_discrete(labels = c("Bladdernose", "Harbour", "Weddell"), 
-                   name = "Seal Species") +
+  scale_x_discrete(name = "Species") +
   theme_classic()
 
 ```
 
-![](images/do_in_R.png) Save the figure to a file in your figures folder
+In this figure, we have the data points themselves which are in `seal` dataframe and the means and standard errors which are in the `seal_summary` dataframe. That is, we have two dataframes we want to plot.
+
+Here you will learn that dataframes and aesthetics can be specified *within a `geom_xxxx`* (rather than in the `ggplot()`). This is very useful if the geom only applies to some of the data you want to plot.
+
+::: callout-tip
+## Tip: `ggplot()`
+
+You put the `data` argument and `aes()` inside `ggplot()` if you want all the `geoms` to use that dataframe and variables. If you want a different dataframe for a `geom`, put the `data` argument and `aes()` inside the `geom_xxxx()`
+:::
+
+I will build the plot up in small steps **but you should edit your *existing* `ggplot()` command as we go.**
+
+![](images/do_in_R.png) Plot the data points first.
 
 ```{r}
+ggplot() +
+  geom_point(data = seal, 
+             aes(x = species, y = myoglobin))
+```
 
+Notice how we have given the data argument and the aesthetics inside the geom. The variables `species` and `myoglobin` are in the `seal` dataframe
+
+![](images/do_in_R.png) So the data points don't overlap, we can add some random jitter in the *x* direction (edit your existing code):
+
+```{r}
+ggplot() +
+  geom_point(data = seal, 
+             aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0))
+```
+
+Note that `position = position_jitter(width = 0.1, height = 0)` is inside the `geom_point()` parentheses, after the `aes()` and a comma.
+
+We've set the vertical jitter to 0 because, in contrast to the categorical *x*-axis, movement on the *y*-axis has meaning (the myoglobin levels).
+
+![](images/do_in_R.png) Let's make the points a light grey (edit your existing code):
+
+```{r}
+ggplot() +
+  geom_point(data = seal, 
+             aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50")
+```
+
+Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.
+
+![](images/do_in_R.png) Add a `geom_errorbar()` for errorbars (edit your existing code):
+
+```{r}
+ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) 
+  
+```
+
+We have specified the `seal_summary` dataframe and the variables `species`, `mean` and `se` are in that.
+
+There are several ways you could add the mean. You could use `geom_point()` but I like to use `geom_errorbar()` again with the `ymin` and `ymax` both set to the mean.
+
+![](images/do_in_R.png) Add a `geom_errorbar()` for the mean (edit your existing code):
+
+```{r}
+ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean, ymax = mean),
+                width = 0.2)
+  
+```
+
+![](images/do_in_R.png) Alter the axis labels and limits using `scale_y_continuous()` and `scale_x_discrete()` (edit your existing code):
+
+```{r}
+ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Myoglobin (g/kg)", 
+                     limits = c(0, 80), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(name = "Species")
+  
+```
+
+You only need to use `scale_y_continuous()` and `scale_x_discrete()` to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.
+
+![](images/do_in_R.png) Format the figure in a way that is more suitable for including in a report using `theme_classic()` (edit your existing code):
+
+```{r}
+ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Myoglobin (g/kg)", 
+                     limits = c(0, 80), 
+                     expand = c(0, 0)) +
+   scale_x_discrete(name = "Species") +
+  theme_classic()
+```
+
+
+### Writing figures to file
+
+![](images/do_in_R.png) Make a new folder called `figures`.
+
+![](images/do_in_R.png) Edit you ggplot code so that you assign the figure to a variable.
+
+```{r}
+sealfig <- ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "grey50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Myoglobin (g/kg)", 
+                     limits = c(0, 80), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(name = "Species") +
+  theme_classic()
+```
+
+The figure won't be shown in the Plots tab - the output has gone into `sealfig` rather than to the Plots tab. To make it appear in the Plots tab type `sealfig`
+
+![](images/do_in_R.png) The `ggsave()` command will write a ggplot figure to a file:
+
+```{r}
 ggsave("figures/seal-muscle.png",
        plot = sealfig,
        device = "png",
@@ -417,6 +330,12 @@ ggsave("figures/seal-muscle.png",
        units = "in",
        dpi = 300)
 ```
+
+`figuresseal-muscle.png` is the name of the file, including the relative path. 
+
+
+![](images/do_in_R.png) Look up `ggsave()` in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1
+
 
 ## Pigeons
 
