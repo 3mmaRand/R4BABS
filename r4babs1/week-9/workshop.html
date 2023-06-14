@@ -343,18 +343,12 @@ div.csl-indent {
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#adiponectin-secretion" id="toc-adiponectin-secretion" class="nav-link" data-scroll-target="#adiponectin-secretion">Adiponectin secretion</a>
+  <li><a href="#myoglobin-in-seal-muscle" id="toc-myoglobin-in-seal-muscle" class="nav-link" data-scroll-target="#myoglobin-in-seal-muscle">Myoglobin in seal muscle</a>
   <ul class="collapse">
   <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
   <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise">Summarise</a></li>
   <li><a href="#visualise" id="toc-visualise" class="nav-link" data-scroll-target="#visualise">Visualise</a></li>
   <li><a href="#writing-figures-to-file" id="toc-writing-figures-to-file" class="nav-link" data-scroll-target="#writing-figures-to-file">Writing figures to file</a></li>
-  </ul></li>
-  <li><a href="#myoglobin-in-seal-muscle" id="toc-myoglobin-in-seal-muscle" class="nav-link" data-scroll-target="#myoglobin-in-seal-muscle">Myoglobin in seal muscle</a>
-  <ul class="collapse">
-  <li><a href="#import-1" id="toc-import-1" class="nav-link" data-scroll-target="#import-1">Import</a></li>
-  <li><a href="#summarise-1" id="toc-summarise-1" class="nav-link" data-scroll-target="#summarise-1">Summarise</a></li>
-  <li><a href="#visualise-1" id="toc-visualise-1" class="nav-link" data-scroll-target="#visualise-1">Visualise</a></li>
   </ul></li>
   <li><a href="#pigeons" id="toc-pigeons" class="nav-link" data-scroll-target="#pigeons">Pigeons</a>
   <ul class="collapse">
@@ -362,9 +356,9 @@ div.csl-indent {
   </ul></li>
   <li><a href="#ulna-and-height" id="toc-ulna-and-height" class="nav-link" data-scroll-target="#ulna-and-height">Ulna and height</a>
   <ul class="collapse">
-  <li><a href="#import-2" id="toc-import-2" class="nav-link" data-scroll-target="#import-2">Import</a></li>
-  <li><a href="#summarise-2" id="toc-summarise-2" class="nav-link" data-scroll-target="#summarise-2">Summarise</a></li>
-  <li><a href="#visualise-2" id="toc-visualise-2" class="nav-link" data-scroll-target="#visualise-2">Visualise</a></li>
+  <li><a href="#import-1" id="toc-import-1" class="nav-link" data-scroll-target="#import-1">Import</a></li>
+  <li><a href="#summarise-1" id="toc-summarise-1" class="nav-link" data-scroll-target="#summarise-1">Summarise</a></li>
+  <li><a href="#visualise-1" id="toc-visualise-1" class="nav-link" data-scroll-target="#visualise-1">Visualise</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
@@ -448,248 +442,31 @@ Key
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p>You are going to learn how to summarise and plot data as follows:</p>
+<p>You are going to practice how to summarise and plot data as follows:</p>
 <ul>
-<li>one continuous response and one nominal explanatory variable with two groups</li>
 <li>one continuous response and one nominal explanatory variable with three groups</li>
 <li>one continuous response and one nominal explanatory variable with two groups but the supplied data first need converting to tidy format</li>
 <li>two continuous variables</li>
 </ul>
-<section id="adiponectin-secretion" class="level2">
-<h2 class="anchored" data-anchor-id="adiponectin-secretion">Adiponectin secretion</h2>
-<p>Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in <a href="data-raw/adipocytes.txt">adipocytes.txt</a>. Each row represents an independent sample of adipocytes and the first column gives the concentration of adiponectin and the second column indicates whether they were treated with nicotinic acid or not.</p>
-<section id="import" class="level3">
-<h3 class="anchored" data-anchor-id="import">Import</h3>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/adipocytes.txt">adipocytes.txt</a> to your <code>data-raw</code> folder</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>adipocytes</code>. You might want to look up <a href="../week-8/workshop.html#importing-data-from-files">data import from last week</a>.</p>
-<p><img src="images/answer.png" class="img-fluid"> What types of variables do you have in the <code>adipocytes</code> dataframe? What role would you expect them to play in analysis?</p>
-<!-- #---THINKING ANSWER--- -->
-<!-- there are two variables: `adiponectin` is the response and is continuous -->
-<!-- and `treatment` is explanatory. `treatment` is categorical with two  -->
-<!-- levels (groups). -->
-</section>
-<section id="summarise" class="level3">
-<h3 class="anchored" data-anchor-id="summarise">Summarise</h3>
-<p>Summarising the data for each treatment group is the next sensible step. The most useful summary statistics for a continuous variable like <code>adiponectin</code> are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the <code>group_by()</code> and <code>summarise()</code> functions along with the functions that do the calculations.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>adip_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>adip_summary <span class="ot">&lt;-</span> adipocytes <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(treatment) <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(adiponectin),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(adiponectin),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(adiponectin),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> std<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You should get the following numbers:</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">treatment</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">mean</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">std</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">se</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">control</td>
-<td style="text-align: right;">5.546000</td>
-<td style="text-align: right;">1.475247</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">0.3809072</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">nicotinic</td>
-<td style="text-align: right;">7.508667</td>
-<td style="text-align: right;">1.793898</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">0.4631824</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</section>
-<section id="visualise" class="level3">
-<h3 class="anchored" data-anchor-id="visualise">Visualise</h3>
-<p>Most commonly, we put the explanatory variable on the <em>x</em> axis and the response variable on the <em>y</em> axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.</p>
-<p>We are going to create a figure like this:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>In this figure, we have the data points themselves which are in <code>adipocytes</code> dataframe and the means and standard errors which are in the <code>adip_summary</code> dataframe. That is, we have two dataframes we want to plot.</p>
-<p>Here you will learn that dataframes and aesthetics can be specified <em>within a <code>geom_xxxx</code></em> (rather than in the <code>ggplot()</code>). This is very useful if the geom only applies to some of the data you want to plot.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip: <code>ggplot()</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You put the <code>data</code> argument and <code>aes()</code> inside <code>ggplot()</code> if you want all the <code>geoms</code> to use that dataframe and variables. If you want a different dataframe for a <code>geom</code>, put the <code>data</code> argument and <code>aes()</code> inside the <code>geom_xxxx()</code></p>
-</div>
-</div>
-<p>I will build the plot up in small steps you should edit your <em>existing</em> <code>ggplot()</code> command as we go.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Plot the data points first.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Notice how we have given the data argument and the aesthetics inside the geom. The variables <code>treatment</code> and <code>adiponectin</code> are in the <code>adipocytes</code> dataframe</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> So the data points don’t overlap, we can add some random jitter in the <em>x</em> direction (edit your existing code):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Note that <code>position = position_jitter(width = 0.1, height = 0)</code> is inside the <code>geom_point()</code> parentheses, after the <code>aes()</code> and a comma.</p>
-<p>We’ve set the vertical jitter to 0 because, in contrast to the categorical <em>x</em>-axis, movement on the <em>y</em>-axis has meaning (the adiponectin levels).</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Let’s make the points a light grey (edit your existing code):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for errorbars (edit your existing code):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>We have specified the <code>adip_summary</code> dataframe and the variables <code>treatment</code>, <code>mean</code> and <code>se</code> are in that.</p>
-<p>There are several ways you could add the mean. You could use <code>geom_point()</code> but I like to use <code>geom_errorbar()</code> again with the <code>ymin</code> and <code>ymax</code> both set to the mean.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for the mean (edit your existing code):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p><img src="images/do_in_R.png" class="img-fluid"> Alter the axis labels and limits using <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> (edit your existing code):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Adiponectin (pg/mL)"</span>, </span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), </span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Treatment"</span>, </span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Nicotinic acid"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>You only need to use <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Format the figure in a way that is more suitable for including in a report using <code>theme_classic()</code> (edit your existing code):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Adiponectin (pg/mL)"</span>, </span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), </span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Treatment"</span>, </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Nicotinic acid"</span>)) <span class="sc">+</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-<section id="writing-figures-to-file" class="level3">
-<h3 class="anchored" data-anchor-id="writing-figures-to-file">Writing figures to file</h3>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>figures</code>.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Edit you ggplot code so that you assign the figure to a variable.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>adipfig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> adipocytes, <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> adiponectin),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> adip_summary, </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Adiponectin (pg/mL)"</span>, </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Treatment"</span>, </span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Nicotinic acid"</span>)) <span class="sc">+</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The figure won’t be shown in the Plots tab - the output has gone into <code>adipfig</code> rather than to the Plots tab. To make it appear in the Plots tab type <code>adipfig</code></p>
-<p><img src="images/do_in_R.png" class="img-fluid"> The <code>ggsave()</code> command will write a ggplot figure to a file:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/adipocytes.png"</span>,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> adipfig,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">3</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>figures/adipocytes.png</code> is the name of the file including the relative path. <img src="images/do_in_R.png" class="img-fluid"> Look up <code>ggsave()</code> in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1</p>
-</section>
-</section>
+<p>Note that the <a href="../../r4babs1/week-9/study_before_workshop.html">Independent Study to prepare for workshop</a> covered one continuous response and one nominal explanatory variable with two groups.</p>
 <section id="myoglobin-in-seal-muscle" class="level2">
 <h2 class="anchored" data-anchor-id="myoglobin-in-seal-muscle">Myoglobin in seal muscle</h2>
 <p>The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in <a href="data-raw/seal.csv">seal.csv</a>. Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.</p>
-<p>The key point here is that the fundmental structure of the seals data is the same as that for the adipocytes data. The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is identical except for the variable names!</p>
+<section id="import" class="level3">
+<h3 class="anchored" data-anchor-id="import">Import</h3>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/seal.csv">seal.csv</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>seal</code>. . You might want to look up <a href="../week-8/workshop.html#importing-data-from-files">data import from last week</a>.</p>
+<p><img src="images/answer.png" class="img-fluid"> What types of variables do you have in the <code>seal</code> dataframe? What role would you expect them to play in analysis?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- there are two variables: `myoglobin` is the response and is continuous -->
+<!-- and `species` is explanatory. `species` is categorical with three  -->
+<!-- levels (groups). -->
+<p>The key point here is that the fundamental structure of:</p>
+<ul>
+<li><p>one continuous response and one nominal explanatory variable with two groups (<a href="data-raw/adipocytes.txt">adipocytes</a>), and</p></li>
+<li><p>one continuous response and one nominal explanatory variable with three groups (<a href="data-raw/seal.csv">seals</a>)</p></li>
+</ul>
+<p>is the same! The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is <em>identical</em> except for the variable names!</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -700,23 +477,22 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When two datasets have the same number of columns and the response variable and the explanaotry variables have the same data types then the code you need is the same.</p>
+<p>When two datasets have the same number of columns and the response variable and the explanatory variables have the same data types then the code you need is the same.</p>
 </div>
 </div>
-<section id="import-1" class="level3">
-<h3 class="anchored" data-anchor-id="import-1">Import</h3>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/seal.csv">seal.csv</a> to your <code>data-raw</code> folder</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>seal</code>. Remember to apply what you learned from last week about importing data.</p>
-<p><img src="images/answer.png" class="img-fluid"> What types of variables do you have in the <code>seal</code> dataframe? What role would you expect them to play in analysis?</p>
-<!-- #---THINKING ANSWER--- -->
-<!-- there are two variables: `myoglobin` is the response and is continuous -->
-<!-- and `species` is explanatory. `species` is categorical with three  -->
-<!-- levels (groups). -->
 </section>
-<section id="summarise-1" class="level3">
-<h3 class="anchored" data-anchor-id="summarise-1">Summarise</h3>
-<p>We need the same code as we use for the adipocyte data - but the dataframe and the variable are different.</p>
+<section id="summarise" class="level3">
+<h3 class="anchored" data-anchor-id="summarise">Summarise</h3>
+<p>Summarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like <code>myoglobin</code> are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the <code>group_by()</code> and <code>summarise()</code> functions along with the functions that do the calculations.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>seal_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>seal_summary <span class="ot">&lt;-</span> seal <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(myoglobin),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(myoglobin),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(myoglobin),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> std<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>You should get the following numbers:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -759,22 +535,173 @@ Tip
 </div>
 </div>
 </section>
-<section id="visualise-1" class="level3">
-<h3 class="anchored" data-anchor-id="visualise-1">Visualise</h3>
-<p>We again need the same code as we use for the adipocyte data but with the <code>seal</code> dataframe and its variables.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create this figure using your previous code as a template. What else will you need to change?</p>
-<!-- #---THINKING ANSWER--- -->
-<!-- You will also need to change the axis labels and the axis limits -->
-<p><img src="images/do_in_R.png" class="img-fluid"> Save the figure to a file in your figures folder</p>
+<section id="visualise" class="level3">
+<h3 class="anchored" data-anchor-id="visualise">Visualise</h3>
+<p>Most commonly, we put the explanatory variable on the <em>x</em> axis and the response variable on the <em>y</em> axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.</p>
+<p>We are going to create a figure like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/seal-muscle.png"</span>,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> sealfig,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">3</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
+</div>
+<p>In this figure, we have the data points themselves which are in <code>seal</code> dataframe and the means and standard errors which are in the <code>seal_summary</code> dataframe. That is, we have two dataframes we want to plot.</p>
+<p>Here you will learn that dataframes and aesthetics can be specified <em>within a <code>geom_xxxx</code></em> (rather than in the <code>ggplot()</code>). This is very useful if the geom only applies to some of the data you want to plot.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip: <code>ggplot()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You put the <code>data</code> argument and <code>aes()</code> inside <code>ggplot()</code> if you want all the <code>geoms</code> to use that dataframe and variables. If you want a different dataframe for a <code>geom</code>, put the <code>data</code> argument and <code>aes()</code> inside the <code>geom_xxxx()</code></p>
+</div>
+</div>
+<p>I will build the plot up in small steps <strong>but you should edit your <em>existing</em> <code>ggplot()</code> command as we go.</strong></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Plot the data points first.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Notice how we have given the data argument and the aesthetics inside the geom. The variables <code>species</code> and <code>myoglobin</code> are in the <code>seal</code> dataframe</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> So the data points don’t overlap, we can add some random jitter in the <em>x</em> direction (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Note that <code>position = position_jitter(width = 0.1, height = 0)</code> is inside the <code>geom_point()</code> parentheses, after the <code>aes()</code> and a comma.</p>
+<p>We’ve set the vertical jitter to 0 because, in contrast to the categorical <em>x</em>-axis, movement on the <em>y</em>-axis has meaning (the myoglobin levels).</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Let’s make the points a light grey (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for errorbars (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We have specified the <code>seal_summary</code> dataframe and the variables <code>species</code>, <code>mean</code> and <code>se</code> are in that.</p>
+<p>There are several ways you could add the mean. You could use <code>geom_point()</code> but I like to use <code>geom_errorbar()</code> again with the <code>ymin</code> and <code>ymax</code> both set to the mean.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for the mean (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><img src="images/do_in_R.png" class="img-fluid"> Alter the axis labels and limits using <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You only need to use <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Format the figure in a way that is more suitable for including in a report using <code>theme_classic()</code> (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="writing-figures-to-file" class="level3">
+<h3 class="anchored" data-anchor-id="writing-figures-to-file">Writing figures to file</h3>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>figures</code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Edit you ggplot code so that you assign the figure to a variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sealfig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The figure won’t be shown in the Plots tab - the output has gone into <code>sealfig</code> rather than to the Plots tab. To make it appear in the Plots tab type <code>sealfig</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> The <code>ggsave()</code> command will write a ggplot figure to a file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/seal-muscle.png"</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> sealfig,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">3</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>figuresseal-muscle.png</code> is the name of the file, including the relative path.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Look up <code>ggsave()</code> in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1</p>
 </section>
 </section>
 <section id="pigeons" class="level2">
@@ -1317,10 +1244,10 @@ Tip
 <p><code>pivot_longer()</code> collects the values from specified columns (<code>cols</code>) into a single column (<code>values_to</code>) and creates a column to indicate the group (<code>names_to</code>).</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Put the data in tidy format:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pigeons <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> pigeons, </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cols =</span> <span class="fu">everything</span>(), </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">names_to =</span> <span class="st">"population"</span>, </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values_to =</span> <span class="st">"distance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pigeons <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> pigeons, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cols =</span> <span class="fu">everything</span>(), </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">names_to =</span> <span class="st">"population"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values_to =</span> <span class="st">"distance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment <code>&lt;-</code> Note: the data in the file are unchanged.</p>
 </section>
@@ -1329,23 +1256,23 @@ Tip
 <h2 class="anchored" data-anchor-id="ulna-and-height">Ulna and height</h2>
 <p>The datasets we have used up to this point, have had a continuous variable and a categorical variable where it makes sense to summarise the response for each of the different groups in the categorical variable and plot the response on the <em>y</em>-axis. We will now summarise a dataset with two continuous variables. The data in <a href="data-raw/height.txt">height.txt</a> are the ulna length (cm) and height (m) of 30 people. In this case, it is more appropriate to summarise both of thee variables and to plot them as a scatter plot.</p>
 <p>We will use <code>summarise()</code> again but we do not need the <code>group_by()</code> function this time. We will also need to use each of the summary functions, such as <code>mean()</code>, twice, once for each variable.</p>
-<section id="import-2" class="level3">
-<h3 class="anchored" data-anchor-id="import-2">Import</h3>
+<section id="import-1" class="level3">
+<h3 class="anchored" data-anchor-id="import-1">Import</h3>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/height.txt">height.txt</a> to your <code>data-raw</code> folder</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>ulna_heights</code>.</p>
 </section>
-<section id="summarise-2" class="level3">
-<h3 class="anchored" data-anchor-id="summarise-2">Summarise</h3>
+<section id="summarise-1" class="level3">
+<h3 class="anchored" data-anchor-id="summarise-1">Summarise</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>ulna_heights_summary</code> that contains the sample size and means, standard deviations and standard errors for both variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ulna_heights_summary <span class="ot">&lt;-</span> ulna_heights <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">length</span>(ulna),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_ulna =</span> <span class="fu">mean</span>(ulna),</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_ulna =</span> <span class="fu">sd</span>(ulna),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_ulna =</span> std_ulna<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_height =</span> <span class="fu">mean</span>(height),</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_height =</span> <span class="fu">sd</span>(height),</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_height =</span> std_height<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ulna_heights_summary <span class="ot">&lt;-</span> ulna_heights <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">length</span>(ulna),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_ulna =</span> <span class="fu">mean</span>(ulna),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_ulna =</span> <span class="fu">sd</span>(ulna),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_ulna =</span> std_ulna<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_height =</span> <span class="fu">mean</span>(height),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_height =</span> <span class="fu">sd</span>(height),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_height =</span> std_height<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You should get the following numbers:</p>
 <div class="cell">
@@ -1379,15 +1306,15 @@ Tip
 </div>
 </div>
 </section>
-<section id="visualise-2" class="level3">
-<h3 class="anchored" data-anchor-id="visualise-2">Visualise</h3>
+<section id="visualise-1" class="level3">
+<h3 class="anchored" data-anchor-id="visualise-1">Visualise</h3>
 <p>To plot make a scatter plot we need to use <code>geom_point()</code> again but without any scatter. In this case, it does not really matter which variable is on the <em>x</em>-axis and which is on the <em>y</em>-axis.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a simple scatter plot</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ulna_heights, <span class="fu">aes</span>(<span class="at">x =</span> ulna, <span class="at">y =</span> height)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ulna_heights, <span class="fu">aes</span>(<span class="at">x =</span> ulna, <span class="at">y =</span> height)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="workshop_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+<p><img src="workshop_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>If you have time, you may want to format the figure more appropriately.</p>
