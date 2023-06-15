@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "Each semester in Stage 1 and 2 the Becoming a Bioscientist modules progressively train you in:\n\nSafe Lab/field practical skills\nAsking questions, hypothesising and designing research activity\nReproducibly recording, handling, analysing and presenting data\nInterpreting, contextualising and communicating research\nProfessional team work and reflection\n\nEach module includes Data Analysis in R training which helps you analyse data but also to understand the literature, design experiments and report the results.\n\n\nReproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills.\n\n\n\nPart of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed.\n\n\n\nHowever, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!\n\n\n\nAnd because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.\nhelp you evaluate and interpret the data analysis in papers\nimprove your employability!"
+  },
+  {
+    "objectID": "index.html#learning-data-analysis-is-important",
+    "href": "index.html#learning-data-analysis-is-important",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills."
+  },
+  {
+    "objectID": "index.html#and-takes-time",
+    "href": "index.html#and-takes-time",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "Part of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed."
+  },
+  {
+    "objectID": "index.html#but-can-be-great-fun",
+    "href": "index.html#but-can-be-great-fun",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "However, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!"
+  },
+  {
+    "objectID": "index.html#and-surprising",
+    "href": "index.html#and-surprising",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "And because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.\nhelp you evaluate and interpret the data analysis in papers\nimprove your employability!"
+  },
+  {
     "objectID": "r4babs1/r4babs1.html",
     "href": "r4babs1/r4babs1.html",
     "title": "Data Analysis in R for BABS 1",
@@ -12,104 +47,6 @@
     "title": "Data Analysis in R for BABS 1",
     "section": "",
     "text": "The BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
-  },
-  {
-    "objectID": "r4babs1/week-8/study_after_workshop.html",
-    "href": "r4babs1/week-8/study_after_workshop.html",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the packages and import the data.\n\nlibrary(tidyverse)\nlibrary(readxl)\n\n\nfly_bristles_means &lt;- read_excel(\"data-raw/bristles-mean.xlsx\")\ncats &lt;- read_csv(\"data-raw/cat-coats.csv\")\n\n\n\nExercises\n\n💻 Summarise the fly_bristles_means dataframe by calculating the mean, median, sample size, standard deviation and standard error of the mean_count variable.\n\n\n\nCode\nfly_bristles_means_summary &lt;- fly_bristles_means |&gt; \n  summarise(mean = mean(mean_count),\n            median = median(mean_count),\n            n = length(mean_count),\n            standard_dev = sd(mean_count),\n            standard_error = standard_dev / sqrt(n))\n\n\n\n💻 Create an appropriate plot to show the distribution of mean_count in fly_bristles_means\n\n\n\nCode\nggplot(fly_bristles_means, aes(x = mean_count)) +\n  geom_histogram(bins = 10)\n\n\n\n💻 Can you format the plot 2. by removing the grey background, giving the bars a black outline and the fill colour of your choice and improving the axis format and labelling? You may want to refer to last week’s workshop.\n\n\n\nCode\nggplot(fly_bristles_means, aes(x = mean_count)) +\n  geom_histogram(bins = 10, \n                 colour = \"black\",\n                 fill = \"skyblue\") +\n  scale_x_continuous(name = \"Number of bristles\",\n                     expand = c(0, 0)) +\n  scale_y_continuous(name = \"Frequency\",\n                     expand = c(0, 0),\n                     limits = c(0, 35)) +\n  theme_classic()\n\n\n\n💻 Amend this code to change the order of the bars by the average mass of each coat colour? Changing the order of bars was covered last week. You may also want to practice formatting the graph nicely.\n\n\nggplot(cats, aes(x = coat, y = mass)) +\n  geom_boxplot()\n\n\n\n\n\n\nCode\nggplot(cats, \n       aes(x = reorder(coat, mass), y = mass)) +\n  geom_boxplot(fill = \"darkcyan\") +\n  scale_x_discrete(name = \"Coat colour\") +\n  scale_y_continuous(name = \"Mass (kg)\", \n                     expand = c(0, 0),\n                     limits = c(0, 8)) +\n  theme_classic()\n\n\n\n📖 Read Understanding the pipe |&gt;"
-  },
-  {
-    "objectID": "r4babs1/week-8/study_before_workshop.html",
-    "href": "r4babs1/week-8/study_before_workshop.html",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "",
-    "text": "Prepare\n\n📖 Read Ideas about data"
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html",
-    "href": "r4babs1/week-8/workshop.html",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "",
-    "text": "Continuous and Discrete\n\n\n\n\nIn this workshop you will learn how to import data from files and create summaries and plots for it. You will also get more practice with working directories, formatting figures and the pipe.\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#session-overview",
-    "href": "r4babs1/week-8/workshop.html#session-overview",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "",
-    "text": "In this workshop you will learn how to import data from files and create summaries and plots for it. You will also get more practice with working directories, formatting figures and the pipe."
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#philosophy",
-    "href": "r4babs1/week-8/workshop.html#philosophy",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "",
-    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#importing-data-from-files",
-    "href": "r4babs1/week-8/workshop.html#importing-data-from-files",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "Importing data from files",
-    "text": "Importing data from files\nLast week we created data by typing the values in to R. This is not practical when you have added a lot of data to a spreadsheet, or you are using data file that has been supplied to you by a person or a machine. Far more commonly, we import data from a file into R. This requires you know two pieces of information.\n\nWhat format the data are in\nThe format of the data determines what function you will use to import it and the file extension often indicates format.\n\n.txt a plain text file1, where the columns are often separated by a space but might also be separated by a tab, a backslash or forward slash, or some other character\n.csv a plain text file where the columns are separated by commas\n.xlsx an Excel file\n\nWhere the file is relative to your working directory\nR can only read in a file if you say where it is, i.e., you give its relative path. If you follow the advice in this course, your data will be in a folder, data-raw which is inside your Project folder (and working directory).\n\nWe will save the four files for this workshop to our Project folder (week-8) and read them in. We will then create a new folder inside our Project folder called data-raw and move the data files to there before modifying the file paths as required. This is demonstrate how the relative path to the file will change after we move it.\n Save these four files in to your week-8 folder\n\nThe coat colour and mass of 62 cats: cat-coats.csv\nThe relative size of over 5000 cells measure by forward scatter (FSC) in flow cytometry: cell-size.txt\nThe number of sternopleural bristles on 96 female Drosophila: bristles.txt\nThe number of sternopleural bristles on 96 female Drosophila (with technical replicates): bristles-mean.xlsx\n\nThe first three files can be read in with core **tidyerse** functions and the last can be read in with the **readxl** package.\n Load the two packages\n\nlibrary(tidyverse)\nlibrary(readxl)\n\nWe will first read in cat-coats.csv. A .csv. extension suggests this is plain text file with comma separated columns. However, before we attempt to read it it, when should take a look at it. We can do this from RStudio\n Go to the Files pane (bottom right), click on the cat-coats.csv file and choose View File2\n\n\n\nRStudio Files Pane\n\n\nAny plain text file will open in the top left pane (Excel files will launch Excel).\n Is the file csv?\n\n\n What kind of variables does the file contain?\n\n\n Read in the csv file with:\n\ncats &lt;- read_csv(\"cat-coats.csv\")\n\nThe data from the file a read into a dataframe called cats and you will be able to see it in the Environment.\n Click on each of the remaining files and choose View File.\n In each case, say what the format is and what types of variables it contains.\n\n\n\n\n\n\n\n\nWe use the read_table()3 command to read in plain text files of single columns or where the columns are separated by spaces…\n …so in cell-size.txt can be read into a dataframe called cells like this:\n\ncells &lt;- read_table(\"cell-size.txt\")\n\n Now you try reading bristles.txt in to a dataframe called fly_bristles\nThe **readxl** package we loaded earlier has two useful functions for working with Excel files: excel_sheets(\"filename.xlsx\") will list the sheets in an Excel workbook; read_excel(\"filename.xlsx\") will read in to top sheet or a specified sheet with a small modification read_excel(\"filename.xlsx\", sheet = \"Sheet1\").\n List the the names of the sheets and read in the sheet with the data like this:\n\nexcel_sheets(\"bristles-mean.xlsx\")\nfly_bristles_means &lt;- read_excel(\"bristles-mean.xlsx\", sheet = \"means\")\n\nWell done! You can now read read in from files in your working directory.\nTo help you understand relative file paths, we will now move the data files.\n First remove the dataframes you just created to make it easier to see whether you can successfully read in the files from a different place:\n\nrm(cat_coats, fly_bristles, cells, flies_bristles_means)\n\n Now make a new folder called data-raw. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.\n Check the boxes next to the file names and choose More | Move… and select the data-raw folder.\n The files will move. To import data from files in the data-raw folder, you need to give the relative path to the file from the working directory. The working directory is the Project folder, week-8 so the relative path is data-raw/cat-coats.csv\n Import the cat-coats.csv data like this:\n\ncats &lt;- read_csv(\"data-raw/cat-coats.csv\")\n\n Now you do the other files.\nFrom this point forward in the course, we will always create a data-raw folder each time we make a new Project.\nThese are the most common forms of data file you will encounter at first. However, data can certainly come to you in other formats particularly when they have come from particular software. Usually, there is an R package specially for that format.\nIn the rest of the workshop we will take each dataset in turn and create summaries and plots appropriate for the data types. Data is summarised using the group_by() and summarise() functions"
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#summarising-discrete-data-cat-coat",
-    "href": "r4babs1/week-8/workshop.html#summarising-discrete-data-cat-coat",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "Summarising discrete data: Cat coat",
-    "text": "Summarising discrete data: Cat coat\nThe most appropriate way to summarise nominal data like the colour of cat coats is to tabulate the number of cats with each colour.\n Summarise the cats dataframe by counting the number of cats in each category\n\ncats |&gt; \n  group_by(coat) |&gt; \n  count()\n\n# A tibble: 6 × 2\n# Groups:   coat [6]\n  coat              n\n  &lt;chr&gt;         &lt;int&gt;\n1 black            23\n2 calico            1\n3 ginger           10\n4 tabby             8\n5 tortoiseshell     5\n6 white            15\n\n\n|&gt; is the pipe and can be produced with Ctrl+Shift+M\nThis sort of data might be represented with a barchart. You have two options for producing that barchart:\n\nplot the summary table using geom_col()\nplot the raw data using geom_bar()\n\nWe did the first of these last week. The geom_col() function uses the numbers in a second column to determine how high the bars are. However, the geom_bar() function will do the tabulating for you.\n Plot the coat data using geom_bar:\n\nggplot(cats, aes(x = coat)) +\n  geom_bar()\n\n\n\n\nThe gaps that R put automatically between the bars reflects that the coat colours are discrete categories."
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#summarising-counts-bristles",
-    "href": "r4babs1/week-8/workshop.html#summarising-counts-bristles",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "Summarising Counts: Bristles",
-    "text": "Summarising Counts: Bristles\nCounts are discrete and can be thought of a categories with an order (ordinal).\n Summarise the fly_bristles dataframe by counting the number of flies in each category of bristle number\nSince counts are numbers, we might also want to calculate some summary statistics such as the median and interquartile range.\n Summarise the fly_bristles dataframe by calculate the median and interquartile range\n\nfly_bristles |&gt; \n  summarise(median(number),\n            IQR(number))\n\n# A tibble: 1 × 2\n  `median(number)` `IQR(number)`\n             &lt;dbl&gt;         &lt;dbl&gt;\n1                6             4\n\n\nAs the interquartile is 4 and the median is 6 then 25% flies have 4 bristles or fewer and 25% have 8 or more.\nThe distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. [^4]: Count data are usually “Poisson” distributed.\n If you want to save the table you created and give the columns better names you can make two adjustments:\n\nfly_bristles_summary &lt;- fly_bristles |&gt; \n  summarise(med = median(number),\n            interquartile = IQR(number))\n\n Plot the bristles data using geom_bar:\nIf counts have a a high mean and big range, like number of hairs on a person’s head, then you can often treat them as continuous. This means you can use statistics like the mean and standard deviation to summarise them, histograms to plot them and use some standard statistical tests on them."
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#summarising-continuous-data",
-    "href": "r4babs1/week-8/workshop.html#summarising-continuous-data",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "Summarising continuous data",
-    "text": "Summarising continuous data\n\nCat mass\nThe variable mass in the cats dataframe is continuous. Very many continuous variables have a normal distribution. e normal distribution is also known as the bell-shaped curve. If we had the mass of all the cats in the world, we would find many cats were near the mean and fewer would be away from the mean, either much lighter or much heavier. In fact 68% would be within one standard deviation of the mean and about 96% would be within two standard deviations.\n\n\n\n\n\n We can find the mean mass with:\n\ncats |&gt; \n  summarise(mean = mean(mass))\n\n# A tibble: 1 × 1\n   mean\n  &lt;dbl&gt;\n1  4.51\n\n\nWe can add any sort of summary by placing it inside the the summarise parentheses. Each one is separated by a comma. We did this to find the median and the interquatrile range for fly bristles.\n For example, another way to calculate the number of values is to use the length() function:\n\ncats |&gt; \n  summarise(mean = mean(mass),\n            n = length(mass))\n\n# A tibble: 1 × 2\n   mean     n\n  &lt;dbl&gt; &lt;int&gt;\n1  4.51    62\n\n\n Adapt the code to calculate the mean, the sample size and the standard deviation (sd())\nA single continuous variable can be plotted using a histogram to show the shape of the distribution.\n Plots a histogram of cats mass:\n\nggplot(cats, aes(x = mass)) +\n  geom_histogram(bins = 10, colour = \"black\")\n\n\n\n\nNotice that there are no gaps between the bars which reflects that mass is continuous. bins determines how many groups the variable is divided up into (i.e., the number of bars) and colour sets the colour for the outline of the bars. A sample of 62 is a relatively small number of values for plotting a distribution and the number of bins used determines how smooth or normally distributed the values look.\n Experiment with the number of bins. Does the number of bins affect how you view the distribution.\nNext week we will practice summarise and plotting data files with several variables but just to give you a taste, we will find summary statistics about mass for each of the coat types.  The group_by() function is used before the summarise() to do calculations for each of the coats:\n\ncats |&gt; \n  group_by(coat) |&gt; \n  summarise(mean = mean(mass),\n                  standard_dev = sd(mass))\n\n# A tibble: 6 × 3\n  coat           mean standard_dev\n  &lt;chr&gt;         &lt;dbl&gt;        &lt;dbl&gt;\n1 black          4.63        1.33 \n2 calico         2.19       NA    \n3 ginger         4.46        1.12 \n4 tabby          4.86        0.444\n5 tortoiseshell  4.50        0.929\n6 white          4.34        1.34 \n\n\nYou can read this as:\n\ntake cats and then group by coat and then summarise by finding the mean of mass and the standard deviation of mass\n\n Why do we get an NA for the standard deviation of the calico cats?\n\n\n\n\n\nCells\n Summarise the cells dataframe by calculating the mean, median, sample size and standard deviation of FSC.\n Add a column for the standard error which is given by \\(\\frac{s.d.}{\\sqrt{n}}\\)\n\n\nMeans of counts\nMany things are quite difficult to measure or count and in these cases we often do technical replicates. A technical replicate allows us the measure the exact same thing to check how variable the measurement process is. For example, Drosophila are small and counting their sternopleural bristles is tricky. In addition, where a bristle is short (young) or broken scientists might vary in whether they count it. Or people or machines might vary in measuring the concentration of the same solution.\nWhen we do technical replicates we calculate their mean and use that as the measure. This is what is in our fly_bristles_means dataframe - the bristles of each of the 96 flies was counted by 5 people and the data are those means. These has an impact on how we plot and summarise the dataset because the distribution of mean counts is continuous! We can use means, standard deviations and histograms. This will be an exercise in Consolidate."
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#look-after-future-you",
-    "href": "r4babs1/week-8/workshop.html#look-after-future-you",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "Look after future you!",
-    "text": "Look after future you!\nFuture you is going to summarise and plot data from the “River practicals”. You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called analysis.R. I recommend making a new script for each of nominal, continuous and count data and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: nominal_data.R. You may wish to comment your version much more.\nYou’re finished!"
-  },
-  {
-    "objectID": "r4babs1/week-8/workshop.html#footnotes",
-    "href": "r4babs1/week-8/workshop.html#footnotes",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nPlain text files can be opened in notepad or other similar editor and still be readable.↩︎\nDon’t be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.↩︎\nnote read_csv() and read_table() are the same functions with some different settings.↩︎"
-  },
-  {
-    "objectID": "r4babs1/week-8/overview.html",
-    "href": "r4babs1/week-8/overview.html",
-    "title": "Week 8: Types of variable, the normal distribution and summarising data",
-    "section": "",
-    "text": "The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. You will also learn about the “normal distribution” which is the most important continuous distribution.\n\nLearning objectives\nThe successful student will be able to:\n\ndistinguish between continuous, discrete, nominal and ordinal variable\nread in data in to RStudio from a plain text file and Excel files\nsummarise and plot variables appropriately for the data type\n\n\n\nInstructions\n\nPrepare\n\n📖 Read: Ideas about data\n\nWorkshop\n\n💻 Importing data\n💻 Summarising discrete data\n💻 Summarising count data\n💻 Summarising continuous data\n\nConsolidate\n\n💻 Summarise some data\n💻 Plot some data\n💻 Format a plot (1)\n💻 Format a plot (2)\n📖 Read Understanding the pipe |&gt;"
-  },
-  {
-    "objectID": "r4babs1/week-6/study_after_workshop.html",
-    "href": "r4babs1/week-6/study_after_workshop.html",
-    "title": "Week 6: Understanding file systems",
-    "section": "",
-    "text": "There is no additional study this week but you may want to look ahead to next week."
-  },
-  {
-    "objectID": "r4babs1/week-6/study_before_workshop.html",
-    "href": "r4babs1/week-6/study_before_workshop.html",
-    "title": "Week 6: Understanding file systems",
-    "section": "",
-    "text": "Prepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers in Computational Analysis for Bioscientists\nRead What are R and Rstudio?. You only need to read this section, you do not need to the read the rest of the chapter (yet!)"
   },
   {
     "objectID": "r4babs1/week-6/workshop.html",
@@ -126,81 +63,18 @@
     "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nAllison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\nThe parentheses after each learning objective indicate where the content covers that objective.\nThe successful student will be able to:\n\nFile systems\nfiles and directories\nfile names, file extensions, associations with programs\nusing a file explorer\nsaving files\nfile paths\nusing google\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers\nRead What are R and Rstudio?\n\nWorkshop\n\nOptional: Install R and RStudio\n\nConsolidate\n\nTesting your understanding of file system"
   },
   {
-    "objectID": "r4babs1/week-9/study_after_workshop.html",
-    "href": "r4babs1/week-9/study_after_workshop.html",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "objectID": "r4babs1/week-6/study_before_workshop.html",
+    "href": "r4babs1/week-6/study_before_workshop.html",
+    "title": "Week 6: Understanding file systems",
     "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the packages and import the data.\n\nlibrary(tidyverse)\nlibrary(readxl)\n\n\n💻 Summarise and plot the pigeons dataframe appropriately.\n\n\n\nCode\n# import\npigeons &lt;- read_table(\"data-raw/pigeon.txt\")\n\n# reformat to tidy\npigeons &lt;- pivot_longer(data = pigeons, \n                        cols = everything(), \n                        names_to = \"population\", \n                        values_to = \"distance\")\n\n# sumnmarise\npigeons_summary &lt;- pigeons %&gt;%\n  group_by(population) %&gt;%\n  summarise(mean = mean(distance),\n            std = sd(distance),\n            n = length(distance),\n            se = std/sqrt(n))\n# plot\nggplot() +\n  geom_point(data = pigeons, aes(x = population, y = distance),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"gray50\") +\n  geom_errorbar(data = pigeons_summary, \n                aes(x = population, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = pigeons_summary, \n                aes(x = population, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Interorbital distance (mm)\", \n                     limits = c(0, 14), \n                     expand = c(0, 0)) +\n  scale_x_discrete(name = \"Population\") +\n  theme_classic()\n\n\n\n💻 The data in blood.csv are measurements of several blood parameters from fifty people with Crohn’s disease, a lifelong condition where parts of the digestive system become inflamed. Twenty-five of people are in the early stages of diagnosis and 25 have started treatment. The variables in the dataset are:\n\nsodium - Sodium concentration in umol/L, the average of 5 technical replicates\npotassium - Potassium concentration in umol/L, the average of 5 technical replicates\nB12 Vitamin - B12 in pmol/L, the average of 5 technical replicates\nwbc - White blood cell count in 10^9 /L, the average of 5 technical replicates\nrbc count - Red blood cell count in 10^12 /L, the average of 5 technical replicates\nplatlet count - platlet count in 10^9 /L, the average of 5 technical replicates\ninflammation marker - the presence or absence of a marker of inflammation, either 0 or 1\nstatus - whether the individual is before or after treatment.\n\nYour task is to summarise and plot these data in any suitable way. Create a complete RStudio Project for an analysis of these data. You will need to:\n\nMake a new project\nMake folders for data and for figures\nImport the data\nSummarise and plot variables of your choice. It doesn’t matter what you chose - the goal is the practice the project workflow and selecting appropriate plotting and summarising methods for particular data sets."
+    "text": "Prepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers in Computational Analysis for Bioscientists\nRead What are R and Rstudio?. You only need to read this section, you do not need to the read the rest of the chapter (yet!)"
   },
   {
-    "objectID": "r4babs1/week-9/study_before_workshop.html",
-    "href": "r4babs1/week-9/study_before_workshop.html",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "objectID": "r4babs1/week-6/study_after_workshop.html",
+    "href": "r4babs1/week-6/study_after_workshop.html",
+    "title": "Week 6: Understanding file systems",
     "section": "",
-    "text": "Prepare\n\n📖 Read Working with data in RStudio The first part of this chapter covers data import which was covered in Week 8’s workshop. You may find it helpful to remind yourself or you may be happy skipping it. The rest of the chapter covers summarising dataframes and creating plots which you will do in Week 9’s workshop."
-  },
-  {
-    "objectID": "r4babs1/week-9/workshop.html",
-    "href": "r4babs1/week-9/workshop.html",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
-    "section": "",
-    "text": "Data data Artwork from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst\n\n\n\n\nIn this workshop you will learn to summarise and plot datasets with more than one variable and how to write figures to files. You will also get more practice with working directories, importing data, formatting figures and the pipe.\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs1/week-9/workshop.html#session-overview",
-    "href": "r4babs1/week-9/workshop.html#session-overview",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
-    "section": "",
-    "text": "In this workshop you will learn to summarise and plot datasets with more than one variable and how to write figures to files. You will also get more practice with working directories, importing data, formatting figures and the pipe."
-  },
-  {
-    "objectID": "r4babs1/week-9/workshop.html#philosophy",
-    "href": "r4babs1/week-9/workshop.html#philosophy",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
-    "section": "",
-    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs1/week-9/workshop.html#myoglobin-in-seal-muscle",
-    "href": "r4babs1/week-9/workshop.html#myoglobin-in-seal-muscle",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
-    "section": "Myoglobin in seal muscle",
-    "text": "Myoglobin in seal muscle\nThe myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in seal.csv. Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.\n\nImport\n Save seal.csv to your data-raw folder\n Read the data into a dataframe called seal. . You might want to look up data import from last week.\n What types of variables do you have in the seal dataframe? What role would you expect them to play in analysis?\n\n\n\n\nThe key point here is that the fundamental structure of:\n\none continuous response and one nominal explanatory variable with two groups (adipocytes), and\none continuous response and one nominal explanatory variable with three groups (seals)\n\nis the same! The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is identical except for the variable names!\n\n\n\n\n\n\nTip\n\n\n\nWhen two datasets have the same number of columns and the response variable and the explanatory variables have the same data types then the code you need is the same.\n\n\n\n\nSummarise\nSummarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like myoglobin are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the group_by() and summarise() functions along with the functions that do the calculations.\n Create a data frame called seal_summary that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.\n\nseal_summary &lt;- seal %&gt;%\n  group_by(species) %&gt;%\n  summarise(mean = mean(myoglobin),\n            std = sd(myoglobin),\n            n = length(myoglobin),\n            se = std/sqrt(n))\n\nYou should get the following numbers:\n\n\n\n\n\nspecies\nmean\nstd\nn\nse\n\n\n\n\nBladdernose Seal\n42.31600\n8.020634\n30\n1.464361\n\n\nHarbour Seal\n49.01033\n8.252004\n30\n1.506603\n\n\nWeddell Seal\n44.66033\n7.849816\n30\n1.433174\n\n\n\n\n\n\n\n\n\nVisualise\nMost commonly, we put the explanatory variable on the x axis and the response variable on the y axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.\nWe are going to create a figure like this:\n\n\n\n\n\nIn this figure, we have the data points themselves which are in seal dataframe and the means and standard errors which are in the seal_summary dataframe. That is, we have two dataframes we want to plot.\nHere you will learn that dataframes and aesthetics can be specified within a geom_xxxx (rather than in the ggplot()). This is very useful if the geom only applies to some of the data you want to plot.\n\n\n\n\n\n\nTip: ggplot()\n\n\n\nYou put the data argument and aes() inside ggplot() if you want all the geoms to use that dataframe and variables. If you want a different dataframe for a geom, put the data argument and aes() inside the geom_xxxx()\n\n\nI will build the plot up in small steps but you should edit your existing ggplot() command as we go.\n Plot the data points first.\n\nggplot() +\n  geom_point(data = seal, \n             aes(x = species, y = myoglobin))\n\n\n\n\nNotice how we have given the data argument and the aesthetics inside the geom. The variables species and myoglobin are in the seal dataframe\n So the data points don’t overlap, we can add some random jitter in the x direction (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, \n             aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0))\n\n\n\n\nNote that position = position_jitter(width = 0.1, height = 0) is inside the geom_point() parentheses, after the aes() and a comma.\nWe’ve set the vertical jitter to 0 because, in contrast to the categorical x-axis, movement on the y-axis has meaning (the myoglobin levels).\n Let’s make the points a light grey (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, \n             aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\")\n\n\n\n\nNow to add the errorbars. These go from one standard error below the mean to one standard error above the mean.\n Add a geom_errorbar() for errorbars (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) \n\n\n\n\nWe have specified the seal_summary dataframe and the variables species, mean and se are in that.\nThere are several ways you could add the mean. You could use geom_point() but I like to use geom_errorbar() again with the ymin and ymax both set to the mean.\n Add a geom_errorbar() for the mean (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2)\n\n\n\n\n Alter the axis labels and limits using scale_y_continuous() and scale_x_discrete() (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Myoglobin (g/kg)\", \n                     limits = c(0, 80), \n                     expand = c(0, 0)) +\n  scale_x_discrete(name = \"Species\")\n\n\n\n\nYou only need to use scale_y_continuous() and scale_x_discrete() to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.\n Format the figure in a way that is more suitable for including in a report using theme_classic() (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Myoglobin (g/kg)\", \n                     limits = c(0, 80), \n                     expand = c(0, 0)) +\n   scale_x_discrete(name = \"Species\") +\n  theme_classic()\n\n\n\n\n\n\nWriting figures to file\n Make a new folder called figures.\n Edit you ggplot code so that you assign the figure to a variable.\n\nsealfig &lt;- ggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Myoglobin (g/kg)\", \n                     limits = c(0, 80), \n                     expand = c(0, 0)) +\n  scale_x_discrete(name = \"Species\") +\n  theme_classic()\n\nThe figure won’t be shown in the Plots tab - the output has gone into sealfig rather than to the Plots tab. To make it appear in the Plots tab type sealfig\n The ggsave() command will write a ggplot figure to a file:\n\nggsave(\"figures/seal-muscle.png\",\n       plot = sealfig,\n       device = \"png\",\n       width = 3,\n       height = 3,\n       units = \"in\",\n       dpi = 300)\n\nfiguresseal-muscle.png is the name of the file, including the relative path.\n Look up ggsave() in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1"
-  },
-  {
-    "objectID": "r4babs1/week-9/workshop.html#pigeons",
-    "href": "r4babs1/week-9/workshop.html#pigeons",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
-    "section": "Pigeons",
-    "text": "Pigeons\nThe data in pigeon.txt are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm\n ### Import\n Save pigeon.txt to your data-raw folder\n Read the data into a dataframe called pigeons.\n What variables are there in the pigeons dataframe?\n\n\n\n\nHummmm, these data are not organised like the other data sets we have used. The population is given as the column names and the interorbital distances for one population are given in a different column than those for the other population. The first row has data from two pigeons which have nothing in common, they just happen to be the first individual recorded in each population.\n\n\n\n\n\n\nA\nB\n\n\n\n\n12.4\n12.6\n\n\n11.2\n11.3\n\n\n11.6\n12.1\n\n\n12.3\n12.2\n\n\n11.8\n11.8\n\n\n10.7\n11.5\n\n\n11.3\n11.2\n\n\n11.6\n11.9\n\n\n12.3\n11.2\n\n\n10.5\n12.1\n\n\n12.1\n11.9\n\n\n10.4\n10.7\n\n\n10.8\n11.0\n\n\n11.9\n12.2\n\n\n10.9\n12.6\n\n\n10.8\n11.6\n\n\n10.4\n10.7\n\n\n12.0\n12.4\n\n\n11.7\n11.8\n\n\n11.3\n11.1\n\n\n11.5\n12.9\n\n\n11.8\n11.9\n\n\n10.3\n11.1\n\n\n10.3\n12.2\n\n\n11.5\n11.8\n\n\n10.7\n11.5\n\n\n11.3\n11.2\n\n\n11.6\n11.9\n\n\n13.3\n11.2\n\n\n10.7\n11.1\n\n\n12.1\n11.6\n\n\n10.2\n12.7\n\n\n10.8\n11.0\n\n\n11.4\n12.2\n\n\n10.9\n11.3\n\n\n10.3\n11.6\n\n\n10.4\n12.2\n\n\n10.0\n12.4\n\n\n11.2\n11.3\n\n\n11.3\n11.1\n\n\n\n\n\n\n\nThis data is not in ‘tidy’ format (Wickham 2014).\nTidy format has variables in column and observations in rows. All of the distance measurements should be in one column and a second column should give the population.\n\n\n\n\n\n\npopulation\ndistance\n\n\n\n\nA\n12.4\n\n\nB\n12.6\n\n\nA\n11.2\n\n\nB\n11.3\n\n\nA\n11.6\n\n\nB\n12.1\n\n\nA\n12.3\n\n\nB\n12.2\n\n\nA\n11.8\n\n\nB\n11.8\n\n\nA\n10.7\n\n\nB\n11.5\n\n\nA\n11.3\n\n\nB\n11.2\n\n\nA\n11.6\n\n\nB\n11.9\n\n\nA\n12.3\n\n\nB\n11.2\n\n\nA\n10.5\n\n\nB\n12.1\n\n\nA\n12.1\n\n\nB\n11.9\n\n\nA\n10.4\n\n\nB\n10.7\n\n\nA\n10.8\n\n\nB\n11.0\n\n\nA\n11.9\n\n\nB\n12.2\n\n\nA\n10.9\n\n\nB\n12.6\n\n\nA\n10.8\n\n\nB\n11.6\n\n\nA\n10.4\n\n\nB\n10.7\n\n\nA\n12.0\n\n\nB\n12.4\n\n\nA\n11.7\n\n\nB\n11.8\n\n\nA\n11.3\n\n\nB\n11.1\n\n\nA\n11.5\n\n\nB\n12.9\n\n\nA\n11.8\n\n\nB\n11.9\n\n\nA\n10.3\n\n\nB\n11.1\n\n\nA\n10.3\n\n\nB\n12.2\n\n\nA\n11.5\n\n\nB\n11.8\n\n\nA\n10.7\n\n\nB\n11.5\n\n\nA\n11.3\n\n\nB\n11.2\n\n\nA\n11.6\n\n\nB\n11.9\n\n\nA\n13.3\n\n\nB\n11.2\n\n\nA\n10.7\n\n\nB\n11.1\n\n\nA\n12.1\n\n\nB\n11.6\n\n\nA\n10.2\n\n\nB\n12.7\n\n\nA\n10.8\n\n\nB\n11.0\n\n\nA\n11.4\n\n\nB\n12.2\n\n\nA\n10.9\n\n\nB\n11.3\n\n\nA\n10.3\n\n\nB\n11.6\n\n\nA\n10.4\n\n\nB\n12.2\n\n\nA\n10.0\n\n\nB\n12.4\n\n\nA\n11.2\n\n\nB\n11.3\n\n\nA\n11.3\n\n\nB\n11.1\n\n\n\n\n\n\n\nData which is in tidy format is easier to summarise, analyses and plot because the organisation matches the conceptual structure of the data:\n\nit is more obvious what the variables are because they columns are named with them - in the untidy format, that the measures are distances is not clear and what A and B are isn’t clear\nit is more obvious that there is no relationship between any of the pigeons except for population\nfunctions are designed to work with variables in columns\n\n\nTidying data\nWe can put this data in such a format with the pivot_longer() function from the tidyverse:\npivot_longer() collects the values from specified columns (cols) into a single column (values_to) and creates a column to indicate the group (names_to).\n Put the data in tidy format:\n\npigeons &lt;- pivot_longer(data = pigeons, \n                        cols = everything(), \n                        names_to = \"population\", \n                        values_to = \"distance\")\n\nWe have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment &lt;- Note: the data in the file are unchanged."
-  },
-  {
-    "objectID": "r4babs1/week-9/workshop.html#ulna-and-height",
-    "href": "r4babs1/week-9/workshop.html#ulna-and-height",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
-    "section": "Ulna and height",
-    "text": "Ulna and height\nThe datasets we have used up to this point, have had a continuous variable and a categorical variable where it makes sense to summarise the response for each of the different groups in the categorical variable and plot the response on the y-axis. We will now summarise a dataset with two continuous variables. The data in height.txt are the ulna length (cm) and height (m) of 30 people. In this case, it is more appropriate to summarise both of thee variables and to plot them as a scatter plot.\nWe will use summarise() again but we do not need the group_by() function this time. We will also need to use each of the summary functions, such as mean(), twice, once for each variable.\n\nImport\n Save height.txt to your data-raw folder\n Read the data into a dataframe called ulna_heights.\n\n\nSummarise\n Create a data frame called ulna_heights_summary that contains the sample size and means, standard deviations and standard errors for both variables.\n\nulna_heights_summary &lt;- ulna_heights %&gt;%\n  summarise(n = length(ulna),\n            mean_ulna = mean(ulna),\n            std_ulna = sd(ulna),\n            se_ulna = std_ulna/sqrt(n),\n            mean_height = mean(height),\n            std_height = sd(height),\n            se_height = std_height/sqrt(n))\n\nYou should get the following numbers:\n\n\n\n\n\nn\nmean_ulna\nstd_ulna\nse_ulna\nmean_height\nstd_height\nse_height\n\n\n\n\n30\n24.72\n4.137332\n0.75537\n1.494\n0.2404823\n0.0439059\n\n\n\n\n\n\n\n\n\nVisualise\nTo plot make a scatter plot we need to use geom_point() again but without any scatter. In this case, it does not really matter which variable is on the x-axis and which is on the y-axis.\n Make a simple scatter plot\n\nggplot(data = ulna_heights, aes(x = ulna, y = height)) +\n  geom_point()\n\n\n\n\nIf you have time, you may want to format the figure more appropriately.\n\n\nYou’re finished!"
-  },
-  {
-    "objectID": "r4babs1/week-9/overview.html",
-    "href": "r4babs1/week-9/overview.html",
-    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
-    "section": "",
-    "text": "Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.\n\nLearning objectives\n\nsummarise and plot appropriately datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\nsave figures to file\ncreate neat reports which include text and figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Working with data in RStudio\n\nWorkshop\n\n💻 Summarise and plot datasets with more than one variable.\n💻 Practice with working directories, importing data, formatting figures and the pipe\n💻 Lay out text, figures and figure legends in documents\n\nConsolidate\n\n💻 Summarise and plot a dataframe from the workshop\n💻 Practice the complete RStudio Project worklfow for a new dataset"
-  },
-  {
-    "objectID": "r4babs1/week-7/study_after_workshop.html",
-    "href": "r4babs1/week-7/study_after_workshop.html",
-    "title": "Week 7: Introduction to R, RStudio and project organisation",
-    "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻 In a maternity hospital, the total numbers of births induced on each day of the week over a six week period were recorded (see table below). Create a plot of these data with the days of week in order.\n\n\n\n\nNumber of inductions for each day of the week over six weeks.\n\n\nDay\nNo. inductions\n\n\n\n\nMonday\n43\n\n\nTuesday\n36\n\n\nWednesday\n35\n\n\nThursday\n38\n\n\nFriday\n48\n\n\nSaturday\n26\n\n\nSunday\n24\n\n\n\n\n\n\n\n\n\nCode\n# create a dataframe for the data\nday &lt;- c(\"Monday\", \n         \"Tuesday\", \n         \"Wednesday\",\n         \"Thursday\",\n         \"Friday\",\n         \"Saturday\",\n         \"Sunday\")\nfreq &lt;- c(43, 36, 35, 38, 48, 26, 24) \ninductions &lt;- data.frame(day, freq)\n\n# make the order of the days correct rather than alphabetical\ninductions &lt;- inductions |&gt; \n  mutate(day = fct_relevel(day, c(\"Monday\",\n                                  \"Tuesday\",\n                                  \"Wednesday\",\n                                  \"Thursday\",\n                                  \"Friday\",\n                                  \"Saturday\",\n                                  \"Sunday\")))\n\n# plot the data as a barplot with the bars in\nggplot(data = inductions, \n       aes(x = day, y = freq)) +\n  geom_col(colour = \"black\",\n           fill = \"lightseagreen\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Day of the week\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of inductions\",\n                     limits = c(0, 55)) +\n  theme_classic()\n\n\n\n📖 Read Workflow in RStudio"
-  },
-  {
-    "objectID": "r4babs1/week-7/study_before_workshop.html",
-    "href": "r4babs1/week-7/study_before_workshop.html",
-    "title": "Week 7: Introduction to R, RStudio and project organisation",
-    "section": "",
-    "text": "Prepare\n\nEither 📖 Read First Steps in RStudio in OR 📹 Watch"
+    "text": "There is no additional study this week but you may want to look ahead to next week."
   },
   {
     "objectID": "r4babs1/week-7/workshop.html",
@@ -278,6 +152,27 @@
     "title": "Week 7: Introduction to RStudio and your first graphs",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThere are also scale_x_continous() and scale_y_discrete() functions when you have those types of variable↩︎\nModify components of a theme↩︎"
+  },
+  {
+    "objectID": "r4babs1/week-7/overview.html",
+    "href": "r4babs1/week-7/overview.html",
+    "title": "Week 7: Introduction to R, RStudio and project organisation",
+    "section": "",
+    "text": "This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.\n\nLearning objectives\n\nuse the R command line as a calculator and to assign variables\ncreate and use the basic data types in R\nfind their way around the RStudio windows\nuse an RStudio Project to organise work\nuse a script to run R commands\ncreate and customise a barplot\nsearch and understand manual pages\n\n\n\nInstructions\n\nPrepare\n\nFirst Steps in RStudio: Either 📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻 🐈 Coat colour of cats. Type in some data, perform calculations on, and plot it.\nConsolidate\n\n💻 Create a plot\n📖 Read Workflow in RStudio"
+  },
+  {
+    "objectID": "r4babs1/week-7/study_before_workshop.html",
+    "href": "r4babs1/week-7/study_before_workshop.html",
+    "title": "Week 7: Introduction to R, RStudio and project organisation",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read First Steps in RStudio in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs1/week-7/study_after_workshop.html",
+    "href": "r4babs1/week-7/study_after_workshop.html",
+    "title": "Week 7: Introduction to R, RStudio and project organisation",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻 In a maternity hospital, the total numbers of births induced on each day of the week over a six week period were recorded (see table below). Create a plot of these data with the days of week in order.\n\n\n\n\nNumber of inductions for each day of the week over six weeks.\n\n\nDay\nNo. inductions\n\n\n\n\nMonday\n43\n\n\nTuesday\n36\n\n\nWednesday\n35\n\n\nThursday\n38\n\n\nFriday\n48\n\n\nSaturday\n26\n\n\nSunday\n24\n\n\n\n\n\n\n\n\n\nCode\n# create a dataframe for the data\nday &lt;- c(\"Monday\", \n         \"Tuesday\", \n         \"Wednesday\",\n         \"Thursday\",\n         \"Friday\",\n         \"Saturday\",\n         \"Sunday\")\nfreq &lt;- c(43, 36, 35, 38, 48, 26, 24) \ninductions &lt;- data.frame(day, freq)\n\n# make the order of the days correct rather than alphabetical\ninductions &lt;- inductions |&gt; \n  mutate(day = fct_relevel(day, c(\"Monday\",\n                                  \"Tuesday\",\n                                  \"Wednesday\",\n                                  \"Thursday\",\n                                  \"Friday\",\n                                  \"Saturday\",\n                                  \"Sunday\")))\n\n# plot the data as a barplot with the bars in\nggplot(data = inductions, \n       aes(x = day, y = freq)) +\n  geom_col(colour = \"black\",\n           fill = \"lightseagreen\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Day of the week\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of inductions\",\n                     limits = c(0, 55)) +\n  theme_classic()\n\n\n\n📖 Read Workflow in RStudio"
   },
   {
     "objectID": "r4babs1/week-7/rstudio-projects.html#outline",
@@ -392,46 +287,151 @@
     "text": "demo"
   },
   {
-    "objectID": "r4babs1/week-7/overview.html",
-    "href": "r4babs1/week-7/overview.html",
-    "title": "Week 7: Introduction to R, RStudio and project organisation",
+    "objectID": "r4babs1/week-9/workshop.html",
+    "href": "r4babs1/week-9/workshop.html",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
     "section": "",
-    "text": "This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.\n\nLearning objectives\n\nuse the R command line as a calculator and to assign variables\ncreate and use the basic data types in R\nfind their way around the RStudio windows\nuse an RStudio Project to organise work\nuse a script to run R commands\ncreate and customise a barplot\nsearch and understand manual pages\n\n\n\nInstructions\n\nPrepare\n\nFirst Steps in RStudio: Either 📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻 🐈 Coat colour of cats. Type in some data, perform calculations on, and plot it.\nConsolidate\n\n💻 Create a plot\n📖 Read Workflow in RStudio"
+    "text": "Data data Artwork from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst\n\n\n\n\nIn this workshop you will learn to summarise and plot datasets with more than one variable and how to write figures to files. You will also get more practice with working directories, importing data, formatting figures and the pipe.\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "objectID": "r4babs1/week-9/workshop.html#session-overview",
+    "href": "r4babs1/week-9/workshop.html#session-overview",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
     "section": "",
-    "text": "Each semester in Stage 1 and 2 the Becoming a Bioscientist modules progressively train you in:\n\nSafe Lab/field practical skills\nAsking questions, hypothesising and designing research activity\nReproducibly recording, handling, analysing and presenting data\nInterpreting, contextualising and communicating research\nProfessional team work and reflection\n\nEach module includes Data Analysis in R training which helps you analyse data but also to understand the literature, design experiments and report the results.\n\n\nReproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills.\n\n\n\nPart of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed.\n\n\n\nHowever, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!\n\n\n\nAnd because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.\nhelp you evaluate and interpret the data analysis in papers\nimprove your employability!"
+    "text": "In this workshop you will learn to summarise and plot datasets with more than one variable and how to write figures to files. You will also get more practice with working directories, importing data, formatting figures and the pipe."
   },
   {
-    "objectID": "index.html#learning-data-analysis-is-important",
-    "href": "index.html#learning-data-analysis-is-important",
-    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "objectID": "r4babs1/week-9/workshop.html#philosophy",
+    "href": "r4babs1/week-9/workshop.html#philosophy",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
     "section": "",
-    "text": "Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills."
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
   },
   {
-    "objectID": "index.html#and-takes-time",
-    "href": "index.html#and-takes-time",
-    "title": "Data Analysis in R for Becoming a Bioscientist",
-    "section": "",
-    "text": "Part of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed."
+    "objectID": "r4babs1/week-9/workshop.html#myoglobin-in-seal-muscle",
+    "href": "r4babs1/week-9/workshop.html#myoglobin-in-seal-muscle",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "section": "Myoglobin in seal muscle",
+    "text": "Myoglobin in seal muscle\nThe myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in seal.csv. Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.\n\nImport\n Save seal.csv to your data-raw folder\n Read the data into a dataframe called seal. . You might want to look up data import from last week.\n What types of variables do you have in the seal dataframe? What role would you expect them to play in analysis?\n\n\n\n\nThe key point here is that the fundamental structure of:\n\none continuous response and one nominal explanatory variable with two groups (adipocytes), and\none continuous response and one nominal explanatory variable with three groups (seals)\n\nis the same! The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is identical except for the variable names!\n\n\n\n\n\n\nTip\n\n\n\nWhen two datasets have the same number of columns and the response variable and the explanatory variables have the same data types then the code you need is the same.\n\n\n\n\nSummarise\nSummarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like myoglobin are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the group_by() and summarise() functions along with the functions that do the calculations.\n Create a data frame called seal_summary that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.\n\nseal_summary &lt;- seal %&gt;%\n  group_by(species) %&gt;%\n  summarise(mean = mean(myoglobin),\n            std = sd(myoglobin),\n            n = length(myoglobin),\n            se = std/sqrt(n))\n\nYou should get the following numbers:\n\n\n\n\n\nspecies\nmean\nstd\nn\nse\n\n\n\n\nBladdernose Seal\n42.31600\n8.020634\n30\n1.464361\n\n\nHarbour Seal\n49.01033\n8.252004\n30\n1.506603\n\n\nWeddell Seal\n44.66033\n7.849816\n30\n1.433174\n\n\n\n\n\n\n\n\n\nVisualise\nMost commonly, we put the explanatory variable on the x axis and the response variable on the y axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.\nWe are going to create a figure like this:\n\n\n\n\n\nIn this figure, we have the data points themselves which are in seal dataframe and the means and standard errors which are in the seal_summary dataframe. That is, we have two dataframes we want to plot.\nHere you will learn that dataframes and aesthetics can be specified within a geom_xxxx (rather than in the ggplot()). This is very useful if the geom only applies to some of the data you want to plot.\n\n\n\n\n\n\nTip: ggplot()\n\n\n\nYou put the data argument and aes() inside ggplot() if you want all the geoms to use that dataframe and variables. If you want a different dataframe for a geom, put the data argument and aes() inside the geom_xxxx()\n\n\nI will build the plot up in small steps but you should edit your existing ggplot() command as we go.\n Plot the data points first.\n\nggplot() +\n  geom_point(data = seal, \n             aes(x = species, y = myoglobin))\n\n\n\n\nNotice how we have given the data argument and the aesthetics inside the geom. The variables species and myoglobin are in the seal dataframe\n So the data points don’t overlap, we can add some random jitter in the x direction (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, \n             aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0))\n\n\n\n\nNote that position = position_jitter(width = 0.1, height = 0) is inside the geom_point() parentheses, after the aes() and a comma.\nWe’ve set the vertical jitter to 0 because, in contrast to the categorical x-axis, movement on the y-axis has meaning (the myoglobin levels).\n Let’s make the points a light grey (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, \n             aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\")\n\n\n\n\nNow to add the errorbars. These go from one standard error below the mean to one standard error above the mean.\n Add a geom_errorbar() for errorbars (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) \n\n\n\n\nWe have specified the seal_summary dataframe and the variables species, mean and se are in that.\nThere are several ways you could add the mean. You could use geom_point() but I like to use geom_errorbar() again with the ymin and ymax both set to the mean.\n Add a geom_errorbar() for the mean (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2)\n\n\n\n\n Alter the axis labels and limits using scale_y_continuous() and scale_x_discrete() (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Myoglobin (g/kg)\", \n                     limits = c(0, 80), \n                     expand = c(0, 0)) +\n  scale_x_discrete(name = \"Species\")\n\n\n\n\nYou only need to use scale_y_continuous() and scale_x_discrete() to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.\n Format the figure in a way that is more suitable for including in a report using theme_classic() (edit your existing code):\n\nggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Myoglobin (g/kg)\", \n                     limits = c(0, 80), \n                     expand = c(0, 0)) +\n   scale_x_discrete(name = \"Species\") +\n  theme_classic()\n\n\n\n\n\n\nWriting figures to file\n Make a new folder called figures.\n Edit you ggplot code so that you assign the figure to a variable.\n\nsealfig &lt;- ggplot() +\n  geom_point(data = seal, aes(x = species, y = myoglobin),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"grey50\") +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = seal_summary, \n                aes(x = species, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Myoglobin (g/kg)\", \n                     limits = c(0, 80), \n                     expand = c(0, 0)) +\n  scale_x_discrete(name = \"Species\") +\n  theme_classic()\n\nThe figure won’t be shown in the Plots tab - the output has gone into sealfig rather than to the Plots tab. To make it appear in the Plots tab type sealfig\n The ggsave() command will write a ggplot figure to a file:\n\nggsave(\"figures/seal-muscle.png\",\n       plot = sealfig,\n       device = \"png\",\n       width = 3,\n       height = 3,\n       units = \"in\",\n       dpi = 300)\n\nfiguresseal-muscle.png is the name of the file, including the relative path.\n Look up ggsave() in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1"
   },
   {
-    "objectID": "index.html#but-can-be-great-fun",
-    "href": "index.html#but-can-be-great-fun",
-    "title": "Data Analysis in R for Becoming a Bioscientist",
-    "section": "",
-    "text": "However, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!"
+    "objectID": "r4babs1/week-9/workshop.html#pigeons",
+    "href": "r4babs1/week-9/workshop.html#pigeons",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "section": "Pigeons",
+    "text": "Pigeons\nThe data in pigeon.txt are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm\n\n\n\nInterorbital width is the distance between the eyes\n\n\n\nImport\n Save pigeon.txt to your data-raw folder\n Read the data into a dataframe called pigeons.\n What variables are there in the pigeons dataframe?\n\n\n\n\nHummmm, these data are not organised like the other data sets we have used. The population is given as the column names and the interorbital distances for one population are given in a different column than those for the other population. The first row has data from two pigeons which have nothing in common, they just happen to be the first individual recorded in each population.\n\n\n\n\n\n\nA\nB\n\n\n\n\n12.4\n12.6\n\n\n11.2\n11.3\n\n\n11.6\n12.1\n\n\n12.3\n12.2\n\n\n11.8\n11.8\n\n\n10.7\n11.5\n\n\n11.3\n11.2\n\n\n11.6\n11.9\n\n\n12.3\n11.2\n\n\n10.5\n12.1\n\n\n12.1\n11.9\n\n\n10.4\n10.7\n\n\n10.8\n11.0\n\n\n11.9\n12.2\n\n\n10.9\n12.6\n\n\n10.8\n11.6\n\n\n10.4\n10.7\n\n\n12.0\n12.4\n\n\n11.7\n11.8\n\n\n11.3\n11.1\n\n\n11.5\n12.9\n\n\n11.8\n11.9\n\n\n10.3\n11.1\n\n\n10.3\n12.2\n\n\n11.5\n11.8\n\n\n10.7\n11.5\n\n\n11.3\n11.2\n\n\n11.6\n11.9\n\n\n13.3\n11.2\n\n\n10.7\n11.1\n\n\n12.1\n11.6\n\n\n10.2\n12.7\n\n\n10.8\n11.0\n\n\n11.4\n12.2\n\n\n10.9\n11.3\n\n\n10.3\n11.6\n\n\n10.4\n12.2\n\n\n10.0\n12.4\n\n\n11.2\n11.3\n\n\n11.3\n11.1\n\n\n\n\n\n\n\nThis data is not in ‘tidy’ format (Wickham 2014).\nTidy format has variables in column and observations in rows. All of the distance measurements should be in one column and a second column should give the population.\n\n\n\n\n\n\npopulation\ndistance\n\n\n\n\nA\n12.4\n\n\nB\n12.6\n\n\nA\n11.2\n\n\nB\n11.3\n\n\nA\n11.6\n\n\nB\n12.1\n\n\nA\n12.3\n\n\nB\n12.2\n\n\nA\n11.8\n\n\nB\n11.8\n\n\nA\n10.7\n\n\nB\n11.5\n\n\nA\n11.3\n\n\nB\n11.2\n\n\nA\n11.6\n\n\nB\n11.9\n\n\nA\n12.3\n\n\nB\n11.2\n\n\nA\n10.5\n\n\nB\n12.1\n\n\nA\n12.1\n\n\nB\n11.9\n\n\nA\n10.4\n\n\nB\n10.7\n\n\nA\n10.8\n\n\nB\n11.0\n\n\nA\n11.9\n\n\nB\n12.2\n\n\nA\n10.9\n\n\nB\n12.6\n\n\nA\n10.8\n\n\nB\n11.6\n\n\nA\n10.4\n\n\nB\n10.7\n\n\nA\n12.0\n\n\nB\n12.4\n\n\nA\n11.7\n\n\nB\n11.8\n\n\nA\n11.3\n\n\nB\n11.1\n\n\nA\n11.5\n\n\nB\n12.9\n\n\nA\n11.8\n\n\nB\n11.9\n\n\nA\n10.3\n\n\nB\n11.1\n\n\nA\n10.3\n\n\nB\n12.2\n\n\nA\n11.5\n\n\nB\n11.8\n\n\nA\n10.7\n\n\nB\n11.5\n\n\nA\n11.3\n\n\nB\n11.2\n\n\nA\n11.6\n\n\nB\n11.9\n\n\nA\n13.3\n\n\nB\n11.2\n\n\nA\n10.7\n\n\nB\n11.1\n\n\nA\n12.1\n\n\nB\n11.6\n\n\nA\n10.2\n\n\nB\n12.7\n\n\nA\n10.8\n\n\nB\n11.0\n\n\nA\n11.4\n\n\nB\n12.2\n\n\nA\n10.9\n\n\nB\n11.3\n\n\nA\n10.3\n\n\nB\n11.6\n\n\nA\n10.4\n\n\nB\n12.2\n\n\nA\n10.0\n\n\nB\n12.4\n\n\nA\n11.2\n\n\nB\n11.3\n\n\nA\n11.3\n\n\nB\n11.1\n\n\n\n\n\n\n\nData which is in tidy format is easier to summarise, analyses and plot because the organisation matches the conceptual structure of the data:\n\nit is more obvious what the variables are because they columns are named with them - in the untidy format, that the measures are distances is not clear and what A and B are isn’t clear\nit is more obvious that there is no relationship between any of the pigeons except for population\nfunctions are designed to work with variables in columns\n\n\n\nTidying data\nWe can put this data in such a format with the pivot_longer() function from the tidyverse:\npivot_longer() collects the values from specified columns (cols) into a single column (values_to) and creates a column to indicate the group (names_to).\n Put the data in tidy format:\n\npigeons &lt;- pivot_longer(data = pigeons, \n                        cols = everything(), \n                        names_to = \"population\", \n                        values_to = \"distance\")\n\nWe have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment &lt;- Note: the data in the file are unchanged."
   },
   {
-    "objectID": "index.html#and-surprising",
-    "href": "index.html#and-surprising",
-    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "objectID": "r4babs1/week-9/workshop.html#ulna-and-height",
+    "href": "r4babs1/week-9/workshop.html#ulna-and-height",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "section": "Ulna and height",
+    "text": "Ulna and height\nThe datasets we have used up to this point, have had a continuous variable and a categorical variable where it makes sense to summarise the response for each of the different groups in the categorical variable and plot the response on the y-axis. We will now summarise a dataset with two continuous variables. The data in height.txt are the ulna length (cm) and height (m) of 30 people. In this case, it is more appropriate to summarise both of thee variables and to plot them as a scatter plot.\nWe will use summarise() again but we do not need the group_by() function this time. We will also need to use each of the summary functions, such as mean(), twice, once for each variable.\n\nImport\n Save height.txt to your data-raw folder\n Read the data into a dataframe called ulna_heights.\n\n\nSummarise\n Create a data frame called ulna_heights_summary that contains the sample size and means, standard deviations and standard errors for both variables.\n\nulna_heights_summary &lt;- ulna_heights %&gt;%\n  summarise(n = length(ulna),\n            mean_ulna = mean(ulna),\n            std_ulna = sd(ulna),\n            se_ulna = std_ulna/sqrt(n),\n            mean_height = mean(height),\n            std_height = sd(height),\n            se_height = std_height/sqrt(n))\n\nYou should get the following numbers:\n\n\n\n\n\nn\nmean_ulna\nstd_ulna\nse_ulna\nmean_height\nstd_height\nse_height\n\n\n\n\n30\n24.72\n4.137332\n0.75537\n1.494\n0.2404823\n0.0439059\n\n\n\n\n\n\n\n\n\nVisualise\nTo plot make a scatter plot we need to use geom_point() again but without any scatter. In this case, it does not really matter which variable is on the x-axis and which is on the y-axis.\n Make a simple scatter plot\n\nggplot(data = ulna_heights, aes(x = ulna, y = height)) +\n  geom_point()\n\n\n\n\nIf you have time, you may want to format the figure more appropriately.\n\n\nYou’re finished!"
+  },
+  {
+    "objectID": "r4babs1/week-9/overview.html",
+    "href": "r4babs1/week-9/overview.html",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
     "section": "",
-    "text": "And because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.\nhelp you evaluate and interpret the data analysis in papers\nimprove your employability!"
+    "text": "Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.\n\nLearning objectives\n\nsummarise and plot appropriately datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\nsave figures to file\ncreate neat reports which include text and figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Working with data in RStudio\n\nWorkshop\n\n💻 Summarise and plot datasets with more than one variable.\n💻 Practice with working directories, importing data, formatting figures and the pipe\n💻 Lay out text, figures and figure legends in documents\n\nConsolidate\n\n💻 Summarise and plot a dataframe from the workshop\n💻 Practice the complete RStudio Project worklfow for a new dataset"
+  },
+  {
+    "objectID": "r4babs1/week-9/study_before_workshop.html",
+    "href": "r4babs1/week-9/study_before_workshop.html",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "section": "",
+    "text": "Prepare\n\n📖 Read Working with data in RStudio The first part of this chapter covers data import which was covered in Week 8’s workshop. You may find it helpful to remind yourself or you may be happy skipping it. The rest of the chapter covers summarising dataframes and creating plots which you will do in Week 9’s workshop."
+  },
+  {
+    "objectID": "r4babs1/week-9/study_after_workshop.html",
+    "href": "r4babs1/week-9/study_after_workshop.html",
+    "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the packages and import the data.\n\nlibrary(tidyverse)\nlibrary(readxl)\n\n\n💻 Summarise and plot the pigeons dataframe appropriately.\n\n\n\nCode\n# import\npigeons &lt;- read_table(\"data-raw/pigeon.txt\")\n\n# reformat to tidy\npigeons &lt;- pivot_longer(data = pigeons, \n                        cols = everything(), \n                        names_to = \"population\", \n                        values_to = \"distance\")\n\n# sumnmarise\npigeons_summary &lt;- pigeons %&gt;%\n  group_by(population) %&gt;%\n  summarise(mean = mean(distance),\n            std = sd(distance),\n            n = length(distance),\n            se = std/sqrt(n))\n# plot\nggplot() +\n  geom_point(data = pigeons, aes(x = population, y = distance),\n             position = position_jitter(width = 0.1, height = 0),\n             colour = \"gray50\") +\n  geom_errorbar(data = pigeons_summary, \n                aes(x = population, ymin = mean - se, ymax = mean + se),\n                width = 0.3) +\n  geom_errorbar(data = pigeons_summary, \n                aes(x = population, ymin = mean, ymax = mean),\n                width = 0.2) +\n  scale_y_continuous(name = \"Interorbital distance (mm)\", \n                     limits = c(0, 14), \n                     expand = c(0, 0)) +\n  scale_x_discrete(name = \"Population\") +\n  theme_classic()\n\n\n\n💻 The data in blood.csv are measurements of several blood parameters from fifty people with Crohn’s disease, a lifelong condition where parts of the digestive system become inflamed. Twenty-five of people are in the early stages of diagnosis and 25 have started treatment. The variables in the dataset are:\n\nsodium - Sodium concentration in umol/L, the average of 5 technical replicates\npotassium - Potassium concentration in umol/L, the average of 5 technical replicates\nB12 Vitamin - B12 in pmol/L, the average of 5 technical replicates\nwbc - White blood cell count in 10^9 /L, the average of 5 technical replicates\nrbc count - Red blood cell count in 10^12 /L, the average of 5 technical replicates\nplatlet count - platlet count in 10^9 /L, the average of 5 technical replicates\ninflammation marker - the presence or absence of a marker of inflammation, either 0 or 1\nstatus - whether the individual is before or after treatment.\n\nYour task is to summarise and plot these data in any suitable way. Create a complete RStudio Project for an analysis of these data. You will need to:\n\nMake a new project\nMake folders for data and for figures\nImport the data\nSummarise and plot variables of your choice. It doesn’t matter what you chose - the goal is the practice the project workflow and selecting appropriate plotting and summarising methods for particular data sets."
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html",
+    "href": "r4babs1/week-8/workshop.html",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "",
+    "text": "Continuous and Discrete\n\n\n\n\nIn this workshop you will learn how to import data from files and create summaries and plots for it. You will also get more practice with working directories, formatting figures and the pipe.\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#session-overview",
+    "href": "r4babs1/week-8/workshop.html#session-overview",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "",
+    "text": "In this workshop you will learn how to import data from files and create summaries and plots for it. You will also get more practice with working directories, formatting figures and the pipe."
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#philosophy",
+    "href": "r4babs1/week-8/workshop.html#philosophy",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#importing-data-from-files",
+    "href": "r4babs1/week-8/workshop.html#importing-data-from-files",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "Importing data from files",
+    "text": "Importing data from files\nLast week we created data by typing the values in to R. This is not practical when you have added a lot of data to a spreadsheet, or you are using data file that has been supplied to you by a person or a machine. Far more commonly, we import data from a file into R. This requires you know two pieces of information.\n\nWhat format the data are in\nThe format of the data determines what function you will use to import it and the file extension often indicates format.\n\n.txt a plain text file1, where the columns are often separated by a space but might also be separated by a tab, a backslash or forward slash, or some other character\n.csv a plain text file where the columns are separated by commas\n.xlsx an Excel file\n\nWhere the file is relative to your working directory\nR can only read in a file if you say where it is, i.e., you give its relative path. If you follow the advice in this course, your data will be in a folder, data-raw which is inside your Project folder (and working directory).\n\nWe will save the four files for this workshop to our Project folder (week-8) and read them in. We will then create a new folder inside our Project folder called data-raw and move the data files to there before modifying the file paths as required. This is demonstrate how the relative path to the file will change after we move it.\n Save these four files in to your week-8 folder\n\nThe coat colour and mass of 62 cats: cat-coats.csv\nThe relative size of over 5000 cells measure by forward scatter (FSC) in flow cytometry: cell-size.txt\nThe number of sternopleural bristles on 96 female Drosophila: bristles.txt\nThe number of sternopleural bristles on 96 female Drosophila (with technical replicates): bristles-mean.xlsx\n\nThe first three files can be read in with core **tidyerse** functions and the last can be read in with the **readxl** package.\n Load the two packages\n\nlibrary(tidyverse)\nlibrary(readxl)\n\nWe will first read in cat-coats.csv. A .csv. extension suggests this is plain text file with comma separated columns. However, before we attempt to read it it, when should take a look at it. We can do this from RStudio\n Go to the Files pane (bottom right), click on the cat-coats.csv file and choose View File2\n\n\n\nRStudio Files Pane\n\n\nAny plain text file will open in the top left pane (Excel files will launch Excel).\n Is the file csv?\n\n\n What kind of variables does the file contain?\n\n\n Read in the csv file with:\n\ncats &lt;- read_csv(\"cat-coats.csv\")\n\nThe data from the file a read into a dataframe called cats and you will be able to see it in the Environment.\n Click on each of the remaining files and choose View File.\n In each case, say what the format is and what types of variables it contains.\n\n\n\n\n\n\n\n\nWe use the read_table()3 command to read in plain text files of single columns or where the columns are separated by spaces…\n …so in cell-size.txt can be read into a dataframe called cells like this:\n\ncells &lt;- read_table(\"cell-size.txt\")\n\n Now you try reading bristles.txt in to a dataframe called fly_bristles\nThe **readxl** package we loaded earlier has two useful functions for working with Excel files: excel_sheets(\"filename.xlsx\") will list the sheets in an Excel workbook; read_excel(\"filename.xlsx\") will read in to top sheet or a specified sheet with a small modification read_excel(\"filename.xlsx\", sheet = \"Sheet1\").\n List the the names of the sheets and read in the sheet with the data like this:\n\nexcel_sheets(\"bristles-mean.xlsx\")\nfly_bristles_means &lt;- read_excel(\"bristles-mean.xlsx\", sheet = \"means\")\n\nWell done! You can now read read in from files in your working directory.\nTo help you understand relative file paths, we will now move the data files.\n First remove the dataframes you just created to make it easier to see whether you can successfully read in the files from a different place:\n\nrm(cat_coats, fly_bristles, cells, flies_bristles_means)\n\n Now make a new folder called data-raw. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.\n Check the boxes next to the file names and choose More | Move… and select the data-raw folder.\n The files will move. To import data from files in the data-raw folder, you need to give the relative path to the file from the working directory. The working directory is the Project folder, week-8 so the relative path is data-raw/cat-coats.csv\n Import the cat-coats.csv data like this:\n\ncats &lt;- read_csv(\"data-raw/cat-coats.csv\")\n\n Now you do the other files.\nFrom this point forward in the course, we will always create a data-raw folder each time we make a new Project.\nThese are the most common forms of data file you will encounter at first. However, data can certainly come to you in other formats particularly when they have come from particular software. Usually, there is an R package specially for that format.\nIn the rest of the workshop we will take each dataset in turn and create summaries and plots appropriate for the data types. Data is summarised using the group_by() and summarise() functions"
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#summarising-discrete-data-cat-coat",
+    "href": "r4babs1/week-8/workshop.html#summarising-discrete-data-cat-coat",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "Summarising discrete data: Cat coat",
+    "text": "Summarising discrete data: Cat coat\nThe most appropriate way to summarise nominal data like the colour of cat coats is to tabulate the number of cats with each colour.\n Summarise the cats dataframe by counting the number of cats in each category\n\ncats |&gt; \n  group_by(coat) |&gt; \n  count()\n\n# A tibble: 6 × 2\n# Groups:   coat [6]\n  coat              n\n  &lt;chr&gt;         &lt;int&gt;\n1 black            23\n2 calico            1\n3 ginger           10\n4 tabby             8\n5 tortoiseshell     5\n6 white            15\n\n\n|&gt; is the pipe and can be produced with Ctrl+Shift+M\nThis sort of data might be represented with a barchart. You have two options for producing that barchart:\n\nplot the summary table using geom_col()\nplot the raw data using geom_bar()\n\nWe did the first of these last week. The geom_col() function uses the numbers in a second column to determine how high the bars are. However, the geom_bar() function will do the tabulating for you.\n Plot the coat data using geom_bar:\n\nggplot(cats, aes(x = coat)) +\n  geom_bar()\n\n\n\n\nThe gaps that R put automatically between the bars reflects that the coat colours are discrete categories."
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#summarising-counts-bristles",
+    "href": "r4babs1/week-8/workshop.html#summarising-counts-bristles",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "Summarising Counts: Bristles",
+    "text": "Summarising Counts: Bristles\nCounts are discrete and can be thought of a categories with an order (ordinal).\n Summarise the fly_bristles dataframe by counting the number of flies in each category of bristle number\nSince counts are numbers, we might also want to calculate some summary statistics such as the median and interquartile range.\n Summarise the fly_bristles dataframe by calculate the median and interquartile range\n\nfly_bristles |&gt; \n  summarise(median(number),\n            IQR(number))\n\n# A tibble: 1 × 2\n  `median(number)` `IQR(number)`\n             &lt;dbl&gt;         &lt;dbl&gt;\n1                6             4\n\n\nAs the interquartile is 4 and the median is 6 then 25% flies have 4 bristles or fewer and 25% have 8 or more.\nThe distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. [^4]: Count data are usually “Poisson” distributed.\n If you want to save the table you created and give the columns better names you can make two adjustments:\n\nfly_bristles_summary &lt;- fly_bristles |&gt; \n  summarise(med = median(number),\n            interquartile = IQR(number))\n\n Plot the bristles data using geom_bar:\nIf counts have a a high mean and big range, like number of hairs on a person’s head, then you can often treat them as continuous. This means you can use statistics like the mean and standard deviation to summarise them, histograms to plot them and use some standard statistical tests on them."
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#summarising-continuous-data",
+    "href": "r4babs1/week-8/workshop.html#summarising-continuous-data",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "Summarising continuous data",
+    "text": "Summarising continuous data\n\nCat mass\nThe variable mass in the cats dataframe is continuous. Very many continuous variables have a normal distribution. e normal distribution is also known as the bell-shaped curve. If we had the mass of all the cats in the world, we would find many cats were near the mean and fewer would be away from the mean, either much lighter or much heavier. In fact 68% would be within one standard deviation of the mean and about 96% would be within two standard deviations.\n\n\n\n\n\n We can find the mean mass with:\n\ncats |&gt; \n  summarise(mean = mean(mass))\n\n# A tibble: 1 × 1\n   mean\n  &lt;dbl&gt;\n1  4.51\n\n\nWe can add any sort of summary by placing it inside the the summarise parentheses. Each one is separated by a comma. We did this to find the median and the interquatrile range for fly bristles.\n For example, another way to calculate the number of values is to use the length() function:\n\ncats |&gt; \n  summarise(mean = mean(mass),\n            n = length(mass))\n\n# A tibble: 1 × 2\n   mean     n\n  &lt;dbl&gt; &lt;int&gt;\n1  4.51    62\n\n\n Adapt the code to calculate the mean, the sample size and the standard deviation (sd())\nA single continuous variable can be plotted using a histogram to show the shape of the distribution.\n Plots a histogram of cats mass:\n\nggplot(cats, aes(x = mass)) +\n  geom_histogram(bins = 10, colour = \"black\")\n\n\n\n\nNotice that there are no gaps between the bars which reflects that mass is continuous. bins determines how many groups the variable is divided up into (i.e., the number of bars) and colour sets the colour for the outline of the bars. A sample of 62 is a relatively small number of values for plotting a distribution and the number of bins used determines how smooth or normally distributed the values look.\n Experiment with the number of bins. Does the number of bins affect how you view the distribution.\nNext week we will practice summarise and plotting data files with several variables but just to give you a taste, we will find summary statistics about mass for each of the coat types.  The group_by() function is used before the summarise() to do calculations for each of the coats:\n\ncats |&gt; \n  group_by(coat) |&gt; \n  summarise(mean = mean(mass),\n                  standard_dev = sd(mass))\n\n# A tibble: 6 × 3\n  coat           mean standard_dev\n  &lt;chr&gt;         &lt;dbl&gt;        &lt;dbl&gt;\n1 black          4.63        1.33 \n2 calico         2.19       NA    \n3 ginger         4.46        1.12 \n4 tabby          4.86        0.444\n5 tortoiseshell  4.50        0.929\n6 white          4.34        1.34 \n\n\nYou can read this as:\n\ntake cats and then group by coat and then summarise by finding the mean of mass and the standard deviation of mass\n\n Why do we get an NA for the standard deviation of the calico cats?\n\n\n\n\n\nCells\n Summarise the cells dataframe by calculating the mean, median, sample size and standard deviation of FSC.\n Add a column for the standard error which is given by \\(\\frac{s.d.}{\\sqrt{n}}\\)\n\n\nMeans of counts\nMany things are quite difficult to measure or count and in these cases we often do technical replicates. A technical replicate allows us the measure the exact same thing to check how variable the measurement process is. For example, Drosophila are small and counting their sternopleural bristles is tricky. In addition, where a bristle is short (young) or broken scientists might vary in whether they count it. Or people or machines might vary in measuring the concentration of the same solution.\nWhen we do technical replicates we calculate their mean and use that as the measure. This is what is in our fly_bristles_means dataframe - the bristles of each of the 96 flies was counted by 5 people and the data are those means. These has an impact on how we plot and summarise the dataset because the distribution of mean counts is continuous! We can use means, standard deviations and histograms. This will be an exercise in Consolidate."
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#look-after-future-you",
+    "href": "r4babs1/week-8/workshop.html#look-after-future-you",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "Look after future you!",
+    "text": "Look after future you!\nFuture you is going to summarise and plot data from the “River practicals”. You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called analysis.R. I recommend making a new script for each of nominal, continuous and count data and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: nominal_data.R. You may wish to comment your version much more.\nYou’re finished!"
+  },
+  {
+    "objectID": "r4babs1/week-8/workshop.html#footnotes",
+    "href": "r4babs1/week-8/workshop.html#footnotes",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nPlain text files can be opened in notepad or other similar editor and still be readable.↩︎\nDon’t be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.↩︎\nnote read_csv() and read_table() are the same functions with some different settings.↩︎"
+  },
+  {
+    "objectID": "r4babs1/week-8/overview.html",
+    "href": "r4babs1/week-8/overview.html",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "",
+    "text": "The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. You will also learn about the “normal distribution” which is the most important continuous distribution.\n\nLearning objectives\nThe successful student will be able to:\n\ndistinguish between continuous, discrete, nominal and ordinal variable\nread in data in to RStudio from a plain text file and Excel files\nsummarise and plot variables appropriately for the data type\n\n\n\nInstructions\n\nPrepare\n\n📖 Read: Ideas about data\n\nWorkshop\n\n💻 Importing data\n💻 Summarising discrete data\n💻 Summarising count data\n💻 Summarising continuous data\n\nConsolidate\n\n💻 Summarise some data\n💻 Plot some data\n💻 Format a plot (1)\n💻 Format a plot (2)\n📖 Read Understanding the pipe |&gt;"
+  },
+  {
+    "objectID": "r4babs1/week-8/study_before_workshop.html",
+    "href": "r4babs1/week-8/study_before_workshop.html",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "",
+    "text": "Prepare\n\n📖 Read Ideas about data"
+  },
+  {
+    "objectID": "r4babs1/week-8/study_after_workshop.html",
+    "href": "r4babs1/week-8/study_after_workshop.html",
+    "title": "Week 8: Types of variable, the normal distribution and summarising data",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the packages and import the data.\n\nlibrary(tidyverse)\nlibrary(readxl)\n\n\nfly_bristles_means &lt;- read_excel(\"data-raw/bristles-mean.xlsx\")\ncats &lt;- read_csv(\"data-raw/cat-coats.csv\")\n\n\n\nExercises\n\n💻 Summarise the fly_bristles_means dataframe by calculating the mean, median, sample size, standard deviation and standard error of the mean_count variable.\n\n\n\nCode\nfly_bristles_means_summary &lt;- fly_bristles_means |&gt; \n  summarise(mean = mean(mean_count),\n            median = median(mean_count),\n            n = length(mean_count),\n            standard_dev = sd(mean_count),\n            standard_error = standard_dev / sqrt(n))\n\n\n\n💻 Create an appropriate plot to show the distribution of mean_count in fly_bristles_means\n\n\n\nCode\nggplot(fly_bristles_means, aes(x = mean_count)) +\n  geom_histogram(bins = 10)\n\n\n\n💻 Can you format the plot 2. by removing the grey background, giving the bars a black outline and the fill colour of your choice and improving the axis format and labelling? You may want to refer to last week’s workshop.\n\n\n\nCode\nggplot(fly_bristles_means, aes(x = mean_count)) +\n  geom_histogram(bins = 10, \n                 colour = \"black\",\n                 fill = \"skyblue\") +\n  scale_x_continuous(name = \"Number of bristles\",\n                     expand = c(0, 0)) +\n  scale_y_continuous(name = \"Frequency\",\n                     expand = c(0, 0),\n                     limits = c(0, 35)) +\n  theme_classic()\n\n\n\n💻 Amend this code to change the order of the bars by the average mass of each coat colour? Changing the order of bars was covered last week. You may also want to practice formatting the graph nicely.\n\n\nggplot(cats, aes(x = coat, y = mass)) +\n  geom_boxplot()\n\n\n\n\n\n\nCode\nggplot(cats, \n       aes(x = reorder(coat, mass), y = mass)) +\n  geom_boxplot(fill = \"darkcyan\") +\n  scale_x_discrete(name = \"Coat colour\") +\n  scale_y_continuous(name = \"Mass (kg)\", \n                     expand = c(0, 0),\n                     limits = c(0, 8)) +\n  theme_classic()\n\n\n\n📖 Read Understanding the pipe |&gt;"
   },
   {
     "objectID": "about.html",
@@ -439,160 +439,6 @@
     "title": "About",
     "section": "",
     "text": "About this site\nAbout me"
-  },
-  {
-    "objectID": "r4babs2/week-5/study_after_workshop.html",
-    "href": "r4babs2/week-5/study_after_workshop.html",
-    "title": "Week 5: Two-way ANOVA",
-    "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
-  },
-  {
-    "objectID": "r4babs2/week-5/study_before_workshop.html",
-    "href": "r4babs2/week-5/study_before_workshop.html",
-    "title": "Week 5: Two-way ANOVA",
-    "section": "",
-    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
-  },
-  {
-    "objectID": "r4babs2/week-5/workshop.html",
-    "href": "r4babs2/week-5/workshop.html",
-    "title": "Week 5: Two-way ANOVA",
-    "section": "",
-    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs2/week-5/workshop.html#session-overview",
-    "href": "r4babs2/week-5/workshop.html#session-overview",
-    "title": "Week 5: Two-way ANOVA",
-    "section": "",
-    "text": "In this session you will"
-  },
-  {
-    "objectID": "r4babs2/week-5/workshop.html#philosophy",
-    "href": "r4babs2/week-5/workshop.html#philosophy",
-    "title": "Week 5: Two-way ANOVA",
-    "section": "",
-    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs2/week-5/overview.html",
-    "href": "r4babs2/week-5/overview.html",
-    "title": "Week 5: Two-way ANOVA",
-    "section": "",
-    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
-  },
-  {
-    "objectID": "r4babs2/week-4/study_after_workshop.html",
-    "href": "r4babs2/week-4/study_after_workshop.html",
-    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
-    "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
-  },
-  {
-    "objectID": "r4babs2/week-4/study_before_workshop.html",
-    "href": "r4babs2/week-4/study_before_workshop.html",
-    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
-    "section": "",
-    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
-  },
-  {
-    "objectID": "r4babs2/week-4/workshop.html",
-    "href": "r4babs2/week-4/workshop.html",
-    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
-    "section": "",
-    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs2/week-4/workshop.html#session-overview",
-    "href": "r4babs2/week-4/workshop.html#session-overview",
-    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
-    "section": "",
-    "text": "In this session you will"
-  },
-  {
-    "objectID": "r4babs2/week-4/workshop.html#philosophy",
-    "href": "r4babs2/week-4/workshop.html#philosophy",
-    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
-    "section": "",
-    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs2/week-4/overview.html",
-    "href": "r4babs2/week-4/overview.html",
-    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
-    "section": "",
-    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
-  },
-  {
-    "objectID": "r4babs2/r4babs2.html",
-    "href": "r4babs2/r4babs2.html",
-    "title": "Data Analysis in R for BABS 2",
-    "section": "",
-    "text": "This is the second of the four BABS modules. Over six weeks you will learn about the logic of hypothesis testing, confidence intervals, what is meant by a statistical model, two-sample tests and one- and two-way analysis of variance (ANOVA).\n\n\nThe BABS2 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nThink creatively to address a Grand Challenge by designing investigations with testable hypotheses and rigorous controls\nAppropriately select classical univariate statistical tests and some non-parametric equivalents to a given scenario and recognise when these are not suitable\nUse R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically\nCommunicate research in scientific reports and via oral presentation."
-  },
-  {
-    "objectID": "r4babs2/r4babs2.html#module-learning-objectives",
-    "href": "r4babs2/r4babs2.html#module-learning-objectives",
-    "title": "Data Analysis in R for BABS 2",
-    "section": "",
-    "text": "The BABS2 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nThink creatively to address a Grand Challenge by designing investigations with testable hypotheses and rigorous controls\nAppropriately select classical univariate statistical tests and some non-parametric equivalents to a given scenario and recognise when these are not suitable\nUse R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically\nCommunicate research in scientific reports and via oral presentation."
-  },
-  {
-    "objectID": "r4babs2/week-6/study_after_workshop.html",
-    "href": "r4babs2/week-6/study_after_workshop.html",
-    "title": "Week 6: Chi-squared tests and correlation",
-    "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
-  },
-  {
-    "objectID": "r4babs2/week-6/study_before_workshop.html",
-    "href": "r4babs2/week-6/study_before_workshop.html",
-    "title": "Week 6: Chi-squared tests and correlation",
-    "section": "",
-    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
-  },
-  {
-    "objectID": "r4babs2/week-6/workshop.html",
-    "href": "r4babs2/week-6/workshop.html",
-    "title": "Week 6: Chi-squared tests and correlation",
-    "section": "",
-    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs2/week-6/workshop.html#session-overview",
-    "href": "r4babs2/week-6/workshop.html#session-overview",
-    "title": "Week 6: Chi-squared tests and correlation",
-    "section": "",
-    "text": "In this session you will"
-  },
-  {
-    "objectID": "r4babs2/week-6/workshop.html#philosophy",
-    "href": "r4babs2/week-6/workshop.html#philosophy",
-    "title": "Week 6: Chi-squared tests and correlation",
-    "section": "",
-    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
-  },
-  {
-    "objectID": "r4babs2/week-6/overview.html",
-    "href": "r4babs2/week-6/overview.html",
-    "title": "Week 6: Chi-squared tests and correlation",
-    "section": "",
-    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
-  },
-  {
-    "objectID": "r4babs2/week-1/study_after_workshop.html",
-    "href": "r4babs2/week-1/study_after_workshop.html",
-    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
-    "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
-  },
-  {
-    "objectID": "r4babs2/week-1/study_before_workshop.html",
-    "href": "r4babs2/week-1/study_before_workshop.html",
-    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
-    "section": "",
-    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
   },
   {
     "objectID": "r4babs2/week-1/workshop.html",
@@ -623,18 +469,144 @@
     "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
   },
   {
-    "objectID": "r4babs2/week-3/study_after_workshop.html",
-    "href": "r4babs2/week-3/study_after_workshop.html",
-    "title": "Week 3: Two-sample tests",
+    "objectID": "r4babs2/week-1/study_before_workshop.html",
+    "href": "r4babs2/week-1/study_before_workshop.html",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-1/study_after_workshop.html",
+    "href": "r4babs2/week-1/study_after_workshop.html",
+    "title": "Week 1: The logic of hypothesis testing and confidence intervals",
     "section": "",
     "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
   },
   {
-    "objectID": "r4babs2/week-3/study_before_workshop.html",
-    "href": "r4babs2/week-3/study_before_workshop.html",
-    "title": "Week 3: Two-sample tests",
+    "objectID": "r4babs2/week-2/workshop.html",
+    "href": "r4babs2/week-2/workshop.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-2/workshop.html#session-overview",
+    "href": "r4babs2/week-2/workshop.html#session-overview",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-2/workshop.html#philosophy",
+    "href": "r4babs2/week-2/workshop.html#philosophy",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-2/overview.html",
+    "href": "r4babs2/week-2/overview.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-2/study_before_workshop.html",
+    "href": "r4babs2/week-2/study_before_workshop.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
     "section": "",
     "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-2/study_after_workshop.html",
+    "href": "r4babs2/week-2/study_after_workshop.html",
+    "title": "Week 2: Introduction to statistical models: Single regression",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
+    "objectID": "r4babs2/week-6/workshop.html",
+    "href": "r4babs2/week-6/workshop.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-6/workshop.html#session-overview",
+    "href": "r4babs2/week-6/workshop.html#session-overview",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-6/workshop.html#philosophy",
+    "href": "r4babs2/week-6/workshop.html#philosophy",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-6/overview.html",
+    "href": "r4babs2/week-6/overview.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-6/study_before_workshop.html",
+    "href": "r4babs2/week-6/study_before_workshop.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-6/study_after_workshop.html",
+    "href": "r4babs2/week-6/study_after_workshop.html",
+    "title": "Week 6: Chi-squared tests and correlation",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
+    "objectID": "r4babs2/week-5/workshop.html",
+    "href": "r4babs2/week-5/workshop.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-5/workshop.html#session-overview",
+    "href": "r4babs2/week-5/workshop.html#session-overview",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "In this session you will"
+  },
+  {
+    "objectID": "r4babs2/week-5/workshop.html#philosophy",
+    "href": "r4babs2/week-5/workshop.html#philosophy",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "r4babs2/week-5/overview.html",
+    "href": "r4babs2/week-5/overview.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-5/study_before_workshop.html",
+    "href": "r4babs2/week-5/study_before_workshop.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-5/study_after_workshop.html",
+    "href": "r4babs2/week-5/study_after_workshop.html",
+    "title": "Week 5: Two-way ANOVA",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
   },
   {
     "objectID": "r4babs2/week-3/workshop.html",
@@ -665,45 +637,73 @@
     "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
   },
   {
-    "objectID": "r4babs2/week-2/study_after_workshop.html",
-    "href": "r4babs2/week-2/study_after_workshop.html",
-    "title": "Week 2: Introduction to statistical models: Single regression",
-    "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
-  },
-  {
-    "objectID": "r4babs2/week-2/study_before_workshop.html",
-    "href": "r4babs2/week-2/study_before_workshop.html",
-    "title": "Week 2: Introduction to statistical models: Single regression",
+    "objectID": "r4babs2/week-3/study_before_workshop.html",
+    "href": "r4babs2/week-3/study_before_workshop.html",
+    "title": "Week 3: Two-sample tests",
     "section": "",
     "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
   },
   {
-    "objectID": "r4babs2/week-2/workshop.html",
-    "href": "r4babs2/week-2/workshop.html",
-    "title": "Week 2: Introduction to statistical models: Single regression",
+    "objectID": "r4babs2/week-3/study_after_workshop.html",
+    "href": "r4babs2/week-3/study_after_workshop.html",
+    "title": "Week 3: Two-sample tests",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
+  },
+  {
+    "objectID": "r4babs2/r4babs2.html",
+    "href": "r4babs2/r4babs2.html",
+    "title": "Data Analysis in R for BABS 2",
+    "section": "",
+    "text": "This is the second of the four BABS modules. Over six weeks you will learn about the logic of hypothesis testing, confidence intervals, what is meant by a statistical model, two-sample tests and one- and two-way analysis of variance (ANOVA).\n\n\nThe BABS2 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nThink creatively to address a Grand Challenge by designing investigations with testable hypotheses and rigorous controls\nAppropriately select classical univariate statistical tests and some non-parametric equivalents to a given scenario and recognise when these are not suitable\nUse R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically\nCommunicate research in scientific reports and via oral presentation."
+  },
+  {
+    "objectID": "r4babs2/r4babs2.html#module-learning-objectives",
+    "href": "r4babs2/r4babs2.html#module-learning-objectives",
+    "title": "Data Analysis in R for BABS 2",
+    "section": "",
+    "text": "The BABS2 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nThink creatively to address a Grand Challenge by designing investigations with testable hypotheses and rigorous controls\nAppropriately select classical univariate statistical tests and some non-parametric equivalents to a given scenario and recognise when these are not suitable\nUse R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically\nCommunicate research in scientific reports and via oral presentation."
+  },
+  {
+    "objectID": "r4babs2/week-4/workshop.html",
+    "href": "r4babs2/week-4/workshop.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
     "section": "",
     "text": "In this session you will\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
   },
   {
-    "objectID": "r4babs2/week-2/workshop.html#session-overview",
-    "href": "r4babs2/week-2/workshop.html#session-overview",
-    "title": "Week 2: Introduction to statistical models: Single regression",
+    "objectID": "r4babs2/week-4/workshop.html#session-overview",
+    "href": "r4babs2/week-4/workshop.html#session-overview",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
     "section": "",
     "text": "In this session you will"
   },
   {
-    "objectID": "r4babs2/week-2/workshop.html#philosophy",
-    "href": "r4babs2/week-2/workshop.html#philosophy",
-    "title": "Week 2: Introduction to statistical models: Single regression",
+    "objectID": "r4babs2/week-4/workshop.html#philosophy",
+    "href": "r4babs2/week-4/workshop.html#philosophy",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
     "section": "",
     "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
   },
   {
-    "objectID": "r4babs2/week-2/overview.html",
-    "href": "r4babs2/week-2/overview.html",
-    "title": "Week 2: Introduction to statistical models: Single regression",
+    "objectID": "r4babs2/week-4/overview.html",
+    "href": "r4babs2/week-4/overview.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
     "section": "",
     "text": "This week you will\n\nLearning objectives\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+  },
+  {
+    "objectID": "r4babs2/week-4/study_before_workshop.html",
+    "href": "r4babs2/week-4/study_before_workshop.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+  },
+  {
+    "objectID": "r4babs2/week-4/study_after_workshop.html",
+    "href": "r4babs2/week-4/study_after_workshop.html",
+    "title": "Week 4: One-way ANOVA and Kruskal-Wallis",
+    "section": "",
+    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\n\n\nExercises\n\n💻\n\n\n📖 Read xxx"
   }
 ]

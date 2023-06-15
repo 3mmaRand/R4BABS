@@ -352,11 +352,12 @@ div.csl-indent {
   </ul></li>
   <li><a href="#pigeons" id="toc-pigeons" class="nav-link" data-scroll-target="#pigeons">Pigeons</a>
   <ul class="collapse">
+  <li><a href="#import-1" id="toc-import-1" class="nav-link" data-scroll-target="#import-1">Import</a></li>
   <li><a href="#tidying-data" id="toc-tidying-data" class="nav-link" data-scroll-target="#tidying-data">Tidying data</a></li>
   </ul></li>
   <li><a href="#ulna-and-height" id="toc-ulna-and-height" class="nav-link" data-scroll-target="#ulna-and-height">Ulna and height</a>
   <ul class="collapse">
-  <li><a href="#import-1" id="toc-import-1" class="nav-link" data-scroll-target="#import-1">Import</a></li>
+  <li><a href="#import-2" id="toc-import-2" class="nav-link" data-scroll-target="#import-2">Import</a></li>
   <li><a href="#summarise-1" id="toc-summarise-1" class="nav-link" data-scroll-target="#summarise-1">Summarise</a></li>
   <li><a href="#visualise-1" id="toc-visualise-1" class="nav-link" data-scroll-target="#visualise-1">Visualise</a></li>
   </ul></li>
@@ -707,7 +708,14 @@ Tip: <code>ggplot()</code>
 <section id="pigeons" class="level2">
 <h2 class="anchored" data-anchor-id="pigeons">Pigeons</h2>
 <p>The data in <a href="data-raw/pigeon.txt">pigeon.txt</a> are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm</p>
-<p><img src="images/interorbital.png" class="img-fluid" alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."> ### Import</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/interorbital.png" class="img-fluid figure-img" alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."></p>
+<figcaption class="figure-caption">Interorbital width is the distance between the eyes</figcaption>
+</figure>
+</div>
+<section id="import-1" class="level3">
+<h3 class="anchored" data-anchor-id="import-1">Import</h3>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/pigeon.txt">pigeon.txt</a> to your <code>data-raw</code> folder</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>pigeons</code>.</p>
 <p><img src="images/answer.png" class="img-fluid"> What variables are there in the <code>pigeons</code> dataframe?</p>
@@ -1238,6 +1246,7 @@ Tip: <code>ggplot()</code>
 <li>it is more obvious that there is no relationship between any of the pigeons except for population</li>
 <li>functions are designed to work with variables in columns</li>
 </ul>
+</section>
 <section id="tidying-data" class="level3">
 <h3 class="anchored" data-anchor-id="tidying-data">Tidying data</h3>
 <p>We can put this data in such a format with the <code>pivot_longer()</code> function from the <code>tidyverse</code>:</p>
@@ -1256,8 +1265,8 @@ Tip: <code>ggplot()</code>
 <h2 class="anchored" data-anchor-id="ulna-and-height">Ulna and height</h2>
 <p>The datasets we have used up to this point, have had a continuous variable and a categorical variable where it makes sense to summarise the response for each of the different groups in the categorical variable and plot the response on the <em>y</em>-axis. We will now summarise a dataset with two continuous variables. The data in <a href="data-raw/height.txt">height.txt</a> are the ulna length (cm) and height (m) of 30 people. In this case, it is more appropriate to summarise both of thee variables and to plot them as a scatter plot.</p>
 <p>We will use <code>summarise()</code> again but we do not need the <code>group_by()</code> function this time. We will also need to use each of the summary functions, such as <code>mean()</code>, twice, once for each variable.</p>
-<section id="import-1" class="level3">
-<h3 class="anchored" data-anchor-id="import-1">Import</h3>
+<section id="import-2" class="level3">
+<h3 class="anchored" data-anchor-id="import-2">Import</h3>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/height.txt">height.txt</a> to your <code>data-raw</code> folder</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>ulna_heights</code>.</p>
 </section>
