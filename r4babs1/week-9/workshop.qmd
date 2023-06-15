@@ -341,7 +341,9 @@ ggsave("figures/seal-muscle.png",
 
 The data in [pigeon.txt](data-raw/pigeon.txt) are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm
 
-![Interorbital width is the distance between the eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."} \### Import
+![Interorbital width is the distance between the eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."} 
+
+### Import
 
 ![](images/do_on_your_computer.png) Save [pigeon.txt](data-raw/pigeon.txt) to your `data-raw` folder
 
