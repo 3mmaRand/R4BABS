@@ -3,7 +3,5 @@ title: "Week 9: Summarising data in with several variables and the role of varia
 subtitle: "Independent Study to prepare for workshop"
 ---
 
-1.  Prepare
-
-    i.  Use this week's independent study time to make sure you've completed all the work in weeks 6 to 8. This will make you well prepared for summarising dataframes and creating plots which you will do the [Week 9 workshop](workshop.html).
+1.  Use this week's independent study time to make sure you've completed all the work in weeks 6 to 8. This will make you well prepared for summarising dataframes and creating plots which you will do the [Week 9 workshop](workshop.html).
 

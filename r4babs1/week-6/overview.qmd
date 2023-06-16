@@ -13,17 +13,11 @@ The parentheses after each learning objective indicate where the content covers 
 The successful student will be able to:
 
 -   File systems
-
 -   files and directories
-
 -   file names, file extensions, associations with programs
-
 -   using a file explorer
-
 -   saving files
-
 -   file paths
-
 -   using google
 
 ### Instructions

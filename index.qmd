@@ -1,5 +1,7 @@
 ---
 title: "Data Analysis in R for Becoming a Bioscientist"
+toc: true
+toc-location: right
 ---
 
 # Overview
@@ -7,13 +9,9 @@ title: "Data Analysis in R for Becoming a Bioscientist"
 Each semester in Stage 1 and 2 the Becoming a Bioscientist modules progressively train you in:
 
 -   Safe Lab/field practical skills
-
 -   Asking questions, hypothesising and designing research activity
-
 -   Reproducibly recording, handling, analysing and presenting data
-
 -   Interpreting, contextualising and communicating research
-
 -   Professional team work and reflection
 
 
@@ -43,3 +41,9 @@ The time and effort you put in to learning "Data Analysis in R" in BABS 1 - 4 WI
 -   help you evaluate and interpret the data analysis in papers
 
 -   improve your employability!
+
+## What is this site for?
+
+Everything is on the VLE.
+
+This site allows you to search!

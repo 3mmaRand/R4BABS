@@ -272,7 +272,9 @@ fly_bristles |>
 
 As the interquartile is `r IQR(fly_bristles$number)` and the median is `r median(fly_bristles$number)` then 25% flies have `r median(fly_bristles$number) - IQR(fly_bristles$number)/2` bristles or fewer and 25% have `r median(fly_bristles$number) + IQR(fly_bristles$number)/2` or more.
 
-The distribution of counts\[\^4\] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. \[\^4\]: Count data are usually "Poisson" distributed.
+The distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. 
+
+[^4]: Count data are usually "Poisson" distributed.
 
 ![](images/do_in_R.png) If you want to save the table you created and give the columns better names you can make two adjustments:
 

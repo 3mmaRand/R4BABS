@@ -10,13 +10,9 @@ Last week you summarised and plotted single variables. This week you will start 
 ### Learning objectives
 
 -   summarise and plot appropriately datasets with more than one variable
-
 -   recognise that variables can be categorised by their role in analysis
-
 -   explain what is meant by 'tidy' data and be able to perform some data tidying tasks.
-
 -   save figures to file
-
 -   create neat reports which include text and figures
 
 ### Instructions

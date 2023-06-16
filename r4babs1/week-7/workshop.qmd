@@ -17,7 +17,7 @@ library(kableExtra)
 
 ## Session overview
 
-In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it.
+In this introduction you will start working with RStudio. You will type in some data plot it and then customise your plot.
 
 ## Philosophy
 

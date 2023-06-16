@@ -3,12 +3,9 @@ title: "Week 6: Understanding file systems"
 subtitle: "Independent Study to prepare for workshop"
 ---
 
-1.  Prepare
+1.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
 
+2.  Read [What they forgot to teach you about computers](https://3mmarand.github.io/comp4biosci/what_they_forgot.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
 
-    i.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
-
-    ii. Read [What they forgot to teach you about computers](https://3mmarand.github.io/comp4biosci/what_they_forgot.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
-
-    iii. Read [What are R and Rstudio?](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio). You only need to read this section, you do not need to the read the rest of the chapter (yet!)
+3.  Read [What are R and Rstudio?](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio). You only need to read *this* section, you do not need to the read the rest of the chapter (yet!)
 

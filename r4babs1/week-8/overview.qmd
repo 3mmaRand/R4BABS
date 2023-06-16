@@ -9,9 +9,7 @@ The type of values our data can take is important in how we analyse and visualis
 The successful student will be able to:
 
 -   distinguish between continuous, discrete, nominal and ordinal variable
-
 -   read in data in to RStudio from a plain text file and Excel files
-
 -   summarise and plot variables appropriately for the data type
 
 ### Instructions
