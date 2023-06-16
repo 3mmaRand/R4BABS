@@ -5,7 +5,7 @@ project:
 website:
   title: "Data Analysis in R "
   page-footer:
-    left: '`r cffr::cff_to_bibtex("CITATION.cff")`'
+    left: ' `r cffr::cff_to_bibtex("CITATION.cff")` '
     right:
       - icon: twitter
         href: https://twitter.com/er_13
@@ -168,7 +168,6 @@ execute:
 
 format:
   html:
-    link-external-icon: true
     link-external-newwindow: true
     link-external-filter: '^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS'
     theme:

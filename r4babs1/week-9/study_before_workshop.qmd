@@ -5,6 +5,5 @@ subtitle: "Independent Study to prepare for workshop"
 
 1.  Prepare
 
-    i.  📖 Read [Working with data in RStudio](https://3mmarand.github.io/comp4biosci/working_with_data_rstudio.html)
-        The first part of this chapter covers data import which was covered in [Week 8's workshop](../week-8/workshop.html). You may find it helpful to remind yourself or you may be happy skipping it. The rest of the chapter covers summarising dataframes and creating plots which you will do in [Week 9's workshop](workshop.html).
+    i.  Use this week's independent study time to make sure you've completed all the work in weeks 6 to 8. This will make you well prepared for summarising dataframes and creating plots which you will do the [Week 9 workshop](workshop.html).
 
