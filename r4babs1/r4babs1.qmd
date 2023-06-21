@@ -16,4 +16,22 @@ The BABS1 Module Learning outcomes that relate to the Data Analysis in R content
 
 # How this part of the module is organised
 
-Week 6 starts with some independent study to ensure you have some understanding of computer file systems and will introduce you to the concepts of paths and working directories. In weeks 7, 8 and 9 there are some independent study activities covering concepts which are designed to prepare you for the workshop. In the workshop you will apply these concepts in R. After the workshop there is independent study to help you consolidate your learning.
+A key feature of this module is that you really do learn as you go along and you should not need to revise very much. To support this learning, every week is structured in the same way with contact time and well-guided independent study to prepare you for the contact time and consolidate what you have learned. 
+
+Each week has:
+
+-   An overview on the "About" page which gives the Learning Objectives, a topic summary and the instructions for the week. You should read this first. 
+
+-   Some independent study on the "Prepare!" page to prepare you for the workshop. This will be reading from the course book ([Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)),  watching a video, or doing some coding or set up. It is designed to take about 30-45 mins on average. You will most likely learn best if you can find people to study with. 
+
+-   A two-hour workshop using R. This will usually start with me doing a short demonstration of one or more of the examples that were in "Prepare!" but you will spend most of the session going through some exercises. Anything you have not done before is explained and guided but you will also have to use the skills gained in previous workshops. I often remind you to take care of future you by making notes so you can look up your previous work but you can also search the [R4BABS](https://3mmarand.github.io/R4BABS/) site (search is top right). Talking to other people in the workshop about the exercises and working together will really help you understand more. There will be plenty of help from me and my demonstrators.
+
+-   Some independent study on the "Consolidate!" page to give you more practice. The exercises are usually similar to those in the workshop but with less guidance. Occasionally, there will be reading to do. It is designed to take about 30-45 mins on average but may be quicker if you understood the workshop very well or slower if you need to revisit the workshop. 
+
+Learning Data Analysis in R is like learning to speak a new language or play an instrument or a technical sport - you can't really rush it or cram for it. You need regular practice. 
+
+-   a little bit of engagement and practice is always better than none
+
+-   if you get behind, just pick up where you left off rather than jumping in. It is fine to work on a previous week's workshop
+
+
