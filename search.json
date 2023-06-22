@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Analysis in R for Becoming a Bioscientist",
     "section": "",
-    "text": "Each semester in Stage 1 and 2 the Becoming a Bioscientist modules progressively train you in:\n\nSafe Lab/field practical skills\nAsking questions, hypothesising and designing research activity\nReproducibly recording, handling, analysing and presenting data\nInterpreting, contextualising and communicating research\nProfessional team work and reflection\n\nEach module includes Data Analysis in R training which helps you analyse data but also to understand the literature, design experiments and report the results.\n\n\nReproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills.\n\n\n\nPart of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed.\n\n\n\nHowever, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!\n\n\n\nAnd because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.\nhelp you evaluate and interpret the data analysis in papers\nimprove your employability!"
+    "text": "Each semester in Stage 1 and 2 the Becoming a Bioscientist modules progressively train you in:\n\nSafe Lab/field practical skills\nAsking questions, hypothesising and designing research activity\nReproducibly recording, handling, analysing and presenting data\nInterpreting, contextualising and communicating research\nProfessional team work and reflection\n\nEach module includes Data Analysis in R training which helps you analyse data but also to understand the literature, design experiments and report the results.\n\n\nReproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn’s global list of the most in-demand hard skills.\n\n\n\nPart of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you’ve mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I’ve have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed.\n\n\n\nHowever, the process is often fun! There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!\n\n\n\nAnd because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.\nhelp you evaluate and interpret the data analysis in papers\nimprove your employability!\n\n\n\n\nEverything is on the VLE.\nThis site allows you to search!"
   },
   {
     "objectID": "index.html#learning-data-analysis-is-important",
@@ -33,6 +33,13 @@
     "title": "Data Analysis in R for Becoming a Bioscientist",
     "section": "",
     "text": "And because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)\nThe time and effort you put in to learning “Data Analysis in R” in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.\nhelp you evaluate and interpret the data analysis in papers\nimprove your employability!"
+  },
+  {
+    "objectID": "index.html#what-is-this-site-for",
+    "href": "index.html#what-is-this-site-for",
+    "title": "Data Analysis in R for Becoming a Bioscientist",
+    "section": "",
+    "text": "Everything is on the VLE.\nThis site allows you to search!"
   },
   {
     "objectID": "r4babs1/r4babs1.html",
@@ -67,7 +74,7 @@
     "href": "r4babs1/week-6/study_before_workshop.html",
     "title": "Week 6: Understanding file systems",
     "section": "",
-    "text": "Prepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers in Computational Analysis for Bioscientists\nRead What are R and Rstudio?. You only need to read this section, you do not need to the read the rest of the chapter (yet!)"
+    "text": "Watch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers in Computational Analysis for Bioscientists\nRead What are R and Rstudio?. You only need to read this section, you do not need to the read the rest of the chapter (yet!)"
   },
   {
     "objectID": "r4babs1/week-6/study_after_workshop.html",
@@ -81,14 +88,14 @@
     "href": "r4babs1/week-7/workshop.html",
     "title": "Week 7: Introduction to RStudio and your first graphs",
     "section": "",
-    "text": "In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it.\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+    "text": "In this introduction you will start working with RStudio. You will type in some data plot it and then customise your plot.\n\n\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier workshops\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
   },
   {
     "objectID": "r4babs1/week-7/workshop.html#session-overview",
     "href": "r4babs1/week-7/workshop.html#session-overview",
     "title": "Week 7: Introduction to RStudio and your first graphs",
     "section": "",
-    "text": "In this introduction you will start working with RStudio. You will typing in some data, perform some calculations on it and plot it."
+    "text": "In this introduction you will start working with RStudio. You will type in some data plot it and then customise your plot."
   },
   {
     "objectID": "r4babs1/week-7/workshop.html#philosophy",
@@ -165,7 +172,7 @@
     "href": "r4babs1/week-7/study_before_workshop.html",
     "title": "Week 7: Introduction to R, RStudio and project organisation",
     "section": "",
-    "text": "Prepare\n\nEither 📖 Read First Steps in RStudio in OR 📹 Watch"
+    "text": "Either\n\n📖 Read First Steps in RStudio in\n\nOR\n\n📹 Watch"
   },
   {
     "objectID": "r4babs1/week-7/study_after_workshop.html",
@@ -340,7 +347,7 @@
     "href": "r4babs1/week-9/study_before_workshop.html",
     "title": "Week 9: Summarising data in with several variables and the role of variables in analysis",
     "section": "",
-    "text": "Prepare\n\nUse this week’s independent study time to make sure you’ve completed all the work in weeks 6 to 8. This will make you well prepared for summarising dataframes and creating plots which you will do the Week 9 workshop."
+    "text": "Use this week’s independent study time to make sure you’ve completed all the work in weeks 6 to 8. This will make you well prepared for summarising dataframes and creating plots which you will do the Week 9 workshop."
   },
   {
     "objectID": "r4babs1/week-9/study_after_workshop.html",
@@ -389,7 +396,7 @@
     "href": "r4babs1/week-8/workshop.html#summarising-counts-bristles",
     "title": "Week 8: Types of variable, the normal distribution and summarising data",
     "section": "Summarising Counts: Bristles",
-    "text": "Summarising Counts: Bristles\nCounts are discrete and can be thought of a categories with an order (ordinal).\n Summarise the fly_bristles dataframe by counting the number of flies in each category of bristle number\nSince counts are numbers, we might also want to calculate some summary statistics such as the median and interquartile range.\n Summarise the fly_bristles dataframe by calculate the median and interquartile range\n\nfly_bristles |&gt; \n  summarise(median(number),\n            IQR(number))\n\n# A tibble: 1 × 2\n  `median(number)` `IQR(number)`\n             &lt;dbl&gt;         &lt;dbl&gt;\n1                6             4\n\n\nAs the interquartile is 4 and the median is 6 then 25% flies have 4 bristles or fewer and 25% have 8 or more.\nThe distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. [^4]: Count data are usually “Poisson” distributed.\n If you want to save the table you created and give the columns better names you can make two adjustments:\n\nfly_bristles_summary &lt;- fly_bristles |&gt; \n  summarise(med = median(number),\n            interquartile = IQR(number))\n\n Plot the bristles data using geom_bar:\nIf counts have a a high mean and big range, like number of hairs on a person’s head, then you can often treat them as continuous. This means you can use statistics like the mean and standard deviation to summarise them, histograms to plot them and use some standard statistical tests on them."
+    "text": "Summarising Counts: Bristles\nCounts are discrete and can be thought of a categories with an order (ordinal).\n Summarise the fly_bristles dataframe by counting the number of flies in each category of bristle number\nSince counts are numbers, we might also want to calculate some summary statistics such as the median and interquartile range.\n Summarise the fly_bristles dataframe by calculate the median and interquartile range\n\nfly_bristles |&gt; \n  summarise(median(number),\n            IQR(number))\n\n# A tibble: 1 × 2\n  `median(number)` `IQR(number)`\n             &lt;dbl&gt;         &lt;dbl&gt;\n1                6             4\n\n\nAs the interquartile is 4 and the median is 6 then 25% flies have 4 bristles or fewer and 25% have 8 or more.\nThe distribution of counts4 is not symmetrical for lower counts so the mean is not usually a good way to summarise count data.\n If you want to save the table you created and give the columns better names you can make two adjustments:\n\nfly_bristles_summary &lt;- fly_bristles |&gt; \n  summarise(med = median(number),\n            interquartile = IQR(number))\n\n Plot the bristles data using geom_bar:\nIf counts have a a high mean and big range, like number of hairs on a person’s head, then you can often treat them as continuous. This means you can use statistics like the mean and standard deviation to summarise them, histograms to plot them and use some standard statistical tests on them."
   },
   {
     "objectID": "r4babs1/week-8/workshop.html#summarising-continuous-data",
@@ -410,7 +417,7 @@
     "href": "r4babs1/week-8/workshop.html#footnotes",
     "title": "Week 8: Types of variable, the normal distribution and summarising data",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nPlain text files can be opened in notepad or other similar editor and still be readable.↩︎\nDon’t be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.↩︎\nnote read_csv() and read_table() are the same functions with some different settings.↩︎"
+    "text": "Footnotes\n\n\nPlain text files can be opened in notepad or other similar editor and still be readable.↩︎\nDon’t be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.↩︎\nnote read_csv() and read_table() are the same functions with some different settings.↩︎\nCount data are usually “Poisson” distributed.↩︎"
   },
   {
     "objectID": "r4babs1/week-8/overview.html",
@@ -424,7 +431,7 @@
     "href": "r4babs1/week-8/study_before_workshop.html",
     "title": "Week 8: Types of variable, the normal distribution and summarising data",
     "section": "",
-    "text": "Prepare\n\n📖 Read Ideas about data"
+    "text": "📖 Read Ideas about data"
   },
   {
     "objectID": "r4babs1/week-8/study_after_workshop.html",

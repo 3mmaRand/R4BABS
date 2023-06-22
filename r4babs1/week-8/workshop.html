@@ -576,7 +576,7 @@ Key
 </div>
 </div>
 <p>As the interquartile is 4 and the median is 6 then 25% flies have 4 bristles or fewer and 25% have 8 or more.</p>
-<p>The distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. [^4]: Count data are usually “Poisson” distributed.</p>
+<p>The distribution of counts<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> is not symmetrical for lower counts so the mean is not usually a good way to summarise count data.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> If you want to save the table you created and give the columns better names you can make two adjustments:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fly_bristles_summary <span class="ot">&lt;-</span> fly_bristles <span class="sc">|&gt;</span> </span>
@@ -713,6 +713,7 @@ Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe De
 <li id="fn1"><p>Plain text files can be opened in notepad or other similar editor and still be readable.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><strong>Don’t</strong> be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>note <code>read_csv()</code> and <code>read_table()</code> are the same functions with some different settings.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Count data are usually “Poisson” distributed.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
