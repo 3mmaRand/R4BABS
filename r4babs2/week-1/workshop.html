@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -80,6 +114,8 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -184,7 +220,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Week 2: Introduction and regression</span></a>
+ <span class="menu-text">Week 2: Introduction to statistical models: Single regression</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -376,7 +412,12 @@ div.csl-indent {
   <li><a href="#philosophy" id="toc-philosophy" class="nav-link" data-scroll-target="#philosophy">Philosophy</a></li>
   </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#remind-yourself-how-to-import-files" id="toc-remind-yourself-how-to-import-files" class="nav-link" data-scroll-target="#remind-yourself-how-to-import-files">Remind yourself how to import files!</a></li>
+  <li><a href="#confidence-intervals-large-samples" id="toc-confidence-intervals-large-samples" class="nav-link" data-scroll-target="#confidence-intervals-large-samples">Confidence intervals (large samples)</a></li>
+  <li><a href="#confidence-intervals-small-samples" id="toc-confidence-intervals-small-samples" class="nav-link" data-scroll-target="#confidence-intervals-small-samples">Confidence intervals (small samples)</a></li>
+  </ul></li>
   <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
   <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
@@ -407,10 +448,10 @@ div.csl-indent {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p><img src="images/xxx.png" class="img-fluid" alt="xxxxx" width="1000"></p>
+<p><img src="images/love-this-class.png" class="img-fluid" alt="Allison Horst cartoon “love this class”">{fig-alt=“A little monster flying a biplane wearing aviator glasses, pulling a banner that says”Fully expecting to hate this class.” Below, a teacher wearing a cheerleading outfit labeled “STATS” with a bullhorn labeled “CODE” cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing.” width=“800”}</p>
 <section id="session-overview" class="level2">
 <h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this session you will</p>
+<p>In this session you will remind yourself how to import files, and calculate confidence intervals on large and small samples.</p>
 </section>
 <section id="philosophy" class="level2">
 <h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
@@ -449,11 +490,94 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Also on the Files tab click on <code>New Folder</code>. Type “data-analysis-in-r-2” in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS2.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Name the RStudio Project ‘week-1’.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like analysis.R to carry out the rest of the work.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Introduction to RStudio and your first graph</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Introduction to RStudio and your first graph</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>data-raw</code>.</p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
+<section id="remind-yourself-how-to-import-files" class="level2">
+<h2 class="anchored" data-anchor-id="remind-yourself-how-to-import-files">Remind yourself how to import files!</h2>
+<p><a href="../../r4babs1/week-8/workshop.html#importing-data-from-files">Importing data from files</a> was covered in BABS 1 if you need to remind yourself.</p>
+</section>
+<section id="confidence-intervals-large-samples" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-intervals-large-samples">Confidence intervals (large samples)</h2>
+<p>The data in <a href="data-raw/beewing.txt">beewing.txt</a> are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by: <span class="math inline">\(\bar{x} \pm 1.96 \times s.e.\)</span>)</p>
+<p>Where 1.96 is the quantile for 95% confidence.</p>
+<p>You may need to refer to previous practicals to remind yourself how to carry out some of the following steps.</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/beewing.txt">beewing.txt</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure of the resulting dataframe</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Calculate and assign to variables: the mean, standard deviation and standard error</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">mean</span>(bee<span class="sc">$</span>wing)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># standard deviation</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(bee<span class="sc">$</span>wing)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(bee<span class="sc">$</span>wing)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># standard error</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/do_in_R.png" class="img-fluid"> To calculate the 95% confidence interval we need to look up the quantile (multiplier) using <code>qnorm()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/do_in_R.png" class="img-fluid"> Now we can use it in our confidence interval calculation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lcl <span class="ot">&lt;-</span> m <span class="sc">-</span> q <span class="sc">*</span> se</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ucl <span class="ot">&lt;-</span> m <span class="sc">+</span> q <span class="sc">*</span> se</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/do_in_R.png" class="img-fluid"> Print the values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lcl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.473176</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ucl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.626824</code></pre>
+</div>
+</div>
+<p><img src="images/do_in_R.png" class="img-fluid"> Between what values would you be 99% confident of the population mean being?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- # the mean is 4.55 +/- 0.077. We are 95% certain the populations mean lies between 4.627 and 4.473 -->
+</section>
+<section id="confidence-intervals-small-samples" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-intervals-small-samples">Confidence intervals (small samples)</h2>
+<p>The confidence interval for small samples is given by: <span class="math inline">\(\bar{x} \pm \sf t_{[d.f]} \times s.e.\)</span></p>
+<p>The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phospholipids in nerve cells and deficiency leads to many behavioural and functional deficits. The cross sectional area of neurons in the CA 1 region of the hippocampus of normal rats is 155 <span class="math inline">\(\mu m^2\)</span>. A DHA deficient diet was fed to 8 animals and the cross sectional area (csa) of neurons is given in <a href="data-raw/neuron.txt">neuron.txt</a></p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/neuron.txt">neuron.txt</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure of the resulting dataframe</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Assign the mean to <code>m</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Calculate and assign the standard error to <code>se</code></p>
+<p>To work out the confidence interval for our sample mean we need to use the <em>t</em> distribution because it is a small sample. This means we need to determine the degrees of freedom (the number in the sample minus one).</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> We can assign this to a variable, <code>df</code>, using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">length</span>(neur<span class="sc">$</span>csa) <span class="sc">-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/do_in_R.png" class="img-fluid"> The <em>t</em> value is found by:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that we are using <code>qt()</code> rather than <code>qnorm()</code> but that the probability, 0.975, used is the same. Finally, we need to put our mean, standard error and <em>t</em> value in the equation. <span class="math inline">\(\bar{x} \pm \sf t_{[d.f]} \times s.e.\)</span>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> The upper confidence limit is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(m <span class="sc">+</span> t <span class="sc">*</span> se) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 151.95</code></pre>
+</div>
+</div>
+<p>The first part of the command, <code>(m + t * se)</code> calculates the upper limit. This is ‘piped’ in to the <code>round()</code> function to round the result to two decimal places.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Calculate the lower confidence limit:</p>
+<p><img src="images/answer.png" class="img-fluid"> Given the upper and lower confidence values for the estimate of the population mean, what do you think about the effect of the DHA deficient diet?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- the 95% confidence interval from 132.75 mu m^2 to 151.95 mu m^2  -->
+<!-- doesn't include 155 mu m^2 so we can conclude that DHA deficiency significantly  -->
+<!-- lowers csa -->
 <p>You’re finished!</p>
+</section>
 </section>
 <section id="well-done" class="level1">
 <h1>🥳 Well Done! 🎉</h1>
@@ -479,6 +603,9 @@ Key
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
