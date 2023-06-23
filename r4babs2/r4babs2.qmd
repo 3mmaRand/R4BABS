@@ -1,5 +1,7 @@
 ---
 title: "Data Analysis in R for BABS 2"
+toc: true
+toc-location: right
 ---
 
 
@@ -40,3 +42,21 @@ Learning Data Analysis in R is like learning to speak a new language or play an 
 
 -   if you get behind, just pick up where you left off rather than jumping in. It is fine to work on a previous week's workshop
 
+# Content
+
+## Week 1: The logic of hypothesis testing and CIs
+
+
+## Week 2:  Introduction to statistical models: Single regression
+
+
+## Week 3: Two-sample tests
+
+
+## Week 4: One-way ANOVA and Kruskal-Wallis
+
+
+## Week 5: Two-way ANOVA
+
+
+## Week 6: Chi-squared tests and correlation

@@ -1,10 +1,12 @@
 ---
 title: "Data Analysis in R for BABS 1"
+toc: true
+toc-location: right
 ---
 
 # Introduction
 
-This is the first of the four BABS modules. Over four weeks you will learn some core concepts about scientific computing, types of variable, the role of variables in analysis and how to use RStudio to organise analysis and import, summarise and plot data.
+This is the first of the four BABS modules. Over four weeks you will learn some core concepts about scientific computing, types of variable, the role of variables in analysis and how to use RStudio to organise analysis and import, summarise and plot data. 
 
 ## Module Learning Objectives
 
@@ -14,9 +16,9 @@ The BABS1 Module Learning outcomes that relate to the Data Analysis in R content
 
 -   Explain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster.
 
-# How this part of the module is organised
+# How R4BABS 1 is organised
 
-A key feature of this module is that you really do learn as you go along and you should not need to revise very much. To support this learning, every week is structured in the same way with contact time and well-guided independent study to prepare you for the contact time and consolidate what you have learned. 
+A key feature of R4BABS 1 is that you really do learn as you go along and you should not need to revise very much. To support this learning, every week is structured in the same way with contact time and well-guided independent study to prepare you for the contact time and consolidate what you have learned. 
 
 Each week has:
 
@@ -34,4 +36,16 @@ Learning Data Analysis in R is like learning to speak a new language or play an 
 
 -   if you get behind, just pick up where you left off rather than jumping in. It is fine to work on a previous week's workshop
 
+# Content
 
+## Week 6: Understanding file systems
+You will learn about operating systems, files and file systems, working directories, absolute and relative paths, what R and RStudio are
+
+## Week 7:  Introduction to R and project organisation
+You will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.
+
+## Week 8: Types of variable, summarising and plotting data
+The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. The focus will be on plotting and summarising single variables. You will also learn how to read in data in to RStudio from plain text files and Excel files.
+
+## Week 9: Summarising data with several variables
+This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.

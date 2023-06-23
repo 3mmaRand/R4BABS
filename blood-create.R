@@ -10,7 +10,7 @@ library(tidyverse)
 
 
 # 5 measure from one person
-# 50 people: 25 before ileostomy and 25 people after notte, different people
+# 50 people: 25 before treatment and 25 people after notte, different people
 
 
 n <- 25

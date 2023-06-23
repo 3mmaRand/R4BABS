@@ -106,7 +106,7 @@ website:
              - href: r4babs2/week-1/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 2: Introduction and regression"
+          - section: "Week 2: Introduction to statistical models: Single regression"
             contents: 
              - href: r4babs2/week-2/overview.qmd
                text: About  

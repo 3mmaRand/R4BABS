@@ -12,13 +12,17 @@ The parentheses after each learning objective indicate where the content covers 
 
 The successful student will be able to:
 
--   File systems
--   files and directories
--   file names, file extensions, associations with programs
--   using a file explorer
--   saving files
--   file paths
--   using google
+-   explain what an operating system is
+-   explain the organisation of files and directories in a file systems 
+-   explain what a file is and give some common files types 
+-   explain what is meant by a plain text file
+-   explain the relationship between the file extensions, the file format and associations with programs
+-   use a file manager
+-   explain root, home and working directories
+-   explain absolute and relative file paths
+-   know what R and RStudio are
+-   know how to organise their work
+
 
 ### Instructions
 
@@ -36,4 +40,3 @@ The successful student will be able to:
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  Testing your understanding of file system

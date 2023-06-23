@@ -6,6 +6,8 @@ This week you will start writing R code in RStudio and will create your first gr
 
 ### Learning objectives
 
+The successful student will be able to:
+
 -   use the R command line as a calculator and to assign variables
 -   create and use the basic data types in R
 -   find their way around the RStudio windows

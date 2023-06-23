@@ -13,11 +13,11 @@ library(kableExtra)
 
 # Introduction
 
-![](images/xxx.png){fig-alt="xxxxx" width="1000"}
+![Allison Horst cartoon "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says "Fully expecting to hate this class." Below, a teacher wearing a cheerleading outfit labeled "STATS" with a bullhorn labeled "CODE" cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
 
 ## Session overview
 
-In this session you will 
+In this session you will remind yourself how to import files, and calculate confidence intervals on large and small samples.
 
 ## Philosophy
 
@@ -27,7 +27,7 @@ Workshops are not a test. It is expected that you often don't know how to start,
 -   don't let what you can not do interfere with what you can do
 -   discussing code with your neighbours will help
 -   look things up in the independent study material
--   look things up in your own code from earlier 
+-   look things up in your own code from earlier
 -   there are no stupid questions
 
 ::: callout-note
@@ -56,11 +56,171 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_in_R.png) Make a new script then save it with a name like analysis.R to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Introduction to RStudio and your first graph`
+![](images/do_in_R.png) Add a comment to the script: `# Introduction to RStudio and your first graph` and load the **`tidyverse`** [@tidyverse] package
+
+![](images/do_in_R.png) Make a new folder called `data-raw`.
 
 # Exercises
 
+## Remind yourself how to import files!
 
+[Importing data from files](../../r4babs1/week-8/workshop.html#importing-data-from-files) was covered in BABS 1 if you need to remind yourself.
+
+## Confidence intervals (large samples)
+
+The data in [beewing.txt](data-raw/beewing.txt) are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by: $\bar{x} \pm 1.96 \times s.e.$)
+
+Where 1.96 is the quantile for 95% confidence.
+
+You may need to refer to previous practicals to remind yourself how to carry out some of the following steps.
+
+![](images/do_on_your_computer.png) Save [beewing.txt](data-raw/beewing.txt) to your `data-raw` folder
+
+![](images/do_in_R.png) Read in the data and check the structure of the resulting dataframe
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+bee <- read_table("data-raw/beewing.txt")
+str(bee)
+```
+
+![](images/do_in_R.png) Calculate and assign to variables: the mean, standard deviation and standard error
+
+```{r}
+# mean
+m <- mean(bee$wing)
+
+# standard deviation
+sd <- sd(bee$wing)
+
+# sample size
+n <- length(bee$wing)
+
+# standard error
+se <- sd / sqrt(n)
+```
+
+![](images/do_in_R.png) To calculate the 95% confidence interval we need to look up the quantile (multiplier) using `qnorm()`
+
+```{r}
+q <- qnorm(0.975)
+```
+
+![](images/do_in_R.png) Now we can use it in our confidence interval calculation
+
+```{r}
+lcl <- m - q * se
+ucl <- m + q * se
+```
+
+![](images/do_in_R.png) Print the values
+
+```{r}
+lcl
+ucl
+```
+
+![](images/do_in_R.png) Between what values would you be 99% confident of the population mean being?
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+# qnorm(0.975) gives the quantile for 95%. For 99% we need qnorm(0.995)
+q <- qnorm(0.995)
+lcl <- m - q * se
+ucl <- m + q * se
+
+```
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- # the mean is 4.55 +/- 0.077. We are 95% certain the populations mean lies between 4.627 and 4.473 -->
+
+## Confidence intervals (small samples)
+
+The confidence interval for small samples is given by: $\bar{x} \pm \sf t_{[d.f]} \times s.e.$
+
+The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phospholipids in nerve cells and deficiency leads to many behavioural and functional deficits. The cross sectional area of neurons in the CA 1 region of the hippocampus of normal rats is 155 $\mu m^2$. A DHA deficient diet was fed to 8 animals and the cross sectional area (csa) of neurons is given in [neuron.txt](data-raw/neuron.txt)
+
+![](images/do_on_your_computer.png) Save [neuron.txt](data-raw/neuron.txt) to your `data-raw` folder
+
+![](images/do_in_R.png) Read in the data and check the structure of the resulting dataframe
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+neur <- read_table("data-raw/neuron.txt")
+```
+
+![](images/do_in_R.png) Assign the mean to `m`
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+m <- mean(neur$csa)
+
+```
+
+![](images/do_in_R.png) Calculate and assign the standard error to `se`
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+# I created intermediate variables for sd and n
+sd <- sd(neur$csa)
+n <- length(neur$csa)
+se <- sd / sqrt(n)
+```
+
+To work out the confidence interval for our sample mean we need to use the *t* distribution because it is a small sample. This means we need to determine the degrees of freedom (the number in the sample minus one).
+
+![](images/do_in_R.png) We can assign this to a variable, `df`, using:
+
+```{r}
+df <- length(neur$csa) - 1
+```
+
+![](images/do_in_R.png) The *t* value is found by:
+
+```{r}
+t <- qt(0.975, df = df)
+```
+
+Note that we are using `qt()` rather than `qnorm()` but that the probability, 0.975, used is the same. Finally, we need to put our mean, standard error and *t* value in the equation. $\bar{x} \pm \sf t_{[d.f]} \times s.e.$.
+
+![](images/do_in_R.png) The upper confidence limit is:
+
+```{r}
+(m + t * se) |> round(2)
+```
+
+The first part of the command, `(m + t * se)` calculates the upper limit. This is 'piped' in to the `round()` function to round the result to two decimal places.
+
+![](images/do_in_R.png) Calculate the lower confidence limit:
+
+```{r include=FALSE}
+(m - t * se) |>  round(2)
+```
+
+![](images/answer.png) Given the upper and lower confidence values for the estimate of the population mean, what do you think about the effect of the DHA deficient diet?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- the 95% confidence interval from 132.75 mu m^2 to 151.95 mu m^2  -->
+
+<!-- doesn't include 155 mu m^2 so we can conclude that DHA deficiency significantly  -->
+
+<!-- lowers csa -->
 
 You're finished!
 

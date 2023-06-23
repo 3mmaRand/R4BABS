@@ -1,0 +1,432 @@
+1
+00:00:01,870 --> 00:00:08,650
+Hello, in this presentation, I'm going to talk about the logic of hypothesis testing.
+
+2
+00:00:08,650 --> 00:00:14,000
+So this is a slide I showed last week in which I very briefly referenced hypothesis testing.
+
+3
+00:00:14,000 --> 00:00:20,000
+And now I'm going to discuss the logic behind that a lot more. In short we have to have a null hypothesis of some kind.
+
+4
+00:00:20,000 --> 00:00:23,000
+Then we calculate the probability of getting our data
+
+5
+00:00:23,000 --> 00:00:33,000
+if that null hypothesis is true and if that probability is less than a particular value, we decide the null hypothesis is not true.
+
+6
+00:00:33,000 --> 00:00:39,550
+And this is the approach for what we call frequentist or classical statistics.
+
+7
+00:00:39,550 --> 00:00:44,170
+It's not quite the approach we'd use for Bayesian statistics. Whoops.
+
+8
+00:00:44,170 --> 00:00:52,410
+Wrong slide. So with hypothesis testing, there are four steps that we go through.
+
+9
+00:00:52,410 --> 00:01:00,000
+The first thing we do is set up our null hypothesis. And that's the hypothesis of no effect.
+
+10
+00:01:00,000 --> 00:01:12,000
+I'll talk more about that next slide. And then we have to collect our data and we use that data to test our null hypothesis.
+
+11
+00:01:12,000 --> 00:01:16,000
+So we then determine the probability of our data
+
+12
+00:01:16,000 --> 00:01:28,000
+if the null hypothesis is true and if that probability is less than 0.05, we reject the null hypothesis.
+
+13
+00:01:28,000 --> 00:01:36,000
+And if that probability is greater than 0.05, then we do not reject the null hypothesis.
+
+14
+00:01:36,000 --> 00:01:44,000
+So rejecting the null hypothesis means you think there *is* an effect and not rejecting the null
+
+15
+00:01:44,000 --> 00:01:55,830
+hypothesis means you think there is no effect - you think the null hypothesis is true.
+
+16
+00:01:55,830 --> 00:02:02,000
+So I'm going to work on an example here using the national average birth weight.
+
+17
+00:02:02,000 --> 00:02:09,150
+The national average birth weight is 3300 grams with a standard deviation of 900 grams.
+
+18
+00:02:09,150 --> 00:02:16,000
+And the question we're interested in is whether maternal poverty influences birth weight.
+
+19
+00:02:16,000 --> 00:02:20,000
+So our first step is to set up our null hypothesis.
+
+20
+00:02:20,000 --> 00:02:29,520
+And in this case, our null hypothesis of no effect would be that maternal poverty does not affect birth weight.
+
+21
+00:02:29,520 --> 00:02:43,380
+So we would expect the babies of mothers in poverty to weigh the same as those from the national population.
+
+22
+00:02:43,380 --> 00:02:49,000
+So our null hypothesis is what we expect to happen, if nothing interesting biologically is occurring.
+
+23
+00:02:49,000 --> 00:02:58,830
+So we would expect a mean of 3300 grams if poverty has no effect.
+
+24
+00:02:58,830 --> 00:03:10,390
+And all the babies would be from a bell shaped curve with a mean of three thousand three hundred.
+
+25
+00:03:10,390 --> 00:03:16,000
+So a second step is to collect the data to test this null hypothesis.
+
+26
+00:03:16,000 --> 00:03:25,000
+So we take a sample of 25 women. We want to collect samples that are definitely random samples,
+
+27
+00:03:25,000 --> 00:03:30,000
+meaning they are genuinely representative of the population we're interested in.
+
+28
+00:03:30,000 --> 00:03:36,000
+So we take a sample of 25 women who live in poverty and determine the birth weight of their baby.
+
+29
+00:03:36,000 --> 00:03:45,370
+And then we calculate the statistic, which is the same as the one in our null hypothesis
+
+30
+00:03:45,370 --> 00:03:53,320
+So in our null hypothesis, we have a mean of 3300.
+
+31
+00:03:53,320 --> 00:03:58,390
+So we calculate the mean of this sample and it's 3000 grams.
+
+32
+00:03:58,390 --> 00:04:06,000
+So we can see that the babies of these women are lower weight than the national average.
+
+33
+00:04:06,000 --> 00:04:14,000
+But the question is, is that low enough? If we took a different sample of 20 of women who live in poverty,
+
+34
+00:04:14,000 --> 00:04:22,720
+would we have got a mean of 3000, or would we have got something nearer the national average?
+
+35
+00:04:22,720 --> 00:04:32,410
+So although we can say that this value is lower, we need a statistical way to see whether it's statistically lower.
+
+36
+00:04:32,410 --> 00:04:38,530
+So we need to try and work out how far away from the national average is too far away.
+
+37
+00:04:38,530 --> 00:04:43,900
+So the national average here is at the peak. We have a value of 3000.
+
+38
+00:04:43,900 --> 00:04:55,000
+So if the null hypothesis is true, then only this many samples would have a mean that low.
+
+39
+00:04:55,000 --> 00:05:00,000
+And we're going to use the probability of getting data like ours
+
+40
+00:05:00,000 --> 00:05:08,000
+if the null hypothesis is true, to determine whether our value is realistic.
+
+41
+00:05:08,000 --> 00:05:15,000
+So we're going to use probability to calculate what is the probability of getting a value like 3000,
+
+42
+00:05:15,000 --> 00:05:28,000
+if we're actually expecting a value of 3300. So what we interested in knowing is what's the probability of getting a 3000 or lower?
+
+43
+00:05:28,000 --> 00:05:35,000
+Because if you think 3000 is too low, then you definitely think a value of 2800 was too low.
+
+44
+00:05:35,000 --> 00:05:45,000
+So all the samples in this tail have a particular probability
+
+45
+00:05:45,000 --> 00:05:48,930
+And that probability is actually 0.048
+
+46
+00:05:48,930 --> 00:05:57,000
+Now, you don't need to worry how that probability was calculated for the moment, although you will find out in week four.
+
+47
+00:05:57,000 --> 00:06:02,000
+We can just work that out from knowing what these means are and what the standard deviation was.
+
+48
+00:06:02,000 --> 00:06:12,000
+So the probability of having a value of 3000 or lower is 0.048
+
+49
+00:06:12,000 --> 00:06:26,000
+However, if we consider 3000 would be too unlikely,  then values of 3600 are equally unlikely.
+
+50
+00:06:26,000 --> 00:06:35,000
+The really relevant probability is not just the probability of being 3000 or lower,
+
+51
+00:06:35,000 --> 00:06:40,000
+but also the probability of a 3600 or higher.
+
+52
+00:06:40,000 --> 00:06:46,000
+So as these combined areas, that gives us our actual probability that we're interested in.
+
+53
+00:06:46,000 --> 00:06:52,000
+And so this is a p value or a probability of 0.096
+
+54
+00:06:52,000 --> 00:07:01,000
+So twice 0.048
+
+55
+00:07:01,000 --> 00:07:11,000
+So that takes us on to step four, which is to compare our p value to this critical value of 0.05
+
+56
+00:07:11,000 --> 00:07:17,000
+So we have a P value of 0.096
+
+57
+00:07:17,000 --> 00:07:23,000
+So this is bigger than 0.05. So this is that second one here.
+
+58
+00:07:23,000 --> 00:07:28,000
+Our P value, or probability, is bigger than 0.05
+
+59
+00:07:28,000 --> 00:07:31,500
+So we do not reject our null hypothesis.
+
+60
+00:07:31,500 --> 00:07:45,000
+So we've got no reason to think that the babies born to mothers in poverty are lighter than those born to women in the national population.
+
+61
+00:07:45,000 --> 00:07:53,000
+So we're saying we've got no reason to reject our null hypothesis.
+
+62
+00:07:53,000 --> 00:08:05,000
+Oh, Ihave that slide twice!  So the p value is the probability of our data
+
+63
+00:08:05,000 --> 00:08:10,690
+if the null hypothesis is true. That's the definition of a P value.
+
+64
+00:08:10,690 --> 00:08:14,000
+So when we say P value, we're just talking about a probability.
+
+65
+00:08:14,000 --> 00:08:20,000
+And it is literally the probability of getting a sample like we've got
+
+66
+00:08:20,000 --> 00:08:29,000
+given the null hypothesis is actually true. And we're comparing that to this critical value of 0.05
+
+67
+00:08:29,000 --> 00:08:35,710
+So 0.05 is a totally arbitrary level.
+
+68
+00:08:35,710 --> 00:08:44,000
+But it's one that we've agreed in science that we're gonna use. But it is totally arbitrary and it's a little bit crazy, to be honest.
+
+69
+00:08:44,000 --> 00:08:52,000
+So if we instead had got a probability that was less than 0.05, we would be rejecting our null hypothesis.
+
+70
+00:08:52,000 --> 00:09:02,000
+If we'd found the probability of getting a sample with a mean of three thousand or more extreme, was lower than 0.05
+
+71
+00:09:02,000 --> 00:09:07,480
+we'd be saying that there *was* an effect of maternal poverty.
+
+72
+00:09:07,480 --> 00:09:20,000
+So we'd be concluding that there was a significant difference between our sample and what we'd expect if there was no effect.
+
+73
+00:09:20,000 --> 00:09:27,000
+Now, when you're doing hypothesis testing, there is a type of mistake you can make or a type of error
+
+74
+00:09:27,000 --> 00:09:34,000
+you can make those errors are not mistakes that you can avoid -
+
+75
+00:09:34,000 --> 00:09:44,000
+they are inherent in the approach of hypothesis testing and is all related to the fact that you are calculating the probability of your data
+
+76
+00:09:44,000 --> 00:09:50,000
+if the null hypothesis is true. So we have some
+
+77
+00:09:50,000 --> 00:09:55,000
+truth. So the null hypothesis is either true or not.
+
+78
+00:09:55,000 --> 00:10:02,000
+We don't know what's the case. So it's either true that maternal poverty has an effect or isn't true.
+
+79
+00:10:02,000 --> 00:10:08,000
+So the null hypothesis is either that there is no effect or is false and
+
+80
+00:10:08,000 --> 00:10:19,000
+there is an effect. And then based on this probability value we calculate, we're going to decide whether to reject our null hypothesis or not.
+
+81
+00:10:19,000 --> 00:10:26,000
+So if our null hypothesis is actually true and we reject it because we get a P value
+
+82
+00:10:26,000 --> 00:10:32,000
+which is lower than 0.05, we've made what's called a type one error.
+
+83
+00:10:32,000 --> 00:10:36,000
+So that's going to happen one in 20 times - i.e.,
+
+84
+00:10:36,000 --> 00:10:41,000
+So in 0.05 of the time
+
+85
+00:10:41,000 --> 00:10:53,000
+So it's going to happen because sometimes you are going to get samples that really are that far away from 3300
+
+86
+00:10:53,000 --> 00:10:59,000
+Even though there is no effect because you get unusual samples sometimes
+
+87
+00:10:59,000 --> 00:11:06,000
+If, on the other hand,
+
+88
+00:11:06,000 --> 00:11:11,000
+...
+
+89
+00:11:11,000 --> 00:11:17,850
+If the null hypothesis is false and we reject it, then we have *not* made a mistake.
+
+90
+00:11:17,850 --> 00:11:27,280
+If the null hypothesis is true and we reject it, we've made a type one error.
+
+91
+00:11:27,280 --> 00:11:31,000
+On the other hand, if we don't reject the null hypothesis.
+
+92
+00:11:31,000 --> 00:11:40,090
+(we get a P value greater than 0.05) our  null hypothesis is in fact true
+
+93
+00:11:40,090 --> 00:11:52,640
+Then again, we've made no mistake. So this is decision we're making is correct for the true state of the null hypothesis.
+
+94
+00:11:52,640 --> 00:11:54,000
+If the null hypothesis is false.
+
+95
+00:11:54,000 --> 00:12:07,000
+So if there really isn't an effect of maternal poverty and we've not rejected the null hypothesis, then we've made what's called a type two error.
+
+96
+00:12:07,000 --> 00:12:13,000
+So in our particular case, we have a probability of
+
+97
+00:12:13,000 --> 00:12:20,000
+greater than 0.05
+
+98
+00:12:20,000 --> 00:12:31,000
+Which was 0.096. And we decided, therefore, that all null hypothesis could not be rejected.
+
+99
+00:12:31,000 --> 00:12:35,000
+So either is the case that the null hypothesis is true
+
+100
+00:12:35,000 --> 00:12:40,000
+there's either no effect or it's possible we made a type two error.
+
+101
+00:12:40,000 --> 00:12:47,920
+we can't know which that is. That's just inherent with the actual testing.
+
+102
+00:12:47,920 --> 00:12:58,000
+So that's all I'm going to say for this presentation. The key points are in this slide here.
+
+103
+00:12:58,000 --> 00:13:09,140
+So we have to set up a null hypothesis, which is there is no effect of something you're investigating.
+
+104
+00:13:09,140 --> 00:13:15,160
+You then collect data and you calculate the probability of getting data like that.
+
+105
+00:13:15,160 --> 00:13:24,520
+If the null hypothesis is true and if that probability is very small, less than nought point five, then we reject the null hypothesis.
+
+106
+00:13:24,520 --> 00:13:33,000
+We say probably there is an effect. But if that probability is large.
+
+107
+00:13:33,000 --> 00:13:38,170
+So greater than 0.05. Then we do not reject the null hypothesis.
+
+108
+00:13:38,170 --> 00:13:48,040
+And we suspect that there is no effect. OK, I'll see you in the workshops.
+

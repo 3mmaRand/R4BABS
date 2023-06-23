@@ -3,12 +3,10 @@ title: "Week 1: The logic of hypothesis testing and confidence intervals"
 subtitle: "Independent Study to prepare for workshop"
 ---
 
-1.  Prepare
+1. 📖 Read [The logic of hyothesis testing](https://3mmarand.github.io/comp4biosci/xx.html) 
 
-    i.  **Either** 📖 Read [xxxxx](https://3mmarand.github.io/comp4biosci/xx.html) in **OR** 📹 Watch
+2. 📖 Read [Sampling distributions and the Standard Error](https://3mmarand.github.io/comp4biosci/xx.html) 
 
-    {{< video https://www.youtube.com/watch?xx >}}
-
-
+3. 📖 Read [Confidence Intervals](https://3mmarand.github.io/comp4biosci/xx.html) 
 
 
