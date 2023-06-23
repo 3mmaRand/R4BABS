@@ -226,7 +226,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![](images/xxx.png){fig-alt="xxx" width="1000"}
+![](images/we-believe.png){fig-alt="Header text 'R learners' above five friendly monsters holding up signs that together read 'we believe in you.'" width="800"}
 
 # Independent study following the workshop
 

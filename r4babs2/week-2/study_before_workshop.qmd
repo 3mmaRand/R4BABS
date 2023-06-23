@@ -1,13 +1,11 @@
 ---
-title: "Week 2: Introduction to statistical models: Single regression"
+title: "Week 2: Introduction to statistical models: Single linear regression"
 subtitle: "Independent Study to prepare for workshop"
 ---
 
-1.  Prepare
+1. 📖 Read [What is a statistical model](https://3mmarand.github.io/comp4biosci/what_statistical_model.html)
 
-    i.  **Either** 📖 Read [xxxxx](https://3mmarand.github.io/comp4biosci/xx.html) in **OR** 📹 Watch
-
-    {{< video https://www.youtube.com/watch?xx >}}
+2. 📖 Read [Single linear regression](https://3mmarand.github.io/comp4biosci/single_linear_regression.html)
 
 
 

@@ -38,6 +38,18 @@ In this section you will learn a way to lay out figures, legends and text in a d
 
 
 
+#| include: false
+
+#---CODING ANSWER---
+
+
+
+
+#---THINKING ANSWER--- 
+
+
+
+
 ###############
  🥳 Well Done! 🎉 lose emo::ji
 #############

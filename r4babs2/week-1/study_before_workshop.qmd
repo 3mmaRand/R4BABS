@@ -3,10 +3,10 @@ title: "Week 1: The logic of hypothesis testing and confidence intervals"
 subtitle: "Independent Study to prepare for workshop"
 ---
 
-1. 📖 Read [The logic of hyothesis testing](https://3mmarand.github.io/comp4biosci/xx.html) 
+1. 📖 Read [The logic of hyothesis testing](https://3mmarand.github.io/comp4biosci/logic_hyopthesis_testing.html) 
 
-2. 📖 Read [Sampling distributions and the Standard Error](https://3mmarand.github.io/comp4biosci/xx.html) 
+2. 📖 Read [Sampling distributions and the Standard Error](https://3mmarand.github.io/comp4biosci/sample_distributions.html) 
 
-3. 📖 Read [Confidence Intervals](https://3mmarand.github.io/comp4biosci/xx.html) 
+3. 📖 Read [Confidence Intervals](https://3mmarand.github.io/comp4biosci/confidence_intervals.html) 
 
 

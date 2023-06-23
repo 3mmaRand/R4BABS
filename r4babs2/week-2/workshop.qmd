@@ -1,5 +1,5 @@
 ---
-title: "Week 2: Introduction to statistical models: Single regression"
+title: "Week 2: Introduction to statistical models: Single linear regression"
 subtitle: "Workshop"
 toc: true
 toc-location: right
@@ -13,7 +13,11 @@ library(kableExtra)
 
 # Introduction
 
-![](images/xxx.png){fig-alt="xxxxx" width="1000"}
+In this workshop you will get practice in applying, interpreting and reporting single linear regression.
+
+
+
+![Allison Horst cartton: "linear regression dragons"](images/linear-regression-dragon.png){fig-alt="Two blue dragons stand on scales next to a vertical yardstick showing one slightly taller than the other. Regression estimates are shown at the top as an equation: 'weight (tons) = 2.4 + 0.3*height', with explanatory text reading 'If all other variables are constant, we expect a 1 foot taller dragon to weight 0.3 tons more, on average.' width="800"}
 
 ## Session overview
 
@@ -37,7 +41,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
 
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+![](images/do_in_R.png)  Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
 
 ![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
 
@@ -48,18 +52,230 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
+![](images/do_in_R.png)  Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-2`.
+![](images/do_in_R.png)  Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-2`.
 
-![](images/do_in_R.png)  Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+![](images/do_in_R.png)   Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
 
-![](images/do_in_R.png) Make a new script then save it with a name like `single-linear-regression.R` to carry out the rest of the work.
+![](images/do_in_R.png)  Make a new script then save it with a name like `single-linear-regression.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Introduction to statistical models: Single regressionh`
+![](images/do_in_R.png)  Add a comment to the script: `# Introduction to statistical models: Single linear-regression`  and load the **`tidyverse`** [@tidyverse] package
+
 
 # Exercises
 
+## Linear Regression
+
+The data in [plant.xlsx](../data/plant.xlsx) is a set of observations of plant growth over two months. The researchers planted the seeds and harvested, dried and weighed a plant each day from day 10 so all the data points are independent of each other.
+
+```{r}
+library(readxl)
+```
+
+![](images/do_in_R.png) Save a copy of [plant.xlsx](../data/plant.xlsx) to your `data-raw` folder and import it.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+#
+# we need the readxl package that was introduced in the last workshop
+library(readxl)
+
+# assign file name to variable because I'll use it more than once
+file <- "data-raw/plant.xlsx"
+
+# list the sheets in the file
+excel_sheets(file)
+
+# You might want to open th file in excel to make sure you know what is in it. 
+
+# I'm a bit lazy - and less worried by being wrong - so will just guess the are data in the one named sheet. If I guess wrong, then I might open the file!
+plant <- read_excel(file, sheet = "plant")
+
+```
+
+    
+![](images/answer.png) What type of variables do you have? Which is the response and which is the explanatory? What is the null hypothesis?
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- Day is discrete (but ordered) and is the explanatory; mass looks continuous and  -->
+<!-- is the response.  -->
+
+<!-- The null hypothesis can be expressed as one of the following: day does not  -->
+<!-- explain the variation in mass; there is no linear relationship between  -->
+<!-- day and mass; slope of the best fitting straight line is zero -->
+
+
+### Exploring
+
+![](images/do_in_R.png) Do a quick plot of the data:
+```{r}
+ggplot(plant, aes(x = day, y = mass)) +
+  geom_point()
+```
+
+![](images/answer.png) What are the assumptions of linear regression? Do these seem to be met?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- linear relationship - looks ok on the scatter -->
+<!-- each y is drawn from a normal distribution for each x and these  -->
+<!-- normal distributions have the same variance - looks ok too.  -->
+<!-- We'd expect y to be continuous and the scatter around a best fitting line  -->
+<!-- we imagine is about even. -->
+<!-- The values of y are independent of each other - yes it was a different  -->
+<!-- plant each day (in fact plant was destroyed). Measuring the height  -->
+<!-- of the SAME plants each day would violate this assumption -->
+<!-- x has been chosen by the experimenter - yes. -->
+
+
+### Applying, interpreting and reporting
+
+![](images/do_in_R.png)  We now carry out a regression assigning the result of the `lm()` procedure to a variable and examining it with `summary()`.
+```{r}
+mod <- lm(data = plant, mass ~ day)
+summary(mod)
+```
+
+The Estimates in the Coefficients table give the intercept (first line) and the slope (second line) of the best fitting straight line. The *p*-values on the same line are tests of whether that coefficient is different from zero. 
+
+The *F* value and *p*-value in the last line are a test of whether the model as a whole explains a significant amount of variation in the dependent variable. For a single linear regression this is exactly equivalent to the test of the slope against zero.
+
+![](images/answer.png) What is the equation of the line? What do you conclude from the analysis? 
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- mass = 1.606*day - 8.683 -->
+<!-- the slope of the line is significantly different from zero OR -->
+<!-- the day explains a significant amount of the variation in mass OR -->
+<!-- mass can be predicted from the day (ANOVA: F = 88.4; d.f. = 1,49; p < 0.0001).  -->
+
+ 
+![](images/answer.png) Does the line go through (0,0)? 
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- yes it could. The intercept is -8.683 but it is not significantly  -->
+<!-- different from zero thus it could be zero.  -->
+
+
+![](images/answer.png) What percentage of variation is explained by the line? 
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- 64%  -->
+
+
+
+### Checking assumptions
+
+We need to examine the residuals. Very conveniently, the object which is created by `lm()` contains a variable called `$residuals`. Also conveniently, the R's `plot()` function can used on the output objects of `lm()`. The assumptions demand that each y is drawn from a normal distribution for each x and these normal distributions have the same variance. Therefore we plot the residuals against the fitted values to see if the variance is the same for all the values of x. 
+The fitted - predicted - values are the values on the line of best fit. Each residual is the difference between the fitted values and the observed value.
+
+![](images/do_in_R.png)  Plot the model residuals against the fitted values like this:
+```{r}
+plot(mod, which = 1)
+```
+
+
+![](images/answer.png)  What to you conclude?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- The residuals look 'homogeneously' distributed. That is, the variance is the same  -->
+<!-- for all the values of x.  -->
+
+To examine normality of the model residuals we can plot them as a histogram and do a normality test on them.
+
+![](images/do_in_R.png)  Plot a histogram of the residuals:
+```{r}
+
+ggplot(mapping = aes(x = mod$residuals)) + 
+  geom_histogram(bins = 10)
+```
+
+
+
+![](images/do_in_R.png) Use the `shapiro.test()` to test the normality of the model residuals
+```{r}
+shapiro.test(mod$residuals)
+```
+
+![](images/answer.png)  What to you conclude?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- the residuals appear roughly normally distributed.  -->
+<!-- The histogram is symmetrical and the shapiro test is NS. -->
+
+<!-- Overall, it seems the assumptions are met -->
+
+
+### Illustrating
+We want a figure with the points and a best fitting straight line.
+
+![](images/do_in_R.png) Create a figure with using both `geom_point()` and `geom_smooth()`
+
+NEED TO BUILD THIS UP FROM START AND REFER TO PREVIOUS WORK
+
+ 
+```{r}
+# fig size
+
+ggplot(plant, aes(x = day, y = mass)) +
+  geom_point() +
+  geom_smooth(method = lm, 
+              se = FALSE, 
+              colour = "black") +
+  scale_x_continuous(name = "Day",
+                     limits = c(0, 65),
+                     expand = c(0,0)) +
+  scale_y_continuous(name = "Mass (g)",
+                     limits = c(0, 120),
+                     expand = c(0,0)) +
+  theme_classic()
+  
+```
+
+Figure 2. The relationship between day since planting and mass. 
+
+![](images/do_in_R.png) Can you workout how to add the equation of the line to the figure like this?
+
+```{r}
+
+# fig size
+fig2 <- ggplot(plant, aes(x = day, y = mass)) +
+   geom_point() +
+  geom_smooth(method = lm, 
+              se = FALSE, 
+              colour = "black") +
+  scale_x_continuous(name = "Day",
+                     limits = c(0, 65),
+                     expand = c(0,0)) +
+  scale_y_continuous(name = "Mass (g)",
+                     limits = c(0, 120),
+                     expand = c(0,0)) +
+  annotate("text", x = 15, y = 100, label = expression(italic("y = 1.6 x - 8.69"))) +
+  theme_classic()
+fig2  
+```
+
+
+![](images/do_in_R.png) Save your figure to your `figures` folder.
+```{r}
+ggsave("figures/plant-growth.png",
+       plot = fig2,
+       width = 3.5,
+       height = 3.5,
+       units = "in",
+       dpi = 300)
+
+```
+
+## Look after future you!
 
 
 You're finished!

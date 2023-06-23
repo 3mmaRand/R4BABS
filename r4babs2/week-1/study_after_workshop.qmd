@@ -52,4 +52,3 @@ adip_summary <- adip %>%
 
 ```
 
-2.  📖 Read [xxx](https://3mmarand.github.io/comp4biosci/xxx.html)

@@ -1,5 +1,5 @@
 ---
-title: "Week 2: Introduction to statistical models: Single regression"
+title: "Week 2: Introduction to statistical models: Single linear regression"
 ---
 
 This week you will 
@@ -8,20 +8,24 @@ This week you will
 
 The successful student will be able to:
 
--   
+-   explain what is meant by a statistical model and fitting a model
 
--  
+-   know what the general linear model is and how it relates to regression
 
--   
+-   explain the principle of regression and know when it can be applied
 
--   
+-   apply and interpret a simple linear regression in R
+
+-   evaluate whether the assumptions of regression are met
+
+-   scientifically report a regression result including appropriate figures 
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  📖 Read the book **OR** 📹 Watch two videos
-
+    i.  📖 Read What is a statistical model
+    ii. 📖 Read Single linear regression
 
 2.  [Workshop](workshop.qmd)
     
@@ -29,6 +33,6 @@ The successful student will be able to:
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻 
+    i. 💻 Appropriately analyse the relationsip between juvenile hormone and mandible size in stage beetles
+    ii. 💻 Appropriately analyse the relationsip between anxiety and performance
 
-    ii. 📖 Read 
