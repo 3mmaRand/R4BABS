@@ -36,7 +36,7 @@ The successful student will be able to:
 
 2.  [Workshop](workshop.qmd)
     
-    i.💻 Remind yourself how to import files
+    i. 💻 Remind yourself how to import files
     ii. 💻 Calculate confidence intervals on large 
     iii. 💻 Calculate confidence intervals on small samples.
 

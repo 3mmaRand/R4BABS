@@ -13,7 +13,7 @@ library(kableExtra)
 
 # Introduction
 
-![Allison Horst cartoon "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says "Fully expecting to hate this class." Below, a teacher wearing a cheerleading outfit labeled "STATS" with a bullhorn labeled "CODE" cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
+![Allison Horst cartoon "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
 
 ## Session overview
 
@@ -64,19 +64,21 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ## Remind yourself how to import files!
 
-[Importing data from files](../../r4babs1/week-8/workshop.html#importing-data-from-files) was covered in BABS 1 if you need to remind yourself.
+[Importing data from files](../../r4babs1/week-8/workshop.html#importing-data-from-files) was covered in BABS 1 [@rand2023] if you need to remind yourself.
 
 ## Confidence intervals (large samples)
 
-The data in [beewing.txt](data-raw/beewing.txt) are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by: $\bar{x} \pm 1.96 \times s.e.$)
+The data in [beewing.txt](data-raw/beewing.txt) are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by:
+
+
+$\bar{x} \pm 1.96 \times s.e.$
+
 
 Where 1.96 is the quantile for 95% confidence.
 
-You may need to refer to previous practicals to remind yourself how to carry out some of the following steps.
+![](images/do_on_your_computer.png) Save [beewing.txt](data-raw/beewing.txt) to your `data-raw` folder.
 
-![](images/do_on_your_computer.png) Save [beewing.txt](data-raw/beewing.txt) to your `data-raw` folder
-
-![](images/do_in_R.png) Read in the data and check the structure of the resulting dataframe
+![](images/do_in_R.png) Read in the data and check the structure of the resulting dataframe.
 
 ```{r}
 #| include: false
@@ -87,7 +89,7 @@ bee <- read_table("data-raw/beewing.txt")
 str(bee)
 ```
 
-![](images/do_in_R.png) Calculate and assign to variables: the mean, standard deviation and standard error
+![](images/do_in_R.png) Calculate and assign to variables: the mean, standard deviation and standard error:
 
 ```{r}
 # mean
@@ -96,7 +98,7 @@ m <- mean(bee$wing)
 # standard deviation
 sd <- sd(bee$wing)
 
-# sample size
+# sample size (needed for the se)
 n <- length(bee$wing)
 
 # standard error
@@ -108,6 +110,8 @@ se <- sd / sqrt(n)
 ```{r}
 q <- qnorm(0.975)
 ```
+
+This should be about 1.96.
 
 ![](images/do_in_R.png) Now we can use it in our confidence interval calculation
 
@@ -122,6 +126,8 @@ ucl <- m + q * se
 lcl
 ucl
 ```
+
+This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 +/- 0.07 mm
 
 ![](images/do_in_R.png) Between what values would you be 99% confident of the population mean being?
 
@@ -139,11 +145,18 @@ ucl <- m + q * se
 
 <!-- #---THINKING ANSWER--- -->
 
-<!-- # the mean is 4.55 +/- 0.077. We are 95% certain the populations mean lies between 4.627 and 4.473 -->
+<!-- # the mean is 4.55 +/- 0.100. We are 99% certain the populations mean lies between 4.45 and 4.65 -->
+
 
 ## Confidence intervals (small samples)
 
-The confidence interval for small samples is given by: $\bar{x} \pm \sf t_{[d.f]} \times s.e.$
+The confidence interval for small samples is given by:
+
+
+$\bar{x} \pm \sf t_{[d.f]} \times s.e.$
+
+The only difference between the calculation for small and large sample is the multiple. For large samples we use the "the standard normal distribution" accessed with `qnorm()`; for small samples we use the "*t* distribution" assessed with `qt()`.The value returned by `q(t)` is larger than that returned by `qnorm()` which reflects the greater uncertainty we have on estimations of population means based on small samples.
+
 
 The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phospholipids in nerve cells and deficiency leads to many behavioural and functional deficits. The cross sectional area of neurons in the CA 1 region of the hippocampus of normal rats is 155 $\mu m^2$. A DHA deficient diet was fed to 8 animals and the cross sectional area (csa) of neurons is given in [neuron.txt](data-raw/neuron.txt)
 
@@ -158,7 +171,7 @@ The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phosp
 neur <- read_table("data-raw/neuron.txt")
 ```
 
-![](images/do_in_R.png) Assign the mean to `m`
+![](images/do_in_R.png) Assign the mean to `m`.
 
 ```{r}
 #| include: false
@@ -169,7 +182,7 @@ m <- mean(neur$csa)
 
 ```
 
-![](images/do_in_R.png) Calculate and assign the standard error to `se`
+![](images/do_in_R.png) Calculate and assign the standard error to `se`.
 
 ```{r}
 #| include: false
@@ -238,6 +251,6 @@ These contain all the code needed in the workshop even where it is not visible o
 
 The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with Quarto [@allaire2022]
+Pages made with Quarto [@allaire2022], [@knitr], [@kableExtra]
 
 # References
