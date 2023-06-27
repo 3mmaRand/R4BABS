@@ -17,7 +17,7 @@ In this workshop you will get practice in applying, interpreting and reporting s
 
 
 
-![Allison Horst cartton: "linear regression dragons"](images/linear-regression-dragon.png){fig-alt="Two blue dragons stand on scales next to a vertical yardstick showing one slightly taller than the other. Regression estimates are shown at the top as an equation: 'weight (tons) = 2.4 + 0.3*height', with explanatory text reading 'If all other variables are constant, we expect a 1 foot taller dragon to weight 0.3 tons more, on average.'" width="800"}
+![Allison Horst cartoon: "linear regression dragons"](images/linear-regression-dragon.png){fig-alt="Two blue dragons stand on scales next to a vertical yardstick showing one slightly taller than the other. Regression estimates are shown at the top as an equation: 'weight (tons) = 2.4 + 0.3*height', with explanatory text reading 'If all other variables are constant, we expect a 1 foot taller dragon to weight 0.3 tons more, on average.'" width="800"}
 
 ## Session overview
 
@@ -214,6 +214,8 @@ ggplot(mapping = aes(x = mod$residuals)) +
 shapiro.test(mod$residuals)
 ```
 
+Usually, when we are doing statistical tests we would like the the test to be significant because it means we have evidence of a biological effect. However, when doing normality tests we hope it will not be significant. A non-significant result means that there is no significant difference between the distribution of the residuals and a normal distribution and that indicates the assumptions are met.
+
 ![](images/answer.png)  What to you conclude?
 
 <!-- #---THINKING ANSWER--- -->
@@ -237,14 +239,14 @@ ggplot(plant, aes(x = day, y = mass)) +
   theme_classic()
 ```
 
- ![](images/do_in_R.png) The `geom_smooth()` function will had a variety of fited lines to a plot. We want a line so we need to specify `method = "lm"`:
+ ![](images/do_in_R.png) The `geom_smooth()` function will had a variety of fitted lines to a plot. We want a line so we need to specify `method = "lm"`:
 
 ```{r}
 ggplot(plant, aes(x = day, y = mass)) +
   geom_point() +   
   geom_smooth(method = lm, 
               se = FALSE, 
-              colour = "black") 
+              colour = "black") +
   theme_classic()
 ```
 
@@ -254,37 +256,79 @@ ggplot(plant, aes(x = day, y = mass)) +
 ![](images/do_in_R.png) Let's add the equation of the line to the figure using `annotate()`:
 
 ```{r}
-
-#| label: fig:regression
-#| fig-cap: "The relationship between days after planting and the mass of a plant. "
-
-fig2 <- ggplot(plant, aes(x = day, y = mass)) +
+ggplot(plant, aes(x = day, y = mass)) +
   geom_point() +
   geom_smooth(method = lm, 
               se = FALSE, 
               colour = "black") +
-  scale_x_continuous(name = "Day",
-                     limits = c(0, 65),
-                     expand = c(0,0)) +
-  scale_y_continuous(name = "Mass (g)",
-                     limits = c(0, 120),
-                     expand = c(0,0)) +
-  annotate("text", x = 15, y = 100, 
+  annotate("text", x = 20, y = 110, 
            label = "mass = 1.61 * day - 8.68") +
   theme_classic()
 
 ```
 
-We have to tell `annotate()` what type of geom we want - `text` in this case - where to put it, and the text we want to appear.
-
+We have to tell `annotate()` what type of geom we want - `text` in this case, - where to put it, and the text we want to appear.
 
 ```{r}
 #| include: false
 
-
 #---BONUS CODING ANSWER---
 # I'm not expecting you to know about this but it's a neat trick. The glue package allows
 # us to use R objects in strings so their values are printed.
+ggplot(plant, aes(x = day, y = mass)) +
+  geom_point() +
+  geom_smooth(method = lm, 
+              se = FALSE, 
+              colour = "black") +
+  scale_x_continuous(name = "Day",
+                     limits = c(0, 65),
+                     expand = c(0,0)) +
+  scale_y_continuous(name = "Mass (g)",
+                     limits = c(0, 120),
+                     expand = c(0,0)) +
+  annotate("text", x = 20, y = 110, 
+           label = glue::glue("mass = {b1} day {b0}")) +
+  theme_classic()
+```
+
+
+![](images/do_in_R.png) Improve the axes. You may need to refer back 
+[Changing the axes](../../r4babs1/week-7/workshop.html#changing-the-axes) from the Week 7 workshop in BABS1 [@rand2023]
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+#
+
+ggplot(plant, aes(x = day, y = mass)) +
+  geom_point() +
+  geom_smooth(method = lm, 
+              se = FALSE, 
+              colour = "black") +
+  scale_x_continuous(name = "Day",
+                     limits = c(0, 65),
+                     expand = c(0,0)) +
+  scale_y_continuous(name = "Mass (g)",
+                     limits = c(0, 120),
+                     expand = c(0,0)) +
+  annotate("text", x = 20, y = 110, 
+           label = "mass = 1.61 * day - 8.68") +
+  theme_classic()
+
+
+# note that we need to use the continuous versions of both scale_
+```
+
+
+![](images/do_in_R.png) Save your figure to your `figures` folder.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+# Assign the figure to a variable
 fig2 <- ggplot(plant, aes(x = day, y = mass)) +
   geom_point() +
   geom_smooth(method = lm, 
@@ -296,16 +340,19 @@ fig2 <- ggplot(plant, aes(x = day, y = mass)) +
   scale_y_continuous(name = "Mass (g)",
                      limits = c(0, 120),
                      expand = c(0,0)) +
-  annotate("text", x = 15, y = 100, 
-           label = glue::glue("mass = {b1} day {b0}")) +
+  annotate("text", x = 20, y = 110, 
+           label = "mass = 1.61 * day - 8.68") +
   theme_classic()
+
 ```
 
 
-
-
-![](images/do_in_R.png) Save your figure to your `figures` folder.
 ```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+# save figure to figures/plant-growth.png
 ggsave("figures/plant-growth.png",
        plot = fig2,
        width = 3.5,
@@ -322,7 +369,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![](images/xxx.png){fig-alt="xxx" width="1000"}
+![Allison Horst cartoon: "length typos"](images/lenght-length.png){fig-alt="Comic panels of an alligator trying to debug some code. First panel: A confident looking alligator gets an error message. Second panel: a few minutes later, the error remains and the alligator is looking carefully at their code. Third panel: 10 minutes after that, the error remains and the alligator is giving a frustrated 'RAAAR' while desperately typing. Fourth panel: The error remains, and the alligator looks exhausted and exasperated, and a thought bubble reads 'maybe it's a bug'. Fifth panel: A friendly flamingo comes over to take a look, and reads aloud from the problematic code a spelling error: 'L-E-N-G-H-T'. Only the tail of the alligator is visible as it stomp stomp stomps out of the panel roaring." width="800"}
 
 # Independent study following the workshop
 

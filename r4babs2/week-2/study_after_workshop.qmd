@@ -38,7 +38,7 @@ ggplot(sprint, aes(x = anxiety, y = time) ) +
 ```  
 
 
-2.  💻 Juvenile hormone in stag beetles
+2.  💻 Juvenile hormone in stag beetles.
 The concentration of juvenile hormone in stag beetles is known to influence mandible growth. Groups of stag beetles were injected with different concentrations of juvenile hormone (arbitrary units) and their average mandible size (mm) determined. The experimenters planned to analyse their data with regression. The data are in [stag.txt](data-raw/stag.txt)
 
 ```{r}
