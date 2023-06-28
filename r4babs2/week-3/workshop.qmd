@@ -132,7 +132,7 @@ knitr::kable(adip_summary) %>%
 
 ![](images/do_in_R.png) Create a two-sample model like this:
 
-```{r adipt}
+```{r}
 mod <- lm(data = adip,
           adiponectin ~ treatment)
 ```
@@ -140,7 +140,7 @@ mod <- lm(data = adip,
 
 ![](images/do_in_R.png) Examine the model with:
 
-```{r adipt}
+```{r}
 summary(mod)
 ```
 
@@ -197,7 +197,7 @@ ggplot(mapping = aes(x = mod$residuals)) +
 #| include: false
 
 #---CODING ANSWER-
-#
+
 shapiro.test(mod$residuals)
 ```
 
@@ -237,12 +237,10 @@ ggplot() +
 
 ```
 
-# HERE
 
-We now need to annotate the figure with the results from the test.
+We now need to annotate the figure with the results from the statistical test. This most commonly done with a line linking the means being compared and the *p*-value. The `annotate()` function can be used to draw the line and then to add the value. The line is a `segment` and the *p*-value is a `text`.
 
-
-
+![](images/do_in_R.png) Add annotation to the figure:
 ```{r}
 ggplot() +
   geom_point(data = adip, aes(x = treatment, y = adiponectin),
@@ -262,16 +260,17 @@ ggplot() +
   annotate("segment", x = 1, xend = 2, 
            y = 11.3, yend = 11.3,
            colour = "black") +
-  annotate("segment", x = 2, xend = 2, 
-           y = 11.3, yend = 11,
-           colour = "black") +
-  annotate("segment", x = 1, xend = 1, 
-           y = 11.3, yend = 11,
-           colour = "black") +
   annotate("text", x = 1.5,  y = 11.7, 
            label = expression(italic(p)~"= 0.003")) +
   theme_classic()
 ```  
+
+For the segment, `annotate()` needs the *x* and *y* coordinates for the start and the finish of the line.
+
+The use of `expression()` allows you to specify formatting or special characters. `expression()` takes strings or [LaTeX](https://en.wikipedia.org/wiki/LaTeX) formatting. Each string or piece of LaTeX is separated by a `*` or a `~`. The `*` concatenates the strings without a space, `~` does so with a space.
+It will generate a warning message "In is.na(x) : is.na() applied to non-(list or vector) of type 'expression'" which can be ignored.
+
+
 
 ![](images/do_in_R.png) Save your figure to your figures folder.
 ```{r}
@@ -298,12 +297,6 @@ fig1 <- ggplot() +
   annotate("segment", x = 1, xend = 2, 
            y = 11.3, yend = 11.3,
            colour = "black") +
-  annotate("segment", x = 2, xend = 2, 
-           y = 11.3, yend = 11,
-           colour = "black") +
-  annotate("segment", x = 1, xend = 1, 
-           y = 11.3, yend = 11,
-           colour = "black") +
   annotate("text", x = 1.5,  y = 11.7, 
            label = expression(italic(p)~"= 0.003")) +
   theme_classic()
@@ -316,7 +309,7 @@ fig1 <- ggplot() +
 
 #---CODING ANSWER---
 
-# save figure to figures/plant-growth.png
+# save figure to figures/adipo.png
 ggsave("figures/adipo.png",
        plot = fig1,
        width = 3.5,
@@ -328,28 +321,46 @@ ggsave("figures/adipo.png",
 
 ## Grouse Parasites
 
-These data come from a sample of grouse shot in Scotland. The grouse livers were dissected and the number of individuals of a parasitic nematode were counted for two estates 'Gordon' and 'Moss'. We want to know if the two estates have different infection rates.
+Grouse livers were dissected and the number of individuals of a parasitic nematode were counted for two estates 'Gordon' and 'Moss'. We want to know if the two estates have different infection rates. The data are in [grouse.csv](data-raw/grouse.csv)
+
+
+![](images/do_on_your_computer.png) Save a copy of [grouse.csv](data-raw/grouse.csv) to `data-raw`
+
+![](images/do_in_R.png) Read in the data and check the structure. I used the name `grouse` for the dataframe/tibble.
+
+```{r}
+#| include: false  
+
+#| #---CODING ANSWER---
+grouse  <-  read_csv("data-raw/grouse.csv")
+str(grouse)
+```
  
 
 ### Selecting
 
 ![](images/answer.png) Using your common sense, do these data look normally distributed? 
-<!--
-#---THINKING ANSWER---
-No and little need to test/plot - they're counts, skewed and have unequal variances
--->
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- No and little need to test/plot - they're counts, skewed and  -->
+<!-- have unequal variances -->
+
 
 ![](images/answer.png) What test do you suggest?
-<!--
-#---THINKING ANSWER---
-two-sample Wilcoxon (unpaired) AKA Mann-Whitney
--->
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- two-sample Wilcoxon (unpaired) AKA Mann-Whitney -->
+
 
 ### Applying, interpreting and reporting
 
 ![](images/do_in_R.png) Summarise the data by finding the median of each group:
-```{r include=FALSE}
-#| include: false  #---CODING ANSWER---
+```{r}
+#| include: false  
+
+# ---CODING ANSWER---
 grouse %>% 
   group_by(estate) %>% 
   summarise(median(nematodes))
@@ -357,82 +368,134 @@ grouse %>%
 
 
 ![](images/do_in_R.png)  Carry out a two-sample Wilcoxon test (also known as a Mann-Whitney):
-```{r grousewilcox}
+```{r}
 wilcox.test(data = grouse, nematodes ~ estate)
 ```
 ![](images/answer.png) What do you conclude from the test? Write your conclusion in a form suitable for a report. 
-<!--
-#---THINKING ANSWER---
-Grouse on Gordon had significantly more nematodes (median = 13.5) than those on Moss (median = 5) (_W_ = 78; n1 = 10, n2 = 10; _p_ = 0.03546).
--->
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- Grouse on Gordon had significantly more nematodes (median = 13.5) than those  -->
+<!-- on Moss (median = 5) (W = 78; n1 = 10, n2 = 10; p = 0.03546). -->
+
+
 
 ### Illustrating
 
 A box plot is a usually good choice for illustrating a two-sample Wilcoxon test because it shows the median and interquartile range.
 
 ![](images/do_in_R.png) We can create a simple boxplot with:  
-```{r grousefig, fig.width = 4, fig.height = 4}
+```{r}
 ggplot(data = grouse, aes(x = estate, y = nematodes) ) +
   geom_boxplot() 
 ```
 
-![](images/do_in_R.png) Format the figure so it is more suitable for a report.  
-```{r include = FALSE, fig.width = 4, fig.height = 4}
-#| include: false  #---CODING ANSWER---
-ggplot(data = grouse, aes(x = estate, y = nematodes) ) +
+![](images/do_in_R.png) Annotate and format the figure so it is more suitable for a report and save it to your figures folder.  
+```{r}
+#| include: false  
+
+# ---CODING ANSWER---
+
+fig2 <- ggplot(data = grouse, aes(x = estate, y = nematodes) ) +
   geom_boxplot() + 
-  scale_x_discrete(name = "Estate", labels = c("Gordon", "Moss")) +
-  scale_y_continuous(name = "Number of nematodes") +
+  scale_x_discrete(name = "Estate", 
+                   labels = c("Gordon", "Moss")) +
+  scale_y_continuous(name = "Number of nematodes",
+                     expand = c(0, 0),
+                     limits = c(0, 75)) +
+  annotate("segment", x = 1, xend = 2, 
+           y = 67, yend = 67,
+           colour = "black") +
+  annotate("text", x = 1.5,  y = 69, 
+           label = expression(italic(p)~"= 0.035")) +
   theme_classic()
+
+# save figure to figures/grouse.png
+ggsave("figures/grouse.png",
+       plot = fig2,
+       width = 3,
+       height = 3,
+       units = "in",
+       dpi = 300)
 ```
 
 ## Gene Expression
 
-Researchers are interested in the expression levels of a particular set of 35 _E.coli_ genes in response to heat stress. They measure the expression of the genes at 37 and 42 degrees C (labelled low and high temperature). These samples are **not** independent because we might expect there to be a relationship between expression at 37 and 42 degrees within a gene.
+Bambara groundnut (*Vigna subterranea*) is an African legume with good  nutritional value which can be influenced by low temperature stress. Researchers are interested in the expression levels of a particular set of 35 genes (`probe_id`) in response to temperature stress. They measure the expression of the genes at 23 and 18 degrees C (high and low temperature). These samples are **not** independent because we have two measure from one gene. The data are in [expr.xlxs](data-raw/expr.xlsx).
 
 ### Selecting
 ![](images/answer.png) What is the null hypothesis?
-<!--
-#---THINKING ANSWER---
-expression is not affected by temperature / for each gene, the expression at the higher t   = expression at the lower t
--->
 
-![](images/do_on_your_computer.png) Save a copy of [coliexp.txt](data-raw/coliexp.txt)
+<!-- #---THINKING ANSWER---  -->
 
-![](images/do_in_R.png) Read the data in
-```{r geneimport, echo = FALSE}
-#| include: false  #---CODING ANSWER---
-# I have my data files in a folder called data
-coliexp  <-  read_table("data-raw/coliexp.txt")
+<!-- expression is not affected by temperature / for each gene,  -->
+<!-- the expression at the higher t   = expression at the lower t -->
+
+
+![](images/do_in_R.png) Save a copy of [expr.xlxs](data-raw/expr.xlsx) and import the data. I named the dataframe `bambara`
+
+```{r}
+#| include: false  
+
+#---CODING ANSWER---
+
+# we need the readxl package
+library(readxl)
+bambara  <-  read_excel("data-raw/expr.xlsx")
 ```
 
 ![](images/answer.png) What is the appropriate parametric test?
-<!--
-#---THINKING ANSWER---
-the appropriate parametric test is the paired sample t 
--->
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- the appropriate parametric test is the paired sample lm  -->
+
 
 ### Applying, interpreting and reporting
 
-![](images/do_in_R.png) Now carry out a paired-sample *t*-test. 
-```{r genepairedt}
-t.test(data = coliexp, expression ~ temperature, paired = T)
+A paired test requires us to test whether the difference in expression between high and low temperatures is zero on average. One handy way to achieve this is to organise our groups into two columns. The `pivot_wider()` function will do this for us. We need to tell it what column gives the identifiers (i.e., matches the the pairs) - the probe_ids in this case. We also need to say which variable contains what will become the column names and which contains the values.
 
+![](images/do_in_R.png) Pivot the data so there is a column for each temperature: 
+```{r}
+bambara <- bambara |> 
+  pivot_wider(names_from = temperature, 
+              values_from = expression, 
+              id_cols = probe_id)
 ```
 
+![](images/do_in_R.png) Click on the `bambara` dataframe in the environment to open a view of it so that you understand what `pivot_wider()` has done.
+
+
+![](images/do_in_R.png) Create a paired-sample model like this:
+
+```{r}
+mod <- lm(data = bambara, 
+          highert - lowert ~ 1)
+```
+
+Since we have done `highert - lowert`, the "(Intercept) Estimate" will be the average of the higher temperature expression minus the lower temperature expression for each gene.
+
+![](images/do_in_R.png) Examine the model with:
+
+```{r}
+summary(mod)
+```
+
+
 ![](images/answer.png) State your conclusion from the test in a form suitable for including in a report. Make sure you give the direction of any significant effect.
-<!--
-#---THINKING ANSWER---
-The expression of individual gens is signifcantly higher are high temperatures than low temperatures (*t* = 3.20, _d.f._ = 34, _p_ = 0.0029).
--->
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- The expression of individual genes is significantly higher at higher temperatures  -->
+<!-- than lower temperatures (t = 3.20, d.f. = 34, p = 0.0029) with an average difference -->
+<!-- of 0.307 units. -->
 
 
 # Look after future you!
 
 ![](images/future_you.png){fig-alt="xxx" width="500"}
 
-The code required to summarise, test, and plot data for any two-sample *t*-test AND for any for any one-way ANOVA is **exactly the same** except for the names of the dataframe, variables and the axis labels and limits.
-Take some time to comment it. Consider making a script called ttest.R or similar with all the code and information you need to reuse it.
+The code required to summarise, test, and plot data for any two-sample test AND for any for any one-way ANOVA is **exactly the same** except for the names of the dataframe, variables and the axis labels and limits. Take some time to comment it your code so that you can make use of it next week. 
 
 
 
@@ -450,7 +513,7 @@ You're finished!
 
 These contain all the code needed in the workshop even where it is not visible on the webpage.
 
-The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd).Coding and thinking answers are marked with `#| include: false  #---CODING ANSWER---` and `#---THINKING ANSWER---`
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with Quarto [@allaire2022], [@knitr], [@kableExtra]
 

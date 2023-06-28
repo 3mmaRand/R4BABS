@@ -4,6 +4,9 @@ title: "Week 8: Types of variable, the normal distribution and summarising data"
 
 The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. You will also learn about the "normal distribution" which is the most important continuous distribution. 
 
+![Discrete variable](images/continuous_discrete-02.png){fig-alt="Visual representations of nominal, ordinal, and binary variables. Left: Nominal (ordered descriptions) with illustrations below of a turtle, snail, and butterfly. Center: Ordinal (ordered descriptions) with illustrations below of three bees - one looks unhappy (saying 'I am unhappy'), one looks ok (saying 'I am OK'), and one looks very happy (saying 'I am awesome!'). Right: Binary (only 2 mutually exclusive outcomes), with below a T-rex saying 'I am extinct' and a shark saying 'HA.'"}
+
+
 ### Learning objectives
 
 The successful student will be able to:
