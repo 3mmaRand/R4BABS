@@ -1,6 +1,6 @@
 ---
-title: "Week 6: Chi-squared tests and correlation"
-subtitle: "Independent Study to consolidate this week"
+title: "Independent Study to consolidate this week"
+subtitle: "Week 6: Chi-squared tests and correlation"
 format:
   html:
     code-fold: true

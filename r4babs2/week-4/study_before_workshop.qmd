@@ -1,6 +1,6 @@
 ---
-title: "Week 4: One-way ANOVA and Kruskal-Wallis"
-subtitle: "Independent Study to prepare for workshop"
+title: "Independent Study to prepare for workshop"
+subtitle: "Week 4: One-way ANOVA and Kruskal-Wallis"
 ---
 
 1.  Prepare

@@ -1,5 +1,6 @@
 ---
-title: "Week 6: Chi-squared tests and correlation"
+title: "Overview"
+subtitle: "Week 6: Chi-squared tests and correlation"
 ---
 
 This week you will 

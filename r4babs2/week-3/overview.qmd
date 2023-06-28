@@ -1,5 +1,6 @@
 ---
-title: "Week 3: Two-sample tests"
+title: "Overview"
+subtitle: "Week 3: Two-sample tests"
 ---
 
 This week you will how to use and interpret the general linear model when the *x* variable is categorical and has two groups. Just as with single linear regression, the model puts a line of best through data and the model parameters, the intercept and the slope, have the same in interpretation The intercept is one of the group means and the slope is the difference between that, mean and the other group mean. 

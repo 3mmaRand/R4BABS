@@ -1,6 +1,6 @@
 ---
-title: "Week 4: One-way ANOVA and Kruskal-Wallis"
-subtitle: "Workshop"
+title: "Workshop"
+subtitle: "Week 4: One-way ANOVA and Kruskal-Wallis"
 toc: true
 toc-location: right
 ---

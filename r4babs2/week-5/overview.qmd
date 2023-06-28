@@ -1,5 +1,6 @@
 ---
-title: "Week 5: Two-way ANOVA"
+title: "Overview"
+subtitle: "Week 5: Two-way ANOVA"
 ---
 
 This week you will 

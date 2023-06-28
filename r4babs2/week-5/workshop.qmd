@@ -1,6 +1,6 @@
 ---
-title: "Week 5: Two-way ANOVA"
-subtitle: "Workshop"
+title: "Workshop"
+subtitle: "Week 5: Two-way ANOVA"
 toc: true
 toc-location: right
 ---

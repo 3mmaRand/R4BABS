@@ -1,6 +1,6 @@
 ---
-title: "Week 2: Introduction to statistical models: Single linear regression"
-subtitle: "Independent Study to consolidate this week"
+title: "Independent Study to consolidate this week"
+subtitle: "Week 2: Introduction to statistical models: Single linear regression"
 format:
   html:
     code-fold: true

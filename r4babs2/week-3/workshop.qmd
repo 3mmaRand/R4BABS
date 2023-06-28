@@ -1,6 +1,6 @@
 ---
-title: "Week 3: Two-sample tests"
-subtitle: "Workshop"
+title: "Workshop"
+subtitle: "Week 3: Two-sample tests"
 toc: true
 toc-location: right
 ---

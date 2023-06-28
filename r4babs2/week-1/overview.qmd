@@ -1,5 +1,6 @@
 ---
-title: "Week 1: The logic of hypothesis testing and confidence intervals"
+title: "Overview"
+subtitle: "Week 1: The logic of hypothesis testing and confidence intervals"
 ---
 
 This week we will cover the logic of consider the logic of hypothesis testing and type 1 and type 2 errors. We will also find out what the sampling distribution of the mean and the standard error are, and how to calculate confidence intervals.

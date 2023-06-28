@@ -1,6 +1,6 @@
 ---
-title: "Week 5: Two-way ANOVA"
-subtitle: "Independent Study to consolidate this week"
+title: "Independent Study to consolidate this week"
+subtitle: "Week 5: Two-way ANOVA"
 format:
   html:
     code-fold: true
