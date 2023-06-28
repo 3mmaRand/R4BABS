@@ -179,7 +179,7 @@
     "href": "r4babs2/week-3/overview.html",
     "title": "Week 3: Two-sample tests",
     "section": "",
-    "text": "This week you will how to use and interpret the general linear model when the x variable is categorical and has two groups. Just as with single linear regression, the model puts a line of best through data and the model parameters, the intercept and the slope, have the same in interpretation The intercept is one of the group means and the slope is the difference between that, mean and the other group mean.\n\nLearning objectives\nThe successful student will be able to:\n\nunderstand the principles of two-sample tests\nappreciate that two-sample tests with lm() are based on the normal distribution and thus have assumptions\nappropriately select parametric and non-parametric two-sample tests\nappropriately select paired and and unpaired two-sample tests\napply and interpret lm()and wilcox.test()\nevaluate whether the assumptions of lm() are met\nscientifically report a two-sample test result including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Two-Sample tests\n\nWorkshop\ni.💻 Parametric two-sample test ii.💻 Non-parametric two-sample test iii.💻 Parametric paired-sample test\nConsolidate\n\n💻 Appropriately test whether a genetic modification was successful in increasing omega 3 fatty acids in Cannabis sativa.\n💻 …."
+    "text": "This week you will how to use and interpret the general linear model when the x variable is categorical and has two groups. Just as with single linear regression, the model puts a line of best through data and the model parameters, the intercept and the slope, have the same in interpretation The intercept is one of the group means and the slope is the difference between that, mean and the other group mean.\n\nLearning objectives\nThe successful student will be able to:\n\nunderstand the principles of two-sample tests\nappreciate that two-sample tests with lm() are based on the normal distribution and thus have assumptions\nappropriately select parametric and non-parametric two-sample tests\nappropriately select paired and and unpaired two-sample tests\napply and interpret lm()and wilcox.test()\nevaluate whether the assumptions of lm() are met\nscientifically report a two-sample test result including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Two-Sample tests\n\nWorkshop\n\n💻 Parametric two-sample test\n💻 Non-parametric two-sample test\n💻 Parametric paired-sample test\n\nConsolidate\n\n💻 Appropriately test whether a genetic modification was successful in increasing omega 3 fatty acids in Cannabis sativa.\n💻 …."
   },
   {
     "objectID": "r4babs2/week-2/workshop.html",
@@ -352,14 +352,14 @@
   {
     "objectID": "r4babs1/week-6/workshop.html",
     "href": "r4babs1/week-6/workshop.html",
-    "title": "Week 6: Understanding file systems",
+    "title": "Workshop",
     "section": "",
     "text": "There is no formal workshop this week but you might want to install R and RStudio on your own machine. This is optional because University computers already have R and RStudio installed.\nInstall R and RStudio.\nNote you need a computer - not a tablet."
   },
   {
     "objectID": "r4babs1/week-6/overview.html",
     "href": "r4babs1/week-6/overview.html",
-    "title": "Week 6: Understanding file systems",
+    "title": "Overview",
     "section": "",
     "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nAllison Horst cartoon “code gets the blame”\n\n\n\nLearning objectives\nThe parentheses after each learning objective indicate where the content covers that objective.\nThe successful student will be able to:\n\nexplain what an operating system is\nexplain the organisation of files and directories in a file systems\nexplain what a file is and give some common files types\nexplain what is meant by a plain text file\nexplain the relationship between the file extensions, the file format and associations with programs\nuse a file manager\nexplain root, home and working directories\nexplain absolute and relative file paths\nknow what R and RStudio are\nknow how to organise their work\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers\nRead What are R and Rstudio?\n\nWorkshop\n\nOptional: Install R and RStudio\n\nConsolidate"
   },
@@ -562,14 +562,14 @@
   {
     "objectID": "r4babs1/week-6/study_before_workshop.html",
     "href": "r4babs1/week-6/study_before_workshop.html",
-    "title": "Week 6: Understanding file systems",
+    "title": "Independent Study to prepare for workshop",
     "section": "",
     "text": "Watch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers in Computational Analysis for Bioscientists\nRead What are R and Rstudio?. You only need to read this section, you do not need to the read the rest of the chapter (yet!)"
   },
   {
     "objectID": "r4babs1/week-6/study_after_workshop.html",
     "href": "r4babs1/week-6/study_after_workshop.html",
-    "title": "Week 6: Understanding file systems",
+    "title": "Independent Study to consolidate this week",
     "section": "",
     "text": "There is no additional study this week but you may want to look ahead to next week."
   },
