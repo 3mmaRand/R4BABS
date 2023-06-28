@@ -44,13 +44,17 @@ The concentration of juvenile hormone in stag beetles is known to influence mand
 ```{r}
 #| output: false
 
-#read the data in and check the structure
+# read the data in and check the structure
 stag <- read_table("data-raw/stag.txt")
 str(stag)
 
 # jh is discrete but ordered and has been chosen by the experimenter - it is the explanatory variable.  
 # the response is mandible size which has decimal places and is something we would expect to be 
 # normally distributed. So far, common sense suggests the assumptions of regression are met.
+```
+
+```{r}
+#| output: false
 
 # exploratory plot
 ggplot(stag, aes(x = jh, y = mand)) +
@@ -58,6 +62,10 @@ ggplot(stag, aes(x = jh, y = mand)) +
 # looks linear-ish on the scatter
 # regression still seems appropriate
 # we will check the other assumptions after we have run the lm
+```
+
+```{r}
+#| output: false
 
 # build the statistical model
 mod <- lm(data = stag, mand ~ jh)
@@ -67,6 +75,10 @@ summary(mod)
 # mand = 0.032*jh + 0.419
 # the slope of the line is significantly different from zero / the jh explains a significant amount of the variation in mand (ANOVA: F = 16.63; d.f. = 1,14; p = 0.00113).
 # the intercept is 0.419 and differs significantly from zero 
+```
+
+```{r}
+#| output: false
 
 # checking the assumption
 plot(mod, which = 1) 
@@ -80,6 +92,10 @@ shapiro.test(mod$residuals) # the also test not sig diff from normal
 # On balance the use of regression is probably justifiable but it is borderline
 # but ideally the experiment would be better if multiple individuals were measure at
 # each of the chosen juvenile hormone levels.
+```
+
+```{r}
+#| output: false
 
 # a better plot
 ggplot(stag, aes(x = jh, y = mand) ) +

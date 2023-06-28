@@ -33,7 +33,9 @@ and thus have assumptions
 
 2.  [Workshop](workshop.qmd)
     
-    i.💻 
+    i.💻 Parametric two-sample test
+    ii.💻 Non-parametric two-sample test
+    iii.💻 Parametric paired-sample test
 
 3.  [Consolidate](study_after_workshop.qmd)
 
