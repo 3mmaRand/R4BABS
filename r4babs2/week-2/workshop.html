@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.427">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -455,7 +455,7 @@ div.csl-indent {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/linear-regression-dragon.png" class="img-fluid figure-img" alt="Two blue dragons stand on scales next to a vertical yardstick showing one slightly taller than the other. Regression estimates are shown at the top as an equation: 'weight (tons) = 2.4 + 0.3*height', with explanatory text reading 'If all other variables are constant, we expect a 1 foot taller dragon to weight 0.3 tons more, on average.'" width="800"></p>
-<figcaption class="figure-caption">Allison Horst cartton: “linear regression dragons”</figcaption>
+<figcaption class="figure-caption">Allison Horst cartoon: “linear regression dragons”</figcaption>
 </figure>
 </div>
 <section id="session-overview" class="level2">
@@ -627,6 +627,7 @@ data:  mod$residuals
 W = 0.96377, p-value = 0.1208</code></pre>
 </div>
 </div>
+<p>Usually, when we are doing statistical tests we would like the the test to be significant because it means we have evidence of a biological effect. However, when doing normality tests we hope it will not be significant. A non-significant result means that there is no significant difference between the distribution of the residuals and a normal distribution and that indicates the assumptions are met.</p>
 <p><img src="images/answer.png" class="img-fluid"> What to you conclude?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- the residuals appear roughly normally distributed.  -->
@@ -645,466 +646,36 @@ W = 0.96377, p-value = 0.1208</code></pre>
 <p><img src="workshop_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> The <code>geom_smooth()</code> function will had a variety of fited lines to a plot. We want a line so we need to specify <code>method = "lm"</code>:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> The <code>geom_smooth()</code> function will had a variety of fitted lines to a plot. We want a line so we need to specify <code>method = "lm"</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant, <span class="fu">aes</span>(<span class="at">x =</span> day, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>   </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"black"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>List of 97
- $ line                      :List of 6
-  ..$ colour       : chr "black"
-  ..$ linewidth    : num 0.5
-  ..$ linetype     : num 1
-  ..$ lineend      : chr "butt"
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_line" "element"
- $ rect                      :List of 5
-  ..$ fill         : chr "white"
-  ..$ colour       : chr "black"
-  ..$ linewidth    : num 0.5
-  ..$ linetype     : num 1
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_rect" "element"
- $ text                      :List of 11
-  ..$ family       : chr ""
-  ..$ face         : chr "plain"
-  ..$ colour       : chr "black"
-  ..$ size         : num 11
-  ..$ hjust        : num 0.5
-  ..$ vjust        : num 0.5
-  ..$ angle        : num 0
-  ..$ lineheight   : num 0.9
-  ..$ margin       : 'margin' num [1:4] 0points 0points 0points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ title                     : NULL
- $ aspect.ratio              : NULL
- $ axis.title                : NULL
- $ axis.title.x              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 2.75points 0points 0points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.title.x.top          :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 0
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 0points 2.75points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.title.x.bottom       : NULL
- $ axis.title.y              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 1
-  ..$ angle        : num 90
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 2.75points 0points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.title.y.left         : NULL
- $ axis.title.y.right        :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 0
-  ..$ angle        : num -90
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 0points 0points 2.75points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.text                 :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : chr "grey30"
-  ..$ size         : 'rel' num 0.8
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.text.x               :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 2.2points 0points 0points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.text.x.top           :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 0
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 0points 2.2points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.text.x.bottom        : NULL
- $ axis.text.y               :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 1
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 2.2points 0points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.text.y.left          : NULL
- $ axis.text.y.right         :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 0
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 0points 0points 2.2points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ axis.ticks                :List of 6
-  ..$ colour       : chr "grey20"
-  ..$ linewidth    : NULL
-  ..$ linetype     : NULL
-  ..$ lineend      : NULL
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_line" "element"
- $ axis.ticks.x              : NULL
- $ axis.ticks.x.top          : NULL
- $ axis.ticks.x.bottom       : NULL
- $ axis.ticks.y              : NULL
- $ axis.ticks.y.left         : NULL
- $ axis.ticks.y.right        : NULL
- $ axis.ticks.length         : 'simpleUnit' num 2.75points
-  ..- attr(*, "unit")= int 8
- $ axis.ticks.length.x       : NULL
- $ axis.ticks.length.x.top   : NULL
- $ axis.ticks.length.x.bottom: NULL
- $ axis.ticks.length.y       : NULL
- $ axis.ticks.length.y.left  : NULL
- $ axis.ticks.length.y.right : NULL
- $ axis.line                 :List of 6
-  ..$ colour       : chr "black"
-  ..$ linewidth    : 'rel' num 1
-  ..$ linetype     : NULL
-  ..$ lineend      : NULL
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_line" "element"
- $ axis.line.x               : NULL
- $ axis.line.x.top           : NULL
- $ axis.line.x.bottom        : NULL
- $ axis.line.y               : NULL
- $ axis.line.y.left          : NULL
- $ axis.line.y.right         : NULL
- $ legend.background         :List of 5
-  ..$ fill         : NULL
-  ..$ colour       : logi NA
-  ..$ linewidth    : NULL
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_rect" "element"
- $ legend.margin             : 'margin' num [1:4] 5.5points 5.5points 5.5points 5.5points
-  ..- attr(*, "unit")= int 8
- $ legend.spacing            : 'simpleUnit' num 11points
-  ..- attr(*, "unit")= int 8
- $ legend.spacing.x          : NULL
- $ legend.spacing.y          : NULL
- $ legend.key                : list()
-  ..- attr(*, "class")= chr [1:2] "element_blank" "element"
- $ legend.key.size           : 'simpleUnit' num 1.2lines
-  ..- attr(*, "unit")= int 3
- $ legend.key.height         : NULL
- $ legend.key.width          : NULL
- $ legend.text               :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : 'rel' num 0.8
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ legend.text.align         : NULL
- $ legend.title              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 0
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ legend.title.align        : NULL
- $ legend.position           : chr "right"
- $ legend.direction          : NULL
- $ legend.justification      : chr "center"
- $ legend.box                : NULL
- $ legend.box.just           : NULL
- $ legend.box.margin         : 'margin' num [1:4] 0cm 0cm 0cm 0cm
-  ..- attr(*, "unit")= int 1
- $ legend.box.background     : list()
-  ..- attr(*, "class")= chr [1:2] "element_blank" "element"
- $ legend.box.spacing        : 'simpleUnit' num 11points
-  ..- attr(*, "unit")= int 8
- $ panel.background          :List of 5
-  ..$ fill         : chr "white"
-  ..$ colour       : logi NA
-  ..$ linewidth    : NULL
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_rect" "element"
- $ panel.border              : list()
-  ..- attr(*, "class")= chr [1:2] "element_blank" "element"
- $ panel.spacing             : 'simpleUnit' num 5.5points
-  ..- attr(*, "unit")= int 8
- $ panel.spacing.x           : NULL
- $ panel.spacing.y           : NULL
- $ panel.grid                :List of 6
-  ..$ colour       : chr "grey92"
-  ..$ linewidth    : NULL
-  ..$ linetype     : NULL
-  ..$ lineend      : NULL
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_line" "element"
- $ panel.grid.major          : list()
-  ..- attr(*, "class")= chr [1:2] "element_blank" "element"
- $ panel.grid.minor          : list()
-  ..- attr(*, "class")= chr [1:2] "element_blank" "element"
- $ panel.grid.major.x        : NULL
- $ panel.grid.major.y        : NULL
- $ panel.grid.minor.x        : NULL
- $ panel.grid.minor.y        : NULL
- $ panel.ontop               : logi FALSE
- $ plot.background           :List of 5
-  ..$ fill         : NULL
-  ..$ colour       : chr "white"
-  ..$ linewidth    : NULL
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_rect" "element"
- $ plot.title                :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : 'rel' num 1.2
-  ..$ hjust        : num 0
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 0points 5.5points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ plot.title.position       : chr "panel"
- $ plot.subtitle             :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 0
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 0points 0points 5.5points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ plot.caption              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : 'rel' num 0.8
-  ..$ hjust        : num 1
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 5.5points 0points 0points 0points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ plot.caption.position     : chr "panel"
- $ plot.tag                  :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : 'rel' num 1.2
-  ..$ hjust        : num 0.5
-  ..$ vjust        : num 0.5
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ plot.tag.position         : chr "topleft"
- $ plot.margin               : 'margin' num [1:4] 5.5points 5.5points 5.5points 5.5points
-  ..- attr(*, "unit")= int 8
- $ strip.background          :List of 5
-  ..$ fill         : chr "white"
-  ..$ colour       : chr "black"
-  ..$ linewidth    : 'rel' num 2
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_rect" "element"
- $ strip.background.x        : NULL
- $ strip.background.y        : NULL
- $ strip.clip                : chr "inherit"
- $ strip.placement           : chr "inside"
- $ strip.text                :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : chr "grey10"
-  ..$ size         : 'rel' num 0.8
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : 'margin' num [1:4] 4.4points 4.4points 4.4points 4.4points
-  .. ..- attr(*, "unit")= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ strip.text.x              : NULL
- $ strip.text.x.bottom       : NULL
- $ strip.text.x.top          : NULL
- $ strip.text.y              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : num -90
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ strip.text.y.left         :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : num 90
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, "class")= chr [1:2] "element_text" "element"
- $ strip.text.y.right        : NULL
- $ strip.switch.pad.grid     : 'simpleUnit' num 2.75points
-  ..- attr(*, "unit")= int 8
- $ strip.switch.pad.wrap     : 'simpleUnit' num 2.75points
-  ..- attr(*, "unit")= int 8
- - attr(*, "class")= chr [1:2] "theme" "gg"
- - attr(*, "complete")= logi TRUE
- - attr(*, "validate")= logi TRUE</code></pre>
 </div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> What do the <code>se</code> and <code>colour</code> arguments do? Try changing them.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Let’s add the equation of the line to the figure using <code>annotate()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig:regression</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The relationship between days after planting and the mass of a plant. "</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fig2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(plant, <span class="fu">aes</span>(<span class="at">x =</span> day, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Day"</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">65</span>),</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Mass (g)"</span>,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">120</span>),</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">15</span>, <span class="at">y =</span> <span class="dv">100</span>, </span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"mass = 1.61 * day - 8.68"</span>) <span class="sc">+</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant, <span class="fu">aes</span>(<span class="at">x =</span> day, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">20</span>, <span class="at">y =</span> <span class="dv">110</span>, </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"mass = 1.61 * day - 8.68"</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
-<p>We have to tell <code>annotate()</code> what type of geom we want - <code>text</code> in this case - where to put it, and the text we want to appear.</p>
+</div>
+<p>We have to tell <code>annotate()</code> what type of geom we want - <code>text</code> in this case, - where to put it, and the text we want to appear.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Improve the axes. You may need to refer back <a href="../../r4babs1/week-7/workshop.html#changing-the-axes">Changing the axes</a> from the Week 7 workshop in BABS1 <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Save your figure to your <code>figures</code> folder.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/plant-growth.png"</span>,</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> fig2,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="fl">3.5</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="fl">3.5</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 </section>
 <section id="look-after-future-you" class="level2">
@@ -1114,7 +685,12 @@ W = 0.96377, p-value = 0.1208</code></pre>
 </section>
 <section id="well-done" class="level1">
 <h1>🥳 Well Done! 🎉</h1>
-<p><img src="images/xxx.png" class="img-fluid" alt="xxx" width="1000"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lenght-length.png" class="img-fluid figure-img" alt="Comic panels of an alligator trying to debug some code. First panel: A confident looking alligator gets an error message. Second panel: a few minutes later, the error remains and the alligator is looking carefully at their code. Third panel: 10 minutes after that, the error remains and the alligator is giving a frustrated 'RAAAR' while desperately typing. Fourth panel: The error remains, and the alligator looks exhausted and exasperated, and a thought bubble reads 'maybe it's a bug'. Fifth panel: A friendly flamingo comes over to take a look, and reads aloud from the problematic code a spelling error: 'L-E-N-G-H-T'. Only the tail of the alligator is visible as it stomp stomp stomps out of the panel roaring." width="800"></p>
+<figcaption class="figure-caption">Allison Horst cartoon: “length typos”</figcaption>
+</figure>
+</div>
 </section>
 <section id="independent-study-following-the-workshop" class="level1">
 <h1>Independent study following the workshop</h1>
@@ -1136,6 +712,9 @@ W = 0.96377, p-value = 0.1208</code></pre>
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
+</div>
+<div id="ref-rand2023" class="csl-entry" role="listitem">
+Rand, Emma. 2023. <em>Data Analysis in r for Becoming a Bioscientist</em>. <a href="https://3mmarand.github.io/R4BABS/">https://3mmarand.github.io/R4BABS/</a>.
 </div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
