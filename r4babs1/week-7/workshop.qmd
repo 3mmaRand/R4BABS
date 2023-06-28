@@ -1,6 +1,6 @@
 ---
-title: "Week 7: Introduction to RStudio and your first graphs"
-subtitle: "Workshop"
+title: "Workshop"
+subtitle: "Week 7: Introduction to RStudio and your first graphs"
 toc: true
 toc-location: right
 ---

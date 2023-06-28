@@ -1,6 +1,6 @@
 ---
-title: "Week 9: Summarising data in with several variables and the role of variables in analysis"
-subtitle: "Independent Study to prepare for workshop"
+title: "Independent Study to prepare for workshop"
+subtitle: "Week 9: Summarising data in with several variables and the role of variables in analysis"
 ---
 
 1.  📖 Read [Working with data in RStudio](https://3mmarand.github.io/comp4biosci/working_with_data_rstudio.html). The first part of this chapter is about data import which we covered in the last workshop. You may be able to skip that part or you may find it useful to revise. The section on [Summarising data](https://3mmarand.github.io/comp4biosci/working_with_data_rstudio.html#summarising-data) will be mainly new.

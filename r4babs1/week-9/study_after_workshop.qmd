@@ -1,6 +1,6 @@
 ---
-title: "Week 9: Summarising data in with several variables and the role of variables in analysis"
-subtitle: "Independent Study to consolidate this week"
+title: "Independent Study to consolidate this week"
+subtitle: "Week 9: Summarising data in with several variables and the role of variables in analysis"
 format:
   html:
     code-fold: true
