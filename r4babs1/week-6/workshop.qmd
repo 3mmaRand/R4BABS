@@ -1,6 +1,6 @@
 ---
-title: "Week 6: Understanding file systems"
-subtitle: "Workshop"
+title: "Workshop"
+subtitle: "Week 6: Understanding file systems"
 toc: true
 toc-location: right
 ---
