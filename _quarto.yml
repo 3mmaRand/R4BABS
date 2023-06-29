@@ -29,8 +29,8 @@ website:
         file:  r4babs1/r4babs1.qmd
       - text: "BABS 2"
         file:  r4babs2/r4babs2.qmd
-      - text: "BABS 2"
-        file:  r4babs2/r4babs2.qmd
+      - text: "PGT 52M"
+        file:  pgt52m/pgt52.qmd
     tools:
       - icon: twitter
         href: https://twitter.com/er_13
