@@ -166,7 +166,7 @@ website:
       style: "floating"
       background: light
       contents:
-          - href: pgt52m/pgt52.qmd
+          - href: pgt52m/pgt52m.qmd
           - text: ---
           - text: ---
           - section: "Week 1: Understanding file systems"

@@ -27,10 +27,11 @@ The successful student will be able to:
 
 2.  [Workshop](workshop.qmd)
     
-    i.💻 
+    i. 💻 One-way ANOVA
+    ii. 💻 Kruskal-Wallis
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻 
-
-    ii. 📖 Read 
+    i.  💻  Appropriately test if fitness and acclimation effectthe sodium content of sweat
+    ii.  💻  Appropriately test if insecticides vary in their effectiveness
+    iii. 📖  Read 
