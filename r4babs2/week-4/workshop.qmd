@@ -60,7 +60,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 # Exercises
 
-
+https://3mmarand.github.io/gist-lm/one-way-anova-revisit.html
 
 You're finished!
 

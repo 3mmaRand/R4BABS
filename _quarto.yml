@@ -29,6 +29,8 @@ website:
         file:  r4babs1/r4babs1.qmd
       - text: "BABS 2"
         file:  r4babs2/r4babs2.qmd
+      - text: "BABS 2"
+        file:  r4babs2/r4babs2.qmd
     tools:
       - icon: twitter
         href: https://twitter.com/er_13
@@ -160,6 +162,58 @@ website:
                text: Workshop
              - href: r4babs2/week-6/study_after_workshop.qmd
                text: Consolidate!  
+    - title: "PGT 52M"
+      style: "floating"
+      background: light
+      contents:
+          - href: pgt52m/pgt52.qmd
+          - text: ---
+          - text: ---
+          - section: "Week 1: Understanding file systems"
+            contents: 
+             - href: r4babs1/week-6/overview.qmd
+               text: About  
+             - href: r4babs1/week-6/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-6/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-6/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 2: Introduction to R and project organisation"
+            contents: 
+             - href: r4babs1/week-7/overview.qmd
+               text: About  
+             - href: r4babs1/week-7/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-7/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-7/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 3: Types of variable, summarising and plotting data"
+            contents: 
+             - href: r4babs1/week-8/overview.qmd
+               text: About  
+             - href: r4babs1/week-8/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-8/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-8/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 4: Summarising data with several variables"
+            contents: 
+             - href: r4babs1/week-9/overview.qmd
+               text: About  
+             - href: r4babs1/week-9/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs1/week-9/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-9/study_after_workshop.qmd
+               text: Consolidate!  
+
+
 execute:
   echo: true
   warning: false

@@ -9,19 +9,20 @@ This week you will
 
 The successful student will be able to:
 
--   
+-   explain the rationale behind ANOVA understand the meaning of the F values 
 
--  
+-   select, appropriately, one-way ANOVA and Kruskal-Wallis 
 
--   
+-   know what functions are used in R to run these tests and how to interpret them
 
--   
+-   scientifically report the results of these tests including appropriate figures
+
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  📖 Read the book **OR** 📹 Watch two videos
+    i.  📖 Read One-way ANOVA and Kruskal-Wallis
 
 
 2.  [Workshop](workshop.qmd)
