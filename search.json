@@ -53,7 +53,7 @@
     "href": "r4babs2/week-4/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "This week you will\n\nLearning objectives\nThe successful student will be able to:\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+    "text": "This week you will\n\nLearning objectives\nThe successful student will be able to:\n\nexplain the rationale behind ANOVA understand the meaning of the F values\nselect, appropriately, one-way ANOVA and Kruskal-Wallis\nknow what functions are used in R to run these tests and how to interpret them\nscientifically report the results of these tests including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read One-way ANOVA and Kruskal-Wallis\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
   },
   {
     "objectID": "r4babs2/week-5/workshop.html",
@@ -483,6 +483,48 @@
     "text": "The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. You will also learn about the “normal distribution” which is the most important continuous distribution.\n\n\n\nDiscrete variable\n\n\n\nLearning objectives\nThe successful student will be able to:\n\ndistinguish between continuous, discrete, nominal and ordinal variable\nread in data in to RStudio from a plain text file and Excel files\nsummarise and plot variables appropriately for the data type\n\n\n\nInstructions\n\nPrepare\n\n📖 Read: Ideas about data\n\nWorkshop\n\n💻 Importing data\n💻 Summarising discrete data\n💻 Summarising count data\n💻 Summarising continuous data\n\nConsolidate\n\n💻 Summarise some data\n💻 Plot some data\n💻 Format a plot (1)\n💻 Format a plot (2)\n📖 Read Understanding the pipe |&gt;"
   },
   {
+    "objectID": "pgt52m/pgt52m.html",
+    "href": "pgt52m/pgt52m.html",
+    "title": "52M Data Analysis in R",
+    "section": "",
+    "text": "This is the first of the four BABS modules. Over four weeks you will learn some core concepts about scientific computing, types of variable, the role of variables in analysis and how to use RStudio to organise analysis and import, summarise and plot data.\n\n\nThe BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
+  },
+  {
+    "objectID": "pgt52m/pgt52m.html#module-learning-objectives",
+    "href": "pgt52m/pgt52m.html#module-learning-objectives",
+    "title": "52M Data Analysis in R",
+    "section": "",
+    "text": "The BABS1 Module Learning outcomes that relate to the Data Analysis in R content are:\n\nMethodically record scientific investigations with lab books, organise data and use R to import, summarise and plot simple data sets.\nExplain the key features of effective written media for dissemination of scientific information and be able to communicate experimental results through a scientific poster."
+  },
+  {
+    "objectID": "pgt52m/pgt52m.html#week-6-understanding-file-systems",
+    "href": "pgt52m/pgt52m.html#week-6-understanding-file-systems",
+    "title": "52M Data Analysis in R",
+    "section": "Week 6: Understanding file systems",
+    "text": "Week 6: Understanding file systems\nYou will learn about operating systems, files and file systems, working directories, absolute and relative paths, what R and RStudio are"
+  },
+  {
+    "objectID": "pgt52m/pgt52m.html#week-7-introduction-to-r-and-project-organisation",
+    "href": "pgt52m/pgt52m.html#week-7-introduction-to-r-and-project-organisation",
+    "title": "52M Data Analysis in R",
+    "section": "Week 7: Introduction to R and project organisation",
+    "text": "Week 7: Introduction to R and project organisation\nYou will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects."
+  },
+  {
+    "objectID": "pgt52m/pgt52m.html#week-8-types-of-variable-summarising-and-plotting-data",
+    "href": "pgt52m/pgt52m.html#week-8-types-of-variable-summarising-and-plotting-data",
+    "title": "52M Data Analysis in R",
+    "section": "Week 8: Types of variable, summarising and plotting data",
+    "text": "Week 8: Types of variable, summarising and plotting data\nThe type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. The focus will be on plotting and summarising single variables. You will also learn how to read in data in to RStudio from plain text files and Excel files."
+  },
+  {
+    "objectID": "pgt52m/pgt52m.html#week-9-summarising-data-with-several-variables",
+    "href": "pgt52m/pgt52m.html#week-9-summarising-data-with-several-variables",
+    "title": "52M Data Analysis in R",
+    "section": "Week 9: Summarising data with several variables",
+    "text": "Week 9: Summarising data with several variables\nThis week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Data Analysis in R for Becoming a Bioscientist",
@@ -760,7 +802,7 @@
     "href": "r4babs2/week-4/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+    "text": "Prepare\n\n📖 Read One-way ANOVA and Kruskal-Wallis"
   },
   {
     "objectID": "r4babs2/week-4/study_after_workshop.html",
