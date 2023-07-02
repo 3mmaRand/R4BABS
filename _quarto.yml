@@ -42,7 +42,7 @@ website:
   sidebar:
     - title: "BABS 1"
       style: "floating"
-      background: light
+      background: "#eef8fa"
       contents:
           - href: r4babs1/r4babs1.qmd
           - text: ---
@@ -92,7 +92,7 @@ website:
                text: Consolidate!  
     - title: "BABS 2"
       style: "floating"
-      background: light
+      background: "#faeef8"
       contents: 
           - href: r4babs2/r4babs2.qmd
           - text: ---
