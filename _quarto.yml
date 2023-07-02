@@ -43,7 +43,6 @@ website:
     - title: "BABS 1"
       style: "floating"
       contents: 
-        background: "#eef8fa"
           - href: r4babs1/r4babs1.qmd
           - text: ---
           - text: ---
@@ -93,7 +92,6 @@ website:
     - title: "BABS 2"
       style: "floating"
       contents: 
-        background: "#faeef8"
           - href: r4babs2/r4babs2.qmd
           - text: ---
           - text: ---
