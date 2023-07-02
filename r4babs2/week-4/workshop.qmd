@@ -13,7 +13,7 @@ library(kableExtra)
 
 # Introduction
 
-![](images/xxx.png){fig-alt="xxxxx" width="1000"}
+![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxxxx" width="1000"}
 
 ## Session overview
 
@@ -472,7 +472,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![](images/xxx.png){fig-alt="xxx" width="1000"}
+![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxx" width="1000"}
 
 # Independent study following the workshop
 
@@ -484,6 +484,6 @@ These contain all the code needed in the workshop even where it is not visible o
 
 The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-4/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with Quarto [@allaire2022], [@knitr], [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
 # References

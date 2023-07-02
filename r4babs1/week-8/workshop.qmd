@@ -13,7 +13,7 @@ library(kableExtra)
 
 # Introduction
 
-![Continuous and Discrete](images/continuous_discrete-01.png){fig-alt="One the left: Continuous data - measures that can have possible infinite values within its range. A cute chick labelled I am 3.1 inches tall, I weigh 34.16 grams. One the right: Discrete observations can only exist at limited values, often counts. A cute octopus labelled I have 8 legs and 4 spots"}
+![Artwork by @allison_horst: Continuous and Discrete](images/continuous_discrete-01.png){fig-alt="One the left: Continuous data - measures that can have possible infinite values within its range. A cute chick labelled I am 3.1 inches tall, I weigh 34.16 grams. One the right: Discrete observations can only exist at limited values, often counts. A cute octopus labelled I have 8 legs and 4 spots"}
 
 ## Session overview
 
@@ -72,8 +72,6 @@ Last week we created data [by typing the values in to R](../week-7/workshop.html
 
     `R` can only read in a file if you say where it is, i.e., you give its **relative path**. If you follow the advice in this course, your data will be in a folder, `data-raw` which is inside your Project folder (and working directory).
 
-[^1]: Plain text files can be opened in notepad or other similar editor and still be readable.
-
 We will save the four files for this workshop to our Project folder (`week-8`) and read them in. We will then create a new folder inside our Project folder called `data-raw` and move the data files to there before modifying the file paths as required. This is demonstrate how the relative path to the file will change after we move it.
 
 ![](images/do_on_your_computer.png) Save these four files in to your `week-8` folder
@@ -83,7 +81,7 @@ We will save the four files for this workshop to our Project folder (`week-8`) a
 -   The number of sternopleural bristles on 96 female *Drosophila*: [bristles.txt](data-raw/bristles.txt)
 -   The number of sternopleural bristles on 96 female *Drosophila* (with technical replicates): [bristles-mean.xlsx](data-raw/bristles-mean.xlsx)
 
-The first three files can be read in with core `**tidyerse**` functions and the last can be read in with the `**readxl**` package.
+The first three files can be read in with core **`tidyverse`** @tidyverse functions and the last can be read in with the **`readxl`** @readxl package.
 
 ![](images/do_in_R.png) Load the two packages
 
@@ -95,8 +93,6 @@ library(readxl)
 We will first read in `cat-coats.csv`. A `.csv.` extension suggests this is plain text file with comma separated columns. However, before we attempt to read it it, when should take a look at it. We can do this from RStudio
 
 ![](images/do_in_R.png) Go to the Files pane (bottom right), click on the `cat-coats.csv` file and choose View File[^2]
-
-[^2]: **Don't** be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.
 
 ![RStudio Files Pane](images/rstudio-filepane-viewfile.png){fig-alt="Rstudio Files pane showing the data files and the View File option that appears when you click on the a particular file"}
 
@@ -145,8 +141,6 @@ The data from the file a read into a dataframe called `cats` and you will be abl
 
 We use the `read_table()`[^3] command to read in plain text files of single columns or where the columns are separated by spaces...
 
-[^3]: note `read_csv()` and `read_table()` are the same functions with some different settings.
-
 ![](images/do_in_R.png) ...so in `cell-size.txt` can be read into a dataframe called `cells` like this:
 
 ```{r}
@@ -164,7 +158,7 @@ cells <- read_table("cell-size.txt")
 fly_bristles <- read_table("bristles.txt")
 ```
 
-The `**readxl**` package we loaded earlier has two useful functions for working with Excel files: `excel_sheets("filename.xlsx")` will list the sheets in an Excel workbook; `read_excel("filename.xlsx")` will read in to top sheet or a specified sheet with a small modification `read_excel("filename.xlsx", sheet = "Sheet1")`.
+The **`readxl`** package we loaded earlier has two useful functions for working with Excel files: `excel_sheets("filename.xlsx")` will list the sheets in an Excel workbook; `read_excel("filename.xlsx")` will read in to top sheet or a specified sheet with a small modification `read_excel("filename.xlsx", sheet = "Sheet1")`.
 
 ![](images/do_in_R.png) List the the names of the sheets and read in the sheet with the data like this:
 
@@ -272,9 +266,7 @@ fly_bristles |>
 
 As the interquartile is `r IQR(fly_bristles$number)` and the median is `r median(fly_bristles$number)` then 25% flies have `r median(fly_bristles$number) - IQR(fly_bristles$number)/2` bristles or fewer and 25% have `r median(fly_bristles$number) + IQR(fly_bristles$number)/2` or more.
 
-The distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. 
-
-[^4]: Count data are usually "Poisson" distributed.
+The distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data.
 
 ![](images/do_in_R.png) If you want to save the table you created and give the columns better names you can make two adjustments:
 
@@ -451,7 +443,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Not normal](images/not_normal.png){fig-alt="two distributions as characters. One is normal (bell-shaped) the other is not"}
+![Artwork by @allison_horst: Not normal](images/not_normal.png){fig-alt="two distributions as characters. One is normal (bell-shaped) the other is not"}
 
 # Independent study following the workshop
 
@@ -463,6 +455,14 @@ These contain all the code needed in the workshop even where it is not visible o
 
 The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with Quarto [@allaire2022]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
 # References
+
+[^1]: Plain text files can be opened in notepad or other similar editor and still be readable.
+
+[^2]: **Do not** be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.
+
+[^3]: note `read_csv()` and `read_table()` are the same functions with some different settings.
+
+[^4]: Count data are usually "Poisson" distributed.

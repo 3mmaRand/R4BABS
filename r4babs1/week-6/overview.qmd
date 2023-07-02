@@ -5,7 +5,7 @@ subtitle: "Understanding file systems"
 
 This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.
 
-![Allison Horst cartoon "code gets the blame"](images/code_gets_the_blame.jpg){fig-alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos"}
+![Artwork by @allison_horst: "code gets the blame"](images/code_gets_the_blame.jpg){fig-alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos"}
 
 ### Learning objectives
 

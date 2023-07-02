@@ -13,7 +13,7 @@ library(kableExtra)
 
 # Introduction
 
-![](images/welcome_to_rstats_twitter.png){fig-alt="Two fuzzy monsters standing side-by-side outside of a door frame through which is a magical wonderland of different R communities, with a 'mind blown' rainbow coming out of the one closest to the door. A welcome mat says 'Welcome'." width="1000"}
+![Artwork by @allison_horst: "Welcome to Rstats"](images/welcome_to_rstats_twitter.png){fig-alt="Two fuzzy monsters standing side-by-side outside of a door frame through which is a magical wonderland of different R communities, with a 'mind blown' rainbow coming out of the one closest to the door. A welcome mat says 'Welcome'." width="800"}
 
 ## Session overview
 
@@ -147,7 +147,7 @@ sum(freq)
 
 Commands like `c()`, `sum()`, and `str()` are in packages which are part the 'base' R system. A package is a collection of related commands. Base packages are installed automatically when you install R.
 
-Other packages, such as **`ggplot2`** @ggplot2 need to be installed once and then loaded each session. **`ggplot2`** is one of the **`tidyverse`** @tidyverse packages.
+Other packages, such as **`ggplot2`** [@ggplot2] need to be installed once and then loaded each session. **`ggplot2`** is one of the **`tidyverse`** [@tidyverse] packages.
 
 ::: callout-important
 ## Important
@@ -185,6 +185,7 @@ We can make a dataframe of the two vectors, `coat` and `freq` using the `data.fr
 ```{r}
 coat_data <- data.frame(coat, freq)
 ```
+
 ![](images/do_in_R.png) Check the structure of `coat_data`
 
 ```{r}
@@ -316,8 +317,6 @@ We can make changes to the axes using:
 
 `ggplot` automatically extends the axes slightly. You can turn this behaviour off with the `expand` argument in `scale_x_discrete()` and `scale_y_continuous()`.[^1]
 
-[^1]: There are also `scale_x_continous()` and `scale_y_discrete()` functions when you have those types of variable
-
 ![](images/do_in_R.png) Remove the gap between the axes and the data:
 
 ```{r}
@@ -377,8 +376,6 @@ ggplot(data = coat_data, aes(x = coat, y = freq)) +
 ### Getting rid of the grey background
 
 The grey grid background is useful for examining plots on a screen but for a report of publication you will want a more scientific style. Every aspect of the "theme" of a plot - the non-data elements such as fonts, background colours, axis line colours etc - can be controlled individually[^2] but there are some handy built in themes that apply several changes at once. One of these is `theme_classic()`
-
-[^2]: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)
 
 ![](images/do_in_R.png) Add `theme_classic()` to the plot:
 
@@ -461,7 +458,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![](images/r_first_then.png){fig-alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…' The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads 'but now it’s like…'”'" width="1000"}
+![Artwork by @allison_horst: "but now it's like"](images/r_first_then.png){fig-alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…' The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads 'but now it’s like…'” width="800"}
 
 # Independent study following the workshop
 
@@ -473,6 +470,10 @@ These contain all the code needed in the workshop even where it is not visible o
 
 The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with Quarto [@allaire2022]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
 # References
+
+[^1]: There are also `scale_x_continous()` and `scale_y_discrete()` functions when you have those types of variable
+
+[^2]: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)

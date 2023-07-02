@@ -13,7 +13,7 @@ library(kableExtra)
 
 # Introduction
 
-![Allison Horst cartoon "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
+![Artwork by @allison_horst:  "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
 
 ## Session overview
 
@@ -239,7 +239,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![](images/we-believe.png){fig-alt="Header text 'R learners' above five friendly monsters holding up signs that together read 'we believe in you.'" width="800"}
+![Artwork by @allison_horst: "We belive in you!"](images/we-believe.png){fig-alt="Header text 'R learners' above five friendly monsters holding up signs that together read 'we believe in you.'" width="800"}
 
 # Independent study following the workshop
 
@@ -251,6 +251,6 @@ These contain all the code needed in the workshop even where it is not visible o
 
 The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with Quarto [@allaire2022], [@knitr], [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
 # References
