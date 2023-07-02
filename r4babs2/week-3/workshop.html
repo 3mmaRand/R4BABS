@@ -438,8 +438,8 @@ div.csl-indent {
   <li><a href="#selecting-1" id="toc-selecting-1" class="nav-link" data-scroll-target="#selecting-1">Selecting</a></li>
   <li><a href="#applying-interpreting-and-reporting-2" id="toc-applying-interpreting-and-reporting-2" class="nav-link" data-scroll-target="#applying-interpreting-and-reporting-2">Applying, interpreting and reporting</a></li>
   </ul></li>
-  </ul></li>
   <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
+  </ul></li>
   <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
   <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
@@ -453,7 +453,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Workshop</h1>
-<p class="subtitle lead">Week 3: Two-sample tests</p>
+<p class="subtitle lead">Two-sample tests</p>
 </div>
 
 
@@ -473,7 +473,7 @@ div.csl-indent {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/how-much-i-know.png" class="img-fluid figure-img" alt="Illustrated line plot of 'How much I think I know about R' on the y-axis, and 'Time' on the x-axis. Along the line are emoji-style faces, showing the non-linear progression of R knowledge over time. At first, a nervous face becomes a happy face early on in learning, then a grimace face at an intermediate peak before a steep decline (with an exhausted face at the local minimum). Then, a determined face charges back up a hill, reaching another peak with a mind-blown face and text annotation 'join R community on twitter' followed by another decline, but this time the faces look happy even though their 'How much I think I know about R' value is declining." width="800"></p>
-<figcaption class="figure-caption">Allison Horst cartoon: How much I think I know about R”</figcaption>
+<figcaption class="figure-caption">Artwork by <span class="citation" data-cites="allison_horst">(<a href="#ref-allison_horst" role="doc-biblioref"><strong>allison_horst?</strong></a>)</span>: How much I think I know about R”</figcaption>
 </figure>
 </div>
 <section id="session-overview" class="level2">
@@ -541,9 +541,6 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>adip_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to the <a href="../../r4babs1/week-9/workshop.html#summarise">Summarise</a> from the Week 9 workshop of BABS1 <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
 <p>You should get the following numbers:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># | echo: false</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(adip_summary) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -589,12 +586,12 @@ Key
 <h3 class="anchored" data-anchor-id="applying-interpreting-and-reporting">Applying, interpreting and reporting</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a two-sample model like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> adip,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          adiponectin <span class="sc">~</span> treatment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> adip,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>          adiponectin <span class="sc">~</span> treatment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Examine the model with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -649,13 +646,13 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 </div>
 <p>We now need to annotate the figure with the results from the statistical test. This most commonly done with a line linking the means being compared and the <em>p</em>-value. The <code>annotate()</code> function can be used to draw the line and then to add the value. The line is a <code>segment</code> and the <em>p</em>-value is a <code>text</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add annotation to the figure by adding:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>...... <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">2</span>, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fl">11.3</span>, <span class="at">yend =</span> <span class="fl">11.3</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>,  <span class="at">y =</span> <span class="fl">11.7</span>, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(p)<span class="sc">~</span><span class="st">"= 0.003"</span>)) <span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>...... <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">2</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fl">11.3</span>, <span class="at">yend =</span> <span class="fl">11.3</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>,  <span class="at">y =</span> <span class="fl">11.7</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(p)<span class="sc">~</span><span class="st">"= 0.003"</span>)) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
@@ -686,7 +683,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 <p><img src="images/do_in_R.png" class="img-fluid"> Summarise the data by finding the median of each group:</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Carry out a two-sample Wilcoxon test (also known as a Mann-Whitney):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="at">data =</span> grouse, nematodes <span class="sc">~</span> estate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="at">data =</span> grouse, nematodes <span class="sc">~</span> estate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon rank sum exact test
@@ -706,8 +703,8 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>A box plot is a usually good choice for illustrating a two-sample Wilcoxon test because it shows the median and interquartile range.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> We can create a simple boxplot with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> grouse, <span class="fu">aes</span>(<span class="at">x =</span> estate, <span class="at">y =</span> nematodes) ) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> grouse, <span class="fu">aes</span>(<span class="at">x =</span> estate, <span class="at">y =</span> nematodes) ) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -734,21 +731,21 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>A paired test requires us to test whether the difference in expression between high and low temperatures is zero on average. One handy way to achieve this is to organise our groups into two columns. The <code>pivot_wider()</code> function will do this for us. We need to tell it what column gives the identifiers (i.e., matches the the pairs) - the probe_ids in this case. We also need to say which variable contains what will become the column names and which contains the values.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Pivot the data so there is a column for each temperature:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bambara <span class="ot">&lt;-</span> bambara <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> temperature, </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> expression, </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">id_cols =</span> probe_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bambara <span class="ot">&lt;-</span> bambara <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> temperature, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> expression, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">id_cols =</span> probe_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Click on the <code>bambara</code> dataframe in the environment to open a view of it so that you understand what <code>pivot_wider()</code> has done.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a paired-sample model like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> bambara, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>          highert <span class="sc">-</span> lowert <span class="sc">~</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> bambara, </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>          highert <span class="sc">-</span> lowert <span class="sc">~</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Since we have done <code>highert - lowert</code>, the “(Intercept) Estimate” will be the average of the higher temperature expression minus the lower temperature expression for each gene.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Examine the model with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -774,12 +771,12 @@ Residual standard error: 0.5674 on 34 degrees of freedom</code></pre>
 <!-- of 0.307 units. -->
 </section>
 </section>
-</section>
-<section id="look-after-future-you" class="level1">
-<h1>Look after future you!</h1>
+<section id="look-after-future-you" class="level2">
+<h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
 <p>The code required to summarise, test, and plot data for any two-sample test AND for any for any one-way ANOVA is <strong>exactly the same</strong> except for the names of the dataframe, variables and the axis labels and limits. Take some time to comment it your code so that you can make use of it next week.</p>
 <p><img src="images/future_you.png" class="img-fluid" alt="xxx" width="300"></p>
 <p>You’re finished!</p>
+</section>
 </section>
 <section id="well-done" class="level1">
 <h1>🥳 Well Done! 🎉</h1>
@@ -792,7 +789,7 @@ Residual standard error: 0.5674 on 34 degrees of freedom</code></pre>
 <h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
 <p>The <a href="../../r4babs2/week-3/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd">View in Browser</a>.Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
-<p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2022</a>)</span>, <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2021</a>)</span></p>
+<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2023</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2022</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2021</a>)</span></p>
 </section>
 <section id="references" class="level1">
 
@@ -804,6 +801,9 @@ Residual standard error: 0.5674 on 34 degrees of freedom</code></pre>
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
+</div>
+<div id="ref-R-core" class="csl-entry" role="listitem">
+R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div id="ref-rand2023" class="csl-entry" role="listitem">
 Rand, Emma. 2023. <em>Data Analysis in r for Becoming a Bioscientist</em>. <a href="https://3mmarand.github.io/R4BABS/">https://3mmarand.github.io/R4BABS/</a>.
