@@ -403,12 +403,12 @@ The significant Kruskal-Wallis tells us at least two of the groups differ but wh
 ![](images/do_in_R.png) Load the package using `library()`
 ```{r include=FALSE}
 #---CODING ANSWER---
-library(pgirmess)
+# library(pgirmess)
 ```
 
 ![](images/do_in_R.png) Run the post-hoc test with:
 ```{r}
-kruskalmc(data = leaf, eggs ~ birch)
+# kruskalmc(data = leaf, eggs ~ birch)
 ```
 
 The `obs.diff` column gives the mean rank for each group, `critical.dif` is how big the difference between the means ranks must be for significance at the 0.05 level (by default) and the final column tells you if the `obs.diff` is greater than the `critical.dif`.
