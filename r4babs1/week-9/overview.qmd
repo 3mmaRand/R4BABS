@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-subtitle: "Week 9: Summarising data in with several variables and the role of variables in analysis"
+subtitle: "Summarising data in with several variables and the role of variables in analysis"
 ---
 
 Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by "tidy" data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.

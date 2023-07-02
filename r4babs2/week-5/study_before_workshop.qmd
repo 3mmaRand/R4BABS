@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Week 5: Two-way ANOVA"
+subtitle: "Two-way ANOVA"
 ---
 
 1.  Prepare

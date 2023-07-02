@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-subtitle: "Week 4: One-way ANOVA and Kruskal-Wallis"
+subtitle: "One-way ANOVA and Kruskal-Wallis"
 toc: true
 toc-location: right
 ---
@@ -17,7 +17,7 @@ library(kableExtra)
 
 ## Session overview
 
-In this session you will 
+In this session you will get practice in choosing between, performing, and presenting the results of, one-way ANOVA and Kruskal-Wallis in R.
 
 ## Philosophy
 
@@ -56,11 +56,417 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_in_R.png) Make a new script then save it with a name like `one-way-anova-and-kw.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# One-way ANOVA and Kruskal-Wallis`
+![](images/do_in_R.png) Add a comment to the script: `# One-way ANOVA and Kruskal-Wallis` and load the **`tidyverse`** [@tidyverse] package
 
 # Exercises
 
-https://3mmarand.github.io/gist-lm/one-way-anova-revisit.html
+## Myoglobin in seal muscle 
+
+The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in [seal.csv](data-raw/seal.csv). We want to know if there is a difference between species.  Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species. 
+
+![](images/do_on_your_computer.png) Save a copy of the data file [seal.csv](data-raw/seal.csv) to `data-raw`
+
+![](images/do_on_your_computer.png) Compare [seal.csv](data-raw/seal.csv) and [adipocytes.txt](data-raw/adipocytes.txt) by opening the file. You can do this in RStudio by clicking on the files in the files window.
+
+![](images/do_in_R.png) Read in the data and check the structure. I used the name `seal` for the dataframe/tibble. 
+
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+seal  <-  read_csv("data-raw/seal.csv")
+str(seal)
+```
+
+![](images/answer.png) What kind of variables do you have?
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- we have a categorical variable with three groups and a  -->
+<!-- continuous variable which is the response. -->
+
+
+### Exploring
+
+![](images/do_in_R.png) Do a quick plot of the data.You may need to refer to a previous workshop
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+ggplot(data = seal, aes(x = species, y = myoglobin)) +
+  geom_violin()
+```
+
+### Summarising the data
+
+Do you remember [Look after future you!](../week-3/workshop.html#look-after-future-you)
+
+
+![](images/do_in_R.png) If you followed that tip you'll be able to open that script and whizz through summarising,testing and plotting.
+
+![](images/do_in_R.png) Create a data frame called `seal_summary` that contains the means, standard deviations, sample sizes and standard errors for each species. 
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+seal_summary <- seal %>%
+  group_by(species) %>%
+  summarise(mean = mean(myoglobin),
+            std = sd(myoglobin),
+            n = length(myoglobin),
+            se = std/sqrt(n))
+
+```
+You should get the following numbers:
+
+```{r}
+#| echo: false
+
+knitr::kable(seal_summary) %>% 
+  kableExtra::kable_styling()
+```
+
+### Applying, interpreting and reporting
+
+We can now carry out a one-way ANOVA using the same `lm()` function we used for two-sample tests.
+
+![](images/do_in_R.png) Carry out an ANOVA and examine the results with:
+```{r}
+mod <- lm(data = seal, myoglobin ~ species)
+summary(mod)
+```
+
+Remember: the tilde (`~`) means test the values in `myoglobin` when grouped by the values in `species.` Or explain `myoglobin` with `species`
+
+![](images/answer.png)  What do you conclude so far from the test? Write your conclusion in a form suitable for a report. 
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- There is a significant difference in myoglobin concentration between  -->
+<!-- Seal species (F = 5.35; d.f. = 2, 87; p = 0.006). -->
+
+![](images/answer.png)  Can you relate the values under `Estimate` to the means?
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- the line starting (Intercept) is  β0  -->
+<!-- the line starting speciesHarbour Seal is β1 -->
+<!-- the line starting speciesWeddell Seal β2 -->
+
+<!-- Bladdernose mean is β0 i.e., 42.31 -->
+<!-- Harbour mean is β0 + β1 i.e., 42.316 + 6.694 = 49.01 -->
+<!-- Weddell mean is β0 + β2  i.e., 42.316 + 2.344 -->
+
+
+##### HERE ********
+
+The ANOVA is significant but which means differ? We need a post-hoc test. A post-hoc ("after this") test is done after (and only after) a significant ANOVA test. The ANOVA tells you at least two of means differ, the post-hoc test tells you where the differences are. There are several possible post-hoc tests. A popular option is the Tukey Honest Significant Difference test.
+
+![](images/do_in_R.png) Carry out a Tukey HSD with:
+
+```{r}
+TukeyHSD(mod)
+```
+
+Each row is a comparison between means. The 'diff' column is the difference between the means the 'p adj' column indicates whether that difference is significant.
+
+A plot can be used to visualise the result of the post hoc and make it easier to understand
+
+![](images/do_in_R.png) Use the generic `plot()` function to plot the post-hoc:
+```{r fig.height=5}
+TukeyHSD(mod) %>% plot(cex.axis = 0.7)   # cex.axis just changes the size of the axis labels
+```
+
+You may want to ![zoom](../pics/zoom.png). This shows the confidence intervals on the differences between the means and the dashed vertical line is at zero so if the confidence interval crosses that line (*i.e.*, the C.I. includes zero) then the means do not differ significantly.
+
+![](images/answer.png)  What do you conclude from the test?  
+<!--
+#---THINKING ANSWER---
+The significant difference lies between Harbour and Bladdernose.
+-->
+
+
+### Check assumptions
+
+We need to examine the residuals. Unlike with `t.test` we don't have to calculate them - the object which is created by `aov()` contains a variable called `$residuals`.
+
+Also conveniently, the R's `plot()` function can used on the output objects of `aov()` 
+
+![](images/do_in_R.png) Plot the model residuals against the fitted values like this:
+```{r}
+plot(mod, which = 1)
+```
+
+The group means are the fitted (or predicted) values; each residual is the difference between the mean and the actual value.
+
+![](images/answer.png)  What to you conclude?
+<!--
+#---THINKING ANSWER---
+the residuals look homogeneously distributed
+-->
+
+
+![](images/do_in_R.png) To examine normality of the model residuals we can do a histogram 
+```{r}
+hist(mod$residuals)
+```
+
+![](images/do_in_R.png) Use the `shapiro.test()` on the model residuals
+```{r include=FALSE}
+shapiro.test(mod$residuals)
+```
+
+![](images/answer.png)  What to you conclude?
+<!--
+#---THINKING ANSWER---
+the residuals normally distributed. The histogram is roughly normal - it's symmetrical - and the shapiro test is NS.
+
+Overall, it seems the assumptions are met
+-->-
+
+
+
+### Illustrating
+
+We will produce a figure to go with a significant ANOVA in a report using `ggplot2`.
+
+Look at the figure we did in the [last practical](04OneAndTwoSampleTests.html#illustrating) for adiponectin concentration of control and nicotinic acid treated adipocytes. 
+
+Notice how the fundamental structure of the plot is the same as we require here, there is just a different number of groups. 
+
+We will again use both our `seal` and `seal_summary` dataframes.
+
+
+![](images/do_in_R.png) Create the plot:   
+```{r fig.width = 5, fig.height = 5}
+ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = expression(Myoglobin~concentration~g~Kg^{-1}),
+                     limits = c(0, 80), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(labels = c("Bladdernose", "Harbour", "Weddell"), 
+                   name = "Seal Species") +
+  theme_classic()
+```
+   
+Notice the use of `expression()` to allow you to specify special characters. `expression()` takes strings or [LaTeX](https://en.wikipedia.org/wiki/LaTeX) formatting. Each string or piece of LaTeX is separated by a `*` or a `~`. The `*` puts them together without a space, and `~` with a space. `Kg^{-1}`makes the -1 a superscript. 
+
+This figure is good .... but it would be nice to show the result of the post-hoc test by annotating the figure. 
+
+We can add annotation to a `ggplot` using `annotate()`
+
+![](images/do_in_R.png) Look up  `annotate()` in the manual:
+```{r eval=FALSE}
+?annotate
+```
+
+The examples section might be useful to aid understanding. `annotate()` takes a `geom` as its first argument. This can be `text` `segment` `rect` etc. The other arguments are positioning aesthetics which say where the annotation should be placed. 
+We need three segments: two short vertical lines and one long horizontal line. We also need one piece of text to give the $p$ value.
+
+![](images/do_in_R.png) Add the annotations to the plot: 
+```{r fig.width = 4, fig.height = 4}
+ggplot() +
+  geom_point(data = seal, aes(x = species, y = myoglobin),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = seal_summary, 
+                aes(x = species, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = expression(Myoglobin~concentration~g~Kg^{-1}),
+                     limits = c(0, 80), 
+                     expand = c(0, 0)) +
+  scale_x_discrete(labels = c("Bladdernose", "Harbour", "Weddell"), 
+                   name = "Seal Species") +
+  # long horizontal. goes from bladdernose (x = 1) to harbour (xend = 2) 
+  # the y and yend are the same
+  annotate("segment", x = 1, xend = 2,   
+           y = 72, yend = 72, 
+           colour = "black") +
+  # short horizontal, x and xend are the same at harbour (xend = 2)
+  # y and yend are slightly apart
+  annotate("segment", x = 2, xend = 2, 
+           y = 72, yend = 70,
+           colour = "black") +
+  # short horizontal, x and xend are the same at bladdernose (x = 1)
+  # y and yend are slightly apart
+  annotate("segment", x = 1, xend = 1,
+           y = 72, yend = 70,
+           colour = "black") +
+  # the text
+  annotate("text", x = 1.5,  y = 75,
+           label = expression(italic(p)~"= 0.005")) +
+  theme_classic()
+```  
+<div class = "key">
+
+**Top Tip**
+
+Use comments anywhere in the `ggplot` block to help you remember what each part does. I find this especially useful for labelled the annotations.
+
+</div>
+
+
+![](images/do_in_R.png) Make a new folder called 'figures' and write your figure to file. This will allow you to check your understanding of paths.
+```{r echo = FALSE}
+#---CODING ANSWER---
+ggsave("figures/seal.png",
+       width = 5,
+       height = 4,
+       units = "in")
+```
+
+
+## Leafminers on Birch
+
+Larvae of the Ambermarked birch leafminer, *Profenusa thomsoni*, feed on the interior leaf tissues of Birch (Betula) species. They do not normally kill the tree but can weaken it making it susceptible to attack from other species. Researchers are interested in whether there is a difference in the rates at which white, grey and yellow birch are attacked. They introduce adult female *P.thomsoni* to a green house containing 30 young trees (ten of each type) and later count the egg laying events on each tree. The data are in [leaf.txt](data-raw/leaf.txt).
+
+### Exploring
+
+![](images/do_in_R.png) Read in the data and check the structure. I used the name `leaf` for the dataframe/tibble. What kind of variables do you have?
+```{r, eval=FALSE, echo=FALSE}
+#---CODING ANSWER---
+# import
+leaf  <-  read_table("data/leaf.txt")
+str(leaf)
+```
+
+<!-- we have birch, a categorical variable with three groups, and counts in eggs  which is the response. counts are numeric bit discrete.-->
+
+```{r, include=FALSE}
+# importing for emma
+# my directory structure differs
+leaf  <-  read_table("data-raw/leaf.txt")
+str(leaf)
+```
+
+![](images/do_in_R.png) Do a quick plot of the data.You may need to refer to a previous workshop
+```{r, include=FALSE}
+ggplot(data = leaf, aes(x = birch, y = eggs)) +
+  geom_boxplot()
+```
+
+
+![](images/answer.png)  Using your common sense, do these data look normally distributed? 
+<!--
+#---THINKING ANSWER---
+No and little need to test - they're counts, and have unequal variances
+-->
+
+![](images/answer.png)  Why is a Kruskal-Wallis appropriate in this case?
+<!--
+#---THINKING ANSWER---
+the data are counts hence they are not continuous. We can sometimes treat count data as continuous if there is a large number of possible values and the distance between each value relative to the range is small but this is not the case here. In addition there are only ten values in each group 
+-->
+
+
+![](images/do_in_R.png) Calculate the medians, means and sample sizes. 
+```{r include=FALSE}
+#---CODING ANSWER---
+leaf %>% 
+  group_by(birch) %>% 
+  summarise(mean = mean(eggs),
+            median = median(eggs),
+            n = length(eggs))
+```
+
+### Applying, interpreting and reporting
+
+
+![](images/do_in_R.png) Carry out a Kruskal-Wallis:
+```{r}
+kruskal.test(data = leaf, eggs ~ birch)
+```
+
+![](images/answer.png)  What do you conclude from the test? 
+<!--
+#---THINKING ANSWER---
+There is a significant difference between birch types in the number of laying events by *P.thomsoni* 
+-->
+
+The significant Kruskal-Wallis tells us at least two of the groups differ but where do the differences lie? A post-hoc multiple comparison test for a significant Kruskal-Wallis exists in the pgirmess package.
+
+![](images/do_in_R.png) Load the package using `library()`
+```{r include=FALSE}
+#---CODING ANSWER---
+library(pgirmess)
+```
+
+![](images/do_in_R.png) Run the post-hoc test with:
+```{r}
+kruskalmc(data = leaf, eggs ~ birch)
+```
+
+The `obs.diff` column gives the mean rank for each group, `critical.dif` is how big the difference between the means ranks must be for significance at the 0.05 level (by default) and the final column tells you if the `obs.diff` is greater than the `critical.dif`.
+
+
+<div class = "key">
+**Top Tip**
+
+You can use the `probs` argument to change the signifcance value the `kruskalmc()` test uses and by iteration, get a $p$ value, for example:
+`kruskalmc(data = leaf, eggs ~ birch, probs = 0.04)`
+`kruskalmc(data = leaf, eggs ~ birch, probs = 0.03)`
+</div>
+
+
+
+![](images/answer.png)  What do you conclude from the test? 
+   <!--
+#---THINKING ANSWER---
+The significant difference is between yellow birch and white birch (the highest and lowest number of eggs)
+-->
+
+![](images/answer.png)  Write up the result is a form suitable for a report.
+<!-- There is a significant difference in the rate of leafminer attack between birch species (Kruskal-Wallis: chi-squared = 6.34, df = 2, p-value = 0.042). Post-hoc testing revealed that difference to be between the White Birch with the lowest number of eggs (median = 14) and Yellow Birch with the highest (median = 54). -->
+
+### Illustrating
+
+![](images/do_in_R.png) A box plot is an appropriate choice for illustrating a Kruskal-Wallis. Can you produce a figure like this?
+
+<div class = "key">
+
+**Top Tip**
+
+Look at your script for [last practical](04OneAndTwoSampleTests.html#Illustrating17) for the plot we did for the grouse data.
+
+</div>
+
+```{r echo = FALSE, fig.width = 5, fig.height = 5}
+#---CODING ANSWER---
+ggplot(leaf, aes(x = birch, y = eggs) ) +
+  geom_boxplot() +
+  scale_x_discrete(name = "Birch") +
+  scale_y_continuous(name = "Number of eggs", 
+                     limits = c(0, 110),
+                     expand = c(0, 0)) +
+  annotate("segment", x = 2, xend = 3, 
+           y = 100, yend = 100,
+           colour = "black") +
+  annotate("segment", x = 2, xend = 2, 
+           y = 100, yend = 97,
+           colour = "black") +
+  annotate("segment", x = 3, xend = 3, 
+           y = 100, yend = 97,
+           colour = "black") +
+  annotate("text", x = 2.5,  y = 104, 
+           label = expression(italic(p)~"= 0.036")) +
+  theme_classic()
+```
+
 
 You're finished!
 

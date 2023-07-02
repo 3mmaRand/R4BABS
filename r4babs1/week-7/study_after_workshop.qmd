@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to consolidate this week"
-subtitle: "Week 7: Introduction to R, RStudio and project organisation"
+subtitle: "Introduction to R, RStudio and project organisation"
 format:
   html:
     code-fold: true

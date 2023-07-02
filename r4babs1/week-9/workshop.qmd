@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-subtitle: "Week 9: Summarising data in with several variables and the role of variables in analysis"
+subtitle: "Summarising data in with several variables and the role of variables in analysis"
 toc: true
 toc-location: right
 ---

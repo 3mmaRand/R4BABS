@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Week 6: Chi-squared tests and correlation"
+subtitle: "Chi-squared tests and correlation"
 ---
 
 1.  Prepare

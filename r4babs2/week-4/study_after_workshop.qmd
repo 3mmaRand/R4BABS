@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to consolidate this week"
-subtitle: "Week 4: One-way ANOVA and Kruskal-Wallis"
+subtitle: "One-way ANOVA and Kruskal-Wallis"
 format:
   html:
     code-fold: true

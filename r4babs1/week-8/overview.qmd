@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-subtitle: "Week 8: Types of variable, the normal distribution and summarising data"
+subtitle: "Types of variable, the normal distribution and summarising data"
 ---
 
 The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. You will also learn about the "normal distribution" which is the most important continuous distribution. 

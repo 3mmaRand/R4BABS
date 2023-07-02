@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to consolidate this week"
-subtitle: "Week 8: Types of variable, the normal distribution and summarising data"
+subtitle: "Types of variable, the normal distribution and summarising data"
 format:
   html:
     code-fold: true

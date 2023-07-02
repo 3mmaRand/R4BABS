@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-subtitle: "Week 3: Two-sample tests"
+subtitle: "Two-sample tests"
 toc: true
 toc-location: right
 ---
@@ -56,7 +56,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_in_R.png) Make a new script then save it with a name like `two-sample-tests.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Two-sample tests`   and load the **`tidyverse`** [@tidyverse] package
+![](images/do_in_R.png) Add a comment to the script: `# Two-sample tests` and load the **`tidyverse`** [@tidyverse] package
 
 # Exercises 
 
@@ -506,7 +506,7 @@ summary(mod)
 <!-- of 0.307 units. -->
 
 
-# Look after future you!
+## Look after future you!
 
 The code required to summarise, test, and plot data for any two-sample test AND for any for any one-way ANOVA is **exactly the same** except for the names of the dataframe, variables and the axis labels and limits. Take some time to comment it your code so that you can make use of it next week.
 

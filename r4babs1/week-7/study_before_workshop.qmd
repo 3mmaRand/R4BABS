@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Week 7: Introduction to R, RStudio and project organisation"
+subtitle: "Introduction to R, RStudio and project organisation"
 ---
 
 1.  **Either** 

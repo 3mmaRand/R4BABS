@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Week 2: Introduction to statistical models: Single linear regression"
+subtitle: "Introduction to statistical models: Single linear regression"
 ---
 
 1. 📖 Read [What is a statistical model](https://3mmarand.github.io/comp4biosci/what_statistical_model.html)

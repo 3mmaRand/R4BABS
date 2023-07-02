@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-subtitle: "Week 1: The logic of hypothesis testing and confidence intervals"
+subtitle: "The logic of hypothesis testing and confidence intervals"
 toc: true
 toc-location: right
 ---

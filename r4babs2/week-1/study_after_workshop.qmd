@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to consolidate this week"
-subtitle: "Week 1: The logic of hypothesis testing and confidence intervals"
+subtitle: "The logic of hypothesis testing and confidence intervals"
 format:
   html:
     code-fold: true
