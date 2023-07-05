@@ -8,7 +8,7 @@
 
 <meta name="author" content="Emma Rand">
 
-<title>Data Analysis in R - Week 6: Understanding file systems</title>
+<title>Data Analysis in R - Overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -93,6 +112,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../r4babs2/r4babs2.html" rel="" target="">
  <span class="menu-text">BABS 2</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pgt52m/pgt52m.html" rel="" target="">
+ <span class="menu-text">PGT 52M</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
     <a href="https://twitter.com/er_13" title="Emma's Twitter" class="quarto-navigation-tool px-1" aria-label="Emma's Twitter"><i class="bi bi-twitter"></i></a>
@@ -106,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs1/week-6/overview.html">Week 6</a></li><li class="breadcrumb-item"><a href="../../r4babs1/week-6/overview.html">About</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs1/week-6/overview.html">Week 6: Understanding file systems</a></li><li class="breadcrumb-item"><a href="../../r4babs1/week-6/overview.html">About</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -121,13 +144,15 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r4babs1/r4babs1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
+ <span class="menu-text">Data Analysis in R for BABS 1</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Week 6</span></a>
+ <span class="menu-text">Week 6: Understanding file systems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -159,10 +184,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Week 7</span></a>
+ <span class="menu-text">Week 7: Introduction to R and project organisation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -194,10 +220,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Week 8</span></a>
+ <span class="menu-text">Week 8: Types of variable, summarising and plotting data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -229,10 +256,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Week 9</span></a>
+ <span class="menu-text">Week 9: Summarising data with several variables</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -275,7 +303,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 6: Understanding file systems</h1>
+<h1 class="title">Overview</h1>
+<p class="subtitle lead">Understanding file systems</p>
 </div>
 
 
@@ -294,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/code_gets_the_blame.jpg" class="img-fluid figure-img" alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos"></p>
-<figcaption class="figure-caption">Allison Horst cartoon “code gets the blame”</figcaption>
+<figcaption class="figure-caption">Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: “code gets the blame”</figcaption>
 </figure>
 </div>
 <section id="learning-objectives" class="level3">
@@ -302,13 +331,16 @@ ul.task-list li input[type="checkbox"] {
 <p>The parentheses after each learning objective indicate where the content covers that objective.</p>
 <p>The successful student will be able to:</p>
 <ul>
-<li><p>File systems</p></li>
-<li><p>files and directories</p></li>
-<li><p>file names, file extensions, associations with programs</p></li>
-<li><p>using a file explorer</p></li>
-<li><p>saving files</p></li>
-<li><p>file paths</p></li>
-<li><p>using google</p></li>
+<li>explain what an operating system is</li>
+<li>explain the organisation of files and directories in a file systems</li>
+<li>explain what a file is and give some common files types</li>
+<li>explain what is meant by a plain text file</li>
+<li>explain the relationship between the file extensions, the file format and associations with programs</li>
+<li>use a file manager</li>
+<li>explain root, home and working directories</li>
+<li>explain absolute and relative file paths</li>
+<li>know what R and RStudio are</li>
+<li>know how to organise their work</li>
 </ul>
 </section>
 <section id="instructions" class="level3">
@@ -324,16 +356,18 @@ ul.task-list li input[type="checkbox"] {
 <ol type="i">
 <li>Optional: Install R and RStudio</li>
 </ol></li>
-<li><p><a href="../../r4babs1/week-6/study_after_workshop.html">Consolidate</a></p>
-<ol type="i">
-<li>Testing your understanding of file system</li>
-</ol></li>
+<li><p><a href="../../r4babs1/week-6/study_after_workshop.html">Consolidate</a></p></li>
 </ol>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-allison_horst" class="csl-entry" role="listitem">
+Horst, Allison. 2023. <span>“Data Science Illustrations.”</span> <a href="https://allisonhorst.com/allison-horst">https://allisonhorst.com/allison-horst</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -566,7 +600,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
@@ -577,13 +611,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (!isInternal(link.href)) {
           // target, if specified
           link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
       }
     }
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><code>r cffr::cff_to_bibtex("CITATION.cff")</code></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/er_13">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/3mmaRand/R4BABS">
+      <i class="bi bi-github" role="img" aria-label="R4BABS GitHub">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

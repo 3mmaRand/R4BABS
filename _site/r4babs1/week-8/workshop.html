@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.361">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
-<title>Data Analysis in R - Types of variable, the normal distribution and summarising data</title>
+<title>Data Analysis in R - Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,6 +136,10 @@ div.csl-indent {
     <a class="nav-link" href="../../r4babs2/r4babs2.html" rel="" target="">
  <span class="menu-text">BABS 2</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pgt52m/pgt52m.html" rel="" target="">
+ <span class="menu-text">PGT 52M</span></a>
+  </li>  
 </ul>
 <div class="quarto-navbar-tools ms-auto">
     <a href="https://twitter.com/er_13" title="Emma's Twitter" class="quarto-navigation-tool px-1" aria-label="Emma's Twitter"><i class="bi bi-twitter"></i></a>
@@ -147,7 +151,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs1/week-8/overview.html">Week 8</a></li><li class="breadcrumb-item"><a href="../../r4babs1/week-8/workshop.html">Workshop</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs1/week-8/overview.html">Week 8: Types of variable, summarising and plotting data</a></li><li class="breadcrumb-item"><a href="../../r4babs1/week-8/workshop.html">Workshop</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -158,13 +162,15 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../r4babs1/r4babs1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
+ <span class="menu-text">Data Analysis in R for BABS 1</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Week 6</span></a>
+ <span class="menu-text">Week 6: Understanding file systems</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -196,10 +202,11 @@ div.csl-indent {
 </li>
       </ul>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Week 7</span></a>
+ <span class="menu-text">Week 7: Introduction to R and project organisation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -231,10 +238,11 @@ div.csl-indent {
 </li>
       </ul>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Week 8</span></a>
+ <span class="menu-text">Week 8: Types of variable, summarising and plotting data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -266,10 +274,11 @@ div.csl-indent {
 </li>
       </ul>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Week 9</span></a>
+ <span class="menu-text">Week 9: Summarising data with several variables</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -342,7 +351,8 @@ div.csl-indent {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Types of variable, the normal distribution and summarising data</h1>
+<h1 class="title">Workshop</h1>
+<p class="subtitle lead">Types of variable, the normal distribution and summarising data</p>
 </div>
 
 
@@ -358,7 +368,7 @@ div.csl-indent {
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/continuous_discrete-01.png" class="img-fluid figure-img" alt="One the left: Continuous data - measures that can have possible infinite values within its range. A cute chick labelled I am 3.1 inches tall, I weigh 34.16 grams. One the right: Discrete observations can only exist at limited values, often counts. A cute octopus labelled I have 8 legs and 4 spots"></p>
-<figcaption class="figure-caption">Continuous and Discrete</figcaption></figure>
+<figcaption class="figure-caption">Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: Continuous and Discrete</figcaption></figure>
 </div>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
 <p>In this workshop you will learn how to import data from files and create summaries and plots for it. You will also get more practice with working directories, formatting figures and the pipe.</p>
@@ -391,7 +401,7 @@ Key
 </div>
 </section></section><section id="getting-started" class="level1"><h1>Getting started</h1>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Name the RStudio Project ‘week-8’.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-1</code> folder and name the RStudio Project ‘week-8’.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>analysis.R</code> to carry out the rest of the work.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Types of variable, the normal distribution and summarising data</code></p>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
@@ -427,7 +437,7 @@ Key
 <li>The number of sternopleural bristles on 96 female <em>Drosophila</em> (with technical replicates): <a href="data-raw/bristles-mean.xlsx">bristles-mean.xlsx</a>
 </li>
 </ul>
-<p>The first three files can be read in with core <code>**tidyerse**</code> functions and the last can be read in with the <code>**readxl**</code> package.</p>
+<p>The first three files can be read in with core <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">Wickham et al. (<a href="#ref-tidyverse" role="doc-biblioref">2019</a>)</span> functions and the last can be read in with the <strong><code>readxl</code></strong> <span class="citation" data-cites="readxl">Wickham and Bryan (<a href="#ref-readxl" role="doc-biblioref">2023</a>)</span> package.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Load the two packages</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
@@ -467,7 +477,7 @@ Key
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cells</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_table.html">read_table</a></span><span class="op">(</span><span class="st">"cell-size.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now you try reading <code>bristles.txt</code> in to a dataframe called <code>fly_bristles</code></p>
-<p>The <code>**readxl**</code> package we loaded earlier has two useful functions for working with Excel files: <code>excel_sheets("filename.xlsx")</code> will list the sheets in an Excel workbook; <code>read_excel("filename.xlsx")</code> will read in to top sheet or a specified sheet with a small modification <code>read_excel("filename.xlsx", sheet = "Sheet1")</code>.</p>
+<p>The <strong><code>readxl</code></strong> package we loaded earlier has two useful functions for working with Excel files: <code>excel_sheets("filename.xlsx")</code> will list the sheets in an Excel workbook; <code>read_excel("filename.xlsx")</code> will read in to top sheet or a specified sheet with a small modification <code>read_excel("filename.xlsx", sheet = "Sheet1")</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> List the the names of the sheets and read in the sheet with the data like this:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readxl.tidyverse.org/reference/excel_sheets.html">excel_sheets</a></span><span class="op">(</span><span class="st">"bristles-mean.xlsx"</span><span class="op">)</span></span>
@@ -543,7 +553,7 @@ Key
 </div>
 </div>
 <p>As the interquartile is 4 and the median is 6 then 25% flies have 4 bristles or fewer and 25% have 8 or more.</p>
-<p>The distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data. [^4]: Count data are usually “Poisson” distributed.</p>
+<p>The distribution of counts<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> is not symmetrical for lower counts so the mean is not usually a good way to summarise count data.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> If you want to save the table you created and give the columns better names you can make two adjustments:</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fly_bristles_summary</span> <span class="op">&lt;-</span> <span class="va">fly_bristles</span> <span class="op">|&gt;</span> </span>
@@ -634,14 +644,14 @@ Key
 </section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/not_normal.png" class="img-fluid figure-img" alt="two distributions as characters. One is normal (bell-shaped) the other is not"></p>
-<figcaption class="figure-caption">Not normal</figcaption></figure>
+<figcaption class="figure-caption">Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: Not normal</figcaption></figure>
 </div>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs1/week-8/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
 <p>The <a href="../../r4babs1/week-8/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd">View in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
-<p>Pages made with Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span></p>
+<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2023</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2022</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2021</a>)</span></p>
 </section><section id="references" class="level1">
 
 
@@ -650,11 +660,30 @@ Key
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
 </div>
+<div id="ref-allison_horst" class="csl-entry" role="listitem">
+Horst, Allison. 2023. <span>“Data Science Illustrations.”</span> <a href="https://allisonhorst.com/allison-horst">https://allisonhorst.com/allison-horst</a>.
+</div>
+<div id="ref-R-core" class="csl-entry" role="listitem">
+R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-readxl" class="csl-entry" role="listitem">
+Wickham, Hadley, and Jennifer Bryan. 2023. <span>“Readxl: Read Excel Files.”</span> <a href="https://CRAN.R-project.org/package=readxl">https://CRAN.R-project.org/package=readxl</a>.
+</div>
+<div id="ref-knitr" class="csl-entry" role="listitem">
+Xie, Yihui. 2022. <span>“Knitr: A General-Purpose Package for Dynamic Report Generation in r.”</span> <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-kableExtra" class="csl-entry" role="listitem">
+Zhu, Hao. 2021. <span>“kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax.”</span> <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
+</div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 <ol>
 <li id="fn1"><p>Plain text files can be opened in notepad or other similar editor and still be readable.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><strong>Don’t</strong> be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>Do not</strong> be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>note <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> and <code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code> are the same functions with some different settings.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Count data are usually “Poisson” distributed.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -887,7 +916,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
@@ -898,14 +927,34 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (!isInternal(link.href)) {
           // target, if specified
           link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
       }
     }
 });
 </script>
 </div> <!-- /content -->
-
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left"><code>r cffr::cff_to_bibtex("CITATION.cff")</code></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/er_13">
+      <i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/3mmaRand/R4BABS">
+      <i class="bi bi-github" role="img" aria-label="R4BABS GitHub">
+</i> 
+    </a>
+  </li>  
+</ul>
+</div>
+  </div>
+</footer>
 
 
 </body></html>
