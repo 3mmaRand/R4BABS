@@ -44,19 +44,19 @@ Learning Data Analysis in R is like learning to speak a new language or play an 
 
 # Content
 
-## Week 1: The logic of hypothesis testing and CIs
+## The logic of hypothesis testing and CIs
 
 
-## Week 2:  Introduction to statistical models: Single regression
+##  Introduction to statistical models: Single regression
 
 
-## Week 3: Two-sample tests
+## Two-sample tests
 
 
-## Week 4: One-way ANOVA and Kruskal-Wallis
+## One-way ANOVA and Kruskal-Wallis
 
 
-## Week 5: Two-way ANOVA
+## Two-way ANOVA
 
 
-## Week 6: Chi-squared tests and correlation
+## Chi-squared tests and correlation

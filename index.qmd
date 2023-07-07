@@ -1,49 +1,34 @@
 ---
-title: "Data Analysis in R for Becoming a Bioscientist"
+title: "Data Analysis in R"
 toc: true
 toc-location: right
 ---
 
 # Overview
 
-Each semester in Stage 1 and 2 the Becoming a Bioscientist modules progressively train you in:
-
--   Safe Lab/field practical skills
--   Asking questions, hypothesising and designing research activity
--   Reproducibly recording, handling, analysing and presenting data
--   Interpreting, contextualising and communicating research
--   Professional team work and reflection
-
-
-Each module includes Data Analysis in R training which helps you analyse data but also to understand the literature, design experiments and report the results.
+Data Analysis in R helps you analyse data but also to understand the literature, design experiments and report the results.
 
 
 ## Learning Data Analysis is important...
 
-Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. They additionally develop the general computational skill needed for other in-demand hard skills. See, for example LinkedIn's global list of the most in-demand hard skills.
+Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills. 
 
 ## ... and takes time ...
 
-Part of the reason that these skills are in-demand is that many view them as difficult and they take time to learn. They are skills you learn, not facts to memorise, and take time and practice in the same way that playing an instrument, speaking another language or playing a sport well take time and practice. You have keep going until you've mastered some aspect and tolerate a lot of mistakes. We are all uncomfortable in that process, myself included! I've have spent many frustrating hours trying to work out how to express my data question as code both in terms of the logic required and the syntax needed.
+Part of the reason that these skills are in-demand is that they take time and practice in the same way that playing an instrument, speaking another language or playing a sport do. They are skills you develop rather than facts you memorise. You will make a lot of mistakes.
 
 ## ... but can be great fun ...
 
-However, the process is often fun! There is a lot of problem solving which is enaging work because there's always something to 'chase'. I can concentrate on coding for much longer than I can concentrate on writing or reading because it is such an active learning process. There are impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of 'techy' tricks you had no idea you'd be able to do!
+There is a lot of problem solving which is enaging work because there's always something to 'chase'. You may be able to concentrate on coding for much longer than on writing or reading because it is such an active learning process. You'll create impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of 'techy' tricks you had no idea you'd be able to do!
 
-## ... and surprising!
+The time and effort you put in to learning "Data Analysis in R" WILL reward you no matter how you evaluate yourself relative to others. You will be able to:
 
-And because any coding skill is highly transferable, you can practice on anything at all that you find fun. For examples: Analysing tweets with R Generative Art in R Creating graphs from the R Graph Gallery (all the code is provided)
+-    better and/or more quickly design and analyse scientific investigations for modules and projects in which in turn will allow you to perform better in assessments.
 
-The time and effort you put in to learning "Data Analysis in R" in BABS 1 - 4 WILL reward you no matter how you evaluate yourself relative to others. You will be able to:
+-   evaluate and interpret the data analysis in papers
 
--    better and/or more quickly design and analyse scientific investigations including those for BaBS modules, field courses and projects in stages 1 to 4 which in turn will allow you to perform better in assessments.
-
--   help you evaluate and interpret the data analysis in papers
-
--   improve your employability!
+-   access a wide range of careers
 
 ## What is this site for?
 
-Everything is on the VLE.
-
-This site allows you to search!
+All the Data Analysis in R teaching is on the VLE so why is this site useful? Well, perhaps more than any other material, you will want to refer back when applying your skills throughout your degree and this site collects everything together in a searchable way. The search icon is on the top right,

@@ -50,7 +50,13 @@ In this section you will learn a way to lay out figures, legends and text in a d
 
 
 VLE iframe
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/r4babs1.html" title="Overview: R for BABS 1" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-9/overview.html" title="Week 6: Understanding file systems" allow="fullscreen"  width="800" height="400"></iframe>
+
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-9/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
+
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-7/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
+
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-9/study_after_workshop.html" title="Consolidation" allow="fullscreen"  width="800" height="400"></iframe>
 
 
 ###############
