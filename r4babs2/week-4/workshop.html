@@ -621,24 +621,26 @@ F-statistic: 5.352 on 2 and 87 DF,  p-value: 0.006427</code></pre>
 <p><img src="images/do_in_R.png" class="img-fluid"> Load the package</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in library(emmeans): there is no package called 'emmeans'</code></pre>
-</div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Carry out the post-hoc test</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mod, <span class="sc">~</span> species) <span class="sc">|&gt;</span> <span class="fu">pairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in emmeans(mod, ~species): could not find function "emmeans"</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mod, <span class="sc">~</span> species) <span class="sc">|&gt;</span> <span class="fu">pairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> contrast                        estimate   SE df t.ratio p.value
+ Bladdernose Seal - Harbour Seal    -6.69 2.08 87  -3.224  0.0050
+ Bladdernose Seal - Weddell Seal    -2.34 2.08 87  -1.129  0.4990
+ Harbour Seal - Weddell Seal         4.35 2.08 87   2.095  0.0968
+
+P value adjustment: tukey method for comparing a family of 3 estimates </code></pre>
 </div>
 </div>
 <p>Each row is a comparison between means. The ‘estimate’ column is the difference between the means and the ‘p.value’ column indicates whether that difference is significant.</p>
 <p>A plot can be used to visualise the result of the post hoc which can be especially useful when there are very many comparisons.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mod, <span class="sc">~</span> species) <span class="sc">|&gt;</span> <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in emmeans(mod, ~species): could not find function "emmeans"</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mod, <span class="sc">~</span> species) <span class="sc">|&gt;</span> <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="workshop_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><img src="images/answer.png" class="img-fluid"> What do you conclude from the test?</p>
@@ -702,7 +704,7 @@ F-statistic: 5.352 on 2 and 87 DF,  p-value: 0.006427</code></pre>
 <h3 class="anchored" data-anchor-id="applying-interpreting-and-reporting-1">Applying, interpreting and reporting</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Carry out a Kruskal-Wallis:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Kruskal-Wallis rank sum test
@@ -718,16 +720,16 @@ Kruskal-Wallis chi-squared = 6.3393, df = 2, p-value = 0.04202</code></pre>
 <p>A significant Kruskal-Wallis tells us at least two of the groups differ but where do the differences lie? The Dunn test is a post-hoc multiple comparison test for a significant Kruskal-Wallis. It is available in the package <strong><code>FSA</code></strong></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Load the package using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FSA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in library(FSA): there is no package called 'FSA'</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FSA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Run the post-hoc test with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnTest</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in dunnTest(data = leaf, eggs ~ birch): could not find function "dunnTest"</code></pre>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnTest</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Comparison         Z    P.unadj      P.adj
+1   Grey - White  1.296845 0.19468465 0.38936930
+2  Grey - Yellow -1.220560 0.22225279 0.22225279
+3 White - Yellow -2.517404 0.01182231 0.03546692</code></pre>
 </div>
 </div>
 <p>The <code>P.adj</code> column gives <em>p</em>-value for the comparison listed in the first column. <code>Z</code> is the test statistic.</p>
