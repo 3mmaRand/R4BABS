@@ -5,9 +5,10 @@ subtitle: "Two-way ANOVA"
 
 1.  Prepare
 
-    i.  **Either** 📖 Read [xxxxx](https://3mmarand.github.io/comp4biosci/xx.html) in **OR** 📹 Watch
+    i.  📖 Read [Two-way ANOVA](https://3mmarand.github.io/comp4biosci/two_way_anova.html) 
 
-    {{< video https://www.youtube.com/watch?xx >}}
+
+
 
 
 

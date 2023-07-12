@@ -47,16 +47,20 @@ In this section you will learn a way to lay out figures, legends and text in a d
 
 #---THINKING ANSWER--- 
 
-
+Items which are common to all strands should be documents.
+Add a folder for each strand which contains strand specific content.
+Group only access to relevant folder  done by SAS
 
 VLE iframe
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-9/overview.html" title="Week 6: Understanding file systems" allow="fullscreen"  width="800" height="400"></iframe>
+Week 1 Data Analysis in R for BABS 2
 
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-9/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/overview.html" title="Week 6: Chi-squared and correlation" allow="fullscreen"  width="800" height="400"></iframe>
 
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-7/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
 
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs1/week-9/study_after_workshop.html" title="Consolidation" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
+
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_after_workshop.html" title="Consolidation" allow="fullscreen"  width="800" height="400"></iframe>
 
 
 ###############
