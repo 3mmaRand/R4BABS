@@ -11,7 +11,7 @@
     "href": "r4babs2/week-5/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "This week you will\n\nLearning objectives\nThe successful student will be able to:\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the book OR 📹 Watch two videos\n\nWorkshop\ni.💻\nConsolidate\n\n💻\n📖 Read"
+    "text": "This week we will extend of our understanding by learning how to include two categorical explanatory variables in a general linear model. This model is often known as the two-way ANOVA. It has three null hypotheses\n\nLearning objectives\nThe successful student will be able to:\n\ncombine dataframes of the same structure\nselect, appropriately, two-way ANOVA\napply and interpret lm() for a two-way ANOVA\nevaluate whether the assumptions of lm() are met\nunderstand the meaning of the interaction term\nscientifically report a two-way ANOVA result including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Two-way ANOVA\n\nWorkshop\n\n💻 Two-way ANOVA Choline deficiency on neuron size\n💻 What to do when the assumptions are not met\n\nConsolidate\n\n💻 Appropriately test if the addition of nitrogen and potassium to a crop influences yield and whether they act independently."
   },
   {
     "objectID": "r4babs2/week-5/study_after_workshop.html",
@@ -739,7 +739,7 @@
     "href": "r4babs2/week-3/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "This week you will how to use and interpret the general linear model when the x variable is categorical and has two groups. Just as with single linear regression, the model puts a line of best through data and the model parameters, the intercept and the slope, have the same in interpretation The intercept is one of the group means and the slope is the difference between that, mean and the other group mean.\n\nLearning objectives\nThe successful student will be able to:\n\nunderstand the principles of two-sample tests\nappreciate that two-sample tests with lm() are based on the normal distribution and thus have assumptions\nappropriately select parametric and non-parametric two-sample tests\nappropriately select paired and and unpaired two-sample tests\napply and interpret lm()and wilcox.test()\nevaluate whether the assumptions of lm() are met\nscientifically report a two-sample test result including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Two-Sample tests\n\nWorkshop\n\n💻 Parametric two-sample test\n💻 Non-parametric two-sample test\n💻 Parametric paired-sample test\n\nConsolidate\n\n💻 Appropriately test whether a genetic modification was successful in increasing omega 3 fatty acids in Cannabis sativa.\n💻 …."
+    "text": "This week you will how to use and interpret the general linear model when the x variable is categorical and has two groups. Just as with single linear regression, the model puts a line of best through data and the model parameters, the intercept and the slope, have the same in interpretation The intercept is one of the group means and the slope is the difference between that, mean and the other group mean. You will also learn about the non-parametric equivalents - the tests we use when the assumptions of the general linear model are not met.\n\nLearning objectives\nThe successful student will be able to:\n\nunderstand the principles of two-sample tests\nappreciate that two-sample tests with lm() are based on the normal distribution and thus have assumptions\nappropriately select parametric and non-parametric two-sample tests\nappropriately select paired and and unpaired two-sample tests\napply and interpret lm()and wilcox.test()\nevaluate whether the assumptions of lm() are met\nscientifically report a two-sample test result including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Two-Sample tests\n\nWorkshop\n\n💻 Parametric two-sample test\n💻 Non-parametric two-sample test\n💻 Parametric paired-sample test\n\nConsolidate\n\n💻 Appropriately test whether a genetic modification was successful in increasing omega 3 fatty acids in Cannabis sativa.\n💻 …."
   },
   {
     "objectID": "r4babs2/week-6/study_after_workshop.html",
@@ -767,7 +767,7 @@
     "href": "r4babs2/week-4/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "This week you will\n\nLearning objectives\nThe successful student will be able to:\n\nexplain the rationale behind ANOVA understand the meaning of the F values\nselect, appropriately, one-way ANOVA and Kruskal-Wallis\nknow what functions are used in R to run these tests and how to interpret them\nscientifically report the results of these tests including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read One-way ANOVA and Kruskal-Wallis\n\nWorkshop\n\n💻 One-way ANOVA\n💻 Kruskal-Wallis\n\nConsolidate\n\n💻 Appropriately test if fitness and acclimation effectthe sodium content of sweat\n💻 Appropriately test if insecticides vary in their effectiveness"
+    "text": "Last week you learnt how to use and interpret the general linear model when the x variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (analysis of variance). You will also learn about the Kruskal- Wallis test which can be used when the assumptions of the general linear model are not met.\n\nLearning objectives\nThe successful student will be able to:\n\nexplain the rationale behind ANOVA understand the meaning of the F values\nselect, appropriately, one-way ANOVA and Kruskal-Wallis\nknow what functions are used in R to run these tests and how to interpret them\nevaluate whether the assumptions of lm() are met\nscientifically report the results of these tests including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read One-way ANOVA and Kruskal-Wallis\n\nWorkshop\n\n💻 One-way ANOVA\n💻 Kruskal-Wallis\n\nConsolidate\n\n💻 Appropriately test if fitness and acclimation effect the sodium content of sweat\n💻 Appropriately test if insecticides vary in their effectiveness"
   },
   {
     "objectID": "r4babs2/r4babs2.html",
@@ -830,7 +830,7 @@
     "href": "r4babs2/week-5/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch"
+    "text": "Prepare\n\n📖 Read Two-way ANOVA"
   },
   {
     "objectID": "r4babs2/week-5/workshop.html",
