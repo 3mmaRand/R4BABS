@@ -210,7 +210,72 @@ website:
                text: Workshop
              - href: r4babs1/week-9/study_after_workshop.qmd
                text: Consolidate!  
-
+          - text: ---
+          - section: "Week 5: The logic of hypothesis testing and CI"
+            contents: 
+             - href: r4babs2/week-1/overview.qmd
+               text: About  
+             - href: r4babs2/week-1/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-1/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-1/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 6: Introduction to statistical models: Single regression"
+            contents: 
+             - href: r4babs2/week-2/overview.qmd
+               text: About  
+             - href: r4babs2/week-2/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-2/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-2/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 7: Two-sample tests"
+            contents: 
+             - href: r4babs2/week-3/overview.qmd
+               text: About  
+             - href: r4babs2/week-3/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-3/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-3/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 8: One-way ANOVA and Kruskal-Wallis"
+            contents: 
+             - href: r4babs2/week-4/overview.qmd
+               text: About  
+             - href: r4babs2/week-4/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-4/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-4/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 9: Two-way ANOVA"
+            contents: 
+             - href: r4babs2/week-5/overview.qmd
+               text: About  
+             - href: r4babs2/week-5/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-5/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-5/study_after_workshop.qmd
+               text: Consolidate!  
+          - text: ---
+          - section: "Week 10: Chi-squared and correlation"
+            contents: 
+             - href: r4babs2/week-6/overview.qmd
+               text: About  
+             - href: r4babs2/week-6/study_before_workshop.qmd
+               text: Prepare! 
+             - href: r4babs2/week-6/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-6/study_after_workshop.qmd
+               text: Consolidate!  
 
 execute:
   echo: true
