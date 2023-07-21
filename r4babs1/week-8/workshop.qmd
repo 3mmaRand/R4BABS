@@ -372,7 +372,7 @@ A single continuous variable can be plotted using a histogram to show the shape 
 
 ```{r}
 ggplot(cats, aes(x = mass)) +
-  geom_histogram(bins = 10, colour = "black")
+  geom_histogram(bins = 15, colour = "black") 
 ```
 
 Notice that there are no gaps between the bars which reflects that `mass` is continuous. `bins` determines how many groups the variable is divided up into (i.e., the number of bars) and `colour` sets the colour for the outline of the bars. A sample of 62 is a relatively small number of values for plotting a distribution and the number of bins used determines how smooth or normally distributed the values look.
