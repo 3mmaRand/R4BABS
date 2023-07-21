@@ -159,7 +159,7 @@ summary(mod)
 
 ### Check assumptions
 
-The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we need to calculate the residuals and we can do examine the `mod$residuals` variable. You may want to refer to [Checking assumptions](../week-2/workshop.html#checking-assumptions) in the "Single regression" workshop.
+The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the `mod$residuals` variable. You may want to refer to [Checking assumptions](../week-2/workshop.html#checking-assumptions) in the "Single regression" workshop.
 
 ![](images/do_in_R.png)  Plot the model residuals against the fitted values.
 ```{r}

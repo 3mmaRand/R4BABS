@@ -13,11 +13,11 @@ library(kableExtra)
 
 # Introduction
 
-![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxxxx" width="1000"}
+![Artwork by @allison_horst: ](images/dragon-residuals-1.png){fig-alt="A green striped dragon stands on a scale, noting how their weight is actually greater than what a model predicts it would be. Text reads 'Hi, I'm a 5.1 foot tall striped dragon and my weight is 3.9 tons...but my actual weight is 4.2 tons!' A stylized equation below shows that the residual is calculated by 4.2 - 3.9 = 0.3 tons." width="800"}
 
 ## Session overview
 
-In this session you will 
+In this workshop you will get practice in applying, interpreting and reporting two-way ANOVA including the interaction term and post-hoc testing.
 
 ## Philosophy
 
@@ -60,13 +60,552 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 # Exercises
 
+## Effect of brain region and choline deficiency on neuron size 
 
+Cognitive performance is influenced by the choline intake in utero. To better understand this phenomenon, pregnant mice were fed a control or choline-deficient diet and their offspring examined. The cross sectional area (CSA) of cholinergic neurons was determined in two brain regions, the MSN and the DB. The data are given in [neuron-csa.xlsx](data-raw/neuron-csa.xlsx)
+
+
+![](images/do_on_your_computer.png) Save a copy of the data file [neuron-csa.xlsx](data-raw/neuron-csa.xlsx) to `data-raw`
+
+You have [previously read data from an excel file](../r4babs1/week-8/workshop.html#importing-data-from-files). 
+
+
+![](images/do_in_R.png) List the the names of the work sheets in the excel workbook. 
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+# load the package
+library(readxl)
+
+excel_sheets("data-raw/neuron-csa.xlsx")
+# There are two sheets in the file. Each sheet contains a different brain region
+
+```
+These data are organised into two worksheets, one for each brain region
+
+
+![](images/do_in_R.png) Read in each sheet. I used the names `db` and `msn` for the two dataframes/tibble.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+db <- read_excel("data-raw/neuron-csa.xlsx", sheet = "DB")
+msn <- read_excel("data-raw/neuron-csa.xlsx", sheet = "MSN")
+```
+
+
+![](images/do_in_R.png) We have the top half and the bottom half of a data set and can combine these togther with `bind_rows()`
+
+```{r}
+neuron <- bind_rows(db, msn)
+```
+
+You might want to click on `neuron` in the environment to open the spreadsheet-like view to check it looks how you expect.
+
+![](images/answer.png) What kind of variables do you have?
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- we have two categorical variables BrainRegion with two groups   -->
+<!-- (DB and MSN) and Diet with two groups (Control and Deficient).  -->
+<!-- These are the explanatory variables. We also have a continuous  -->
+<!-- variable, CSA, which is the response. -->
+
+### Exploring
+
+When we have a single explanatory variable, it always goes on the *x*-axis. Here we have two explanatory variables: brain region and diet. We can map one of the explanatory variables to the *x*-axis and the other to a aesthetic like colour, shape or fill.
+
+![](images/do_in_R.png) Do a quick plot of the data:
+
+```{r}
+ggplot(data = neuron, aes(x = BrainRegion, y = CSA, fill = Diet)) +
+  geom_violin()
+```
+
+Whether we map BrainRegion to the *x*-axis or the fill does not really matter. It looks as though the cross sectional area of neurons is higher for the control diet than the deficient diet (the average of the read bars is grater than the average of the blue bars). It also looks like there might be a significant interaction between the effects of diet and brain region because the effect of diet seems to be greater in the DB region.
+
+### Summarising the data
+
+Just as we needed to incorporate the second explanatory variable in the rough plot, we need to incorporate it into our summary. We do this by adding it to the `group_by()`.
+
+![](images/do_in_R.png) Create a data frame called `neuron_summary` that contains the means, standard deviations, sample sizes and standard errors for each group:
+
+```{r}
+neuron_summary <- neuron %>%
+  group_by(BrainRegion, Diet) %>%
+  summarise(mean = mean(CSA),
+            std = sd(CSA),
+            n = length(CSA),
+            se = std/sqrt(n))
+
+```
+You will get a message that you don't need to worry about ` `summarise()` has grouped output by 'BrainRegion'. You can override using the `.groups` argument.>`
+
+You should get the following numbers:
+
+```{r}
+#| echo: false
+
+knitr::kable(neuron_summary) %>% 
+  kableExtra::kable_styling()
+```
+
+### Applying, interpreting and reporting
+
+We can now carry out a two-way ANOVA using the same `lm()` function we used for two-sample tests and one-way ANOVA.
+
+![](images/do_in_R.png) Carry out an ANOVA and examine the results with:
+
+```{r}
+mod <- lm(data = neuron, CSA ~ BrainRegion * Diet)
+summary(mod)
+```
+
+Remember: the tilde (`~`) means test the values in `CSA` when grouped by the values in `BrainRegion` and `Diet` Or explain `CSA` with `BrainRegion` and `Diet` 
+
+![](images/answer.png) Can you relate the values under `Estimate` to the means?
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- the line starting (Intercept) is  β0  -->
+
+<!-- the line starting BrainRegionMSN is β1 -->
+
+<!-- the line starting DietDeficient is β2 -->
+
+<!-- the line starting BrainRegionMSN:DietDeficient is β3 -->
+
+<!-- DB-control mean is β0 i.e., 26.665 -->
+
+<!-- MSN-control mean is β0 + β1 i.e., 26.665 -5.695 = 20.97 -->
+
+<!-- DB-Deficient is β0 + β2  i.e., 26.665 -5.440 = 21.225-->
+
+<!-- MSN-Deficient is β0 + β1 + β2 + β3 i.e., 26.665 -5.695 -5.440 + 4.403= 21.225-->
+
+The model of brain region and diet overall explains a significant amount of the variation in the cross sectional area of neurons (`p-value: 0.0002949`). To see which of the three effects are significant we can use the `anova()` function on our model.
+
+![](images/do_in_R.png) Determine which effects are significant:
+```{r}
+anova(mod)
+```
+
+There is a significant effect of brain region (*F* = 10.8; *d.f.* = 1, 36; *p* = 0.002) and diet (*F* = 9.3; *d.f.* = 1, 36; *p* = 0.004) on CSA and these effects interact (*F* = 4.3; *d.f.* = 1, 36; *p* = 0.046)
+
+
+We need a post-hoc test to see which comparisons are significant and can again use then **`emmeans`** [@emmeans] package.
+
+![](images/do_in_R.png) Load the package
+
+```{r}
+library(emmeans)
+```
+
+![](images/do_in_R.png) Carry out the post-hoc test
+
+```{r}
+emmeans(mod, ~ BrainRegion * Diet) |> pairs()
+
+```
+
+Each row is a comparison between the two means in the 'contrast' column. The 'estimate' column is the difference between those means and the 'p.value' indicates whether that difference is significant.
+
+A plot can be used to visualise the result of the post hoc which can be especially useful when there are very many comparisons.
+
+![](images/do_in_R.png) Plot the results of the post-hoc test:
+
+```{r}
+emmeans(mod, ~ BrainRegion * Diet) |> plot()
+```
+
+![](images/answer.png) What do you conclude from the test?
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- The differences are between:  -->
+
+<!-- DB Control and MSN Control   p = 0.0030 -->
+<!-- DB Control and DB Deficient  p = 0.0048 -->
+<!-- DB Control and MSN Deficient p = 0.0004 -->
+
+<!-- i.e., the differences are between DB control and the others only. -->
+
+We might report this result as:
+
+A choline-deficient diet in pregnant mice significantly decreases the cross sectional area of  cholinergic neurons in the DB region of their offspring (*t* = 3.62; *d.f.* = 36; *p* = 0.0048). The cross sectional area of cholinergic neurons in the MSN region are also significantly smaller than those in the DB region (*t* = 3.79; *d.f.* = 36; *p* = 0.0030) but are not reduces by maternal choline-deficiency.
+
+
+### Check assumptions
+
+The assumptions of the general linear model are that the residuals -- the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance.
+To check these we can examine the `mod$residuals` variable.
+You may want to refer to [Checking assumptions](../week-2/workshop.html#checking-assumptions) in the "Single regression" workshop.
+
+![](images/do_in_R.png) Plot the model residuals against the fitted values.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER-
+
+plot(mod, which = 1)
+```
+
+![](images/answer.png) What to you conclude?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- The residuals look 'homogeneously' distributed. That is, the variance is the same  -->
+
+<!-- for the four groups  -->
+
+To examine normality of the model residuals we can plot them as a histogram and do a normality test on them.
+
+![](images/do_in_R.png) Plot a histogram of the residuals.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER-
+
+ggplot(mapping = aes(x = mod$residuals)) + 
+  geom_histogram(bins = 8)
+```
+
+![](images/do_in_R.png) Use the `shapiro.test()` to test the normality of the model residuals
+
+```{r}
+#| include: false
+
+#---CODING ANSWER-
+
+shapiro.test(mod$residuals)
+```
+
+![](images/answer.png) What to you conclude?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- the residuals appear roughly normally distributed.  -->
+
+<!-- The histogram is symmetrical and the shapiro test is NS. -->
+
+<!-- Overall, it seems the assumptions are met -->
+
+### Illustrating
+
+We are going to create a figure like this:
+
+```{r}
+#| echo: false
+
+ggplot() +
+  geom_point(data = neuron, 
+             aes(x = BrainRegion, y = CSA, shape = Diet),
+             position = position_jitterdodge(dodge.width = 1,
+                                             jitter.width = 0.3,
+                                             jitter.height = 0),
+             colour = "gray50",
+             size = 3) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean - se, 
+                    ymax = mean + se,
+                    group = Diet),
+                width = 0.4, 
+                position = position_dodge(width = 1)) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean,
+                    ymax = mean, 
+                    group = Diet),
+                width = 0.3, 
+                linewidth = 1,
+                position = position_dodge(width = 1) ) +
+  scale_y_continuous(name = "CSA",
+                     expand = c(0, 0),
+                     limits = c(0, 45)) +
+  scale_x_discrete(name = "BrainRegion") +
+  # DB Control - DB Deficient **
+  annotate("segment",
+           x = 0.75, xend = 1.25,
+           y = 35, yend = 35,
+           colour = "black") +
+  annotate("text",
+           x = 1,  y = 36,
+           label = "**", size = 6) +
+  # Control.MSN - Control.DB **
+  annotate("segment",
+           x = 0.75, xend = 1.75,
+           y = 38, yend = 38,
+           colour = "black") +
+  annotate("text", x = 1.25,  y = 39,
+           label = "**", size = 6) +
+  # DB Control - MSN Deficient  ***
+  annotate("segment",
+           x = 0.75, xend = 2.25,
+           y = 41, yend = 41,
+           colour = "black") +
+  annotate("text", x = 1.5,  y = 42,
+           label = "***", size = 6) +
+  theme_classic() +
+  theme(legend.position = c(0.15, 0.15),
+        legend.background = element_rect(colour = "black"))
+
+```
+
+We will again use both our `neuron` and `neuron_summary` dataframes.
+
+![](images/do_in_R.png) Try emulating what you did for [one-way ANOVA](../week-4/workshop.html) based on [Visualise](../../r4babs1/week-9/workshop.html#visualise) from the "Summarising data with several variables" workshop [@rand2023]. 
+
+```{r}
+ggplot() +
+  geom_point(data = neuron, 
+             aes(x = BrainRegion, y = CSA),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50",
+             size = 3) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean - se, 
+                    ymax = mean + se),
+                width = 0.4) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean,
+                    ymax = mean),
+                width = 0.3, 
+                linewidth = 1) +
+  scale_y_continuous(name = "CSA",
+                     expand = c(0, 0),
+                     limits = c(0, 45)) +
+  scale_x_discrete(name = "BrainRegion") +
+  theme_classic() 
+
+```
+
+How can we show the two diets separately?
+
+![](images/do_in_R.png) We can map the `Diet` variable to the shape aesthetic!
+```{r}
+ggplot() +
+  geom_point(data = neuron, 
+             aes(x = BrainRegion, y = CSA, shape = Diet),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50",
+             size = 3) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean - se, 
+                    ymax = mean + se),
+                width = 0.4) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean,
+                    ymax = mean),
+                width = 0.3, 
+                linewidth = 1) +
+  scale_y_continuous(name = "CSA",
+                     expand = c(0, 0),
+                     limits = c(0, 45)) +
+  scale_x_discrete(name = "BrainRegion") +
+  theme_classic() 
+
+```
+Oh, that isn't quite what we want! We want the two diets side-by-side, not on top of each other.
+
+![](images/do_in_R.png) We can achieve that by using setting the `position` argument to  `position_jitterdodge()` in the `geom_point()` and to `position_dodge()` in the two `geom_errorbar()`. We also have to specify that the error bars are grouped by `Diet` since they are not otherwise mapped to a shape, colour or fill.
+
+```{r}
+ggplot() +
+  geom_point(data = neuron, 
+             aes(x = BrainRegion, y = CSA, shape = Diet),
+             position = position_jitterdodge(dodge.width = 1,
+                                             jitter.width = 0.3,
+                                             jitter.height = 0),
+             colour = "gray50",
+             size = 3) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean - se, 
+                    ymax = mean + se,
+                    group = Diet),
+                width = 0.4,
+                position = position_dodge(width = 1)) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean,
+                    ymax = mean,
+                    group = Diet),
+                width = 0.3, 
+                linewidth = 1,
+                position = position_dodge(width = 1)) +
+  scale_y_continuous(name = "CSA",
+                     expand = c(0, 0),
+                     limits = c(0, 45)) +
+  scale_x_discrete(name = "BrainRegion") +
+  theme_classic() 
+
+```
+![](images/do_in_R.png) Add the annotation of the statistical results
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+ggplot() +
+  geom_point(data = neuron, 
+             aes(x = BrainRegion, y = CSA, shape = Diet),
+             position = position_jitterdodge(dodge.width = 1,
+                                             jitter.width = 0.3,
+                                             jitter.height = 0),
+             colour = "gray50",
+             size = 3) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean - se, 
+                    ymax = mean + se,
+                    group = Diet),
+                width = 0.4,
+                position = position_dodge(width = 1)) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean,
+                    ymax = mean,
+                    group = Diet),
+                width = 0.3, 
+                linewidth = 1,
+                position = position_dodge(width = 1)) +
+  scale_y_continuous(name = "CSA",
+                     expand = c(0, 0),
+                     limits = c(0, 45)) +
+  scale_x_discrete(name = "BrainRegion") +
+  # DB Control - DB Deficient **
+  annotate("segment",
+           x = 0.75, xend = 1.25,
+           y = 35, yend = 35,
+           colour = "black") +
+  annotate("text",
+           x = 1,  y = 36,
+           label = "**", size = 6) +
+  # Control.MSN - Control.DB **
+  annotate("segment",
+           x = 0.75, xend = 1.75,
+           y = 38, yend = 38,
+           colour = "black") +
+  annotate("text", x = 1.25,  y = 39,
+           label = "**", size = 6) +
+  # DB Control - MSN Deficient  ***
+  annotate("segment",
+           x = 0.75, xend = 2.25,
+           y = 41, yend = 41,
+           colour = "black") +
+  annotate("text", x = 1.5,  y = 42,
+           label = "***", size = 6) +
+  theme_classic() 
+
+```
+![](images/do_in_R.png) Finally, we can move the legend to a space on the plot area which helps you minimise the width needed like this:
+
+```{r}
+#| eval: false
+
+...... +
+  theme(legend.position = c(0.15, 0.15),
+        legend.background = element_rect(colour = "black"))
+
+```
+
+
+![](images/do_in_R.png) Save your figure to your figures folder.
+
+```{r}
+#| echo: false
+
+#---CODING ANSWER---
+
+# Assign the figure to a variable
+fig1 <- ggplot() +
+  geom_point(data = neuron, 
+             aes(x = BrainRegion, y = CSA, shape = Diet),
+             position = position_jitterdodge(dodge.width = 1,
+                                             jitter.width = 0.3,
+                                             jitter.height = 0),
+             colour = "gray50",
+             size = 3) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean - se, 
+                    ymax = mean + se,
+                    group = Diet),
+                width = 0.4, 
+                position = position_dodge(width = 1)) +
+  geom_errorbar(data = neuron_summary, 
+                aes(x = BrainRegion, 
+                    ymin = mean,
+                    ymax = mean, 
+                    group = Diet),
+                width = 0.3, 
+                linewidth = 1,
+                position = position_dodge(width = 1) ) +
+  scale_y_continuous(name = "CSA",
+                     expand = c(0, 0),
+                     limits = c(0, 45)) +
+  scale_x_discrete(name = "BrainRegion") +
+  # DB Control - DB Deficient **
+  annotate("segment",
+           x = 0.75, xend = 1.25,
+           y = 35, yend = 35,
+           colour = "black") +
+  annotate("text",
+           x = 1,  y = 36,
+           label = "**", size = 6) +
+  # Control.MSN - Control.DB **
+  annotate("segment",
+           x = 0.75, xend = 1.75,
+           y = 38, yend = 38,
+           colour = "black") +
+  annotate("text", x = 1.25,  y = 39,
+           label = "**", size = 6) +
+  # DB Control - MSN Deficient  ***
+  annotate("segment",
+           x = 0.75, xend = 2.25,
+           y = 41, yend = 41,
+           colour = "black") +
+  annotate("text", x = 1.5,  y = 42,
+           label = "***", size = 6) +
+  theme_classic() +
+  theme(legend.position = c(0.15, 0.15),
+        legend.background = element_rect(colour = "black"))
+
+```
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+# save figure to figures/seal.png
+ggsave("figures/neuron.png",
+       plot = fig1,
+       width = 4,
+       height = 3.5,
+       units = "in",
+       dpi = 300)
+
+```
 
 You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxx" width="1000"}
+![Artwork by @allison_horst: ](images/dragon-residuals-2.png){fig-alt="A hoard of multiple different dragons stand on scales, shouting out their residuals based on the model estimates (e.g. 'My residual is 0.2 tons! My residual is -0.4 tons! My residual is 0.9 tons!' A histogram to the right shows the distribution of these residuals, with text 'Check: are residuals normally distributed?'" width="800"}
 
 # Independent study following the workshop
 
