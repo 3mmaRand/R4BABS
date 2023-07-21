@@ -526,7 +526,7 @@ Key
 <!-- continuous variable which is the response. -->
 <section id="exploring" class="level3">
 <h3 class="anchored" data-anchor-id="exploring">Exploring</h3>
-<p><img src="images/do_in_R.png" class="img-fluid"> Do a quick plot of the data.You may need to refer to a previous workshop</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Do a quick plot of the data. You may need to refer to a previous workshop</p>
 </section>
 <section id="summarising-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="summarising-the-data">Summarising the data</h3>
@@ -617,7 +617,7 @@ F-statistic: 5.352 on 2 and 87 DF,  p-value: 0.006427</code></pre>
 <!-- Bladdernose mean is β0 i.e., 42.31 -->
 <!-- Harbour mean is β0 + β1 i.e., 42.316 + 6.694 = 49.01 -->
 <!-- Weddell mean is β0 + β2  i.e., 42.316 + 2.344 -->
-<p>The ANOVA is significant but this only tells us that species matters, meaning at least two of the means differ. To find out which means differ, we need a post-hoc test. A post-hoc (“after this”) test is done after a significant ANOVA test. There are several possible post-hoc tests and we will be using Tukey’s HSD (honestly significant difference) test <span class="citation" data-cites="tukey1949">(<a href="#ref-tukey1949" role="doc-biblioref">Tukey 1949</a>)</span>implemented in the <strong><code>emmeans</code></strong> package.</p>
+<p>The ANOVA is significant but this only tells us that species matters, meaning at least two of the means differ. To find out which means differ, we need a post-hoc test. A post-hoc (“after this”) test is done after a significant ANOVA test. There are several possible post-hoc tests and we will be using Tukey’s HSD (honestly significant difference) test <span class="citation" data-cites="tukey1949">(<a href="#ref-tukey1949" role="doc-biblioref">Tukey 1949</a>)</span> implemented in the <strong><code>emmeans</code></strong> <span class="citation" data-cites="emmeans">(<a href="#ref-emmeans" role="doc-biblioref">Lenth 2023</a>)</span> package.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Load the package</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -634,15 +634,16 @@ F-statistic: 5.352 on 2 and 87 DF,  p-value: 0.006427</code></pre>
 P value adjustment: tukey method for comparing a family of 3 estimates </code></pre>
 </div>
 </div>
-<p>Each row is a comparison between means. The ‘estimate’ column is the difference between the means and the ‘p.value’ column indicates whether that difference is significant.</p>
-<p>A plot can be used to visualise the result of the post hoc which can be especially useful when there are very many comparisons.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"></p>
+<p>Each row is a comparison between the two means in the ‘contrast’ column. The ‘estimate’ column is the difference between those means and the ‘p.value’ indicates whether that difference is significant.</p>
+<p>A plot can be used to visualise the result of the post-hoc which can be especially useful when there are very many comparisons.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Plot the results of the post-hoc test:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mod, <span class="sc">~</span> species) <span class="sc">|&gt;</span> <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="workshop_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Where the purple bars overlap, there is no significant difference.</p>
 <p><img src="images/answer.png" class="img-fluid"> What do you conclude from the test?</p>
 <!-- #---THINKING ANSWER---  -->
 <!-- Harbour and Bladdernose differ signifcantly, p = 0.005 -->
@@ -650,7 +651,7 @@ P value adjustment: tukey method for comparing a family of 3 estimates </code></
 </section>
 <section id="check-assumptions" class="level3">
 <h3 class="anchored" data-anchor-id="check-assumptions">Check assumptions</h3>
-<p>The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we need to calculate the residuals and we can do examine the <code>mod$residuals</code> variable. You may want to refer to <a href="../week-2/workshop.html#checking-assumptions">Checking assumptions</a> in the “Single regression” workshop.</p>
+<p>The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the <code>mod$residuals</code> variable. You may want to refer to <a href="../week-2/workshop.html#checking-assumptions">Checking assumptions</a> in the “Single regression” workshop.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot the model residuals against the fitted values.</p>
 <p><img src="images/answer.png" class="img-fluid"> What to you conclude?</p>
 <!-- #---THINKING ANSWER--- -->
@@ -789,6 +790,9 @@ Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe De
 </div>
 <div id="ref-allison_horst" class="csl-entry" role="listitem">
 Horst, Allison. 2023. <span>“Data Science Illustrations.”</span> <a href="https://allisonhorst.com/allison-horst">https://allisonhorst.com/allison-horst</a>.
+</div>
+<div id="ref-emmeans" class="csl-entry" role="listitem">
+Lenth, Russell V. 2023. <em>Emmeans: Estimated Marginal Means, Aka Least-Squares Means</em>. <a href="https://CRAN.R-project.org/package=emmeans">https://CRAN.R-project.org/package=emmeans</a>.
 </div>
 <div id="ref-R-core" class="csl-entry" role="listitem">
 R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
