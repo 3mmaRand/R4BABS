@@ -7,6 +7,27 @@
     "text": "About this site\nAbout me"
   },
   {
+    "objectID": "r4babs4/r4babs4.html",
+    "href": "r4babs4/r4babs4.html",
+    "title": "Data Analysis in R for BABS 4",
+    "section": "",
+    "text": "This is the last of the four BABS modules.\ncore strand specific: immunology\n\n\nThe BABS4 Module Learning outcomes that relate to the Data Analysis in R content are:"
+  },
+  {
+    "objectID": "r4babs4/r4babs4.html#module-learning-objectives",
+    "href": "r4babs4/r4babs4.html#module-learning-objectives",
+    "title": "Data Analysis in R for BABS 4",
+    "section": "",
+    "text": "The BABS4 Module Learning outcomes that relate to the Data Analysis in R content are:"
+  },
+  {
+    "objectID": "r4babs4/r4babs4.html#all-strands",
+    "href": "r4babs4/r4babs4.html#all-strands",
+    "title": "Data Analysis in R for BABS 4",
+    "section": "All Strands",
+    "text": "All Strands\nmany var and obs, examples, PCA, log fc transformation, normalisation, QC gating, missing values, excluding proteins id’d from fewer thaan two peptides, FDR, data structures"
+  },
+  {
     "objectID": "r4babs2/week-5/overview.html",
     "href": "r4babs2/week-5/overview.html",
     "title": "Overview",
