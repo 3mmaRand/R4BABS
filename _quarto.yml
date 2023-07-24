@@ -5,7 +5,7 @@ project:
 website:
   title: "Data Analysis in R "
   page-footer:
-    left: '`r cffr::cff_to_bibtex("CITATION.cff")`'
+    left: "Please cite as: `r cffr::cff_to_bibtex('CITATION.cff`)`"
     right:
       - icon: twitter
         href: https://twitter.com/er_13
@@ -283,6 +283,8 @@ execute:
   output: true
   error: true
   collapse: true
+
+engine: knitr
 
 
 format:

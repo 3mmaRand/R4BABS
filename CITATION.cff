@@ -5,7 +5,9 @@ authors:
   given-names: "Emma"
   orcid: "https://orcid.org/0000-0002-1358-8275"
 title: "Data Analysis in R for Becoming a Bioscientist"
+abstract: "This is a collection of courses for University of York Biology students."
 version: 0.1
 doi: 
 date-released: 2023-05-01
+repository-code: "https://github.com/3mmaRand/R4BABS"
 url: "https://3mmarand.github.io/R4BABS/"

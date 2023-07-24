@@ -31,4 +31,4 @@ The time and effort you put in to learning "Data Analysis in R" WILL reward you 
 
 ## What is this site for?
 
-All the Data Analysis in R teaching is on the VLE so why is this site useful? Well, perhaps more than any other material, you will want to refer back when applying your skills throughout your degree and this site collects everything together in a searchable way. The search icon is on the top right,
+All the Data Analysis in R teaching is on the VLE so why is this site useful? Well, perhaps more than any other material, you will want to refer back when applying your skills throughout your degree and this site collects everything together in a searchable way. The search icon is on the top right.
