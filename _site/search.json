@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Analysis in R",
+    "section": "",
+    "text": "Data Analysis in R helps you analyse data but also to understand the literature, design experiments and report the results.\n\n\nReproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills.\n\n\n\nPart of the reason that these skills are in-demand is that they take time and practice in the same way that playing an instrument, speaking another language or playing a sport do. They are skills you develop rather than facts you memorise. You will make a lot of mistakes.\n\n\n\nThere is a lot of problem solving which is enaging work because there’s always something to ‘chase’. You may be able to concentrate on coding for much longer than on writing or reading because it is such an active learning process. You’ll create impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!\nThe time and effort you put in to learning “Data Analysis in R” WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations for modules and projects in which in turn will allow you to perform better in assessments.\nevaluate and interpret the data analysis in papers\naccess a wide range of careers\n\n\n\n\nAll the Data Analysis in R teaching is on the VLE so why is this site useful? Well, perhaps more than any other material, you will want to refer back when applying your skills throughout your degree and this site collects everything together in a searchable way. The search icon is on the top right."
+  },
+  {
+    "objectID": "index.html#learning-data-analysis-is-important",
+    "href": "index.html#learning-data-analysis-is-important",
+    "title": "Data Analysis in R",
+    "section": "",
+    "text": "Reproducible data management, handling, wrangling, modelling and visualisation underpin both the scientific process and many of the most in-demand hard skills."
+  },
+  {
+    "objectID": "index.html#and-takes-time",
+    "href": "index.html#and-takes-time",
+    "title": "Data Analysis in R",
+    "section": "",
+    "text": "Part of the reason that these skills are in-demand is that they take time and practice in the same way that playing an instrument, speaking another language or playing a sport do. They are skills you develop rather than facts you memorise. You will make a lot of mistakes."
+  },
+  {
+    "objectID": "index.html#but-can-be-great-fun",
+    "href": "index.html#but-can-be-great-fun",
+    "title": "Data Analysis in R",
+    "section": "",
+    "text": "There is a lot of problem solving which is enaging work because there’s always something to ‘chase’. You may be able to concentrate on coding for much longer than on writing or reading because it is such an active learning process. You’ll create impressive looking figures, which you can reproduce on a different dataset in moments, exciting biological insights revealed in a test and whole world of ‘techy’ tricks you had no idea you’d be able to do!\nThe time and effort you put in to learning “Data Analysis in R” WILL reward you no matter how you evaluate yourself relative to others. You will be able to:\n\nbetter and/or more quickly design and analyse scientific investigations for modules and projects in which in turn will allow you to perform better in assessments.\nevaluate and interpret the data analysis in papers\naccess a wide range of careers"
+  },
+  {
+    "objectID": "index.html#what-is-this-site-for",
+    "href": "index.html#what-is-this-site-for",
+    "title": "Data Analysis in R",
+    "section": "",
+    "text": "All the Data Analysis in R teaching is on the VLE so why is this site useful? Well, perhaps more than any other material, you will want to refer back when applying your skills throughout your degree and this site collects everything together in a searchable way. The search icon is on the top right."
+  },
+  {
+    "objectID": "r4babs1/week-6/overview.html",
+    "href": "r4babs1/week-6/overview.html",
+    "title": "Overview",
+    "section": "",
+    "text": "This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.\n\n\n\nArtwork by Horst (2023): “code gets the blame”\n\n\n\nLearning objectives\nThe parentheses after each learning objective indicate where the content covers that objective.\nThe successful student will be able to:\n\nexplain what an operating system is\nexplain the organisation of files and directories in a file systems\nexplain what a file is and give some common files types\nexplain what is meant by a plain text file\nexplain the relationship between the file extensions, the file format and associations with programs\nuse a file manager\nexplain root, home and working directories\nexplain absolute and relative file paths\nknow what R and RStudio are\nknow how to organise their work\n\n\n\nInstructions\n\nPrepare\n\nWatch an Introduction to Data Analysis in R for BABS 1 - 4\nRead What they forgot to teach you about computers\nRead What are R and Rstudio?\n\nWorkshop\n\nOptional: Install R and RStudio\n\nConsolidate\n\n\n\n\n\n\nReferences\n\nHorst, Allison. 2023. “Data Science Illustrations.” https://allisonhorst.com/allison-horst."
+  }
+]

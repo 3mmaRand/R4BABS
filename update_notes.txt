@@ -54,15 +54,16 @@ Group only access to relevant folder  done by SAS
 VLE iframe
 Week 1 Data Analysis in R for BABS 2
 
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/overview.html" title="Week 6: Chi-squared and correlation" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/overview.html" title="Week 2: xxxxx" allow="fullscreen"  width="800" height="400"></iframe>
 
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
 
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
 
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_after_workshop.html" title="Consolidation" allow="fullscreen"  width="800" height="400"></iframe>
+<iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/study_after_workshop.html" title="Consolidation" allow="fullscreen"  width="800" height="400"></iframe>
 
-
+https://3mmarand.github.io/BIO00088H-data/core/core.html
+https://3mmarand.github.io/BIO00088H-data/core/week-1/overview.html
 ###############
  🥳 Well Done! 🎉 lose emo::ji
 #############
