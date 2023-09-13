@@ -389,7 +389,7 @@
     "href": "r4babs1/week-9/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "📖 Read Working with data in RStudio. The first part of this chapter is about data import which we covered in the last workshop. You may be able to skip that part or you may find it useful to revise. The section on Summarising data will be mainly new."
+    "text": "📖 Read From importing to reporting. The first part of this chapter is about data import which we covered in the last workshop. You may be able to skip that part or you may find it useful to revise. The section on Summarising data will be mainly new."
   },
   {
     "objectID": "r4babs1/week-9/workshop.html",
@@ -515,7 +515,7 @@
     "href": "r4babs1/week-9/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.\n\nLearning objectives\n\nsummarise and plot appropriately datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\nsave figures to file\ncreate neat reports which include text and figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read Working with data in RStudio\n\nWorkshop\n\n💻 Summarise and plot datasets with more than one variable.\n💻 Practice with working directories, importing data, formatting figures and the pipe\n💻 Lay out text, figures and figure legends in documents\n\nConsolidate\n\n💻 Summarise and plot a dataframe from the workshop\n💻 Practice the complete RStudio Project worklfow for a new dataset"
+    "text": "Last week you summarised and plotted single variables. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.\n\nLearning objectives\n\nsummarise and plot appropriately datasets with more than one variable\nrecognise that variables can be categorised by their role in analysis\nexplain what is meant by ‘tidy’ data and be able to perform some data tidying tasks.\nsave figures to file\ncreate neat reports which include text and figures\n\n\n\nInstructions\n\nPrepare\n\n📖 From importing to reporting\n\nWorkshop\n\n💻 Summarise and plot datasets with more than one variable.\n💻 Practice with working directories, importing data, formatting figures and the pipe\n💻 Lay out text, figures and figure legends in documents\n\nConsolidate\n\n💻 Summarise and plot a dataframe from the workshop\n💻 Practice the complete RStudio Project worklfow for a new dataset"
   },
   {
     "objectID": "r4babs1/week-7/workshop.html",
