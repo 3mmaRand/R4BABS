@@ -255,26 +255,26 @@ website:
              - href: r4babs2/week-4/study_after_workshop.qmd
                text: Consolidate!  
           - text: ---
-          - section: "Week 9: Two-way ANOVA"
+          - section: "Week 9: Inyroduction to the Assessment"
             contents: 
-             - href: r4babs2/week-5/overview.qmd
+             - href: 
                text: About  
-             - href: r4babs2/week-5/study_before_workshop.qmd
+             - href: 
                text: Prepare! 
-             - href: r4babs2/week-5/workshop.qmd
+             - href: 
                text: Workshop
-             - href: r4babs2/week-5/study_after_workshop.qmd
+             - href: 
                text: Consolidate!  
           - text: ---
-          - section: "Week 10: Chi-squared and correlation"
+          - section: "Week 10: Reproducible Reporting"
             contents: 
-             - href: r4babs2/week-6/overview.qmd
+             - href: 
                text: About  
-             - href: r4babs2/week-6/study_before_workshop.qmd
+             - href: 
                text: Prepare! 
-             - href: r4babs2/week-6/workshop.qmd
+             - href: 
                text: Workshop
-             - href: r4babs2/week-6/study_after_workshop.qmd
+             - href: 
                text: Consolidate!  
 
 execute:
