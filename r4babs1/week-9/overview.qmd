@@ -20,7 +20,7 @@ Last week you summarised and plotted single variables. This week you will start 
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i. 📖 Read Working with data in RStudio
+    i. 📖 From importing to reporting
 
 
 2.  [Workshop](workshop.qmd)
