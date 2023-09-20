@@ -1,0 +1,552 @@
+1
+00:00:03,000 --> 00:00:11,000
+Hello. This is an introduction to RStudio. I'm going to try to explain the windows that you're looking at here.
+
+2
+00:00:11,000 --> 00:00:19,790
+How are you going to change the appearance of RStudio? And then how we use our as a calculator and assigning variables.
+
+3
+00:00:19,790 --> 00:00:28,000
+And I also give you a little bit of a rationale for why it is that we script rather than typing in at the console.
+
+4
+00:00:28,000 --> 00:00:38,000
+So we're going to start with the appearance now as I'm looking at our studio here, it's all in black, which is my preferred theme.
+
+5
+00:00:38,000 --> 00:00:45,060
+And when you've opened RStudio, you should find that it opens automatically as well as a white background.
+
+6
+00:00:45,060 --> 00:00:51,120
+So you've probably seen the all proper programmers seemed to use dark backgrounds and you can change
+
+7
+00:00:51,120 --> 00:00:59,280
+the background here and make it any way that you you like by using an option under the tools menu.
+
+8
+00:00:59,280 --> 00:01:04,000
+Now, I'm afraid that all the menu options don't magnify too well.
+
+9
+00:01:04,000 --> 00:01:09,450
+So you want to go to that toolbar along the top, which starts with file.
+
+10
+00:01:09,450 --> 00:01:18,000
+And towards the end, there is one that says tools. Click on that and then go to global options.
+
+11
+00:01:18,000 --> 00:01:24,000
+And then you should have a window appear. And one of the options and there is appearance
+
+12
+00:01:24,000 --> 00:01:29,000
+If you click on appearance, then you have this editor theme.
+
+13
+00:01:29,000 --> 00:01:33,000
+And this is where you can change the look of your editor
+
+14
+00:01:33,000 --> 00:01:41,000
+So there's a nice one there. I also quite liked that one. You will start off with a textmate looking like that.
+
+15
+00:01:41,000 --> 00:01:56,000
+So I like to use solarised dark.
+
+16
+00:01:56,000 --> 00:02:05,000
+So change that how you want it to be.
+
+17
+00:02:05,000 --> 00:02:10,650
+So in RStudio, we just get my notes here.
+
+18
+00:02:10,650 --> 00:02:20,810
+You'll start off probably with three windows. It's possible when you first started opening up, you got four windows which look like this.
+
+19
+00:02:20,810 --> 00:02:27,920
+So don't worry about that. I'll come to that in a moment. So I'm going to close that for a minute.
+
+20
+00:02:27,920 --> 00:02:33,000
+So we have these four windows. This window on the left hand side.
+
+21
+00:02:33,000 --> 00:02:39,380
+This is where R commands get typed and where they actually get executed.
+
+22
+00:02:39,380 --> 00:02:49,100
+So this is the are engine, if you like. And then over on the right hand side, at the top, we've got a few different tabs here.
+
+23
+00:02:49,100 --> 00:02:53,930
+The one that you're looking at most often is the one called environment.
+
+24
+00:02:53,930 --> 00:02:57,810
+So this is where all the objects that you create.
+
+25
+00:02:57,810 --> 00:03:06,770
+You know, you can see them. So it allows you to see what you've done so far, what you've made so far.
+
+26
+00:03:06,770 --> 00:03:13,370
+Now, if you're using the virtual desktop, you may find that you've got a list of things in here already.
+
+27
+00:03:13,370 --> 00:03:17,330
+And that's absolutely fine. Don't worry about that.
+
+28
+00:03:17,330 --> 00:03:24,230
+You've also got here something called history, which will look at a bit later with a history of all your commands.
+
+29
+00:03:24,230 --> 00:03:30,050
+And then on the bottom right hand side, we've got a file explorer.
+
+30
+00:03:30,050 --> 00:03:35,260
+So here we have a list of all the files that are on my desktop.
+
+31
+00:03:35,260 --> 00:03:43,010
+We can see there. And you also have a window, which is where your plots will go.
+
+32
+00:03:43,010 --> 00:03:48,000
+And you have a packages window, which will just take a moment to update here.
+
+33
+00:03:48,000 --> 00:03:52,850
+And this is where you can see all the  packages you already have installed.
+
+34
+00:03:52,850 --> 00:04:00,320
+But it's also a method for installing packages using this install button.
+
+35
+00:04:00,320 --> 00:04:05,520
+And the other window you have, which you will use a lot, is the help window.
+
+36
+00:04:05,520 --> 00:04:13,000
+So this is the help manual we've got here. Yours will open up with a window a bit like that, I think.
+
+37
+00:04:13,000 --> 00:04:27,500
+OK, so let's start with assigning variables or using R as a calculator, we can use R as a calculator, so by type three plus four.
+
+38
+00:04:27,500 --> 00:04:35,540
+And then press enter to send that command. I get the answer seven out.
+
+39
+00:04:35,540 --> 00:04:42,000
+So this little arrow, this is called the prompt. This is not something you have to type.
+
+40
+00:04:42,000 --> 00:04:46,520
+It's something that tells you that R is ready for input.
+
+41
+00:04:46,520 --> 00:04:54,100
+So it's ready and waiting for you to type some commands in.
+
+42
+00:04:54,100 --> 00:04:59,000
+Where I've written three plus four here, I've got no spaces.
+
+43
+00:04:59,000 --> 00:05:08,000
+But you can have spaces. And in fact, it's good practise to have spaces around your operators like a plus or an equals or a minus or so.
+
+44
+00:05:08,000 --> 00:05:19,000
+So a better way of writing this would be 3 space plus space 4 enter.
+
+45
+00:05:19,000 --> 00:05:31,000
+Because it's slightly clearer to read that's considered good practise is to always use spaces around different elements in R
+
+46
+00:05:31,000 --> 00:05:39,050
+And then looking at the output here. What we've got is, the number seven, which is obviously the answer.
+
+47
+00:05:39,050 --> 00:05:44,240
+And we have this one in brackets. So that one in brackets is an index.
+
+48
+00:05:44,240 --> 00:05:51,350
+It's telling you that the seven is the first element of the output.
+
+49
+00:05:51,350 --> 00:06:05,000
+Now, if I was to do a bigger chain of numbers, so I'm gonna use the numbers from 50 to 150.
+
+50
+00:06:05,000 --> 00:06:16,940
+So nothing special about these numbers at all. 50 colon 150 just means print out the numbers from a from 50 to 150 insteps of one.
+
+51
+00:06:16,940 --> 00:06:22,910
+And if I press enter to send this, it's giving me all those numbers.
+
+52
+00:06:22,910 --> 00:06:29,390
+So I use these numbers just because it meant that the actual output would have to wrap on to several lines.
+
+53
+00:06:29,390 --> 00:06:38,360
+So what what this is telling you, the number 13 here is telling you is that 62 is the 13th element in the output.
+
+54
+00:06:38,360 --> 00:06:42,310
+So these elements are just telling you where you are in the output.
+
+55
+00:06:42,310 --> 00:06:48,000
+OK. So that's the ninety seventh number. The 98 is the 99.
+
+56
+00:06:48,000 --> 00:06:56,000
+The 100th and the 101st number, there.
+
+57
+00:06:56,000 --> 00:07:05,000
+So ordinarily, when we do calculations or we use numbers in R, we probably want them assigned to variables.
+
+58
+00:07:05,000 --> 00:07:11,000
+And the way we do assignment is to use an arrow which is the "assignment operator", we call it.
+
+59
+00:07:11,000 --> 00:07:22,000
+So I'm going to assign the value three to x. So if I type x and then I'm going to type an arrow and then I'm going to put three.
+
+60
+00:07:22,000 --> 00:07:28,000
+Let me just press enter. So there's a few things to pick up here.
+
+61
+00:07:28,000 --> 00:07:36,000
+The first is this is the assignment operator is made of two characters, the less than and the minus.
+
+62
+00:07:36,000 --> 00:07:41,000
+And there's a shortcut for that in R which is an Alt-minus.
+
+63
+00:07:41,000 --> 00:07:52,000
+So that's Alt-minus. And that will give you that assignment operator, without you having to do too much keyboard kung fu.
+
+64
+00:07:52,000 --> 00:07:59,000
+And you'll also automatically get spaces. So then you'll also notice that having run this command,
+
+65
+00:07:59,000 --> 00:08:07,910
+what's happened up in the environment is I now have something called x, which has the value three.
+
+66
+00:08:07,910 --> 00:08:12,000
+I don't have any output because there is no output for this command.
+
+67
+00:08:12,000 --> 00:08:21,000
+So that three, instead of being just printed out to the screen, has been put inside x
+
+68
+00:08:21,000 --> 00:08:32,000
+And I'm going to do the same now for the value 4 and y. So Y Alt-minus 4 and press enter.
+
+69
+00:08:32,000 --> 00:08:39,920
+Now I have an object called y which has the value 4 and I've got the prompt back and
+
+70
+00:08:39,920 --> 00:08:47,000
+I can use these values in calculations just like I would in in maths and algebra.
+
+71
+00:08:47,000 --> 00:08:56,000
+So I'm going to do x + y
+
+72
+00:08:56,000 --> 00:09:09,000
+And that gives me the value. Seven, just as we  expect. So let's suppose I made a mistake, something like x and then I type plus,
+
+73
+00:09:09,000 --> 00:09:15,000
+and then I pressed accidentally missed the y button and I pressed u instead.
+
+74
+00:09:15,000 --> 00:09:23,700
+So I should get an error. When I do this, I press enter. So the error I'm getting there is object u is not found.
+
+75
+00:09:23,700 --> 00:09:28,000
+So when you get that error. Have a quick look up at your environment and you can see.
+
+76
+00:09:28,000 --> 00:09:34,380
+Well there is nothing called u. So that's what R is complaining about. Doesn't know what u is.
+
+77
+00:09:34,380 --> 00:09:39,000
+So I just made a typo. And I want to correct that to send it again.
+
+78
+00:09:39,000 --> 00:09:45,780
+And we have access to all the commands that we've previously written in using what's called command recall.
+
+79
+00:09:45,780 --> 00:09:52,140
+And you can get that by using the up arrow. So if you press the up arrow, you will get your previous command.
+
+80
+00:09:52,140 --> 00:09:55,000
+If you press it again, you'll get the command before that. If you press it again.
+
+81
+00:09:55,000 --> 00:10:01,000
+The one before that. And so on. S
+
+82
+00:10:01,000 --> 00:10:05,960
+I can edit that, so I'm going to backspace to get rid of u.
+
+83
+00:10:05,960 --> 00:10:15,000
+And press y to correct it. And then press enter. Oh, now I've got it right.
+
+84
+00:10:15,000 --> 00:10:20,240
+So most of what we type in are is going to be wrong. And that's not just because you're a beginner.
+
+85
+00:10:20,240 --> 00:10:25,000
+That's the same for everybody. On the whole, you type it wrong.
+
+86
+00:10:25,000 --> 00:10:31,640
+And n minus one times, it's basically wrong. Wrong, wrong. Wrong. Right. And then you can stop and move on to the next thing.
+
+87
+00:10:31,640 --> 00:10:35,930
+Wrong, wrong, wrong, wrong. Okay. Now I've got it right now. I can move on to the next thing.
+
+88
+00:10:35,930 --> 00:10:47,000
+So you got it wrong all the time. And you might want to access your previous commands part from through the up arrow.
+
+89
+00:10:47,000 --> 00:10:55,200
+And that's what the history does. So the history has a record of everything you've typed in so you can see all your commands here.
+
+90
+00:10:55,200 --> 00:11:02,480
+The thing about the history is it has all your commands, including the ones that were wrong.
+
+91
+00:11:02,480 --> 00:11:08,030
+So although you can save this history forward if you want to, to save all of your commands.
+
+92
+00:11:08,030 --> 00:11:16,400
+Ordinarily, we do not want to save all of our commands because so much of what we do is actually wrong and we want to correct it.
+
+93
+00:11:16,400 --> 00:11:23,930
+So because of that, instead of typing into the console, what we normally do is type into a script.
+
+94
+00:11:23,930 --> 00:11:28,600
+And we type into the script and then send the commands to the console.
+
+95
+00:11:28,600 --> 00:11:38,980
+And then if we've made any mistakes, we just correct our script. And then at the end of the game, we've got just a record of everything worked.
+
+96
+00:11:38,980 --> 00:11:46,460
+So I'm going to do that now when I open a new script. So you've got a button on the top Left-Hand side.
+
+97
+00:11:46,460 --> 00:11:51,640
+If you click on that, you'll get one of the options with the top option.
+
+98
+00:11:51,640 --> 00:12:00,160
+A new script. So that's the window that may have opened for you initially.
+
+99
+00:12:00,160 --> 00:12:12,070
+So now let's pretend that I put in Y plus you into my script in order to send that to the console.
+
+100
+00:12:12,070 --> 00:12:17,650
+So just typing it and even pressing enter doesn't send that command.
+
+101
+00:12:17,650 --> 00:12:22,000
+So it's not run at all. You can see nothing's happened down here in the console.
+
+102
+00:12:22,000 --> 00:12:33,000
+But to make it go there, you have to put your cursor on the line and then do control and enter.
+
+103
+00:12:33,000 --> 00:12:39,000
+So I'm getting that error there: object u not found.
+
+104
+00:12:39,000 --> 00:12:47,000
+And then I would I wouldn't type the correct command on line two, I would just correct the one I've got in there.
+
+105
+00:12:47,000 --> 00:12:55,640
+So now make that x and I'll press control-enter and send that.
+
+106
+00:12:55,640 --> 00:13:06,830
+Now it's correct. Okay, so one of the advantages of you, the script, apart from the fact that at the end of the session,
+
+107
+00:13:06,830 --> 00:13:14,000
+you've got a list of all the commands that actually worked. Another advantage is that you can comment, though.
+
+108
+00:13:14,000 --> 00:13:24,000
+I can write comments in here with a hash then anything I write after that hash is treated as information and not as a command.
+
+109
+00:13:24,000 --> 00:13:35,360
+So R knows it's just a comment that I am going to write here, adding X and Y.
+
+110
+00:13:35,360 --> 00:13:40,970
+And you can see with the editor, it's actually made that italic. Depending on which theme you've chosen.
+
+111
+00:13:40,970 --> 00:13:47,120
+It may be different to try and make it more obvious that that is a comment.
+
+112
+00:13:47,120 --> 00:13:53,000
+But the actual code. So, as I've mentioned, a number of shortcuts here.
+
+113
+00:13:53,000 --> 00:14:04,000
+What I'm going to do is I'm going to write these down in this script. So the short cut for the assignment is Alt
+
+114
+00:14:04,000 --> 00:14:17,650
+And then the minus key. Comment is a hash or hashtag, as you like to call it.
+
+115
+00:14:17,650 --> 00:14:26,000
+What were the other things I wanted to write down?
+
+116
+00:14:26,000 --> 00:14:34,000
+ummmm, was definitely something else. I just can't remember what it was now out of my head.
+
+117
+00:14:34,000 --> 00:14:41,000
+Perhaps. Use spaces. And we go, that will be one that I can use.
+
+118
+00:14:41,000 --> 00:14:47,400
+All right. Imight write some more things in a moment. So having.
+
+119
+00:14:47,400 --> 00:14:56,000
+Created a script. I would want to save it. And you can do that by clicking on the disk icon or by using the file menu.
+
+120
+00:14:56,000 --> 00:15:07,000
+So I click on that. Now, I'm going to save mine as I'm saving .
+
+121
+00:15:07,000 --> 00:15:14,000
+test1, and it automatically end with the save with a .R extension.
+
+122
+00:15:14,000 --> 00:15:22,780
+You can call yours anything you like. It doesn't matter. So you can see it's automatically ended there with a .R extension.
+
+123
+00:15:22,780 --> 00:15:35,000
+So these are scripts will be contain all the commands that were correct and all the commentary that you've written in to write them.
+
+124
+00:15:35,000 --> 00:15:43,670
+And you should use as many comments as you want. You have other types of file in RStudio as well.
+
+125
+00:15:43,670 --> 00:15:54,670
+And one of those types is what we call the workspace so we can save this.
+
+126
+00:15:54,670 --> 00:15:59,000
+These objects, so it say if the objects, but not the code.
+
+127
+00:15:59,000 --> 00:16:03,160
+So on the on the left, we've got the code.
+
+128
+00:16:03,160 --> 00:16:07,870
+But not the objects. And on the right, we've got the objects but not the code.
+
+129
+00:16:07,870 --> 00:16:12,130
+And you sometimes want to do this if you want somebody else to know exactly what
+
+130
+00:16:12,130 --> 00:16:17,320
+your environment was like at the time you were trying to write some commands,
+
+131
+00:16:17,320 --> 00:16:26,830
+like when you're trying to get help. You also might do that if it takes quite a long time to run the script.
+
+132
+00:16:26,830 --> 00:16:34,480
+So with this in mind, normally I would recommend changing some of the settings on our studio so that you
+
+133
+00:16:34,480 --> 00:16:41,200
+don't automatically save that environment and you do that through the tools menu again.
+
+134
+00:16:41,200 --> 00:16:47,000
+So if you go to tools, global options and let's have a look.
+
+135
+00:16:47,000 --> 00:17:00,000
+So if we look down these R sessions, you can see that one of the options here is restore .RData into workspace at the start up.
+
+136
+00:17:00,000 --> 00:17:14,580
+I think the default might be to have that on. I suggest clicking that off, and I would also have "saved Workspace to RData on exit" as never.
+
+137
+00:17:14,580 --> 00:17:29,650
+So that means you don't save the workspace unless you want to save it explicitly.
+
+138
+00:17:29,650 --> 00:17:34,500
+OK. And that's the end of this video.
+

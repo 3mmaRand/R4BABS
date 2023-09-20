@@ -1,0 +1,39 @@
+---
+title: "Overview"
+subitle: "Introduction to statistical models: Single linear regression"
+---
+
+This week you will be introduced to the idea of a statistical "model" in general and to general linear model in particular. Our first general linear model will be single linear regression which puts a line of best fit through data so the response can be predicted from the explanatory variable. We will consider the two "parameters" estimated by the model (the slope and the intercept) and whether these differ from zero
+
+### Learning objectives
+
+The successful student will be able to:
+
+-   explain what is meant by a statistical model and fitting a model
+
+-   know what the general linear model is and how it relates to regression
+
+-   explain the principle of regression and know when it can be applied
+
+-   apply and interpret a simple linear regression in R
+
+-   evaluate whether the assumptions of regression are met
+
+-   scientifically report a regression result including appropriate figures 
+
+### Instructions
+
+1.  [Prepare](study_before_workshop.qmd)
+
+    i.  📖 Read What is a statistical model
+    ii. 📖 Read Single linear regression
+
+2.  [Workshop](workshop.qmd)
+    
+    i.💻 Carry out a single linear regression
+
+3.  [Consolidate](study_after_workshop.qmd)
+
+    i. 💻 Appropriately analyse the relationsip between juvenile hormone and mandible size in stage beetles
+    ii. 💻 Appropriately analyse the relationsip between anxiety and performance
+

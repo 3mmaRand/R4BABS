@@ -1,0 +1,54 @@
+---
+title: "Independent Study to consolidate this week"
+subtitle: "The logic of hypothesis testing and confidence intervals"
+format:
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
+---
+
+# Set up
+
+If you have just opened RStudio you will want to load the **`tidyverse`** package
+
+```{r}
+#| code-fold: false
+library(tidyverse)
+```
+
+# Exercises
+
+1.  💻 Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in [adipocytes.txt](data-raw/adipocytes.txt). Each row represents an independent sample of adipocytes and the first column gives the concentration adiponectin and the second column indicates whether they were treated with nicotinic acid or not. Estimate the mean Adiponectin concentration in each group - this means calculate the sample mean and construct a confidence interval around it for each group. This exercise forces you to bring together ideas from this workshop and from previous workshops
+
+-   How to calculate a confidence intervals (this workshop)  
+-   How to summarise variables in more than one group [BABS 1, Week 9: Summarising data in with several variables and the role of variables in analysis](../../r4babs1/week-9/workshop.html#summarise)
+
+```{r}
+#| output: false
+
+# data import
+adip <- read_table("data-raw/adipocytes.txt")
+
+# examine the structure
+str(adip)
+
+# summarise
+adip_summary <- adip %>% 
+  group_by(treatment) %>% 
+  summarise(mean = mean(adiponectin),
+            sd = sd(adiponectin),
+            n = length(adiponectin),
+            se = sd/sqrt(n),
+            dif = qt(0.975, df = n - 1) * se,
+            lower_ci = mean - dif,
+            uppp_ci = mean + dif)
+
+
+# we conclude we're 95% certain the mean for the control group is 
+# between 4.73 and 6.36 and the mean for the nicotinic group is 
+# between 6.52 and 8.50. More usually we might put is like this:
+# the mean for the control group is 5.55 +/- 0.82 and that for the nicotinic group is 7.51 +/- 0.99
+
+
+```
+

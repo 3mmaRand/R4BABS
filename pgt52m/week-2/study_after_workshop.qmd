@@ -1,0 +1,74 @@
+---
+title: "Independent Study to consolidate this week"
+subtitle: "Introduction to R, RStudio and project organisation"
+format:
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
+---
+
+# Set up
+
+If you have just opened RStudio you will want to load the **`tidyverse`** package
+
+```{r}
+#| code-fold: false
+library(tidyverse)
+```
+
+# Exercises
+
+1.  💻 In a maternity hospital, the total numbers of births induced on each day of the week over a six week period were recorded (see table below). Create a plot of these data with the days of week in order.
+
+```{r}
+#| echo: false
+day <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+freq <- c(43, 36, 35, 38, 48, 26, 24) 
+inductions <- data.frame(day, freq)
+knitr::kable(inductions, 
+             table.attr = "style='width:50%;'",
+             caption = "Number of inductions for each day of the week over six weeks.",
+             format = "html",
+             col.names = c("Day", "No. inductions"),
+             row.names = FALSE) |>  
+  kableExtra::kable_styling()
+```
+
+```{r}
+#| output: false
+
+# create a dataframe for the data
+day <- c("Monday", 
+         "Tuesday", 
+         "Wednesday",
+         "Thursday",
+         "Friday",
+         "Saturday",
+         "Sunday")
+freq <- c(43, 36, 35, 38, 48, 26, 24) 
+inductions <- data.frame(day, freq)
+
+# make the order of the days correct rather than alphabetical
+inductions <- inductions |> 
+  mutate(day = fct_relevel(day, c("Monday",
+                                  "Tuesday",
+                                  "Wednesday",
+                                  "Thursday",
+                                  "Friday",
+                                  "Saturday",
+                                  "Sunday")))
+
+# plot the data as a barplot with the bars in
+ggplot(data = inductions, 
+       aes(x = day, y = freq)) +
+  geom_col(colour = "black",
+           fill = "lightseagreen") +
+  scale_x_discrete(expand = c(0, 0),
+                   name = "Day of the week") + 
+  scale_y_continuous(expand = c(0, 0),
+                     name = "Number of inductions",
+                     limits = c(0, 55)) +
+  theme_classic()
+```
+
+2.  📖 Read [Workflow in RStudio](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)

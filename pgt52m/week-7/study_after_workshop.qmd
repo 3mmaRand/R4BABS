@@ -1,0 +1,123 @@
+---
+title: "Independent Study to consolidate this week"
+subtitle: "Two-sample tests"
+format:
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
+---
+
+# Set up
+
+If you have just opened RStudio you will want to load the **`tidyverse`** package
+
+```{r}
+#| code-fold: false
+library(tidyverse)
+```
+
+# Exercises
+
+1.  💻 Plant Biotech. Some plant biotechnologists are trying to increase the quantity of omega 3 fatty acids in Cannabis sativa. They have developed a genetically modified line using genes from *Linum usitatissimum* (linseed). They grow 50 wild type and fifty modified plants to maturity, collect the seeds and determine the amount of omega 3 fatty acids. The data are in [csativa.txt](data-raw/csativa.txt). Do you think their modification has been successful?
+
+
+```{r}
+#| output: false
+
+csativa  <-  read_table("data-raw/csativa.txt")
+str(csativa)
+
+# First realise that this is a two sample test. You have two independent samples
+#  - there are a total of 100 different plants and the values in one 
+#  group have no relationship to the values in the other.
+```
+
+```{r}
+#| output: false
+
+# create a rough plot of the data  
+ggplot(data = csativa, aes(x = plant, y = omega)) +
+  geom_violin()
+# note the modified plants seem to have lower omega!
+```
+
+```{r}
+#| output: false
+
+# create a summary of the data
+csativa_summary <- csativa %>%
+  group_by(plant) %>%
+  summarise(mean = mean(omega),
+            std = sd(omega),
+            n = length(omega),
+            se = std/sqrt(n))
+```
+
+```{r}
+#| output: false
+
+# The data seem to be continuous so it is likely that a parametric test will be fine
+# we will check the other assumptions after we have run the lm
+
+# build the statistical model
+mod <- lm(data = csativa, omega ~ plant)
+
+
+# examine it
+summary(mod)
+# So there is a significant difference but you need to make sure you know the direction!
+# Wild plants have a significantly higher omega 3 content (mean +/- s.e =  56.41 +/- 1.11) 
+# than modified plants (49.46 +/- 0.82)(t = 5.03; d.f. = 98; p < 0.0001).
+```
+
+```{r}
+#| output: false
+
+# let's check the assumptions
+plot(mod, which = 1) 
+# we're looking for the variance in the residuals to be the same in both groups.
+# This looks OK. Maybe a bit higher in the wild plants (with the higher mean)
+ 
+hist(mod$residuals)
+shapiro.test(mod$residuals)
+# On balance the use of lm() is probably justifiable  The variance isn't quite equal 
+# and the histogram looks a bit off normal but the normality test is NS and the 
+# effect (in the figure) is clear.
+```
+
+```{r}
+#| output: false
+
+# A figure 
+fig1 <- ggplot() +
+  geom_point(data = csativa, aes(x = plant, y = omega),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = csativa_summary, 
+                aes(x = plant, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = csativa_summary, 
+                aes(x = plant, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_x_discrete(name = "Plant type", labels = c("GMO", "WT")) +
+  scale_y_continuous(name = "Amount of Omega 3 (units)",
+                     expand = c(0, 0),
+                     limits = c(0, 90)) +
+    annotate("segment", x = 1, xend = 2, 
+           y = 80, yend = 80,
+           colour = "black") +
+  annotate("text", x = 1.5,  y = 85, 
+           label = expression(italic(p)~"< 0.001")) +
+  theme_classic()
+
+# save figure to figures/csativa.png
+ggsave("figures/csativa.png",
+       plot = fig1,
+       width = 3.5,
+       height = 3.5,
+       units = "in",
+       dpi = 300)
+
+```
+
+1.  💻 another example

@@ -1,0 +1,18 @@
+---
+title: "Independent Study to prepare for workshop"
+subtitle: "Introduction to R, RStudio and project organisation"
+---
+
+1.  **Either** 
+    
+    -   📖 Read [First Steps in RStudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html) in 
+    
+    **OR** 
+    
+    -   📹 Watch
+
+        {{< video https://www.youtube.com/watch?v=7oLLjkTNrjY >}}
+
+        {{< video https://youtu.be/2Ke1FGdaMSI >}}
+
+

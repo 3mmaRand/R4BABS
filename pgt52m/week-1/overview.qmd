@@ -1,0 +1,43 @@
+---
+title: Overview
+subtitle: "Understanding file systems"
+---
+
+This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.
+
+![Artwork by @allison_horst: "code gets the blame"](images/code_gets_the_blame.jpg){fig-alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos"}
+
+### Learning objectives
+
+The parentheses after each learning objective indicate where the content covers that objective.
+
+The successful student will be able to:
+
+-   explain what an operating system is
+-   explain the organisation of files and directories in a file systems 
+-   explain what a file is and give some common files types 
+-   explain what is meant by a plain text file
+-   explain the relationship between the file extensions, the file format and associations with programs
+-   use a file manager
+-   explain root, home and working directories
+-   explain absolute and relative file paths
+-   know what R and RStudio are
+-   know how to organise their work
+
+
+### Instructions
+
+1.  [Prepare](study_before_workshop.qmd)
+
+    i.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
+
+    ii. Read What they forgot to teach you about computers
+
+    iii. Read What are R and Rstudio?
+
+2.  [Workshop](workshop.qmd)
+
+    i.  Optional: Install R and RStudio
+
+3.  [Consolidate](study_after_workshop.qmd)
+

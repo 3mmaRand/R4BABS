@@ -42,124 +42,124 @@ website:
   sidebar:
     - title: "BABS 1"
       style: "floating"
-      contents: 
+      contents:
           - href: r4babs1/r4babs1.qmd
           - text: ---
           - text: ---
           - section: "Week 6: Understanding file systems"
-            contents: 
+            contents:
              - href: r4babs1/week-6/overview.qmd
-               text: About  
+               text: About
              - href: r4babs1/week-6/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs1/week-6/workshop.qmd
                text: Workshop
              - href: r4babs1/week-6/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 7: Introduction to R and project organisation"
-            contents: 
+            contents:
              - href: r4babs1/week-7/overview.qmd
-               text: About  
+               text: About
              - href: r4babs1/week-7/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs1/week-7/workshop.qmd
                text: Workshop
              - href: r4babs1/week-7/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 8: Types of variable, summarising and plotting data"
-            contents: 
+            contents:
              - href: r4babs1/week-8/overview.qmd
-               text: About  
+               text: About
              - href: r4babs1/week-8/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs1/week-8/workshop.qmd
                text: Workshop
              - href: r4babs1/week-8/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 9: Summarising data with several variables"
-            contents: 
+            contents:
              - href: r4babs1/week-9/overview.qmd
-               text: About  
+               text: About
              - href: r4babs1/week-9/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs1/week-9/workshop.qmd
                text: Workshop
              - href: r4babs1/week-9/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
     - title: "BABS 2"
       style: "floating"
-      contents: 
+      contents:
           - href: r4babs2/r4babs2.qmd
           - text: ---
           - text: ---
           - section: "Week 1: The logic of hypothesis testing and CI"
-            contents: 
+            contents:
              - href: r4babs2/week-1/overview.qmd
-               text: About  
+               text: About
              - href: r4babs2/week-1/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs2/week-1/workshop.qmd
                text: Workshop
              - href: r4babs2/week-1/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 2: Introduction to statistical models: Single regression"
-            contents: 
+            contents:
              - href: r4babs2/week-2/overview.qmd
-               text: About  
+               text: About
              - href: r4babs2/week-2/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs2/week-2/workshop.qmd
                text: Workshop
              - href: r4babs2/week-2/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 3: Two-sample tests"
-            contents: 
+            contents:
              - href: r4babs2/week-3/overview.qmd
-               text: About  
+               text: About
              - href: r4babs2/week-3/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs2/week-3/workshop.qmd
                text: Workshop
              - href: r4babs2/week-3/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 4: One-way ANOVA and Kruskal-Wallis"
-            contents: 
+            contents:
              - href: r4babs2/week-4/overview.qmd
-               text: About  
+               text: About
              - href: r4babs2/week-4/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs2/week-4/workshop.qmd
                text: Workshop
              - href: r4babs2/week-4/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 5: Two-way ANOVA"
-            contents: 
+            contents:
              - href: r4babs2/week-5/overview.qmd
-               text: About  
+               text: About
              - href: r4babs2/week-5/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs2/week-5/workshop.qmd
                text: Workshop
              - href: r4babs2/week-5/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
           - text: ---
           - section: "Week 6: Chi-squared and correlation"
-            contents: 
+            contents:
              - href: r4babs2/week-6/overview.qmd
-               text: About  
+               text: About
              - href: r4babs2/week-6/study_before_workshop.qmd
-               text: Prepare! 
+               text: Prepare!
              - href: r4babs2/week-6/workshop.qmd
                text: Workshop
              - href: r4babs2/week-6/study_after_workshop.qmd
-               text: Consolidate!  
+               text: Consolidate!
     - title: "PGT 52M"
       style: "floating"
       background: light
@@ -168,114 +168,114 @@ website:
           - text: ---
           - text: ---
           - section: "Week 1: Understanding file systems"
-            contents: 
-             - href: r4babs1/week-6/overview.qmd
-               text: About  
-             - href: r4babs1/week-6/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs1/week-6/workshop.qmd
+            contents:
+             - href: pgt52m/week-1/overview.qmd
+               text: About
+             - href: pgt52m/week-1/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-1/workshop.qmd
                text: Workshop
-             - href: r4babs1/week-6/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-1/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 2: Introduction to R and project organisation"
-            contents: 
-             - href: r4babs1/week-7/overview.qmd
-               text: About  
-             - href: r4babs1/week-7/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs1/week-7/workshop.qmd
+            contents:
+             - href: pgt52m/week-2/overview.qmd
+               text: About
+             - href: pgt52m/week-2/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-2/workshop.qmd
                text: Workshop
-             - href: r4babs1/week-7/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-2/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 3: Types of variable, summarising and plotting data"
-            contents: 
-             - href: r4babs1/week-8/overview.qmd
-               text: About  
-             - href: r4babs1/week-8/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs1/week-8/workshop.qmd
+            contents:
+             - href: pgt52m/week-3/overview.qmd
+               text: About
+             - href: pgt52m/week-3/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-3/workshop.qmd
                text: Workshop
-             - href: r4babs1/week-8/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-3/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 4: Summarising data with several variables"
-            contents: 
-             - href: r4babs1/week-9/overview.qmd
-               text: About  
-             - href: r4babs1/week-9/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs1/week-9/workshop.qmd
+            contents:
+             - href: pgt52m/week-4/overview.qmd
+               text: About
+             - href: pgt52m/week-4/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-4/workshop.qmd
                text: Workshop
-             - href: r4babs1/week-9/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-4/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 5: The logic of hypothesis testing and CI"
-            contents: 
-             - href: r4babs2/week-1/overview.qmd
-               text: About  
-             - href: r4babs2/week-1/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs2/week-1/workshop.qmd
+            contents:
+             - href: pgt52m/week-5/overview.qmd
+               text: About
+             - href: pgt52m/week-5/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-5/workshop.qmd
                text: Workshop
-             - href: r4babs2/week-1/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-5/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 6: Introduction to statistical models: Single regression"
-            contents: 
-             - href: r4babs2/week-2/overview.qmd
-               text: About  
-             - href: r4babs2/week-2/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs2/week-2/workshop.qmd
+            contents:
+             - href: pgt52m/week-6/overview.qmd
+               text: About
+             - href: pgt52m/week-6/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-6/workshop.qmd
                text: Workshop
-             - href: r4babs2/week-2/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-6/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 7: Two-sample tests"
-            contents: 
-             - href: r4babs2/week-3/overview.qmd
-               text: About  
-             - href: r4babs2/week-3/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs2/week-3/workshop.qmd
+            contents:
+             - href: pgt52m/week-7/overview.qmd
+               text: About
+             - href: pgt52m/week-7/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-7/workshop.qmd
                text: Workshop
-             - href: r4babs2/week-3/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-7/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 8: One-way ANOVA and Kruskal-Wallis"
-            contents: 
-             - href: r4babs2/week-4/overview.qmd
-               text: About  
-             - href: r4babs2/week-4/study_before_workshop.qmd
-               text: Prepare! 
-             - href: r4babs2/week-4/workshop.qmd
+            contents:
+             - href: pgt52m/week-8/overview.qmd
+               text: About
+             - href: pgt52m/week-8/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-8/workshop.qmd
                text: Workshop
-             - href: r4babs2/week-4/study_after_workshop.qmd
-               text: Consolidate!  
+             - href: pgt52m/week-8/study_after_workshop.qmd
+               text: Consolidate!
           - text: ---
           - section: "Week 9: Inyroduction to the Assessment"
-            contents: 
-             - href: 
-               text: About  
-             - href: 
-               text: Prepare! 
-             - href: 
+            contents:
+             - href:
+               text: About
+             - href:
+               text: Prepare!
+             - href:
                text: Workshop
-             - href: 
-               text: Consolidate!  
+             - href:
+               text: Consolidate!
           - text: ---
           - section: "Week 10: Reproducible Reporting"
-            contents: 
-             - href: 
-               text: About  
-             - href: 
-               text: Prepare! 
-             - href: 
+            contents:
+             - href:
+               text: About
+             - href:
+               text: Prepare!
+             - href:
                text: Workshop
-             - href: 
-               text: Consolidate!  
+             - href:
+               text: Consolidate!
 
 execute:
   echo: true
@@ -301,11 +301,10 @@ format:
       sidebar-width: 250px
       body-width: 900px
       margin-width: 300px
-    
+
     author-meta: Emma Rand
 
 bibliography: references.bib
 
 
 editor: source
-
