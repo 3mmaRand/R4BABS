@@ -1,6 +1,7 @@
 ---
 title: "Overview"
-subtitle: "One-way ANOVA and Kruskal-Wallis"toc: true
+subtitle: "One-way ANOVA and Kruskal-Wallis"
+toc: true
 toc-location: right
 
 ---
