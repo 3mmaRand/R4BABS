@@ -1,6 +1,8 @@
 ---
 title: "Independent Study to consolidate this week"
 subtitle: "Understanding file systems"
+toc: true
+toc-location: right
 ---
 
 

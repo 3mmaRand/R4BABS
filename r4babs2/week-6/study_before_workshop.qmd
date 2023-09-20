@@ -1,6 +1,8 @@
 ---
 title: "Independent Study to prepare for workshop"
 subtitle: "Chi-squared tests and correlation"
+toc: true
+toc-location: right
 ---
 
 1.  Prepare

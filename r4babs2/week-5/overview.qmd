@@ -1,6 +1,8 @@
 ---
 title: "Overview"
 subtitle: "Two-way ANOVA"
+toc: true
+toc-location: right
 ---
 
 This week we will extend of our understanding by learning how to include *two*

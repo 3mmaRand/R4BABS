@@ -1,6 +1,8 @@
 ---
 title: "Independent Study to prepare for workshop"
 subtitle: "Types of variable, the normal distribution and summarising data"
+toc: true
+toc-location: right
 ---
 
 1.  📖 Read [Ideas about data](https://3mmarand.github.io/comp4biosci/ideas_about_data.html)

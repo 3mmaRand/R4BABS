@@ -1,6 +1,8 @@
 ---
 title: "Independent Study to prepare for workshop"
 subtitle: "Understanding file systems"
+toc: true
+toc-location: right
 ---
 
 1.  Watch an Introduction to Data Analysis in R for BABS 1 - 4

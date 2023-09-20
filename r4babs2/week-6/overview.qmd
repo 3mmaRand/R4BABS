@@ -1,6 +1,8 @@
 ---
 title: "Overview"
 subtitle: "Chi-squared tests and correlation"
+toc: true
+toc-location: right
 ---
 
 This week you will 

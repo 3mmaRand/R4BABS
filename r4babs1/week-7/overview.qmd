@@ -1,6 +1,8 @@
 ---
 title: Overview
 subtitle: "Introduction to R, RStudio and project organisation"
+toc: true
+toc-location: right
 ---
 
 This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as "numerics" and "characters" and some of the different types of objects in R such as "vectors" and "dataframes". These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.
