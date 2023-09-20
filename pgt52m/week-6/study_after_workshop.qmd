@@ -1,6 +1,8 @@
 ---
 title: "Independent Study to consolidate this week"
 subtitle: "Introduction to statistical models: Single linear regression"
+toc: true
+toc-location: right
 format:
   html:
     code-fold: true

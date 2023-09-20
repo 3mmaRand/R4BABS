@@ -1,6 +1,8 @@
 ---
 title: "Independent Study to prepare for workshop"
 subtitle: "Summarising data in with several variables and the role of variables in analysis"
+toc: true
+toc-location: right
 ---
 
 1.  📖 Read [From importing to reporting](https://3mmarand.github.io/comp4biosci/import_to_report.html). The first part of this chapter is about data import which we covered in the last workshop. You may be able to skip that part or you may find it useful to revise. The section on [Summarising data](https://3mmarand.github.io/comp4biosci/import_to_report.html#summarising-data) will be mainly new.

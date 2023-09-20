@@ -1,6 +1,8 @@
 ---
 title: Overview
 subtitle: "Understanding file systems"
+toc: true
+toc-location: right
 ---
 
 This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.
