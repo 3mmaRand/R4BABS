@@ -1,0 +1,88 @@
+---
+title: "Independent Study to consolidate this week"
+subtitle: "Types of variable, the normal distribution and summarising data"
+format:
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
+---
+
+# Set up
+
+If you have just opened RStudio you will want to load the packages and import the data.
+
+```{r}
+#| code-fold: false
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+#| code-fold: false
+fly_bristles_means <- read_excel("data-raw/bristles-mean.xlsx")
+cats <- read_csv("data-raw/cat-coats.csv")
+```
+
+# Exercises
+
+1.  💻 Summarise the `fly_bristles_means` dataframe by calculating the mean, median, sample size, standard deviation and standard error of the `mean_count` variable.
+
+```{r}
+#| output: false
+fly_bristles_means_summary <- fly_bristles_means |> 
+  summarise(mean = mean(mean_count),
+            median = median(mean_count),
+            n = length(mean_count),
+            standard_dev = sd(mean_count),
+            standard_error = standard_dev / sqrt(n))
+```
+
+2.  💻 Create an appropriate plot to show the distribution of `mean_count` in `fly_bristles_means`
+
+```{r}
+#| output: false
+
+ggplot(fly_bristles_means, aes(x = mean_count)) +
+  geom_histogram(bins = 10)
+```
+
+3.  💻 Can you format the plot 2. by removing the grey background, giving the bars a black outline and the fill colour of your choice and improving the axis format and labelling? You may want to refer to [last week's workshop](../week-7/workshop.html).
+
+
+```{r}
+#| output: false
+
+ggplot(fly_bristles_means, aes(x = mean_count)) +
+  geom_histogram(bins = 10, 
+                 colour = "black",
+                 fill = "skyblue") +
+  scale_x_continuous(name = "Number of bristles",
+                     expand = c(0, 0)) +
+  scale_y_continuous(name = "Frequency",
+                     expand = c(0, 0),
+                     limits = c(0, 35)) +
+  theme_classic()
+```
+
+4.  💻 Amend this code to change the order of the bars by the average mass of each coat colour? [Changing the order of bars](../week-7/workshop.html#changing-the-order-of-bars) was covered last week. You may also want to practice formatting the graph nicely.
+
+```{r}
+#| code-fold: false
+
+ggplot(cats, aes(x = coat, y = mass)) +
+  geom_boxplot()
+```
+
+```{r}
+#| output: false
+ggplot(cats, 
+       aes(x = reorder(coat, mass), y = mass)) +
+  geom_boxplot(fill = "darkcyan") +
+  scale_x_discrete(name = "Coat colour") +
+  scale_y_continuous(name = "Mass (kg)", 
+                     expand = c(0, 0),
+                     limits = c(0, 8)) +
+  theme_classic()
+```
+
+5.  📖 Read [Understanding the pipe `|>`](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)

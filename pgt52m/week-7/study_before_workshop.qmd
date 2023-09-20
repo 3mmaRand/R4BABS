@@ -1,0 +1,11 @@
+---
+title: "Independent Study to prepare for workshop"
+subtitle: "Two-sample tests"
+---
+
+1.  Prepare
+
+    i.  📖 Read [Two-Sample tests](https://3mmarand.github.io/comp4biosci/two_sample_tests.html) 
+
+
+

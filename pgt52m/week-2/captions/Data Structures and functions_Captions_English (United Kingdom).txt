@@ -1,0 +1,732 @@
+1
+00:00:02,060 --> 00:00:03,000
+Hello. In this video,
+
+2
+00:00:03,000 --> 00:00:16,250
+I'm going to introduce you to R's data types or the ones we're going to use very often and also some functions and how R functions are used.
+
+3
+00:00:16,250 --> 00:00:26,000
+So what I've done here is written some comments into a script with no code at the moment to help remind me what it is that I want to tell you.
+
+4
+00:00:26,000 --> 00:00:33,000
+Okay, so to start with, R has different data types.
+
+5
+00:00:33,000 --> 00:00:45,000
+So some data types are numbers and some are letters. So for numbers, something like the number four or the number 600, they are
+
+6
+00:00:45,000 --> 00:00:55,000
+numbers and we can assign them just using the standard assignment x and then the ALT-minus to get that assignment operator.
+
+7
+00:00:55,000 --> 00:00:59,000
+And then I'll use a number. Let's do twenty three.
+
+8
+00:00:59,000 --> 00:01:12,000
+when I run that code (control enter) that number will now end up in my environment here with the value 23 assigned to the variable x.
+
+9
+00:01:12,000 --> 00:01:21,150
+So I did not need to use quotes or anything for numbers. Numbers you can just refer to.
+
+10
+00:01:21,150 --> 00:01:30,000
+You also have character data types, so I'm going to call this variable A and I'm going to give it a letter.
+
+11
+00:01:30,000 --> 00:01:40,000
+In fact, let's give it a word like "love". And if I assign that and to send to the command line, see, it's running the console down there.
+
+12
+00:01:40,000 --> 00:01:47,010
+And now I've got a value up here, "a" which has the word love in it.
+
+13
+00:01:47,010 --> 00:01:57,000
+And four characters, whether it's a single character or multiple characters, need to have quotes around them.
+
+14
+00:01:57,000 --> 00:02:05,000
+We also have these special values that are called logicals, and that's something that is a true or false.
+
+15
+00:02:05,000 --> 00:02:11,000
+I'm going to call it logi here and then I'll go ALT-minus to get the assignment and then I'm going to type.
+
+16
+00:02:11,000 --> 00:02:19,000
+TRUE. Now, what you can see there, although this is word, is actually a special word in R
+
+17
+00:02:19,000 --> 00:02:27,000
+So that's why it's come out a different colour. So you can see with my particular theme,
+
+18
+00:02:27,000 --> 00:02:33,000
+and it might be different for theme you've chosen, but they will still come out differently. My numbers are in pink.
+
+19
+00:02:33,000 --> 00:02:40,000
+anything that's inside quotes is in this green/blue colour.
+
+20
+00:02:40,000 --> 00:02:52,000
+And logicals, they're in orange. You can see the variable logi has the value
+
+21
+00:02:52,000 --> 00:02:55,000
+TRUE. It also could have the value
+
+22
+00:02:55,000 --> 00:03:02,590
+FALSE. So let me change that. You see how at the moment it thinks is a word
+
+23
+00:03:02,590 --> 00:03:07,000
+As soon as I get to the end of it, it realises it's the special word or special value.
+
+24
+00:03:07,000 --> 00:03:14,000
+And it is putting it in orange. Okay.
+
+25
+00:03:14,000 --> 00:03:18,000
+So now to introduce you to your first function now. And that's the str()
+
+26
+00:03:18,000 --> 00:03:31,440
+function. It stands for structure. I'll just type that in.
+
+27
+00:03:31,440 --> 00:03:39,000
+And you can use this function on any of your objects that you've got in the environment.
+
+28
+00:03:39,000 --> 00:03:43,000
+And it tells you what type of thing they are.
+
+29
+00:03:43,000 --> 00:03:54,000
+So I'm going to put in here "a" and if I run that command (control-enter), you can see at the bottom,
+
+30
+00:03:54,000 --> 00:04:00,000
+it's telling me that "a" is a character with the word love in.
+
+31
+00:04:00,000 --> 00:04:10,000
+If I do the same thing on "x". It's telling me that "x" is a number.
+
+32
+00:04:10,000 --> 00:04:16,000
+str() is a function I use an awful lot.
+
+33
+00:04:16,000 --> 00:04:23,000
+Typically, I read in data and the first function I will use is str() to look at what's in that data.
+
+34
+00:04:23,000 --> 00:04:33,000
+These are like single values we've got here, and often because we work on the data,
+
+35
+00:04:33,000 --> 00:04:41,210
+we've actually got collections of values, so whole rows or whole columns of numbers that all pertain to the same thing.
+
+36
+00:04:41,210 --> 00:04:50,000
+Let's say it could be 10 heights, for example, and you're going to want to collect those numbers together into a data structure.
+
+37
+00:04:50,000 --> 00:04:55,000
+And the minimal data structure is called a vector.
+
+38
+00:04:55,000 --> 00:05:03,000
+So I can create a vector, which collects together several numbers using a special function called c()
+
+39
+00:05:03,000 --> 00:05:07,000
+And this is one of the only functions in R which has a single letter.
+
+40
+00:05:07,000 --> 00:05:12,000
+And because it has a single letter, sometimes people get confused about it but it is just a function.
+
+41
+00:05:12,000 --> 00:05:19,000
+Just like str() is a function. It has a function name and then a set of brackets.
+
+42
+00:05:19,000 --> 00:05:27,000
+So, to create a vector. Let me call it "vect" of several numbers.
+
+43
+00:05:27,000 --> 00:05:31,000
+I use this c() function and I collect together numbers. Let's give it 23,
+
+44
+00:05:31,000 --> 00:05:37,000
+12, 42, and 19
+
+45
+00:05:37,000 --> 00:05:46,000
+just random numbers. I've collected those together. And if I run that now I have
+
+46
+00:05:46,000 --> 00:05:51,000
+a data piece called "vect", which is actually a vector. And it has you can see four numbers in it.
+
+47
+00:05:51,000 --> 00:05:59,000
+So it is numbers it's telling you. And then it's also telling you that there are four elements or that the indices go from one to four.
+
+48
+00:05:59,000 --> 00:06:14,000
+And if I do, an str() on that now. reproducing information you can see up here.
+
+49
+00:06:14,000 --> 00:06:19,100
+So it's numbers. And there's four of them.
+
+50
+00:06:19,100 --> 00:06:26,000
+So all functions have this basic format where you have the name of the function, an open bracket, and then you have the arguments.
+
+51
+00:06:26,000 --> 00:06:31,000
+So in this case, "vect"is an argument and then you have a close bracket.
+
+52
+00:06:31,000 --> 00:06:43,810
+So most functions take at least one argument and many functions take more arguments that you would separate with commas,
+
+53
+00:06:43,810 --> 00:06:52,460
+and we're gonna do that in a in a moment. So I've just done a vector of numbers.
+
+54
+00:06:52,460 --> 00:07:00,170
+We can also do vectors of characters. So if I wanted to do several characters so I could write.
+
+55
+00:07:00,170 --> 00:07:04,000
+Let's call it word. I could write the word love.
+
+56
+00:07:04,000 --> 00:07:15,000
+But as separate characters. So I'm gonna use c() again, because I am using four separate characters.
+
+57
+00:07:15,000 --> 00:07:24,000
+all four need to be in separate quotes. So I'm gonna have an "l" and an "o"
+
+58
+00:07:24,000 --> 00:07:36,260
+and "v" and "e"
+
+59
+00:07:36,260 --> 00:07:45,410
+I'll run that and then I'll just mention a couple of things. So there I have something called word, which has four characters in it.
+
+60
+00:07:45,410 --> 00:07:58,000
+So those that's four separate elements of data, not one element of data, which is this is one element of data that happens are four letters in it.
+
+61
+00:07:58,000 --> 00:08:05,600
+So one thing I want to tell you about with the quotes here is R tries to help you out with brackets and quotes.
+
+62
+00:08:05,600 --> 00:08:13,100
+So if you open some quotes, it automatically puts the closing quote in and it will automatically.
+
+63
+00:08:13,100 --> 00:08:17,000
+Put your cursor between the quotes or the brackets.
+
+64
+00:08:17,000 --> 00:08:23,300
+So if I start to write this again, "another" and do c(.
+
+65
+00:08:23,300 --> 00:08:31,250
+And then I open some quotes. You can see there. When I open the brackets and I open the quotes, my cursor stayed between them.
+
+66
+00:08:31,250 --> 00:08:35,720
+And that's to help you not forget to put them in.
+
+67
+00:08:35,720 --> 00:08:38,000
+So don't delete those when they appear.
+
+68
+00:08:38,000 --> 00:08:48,000
+Now, the other feature that helps you a lot is a feature I absolutely love in RStudio is that if you forget quotes or brackets,
+
+69
+00:08:48,000 --> 00:08:53,000
+you can put them around the outside of things very easily. So let's say I'm going to
+
+70
+00:08:53,000 --> 00:08:59,000
+create a vector of numbers and they're going to be 2, 5,
+
+71
+00:08:59,000 --> 00:09:04,790
+6, 7. So just four numbers. Let's make it five.
+
+72
+00:09:04,790 --> 00:09:11,240
+And so here you can see it's complaining there is telling me something's wrong with the syntax.
+
+73
+00:09:11,240 --> 00:09:14,300
+I need to collect together these in brackets.
+
+74
+00:09:14,300 --> 00:09:25,670
+So if I highlight those words and I do the shift and then open bracket instead of writing over, you actually put the brackets around the outside.
+
+75
+00:09:25,670 --> 00:09:31,340
+This is a feature you get to love so much and use so often that it really annoys me when you read word.
+
+76
+00:09:31,340 --> 00:09:39,740
+And you do that same thing to put quotes around something or brackets around something and you overwrite what you've got there already.
+
+77
+00:09:39,740 --> 00:09:43,910
+So that would be the same if I wanted these numbers.
+
+78
+00:09:43,910 --> 00:09:52,400
+Let's see at the front there, they wanted these numbers not to be treated as numbers, but to be treated as characters.
+
+79
+00:09:52,400 --> 00:10:04,000
+I could put quotes around them. So, again, if I just highlight the word two and I do an opening quote, it doesn't overwrite it.
+
+80
+00:10:04,000 --> 00:10:17,000
+It puts the quotes right the outside. So Farb feature.
+
+81
+00:10:17,000 --> 00:10:21,350
+So I'm just going to put spaces in here because that's good practice.
+
+82
+00:10:21,350 --> 00:10:28,000
+They're not essential in terms of the language, but it tends to make things easier to read.
+
+83
+00:10:28,000 --> 00:10:36,000
+I run that "another" now again, I've got this "another" object or value which has in it,
+
+84
+00:10:36,000 --> 00:10:40,460
+although these are actually numbers because of I have put quotes around them, Ris treating them as characters.
+
+85
+00:10:40,460 --> 00:10:50,030
+So you wouldn't be able to do calculations on these because they're actually characters, not numbers.
+
+86
+00:10:50,030 --> 00:10:58,250
+So we could also have vectors of logical values. So previously I just had a single value, false or true.
+
+87
+00:10:58,250 --> 00:11:06,000
+And I can make that something longer. I'm going to call it logic.
+
+88
+00:11:06,000 --> 00:11:14,000
+And I still need to use the c() function to collect them together. But because these are  special words, I don't need to put quotes around them at all.
+
+89
+00:11:14,000 --> 00:11:20,000
+So I can just say TRUE, FALSE,
+
+90
+00:11:20,000 --> 00:11:27,000
+FALSE, TRUE
+
+91
+00:11:27,000 --> 00:11:38,080
+OK, so I've got four values there, and you can see that logic has is logical values,
+
+92
+00:11:38,080 --> 00:11:43,990
+is not just a a word, a normal word.
+
+93
+00:11:43,990 --> 00:11:50,900
+It's a special word. So normally we have our data in some kind of structure.
+
+94
+00:11:50,900 --> 00:11:57,000
+And this is the minimal structure of the vector. And if we want to get information out of those vectors, so we only want one value.
+
+95
+00:11:57,000 --> 00:12:05,000
+Like the first one. Then we have to index them. So I'm going to index this
+
+96
+00:12:05,000 --> 00:12:11,950
+vector called "vect". I'm going to index it and try and get out the no.12 and to do that
+
+97
+00:12:11,950 --> 00:12:21,000
+I have to use square brackets. So if we use that and then I open some square brackets, you see the closing brackets open up as well.
+
+98
+00:12:21,000 --> 00:12:30,020
+And if I use the index of two, that will print out for me the number twelve.
+
+99
+00:12:30,020 --> 00:12:37,640
+There we go. The bottom there's is number twelve so that the indices start counting from one.
+
+100
+00:12:37,640 --> 00:12:43,130
+So unlike Python, if you're familiar with Python, where you start counting from zero.
+
+101
+00:12:43,130 --> 00:12:46,670
+So that number 23 as the index one. The number 12.
+
+102
+00:12:46,670 --> 00:12:51,560
+The index to the number 42. The index three. And the number 19.
+
+103
+00:12:51,560 --> 00:13:05,800
+The index for. And you can index logical factors and character factors in exactly the same way.
+
+104
+00:13:05,800 --> 00:13:14,880
+So if I was to use a word, let's say I want to get the V out.
+
+105
+00:13:14,880 --> 00:13:27,790
+That's on the index. Number three. The press that control enter to send the command, you say, is giving me the third element in that vector.
+
+106
+00:13:27,790 --> 00:13:38,680
+Similarly with the logic groups, as I've called it, if I use the index one, it should give me the value.
+
+107
+00:13:38,680 --> 00:13:45,090
+True. There we go. I'm getting the value true.
+
+108
+00:13:45,090 --> 00:13:52,320
+So this is where you want to select just a single value. Sometimes we want to select more than one value.
+
+109
+00:13:52,320 --> 00:14:01,450
+So we might want to have the second value. And the fourth value from backed.
+
+110
+00:14:01,450 --> 00:14:11,630
+So if I want the second and the fourth, I'm going to need to give both the second and the fourth index.
+
+111
+00:14:11,630 --> 00:14:23,890
+But I need to collect these together in a sea because I'm trying to give it to things to refer to one.
+
+112
+00:14:23,890 --> 00:14:27,580
+Index. I need to put those two things together so I won't look.
+
+113
+00:14:27,580 --> 00:14:33,720
+That means I want the second and the fourth element. So there I have twelve.
+
+114
+00:14:33,720 --> 00:14:44,090
+Nineteen. If I do it without the C, the complaint I'm gonna get is to do with the number of dimensions.
+
+115
+00:14:44,090 --> 00:14:47,460
+To comment four, because separated like that.
+
+116
+00:14:47,460 --> 00:14:53,390
+It's going to assume that that is something two dimensional and you want the first row.
+
+117
+00:14:53,390 --> 00:15:01,300
+The side. The second row and the fourth column. And so this is gonna give me a complaint about dimensions.
+
+118
+00:15:01,300 --> 00:15:05,700
+There you go. Incorrect number of dimensions. This is not two dimensional. It's one dimensional.
+
+119
+00:15:05,700 --> 00:15:16,500
+So to ensure that both of those are interpreted as for the first dimension, single dimension, then you need to Clairton together with a C.
+
+120
+00:15:16,500 --> 00:15:27,630
+So here we've called we've selected from vectors using indices, but we could also select from vectors using logical vectors.
+
+121
+00:15:27,630 --> 00:15:41,000
+So if we look at using this vector. Vector here, and I'm gonna select from that using the logic.
+
+122
+00:15:41,000 --> 00:15:47,660
+So if I say that and then you square brackets and give it logic.
+
+123
+00:15:47,660 --> 00:15:51,980
+So what's inside logic is true, false, false, true.
+
+124
+00:15:51,980 --> 00:15:58,160
+So what that's gonna do is return twenty three, but not twelve, not 42.
+
+125
+00:15:58,160 --> 00:16:09,180
+And then it will return 19. So he's saying which of the values should be returned are the ones where logic evaluates to true.
+
+126
+00:16:09,180 --> 00:16:15,020
+There you go. So I've got 23 and 19. The first and the last.
+
+127
+00:16:15,020 --> 00:16:22,040
+Well, this is something we use quite often. We may not explicitly make the logic factor,
+
+128
+00:16:22,040 --> 00:16:34,540
+but we may have some condition in here which actually evaluates to logical thing a logical set of logical values like above 20 or something like that.
+
+129
+00:16:34,540 --> 00:16:44,880
+So, for example, I can just do that now, naturally. So if I go that.
+
+130
+00:16:44,880 --> 00:16:57,310
+Greater than five. Oh, that's not a good one, is it? Let's do greater than fifteen.
+
+131
+00:16:57,310 --> 00:17:07,270
+So personal. Perhaps I should. Yes, my mistake. What I should do is something like this.
+
+132
+00:17:07,270 --> 00:17:20,220
+So if I do that great of fifteen, this is going to return the values, true or false, depending on whether the value in fact is great or less than 50.
+
+133
+00:17:20,220 --> 00:17:24,800
+So there I get true, false, true, true. So if you look at your values here.
+
+134
+00:17:24,800 --> 00:17:29,640
+Twelve is the only one under fifteen, so that's come out as false.
+
+135
+00:17:29,640 --> 00:17:34,000
+And then you might use that expression to select from your vector.
+
+136
+00:17:34,000 --> 00:17:41,000
+So that would go inside the square brackets
+
+137
+00:17:41,000 --> 00:18:00,000
+So here I am selecting from "vect", where the value of "vect" is above 15.
+
+138
+00:18:00,000 --> 00:18:10,000
+So that's selecting for me where everywhere where we have a "true". So the first, third and fourth values.   what are you complaining about?
+
+139
+00:18:10,000 --> 00:18:14,000
+I don't think it's got anything to complain about. There you go,
+
+140
+00:18:14,000 --> 00:18:20,000
+It's gone away now I've saved it. So a little bit more about functions,
+
+141
+00:18:20,000 --> 00:18:32,000
+We have this function here mean(). Which will give you the mean of some values, as you might expect.
+
+142
+00:18:32,000 --> 00:18:41,000
+And it only works on numbers. This will give the mean of those numbers inside vect
+
+143
+00:18:41,000 --> 00:18:50,000
+it is giving me a value of 24 there. If I try and use this function
+
+144
+00:18:50,000 --> 00:19:00,000
+on "another" or on "word", both of which are character vectors,
+
+145
+00:19:00,000 --> 00:19:08,000
+R is going to complain.  There's the error message:
+
+146
+00:19:08,000 --> 00:19:13,410
+NA means it's not not-applicable. There's no such value.
+
+147
+00:19:13,410 --> 00:19:19,000
+And then you get a warning telling you why that's not worked.
+
+148
+00:19:19,000 --> 00:19:25,000
+This gives me a chance actually to talk a little bit about arguments in functions.
+
+149
+00:19:25,000 --> 00:19:35,000
+So what I'm going to do is I'm going to create a vector which has an additional value in it, which is NA
+
+150
+00:19:35,000 --> 00:19:43,000
+and I have called it "vect2" to. "vect2" contains numbers
+
+151
+00:19:43,000 --> 00:19:49,000
+3, 6, 1 and
+
+152
+00:19:49,000 --> 00:19:56,000
+an NA. It is a special value. It means not applicable. It's not a zero but a missing value
+
+153
+00:19:56,000 --> 00:20:02,000
+So I let's run that. I've got this vector of it's numbers,
+
+154
+00:20:02,000 --> 00:20:06,000
+R knows its numbers. But this last number doesn't exist.
+
+155
+00:20:06,000 --> 00:20:14,000
+And if I try and calculate the mean on this vector
+
+156
+00:20:14,000 --> 00:20:18,000
+R is going to complain.
+
+157
+00:20:18,000 --> 00:20:23,000
+You get an NA. So if you try to calculate the mean of a vector of values with an
+
+158
+00:20:23,000 --> 00:20:35,180
+NA in, you'll get an NA as an answer. mean() has an argument that allows you to cope with that situation, which is one that comes calls up a lot,
+
+159
+00:20:35,180 --> 00:20:42,000
+which is just to exclude the missing values before you calculate the mean.
+
+160
+00:20:42,000 --> 00:20:53,000
+And that is called na.rm. And you can see RStudio is trying to help me out here with the with the argument that I want.
+
+161
+00:20:53,000 --> 00:20:59,000
+So I'm going to set na.rm to TRUE. So that means calculate the mean of this vector
+
+162
+00:20:59,000 --> 00:21:07,000
+after you've removed the missing values. And now it will do that calculation
+
+163
+00:21:07,000 --> 00:21:14,680
+for the mean of three, six and one. So this format for functions is what we use all the time.
+
+164
+00:21:14,680 --> 00:21:26,980
+You have the function name, open brackets, and then each different argument in the function is separated by commas.
+
+165
+00:21:26,980 --> 00:21:31,000
+So we have other functions here which are perhaps leave you to try in your own time, this is standard deviation.
+
+166
+00:21:31,000 --> 00:21:38,000
+And also the length function, which tells you how many values there are in a vector.
+
+167
+00:21:38,000 --> 00:21:42,940
+But I especially want to talk a little bit about dataframes.
+
+168
+00:21:42,940 --> 00:21:53,000
+So at the moment, we've got values which are in individual vectors, but very often we have data that's collected together into sets.
+
+169
+00:21:53,000 --> 00:22:00,000
+So you might have several variables or vectors in in a single dataset.
+
+170
+00:22:00,000 --> 00:22:04,000
+And the dataframe is the way we collect those together.
+
+171
+00:22:04,000 --> 00:22:14,000
+And it's the the most common unit of data in R. It is the data structure that we use all the time.
+
+172
+00:22:14,000 --> 00:22:23,000
+All the statistical functions and plotting functions and so on, use dataframes as inputs.
+
+173
+00:22:23,000 --> 00:22:32,000
+And we can create a data frame. I'm going to call it "df" and I use this function data.frame().
+
+174
+00:22:32,000 --> 00:22:45,160
+And then I'm going to give it the variables, "vect" and "word".
+
+175
+00:22:45,160 --> 00:22:52,000
+And run it, and now you see that's come up here above in the global environment as data.
+
+176
+00:22:52,000 --> 00:22:58,000
+And I've got something called "df". And this is a data frame. It's collected together
+
+177
+00:22:58,000 --> 00:23:04,510
+these vectors. Let me click on that.
+
+178
+00:23:04,510 --> 00:23:09,880
+I can get this spreadsheet like view of that data now.
+
+179
+00:23:09,880 --> 00:23:15,000
+So this is the sort of format that you're going to see all the time.
+
+180
+00:23:15,000 --> 00:23:23,000
+And if you want to refer to one of these vectors, they don't exist except inside data frame.
+
+181
+00:23:23,000 --> 00:23:28,000
+To refer to them, you have to use this dollar notation. df
+
+182
+00:23:28,000 --> 00:23:35,000
+then a dollar and then the name of the variable that you want.
+
+183
+00:23:35,000 --> 00:23:43,701
+So that will print out vect for me. And that's where I'm going to finish this video.
+

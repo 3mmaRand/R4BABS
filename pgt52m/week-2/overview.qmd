@@ -1,0 +1,38 @@
+---
+title: Overview
+subtitle: "Introduction to R, RStudio and project organisation"
+---
+
+This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as "numerics" and "characters" and some of the different types of objects in R such as "vectors" and "dataframes". These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.
+
+![Artwork by @allison_horst: "bless this workflow"](images/workflow.png){fig-alt="An organized kitchen with sections labeled 'tools', 'report' and 'files', while a monster in a chef's hat stirs in a bowl labeled 'code.'"}
+
+
+### Learning objectives
+
+The successful student will be able to:
+
+-   use the R command line as a calculator and to assign variables
+-   create and use the basic data types in R
+-   find their way around the RStudio windows
+-   use an RStudio Project to organise work
+-   use a script to run R commands
+-   create and customise a barplot
+-   search and understand manual pages
+
+### Instructions
+
+1.  [Prepare](study_before_workshop.qmd)
+
+    i.  First Steps in RStudio: **Either** 📖 Read the book **OR** 📹 Watch two videos
+
+
+2.  [Workshop](workshop.qmd)
+    
+    i.💻 🐈 Coat colour of cats. Type in some data, perform calculations on, and plot it.
+
+3.  [Consolidate](study_after_workshop.qmd)
+
+    i.  💻 Create a plot
+
+    ii. 📖 Read Workflow in RStudio

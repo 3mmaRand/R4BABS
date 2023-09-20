@@ -1,0 +1,45 @@
+---
+title: "Overview"
+subtitle: "Two-sample tests"
+---
+
+This week you will how to use and interpret the general linear model when the *x* variable is categorical and has two groups. Just as with single linear regression, the model puts a line of best through data and the model parameters, the intercept and the slope, have the same in interpretation The intercept is one of the group means and the slope is the difference between that, mean and the other group mean. You will also learn about the non-parametric equivalents - the tests we use when the assumptions of the general linear model are not met. 
+
+
+### Learning objectives
+
+The successful student will be able to:
+
+-   understand the principles of two-sample tests
+
+-   appreciate that two-sample tests with `lm()` are based on the normal distribution
+and thus have assumptions
+
+-   appropriately select parametric and non-parametric two-sample tests
+
+-   appropriately select paired and and unpaired two-sample tests
+
+-   apply and interpret `lm()`and `wilcox.test()`
+
+-   evaluate whether the assumptions of `lm()` are met
+
+-   scientifically report a two-sample test result including appropriate figures
+
+### Instructions
+
+1.  [Prepare](study_before_workshop.qmd)
+
+    i.  📖 Read Two-Sample tests
+
+
+2.  [Workshop](workshop.qmd)
+    
+    i.   💻 Parametric two-sample test
+    ii.  💻 Non-parametric two-sample test
+    iii. 💻 Parametric paired-sample test
+
+3.  [Consolidate](study_after_workshop.qmd)
+
+    i.  💻 Appropriately test whether a genetic modification was successful in increasing omega 3 fatty acids in *Cannabis sativa*. 
+
+    ii. 💻 .... 

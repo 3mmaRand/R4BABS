@@ -1,0 +1,12 @@
+---
+title: "Workshop"
+subtitle: "Understanding file systems"
+toc: true
+toc-location: right
+---
+
+There is no formal workshop this week but you might want to install R and RStudio on your own machine. This is optional because University computers already have R and RStudio installed.
+
+[Install R and RStudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#installing-r-and-rstudio).
+
+Note you need a computer - not a tablet.
