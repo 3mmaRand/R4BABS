@@ -33,8 +33,7 @@ The successful student will be able to:
 1.  [Prepare](study_before_workshop.qmd)
 
     i.  📖 Read The logic of hyothesis testing
-    ii. 📖 Read Sampling distributions and the Standard Error
-    iii. 📖 Read Confidence Intervals
+    ii. 📖 Read Confidence Intervals
 
 
 2.  [Workshop](workshop.qmd)
