@@ -31,7 +31,7 @@ The successful student will be able to:
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
+    i.  Join the video conference Intro: Data Handling - BIO00027C-A (Lecture) on your timetable
 
     ii. Read What they forgot to teach you about computers
 

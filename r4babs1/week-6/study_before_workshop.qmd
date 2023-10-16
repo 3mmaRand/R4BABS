@@ -5,7 +5,7 @@ toc: true
 toc-location: right
 ---
 
-1.  Watch an Introduction to Data Analysis in R for BABS 1 - 4
+1.  Join the video conference Intro: Data Handling - BIO00027C-A (Lecture) on your timetable
 
 2.  Read [What they forgot to teach you about computers](https://3mmarand.github.io/comp4biosci/what_they_forgot.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
 
