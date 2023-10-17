@@ -48,7 +48,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-1` folder and name the RStudio Project 'week-8'.
+![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-1` folder and name the RStudio Project 'week-3'.
 
 ![](images/do_in_R.png) Make a new script then save it with a name like `analysis.R` to carry out the rest of the work.
 
@@ -58,7 +58,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ## Importing data from files
 
-Last week we created data [by typing the values in to R](../week-7/workshop.html#creating-the-data). This is not practical when you have added a lot of data to a spreadsheet, or you are using data file that has been supplied to you by a person or a machine. Far more commonly, we import data from a file into R. This requires you know two pieces of information.
+Last week we created data [by typing the values in to R](../week-2/workshop.html#creating-the-data). This is not practical when you have added a lot of data to a spreadsheet, or you are using data file that has been supplied to you by a person or a machine. Far more commonly, we import data from a file into R. This requires you know two pieces of information.
 
 1.  What format the data are in
 
@@ -228,7 +228,7 @@ This sort of data might be represented with a barchart. You have two options for
 
 2.  plot the raw data using `geom_bar()`
 
-We did the first of these [last week](../week-7/workshop.html#plotting-the-data-with-ggplot). The `geom_col()` function uses the numbers in a second column to determine how high the bars are. However, the `geom_bar()` function will do the tabulating for you.
+We did the first of these [last week](../week-2/workshop.html#plotting-the-data-with-ggplot). The `geom_col()` function uses the numbers in a second column to determine how high the bars are. However, the `geom_bar()` function will do the tabulating for you.
 
 ![](images/do_in_R.png) Plot the coat data using `geom_bar`:
 
@@ -453,7 +453,7 @@ You're finished!
 
 These contain all the code needed in the workshop even where it is not visible on the webpage.
 
-The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/pgt52m/week-3/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
