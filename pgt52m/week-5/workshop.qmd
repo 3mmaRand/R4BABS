@@ -48,15 +48,11 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
-
-![](images/do_in_R.png) Also on the Files tab click on `New Folder`. Type "data-analysis-in-r-2" in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS2.
-
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Name the RStudio Project 'week-1'.
+![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project.  Navigate to the data-analysis-in-r-1 folder and name the RStudio Project 'week-5'.
 
 ![](images/do_in_R.png) Make a new script then save it with a name like analysis.R to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Introduction to RStudio and your first graph` and load the **`tidyverse`** [@tidyverse] package
+![](images/do_in_R.png) Add a comment to the script: `# The logic of hypothesis testing and confidence intervals` and load the **`tidyverse`** [@tidyverse] package
 
 ![](images/do_in_R.png) Make a new folder called `data-raw`.
 
@@ -64,7 +60,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ## Remind yourself how to import files!
 
-[Importing data from files](../../r4babs1/week-8/workshop.html#importing-data-from-files) was covered in BABS 1 [@rand2023] if you need to remind yourself.
+[Importing data from files](../week-3/workshop.html#importing-data-from-files) was covered in a previous workshop [@rand2023] if you need to remind yourself.
 
 ## Confidence intervals (large samples)
 
@@ -249,7 +245,7 @@ You're finished!
 
 These contain all the code needed in the workshop even where it is not visible on the webpage.
 
-The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/pgt52m/week-5/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 

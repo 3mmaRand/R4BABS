@@ -50,7 +50,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-3`.
+![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-1` folder and name the RStudio Project `week-7`.
 
 ![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
 
@@ -91,7 +91,7 @@ ggplot(data = adip, aes(x = treatment, y = adiponectin)) +
 
 Summarising the data for each treatment group is the next sensible step. The most useful summary statistics are the means, standard deviations, sample sizes and standard errors.
 
-![](images/do_in_R.png) Create a data frame called `adip_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to the [Summarise](../../r4babs1/week-9/workshop.html#summarise) from the Week 9 workshop of BABS1 [@rand2023]
+![](images/do_in_R.png) Create a data frame called `adip_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to the [Summarise](../week-4/workshop.html#summarise) from the Week 4 workshop
 
 ```{r}
 #| include: false  
@@ -159,7 +159,7 @@ summary(mod)
 
 ### Check assumptions
 
-The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the `mod$residuals` variable. You may want to refer to [Checking assumptions](../week-2/workshop.html#checking-assumptions) in the "Single regression" workshop.
+The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the `mod$residuals` variable. You may want to refer to [Checking assumptions](../week-6/workshop.html#checking-assumptions) in the "Single regression" workshop.
 
 ![](images/do_in_R.png)  Plot the model residuals against the fitted values.
 ```{r}
@@ -212,7 +212,7 @@ shapiro.test(mod$residuals)
 
 ### Illustrating
 
-![](images/do_in_R.png) Create a figure like the one below. You may need to refer to [Visualise](../../r4babs1/week-9/workshop.html#visualise) from the "Summarising data with several variables" workshop [@rand2023]
+![](images/do_in_R.png) Create a figure like the one below. You may need to refer to [Visualise](../week-4/workshop.html#visualise) from the "Summarising data with several variables" workshop [@rand2023]
 
 ```{r}
 #| echo: false
@@ -527,7 +527,7 @@ You're finished!
 
 These contain all the code needed in the workshop even where it is not visible on the webpage.
 
-The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/pgt52m/week-7/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 

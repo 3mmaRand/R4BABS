@@ -65,7 +65,7 @@ Navigate to a place on your computer where you keep your work.
 Click Open.
 
 ![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project.
-Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-4`.
+Navigate to the `data-analysis-in-r-1` folder and name the RStudio Project `week-8`.
 
 ![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
 
@@ -119,7 +119,7 @@ ggplot(data = seal, aes(x = species, y = myoglobin)) +
 
 ### Summarising the data
 
-Do you remember [Look after future you!](../week-3/workshop.html#look-after-future-you)
+Do you remember [Look after future you!](../week-7/workshop.html#look-after-future-you)
 
 ![](images/do_in_R.png) If you followed that tip you'll be able to open that script and whizz through summarising,testing and plotting.
 
@@ -228,7 +228,7 @@ Where the purple bars overlap, there is no significant difference.
 
 The assumptions of the general linear model are that the residuals -- the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance.
 To check these we can examine the `mod$residuals` variable.
-You may want to refer to [Checking assumptions](../week-2/workshop.html#checking-assumptions) in the "Single regression" workshop.
+You may want to refer to [Checking assumptions](../week-6/workshop.html#checking-assumptions) in the "Single regression" workshop.
 
 ![](images/do_in_R.png) Plot the model residuals against the fitted values.
 
@@ -284,7 +284,7 @@ shapiro.test(mod$residuals)
 ### Illustrating
 
 ![](images/do_in_R.png) Create a figure like the one below.
-You may need to refer to [Visualise](../../r4babs1/week-9/workshop.html#visualise) from the "Summarising data with several variables" workshop [@rand2023]
+You may need to refer to [Visualise](../week-4/workshop.html#visualise) from the "Summarising data with several variables" workshop [@rand2023]
 
 We will again use both our `seal` and `seal_summary` dataframes.
 
@@ -534,7 +534,7 @@ Qmd stands for Quarto markdown.
 It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages.
 Right-click on the link and choose Save-As to download.
 You will be able to open the Rmd file in RStudio.
-Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-4/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/pgt52m/week-8/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
