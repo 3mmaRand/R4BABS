@@ -458,7 +458,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
- <span class="menu-text">Week 9: Inyroduction to the Assessment</span></a>
+ <span class="menu-text">Week 9: Introduction to the Assessment</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -600,7 +600,7 @@ Key
 </section></section><section id="getting-started" class="level1"><h1>Getting started</h1>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Go the Files tab in the lower right pane and click on the <code>...</code> on the right. This will open a “Go to folder” window. Navigate to a place on your computer where you keep your work. Click Open.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-2</code> folder and name the RStudio Project <code>week-4</code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-1</code> folder and name the RStudio Project <code>week-8</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make new folders called <code>data-raw</code> and <code>figures</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>one-way-anova-and-kw.R</code> to carry out the rest of the work.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># One-way ANOVA and Kruskal-Wallis</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
@@ -616,7 +616,7 @@ Key
 <section id="exploring" class="level3"><h3 class="anchored" data-anchor-id="exploring">Exploring</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Do a quick plot of the data. You may need to refer to a previous workshop</p>
 </section><section id="summarising-the-data" class="level3"><h3 class="anchored" data-anchor-id="summarising-the-data">Summarising the data</h3>
-<p>Do you remember <a href="../week-3/workshop.html#look-after-future-you">Look after future you!</a></p>
+<p>Do you remember <a href="../week-7/workshop.html#look-after-future-you">Look after future you!</a></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> If you followed that tip you’ll be able to open that script and whizz through summarising,testing and plotting.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>seal_summary</code> that contains the means, standard deviations, sample sizes and standard errors for each species.</p>
 <p>You should get the following numbers:</p>
@@ -729,7 +729,7 @@ P value adjustment: tukey method for comparing a family of 3 estimates </code></
 <!-- Harbour and Bladdernose differ signifcantly, p = 0.005 -->
 <!-- This is the only significant comparison -->
 </section><section id="check-assumptions" class="level3"><h3 class="anchored" data-anchor-id="check-assumptions">Check assumptions</h3>
-<p>The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the <code>mod$residuals</code> variable. You may want to refer to <a href="../week-2/workshop.html#checking-assumptions">Checking assumptions</a> in the “Single regression” workshop.</p>
+<p>The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the <code>mod$residuals</code> variable. You may want to refer to <a href="../week-6/workshop.html#checking-assumptions">Checking assumptions</a> in the “Single regression” workshop.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot the model residuals against the fitted values.</p>
 <p><img src="images/answer.png" class="img-fluid"> What to you conclude?</p>
 <!-- #---THINKING ANSWER--- -->
@@ -744,7 +744,7 @@ P value adjustment: tukey method for comparing a family of 3 estimates </code></
 <!-- The histogram is symmetrical and the shapiro test is NS. -->
 <!-- Overall, it seems the assumptions are met -->
 </section><section id="illustrating" class="level3"><h3 class="anchored" data-anchor-id="illustrating">Illustrating</h3>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create a figure like the one below. You may need to refer to <a href="../../r4babs1/week-9/workshop.html#visualise">Visualise</a> from the “Summarising data with several variables” workshop <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a figure like the one below. You may need to refer to <a href="../week-4/workshop.html#visualise">Visualise</a> from the “Summarising data with several variables” workshop <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
 <p>We will again use both our <code>seal</code> and <code>seal_summary</code> dataframes.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create the plot:</p>
 <div class="cell">
@@ -832,7 +832,7 @@ Kruskal-Wallis chi-squared = 6.3393, df = 2, p-value = 0.04202</code></pre>
 <p><a href="../../pgt52m/week-8/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>These contain all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <a href="../../pgt52m/week-8/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-4/workshop.qmd">View in Browser</a>.Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
+<p>The <a href="../../pgt52m/week-8/workshop.html">workshop.qmd</a> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, <a href="https://github.com/3mmaRand/R4BABS/blob/main/pgt52m/week-8/workshop.qmd">View in Browser</a>.Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2023</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2022</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2021</a>)</span></p>
 </section><section id="references" class="level1">
 
