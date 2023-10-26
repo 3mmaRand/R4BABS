@@ -67,9 +67,9 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ## Linear Regression
 
-The data in [plant.xlsx](../data/plant.xlsx) is a set of observations of plant growth over two months. The researchers planted the seeds and harvested, dried and weighed a plant each day from day 10 so all the data points are independent of each other.
+The data in [plant.xlsx](data-raw/plant.xlsx) is a set of observations of plant growth over two months. The researchers planted the seeds and harvested, dried and weighed a plant each day from day 10 so all the data points are independent of each other.
 
-![](images/do_in_R.png) Save a copy of [plant.xlsx](../data/plant.xlsx) to your `data-raw` folder and import it.
+![](images/do_in_R.png) Save a copy of [plant.xlsx](data-raw/plant.xlsx) to your `data-raw` folder and import it.
 
 ```{r}
 #| include: false
