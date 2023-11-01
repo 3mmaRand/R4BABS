@@ -280,6 +280,34 @@
     "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\nExercises\n\n💻 Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in adipocytes.txt. Each row represents an independent sample of adipocytes and the first column gives the concentration adiponectin and the second column indicates whether they were treated with nicotinic acid or not. Estimate the mean Adiponectin concentration in each group - this means calculate the sample mean and construct a confidence interval around it for each group. This exercise forces you to bring together ideas from this workshop and from previous workshops\n\n\nHow to calculate a confidence intervals (this workshop)\n\nHow to summarise variables in more than one group (previous workshop)\n\n\nCode# data import\nadip &lt;- read_table(\"data-raw/adipocytes.txt\")\n\n# examine the structure\nstr(adip)\n\n# summarise\nadip_summary &lt;- adip %&gt;% \n  group_by(treatment) %&gt;% \n  summarise(mean = mean(adiponectin),\n            sd = sd(adiponectin),\n            n = length(adiponectin),\n            se = sd/sqrt(n),\n            dif = qt(0.975, df = n - 1) * se,\n            lower_ci = mean - dif,\n            uppp_ci = mean + dif)\n\n\n# we conclude we're 95% certain the mean for the control group is \n# between 4.73 and 6.36 and the mean for the nicotinic group is \n# between 6.52 and 8.50. More usually we might put is like this:\n# the mean for the control group is 5.55 +/- 0.82 and that for the nicotinic group is 7.51 +/- 0.99"
   },
   {
+    "objectID": "pgt52m/week-9/workshop.html",
+    "href": "pgt52m/week-9/workshop.html",
+    "title": "Workshop",
+    "section": "",
+    "text": "This week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will be looking at a Rproject containing a quarto markdown file and a report results section. We will also look at the marking criteria. This material can also be found on the VLE under the module assessment marking criteria section. Next week we will cover how to reproduce a quarto markdown file yourself in more detail.\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "pgt52m/week-9/workshop.html#session-overview",
+    "href": "pgt52m/week-9/workshop.html#session-overview",
+    "title": "Workshop",
+    "section": "",
+    "text": "This week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will be looking at a Rproject containing a quarto markdown file and a report results section. We will also look at the marking criteria. This material can also be found on the VLE under the module assessment marking criteria section. Next week we will cover how to reproduce a quarto markdown file yourself in more detail."
+  },
+  {
+    "objectID": "pgt52m/week-9/workshop.html#philosophy",
+    "href": "pgt52m/week-9/workshop.html#philosophy",
+    "title": "Workshop",
+    "section": "",
+    "text": "Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference."
+  },
+  {
+    "objectID": "pgt52m/week-9/study_after_workshop.html",
+    "href": "pgt52m/week-9/study_after_workshop.html",
+    "title": "Independent Study to consolidate this week",
+    "section": "",
+    "text": "Consolidate\n\n📖 Read Workflow and scripts - Projects"
+  },
+  {
     "objectID": "pgt52m/pgt52m.html",
     "href": "pgt52m/pgt52m.html",
     "title": "52M Data Analysis in R",
@@ -1251,6 +1279,20 @@
     "title": "RStudio ProjectsWho, what, why?",
     "section": "demo",
     "text": "demo"
+  },
+  {
+    "objectID": "pgt52m/week-9/study_before_workshop.html",
+    "href": "pgt52m/week-9/study_before_workshop.html",
+    "title": "Independent Study to prepare for workshop",
+    "section": "",
+    "text": "Prepare\n\n📖 Read Marking criteria for module assessment"
+  },
+  {
+    "objectID": "pgt52m/week-9/overview.html",
+    "href": "pgt52m/week-9/overview.html",
+    "title": "Overview",
+    "section": "",
+    "text": "This week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will be looking at a Rproject containing a quarto markdown file and a report results section. We will also look at the marking criteria. This material can also be found on the VLE under the module assessment marking criteria section. Next week we will cover how to reproduce a quarto markdown file yourself in more detail.\n\nLearning objectives\nThe successful student will be able to:\n\nUnderstand the structure of the Rproject we will be expecting you to produce in the assessment (e.g. segregated into data-raw, figures etc).\nUnderstand the marking criteria so you understand how the assessment is going to be evaluated e.g. one aspect we will be looking at is whether the code within the quarto markdown generates the plots included within the report.\nKnow where to look on the VLE for additional assessment information\nKnow the appropriate dates for the release and submisison of the assessment.\n\n\n\nInstructions\n\nPrepare\n\n📖 Read the marking criteria available on the VLE\n\nWorkshop\n\n💻 Explore the specimen Rproject\n\nConsolidate\n\n📖 Refamiliarise yourself with how Rprojects work"
   },
   {
     "objectID": "pgt52m/week-5/study_before_workshop.html",
