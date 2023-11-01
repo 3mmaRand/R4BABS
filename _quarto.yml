@@ -306,5 +306,7 @@ format:
 
 bibliography: references.bib
 
+comments:
+  hypothesis: true
 
 editor: source
