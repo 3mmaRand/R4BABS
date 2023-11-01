@@ -1,13 +1,10 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "One-way ANOVA and Kruskal-Wallis"
+subtitle: "Assessment introduction"
 toc: true
 toc-location: right
 ---
 
 1.  Prepare
 
-    i.  📖 Read [One-way ANOVA and Kruskal-Wallis](https://3mmarand.github.io/comp4biosci/one_way_anova_and_kw.html) 
-
-
-
+    i.  📖 Read [Marking criteria for module assessment](https://docs.google.com/document/d/1zCuQUqUa3HtAcAn87tsNnolDiE2IRlcqj6y3_5gu5oM/edit?usp=sharing) 
