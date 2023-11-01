@@ -1,0 +1,101 @@
+---
+title: "Workshop"
+subtitle: "Assessment introduction"
+toc: true
+toc-location: right
+editor:
+  markdown:
+    wrap: sentence
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(kableExtra)
+```
+
+# Introduction
+
+## Session overview
+
+This week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will be looking at a Rproject containing a quarto markdown file and a report results section. We will also look at the marking criteria. This material can also be found on the VLE under the module assessment marking criteria section. Next week we will cover how to reproduce a quarto markdown file yourself in more detail.
+
+
+## Philosophy
+
+Workshops are not a test.
+It is expected that you often don't know how to start, make a lot of mistakes and need help.
+It is expected that you are familiar with independent study content before the workshop.
+However, you need not remember or understand every detail as the workshop should build and consolidate your understanding.
+Tips
+
+-   don't worry about making mistakes
+-   don't let what you can not do interfere with what you can do
+-   discussing code with your neighbours will help
+-   look things up in the independent study material
+-   look things up in your own code from earlier
+-   there are no stupid questions
+
+::: callout-note
+## Key
+
+These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+
+![](images/do_on_your_computer.png) Something you need to do on your computer.
+It may be opening programs or documents or locating a file.
+
+![](images/do_in_R.png) Something you should do in RStudio.
+It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+
+![](images/do_on_internet.png) Something you should do in your browser on the internet.
+It may be searching for information, going to the VLE or downloading a file.
+
+![](images/answer.png) A question for you to think about and answer.
+Record your answers in your script for future reference.
+:::
+
+# Assessment introduction
+
+During this module, you should have learnt in the first eight weeks how to create and plot data and understand the appropriate statistical tests that can be used to analyse biological data. For the assessment, you will be provided with a messy data set with which to address key questions, and will submit a reproducible analysis in quarto markdown format. In this week we are introducing the format of the assessment and giving you an example assessment and we will look at the marking criteria. In the following workshop we will be looking at how to do reproducible reporting using quarto which you will need for your assessment. You will have a further opportunity to ask questions about the assessment during the final week workshop which is a drop-in session.
+
+The assessment will be released on the VLE on the **11th of December**, the deadline for submission of the assessment will be the **15th of January 2024**. You will be required to come up with a hypothesis to test on the dataset given and write the results section of a report which will comprise of figures with appropriate captions (figure legends), tables (where appropriate), and a text that will connect the figures and tables/statistical results together. You should submit a zipped Rproject containing an annotated quarto markdown file with R code embedded that reads in data, reformats or reshapes it as required, calculates statistics, and draws the figures.
+
+There should be sufficient annotation for a reader to follow the steps in the R code.  The datasets will be made available to you on the VLE under ‘Module Assessment’. The marking assessment criteria will also be available to you on the VLE under Module Assessment and also [here](https://docs.google.com/document/d/1zCuQUqUa3HtAcAn87tsNnolDiE2IRlcqj6y3_5gu5oM/edit?usp=sharing)
+
+
+# Specimen assessment
+
+Here is a specimen Rproject:[Specimen.Rproj](data-raw/specimen.zip)
+
+You will need to first unzip this project so you can see the contents, this should contain the folders figures, data_raw, figures and a .qmd file.
+
+Here is a specimen results section of a report generated based on the analysis of the specimen data:[Specimen.docx](data-raw/specimen.docx)
+
+# Assessment criteria
+
+It is good to familiarise yourself with the marking criteria so that you know what things are marked in the assessment and to give yourself a checklist of things to make sure you have included. The marking criteria can be found here](https://docs.google.com/document/d/1zCuQUqUa3HtAcAn87tsNnolDiE2IRlcqj6y3_5gu5oM/edit?usp=sharing) and on the VLE under module assessment. 
+
+You're finished!
+
+# 🥳 Well Done! 🎉
+
+![Illustrations from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst](images/tidy-complete.jpg){fig-alt="Cute fuzzy monsters putting rectangular data tables onto a conveyor belt. Along the conveyor belt line are different automated 'stations' that update the data, reading 'WRANGLE', 'VISUALIZE', and 'MODEL.' A monster at the end of the conveyor belt is carrying away a table that reads 'Complete analysis'." width="800"}
+
+# Independent study following the workshop
+
+[Consolidate](study_after_workshop.qmd)
+
+# The Code file
+
+These contain all the code needed in the workshop even where it is not visible on the webpage.
+
+The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical.
+Qmd stands for Quarto markdown.
+It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages.
+Right-click on the link and choose Save-As to download.
+You will be able to open the Rmd file in RStudio.
+Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/pgt52m/week-8/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+
+# References

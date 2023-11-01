@@ -1,0 +1,15 @@
+---
+title: "Independent Study to consolidate this week"
+subtitle: "Assessment introduction"
+toc: true
+toc-location: right
+format:
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
+---
+
+
+1.  Consolidate
+
+    i.  📖 Read [Workflow and scripts - Projects](https://r4ds.hadley.nz/workflow-scripts.html)
