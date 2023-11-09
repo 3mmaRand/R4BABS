@@ -8,7 +8,7 @@ website:
     type: implied
     style: headline
     palette: light
-  google-analytics: "GTM-NRNMRXJ3"
+  google-analytics: "G-50FV9HPTRE"
   page-footer:
     left: "Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <https://github.com/3mmaRand/R4BABS>"
     right:
