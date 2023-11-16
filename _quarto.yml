@@ -9,7 +9,7 @@ website:
     style: headline
     palette: light
   google-analytics: "G-50FV9HPTRE"
-  
+
   page-footer:
     left: "Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <https://github.com/3mmaRand/R4BABS>"
     right:
@@ -263,11 +263,11 @@ website:
           - text: ---
           - section: "Week 9: Introduction to the Assessment"
             contents:
-             - href:
+             - href: pgt52m/week-9/overview.qmd
                text: About
-             - href:
+             - href: pgt52m/week-9/study_before_workshop.qmd
                text: Prepare!
-             - href:
+             - href: pgt52m/week-9/study_after_workshop.qmd
                text: Workshop
              - href:
                text: Consolidate!
