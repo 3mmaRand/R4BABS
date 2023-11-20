@@ -118,7 +118,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </script><script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
 cookieconsent.run({
-  "notice_banner_type":"headline",
+  "notice_banner_type":"simple",
   "consent_type":"implied",
   "palette":"light",
   "language":"en",
@@ -443,10 +443,10 @@ Key
 </li>
 <li>
 <p>Where the file is relative to your working directory</p>
-<p><code>R</code> can only read in a file if you say where it is, i.e., you give its <strong>relative path</strong>. If you follow the advice in this course, your data will be in a folder, <code>data-raw</code> which is inside your Project folder (and working directory).</p>
+<p><code>R</code> can only read in a file if you say where it is, <em>i.e.</em>, you give its <strong>relative path</strong>.</p>
 </li>
 </ol>
-<p>We will save the four files for this workshop to our Project folder (<code>week-8</code>) and read them in. We will then create a new folder inside our Project folder called <code>data-raw</code> and move the data files to there before modifying the file paths as required. This is demonstrate how the relative path to the file will change after we move it.</p>
+<p>We will first save the four files for this workshop to our Project folder (<code>week-8</code>) and read them in. Then we will then create a new folder inside our Project folder called <code>data-raw</code>, move the data files into it and read them in from there. This will allow you to see how the file paths need to be modified when a file is not in your working directory.</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save these four files in to your <code>week-8</code> folder</p>
 <ul>
 <li>The coat colour and mass of 62 cats: <a href="data-raw/cat-coats.csv">cat-coats.csv</a>
@@ -508,7 +508,7 @@ Key
 <p>To help you understand relative file paths, we will now move the data files.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> First remove the dataframes you just created to make it easier to see whether you can successfully read in the files from a different place:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">cat_coats</span>, <span class="va">fly_bristles</span>, <span class="va">cells</span>, <span class="va">flies_bristles_means</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">cats</span>, <span class="va">fly_bristles</span>, <span class="va">cells</span>, <span class="va">fly_bristles_means</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now make a new folder called <code>data-raw</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Check the boxes next to the file names and choose More | Move… and select the <code>data-raw</code> folder.</p>
@@ -517,7 +517,7 @@ Key
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cats</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data-raw/cat-coats.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> Now you do the other files.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Now you do the other files!</p>
 <p>From this point forward in the course, we will always create a <code>data-raw</code> folder each time we make a new Project.</p>
 <p>These are the most common forms of data file you will encounter at first. However, data can certainly come to you in other formats particularly when they have come from particular software. Usually, there is an <code>R</code> package specially for that format.</p>
 <p>In the rest of the workshop we will take each dataset in turn and create summaries and plots appropriate for the data types. Data is summarised using the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> functions</p>
