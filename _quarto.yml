@@ -6,7 +6,7 @@ website:
   title: "Data Analysis in R "
   cookie-consent:
     type: implied
-    style: headline
+    style: simple
     palette: light
   google-analytics: "G-50FV9HPTRE"
 

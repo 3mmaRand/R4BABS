@@ -70,9 +70,9 @@ Last week we created data [by typing the values in to R](../week-7/workshop.html
 
 2.  Where the file is relative to your working directory
 
-    `R` can only read in a file if you say where it is, i.e., you give its **relative path**. If you follow the advice in this course, your data will be in a folder, `data-raw` which is inside your Project folder (and working directory).
+    `R` can only read in a file if you say where it is, *i.e.*, you give its **relative path**. 
 
-We will save the four files for this workshop to our Project folder (`week-8`) and read them in. We will then create a new folder inside our Project folder called `data-raw` and move the data files to there before modifying the file paths as required. This is demonstrate how the relative path to the file will change after we move it.
+We will first save the four files for this workshop to our Project folder (`week-8`) and read them in. Then we will then create a new folder inside our Project folder called `data-raw`, move the data files into it and read them in from there. This will allow you to see how the file paths need to be modified when a file is not in your working directory. 
 
 ![](images/do_on_your_computer.png) Save these four files in to your `week-8` folder
 
@@ -176,7 +176,7 @@ To help you understand relative file paths, we will now move the data files.
 
 ```{r}
 #| eval: false
-rm(cat_coats, fly_bristles, cells, flies_bristles_means)
+rm(cats, fly_bristles, cells, fly_bristles_means)
 ```
 
 ![](images/do_in_R.png) Now make a new folder called `data-raw`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
@@ -191,7 +191,7 @@ rm(cat_coats, fly_bristles, cells, flies_bristles_means)
 cats <- read_csv("data-raw/cat-coats.csv")
 ```
 
-![](images/do_in_R.png) Now you do the other files.
+![](images/do_in_R.png) Now you do the other files!
 
 ```{r}
 #| include: false
