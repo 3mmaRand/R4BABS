@@ -267,9 +267,9 @@ website:
                text: About
              - href: pgt52m/week-9/study_before_workshop.qmd
                text: Prepare!
-             - href: pgt52m/week-9/study_after_workshop.qmd
+             - href: pgt52m/week-9/workshop.qmd
                text: Workshop
-             - href:
+             - href: pgt52m/week-9/study_after_workshop.qmd
                text: Consolidate!
           - text: ---
           - section: "Week 10: Reproducible Reporting"
