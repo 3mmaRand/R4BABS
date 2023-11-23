@@ -68,16 +68,15 @@ There should be sufficient annotation for a reader to follow the steps in the R 
 
 # Specimen assessment
 
-Here is a specimen Rproject:[Specimen.Rproj](data-raw/assessment.zip)
+![](images/do_on_your_computer.png) Here is a specimen Rproject:[Specimen.Rproj](data-raw/assessment.zip)
 
-You will need to first unzip this project so you can see the contents, this should contain the folders figures, data_raw, figures and a .qmd file.
+![](images/do_on_your_computer.png) You will need to first unzip this project so you can see the contents, this should contain the folders figures, data_raw, figures and a .qmd file.
 
 Here is a specimen results section of a report generated based on the analysis of the specimen data:[Specimen.docx](data-raw/specimen.docx)
 
 # Assessment criteria
 
-It is good to familiarise yourself with the marking criteria so that you know what things are marked in the assessment and to give yourself a checklist of things to make sure you have included. The marking criteria can be found here](https://docs.google.com/document/d/1zCuQUqUa3HtAcAn87tsNnolDiE2IRlcqj6y3_5gu5oM/edit?usp=sharing) and on the VLE under module assessment.
-
+![](images/do_on_internet.png) It is good to familiarise yourself with the [marking criteria for module assessment](https://docs.google.com/document/d/1zCuQUqUa3HtAcAn87tsNnolDiE2IRlcqj6y3_5gu5oM/edit?usp=sharing) so that you know what things are marked in the assessment and to give yourself a checklist of things to make sure you have included. 
 You're finished!
 
 # 🥳 Well Done! 🎉

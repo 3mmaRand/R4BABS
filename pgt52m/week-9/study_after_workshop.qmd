@@ -13,3 +13,4 @@ format:
 1.  Consolidate
 
     i.  📖 Read [Workflow and scripts - Projects](https://r4ds.hadley.nz/workflow-scripts.html)
+    ii. 📖 Read [Intro to quarto](https://r4ds.hadley.nz/quarto)
