@@ -16,7 +16,7 @@ library(kableExtra)
 
 # Introduction
 
-![Artwork by @allison_horst: "Behold R"](images/behold_R.png){fig-alt="Cartoon of an instructor gesturing enthusiastically to a screen full of R documentation saying "BEHOLD! An amazing function!" A skeptical looking student looks on, saying "I would rather not behold..." width="800"}
+![Artwork by @allison_horst: "Behold R"](images/behold_R.png){fig-alt="Cartoon of an instructor gesturing enthusiastically to a screen full of R documentation saying "BEHOLD! An amazing function!" A skeptical looking student looks on, saying "I would rather not behold..."" width="800"}
 
 
 ## Session overview
