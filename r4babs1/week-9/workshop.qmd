@@ -126,8 +126,8 @@ Summarising the data for each species is the next sensible step. The most useful
 ![](images/do_in_R.png) Create a data frame called `seal_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.
 
 ```{r}
-seal_summary <- seal %>%
-  group_by(species) %>%
+seal_summary <- seal |>
+  group_by(species) |>
   summarise(mean = mean(myoglobin),
             std = sd(myoglobin),
             n = length(myoglobin),
@@ -139,7 +139,7 @@ You should get the following numbers:
 
 ```{r}
 #| echo: false
-knitr::kable(seal_summary) %>% kableExtra::kable_styling()
+knitr::kable(seal_summary) |> kableExtra::kable_styling()
 ```
 
 
@@ -370,7 +370,7 @@ Hummmm, these data are not organised like the other data sets we have used. The 
 
 ```{r}
 #| echo: false
-knitr::kable(pigeons) %>%
+knitr::kable(pigeons) |>
   kableExtra::kable_styling() |> 
   kableExtra::scroll_box(height = "200px")
 ```
@@ -385,7 +385,7 @@ pigeons |>
   pivot_longer(cols = everything(),
                names_to = "population",
                values_to = "distance") |> 
-knitr::kable() %>% 
+knitr::kable() |> 
   kableExtra::kable_styling() |> 
   kableExtra::scroll_box(height = "200px")
 ```
@@ -440,7 +440,7 @@ ulna_heights <- read_table("data-raw/height.txt")
 ![](images/do_in_R.png) Create a data frame called `ulna_heights_summary` that contains the sample size and means, standard deviations and standard errors for both variables.
 
 ```{r}
-ulna_heights_summary <- ulna_heights %>%
+ulna_heights_summary <- ulna_heights |>
   summarise(n = length(ulna),
             mean_ulna = mean(ulna),
             std_ulna = sd(ulna),
@@ -455,7 +455,7 @@ You should get the following numbers:
 
 ```{r}
 #| echo: false
-knitr::kable(ulna_heights_summary) %>% kableExtra::kable_styling()
+knitr::kable(ulna_heights_summary) |> kableExtra::kable_styling()
 ```
 
 ### Visualise

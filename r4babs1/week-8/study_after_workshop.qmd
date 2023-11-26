@@ -87,4 +87,4 @@ ggplot(cats,
   theme_classic()
 ```
 
-5.  📖 Read [Understanding the pipe `|>`](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)
+5.  📖 Read [Understanding the pipe `|>`](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#understanding-the-pipe)
