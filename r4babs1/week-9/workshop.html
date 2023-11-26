@@ -480,8 +480,8 @@ Tip
 <p>Summarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like <code>myoglobin</code> are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the <code>group_by()</code> and <code>summarise()</code> functions along with the functions that do the calculations.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>seal_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seal_summary</span> <span class="op">&lt;-</span> <span class="va">seal</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seal_summary</span> <span class="op">&lt;-</span> <span class="va">seal</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">myoglobin</span><span class="op">)</span>,</span>
 <span>            std <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">myoglobin</span><span class="op">)</span>,</span>
 <span>            n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">myoglobin</span><span class="op">)</span>,</span>
@@ -1240,7 +1240,7 @@ Tip: <code>ggplot()</code>
 </section><section id="summarise-1" class="level3"><h3 class="anchored" data-anchor-id="summarise-1">Summarise</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>ulna_heights_summary</code> that contains the sample size and means, standard deviations and standard errors for both variables.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulna_heights_summary</span> <span class="op">&lt;-</span> <span class="va">ulna_heights</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulna_heights_summary</span> <span class="op">&lt;-</span> <span class="va">ulna_heights</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">ulna</span><span class="op">)</span>,</span>
 <span>            mean_ulna <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ulna</span><span class="op">)</span>,</span>
 <span>            std_ulna <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">ulna</span><span class="op">)</span>,</span>
