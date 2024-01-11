@@ -1,10 +1,12 @@
 ---
 title: "Workshop"
-subtitle: "Chi-squared tests and correlation"
+subtitle: "DA 4 Immunobiology"
 toc: true
 toc-location: right
+editor: 
+  markdown: 
+    wrap: sentence
 ---
-
 ```{r}
 #| include: false
 library(tidyverse)
@@ -13,11 +15,13 @@ library(kableExtra)
 
 # Introduction
 
-![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxxxx" width="1000"}
+In this workshop you will 
+
+
 
 ## Session overview
 
-In this session you will 
+In this session you will carry out
 
 ## Philosophy
 
@@ -37,7 +41,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
 
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+![](images/do_in_R.png)  Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
 
 ![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
 
@@ -48,25 +52,53 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-6`.
+![](images/do_in_R.png)  Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-4` folder and name the RStudio Project `4-immunobiology`.
 
-![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+![](images/do_in_R.png)   Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
 
-![](images/do_in_R.png) Make a two new scripts called `correlation.R` and `chi-squared-tests.R` to carry out the rest of the work.
+![](images/do_in_R.png)  Make a new script then save it with a name like `.....R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comments to each script such as: `# Correlation` and `#Chi-squared tests` and load the **`tidyverse`** [@tidyverse] package in each
+![](images/do_in_R.png)  Add a comment to the script: `# "DA 4 Immunobiology`  and load the **`tidyverse`** [@tidyverse] package
+
 
 # Exercises
 
+## ...
 
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+#
+
+
+```
+
+    
+
+<!-- #---THINKING ANSWER---  -->
+
+<!-- Day is discrete (but ordered) and is the explanatory; mass looks continuous and  -->
+<!-- is the response.  -->
+
+<!-- The null hypothesis can be expressed as one of the following: day does not  -->
+<!-- explain the variation in mass; there is no linear relationship between  -->
+<!-- day and mass; slope of the best fitting straight line is zero -->
+
+
+
+
+## Look after future you!
+
+......
 
 You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxx" width="1000"}
+
 
 # Independent study following the workshop
 
@@ -74,10 +106,11 @@ You're finished!
 
 # The Code file
 
-These contain all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not visible on the webpage.
 
-The [workshop.qmd](workshop.qmd) file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. Right-click on the link and choose Save-As to download. You will be able to open the Rmd file in RStudio. Alternatively, [View in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd).Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-6/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
 # References
+
