@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-subtitle: ""
+subtitle: "Data Analysis 1: Core"
 toc: true
 toc-location: right
 ---
