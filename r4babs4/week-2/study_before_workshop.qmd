@@ -1,0 +1,14 @@
+---
+title: "Independent Study to prepare for workshop"
+subtitle: "Introduction to statistical models: Single linear regression"
+toc: true
+toc-location: right
+---
+
+1. 📖 Read [What is a statistical model](https://3mmarand.github.io/comp4biosci/what_statistical_model.html)
+
+2. 📖 Read [Single linear regression](https://3mmarand.github.io/comp4biosci/single_linear_regression.html)
+
+
+
+

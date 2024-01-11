@@ -1,0 +1,16 @@
+---
+title: "Independent Study to prepare for workshop"
+subtitle: "Chi-squared tests and correlation"
+toc: true
+toc-location: right
+---
+
+1.  Prepare
+
+    i.  **Either** 📖 Read [xxxxx](https://3mmarand.github.io/comp4biosci/xx.html) in **OR** 📹 Watch
+
+    {{< video https://www.youtube.com/watch?xx >}}
+
+
+
+

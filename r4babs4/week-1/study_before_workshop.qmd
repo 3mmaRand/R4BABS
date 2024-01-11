@@ -1,0 +1,12 @@
+---
+title: "Independent Study to prepare for workshop"
+subtitle: "The logic of hypothesis testing and confidence intervals"
+toc: true
+toc-location: right
+---
+
+1. 📖 Read [The logic of hyothesis testing](https://3mmarand.github.io/comp4biosci/logic_hyopthesis_testing.html) 
+
+2. 📖 Read [Confidence Intervals](https://3mmarand.github.io/comp4biosci/confidence_intervals.html) 
+
+

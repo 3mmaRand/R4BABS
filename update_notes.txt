@@ -54,16 +54,21 @@ Group only access to relevant folder  done by SAS
 VLE iframe
 Week 1 Data Analysis in R for BABS 2
 
-<iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/overview.html" title="Week 2: xxxxx" allow="fullscreen"  width="800" height="400"></iframe>
 
-<iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
+<h2 style="color:MediumSeaGreen;">Week 9 Overview  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-1/overview.html" target="_blank">Direct link</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-1/overview.html" title="Overview" allow="fullscreen"  width="800" height="400"></iframe>
 
-<iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
 
+<h2 style="color:MediumSeaGreen;">Independent Study to do before the workshop  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-1/study_before_workshop.html" target="_blank">Direct link</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-1/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
+
+<h2 style="color:MediumSeaGreen;">Workshop material  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-1/workshop.html" target="_blank">Direct link</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-1/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
+
+<h2 style="color:MediumSeaGreen;">Independent Study to do after the workshop  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-1/overview.html" target="_blank">Direct link</a></h2>
 <iframe src="https://3mmarand.github.io/BIO00088H-data/core/week-2/study_after_workshop.html" title="Consolidation" allow="fullscreen"  width="800" height="400"></iframe>
 
-https://3mmarand.github.io/BIO00088H-data/core/core.html
-https://3mmarand.github.io/BIO00088H-data/core/week-1/overview.html
+
 ###############
  🥳 Well Done! 🎉 lose emo::ji
 #############

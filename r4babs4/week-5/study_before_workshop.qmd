@@ -1,0 +1,17 @@
+---
+title: "Independent Study to prepare for workshop"
+subtitle: "Two-way ANOVA"
+toc: true
+toc-location: right
+---
+
+1.  Prepare
+
+    i.  📖 Read [Two-way ANOVA](https://3mmarand.github.io/comp4biosci/two_way_anova.html) 
+
+
+
+
+
+
+

@@ -1,0 +1,279 @@
+---
+title: "Independent Study to consolidate this week"
+subtitle: "One-way ANOVA and Kruskal-Wallis"
+toc: true
+toc-location: right
+format:
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
+---
+
+# Set up
+
+If you have just opened RStudio you will want to load the **`tidyverse`** package
+
+```{r}
+#| code-fold: false
+library(tidyverse)
+```
+
+# Exercises
+
+1.  💻  Sports scientists were investigating the effects of fitness and heat acclimatisation on the sodium content of sweat. They measured the sodium content of the sweat (μmoll^−1) of three groups of individuals: unfit and unacclimatised (UU); fit and unacclimatised(FU); and fit and acclimatised (FA). The are in [sweat.txt](data-raw/sweat.txt). Is there a difference between the groups in the sodium content of their sweat?
+
+
+```{r}
+#| output: false
+
+# read in the data and look at structure
+sweat <- read_table("data-raw/sweat.txt")
+str(sweat)
+```
+
+
+```{r}
+#| output: false
+
+# quick plot of the data
+ggplot(data = sweat, aes(x = gp, y = na)) +
+  geom_boxplot()
+# Since the sample sizes are small and not the same in each group and the 
+# variance in the FA gp looks a bit lower, I'm leaning to a non-parametric test K-W.
+# However, don't panic if you decided to do an anova
+```
+
+
+```{r}
+#| output: false
+# calculate some summary stats 
+sweat_summary <- sweat %>% 
+  group_by(gp) %>% 
+  summarise(mean = mean(na),
+            n = length(na),
+            median = median(na))
+
+```
+
+```{r}
+#| output: false
+
+# Kruskal-Wallis
+kruskal.test(data = sweat, na ~ gp)
+# We can say there is a difference between the groups in the sodium 
+# content of their sweat (chi-squared = 11.9802, df = 2, p-value = 0.002503).
+# Unfit and unacclimatised people have most salty sweat, 
+# Fit and acclimatised people the least salty.
+
+```
+
+```{r}
+#| output: false
+
+# a post-hoc test to see where the sig differences lie:
+library(FSA)
+dunnTest(data = sweat, na ~ gp)
+# Fit and acclimatised people (median = 49.5 μmoll^−1) have significantly less sodium in their
+#  sweat than the unfit and unacclimatised people (70 μmoll^−1) 
+# (Kruskal-Wallis multiple comparison p-values adjusted with the Holm method: p = 0.0026).
+# Fit and unacclimatised (54 μmoll^−1)  also have significantly less sodium in their
+# people have sodium concentrations than unfit and unacclimatised people (p = 0.033). 
+# There was no difference between the Fit and unacclimatised and the Fit and acclimatised. See figure 1.
+```
+
+
+```{r}
+#| output: false
+ggplot(sweat, aes(x = gp, y = na) ) +
+  geom_boxplot() +
+  scale_x_discrete(labels = c("Fit Acclimatised", 
+                              "Fit Unacclimatised", 
+                              "Unfit Unacclimatised"), 
+                   name = "Group") +
+  scale_y_continuous(limits = c(0, 110), 
+                     expand = c(0, 0),
+                     name = expression("Sodium"~mu*"mol"*l^{-1})) +
+  annotate("segment", x = 1, xend = 3, 
+           y = 100, yend = 100,
+           colour = "black") +
+  annotate("text", x = 2,  y = 103, 
+           label = expression(italic(p)~"= 0.0026")) +
+  annotate("segment", x = 2, xend = 3, 
+           y = 90, yend = 90,
+           colour = "black") +
+  annotate("text", x = 2.5,  y = 93, 
+           label = expression(italic(p)~"= 0.0340")) +
+  theme_classic()
+
+#Figure 1. Sodium content of sweat for three groups: Fit and acclimatised
+#(FA), Fit and unacclimatised (FU) and Unfit and unacclimatised (UU). Heavy lines
+#indicate the median, boxes the interquartile range and whiskers the range. 
+
+
+```
+
+
+
+
+2.  💻   The data are given in [biomass.txt](data-raw/biomass.txt) are taken from an experiment in which the insect pest biomass (g) was measured on plots sprayed with water (control) or one of five different insecticides. Do the insecticides vary in their effectiveness? What advice would you give to a person: - currently using insecticide E? - trying to choose between A and D? - trying to choose between C and B?
+
+```{r}
+#| output: false
+
+biom <- read_table("data-raw/biomass.txt")
+# The data are organised with an insecticide treatment group in
+# each column.
+```
+
+```{r}
+#| output: false
+
+#Put the data into tidy format.
+
+biom <- biom |> 
+  pivot_longer(cols = everything(),
+               names_to = "spray",
+               values_to = "biomass")
+
+```
+
+```{r}
+#| output: false
+
+# quick plot of the data
+ggplot(data = biom, aes(x = spray, y = biomass)) +
+  geom_boxplot()
+# Looks like there is a difference between sprays. E doesn't look very effective.
+```
+
+```{r}
+#| output: false
+
+# summary statistics
+biom_summary <- biom %>% 
+  group_by(spray) %>% 
+  summarise(mean = mean(biomass),
+            median = median(biomass),
+            sd = sd(biomass),
+            n = length(biomass),
+            se = sd / sqrt(n))
+# thoughts so far: the sample sizes are equal, 10 is a smallish but
+# reasonable sample size
+# the means and medians are similar to each other (expected for
+# normally distributed data), A has a smaller variance 
+
+# We have one explanatory variable, "spray" comprising 6 levels
+# Biomass has decimal places and we would expect such data to be 
+# normally distributed therefore one-way ANOVA is the desired test
+# - we will check the assumptions after building the model
+```
+
+```{r}
+#| output: false
+
+# arry out an ANOVA and examine the results 
+mod <- lm(data = biom, biomass ~ spray)
+summary(mod)
+# spray type does have an effect F-statistic: 26.46 on 5 and 54 DF,  p-value: 2.081e-13
+```
+
+```{r}
+#| output: false
+# Carry out the post-hoc test
+library(emmeans)
+
+emmeans(mod, ~ spray) |> pairs()
+
+# the signifcant comparisons are:
+# contrast         estimate   SE df t.ratio p.value
+# A - D              -76.50 21.9 54  -3.489  0.0119
+# A - E             -175.51 21.9 54  -8.005  <.0001
+# A - WaterControl  -175.91 21.9 54  -8.024  <.0001
+# B - E             -154.32 21.9 54  -7.039  <.0001
+# B - WaterControl  -154.72 21.9 54  -7.057  <.0001
+# C - E             -155.71 21.9 54  -7.102  <.0001
+# C - WaterControl  -156.11 21.9 54  -7.120  <.0001
+# D - E              -99.01 21.9 54  -4.516  0.0005
+# D - WaterControl   -99.41 21.9 54  -4.534  0.0004
+# All sprays are better than the water control except E. 
+# This is probably the most important result.
+# What advice would you give to a person currently using insecticide E?
+# Don't bother!! It's no better than water. Switch to any of 
+# the other sprays
+#  What advice would you give to a person currently
+#   + trying to choose between A and D? Choose A because A has sig lower
+#   insect biomass than D 
+#   + trying to choose between C and B? It doesn't matter because there is 
+#   no difference in insect biomass. Use other criteria to chose (e.g., price)
+# We might report this like:
+# There is a very highly significant effect of spray type on pest 
+# biomass (F = 26.5; d.f., 5, 54; p < 0.001). Post-hoc testing 
+# showed E was no more effective than the control; A, C and B were 
+# all better than the control but could be equally as good as each
+# other; D would be a better choice than the control or E but 
+# worse than A. See figure 1
+
+```
+
+```{r}
+#| output: false
+
+# I reordered the bars to make is easier for me to annotate with
+# I also used * to indicate significance
+
+ggplot() +
+  geom_point(data = biom, aes(x = reorder(spray, biomass), y = biomass),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = biom_summary, 
+                aes(x = spray, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = biom_summary, 
+                aes(x = spray, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_y_continuous(name = "Pest Biomass (units)",
+                     limits = c(0, 540),
+                     expand = c(0, 0)) +
+  scale_x_discrete("Spray treatment") +
+  # E and control are one group
+  annotate("segment", x = 4.5, xend = 6.5, 
+           y = 397, yend = 397,
+           colour = "black", linewidth = 1) +
+  annotate("text", x = 5.5,  y = 385, 
+           label = "N.S", size = 4) +
+  # WaterControl-D and E-D    ***
+  annotate("segment", x = 4, xend = 5.5, 
+           y = 410, yend = 410,
+           colour = "black") +
+  annotate("text", x = 4.5,  y = 420, 
+           label = "***", size = 5) +
+  # WaterControl-B ***
+  annotate("segment", x = 3, xend = 5.5, 
+         y = 440, yend = 440,
+         colour = "black") +
+  annotate("text", x = 4,  y = 450,
+           label = "***", size = 5) +
+  # WaterControl-C ***
+  annotate("segment", x = 2, xend = 5.5, 
+           y = 475, yend = 475,
+           colour = "black") +
+  annotate("text", x = 3.5,  y = 485, 
+           label = "***", size = 5) +
+  # WaterControl-A ***
+  annotate("segment", x = 1, xend = 5.5, 
+         y = 510, yend = 510,
+         colour = "black") +
+  annotate("text", x = 3.5,  y = 520, 
+           label = "***", size = 5) +  
+# A-D ***
+  annotate("segment", x = 1, xend = 4, 
+         y = 330, yend = 330,
+         colour = "black") +
+  annotate("text", x = 2.5,  y = 335, 
+           label = "*", size = 5) +
+  theme_classic()
+
+# Figure 1. The mean pest biomass following various insecticide treatments.
+# Error bars are +/- 1 S.E. Significant comparisons are indicated: * is p < 0.05, ** p < 0.01 and *** is p < 0.001
+
+```

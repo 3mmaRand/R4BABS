@@ -1,0 +1,43 @@
+---
+title: "Overview"
+subtitle: "Two-way ANOVA"
+toc: true
+toc-location: right
+---
+
+This week we will extend of our understanding by learning how to include *two*
+categorical explanatory variables in a general linear model. This model is often known as the two-way ANOVA. It has three null hypotheses
+
+### Learning objectives
+
+The successful student will be able to:
+
+-   combine dataframes of the same structure
+
+-   select, appropriately, two-way ANOVA
+
+-   apply and interpret `lm()` for a two-way ANOVA
+
+-   evaluate whether the assumptions of `lm()` are met
+
+-   understand the meaning of the interaction term
+
+-   scientifically report a two-way ANOVA result including appropriate figures
+
+
+### Instructions
+
+1.  [Prepare](study_before_workshop.qmd)
+
+    i.  📖 Read Two-way ANOVA
+
+
+2.  [Workshop](workshop.qmd)
+    
+    i. 💻 Two-way ANOVA Choline deficiency on neuron size
+    ii. 💻 What to do when the assumptions are not met
+
+3.  [Consolidate](study_after_workshop.qmd)
+
+    i.  💻 Appropriately test if the addition of nitrogen and potassium to a crop influences yield and whether they act independently.
+
