@@ -14,17 +14,17 @@ website:
     left: "Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <https://github.com/3mmaRand/R4BABS>"
     right:
       - text: "{{< iconify fa6-brands mastodon >}}"
-        href: https://mastodon.social/@3mma
+        href: "https://mastodon.social/@3mma"
         aria-label: Mastodon
       - text: "{{< iconify fa6-brands github >}}"
-        href: https://github.com/3mmaRand/R4BABS
+        href: "https://github.com/3mmaRand/R4BABS"
         aria-label: R4BABS GitHub
   navbar:
     background: light
     twitter-card: true
-    site-url: https://3mmarand.github.io/R4BABS/
-    repo-url: https://github.com/3mmaRand/R4BABS
-    issue-url: https://github.com/3mmaRand/R4BABS/issues/new/choose
+    site-url: "https://3mmarand.github.io/R4BABS/"
+    repo-url: "https://github.com/3mmaRand/R4BABS"
+    issue-url: "https://github.com/3mmaRand/R4BABS/issues/new/choose"
     repo-actions: [edit, issue]
     page-navigation: true
     search: true
@@ -36,12 +36,12 @@ website:
       - text: "BABS 2"
         file:  r4babs2/r4babs2.qmd
       - text: "BABS 4"
-        file:  r4babs2/r4babs4.qmd
+        file:  r4babs4/r4babs4.qmd
       - text: "PGT 52M"
         file:  pgt52m/pgt52m.qmd
     tools:
       - text: "{{< iconify fa6-brands mastodon >}}"
-        href: https://mastodon.social/@3mma
+        href: "https://mastodon.social/@3mma"
         aria-label: Mastodon
       - text: "{{< iconify fa6-brands github >}}"
         href: https://github.com/3mmaRand/R4BABS
