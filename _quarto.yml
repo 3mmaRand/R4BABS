@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "Data Analysis in R "
+  title: "Data Analysis in R"
   cookie-consent:
     type: implied
     style: simple
@@ -13,12 +13,17 @@ website:
   page-footer:
     left: "Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <https://github.com/3mmaRand/R4BABS>"
     right:
-      - text: "{{< iconify fa6-brands mastodon >}}"
+      # - text: "{{< iconify fa6-brands mastodon >}}"
+      #   href: "https://mastodon.social/@3mma"
+      #   aria-label: Mastodon
+      # - text: "{{< iconify fa6-brands github >}}"
+      #   href: "https://github.com/3mmaRand/R4BABS"
+      #   aria-label: "R4BABS GitHub"
+      - icon: mastodon
         href: "https://mastodon.social/@3mma"
-        aria-label: Mastodon
-      - text: "{{< iconify fa6-brands github >}}"
-        href: "https://github.com/3mmaRand/R4BABS"
-        aria-label: R4BABS GitHub
+      - icon: github
+        href: https://github.com/3mmaRand/R4BABS
+  
   navbar:
     background: light
     twitter-card: true
@@ -40,12 +45,17 @@ website:
       - text: "PGT 52M"
         file:  pgt52m/pgt52m.qmd
     tools:
-      - text: "{{< iconify fa6-brands mastodon >}}"
+      # - text: "{{< iconify fa6-brands mastodon >}}"
+      #   href: "https://mastodon.social/@3mma"
+      #   aria-label: Mastodon
+      # - text: "{{< iconify fa6-brands github >}}"
+      #   href: "https://github.com/3mmaRand/R4BABS"
+      #   aria-label: "R4BABS GitHub"
+      - icon: mastodon
         href: "https://mastodon.social/@3mma"
-        aria-label: Mastodon
-      - text: "{{< iconify fa6-brands github >}}"
+      - icon: github
         href: https://github.com/3mmaRand/R4BABS
-        aria-label: "R4BABS GitHub"
+
 
   sidebar:
     - title: "BABS 1"
