@@ -1,13 +1,13 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Introduction to statistical models: Single linear regression"
+subtitle: "DA 2 Immunobiology: ..."
 toc: true
 toc-location: right
 ---
 
-1. 📖 Read [What is a statistical model](https://3mmarand.github.io/comp4biosci/what_statistical_model.html)
+1. 📖 Read 
 
-2. 📖 Read [Single linear regression](https://3mmarand.github.io/comp4biosci/single_linear_regression.html)
+
 
 
 
