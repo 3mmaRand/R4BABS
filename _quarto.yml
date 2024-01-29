@@ -178,7 +178,7 @@ website:
                text: About
              - href: r4babs4/week-1/study_before_workshop.qmd
                text: Prepare!
-             - href: r4babs2/week-1/workshop.qmd
+             - href: r4babs4/week-1/workshop.qmd
                text: Workshop
              - href: r4babs4/week-1/study_after_workshop.qmd
                text: Consolidate!
