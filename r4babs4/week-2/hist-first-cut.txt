@@ -1,0 +1,92 @@
+Examine the distribution for each of these channels
+
+density plots of TNFa_APC_Lin for treatment and ab
+
+```{r}
+ggplot(clean_trans_nondebris, aes(x = TNFa_APC_Lin,
+                              colour = treatment)) +
+  geom_density() +
+  facet_wrap(~ antibody) +
+  theme_bw()
+```
+
+When the antibody is the isotype there is no TNFa so that level of TNFa_APC_Lin signal is the control. When TNFa_APC_Lin is < 2 then cells are negative for TNFa; when TNFa_APC_Lin is > 2 then cells are positive for TNFa.
+
+
+```{r}
+apc_cut <- 2
+```
+
+
+```{r}
+clean_trans_nondebris |> 
+  dplyr::filter(antibody == "ISOTYPE") |>
+  ggplot(aes(x = TNFa_APC_Lin, colour = treatment)) +
+  geom_density() +
+  geom_vline(xintercept = apc_cut, 
+             linetype = "dashed") +
+  annotate("text", x = 1.8, y = 2.2, label = "TNFα -ve") +
+  annotate("text", x = 2.2, y = 2.2, label = "TNFα +ve") +
+  theme_bw()
+```
+
+add a label to the data to indicate if the cell is positive or negative for TNFa
+
+```{r}
+clean_trans_nondebris <- clean_trans_nondebris |> 
+  mutate(gate_tnfa = case_when(TNFa_APC_Lin < apc_cut ~ "TNFα -'ve",
+                               TNFa_APC_Lin >= apc_cut ~ "TNFα +'ve"))
+```
+
+```{r}
+clean_trans_nondebris |> 
+  group_by(antibody, treatment, gate_tnfa) |>
+  summarise(n = n())
+```
+
+
+
+density plots of E_coli_FITC_Lin for treatment and ab
+
+```{r}
+ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin,
+                              colour = treatment)) +
+  geom_density() +
+  facet_wrap(~ antibody) +
+  theme_bw()
+```
+
+When for either antibody when the treatment is media or LPS there is no *E.coli* so that level of E_coli_FITC_Lin signal is the control. When E_coli_FITC_Lin is < 2 then cells are negative for *E.coli*; when E_coli_FITC_Lin is > 2 then cells are positive for *E.coli*.
+
+
+```{r}
+fitc_cut <- 2
+```
+
+
+```{r}
+clean_trans_nondebris |> 
+  dplyr::filter(antibody == "ISOTYPE") |>
+  ggplot(aes(x = E_coli_FITC_Lin, colour = treatment)) +
+  geom_density() +
+  geom_vline(xintercept = fitc_cut, 
+             linetype = "dashed") +
+  annotate("text", x = 1.8, y = 3.5, label = "FITC -ve") +
+  annotate("text", x = 2.4, y = 3.5, label = "FITC +ve") +
+  theme_bw()
+```
+
+add a label to the data to indicate if the cell is positive or negative for FITC
+
+```{r}
+clean_trans_nondebris <- clean_trans_nondebris |> 
+  mutate(gate_fitc = case_when(E_coli_FITC_Lin < fitc_cut ~ "FITC -'ve",
+                               E_coli_FITC_Lin >= fitc_cut ~ "FITC +'ve"))
+```
+
+```{r}
+clean_trans_nondebris |> 
+  group_by(antibody, treatment, gate_fitc) |>
+  summarise(n = n())
+```
+
