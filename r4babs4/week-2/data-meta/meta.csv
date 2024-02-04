@@ -1,0 +1,23 @@
+name,desc,range,minRange,maxRange
+TIME,Time LSW,65536,0,65535
+Time_MSW,Time MSW,65536,0,65535
+Pulse_Width,Pulse Width,512,0,511
+FS_Lin,FS,65536,0,65535
+FS_Area,FS,65536,0,65535
+FS_Log,FS,65536,1,10000
+SS_Lin,SS,65536,0,65535
+SS_Area,SS,65536,0,65535
+SS_Log,SS,65536,1,10000
+E_coli_FITC_Lin,E_coli_FITC,65536,0,65535
+E_coli_FITC_Area,E_coli_FITC,65536,0,65535
+E_coli_FITC_Log,E_coli_FITC,65536,1,10000
+delete_1_Lin,delete_1,65536,0,65535
+delete_1_Area,delete_1,65536,0,65535
+delete_1_Log,delete_1,65536,1,10000
+delete_2_Lin,delete_2,65536,0,65535
+delete_2_Area,delete_2,65536,0,65535
+delete_2_Log,delete_2,65536,1,10000
+TNFa_APC_Lin,TNFa_APC,65536,0,65535
+TNFa_APC_Area,TNFa_APC,65536,0,65535
+TNFa_APC_Log,TNFa_APC,65536,1,10000
+Event_Count,Event_Count,65536,0,65535
