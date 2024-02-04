@@ -1,14 +1,85 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "DA 2 Immunobiology: ..."
-toc: true
-toc-location: right
+subtitle: "Data Analysis 2: Immunobiology - Sample data analysis"
+author: "Emma Rand"
+format: 
+  revealjs:
+    footer: "🔗 [Data Analysis 2: Immunobiology - Sample data analysis](https://3mmarand.github.io/R4BABS/r4babs4/week-2/overview.html)"
+    slide-number: true
+    chalkboard: true
+    code-link: true
+    code-line-numbers: false
+bibliography: ../../references.bib
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-1. 📖 Read 
+## Overview
+
+::: incremental
+
+These slides cover:
+
+-   Experimental design and aims
+
+-   What the data are
+
+-   What analytical steps are needed conceptually
+
+-   What tools we will use in the workshop to do the analysis
+:::
 
 
+# Experimental design and aims
+
+## Experimental design and aims
+
+::: incremental
+-   Workshop
+
+There are three different cell treatments: Media, Lipopolysaccharide (LPS) and E. coli (NeonGreen fluorescence)) 
+Two experimental conditions: Isotype antibody and TNFalpha antibody conjugated to Allophycocyanin (APC)
+
+-   
+
+-   
+:::
+
+# The data
+
+## The data
+
+::: incremental
+-  
+
+-   
+
+-   
+:::
 
 
+# Analytical steps
+
+## Analytical steps
+
+::: incremental
+-  
+
+-   
+
+-   
+:::
 
 
+# Tools
+
+## Tools
+
+::: incremental
+-  
+
+-   
+
+-   
+:::

@@ -38,39 +38,23 @@ The BABS4 Module Learning outcomes that relate to the Data Analysis in R content
 
 # Content
 
-## Week 1 Core
-
-Workshop
-
+## Week 1 Data Analysis 1: Core
 
 All strands
 
-many var and obs, examples, use the emphasise equivalance
-PCA, log fc transformation, normalisation, QC gating, missing values, excluding proteins id'd from fewer than two peptides, FDR, data structures
 
+## Week 2 Data Analysis 2: Immunobiology - Sample data analysis
 
-## Week 2 Immunobiology - 1
-
-Workshop
-
-There are three different cell treatments: Media, Lipopolysaccharide (LPS) and E. coli (NeonGreen fluorescence)) 
-Two experimental conditions: Isotype antibody and TNFalpha antibody conjugated to Allophycocyanin (APC)
+This is the first of the three workshops which are specific to the Immunobiology strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, we will guide you through the analysis of a sample data set just like the one you will generate. Jillian collected these data in designing this set of practicals. You will learn both how to analyse the data and what your own data should look like. We will mainly rely on default formats for figures.
 
 
 
-## Week 3
+## Week 4 Data Analysis 3: Immunobiology - Analysis of your own data
+
+In this workshop, you will apply the workflow you learned in the previous workshop to analyse your own data with our support.
 
 
 
-## Week 4 Immunobiology - 2
+## Week 6 Data Analysis 4: Immunobiology - Customising figures
 
-Workshop
-
-
-
-## Week 5
-
-
-## Week 6 Immunobiology - 3
-
-Workshop
+In this workshop you will how to customise figures with colour or greyscale, labels, and other features to make them more suitable for publication.
