@@ -28,7 +28,7 @@ In this workshop you will learn how to analyse some sample flow cytometry data.
 
 🎬 Make a new script called `sample-data-analysis.R` to carry out the rest of the work.
 
-🎬 Record what you do and what you find out. All of it!
+🎬 Record what you do and what you find out. All of it! Make notes on the inputs and outputs of each command. This will help you work out problems analysing your own data.
 
 ## Load packages
 
@@ -105,7 +105,7 @@ fs[[1]]
 🎬 You can use the `exprs()` function to access the actual data and pipe it to `View()` to show it in a window:
 
 ```{r}
-#|eval: false
+#| eval: false
 exprs(fs[[1]]) |> View()
 ```
 
@@ -174,7 +174,7 @@ It generates a new flowSet with the problematic events removed along with a fold
 🎬 Run the automated quality control:
 
 ```{r}
-#|echo: false
+#| echo: false
 fs_clean <- flow_auto_qc(fs, 
                          html_report = FALSE,
                          folder_results = "sample-QC")
@@ -182,7 +182,7 @@ fs_clean <- flow_auto_qc(fs,
 
 
 ```{r}
-#|eval: false
+#| eval: false
 fs_clean <- flow_auto_qc(fs, 
                          folder_results = "sample-QC")
 ```
@@ -192,11 +192,11 @@ fs_clean <- flow_auto_qc(fs,
 
 ❓ What is in the folder "sample-QC"?
 
-This is an example report: [ECOLIGreen_TNFAPC flowAI report](sample-QC/ECOLIGreen_TNFAPC_report.html)
+This is an example report: [ECOLIGreen_TNFAPC flowAI report](sample-QC/ECOLIGreen_TNFAPC_QC.html)
 
 ## Plot distributions
 
-Plotting the distributions of our variables is very useful for getting an overview of our data. We'lljust look at the first flowFrame to get over the principles.
+Plotting the distributions of our variables is very useful for getting an overview of our data. We'll just look at the first flowFrame to get over the principles.
 
 🎬 Plot the distribution of the TNFa_APC signal in the first flowFrame in the flowSet:
 
@@ -208,7 +208,7 @@ exprs(fs_clean[[1]]) |>
 
 ```
 
-This is a very skewed distubution which makes visualisation hard. It is common to log skewed distributions to improve visualisation. We have a column called `TNFa_APC_Log` so let's look at that.
+This is a very skewed distribution which makes visualisation hard. It is common to log skewed distributions to improve visualisation. We have a column called `TNFa_APC_Log` so let's look at that.
 
 🎬 Plot the distribution of `TNFa_APC_Log` :
 
@@ -236,9 +236,9 @@ Now our data are easier to see.
 
 ## Transform the data
 
-In fact, we will apply a different transformation called "logicle" [@parks2006]. This transformation is has a similar effect as logging but avoids some problems that can occur with flow cytometry data and especially flow cytometry data that have been "compensated" . Compensation is routinely applied to flow cytomtery data to correct for fluorophores being detected in in multiple channels. This was not a problem in our experiment.
+In fact, we will apply a different transformation called "logicle" [@parks2006]. This transformation is has a similar effect as logging but avoids some problems that can occur with flow cytometry data and especially flow cytometry data that have been "compensated" . Compensation is routinely applied to flow cytometry data to correct for fluorophores being detected in in multiple channels. This was not a problem in our experiment.
 
-A transformation is applied in two steps: the transformations needed is estimated fromt he data and then that transformation is aplied.
+A transformation is applied in two steps: the transformations needed is estimated from the data and then that transformation is applied.
 
 We need to apply the transformation only to apply it to the `TNFa_APC_Lin` and `E_coli_FITC_Lin` columns. These in the 10th and 13th columns of the flowFrames.
 
@@ -337,6 +337,18 @@ clean_trans <- clean_trans |>
                                               "LPS",
                                               "ECOLIGreen")))
 ```
+
+## Save the data
+
+We have cleaned and transform our data. It is a good idea to save it at this point so that we can start from here if we need to.
+
+🎬 Save the data:
+
+```{r}
+write_csv(clean_trans, "data-processed/ai_clean_logicle_trans.csv")
+
+```
+
 
 ## Quality control 2: 'Gating' to Removing debris
 
@@ -588,7 +600,7 @@ clean_trans_nondebris <- clean_trans_nondebris |>
 
 ## Look after future you!
 
-🎬 This workshop is a template for the analysis of your own data. Go back through your script and check you understand what you have done. Can you identify where you will need to edit? Do you understand what you will need to assess in order to make edits needed for your own data?
+🎬 This workshop is a template for the analysis of your own data. Go back through your script and check you understand what you have done. Can you identify where you will need to edit? Do you understand what you will need to assess in order to make edits needed for your own data? Examine all of the objects in the environment to check you understand what they are and why they are there.
 
 You're finished!
 
