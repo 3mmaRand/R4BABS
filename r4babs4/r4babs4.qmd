@@ -5,36 +5,18 @@ toc-location: right
 ---
 # Introduction
 
-This is the last of the four BABS modules. 
+This is the last of the four BABS modules and you will draw together many of the elements from the previous BABS modules to perform a guided research project in an area of bioscience related to your degree programme. There will be one core workshop and three workshops specific to your project strand.
 
-core
-strand specific: immunology
+This page has the material for the Core workshop and the three Immunobiology workshops. All material is on the VLE.
 
 ## Module Learning Objectives
 
 The BABS4 Module Learning outcomes that relate to the Data Analysis in R content are:
 
--   
+-   Design the preprocessing, analysis and visualisation of univariate and multivariate data generated with some degree of automation.
+Use R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically
 
--   
-
-# How R4BABS 4 is organised
-
-<!-- Each x has: -->
-
-<!-- -   An overview on the "About" page which gives the Learning Objectives, a topic summary and the instructions for the week. You should read this first.  -->
-
-<!-- -   Some independent study on the "Prepare!" page to prepare you for the workshop. This will be reading from the course book ([Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)),  watching a video, or doing some coding or set up. It is designed to take about 30-45 mins on average. You will most likely learn best if you can find people to study with.  -->
-
-<!-- -   A two-hour workshop using R. This will usually start with me doing a short demonstration of one or more of the examples that were in "Prepare!" but you will spend most of the session going through some exercises. Anything you have not done before is explained and guided but you will also have to use the skills gained in previous workshops. I often remind you to take care of future you by making notes so you can look up your previous work but you can also search the [R4BABS](https://3mmarand.github.io/R4BABS/) site (search is top right). Talking to other people in the workshop about the exercises and working together will really help you understand more. There will be plenty of help from me and my demonstrators. -->
-
-<!-- -   Some independent study on the "Consolidate!" page to give you more practice. The exercises are usually similar to those in the workshop but with less guidance. Occasionally, there will be reading to do. It is designed to take about 30-45 mins on average but may be quicker if you understood the workshop very well or slower if you need to revisit the workshop.  -->
-
-<!-- Learning Data Analysis in R is like learning to speak a new language or play an instrument or a technical sport - you can't really rush it or cram for it. You need regular practice.  -->
-
-<!-- -   a little bit of engagement and practice is always better than none -->
-
-<!-- -   if you get behind, just pick up where you left off rather than jumping in. It is fine to work on a previous week's workshop -->
+-   Interpret combined experimental results in the context of the wider literature to communicate findings to a scientific audience
 
 # Content
 
