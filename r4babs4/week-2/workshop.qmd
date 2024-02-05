@@ -105,6 +105,7 @@ fs[[1]]
 🎬 You can use the `exprs()` function to access the actual data and pipe it to `View()` to show it in a window:
 
 ```{r}
+#|eval: false
 exprs(fs[[1]]) |> View()
 ```
 
@@ -173,10 +174,19 @@ It generates a new flowSet with the problematic events removed along with a fold
 🎬 Run the automated quality control:
 
 ```{r}
+#|echo: false
+fs_clean <- flow_auto_qc(fs, 
+                         html_report = FALSE,
+                         folder_results = "sample-QC")
+```
 
+
+```{r}
+#|eval: false
 fs_clean <- flow_auto_qc(fs, 
                          folder_results = "sample-QC")
 ```
+
 
 ❓ What has been removed through the QC process?
 
