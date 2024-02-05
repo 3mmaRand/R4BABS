@@ -518,7 +518,8 @@ $P22 Event Count  Event Count     65536         0     65535
 </div>
 <p>🎬 You can use the <code><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs()</a></code> function to access the actual data and pipe it to <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> to show it in a window:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#|eval: false</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in .External2(C_dataviewer, x, title): unable to start data viewer</code></pre>
 </div>
@@ -753,7 +754,40 @@ $P22 Event Count  Event Count     65536         0     65535
 <p>It generates a new flowSet with the problematic events removed along with a folder containing filtered <code>.fcs</code> files and a quality control report in html format. It will take a few minutes to do all files.</p>
 <p>🎬 Run the automated quality control:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fs_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowAI/man/flow_auto_qc.html">flow_auto_qc</a></span><span class="op">(</span><span class="va">fs</span>, </span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#|echo: false</span></span>
+<span><span class="va">fs_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowAI/man/flow_auto_qc.html">flow_auto_qc</a></span><span class="op">(</span><span class="va">fs</span>, </span>
+<span>                         html_report <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                         folder_results <span class="op">=</span> <span class="st">"sample-QC"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Quality control for the file: ECOLIGreen_ISOTYPE
+43.33% of anomalous cells detected in the flow rate check. 
+0% of anomalous cells detected in signal acquisition check. 
+0% of anomalous cells detected in the dynamic range check. 
+Quality control for the file: ECOLIGreen_TNFAPC
+44.96% of anomalous cells detected in the flow rate check. 
+0% of anomalous cells detected in signal acquisition check. 
+0% of anomalous cells detected in the dynamic range check. 
+Quality control for the file: LPS_ISOTYPE
+6.39% of anomalous cells detected in the flow rate check. 
+0% of anomalous cells detected in signal acquisition check. 
+0% of anomalous cells detected in the dynamic range check. 
+Quality control for the file: LPS_TNFAPC
+46.56% of anomalous cells detected in the flow rate check. 
+0% of anomalous cells detected in signal acquisition check. 
+0% of anomalous cells detected in the dynamic range check. 
+Quality control for the file: MEDIA_ISOTYPE
+45.73% of anomalous cells detected in the flow rate check. 
+0% of anomalous cells detected in signal acquisition check. 
+0% of anomalous cells detected in the dynamic range check. 
+Quality control for the file: MEDIA_TNFAPC
+45.85% of anomalous cells detected in the flow rate check. 
+0% of anomalous cells detected in signal acquisition check. 
+0% of anomalous cells detected in the dynamic range check. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#|eval: false</span></span>
+<span><span class="va">fs_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowAI/man/flow_auto_qc.html">flow_auto_qc</a></span><span class="op">(</span><span class="va">fs</span>, </span>
 <span>                         folder_results <span class="op">=</span> <span class="st">"sample-QC"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Quality control for the file: ECOLIGreen_ISOTYPE
@@ -779,23 +813,29 @@ library(kableExtra)</code></pre>
 <p>Plotting the distributions of our variables is very useful for getting an overview of our data. We’lljust look at the first flowFrame to get over the principles.</p>
 <p>🎬 Plot the distribution of the TNFa_APC signal in the first flowFrame in the flowSet:</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs_clean</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs_clean</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument 'object' in selecting a method for function 'exprs': object 'fs_clean' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>This is a very skewed distubution which makes visualisation hard. It is common to log skewed distributions to improve visualisation. We have a column called <code>TNFa_APC_Log</code> so let’s look at that.</p>
 <p>🎬 Plot the distribution of <code>TNFa_APC_Log</code> :</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs_clean</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs_clean</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">TNFa_APC_Log</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument 'object' in selecting a method for function 'exprs': object 'fs_clean' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Hmmmm, The column labelled Log, does not seem to be.</p>
@@ -805,8 +845,11 @@ library(kableExtra)</code></pre>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument 'object' in selecting a method for function 'exprs': object 'fs_clean' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Now our data are easier to see.</p>
@@ -816,28 +859,25 @@ library(kableExtra)</code></pre>
 <p>We need to apply the transformation only to apply it to the <code>TNFa_APC_Lin</code> and <code>E_coli_FITC_Lin</code> columns. These in the 10th and 13th columns of the flowFrames.</p>
 <p>🎬 Estimate the transformation from the data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/logicleTransform.html">estimateLogicle</a></span><span class="op">(</span><span class="va">fs_clean</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,</span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/logicleTransform.html">estimateLogicle</a></span><span class="op">(</span><span class="va">fs_clean</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,</span>
 <span>                         <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">fs_clean</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">13</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'fs_clean' not found</code></pre>
-</div>
 </div>
 <p>🎬 Apply the transformation to all the<code>TNFa_APC_Lin</code> and <code>E_coli_FITC_Lin</code> columns the flowSet:</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># apply the transformation</span></span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># apply the transformation</span></span>
 <span><span class="va">fs_clean_trans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/transform.html">transform</a></span><span class="op">(</span><span class="va">fs_clean</span>, <span class="va">trans</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument '_data' in selecting a method for function 'transform': object 'fs_clean' not found</code></pre>
-</div>
 </div>
 <p>🎬 Examine the effect:</p>
 <div class="cell">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs</a></span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument 'object' in selecting a method for function 'exprs': object 'fs_clean_trans' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>That looks better.</p>
@@ -846,11 +886,8 @@ library(kableExtra)</code></pre>
 <p>We will be using familiar tools like <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>, <code><a href="https://rdrr.io/pkg/flowCore/man/filter-methods.html">filter()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code></p>
 <p>🎬 Put the transformed data into a data frame:</p>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Put into a data frame for ease of use</span></span>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Put into a data frame for ease of use</span></span>
 <span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/fsApply.html">fsApply</a></span><span class="op">(</span><span class="va">fs_clean_trans</span>, <span class="va">exprs</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'fsApply': object 'fs_clean_trans' not found</code></pre>
-</div>
 </div>
 <p><code>fsApply(flowSet, function)</code> applies a function to every flowFrame in a flowSet. Here we are accessed the data matirx in each with <code><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs()</a></code>.</p>
 <p>The are 171245 rows (cells) in the dataset. You can view it by clicking on the dataframe in the Environment. At the moment, we cannot tell which row (cell) is from which sample. We can add the sample names as a column in that dataframe.</p>
@@ -861,7 +898,7 @@ library(kableExtra)</code></pre>
 </ul>
 <p>🎬 Add the sample name to each row:</p>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu">sampleNames</span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">)</span>,</span>
 <span>                             times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="st">"events"</span><span class="op">]</span>,</span>
 <span>                                       <span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="st">"events"</span><span class="op">]</span>,</span>
@@ -869,21 +906,15 @@ library(kableExtra)</code></pre>
 <span>                                       <span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="st">"events"</span><span class="op">]</span>,</span>
 <span>                                       <span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="st">"events"</span><span class="op">]</span>,</span>
 <span>                                       <span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">fs_clean_trans</span><span class="op">[[</span><span class="fl">6</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="st">"events"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
-</div>
 </div>
 <p>The sample name contains the information about which antibody and treatment the sample was. Our analysis will be a little easier if we add this information to separate columns. We can extract the antibody and treatment from the sample name using the <code><a href="https://tidyr.tidyverse.org/reference/extract.html">extract()</a></code> function and two “regular expressions”.</p>
 <p>🎬 Add columns for treatment and antibody by extracting that information from the sample name:</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/extract.html">extract</a></span><span class="op">(</span><span class="va">sample</span>, </span>
 <span>          remove <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>          <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"treatment"</span>, <span class="st">"antibody"</span><span class="op">)</span>,</span>
 <span>          <span class="st">"([a-zA-Z]+)_([a-zA-Z]+).fcs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
-</div>
 </div>
 <ul>
 <li>the sample name is treatment_antibody</li>
@@ -904,13 +935,10 @@ library(kableExtra)</code></pre>
 <p>🎬 View the dataframe to see the new columns.</p>
 <p>Our treatments have an order. Media is the control, LPS should be next and ECOLIGreen should be last. We can use the <code><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel()</a></code> function to put groups in order so that our graphs are better to interpret.</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>treatment <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">treatment</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MEDIA"</span>,</span>
 <span>                                              <span class="st">"LPS"</span>,</span>
 <span>                                              <span class="st">"ECOLIGreen"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
-</div>
 </div>
 </section><section id="quality-control-2-gating-to-removing-debris" class="level2"><h2 class="anchored" data-anchor-id="quality-control-2-gating-to-removing-debris">Quality control 2: ‘Gating’ to Removing debris</h2>
 <p>Some of the cells will have died and broken during the experiment. We need to perform quality control on our data to remove observations that have that have the size and granularity that is not typical of a live cell. This is done by filtering on the forward scatter (size) and side scatter (granularity) channels.</p>
@@ -919,13 +947,16 @@ library(kableExtra)</code></pre>
 <p>We could use <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> but many points will overlap so it is difficult to see the density of points. <code><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex()</a></code> puts the points in bins and colours the bin with the number of points.</p>
 <p>🎬 Plot the forward scatter and side scatter for each sample</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">FS_Lin</span>, y <span class="op">=</span> <span class="va">SS_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">FS_Lin</span>, y <span class="op">=</span> <span class="va">SS_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">128</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">antibody</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can see a cloud of points in the middle of the plot. This is where the cells are. There are also a lot of points in the bottom left corner. These are likely to be debris. We can draw a gate around the cloud of points to remove the debris. We should use the same filter/gate on all six data sets for consistency. The gates can be a rectangle, polygon, or ellipse. We will use a rectangle first.</p>
@@ -933,19 +964,19 @@ library(kableExtra)</code></pre>
 <p>Use the zoom on the plot window to better see the cloud of points and the axis values. You need to use minimum and maximum <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> values to define the rectangle. I chose the the values below but you might judge the gate differently.</p>
 <p>🎬 Define the minimum and maximum <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> values for the gate:</p>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xmin</span> <span class="op">&lt;-</span> <span class="fl">15000</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xmin</span> <span class="op">&lt;-</span> <span class="fl">15000</span></span>
 <span><span class="va">xmax</span> <span class="op">&lt;-</span> <span class="fl">35000</span></span>
 <span><span class="va">ymin</span> <span class="op">&lt;-</span> <span class="fl">7500</span></span>
 <span><span class="va">ymax</span> <span class="op">&lt;-</span> <span class="fl">28000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🎬 Put those values in a dataframe so we can plot the gate on the hexbin plot:</p>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">box</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">xmin</span>, <span class="va">xmin</span>, <span class="va">xmax</span>, <span class="va">xmax</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">box</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">xmin</span>, <span class="va">xmin</span>, <span class="va">xmax</span>, <span class="va">xmax</span><span class="op">)</span>,</span>
 <span>                  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">ymin</span>, <span class="va">ymax</span>, <span class="va">ymax</span>, <span class="va">ymin</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🎬 Plot the forward scatter and side scatter for each sample with the gate:</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">FS_Lin</span>, y <span class="op">=</span> <span class="va">SS_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">FS_Lin</span>, y <span class="op">=</span> <span class="va">SS_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">128</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">box</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span>, </span>
@@ -954,70 +985,189 @@ library(kableExtra)</code></pre>
 <span>               linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">antibody</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>🎬 Adjust the values of <code>xmin</code>, <code>xmax</code>, <code>ymin</code>, and <code>ymax</code> to get a gate that you are happy with.</p>
 <p>We have drawn the gate on the plot but we need to use it to filter out the debris (rows) from our data. We want only the cells with <code>FS_Lin</code> values that are between the <code>xmin</code> and <code>xmax</code> and <code>SS_Lin</code> that are between <code>ymin</code> and <code>ymax</code> values we chose.</p>
 <p>🎬 Filter the data to remove the debris:</p>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># filter out the debris</span></span>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># filter out the debris</span></span>
 <span><span class="va">clean_trans_nondebris</span> <span class="op">&lt;-</span> <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/filter-methods.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">FS_Lin</span>, <span class="va">xmin</span>, <span class="va">xmax</span><span class="op">)</span>,</span>
 <span>         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">SS_Lin</span>, <span class="va">ymin</span>, <span class="va">ymax</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
-</div>
 </div>
 <p><code>clean_trans_nondebris</code> now has 161010 cells. We should report how many cells were in the gate for each sample.</p>
 <p>🎬 Find the number of cells in each sample after flowAI cleaning:</p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># </span></span>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># </span></span>
 <span><span class="va">clean_trans_n</span> <span class="op">&lt;-</span>  <span class="va">clean_trans</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">antibody</span>, <span class="va">treatment</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
-</div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_n' not found</code></pre>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">treatment</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">14788</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">46806</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">28335</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">27076</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">26722</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">27518</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>🎬 Find the number of cells in each sample after flowAI cleaning <em>and</em> removing debris</p>
 <div class="cell">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># number of cells in each sample</span></span>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># number of cells in each sample</span></span>
 <span><span class="va">clean_trans_nondebris_n</span> <span class="op">&lt;-</span>  <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">antibody</span>, <span class="va">treatment</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n_nondebris <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris' not found</code></pre>
-</div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris_n' not found</code></pre>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">treatment</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_nondebris</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">13106</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">45138</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">26866</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">24419</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">25479</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">26002</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>🎬 Join two data frames together using the combination of the treatment and the antibody and calculate what % cells were removed from each sample:</p>
 <div class="cell">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_n</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris_n</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_n</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris_n</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">clean_trans_n</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"antibody"</span>, <span class="st">"treatment"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>perc_nondebris <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">n_nondebris</span><span class="op">/</span><span class="va">n</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris_n' not found</code></pre>
-</div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris_n' not found</code></pre>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">treatment</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_nondebris</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">perc_nondebris</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">13106</td>
+<td style="text-align: right;">14788</td>
+<td style="text-align: right;">88.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">45138</td>
+<td style="text-align: right;">46806</td>
+<td style="text-align: right;">96.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">26866</td>
+<td style="text-align: right;">28335</td>
+<td style="text-align: right;">94.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">24419</td>
+<td style="text-align: right;">27076</td>
+<td style="text-align: right;">90.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">25479</td>
+<td style="text-align: right;">26722</td>
+<td style="text-align: right;">95.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">26002</td>
+<td style="text-align: right;">27518</td>
+<td style="text-align: right;">94.5</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>🎬 Plot the forward scatter and side scatter for each sample with the gate and the number of cells in each sample</p>
 <div class="cell">
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">FS_Lin</span>, y <span class="op">=</span> <span class="va">SS_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">FS_Lin</span>, y <span class="op">=</span> <span class="va">SS_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">128</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">box</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span>, </span>
@@ -1032,20 +1182,26 @@ library(kableExtra)</code></pre>
 <span>            size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">antibody</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>🎬 Plot the <code>TNFa_APC_Lin</code> and <code>E_coli_FITC_Lin</code> signals for these live cells:</p>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans_nondebris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">E_coli_FITC_Lin</span>, </span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans_nondebris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">E_coli_FITC_Lin</span>, </span>
 <span>                                  y <span class="op">=</span> <span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">128</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">antibody</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section></section><section id="quality-control-3-gating-to-determine-a-real-signal" class="level2"><h2 class="anchored" data-anchor-id="quality-control-3-gating-to-determine-a-real-signal">Quality control 3: Gating to determine a ‘real’ signal?</h2>
@@ -1061,11 +1217,11 @@ library(kableExtra)</code></pre>
 <p>We can use this to set a threshold for the <code>TNFa_APC_Lin</code> signal and label the cells as positive or negative for TNF-α.</p>
 <p>🎬 Define the threshold for the <code>TNFa_APC_Lin</code> signal:</p>
 <div class="cell">
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">apc_cut</span> <span class="op">&lt;-</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">apc_cut</span> <span class="op">&lt;-</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🎬 Plot the <code>TNFa_APC_Lin</code> and <code>E_coli_FITC_Lin</code> with the threshold for the <code>TNFa_APC_Lin</code> signal:</p>
 <div class="cell">
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans_nondebris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">E_coli_FITC_Lin</span>, </span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans_nondebris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">E_coli_FITC_Lin</span>, </span>
 <span>                                  y <span class="op">=</span> <span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">128</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="va">apc_cut</span>, </span>
@@ -1073,48 +1229,160 @@ library(kableExtra)</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">antibody</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>🎬 Add a label, <code>tnfa</code>, to the data to indicate if the cell is positive or negative for TNF-α</p>
 <div class="cell">
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>tnfa <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">TNFa_APC_Lin</span> <span class="op">&lt;</span> <span class="va">apc_cut</span> <span class="op">~</span> <span class="st">"TNF-α -'ve"</span>,</span>
 <span>                               <span class="va">TNFa_APC_Lin</span> <span class="op">&gt;=</span> <span class="va">apc_cut</span> <span class="op">~</span> <span class="st">"TNF-α +'ve"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris' not found</code></pre>
-</div>
 </div>
 <p>🎬 Summarise each group by finding the number of TNF-α positive cells and the mean <code>TNFa_APC_Lin</code> signal for each group:</p>
 <div class="cell">
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_tfna_pos</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_tfna_pos</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/filter-methods.html">filter</a></span><span class="op">(</span><span class="va">tnfa</span> <span class="op">==</span> <span class="st">"TNF-α +'ve"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">antibody</span>, <span class="va">treatment</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n_pos <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>            mean_apc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris' not found</code></pre>
-</div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris_tfna_pos' not found</code></pre>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">treatment</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_pos</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean_apc</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">2.141238</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">2.148879</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">2.139884</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">13503</td>
+<td style="text-align: right;">2.264890</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">25414</td>
+<td style="text-align: right;">3.138646</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">25965</td>
+<td style="text-align: right;">3.265506</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>🎬 We can add the number of non-debris cells to this data frame and calculate the percentage of non-debris cells that are positive for TNF-α:</p>
 <div class="cell">
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_tfna_pos</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_tfna_pos</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="va">clean_trans_nondebris_tfna_pos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">clean_trans_nondebris_n</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"antibody"</span>, <span class="st">"treatment"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>perc_tfna_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">n_pos</span><span class="op">/</span><span class="va">n_nondebris</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris_tfna_pos' not found</code></pre>
-</div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris_tfna_pos' not found</code></pre>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">treatment</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_pos</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean_apc</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n_nondebris</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">perc_nondebris</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">perc_tfna_pos</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">2.141238</td>
+<td style="text-align: right;">13106</td>
+<td style="text-align: right;">14788</td>
+<td style="text-align: right;">88.6</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">2.148879</td>
+<td style="text-align: right;">45138</td>
+<td style="text-align: right;">46806</td>
+<td style="text-align: right;">96.4</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ISOTYPE</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">2.139884</td>
+<td style="text-align: right;">26866</td>
+<td style="text-align: right;">28335</td>
+<td style="text-align: right;">94.8</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">MEDIA</td>
+<td style="text-align: right;">13503</td>
+<td style="text-align: right;">2.264890</td>
+<td style="text-align: right;">24419</td>
+<td style="text-align: right;">27076</td>
+<td style="text-align: right;">90.2</td>
+<td style="text-align: right;">55.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">LPS</td>
+<td style="text-align: right;">25414</td>
+<td style="text-align: right;">3.138646</td>
+<td style="text-align: right;">25479</td>
+<td style="text-align: right;">26722</td>
+<td style="text-align: right;">95.3</td>
+<td style="text-align: right;">99.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TNFAPC</td>
+<td style="text-align: left;">ECOLIGreen</td>
+<td style="text-align: right;">25965</td>
+<td style="text-align: right;">3.265506</td>
+<td style="text-align: right;">26002</td>
+<td style="text-align: right;">27518</td>
+<td style="text-align: right;">94.5</td>
+<td style="text-align: right;">99.9</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>The fact that a very low percentage of cells are positive for TNF-α in the isotype control is a good indication that cut off we used for the <code>TNFa_APC_Lin</code> signal is a good one.</p>
@@ -1122,11 +1390,11 @@ library(kableExtra)</code></pre>
 <p>For either antibody when the treatment is media or LPS there is no <em>E.coli</em> so that level of <code>E_coli_FITC_Lin</code> signal is the control. When <code>E_coli_FITC_Lin</code> is &lt; 2 then cells are negative for <em>E.coli</em>; when <code>E_coli_FITC_Lin</code> is &gt; 2 then cells are positive for <em>E.coli</em>. The fact that this is also 2 is a coincidence - for your own data your values for both of these are likely to differ.</p>
 <p>🎬 Define the threshold for the <code>E_coli_FITC_Lin</code> signal:</p>
 <div class="cell">
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fitc_cut</span> <span class="op">&lt;-</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fitc_cut</span> <span class="op">&lt;-</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for both signals:</p>
 <div class="cell">
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans_nondebris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">E_coli_FITC_Lin</span>, </span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans_nondebris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">E_coli_FITC_Lin</span>, </span>
 <span>                                  y <span class="op">=</span> <span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">128</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="va">apc_cut</span>, </span>
@@ -1136,18 +1404,18 @@ library(kableExtra)</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">antibody</span> <span class="op">~</span> <span class="va">treatment</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris' not found</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>🎬 Add a label, <code>fitc</code>, to the data to indicate if the cell is positive or negative for FITC</p>
 <div class="cell">
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>fitc <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">E_coli_FITC_Lin</span> <span class="op">&lt;</span> <span class="va">fitc_cut</span> <span class="op">~</span> <span class="st">"FITC -'ve"</span>,</span>
 <span>                               <span class="va">E_coli_FITC_Lin</span> <span class="op">&gt;=</span> <span class="va">fitc_cut</span> <span class="op">~</span> <span class="st">"FITC +'ve"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in eval(expr, envir, enclos): object 'clean_trans_nondebris' not found</code></pre>
-</div>
 </div>
 </section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
 <p>🎬 This workshop is a template for the analysis of your own data. Go back through your script and check you understand what you have done. Can you identify where you will need to edit? Do you understand what you will need to assess in order to make edits needed for your own data?</p>
