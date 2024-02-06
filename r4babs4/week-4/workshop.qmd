@@ -15,51 +15,9 @@ library(kableExtra)
 
 # Introduction
 
-In this workshop you will 
+In this workshop you will use the tools you used in the previous workshop (and before!) to analyse the data you have collected. You will provide some key pieces of information for the class data set. 
 
 
-
-## Session overview
-
-In this session you will carry out
-
-## Philosophy
-
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
-
--   don't worry about making mistakes
--   don't let what you can not do interfere with what you can do
--   discussing code with your neighbours will help
--   look things up in the independent study material
--   look things up in your own code from earlier 
--   there are no stupid questions
-
-::: callout-note
-## Key
-
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
-
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
-
-![](images/do_in_R.png)  Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
-
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
-
-![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
-:::
-
-# Getting started
-
-![](images/do_on_your_computer.png) Start RStudio from the Start menu.
-
-
-![](images/do_in_R.png)  Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-4` folder and name the RStudio Project `3-immunobiology`.
-
-![](images/do_in_R.png)   Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
-
-![](images/do_in_R.png)  Make a new script then save it with a name like `.....R` to carry out the rest of the work.
-
-![](images/do_in_R.png)  Add a comment to the script: `# "DA 3 Immunobiology`  and load the **`tidyverse`** [@tidyverse] package
 
 
 # Exercises
@@ -67,27 +25,16 @@ These four symbols are used at the beginning of each instruction so you know whe
 ## ...
 
 
-```{r}
-#| include: false
 
-#---CODING ANSWER---
-#
+## Data for the class dataset.
 
-
-```
-
-    
-
-<!-- #---THINKING ANSWER---  -->
-
-<!-- Day is discrete (but ordered) and is the explanatory; mass looks continuous and  -->
-<!-- is the response.  -->
-
-<!-- The null hypothesis can be expressed as one of the following: day does not  -->
-<!-- explain the variation in mass; there is no linear relationship between  -->
-<!-- day and mass; slope of the best fitting straight line is zero -->
+-    
 
 
+
+## How to change the name of an RStudio project.
+
+You can change the name of an RStudio project closing the project and renaming the project folder and the `.Rproj` file.
 
 
 ## Look after future you!
