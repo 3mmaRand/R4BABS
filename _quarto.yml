@@ -4,10 +4,10 @@ project:
 
 website:
   title: "Data Analysis in R"
-  cookie-consent:
-    type: implied
-    style: simple
-    palette: light
+  # cookie-consent:
+  #   type: implied
+  #   style: simple
+  #   palette: light
   google-analytics: "G-50FV9HPTRE"
 
   page-footer:
@@ -205,7 +205,7 @@ website:
              - href: r4babs4/week-4/study_after_workshop.qmd
                text: Consolidate!
           - text: ---
-          - section: "Week 6: DA 4 Immunobiologyn"
+          - section: "Week 6: DA 4 Immunobiology"
             contents:
              - href: r4babs4/week-6/overview.qmd
                text: About

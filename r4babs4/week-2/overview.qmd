@@ -11,17 +11,25 @@ This is the first of the three workshops which are specific to the Immunobiology
 
 The successful student will be able to:
 
--   
 
--   
+-   explain what is in a flow cytometry data set
 
--   
+-   import `fcs` files, explain a flowFrame and a flowSet and access the column 
+    names and data in them
 
--   
+-   apply automated quality control to a flowSet with the **`flowAI`** package
 
--   
+-   explain why we use the "logicle" transformation and apply it to appropriate 
+    channels
 
--    
+-   cast the data into a dataframe to use standard tools for filtering, 
+    summarising and plotting data
+
+-   explain the purpose of gating and apply appropriate gates to flow cytometry
+    data
+
+-   create appropriate summary statistics and figures to demonstrate the 
+    results of the analysis    
 
 ### Instructions
 
@@ -29,13 +37,12 @@ The successful student will be able to:
 
     i.  📖 Read what the sample data are, what analysis is needed and what tools we will use.
 
-
 2.  [Workshop](workshop.qmd)
     
-    i.💻 
+    i.💻 Analyse the sample data set.
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i. 💻 
+    i. 💻 Set up your RStudio Project for the analysis of your own data.
 
 
