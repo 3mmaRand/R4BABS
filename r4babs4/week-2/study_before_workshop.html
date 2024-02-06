@@ -29,7 +29,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-50FV9HPTRE"></script>
 
@@ -360,9 +380,9 @@ Emma Rand
 <h1>Overview</h1>
 <p>There are three workshops:</p>
 <ol type="1">
-<li><p>Week 2 Data Analysis 2: Immunobiology - Sample data analysis</p></li>
-<li><p>Week 4 Data Analysis 3: Immunobiology - Analysis of your own data</p></li>
-<li><p>Week 6 Data Analysis 4: Immunobiology - Customising figures</p></li>
+<li><p>Week 2 DA 2: Immunobiology - Sample data analysis</p></li>
+<li><p>Week 4 DA 3: Immunobiology - Analysis of your own data</p></li>
+<li><p>Week 6 DA 4: Immunobiology - Customising figures</p></li>
 </ol>
 </section>
 <section id="overview-1" class="slide level2">
@@ -370,10 +390,10 @@ Emma Rand
 <div>
 <p>These slides:</p>
 <ul>
-<li class="fragment"><p>Prepare you for the sample data analysis workshop but the design and analysis are the same as for your own data</p></li>
+<li class="fragment"><p>Prepare you for the sample data analysis workshop; your own data will be like the sample data</p></li>
 <li class="fragment"><p>Summarise the experimental design and aims</p></li>
 <li class="fragment"><p>Explain what the data are</p></li>
-<li class="fragment"><p>Go through the analytical steps are conceptually</p></li>
+<li class="fragment"><p>Go through the analytical steps conceptually</p></li>
 <li class="fragment"><p>Explain what tools we will use in the workshop to do the analysis</p></li>
 </ul>
 </div>
@@ -385,13 +405,15 @@ Emma Rand
 </section>
 <section id="experimental-design-and-aims-1" class="slide level2">
 <h2>Experimental design and aims</h2>
+<div>
 <ul>
-<li><p>Macrophages produce TNF-α in response to bacterial infection</p></li>
-<li><p>Question: Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?</p></li>
-<li><p>Therefore we need 3 treatments: Media (control), Lipopolysaccharide (LPS, Cell wall component of <em>E. coli</em>) and live <em>E. coli</em></p></li>
-<li><p>we measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC)</p></li>
-<li><p>Therefore we need a control for antibody binding and use Isotype antibody</p></li>
+<li class="fragment"><p>Macrophages produce TNF-α in response to bacterial infection</p></li>
+<li class="fragment"><p>Question: <em>Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?</em></p></li>
+<li class="fragment"><p>Therefore we need 3 treatments: Media (control), Lipopolysaccharide (LPS, Cell wall component of <em>E. coli</em>) and live <em>E. coli</em></p></li>
+<li class="fragment"><p>We measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC)</p></li>
+<li class="fragment"><p>Therefore we need a control for antibody binding and use Isotype antibody</p></li>
 </ul>
+</div>
 </section>
 <section id="experimental-design-and-aims-2" class="slide level2">
 <h2>Experimental design and aims</h2>
@@ -412,11 +434,11 @@ Emma Rand
 <li><p>We only expect to see green fluorescence (APC) if the treatment is <em>E. coli</em></p></li>
 <li><p>This is summarised in the figure on the next page</p></li>
 </ul>
-
-<img data-src="images/66I-exp-des-TNF-α.png" class="r-stretch"></section>
+</section>
 <section id="experimental-design-and-aims-4" class="slide level2">
 <h2>Experimental design and aims</h2>
-</section></section>
+
+<img data-src="images/66I-exp-des-TNF-α.png" class="r-stretch"></section></section>
 <section>
 <section id="the-data" class="title-slide slide level1 center">
 <h1>The data</h1>
@@ -436,14 +458,16 @@ Emma Rand
 <section id="the-data-2" class="slide level2">
 <h2>The data</h2>
 <div>
+<div style="font-size: 80%;">
 <ul>
-<li class="fragment"><p>the 22 columns: “TIME”, “Time MSW”, “Pulse Width”, “FS Lin”, “FS Area”, “FS Log”, “SS Lin”, “SS Area”, “SS Log”, “FL 1 Lin”, “FL 1 Area”, “FL 1 Log”, “FL 2 Lin”, “FL 2 Area”, “FL 2 Log”,“FL 3 Lin”, “FL 3 Area”,“FL 3 Log”,“FL 8 Lin”,“FL 8 Area”,“FL 8 Log”, “Event Count”</p></li>
+<li class="fragment"><p>the 22 columns: TIME, Time MSW, Pulse Width, FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin, FL 1 Area, FL 1 Log, FL 2 Lin, FL 2 Area, FL 2 Log, FL 3 Lin, FL 3 Area, FL 3 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count</p></li>
 <li class="fragment"><p>FS is Forward scatter, SS is Side scatter, FL is fluorescence channel</p></li>
 <li class="fragment"><p>FL 1 is the green fluorescence channel and we will rename it E_coli_FITC</p></li>
 <li class="fragment"><p>FL 8 is the red fluorescence channel and we will rename it TNFa_APC</p></li>
 <li class="fragment"><p>FL 2 and FL 3 are not used in this experiment and we will delete those columns</p></li>
 <li class="fragment"><p>We will use just four columns: E_coli_FITC_Lin, TNFa_APC_Lin, FS Lin, and SS Lin</p></li>
 </ul>
+</div>
 </div>
 </section></section>
 <section>
@@ -464,15 +488,17 @@ Emma Rand
 <section id="analytical-steps-1" class="slide level2">
 <h2>Analytical steps</h2>
 <div>
+<div style="font-size: 80%;">
 <ul>
 <li class="fragment"><p>Import the data into R, improve the column names and remove unwanted columns</p></li>
 <li class="fragment"><p>Apply automated quality control</p></li>
-<li class="fragment"><p>Apply a “logicle” transformation to the fluorescence channels (similar to logging)</p></li>
+<li class="fragment"><p>Apply a “logicle” transformation <span class="citation" data-cites="parks2006">(<a href="#/references" role="doc-biblioref" onclick="">Parks, Roederer, and Moore 2006</a>)</span> to the fluorescence channels (similar to logging)</p></li>
 <li class="fragment"><p>Explore the data with scatter plots and histograms/density plots</p></li>
 <li class="fragment"><p>Use FS Lin and SS Lin to determine what cells (rows) to remove as debris</p></li>
 <li class="fragment"><p>Determine cut-offs for cells being positive for TNF-α and <em>E. coli</em></p></li>
 <li class="fragment"><p>Calculate the percentage of cells that are positive for TNF-α for each treatment</p></li>
 </ul>
+</div>
 </div>
 </section></section>
 <section>
@@ -484,10 +510,10 @@ Emma Rand
 <h2>Tools</h2>
 <div>
 <ul>
-<li class="fragment"><p>Import, rename and subset columns using the <strong><code>flowCore</code></strong> package</p></li>
-<li class="fragment"><p>Automated quality control with the <strong><code>flowAI</code></strong> package</p></li>
+<li class="fragment"><p>Import, rename and subset columns using the <strong><code>flowCore</code></strong> package <span class="citation" data-cites="flowCore">(<a href="#/references" role="doc-biblioref" onclick="">Ellis et al. 2024</a>)</span></p></li>
+<li class="fragment"><p>Automated quality control with the <strong><code>flowAI</code></strong> package <span class="citation" data-cites="flowAI">(<a href="#/references" role="doc-biblioref" onclick="">Monaco et al. 2016</a>)</span></p></li>
 <li class="fragment"><p>Apply a “logicle” transformation using the <strong><code>flowCore</code></strong> package</p></li>
-<li class="fragment"><p>Put the data into a dataframe to make it easy to use <strong><code>tidyverse</code></strong> tools like <code>group_by()</code>, <code>summarise()</code>, <code>ggplot()</code>, <code>filter()</code></p></li>
+<li class="fragment"><p>Put the data into a dataframe to make it easy to use <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidverse">(<a href="#/references" role="doc-biblioref" onclick=""><strong>tidverse?</strong></a>)</span> tools like <code>group_by()</code>, <code>summarise()</code>, <code>ggplot()</code>, <code>filter()</code></p></li>
 </ul>
 </div>
 </section>
@@ -517,10 +543,24 @@ Emma Rand
 <li><p>The week 2 workshop analyses the sample data, in the week 4 workshop you will analyse your own data</p></li>
 <li><p>We will use the <strong><code>flowCore</code></strong>, <strong><code>flowAI</code></strong> and <strong><code>tidyverse</code></strong> packages to do the analysis</p></li>
 </ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>🔗 <a href="https://3mmarand.github.io/R4BABS/r4babs4/week-2/overview.html">Data Analysis 2: Immunobiology - Sample data analysis</a></p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-flowCore" class="csl-entry" role="listitem">
+Ellis, B, Perry Haaland, Florian Hahne, Nolwenn Le Meur, Nishant Gopalakrishnan, Josef Spidlen, Mike Jiang, and Greg Finak. 2024. <span>“flowCore: flowCore: Basic Structures for Flow Cytometry Data.”</span>
+</div>
+<div id="ref-flowAI" class="csl-entry" role="listitem">
+Monaco, Gianni, Hao Chen, Michael Poidinger, Jinmiao Chen, Joao Pedro de Magalhaes, and Anis Larbi. 2016. <span>“flowAI: Automatic and Interactive Anomaly Discerning Tools for Flow Cytometry Data”</span> 32. <a href="https://10.1093/bioinformatics/btw191">10.1093/bioinformatics/btw191</a>.
+</div>
+<div id="ref-parks2006" class="csl-entry" role="listitem">
+Parks, David R., Mario Roederer, and Wayne A. Moore. 2006. <span>“A New <span>“</span>Logicle<span>”</span> Display Method Avoids Deceptive Effects of Logarithmic Scaling for Low Signals and Compensated Data.”</span> <em>Cytometry Part A</em> 69A (6): 541–51. <a href="https://doi.org/10.1002/cyto.a.20258">https://doi.org/10.1002/cyto.a.20258</a>.
 </div>
 </div>
 </section></section>
