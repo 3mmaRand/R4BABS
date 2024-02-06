@@ -20,11 +20,11 @@ editor:
 
 There are three workshops:
 
-1.  Week 2 Data Analysis 2: Immunobiology - Sample data analysis
+1.  Week 2 DA 2: Immunobiology - Sample data analysis
 
-2.  Week 4 Data Analysis 3: Immunobiology - Analysis of your own data
+2.  Week 4 DA 3: Immunobiology - Analysis of your own data
 
-3.  Week 6 Data Analysis 4: Immunobiology - Customising figures
+3.  Week 6 DA 4: Immunobiology - Customising figures
 
 
 ## Overview
@@ -32,14 +32,14 @@ There are three workshops:
 ::: incremental
 These slides:
 
--   Prepare you for the sample data analysis workshop but the design and analysis
-    are the same as for your own data
+-   Prepare you for the sample data analysis workshop; your own data 
+    will be like the sample data
 
 -   Summarise the experimental design and aims
 
 -   Explain what the data are
 
--   Go through the analytical steps are conceptually
+-   Go through the analytical steps conceptually
 
 -   Explain what tools we will use in the workshop to do the analysis
 :::
@@ -49,19 +49,20 @@ These slides:
 
 ## Experimental design and aims
 
+::: incremental
+
 -   Macrophages produce TNF-α in response to bacterial infection
 
--   Question: Does the production of TNF-α by macrophages require live
-    bacteria, or is the cell wall component sufficient?
+-   Question: *Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?*
     
 -   Therefore we need 3 treatments: Media (control), Lipopolysaccharide (LPS, Cell 
     wall component of *E. coli*) and live *E. coli* 
 
--   we measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC)
+-   We measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC)
 
 -   Therefore we need a control for antibody binding and use Isotype antibody
 
-
+:::
 
 
 ## Experimental design and aims
@@ -71,7 +72,7 @@ These slides:
     LPS  *E. coli* which are NeonGreen fluorescence
 
 -   Two antibodies are used for each treatment: Isotype antibody, TNF-α antibody
-    conjugated to Allophycocyanin (APC)
+    conjugated to Allophycocyanin (APC) 
 
 -   Thus there are 3 x 2 = 6 combinations
 
@@ -92,9 +93,9 @@ production in macrophages and the TNF-α antibody is used.
 
 -   This is summarised in the figure on the next page
 
-![](images/66I-exp-des-TNF-α.png)
-
 ## Experimental design and aims
+
+![](images/66I-exp-des-TNF-α.png)
 
 
 # The data
@@ -117,11 +118,11 @@ production in macrophages and the TNF-α antibody is used.
 ## The data
 
 ::: incremental
-
--   the 22 columns: "TIME", "Time MSW", "Pulse Width",
-    "FS Lin", "FS Area", "FS Log", "SS Lin", "SS Area", "SS Log", "FL 1 Lin",
-    "FL 1 Area", "FL 1 Log", "FL 2 Lin", "FL 2 Area", "FL 2 Log","FL 3 Lin",
-    "FL 3 Area","FL 3 Log","FL 8 Lin","FL 8 Area","FL 8 Log", "Event Count"
+::: {style="font-size: 80%;"}
+-   the 22 columns: TIME, Time MSW, Pulse Width,
+    FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin,
+    FL 1 Area, FL 1 Log, FL 2 Lin, FL 2 Area, FL 2 Log, FL 3 Lin,
+    FL 3 Area, FL 3 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count
 
 -   FS is Forward scatter, SS is Side scatter, FL is fluorescence channel
 
@@ -135,7 +136,7 @@ production in macrophages and the TNF-α antibody is used.
     FS Lin, and SS Lin
 
 :::
-
+:::
 
 # Analytical steps
 
@@ -156,13 +157,13 @@ production in macrophages and the TNF-α antibody is used.
 ## Analytical steps
 
 ::: incremental
-
+::: {style="font-size: 80%;"}
 -   Import the data into R, improve the column names and remove unwanted
     columns
 
 -   Apply automated quality control
 
--   Apply a "logicle" transformation to the fluorescence channels (similar to logging)
+-   Apply a "logicle" transformation [@parks2006] to the fluorescence channels (similar to logging)
 
 -   Explore the data with scatter plots and histograms/density plots
 
@@ -171,7 +172,7 @@ production in macrophages and the TNF-α antibody is used.
 -   Determine cut-offs for cells being positive for TNF-α and *E. coli*
 
 -   Calculate the percentage of cells that are positive for TNF-α for each treatment
-
+:::
 :::
 
 # Tools
@@ -180,13 +181,13 @@ production in macrophages and the TNF-α antibody is used.
 
 ::: incremental
    
--   Import, rename and subset columns using the **`flowCore`** package
+-   Import, rename and subset columns using the **`flowCore`** package [@flowCore]
 
--   Automated quality control with the **`flowAI`** package
+-   Automated quality control with the **`flowAI`** package [@flowAI]
 
 -   Apply a "logicle" transformation using the **`flowCore`** package
 
--   Put the data into a dataframe to make it easy to use **`tidyverse`** tools like
+-   Put the data into a dataframe to make it easy to use **`tidyverse`** [@tidverse] tools like
     `group_by()`, `summarise()`, `ggplot()`, `filter()`
 
 :::
@@ -225,3 +226,5 @@ production in macrophages and the TNF-α antibody is used.
     analyse your own data
     
 -   We will use the **`flowCore`**, **`flowAI`** and **`tidyverse`** packages to do the analysis
+
+## References

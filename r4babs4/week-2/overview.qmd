@@ -1,11 +1,11 @@
 ---
 title: "Overview"
-subitle: "DA 2 Immunobiology: "
+subitle: "Data Analysis 2: Immunobiology - Sample data analysis"
 toc: true
 toc-location: right
 ---
 
-This is the first of the three workshops which are specific to the Immunobiology strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, we will guide you through the analysis of a sample data set just like the one you will generate. Jillian collected these data in designing this set of practicals. You will learn both how to analyse the data and what your own data should look like. We will mainly rely of default formats for figures.
+This is the first of the three workshops which are specific to the Immunobiology strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, we will guide you through the analysis of a sample data set just like the one you will generate. Jillian collected these data in designing this set of practicals. You will learn both how to analyse the data and what your own data should look like. 
 
 ### Learning objectives
 
@@ -14,7 +14,7 @@ The successful student will be able to:
 
 -   explain what is in a flow cytometry data set
 
--   import `fcs` files, explain a flowFrame and a flowSet and access the column 
+-   import `fcs` files, explain a "flowFrame" and a "flowSet" and access the column 
     names and data in them
 
 -   apply automated quality control to a flowSet with the **`flowAI`** package
