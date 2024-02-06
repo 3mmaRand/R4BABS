@@ -47,8 +47,6 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,27 +81,12 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-50FV9HPTRE"></script><script type="text/plain" cookie-consent="tracking">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-50FV9HPTRE"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
-</script><script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({
-  "notice_banner_type":"simple",
-  "consent_type":"implied",
-  "palette":"light",
-  "language":"en",
-  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
-  "notice_banner_reject_button_hide":false,
-  "preferences_center_close_button_hide":false,
-  "website_name":""
-  ,
-"language":"en"
-  });
-});
 </script><script async="" src="https://hypothes.is/embed.js"></script><script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
@@ -283,7 +266,7 @@ cookieconsent.run({
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Week 6: DA 4 Immunobiologyn</span></a>
+ <span class="menu-text">Week 6: DA 4 Immunobiology</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -323,18 +306,13 @@ cookieconsent.run({
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-<li><a href="#session-overview" id="toc-session-overview" class="nav-link" data-scroll-target="#session-overview">Session overview</a></li>
-  <li><a href="#philosophy" id="toc-philosophy" class="nav-link" data-scroll-target="#philosophy">Philosophy</a></li>
-  </ul>
-</li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li>
 <a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
 <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">…</a></li>
+  <li><a href="#data-for-the-class-dataset." id="toc-data-for-the-class-dataset." class="nav-link" data-scroll-target="#data-for-the-class-dataset.">Data for the class dataset.</a></li>
+  <li><a href="#how-to-change-the-name-of-an-rstudio-project." id="toc-how-to-change-the-name-of-an-rstudio-project." class="nav-link" data-scroll-target="#how-to-change-the-name-of-an-rstudio-project.">How to change the name of an RStudio project.</a></li>
   <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
   </ul>
 </li>
@@ -362,50 +340,14 @@ cookieconsent.run({
 
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
-<p>In this workshop you will</p>
-<section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this session you will carry out</p>
-</section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
-<p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
-<ul>
-<li>don’t worry about making mistakes</li>
-<li>don’t let what you can not do interfere with what you can do</li>
-<li>discussing code with your neighbours will help</li>
-<li>look things up in the independent study material</li>
-<li>look things up in your own code from earlier</li>
-<li>there are no stupid questions</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Key
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Something you need to do on your computer. It may be opening programs or documents or locating a file.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.</p>
-<p><img src="images/do_on_internet.png" class="img-fluid"> Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.</p>
-<p><img src="images/answer.png" class="img-fluid"> A question for you to think about and answer. Record your answers in your script for future reference.</p>
-</div>
-</div>
-</section></section><section id="getting-started" class="level1"><h1>Getting started</h1>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-4</code> folder and name the RStudio Project <code>3-immunobiology</code>.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make new folders called <code>data-raw</code> and <code>figures</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>.....R</code> to carry out the rest of the work.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># "DA 3 Immunobiology</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
+<p>In this workshop you will use the tools you used in the previous workshop (and before!) to analyse the data you have collected. You will provide some key pieces of information for the class data set.</p>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
 <section id="section" class="level2"><h2 class="anchored" data-anchor-id="section">…</h2>
-<!-- #---THINKING ANSWER---  -->
-<!-- Day is discrete (but ordered) and is the explanatory; mass looks continuous and  -->
-<!-- is the response.  -->
-<!-- The null hypothesis can be expressed as one of the following: day does not  -->
-<!-- explain the variation in mass; there is no linear relationship between  -->
-<!-- day and mass; slope of the best fitting straight line is zero -->
+</section><section id="data-for-the-class-dataset." class="level2"><h2 class="anchored" data-anchor-id="data-for-the-class-dataset.">Data for the class dataset.</h2>
+<ul>
+<li>
+</li></ul></section><section id="how-to-change-the-name-of-an-rstudio-project." class="level2"><h2 class="anchored" data-anchor-id="how-to-change-the-name-of-an-rstudio-project.">How to change the name of an RStudio project.</h2>
+<p>You can change the name of an RStudio project closing the project and renaming the project folder and the <code>.Rproj</code> file.</p>
 </section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
 <p>……</p>
 <p>You’re finished!</p>
@@ -426,9 +368,6 @@ Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe De
 </div>
 <div id="ref-R-core" class="csl-entry" role="listitem">
 R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-knitr" class="csl-entry" role="listitem">
 Xie, Yihui. 2022. <span>“Knitr: A General-Purpose Package for Dynamic Report Generation in r.”</span> <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
@@ -847,8 +786,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <a href="https://github.com/3mmaRand/R4BABS" class="uri">https://github.com/3mmaRand/R4BABS</a></p>
 </div>   
     <div class="nav-footer-center">
-
-<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">
