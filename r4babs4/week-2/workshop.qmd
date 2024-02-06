@@ -38,7 +38,7 @@ We need three packages for this workshop:
 
 -   **`flowCore`** [@flowCore]: to import data from flow cytometry files (`.fcs`), apply the logicle transformation, and use functions for using a "flowSet" data structure.
 
--   **`flowAI`** [@flowAI]: which performs automated quality control by checing for changes in instrument speed and signal intensity that indicate a problem for the reading for that cells
+-   **`flowAI`** [@flowAI]: which performs automated quality control by checking for changes in instrument speed and signal intensity that indicate a problem for the reading for that cells
 
 🎬 Load **`tidyverse`**,**`flowCore`** and **`flowAI`**
 
