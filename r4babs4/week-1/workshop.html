@@ -18,6 +18,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -131,8 +165,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </ul>
 </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
-    <a href="https://mastodon.social/users/3mma" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
-    <a href="https://github.com/3mmaRand/R4BABS" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://mastodon.social/users/3mma" title="Emma on mastodon" class="quarto-navigation-tool px-1" aria-label="Emma on mastodon"><i class="bi bi-mastodon"></i></a>
+    <a href="https://github.com/3mmaRand/R4BABS" title="Emma on GitHub" class="quarto-navigation-tool px-1" aria-label="Emma on GitHub"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
@@ -310,7 +344,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
 <li><a href="#session-overview" id="toc-session-overview" class="nav-link" data-scroll-target="#session-overview">Session overview</a></li>
-  <li><a href="#philosophy" id="toc-philosophy" class="nav-link" data-scroll-target="#philosophy">Philosophy</a></li>
+  </ul>
+</li>
   <li>
 <a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a>
   <ul class="collapse">
@@ -320,14 +355,21 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   </ul>
 </li>
   <li><a href="#naming-things" id="toc-naming-things" class="nav-link" data-scroll-target="#naming-things">Naming things</a></li>
-  </ul>
-</li>
+  <li><a href="#big-data" id="toc-big-data" class="nav-link" data-scroll-target="#big-data">Big data</a></li>
   <li>
 <a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-<li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#data-with-many-variables-and-obs" id="toc-data-with-many-variables-and-obs" class="nav-link" data-scroll-target="#data-with-many-variables-and-obs">Data with many variables and obs</a></li>
-  <li><a href="#getting-an-overview" id="toc-getting-an-overview" class="nav-link" data-scroll-target="#getting-an-overview">Getting an overview</a></li>
+<li><a href="#set-up-a-project" id="toc-set-up-a-project" class="nav-link" data-scroll-target="#set-up-a-project">Set up a Project</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#look-at-the-data" id="toc-look-at-the-data" class="nav-link" data-scroll-target="#look-at-the-data">Look at the data!</a></li>
+  <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the data</a></li>
+  <li>
+<a href="#getting-an-overview" id="toc-getting-an-overview" class="nav-link" data-scroll-target="#getting-an-overview">Getting an overview</a>
+  <ul class="collapse">
+<li><a href="#summaries" id="toc-summaries" class="nav-link" data-scroll-target="#summaries">Summaries</a></li>
+  <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation">Visualisation</a></li>
+  </ul>
+</li>
   <li>
 <a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">Quality Control</a>
   <ul class="collapse">
@@ -361,36 +403,9 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this session you will</p>
-</section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
-<p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
-<ul>
-<li>don’t worry about making mistakes</li>
-<li>don’t let what you can not do interfere with what you can do</li>
-<li>discussing code with your neighbours will help</li>
-<li>look things up in the independent study material</li>
-<li>look things up in your own code from earlier</li>
-<li>there are no stupid questions</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Key
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Something you need to do on your computer. It may be opening programs or documents or locating a file.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.</p>
-<p><img src="images/do_on_internet.png" class="img-fluid"> Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.</p>
-<p><img src="images/answer.png" class="img-fluid"> A question for you to think about and answer. Record your answers for future reference.</p>
-</div>
-</div>
-</section><section id="reproducibility" class="level2"><h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
-<section id="why-does-it-matter" class="level3"><h3 class="anchored" data-anchor-id="why-does-it-matter">Why does it matter?</h3>
+<p>In the first part of the workshop I will talk about Project organisation for reproducible analysis and data that has many variables and observations. In the second part of the workshop you will practice getting an overview of such data with summaries and distribution plots, filtering rows and columns.</p>
+</section></section><section id="reproducibility" class="level1"><h1>Reproducibility</h1>
+<section id="why-does-it-matter" class="level2"><h2 class="anchored" data-anchor-id="why-does-it-matter">Why does it matter?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/future_you.png" class="img-fluid figure-img" alt="Person working at a computer with an offstage person asking 'How is the analysis going?' The person at the computer replies 'Can't understand the date...and the data collector does not answer my emails or calls' Person offstage: 'That's terrible! So cruel! Who did collect the data? I will sack them!' Person at the computer: 'um...I did, 3 years ago.'" width="400"></p>
 <figcaption>futureself, CC-BY-NC, by Julen Colomb</figcaption></figure>
@@ -399,12 +414,12 @@ Key
 <li><p>Five selfish reasons to work reproducibly <span class="citation" data-cites="markowetz2015">(<a href="#ref-markowetz2015" role="doc-biblioref">Markowetz 2015</a>)</span>. Alternatively, see the very entertaining <a href="https://youtu.be/yVT07Sukv9Q">talk</a> which covers the the “Duke Scandal”.</p></li>
 <li><p>Many high profile cases of work which did not reproduce e.g.&nbsp;Anil Potti’s work unravelled by <span class="citation" data-cites="baggerly2009">Baggerly and Coombes (<a href="#ref-baggerly2009" role="doc-biblioref">2009</a>)</span> in the “Duke Scandal”</p></li>
 <li><p><strong>Will</strong> become standard in Science and publishing e.g OECD Global Science Forum Building digital workforce capacity and skills for data-intensive science <span class="citation" data-cites="oecdglobalscienceforum2020">(<a href="#ref-oecdglobalscienceforum2020" role="doc-biblioref">OECD Global Science Forum 2020</a>)</span></p></li>
-</ul></section><section id="how-to-achieve-reproducibility" class="level3"><h3 class="anchored" data-anchor-id="how-to-achieve-reproducibility">How to achieve reproducibility</h3>
+</ul></section><section id="how-to-achieve-reproducibility" class="level2"><h2 class="anchored" data-anchor-id="how-to-achieve-reproducibility">How to achieve reproducibility</h2>
 <ul>
 <li><p>Scripting</p></li>
 <li><p>Organisation: Project-oriented workflows with file and folder structure, naming things</p></li>
 <li><p>Documentation: Comment your code.</p></li>
-</ul></section><section id="project-oriented-workflow" class="level3"><h3 class="anchored" data-anchor-id="project-oriented-workflow">Project-oriented workflow</h3>
+</ul></section><section id="project-oriented-workflow" class="level2"><h2 class="anchored" data-anchor-id="project-oriented-workflow">Project-oriented workflow</h2>
 <ul>
 <li><p>use folders to organise your work</p></li>
 <li><p>you are aiming for structured, systematic and repeatable.</p></li>
@@ -421,8 +436,11 @@ Key
    |__figures
       |__01_volcano_donor_1_vs_donor_2.png
       |__02_volcano_donor_1_vs_donor_3.png</code></pre>
-</section></section><section id="naming-things" class="level2"><h2 class="anchored" data-anchor-id="naming-things">Naming things</h2>
+</section></section><section id="naming-things" class="level1"><h1>Naming things</h1>
 <ul>
+<li><p>systematic and consistent</p></li>
+<li><p>informative</p></li>
+<li><p>use same character (e.g., <code>_</code> or <code>-</code>) for separating parts of the information</p></li>
 <li><p>machine readable</p></li>
 <li><p>human readable</p></li>
 <li><p>play nicely with sorting</p></li>
@@ -434,23 +452,97 @@ Key
 <li><p>use all lower case</p></li>
 <li><p>ordering: use left-padded numbers e.g., 01, 02….99 or 001, 002….999</p></li>
 <li><p>dates <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format: 2020-10-16</p></li>
-</ul></section></section><section id="exercises" class="level1"><h1>Exercises</h1>
-<section id="getting-started" class="level2"><h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Go the Files tab in the lower right pane and click on the <code>...</code> on the right. This will open a “Go to folder” window. Navigate to a place on your computer where you keep your work. Click Open.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Also on the Files tab click on <code>New Folder</code>. Type “data-analysis-in-r-4” in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS4.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Name the RStudio Project ‘core-01’.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like analysis.R to carry out the rest of the work.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Core</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>data-raw</code>.</p>
-</section><section id="data-with-many-variables-and-obs" class="level2"><h2 class="anchored" data-anchor-id="data-with-many-variables-and-obs">Data with many variables and obs</h2>
-<p>examine</p>
+</ul>
+<p>Example</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ECOLIGreen_ISOTYPE.fcs" "ECOLIGreen_TNFAPC.fcs"  "LPS_ISOTYPE.fcs"       
+[4] "LPS_TNFAPC.fcs"         "MEDIA_ISOTYPE.fcs"      "MEDIA_TNFAPC.fcs"      </code></pre>
+</div>
+</div>
+</section><section id="big-data" class="level1"><h1>Big data</h1>
+<p>People argue about what quantity of data constitutes big data. In my view, it is relative to what you are used to and it is not just about the size of the data but also the complexity and the approach to analysis.</p>
+<p>You have been used to working with data that has a few explanatory variables, one or two response variables 10 to 100 observations. Typically your approach has been to test one or two specific hypotheses. There is usually a very direct relationship between the experiment you design, the data you collect and the hypotheses you test.</p>
+<p>Example: You want to know the effect of an antimicrobial agent on the growth of a bacterium. You design an experiment to measure the growth of the bacterium in the presence and absence of the antimicrobial agent. You collect the data and test the hypothesis that the growth of the bacterium is different in the presence and absence of the antimicrobial agent. You have a dataset with one response variable (growth) and one explanatory variable (presence or absence of the antimicrobial agent) and n observations (replicates of the experiment).</p>
+<p>When working with big data we often mean:</p>
+<ul>
+<li><p>having many variables (100s or 1000s), many observations or both</p></li>
+<li><p>visualising patterns in the data such as the relationship between variables or observations using “data reduction” techniques such as Principle Components Analysis (PCA)</p></li>
+<li><p>applying hundreds or thousands to tests to identify patterns or relationships amongst the significant results rather than drawing conclusions from individual tests</p></li>
+</ul>
+<p>Example: You want to know the effect of a drug on the expression of genes in a cell. You design an experiment to measure the expression of <em>all</em> the genes in the cell in the presence and absence of the drug. You collect the data and test the hypothesis that the expression of any gene is different in the presence and absence of the drug. You then look for patterns in the data such as groups of genes that are co-expressed and the relationship between the expression of genes and the effect of the drug. You have a dataset with many response variables (expression of genes) and one explanatory variable (presence or absence of the drug) and n observations (replicates of the experiment).</p>
+</section><section id="exercises" class="level1"><h1>Exercises</h1>
+<section id="set-up-a-project" class="level2"><h2 class="anchored" data-anchor-id="set-up-a-project">Set up a Project</h2>
+<p>🎬 Start RStudio from the Start menu</p>
+<p>🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you</p>
+<p>🎬 Use the Files pane to make a folder for the data. I suggest <code>data-raw/</code></p>
+<p>🎬 Save these data files to the <code>data-raw/</code> folder: <a href="data-raw/biotech-cts.txt">biotech-cts.txt</a>, <a href="data-raw/cell-bio.tsv">cell-bio.tsv</a>, <a href="data-raw/immuno.csv">immuno.csv</a></p>
+<p>🎬 Make a new script called <code>core-data-analysis.R</code> to carry out the rest of the work.</p>
+</section><section id="load-packages" class="level2"><h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<p>We need XXXX packages for this workshop:</p>
+<ul>
+<li>
+<strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>: importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.</li>
+</ul>
+<p>🎬 Load <strong><code>tidyverse</code></strong>,<strong><code>xxxxxx</code></strong> and <strong><code>xxxxx</code></strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="look-at-the-data" class="level2"><h2 class="anchored" data-anchor-id="look-at-the-data">Look at the data!</h2>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read the first few lines of data-raw/cell-bio.tsv</span></span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data-raw/cell-bio.tsv"</span>, n_max <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "clone\treplicate\tframe\ttracking.id\tlineage.id\tposition.x\tposition.y\tpixel.position.x\tpixel.position.y\tvolume\tmean.thickness\tradius\tarea\tsphericity\tlength\twidth\torientation\tdry.mass\tdisplacement\tinstantaneous.velocity\tinstantaneous.velocity.x\tinstantaneous.velocity.y\ttrack.length\tperimeter\tlength.to.width"
+[2] "cloneA\t1\t1\t1\t1\t33.2200012207031\t1323.32995605469\t49\t1989\t1206.84997558594\t1.24838376045227\t17.5419406890869\t966.72998046875\t0.273000001907349\t74.2099990844727\t23.6900005340576\t-70.5500030517578\t301.709991455078\t0\t0\t0\t0\t0\t174.970001220703\t3.132545268531578"                                                 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read the first few lines of data-raw/biotech-cts.txt</span></span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data-raw/biotech-cts.txt"</span>, n_max <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "\tSCK14_1\tSCK14_2\tSCK14_3\tSLK14_1\tSLK14_2\tSLK14_3\tTCK14_1\tTCK14_2\tTCK14_3\tTLK14_1\tTLK14_2\tTLK14_3"
+[2] "MSTRG.1\t560\t1526\t4168\t509\t762\t700\t481\t496\t422\t597\t406\t282"                                       </code></pre>
+</div>
+</div>
+<p>starts with a separator</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read the first few lines of data-raw/immuno.csv</span></span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data-raw/immuno.csv"</span>, n_max <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "TIME,Time_MSW,Pulse_Width,FS_Lin,FS_Area,FS_Log,SS_Lin,SS_Area,SS_Log,E_coli_FITC_Lin,E_coli_FITC_Area,E_coli_FITC_Log,TNFa_APC_Lin,TNFa_APC_Area,TNFa_APC_Log,Event_Count,sample,treatment,antibody"
+[2] "3336,5,116,27304,58173,2082.88134765625,21432,41765,3269.8388671875,2.573944177309094,862,118.603271484375,1.7975737508309628,280,9.952330589294434,39289,ECOLIGreen_ISOTYPE.fcs,ECOLIGreen,ISOTYPE" </code></pre>
+</div>
+</div>
+</section><section id="import-the-data" class="level2"><h2 class="anchored" data-anchor-id="import-the-data">Import the data</h2>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/cell-bio.tsv"</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/cell-bio.tsv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/biotech-cts.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">biotech</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"transcript"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">immuno</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data-raw/immuno.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># janitor::clean_names()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="getting-an-overview" class="level2"><h2 class="anchored" data-anchor-id="getting-an-overview">Getting an overview</h2>
-<p>with summaries and distribution plots</p>
-<p>summary summary stats group_by distributions boxplots / violin facet think about the number of variables and observations!! ggpairs summarise and plot</p>
-</section><section id="quality-control" class="level2"><h2 class="anchored" data-anchor-id="quality-control">Quality Control</h2>
+<p>use <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code></p>
+<section id="summaries" class="level3"><h3 class="anchored" data-anchor-id="summaries">Summaries</h3>
+<p>summary summary stats group_by</p>
+</section><section id="visualisation" class="level3"><h3 class="anchored" data-anchor-id="visualisation">Visualisation</h3>
+<p>distributions boxplots / violin facet think about the number of variables and observations!! ggpairs</p>
+</section></section><section id="quality-control" class="level2"><h2 class="anchored" data-anchor-id="quality-control">Quality Control</h2>
 <section id="filtering-rows" class="level3"><h3 class="anchored" data-anchor-id="filtering-rows">filtering rows</h3>
 <p>a particular value NA make things zero</p>
+<p>PCA?</p>
 <!-- #---THINKING ANSWER--- -->
 <p>You’re finished!</p>
 </section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
@@ -904,17 +996,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item compact">
+<li class="nav-item">
     <a class="nav-link" href="https://mastodon.social/users/3mma">
-      <i class="bi bi-mastodon" role="img">
-</i> 
-    </a>
+<p>Emma on mastodon</p>
+</a>
   </li>  
-    <li class="nav-item compact">
+    <li class="nav-item">
     <a class="nav-link" href="https://github.com/3mmaRand/R4BABS">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
+<p>Emma on GitHub</p>
+</a>
   </li>  
 </ul>
 </div>
