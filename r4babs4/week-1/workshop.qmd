@@ -211,7 +211,7 @@ immuno <- read_csv("data-raw/immuno.csv")
 
 
 ```{r}
-#|> janitor::clean_names()
+# janitor::clean_names()
 ```
 
 

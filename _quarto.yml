@@ -15,9 +15,11 @@ website:
     right:
       - icon: mastodon
         href: "https://mastodon.social/users/3mma"
+        text: "Emma on mastodon"
       - icon: github
         href: https://github.com/3mmaRand/R4BABS
-  
+        text: "Emma on GitHub"  
+ 
   navbar:
     background: light
     twitter-card: true
@@ -41,8 +43,10 @@ website:
     tools:
       - icon: mastodon
         href: "https://mastodon.social/users/3mma"
+        text: "Emma on mastodon"
       - icon: github
         href: https://github.com/3mmaRand/R4BABS
+        text: "Emma on GitHub"  
 
 
   sidebar:
