@@ -22,7 +22,7 @@ Use R to perform these analyses, reproducibly, on data in a variety of formats a
 
 ## Week 1 Data Analysis 1: Core
 
-All strands
+This is taken by all students. The independent study to prepare you for the workshop is revision of some stage 1 core concepts. It covers file types, file systems,  working directories,  paths and RStudio Projects. You may feel completely confident with them but many students will benefit from a refresher. In the workshop we will cover Project organisation, working with data that has many variables and observations, getting an overview with summaries and distribution plots, and how to filter rows and columns.
 
 
 ## Week 2 Data Analysis 2: Immunobiology - Sample data analysis

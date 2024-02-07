@@ -13,41 +13,14 @@ library(kableExtra)
 
 # Introduction
 
-
-
 ## Session overview
 
-In this session you will 
-
-## Philosophy
-
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
-
--   don't worry about making mistakes
--   don't let what you can not do interfere with what you can do
--   discussing code with your neighbours will help
--   look things up in the independent study material
--   look things up in your own code from earlier
--   there are no stupid questions
-
-::: callout-note
-## Key
-
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
-
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
-
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
-
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
-
-![](images/answer.png) A question for you to think about and answer. Record your answers  for future reference.
-:::
+In the first part of the workshop I will talk about Project organisation for reproducible analysis and data that has many variables and observations. In the second part of the workshop you will practice getting an overview of such data with summaries and distribution plots, filtering rows and columns.
 
 
-## Reproducibility
+# Reproducibility
 
-### Why does it matter?
+## Why does it matter?
 
 ![futureself, CC-BY-NC, by Julen
 Colomb](images/future_you.png){fig-alt="Person working at a computer with an offstage person asking 'How is the analysis going?' The person at the computer replies 'Can't understand the date...and the data collector does not answer my emails or calls' Person offstage: 'That's terrible! So cruel! Who did collect the data? I will sack them!' Person at the computer: 'um...I did, 3 years ago.'"
@@ -64,7 +37,7 @@ width="400"}
     Science Forum Building digital workforce capacity and skills for
     data-intensive science [@oecdglobalscienceforum2020]
 
-### How to achieve reproducibility
+## How to achieve reproducibility
 
 -   Scripting
 
@@ -75,7 +48,7 @@ width="400"}
 
 
 
-### Project-oriented workflow
+## Project-oriented workflow
 
 -   use folders to organise your work
 
@@ -99,7 +72,17 @@ Example
       |__02_volcano_donor_1_vs_donor_3.png
 ```
 
-## Naming things
+
+
+
+
+# Naming things
+
+-   systematic and consistent
+
+-   informative
+
+-   use same character (e.g., `_` or `-`) for separating parts of the information
 
 -   machine readable
 
@@ -121,44 +104,138 @@ I suggest
 -   dates [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format:
     2020-10-16
 
+Example
+
+```{r}
+#| echo: false
+dir("../week-2/data-raw")
+```
+
+
+# Big data
+
+People argue about what quantity of data constitutes big data. In my view, it is relative to what you are used to and it is not just about the size of the data but also the complexity and the approach to analysis.
+
+You have been used to working with data that has a few explanatory variables, one or two response variables 10 to 100 observations. Typically your approach has been to test one or two specific hypotheses. There is usually a very direct relationship between the experiment you design, the data you collect and the hypotheses you test.
+
+Example: You want to know the effect of an antimicrobial agent on the growth of a bacterium. You design an experiment to measure the growth of the bacterium in the presence and absence of the antimicrobial agent. You collect the data and test the hypothesis that the growth of the bacterium is different in the presence and absence of the antimicrobial agent. You have a dataset with one response variable (growth) and one explanatory variable (presence or absence of the antimicrobial agent) and n observations (replicates of the experiment).
+
+
+When working with big data we often mean:
+
+-   having many variables (100s or 1000s), many observations or both
+
+-   visualising patterns in the data such as the relationship between variables or observations using "data reduction" techniques such as Principle Components Analysis (PCA)
+
+-   applying hundreds or thousands to tests to identify patterns or relationships amongst the significant results rather than drawing conclusions from individual tests
+
+Example: You want to know the effect of a drug on the expression of genes in a cell. You design an experiment to measure the expression of *all* the genes in the cell in the presence and absence of the drug. You collect the data and test the hypothesis that the expression of any gene is different in the presence and absence of the drug. You then look for patterns in the data such as groups of genes that are co-expressed and the relationship between the expression of genes and the effect of the drug. You have a dataset with many response variables (expression of genes) and one explanatory variable (presence or absence of the drug) and n observations (replicates of the experiment).
+
+
 # Exercises
 
-## Getting started
+## Set up a Project
+
+🎬 Start RStudio from the Start menu
+
+🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you
+
+🎬 Use the Files pane to make a folder for the data. I suggest `data-raw/` 
+
+🎬 Save these data files to the `data-raw/` folder: [biotech-cts.txt](data-raw/biotech-cts.txt), [cell-bio.tsv](data-raw/cell-bio.tsv), [immuno.csv](data-raw/immuno.csv)
+
+🎬 Make a new script called `core-data-analysis.R` to carry out the rest of the work.
 
 
-![](images/do_on_your_computer.png) Start RStudio from the Start menu.
+## Load packages
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
+We need XXXX packages for this workshop:
 
-![](images/do_in_R.png) Also on the Files tab click on `New Folder`. Type "data-analysis-in-r-4" in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS4.
-
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Name the RStudio Project 'core-01'.
-
-![](images/do_in_R.png) Make a new script then save it with a name like analysis.R to carry out the rest of the work.
-
-![](images/do_in_R.png) Add a comment to the script: `# Core` and load the **`tidyverse`** [@tidyverse] package
-
-![](images/do_in_R.png) Make a new folder called `data-raw`.
+-   **`tidyverse`** [@tidyverse]: importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.
 
 
+🎬 Load **`tidyverse`**,**`xxxxxx`** and **`xxxxx`**
 
-## Data with many variables and obs
+```{r}
 
-examine
+library(tidyverse)
+```
 
-## Getting an overview 
+## Look at the data!
 
-with summaries and distribution plots
+
+```{r}
+# read the first few lines of data-raw/cell-bio.tsv
+read_lines("data-raw/cell-bio.tsv", n_max = 2)
+```
+
+```{r}
+# read the first few lines of data-raw/biotech-cts.txt
+read_lines("data-raw/biotech-cts.txt", n_max = 2)
+
+```
+starts with a separator
+
+```{r}
+# read the first few lines of data-raw/immuno.csv
+read_lines("data-raw/immuno.csv", n_max = 2)
+
+```
+
+
+## Import the data
+
+
+```{r}
+cell_bio <- read_tsv("data-raw/cell-bio.tsv", n_max = 3)
+```
+
+```{r}
+cell_bio <- read_tsv("data-raw/cell-bio.tsv")
+```
+
+```{r}
+biotech <- read_tsv("data-raw/biotech-cts.txt")
+```
+```{r}
+names(biotech)[1] <- "transcript"
+```
+
+```{r}
+immuno <- read_csv("data-raw/immuno.csv")
+```
+
+```{r}
+```
+
+
+
+```{r}
+#|> janitor::clean_names()
+```
+
+
+## Getting an overview
+
+
+
+use `View()`
+
+### Summaries
 
 summary
 summary stats
 group_by
+
+
+### Visualisation
+
 distributions
 boxplots / violin
 facet
 think about the number of variables and observations!!
 ggpairs
-summarise and plot
+
 
 
 ## Quality Control
@@ -167,6 +244,9 @@ summarise and plot
 a particular value
 NA
 make things zero
+
+
+PCA?
 
 ```{r}
 #| include: false

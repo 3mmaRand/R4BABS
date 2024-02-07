@@ -5,11 +5,9 @@ toc: true
 toc-location: right
 ---
 
-This week the independent study to be done before the workshop is revision of some stage 1 core concepts. It covers file types, file systems,  working directories,  paths and RStudio Projects. You may feel completely confident with them but many students will benefit from a refresher. In the workshop we will....
+This week the independent study to be done before the workshop is revision of some stage 1 core concepts. It covers file types, file systems,  working directories,  paths and RStudio Projects. You may feel completely confident with them but many students will benefit from a refresher. 
 
-
-Workshop: Project organisation, data with many variables and obs, getting an overview with summaries and distribution plots (that's kinda revision too but will seem different to them with more rows/cols,  concept of QC, filtering rows
-Consolidate: exercises on previous I think
+In the workshop we will cover Project organisation, working with data that has many variables and observations, getting an overview with summaries and distribution plots, and how to filter rows and columns.
 
 
 ### Learning objectives
@@ -18,17 +16,15 @@ The successful student will be able to:
 
 -    explain the organisation of files and directories in a file systems including root, home and working directories (revision)
 
--   explain absolute and relative file paths (revision)
+-   explain and appropriately use, absolute and relative file paths (revision)
 
--   know how to use a project-oriented workflow to organise work
+-   know how to use a project-oriented workflow to organise their work systematically and reproducibly
 
--   data with many variables and obs
+-   explain the organisation of some typical "big data" files
 
--   getting an overview with summaries and distribution plots
+-   create summaries and plots to get an overview of a data set
 
--   concept of QC
-
--   filtering rows
+-   filter rows from data sets for quality control, to remove missing data, or to select a subset of the data with work with
 
 ### Instructions
 
