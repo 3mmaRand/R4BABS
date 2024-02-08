@@ -3,6 +3,9 @@ title: "Workshop"
 subtitle: "Data Analysis 1: Core"
 toc: true
 toc-location: right
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r}
@@ -15,8 +18,11 @@ library(kableExtra)
 
 ## Session overview
 
-In the first part of the workshop I will talk about Project organisation for reproducible analysis and data that has many variables and observations. In the second part of the workshop you will practice getting an overview of such data with summaries and distribution plots, filtering rows and columns.
-
+In the first part of the workshop I will talk about Project organisation
+for reproducible analysis and data that has many variables and
+observations. In the second part of the workshop you will practice
+getting an overview of such data with summaries and distribution plots,
+filtering rows and columns.
 
 # Reproducibility
 
@@ -28,7 +34,8 @@ width="400"}
 
 -   Five selfish reasons to work reproducibly [@markowetz2015].
     Alternatively, see the very entertaining
-    [talk](https://youtu.be/yVT07Sukv9Q) which covers the the "Duke Scandal".
+    [talk](https://youtu.be/yVT07Sukv9Q) which covers the the "Duke
+    Scandal".
 
 -   Many high profile cases of work which did not reproduce e.g. Anil
     Potti's work unravelled by @baggerly2009 in the "Duke Scandal"
@@ -44,9 +51,7 @@ width="400"}
 -   Organisation: Project-oriented workflows with file and folder
     structure, naming things
 
--   Documentation: Comment your code. 
-
-
+-   Documentation: Comment your code.
 
 ## Project-oriented workflow
 
@@ -72,17 +77,14 @@ Example
       |__02_volcano_donor_1_vs_donor_3.png
 ```
 
-
-
-
-
 # Naming things
 
 -   systematic and consistent
 
 -   informative
 
--   use same character (e.g., `_` or `-`) for separating parts of the information
+-   use same character (e.g., `_` or `-`) for separating parts of the
+    information
 
 -   machine readable
 
@@ -96,7 +98,7 @@ I suggest
 
 -   use snake_case or kebab-case rather than CamelCase or dot.case
 
--   use all lower case 
+-   use all lower case
 
 -   ordering: use left-padded numbers e.g., 01, 02....99 or 001,
     002....999
@@ -111,26 +113,50 @@ Example
 dir("../week-2/data-raw")
 ```
 
-
 # Big data
 
-People argue about what quantity of data constitutes big data. In my view, it is relative to what you are used to and it is not just about the size of the data but also the complexity and the approach to analysis.
+People argue about what quantity of data constitutes big data. In my
+view, it is relative to what you are used to and it is not just about
+the size of the data but also the complexity and the approach to
+analysis.
 
-You have been used to working with data that has a few explanatory variables, one or two response variables 10 to 100 observations. Typically your approach has been to test one or two specific hypotheses. There is usually a very direct relationship between the experiment you design, the data you collect and the hypotheses you test.
+You have been used to working with data that has a few explanatory
+variables, one or two response variables 10 to 100 observations.
+Typically your approach has been to test one or two specific hypotheses.
+There is usually a very direct relationship between the experiment you
+design, the data you collect and the hypotheses you test.
 
-Example: You want to know the effect of an antimicrobial agent on the growth of a bacterium. You design an experiment to measure the growth of the bacterium in the presence and absence of the antimicrobial agent. You collect the data and test the hypothesis that the growth of the bacterium is different in the presence and absence of the antimicrobial agent. You have a dataset with one response variable (growth) and one explanatory variable (presence or absence of the antimicrobial agent) and n observations (replicates of the experiment).
-
+Example: You want to know the effect of an antimicrobial agent on the
+growth of a bacterium. You design an experiment to measure the growth of
+the bacterium in the presence and absence of the antimicrobial agent.
+You collect the data and test the hypothesis that the growth of the
+bacterium is different in the presence and absence of the antimicrobial
+agent. You have a dataset with one response variable (growth) and one
+explanatory variable (presence or absence of the antimicrobial agent)
+and n observations (replicates of the experiment).
 
 When working with big data we often mean:
 
 -   having many variables (100s or 1000s), many observations or both
 
--   visualising patterns in the data such as the relationship between variables or observations using "data reduction" techniques such as Principle Components Analysis (PCA)
+-   visualising patterns in the data such as the relationship between
+    variables or observations using "data reduction" techniques such as
+    Principle Components Analysis (PCA)
 
--   applying hundreds or thousands to tests to identify patterns or relationships amongst the significant results rather than drawing conclusions from individual tests
+-   applying hundreds or thousands to tests to identify patterns or
+    relationships amongst the significant results rather than drawing
+    conclusions from individual tests
 
-Example: You want to know the effect of a drug on the expression of genes in a cell. You design an experiment to measure the expression of *all* the genes in the cell in the presence and absence of the drug. You collect the data and test the hypothesis that the expression of any gene is different in the presence and absence of the drug. You then look for patterns in the data such as groups of genes that are co-expressed and the relationship between the expression of genes and the effect of the drug. You have a dataset with many response variables (expression of genes) and one explanatory variable (presence or absence of the drug) and n observations (replicates of the experiment).
-
+Example: You want to know the effect of a drug on the expression of
+genes in a cell. You design an experiment to measure the expression of
+*all* the genes in the cell in the presence and absence of the drug. You
+collect the data and test the hypothesis that the expression of any gene
+is different in the presence and absence of the drug. You then look for
+patterns in the data such as groups of genes that are co-expressed and
+the relationship between the expression of genes and the effect of the
+drug. You have a dataset with many response variables (expression of
+genes) and one explanatory variable (presence or absence of the drug)
+and n observations (replicates of the experiment).
 
 # Exercises
 
@@ -138,56 +164,113 @@ Example: You want to know the effect of a drug on the expression of genes in a c
 
 🎬 Start RStudio from the Start menu
 
-🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you
+🎬 Make an RStudio project. Be deliberate about where you create it so
+that it is a good place for you
 
-🎬 Use the Files pane to make a folder for the data. I suggest `data-raw/` 
+🎬 Use the Files pane to make a folder for the data. I suggest
+`data-raw/`
 
-🎬 Save these data files to the `data-raw/` folder: [biotech-cts.txt](data-raw/biotech-cts.txt), [cell-bio.tsv](data-raw/cell-bio.tsv), [immuno.csv](data-raw/immuno.csv)
-
-🎬 Make a new script called `core-data-analysis.R` to carry out the rest of the work.
-
+🎬 Make a new script called `core-data-analysis.R` to carry out the rest
+of the work.
 
 ## Load packages
 
 We need XXXX packages for this workshop:
 
--   **`tidyverse`** [@tidyverse]: importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.
-
+-   **`tidyverse`** [@tidyverse]: importing the meta data which is in a
+    text file, working with the data once it is in a dataframe to
+    filter, summarise and plot.
 
 🎬 Load **`tidyverse`**,**`xxxxxx`** and **`xxxxx`**
 
 ```{r}
-
 library(tidyverse)
 ```
 
 ## Look at the data!
 
+It is almost always useful to take a look at your data (or at least
+think about its format) before you attempt to read it in.
 
-```{r}
-# read the first few lines of data-raw/cell-bio.tsv
-read_lines("data-raw/cell-bio.tsv", n_max = 2)
-```
+We will be working with the following data files in this workshop
 
-```{r}
-# read the first few lines of data-raw/biotech-cts.txt
-read_lines("data-raw/biotech-cts.txt", n_max = 2)
+-   [biotech-cts.txt](data-raw/biotech-cts.txt). These are RNA-Seq data
+    from three replicates for each of two of wheat varieties 
+    ([S]{.underline}usceptible and
+    [T]{.underline}olerant) grown at two potassium conditions
+    ([C]{.underline}ontrol [K]{.underline} and [L]{.underline}ow
+    [K]{.underline}). The data are counts of the number of reads.
 
-```
-starts with a separator
+-   [cell-bio.tsv](data-raw/cell-bio.tsv). These are measurements from a
+    Livecyte microscope, which performs live cell imaging, tracking 
+    individual cells, and measurings cell shape and size parameters 
+    for thousands of cells as they grow and divide. Measurements are 
+    taken for three replicates from each of two cell lines A and B.
 
-```{r}
-# read the first few lines of data-raw/immuno.csv
-read_lines("data-raw/immuno.csv", n_max = 2)
+-   [immuno.csv](data-raw/immuno.csv). These are flow cytometry data 
+    for three treatments with each of two antibodies. The measures are 
+    Forward scatter, side scatter, red fluorescence and green 
+    fluorescence.  
 
-```
+-   [xlaevis_counts_S20.csv](data-raw/xlaevis_counts_S20.csv). These are 
+    RNA-Seq data from frogs. There are 2 siblings from each of three 
+    fertilisations and one sibling was treated with FGF and the other 
+    was a control. The data are counts of the number of reads.
 
+🎬 Save these data files to the `data-raw/` folder:
+
+🎬 Consider the file extensions. What you think the extensions indicate?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- txt usually indicates a plain text file, where the columns are  -->
+
+<!-- often separated by a space but might also be separated by a tab,  -->
+
+<!-- a backslash or forward slash, or some other character.  -->
+
+<!-- Plain text files can be opened in notepad or other similar -->
+
+<!-- editor and still be readable. -->
+
+<!-- csv stands to comma separated values and tsv stands for tab  -->
+
+<!-- separated values. Both of these are plain text format. -->
+
+🎬 Go to the Files pane click on the `xlaevis_counts_S20.csv` file and
+choose View File[^1]
+
+[^1]: **Do not** be tempted to import data this way. Unless you are
+    careful, your data import will not be scripted or will not be
+    scripted correctly. This means your work will not be reproducible.
+
+![RStudio Files
+Pane](images/rstudio-filepane-viewfile.png){fig-alt="Rstudio Files pane showing the data files and the View File option that appears when you click on the a particular file"}
+
+Any plain text file will open in the top left pane. Note that this is
+NOT importing the data, it's just viewing the file.
+
+🎬 Does it seem to be a csv file?
+
+🎬 Try opening the other files from the Files pane. What happens?
+
+🎬 Open each file in Excel. For the `.txt` and `.tsv` files you will
+need to show "All files (*.*)" in the file type dropdown to see them and
+you will need to work through the "Text Import Wizard" to open them.
+
+We are opening them each in Excel to see what they look like and to get
+a sense of the structure of the data. We are not going to use Excel to
+do anything.
+
+🎬 What do you notice? Does it look like this data will be easy to 
+import and work with?
 
 ## Import the data
 
+🎬 Import each of the data files into R:
 
 ```{r}
-cell_bio <- read_tsv("data-raw/cell-bio.tsv", n_max = 3)
+biotech <- read_tsv("data-raw/biotech-cts.txt")
 ```
 
 ```{r}
@@ -195,58 +278,124 @@ cell_bio <- read_tsv("data-raw/cell-bio.tsv")
 ```
 
 ```{r}
-biotech <- read_tsv("data-raw/biotech-cts.txt")
-```
-```{r}
-names(biotech)[1] <- "transcript"
-```
-
-```{r}
 immuno <- read_csv("data-raw/immuno.csv")
 ```
 
 ```{r}
+frogs <- read_csv("data-raw/xlaevis_counts_S20.csv")
 ```
 
-
+🎬 Click on each of the dataframes in the Environment pane to see what
+they look like. An alternative to clicking is to use the `View()`
+function:
 
 ```{r}
-# janitor::clean_names()
+#| eval: false
+View(cell_bio)
 ```
 
 
-## Getting an overview
+🎬 In each case, describe what is in the rows and the columns of the 
+dataframe. Where are the replicates/samples and where are the variables?
+Are there any things you'd like to fix/change?
+
+<!-- #---THINKING ANSWER--- -->
 
 
-
-use `View()`
-
-### Summaries
-
-summary
-summary stats
-group_by
+🎬 Name of the first column in the `biotech` dataframe:
+```{r}
+names(biotech)[1] <- "transcript"
+```
 
 
-### Visualisation
+🎬 Column names in the `cell_bio` dataframe:
+```{r}
+cell_bio <- janitor::clean_names(cell_bio)
+```
 
-distributions
-boxplots / violin
-facet
-think about the number of variables and observations!!
-ggpairs
 
+## Getting an overview 1
+
+## `summary()`
+
+R's `summary()` function is a quick way to get an overview of datasets. It gives you a six number summary for every numeric variable (the minimum, lower quartile, median, mean, upper quartile, and maximum). It also gives you a count of the number of missing values.
+
+
+🎬 Use the `summary()` function to get an overview of each dataframe. It works well for these datasets. What types of dataset might this be less useful for? Which dataframes and columns have missing values? Which dataframes and variables seem very skewed? Which dataframes has more than one character variable?
+
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- It is less useful for datasets with very many variables  -->
+<!-- (columns) because we aren't able to take that in all  -->
+<!-- at once. It is fills up the screen buffer and we can't -->
+<!-- see all the output at once. -->
+
+<!-- It is also less useful for datasets with many  -->
+<!-- character variables -->
+
+
+<!-- cell_bio has a perimeter column with 19948 NAs -->
+<!-- skew is revealed by the difference between the mean and  -->
+<!-- the median and a maximum that is much larger than all  -->
+<!-- the other values. The frogs and biotech dataframes have -->
+<!-- skewed variables. Skew is typical in RNA-Seq counts. -->
+<!-- immuno is the only dataset with more than one character -->
+<!-- variable (it has three) -->
 
 
 ## Quality Control
 
-###   filtering rows
-a particular value
-NA
-make things zero
+### Filtering rows
+
+The filter function selects/drops a whole row on a condition. The condition can be based on the value in one or a combination of columns.
+We specify what we want to keep with the `filter()` function. This means you might often want to negate a condition with `!`.
+
+🎬 To remove the rows in cell_bio with missing values in the `perimeter` column:
+
+```{r}
+cell_bio <- cell_bio |> filter(!is.na(perimeter))
+
+```
+
+`is.na(perimeter)` returns a logical vector (a vector of `TRUE`s and `FALSE`s) of the same length as the column. The `!` negates the logical vector so the `TRUE`s become `FALSE`s and the `FALSE`s become TRUE. This means that the `filter()` function *keeps* the rows where the perimeter column is not missing.
+
+🎬 There's actually a tidyverse function that does the same thing as `filter(!is.na())`
+
+```{r}
+cell_bio <- cell_bio |> drop_na(perimeter)
+
+```
 
 
-PCA?
+to work with a subset of particular value 
+
+🎬 ...
+
+```{r}
+
+```
+
+
+to work with a subset of between values
+🎬 ...
+
+```{r}
+# filter out the debris
+# immuno <- immuno |> 
+#   filter(between(FS_Lin, xmin, xmax)) 
+```
+
+
+🎬 now you.....
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+```
+
+🎬 now you.....
 
 ```{r}
 #| include: false
@@ -257,14 +406,101 @@ PCA?
 
 
 
-<!-- #---THINKING ANSWER--- -->
+## Getting an overview 2
+
+### `group_by` and `summarise()`
+
+🎬 ....
+```{r}
+
+```
+
+🎬 .....
+```{r}
+
+```
+
+🎬 now you.....
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+```
+
+🎬 now you.....
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+```
+
+
+
+
+### Visualisation
+
+
+Boxplots / violin plots
+
+🎬 ....
+```{r}
+
+```
+
+🎬 now you.....
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+```
+
+histograms/density plots
+
+🎬 ....
+```{r}
+
+```
+
+🎬 now you.....
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+```
+
+
+scatter plots
+
+🎬 ....
+```{r}
+
+```
+
+🎬 now you.....
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+```
+
+
+
+PCA?
+
+
+
+
+
 
 
 You're finished!
 
 # 🥳 Well Done! 🎉
-
-
 
 # Independent study following the workshop
 
@@ -272,10 +508,18 @@ You're finished!
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not
+visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-1/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd
+stands for Quarto markdown. It allows code and ordinary text to be
+interweaved to produce well-formatted reports including webpages. [View
+the Qmd in
+Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-1/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and
+`#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr],
+`kableExtra` [@kableExtra]
 
 # References
