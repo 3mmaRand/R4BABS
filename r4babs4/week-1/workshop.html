@@ -363,17 +363,19 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
   <li><a href="#look-at-the-data" id="toc-look-at-the-data" class="nav-link" data-scroll-target="#look-at-the-data">Look at the data!</a></li>
   <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the data</a></li>
-  <li>
-<a href="#getting-an-overview" id="toc-getting-an-overview" class="nav-link" data-scroll-target="#getting-an-overview">Getting an overview</a>
-  <ul class="collapse">
-<li><a href="#summaries" id="toc-summaries" class="nav-link" data-scroll-target="#summaries">Summaries</a></li>
-  <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation">Visualisation</a></li>
-  </ul>
-</li>
+  <li><a href="#getting-an-overview-1" id="toc-getting-an-overview-1" class="nav-link" data-scroll-target="#getting-an-overview-1">Getting an overview 1</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><code>summary()</code></a></li>
   <li>
 <a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">Quality Control</a>
   <ul class="collapse">
-<li><a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows">filtering rows</a></li>
+<li><a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows">Filtering rows</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#getting-an-overview-2" id="toc-getting-an-overview-2" class="nav-link" data-scroll-target="#getting-an-overview-2">Getting an overview 2</a>
+  <ul class="collapse">
+<li><a href="#group_by-and-summarise" id="toc-group_by-and-summarise" class="nav-link" data-scroll-target="#group_by-and-summarise"><code>group_by</code> and <code>summarise()</code></a></li>
+  <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation">Visualisation</a></li>
   </ul>
 </li>
   </ul>
@@ -476,7 +478,6 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>🎬 Start RStudio from the Start menu</p>
 <p>🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you</p>
 <p>🎬 Use the Files pane to make a folder for the data. I suggest <code>data-raw/</code></p>
-<p>🎬 Save these data files to the <code>data-raw/</code> folder: <a href="data-raw/biotech-cts.txt">biotech-cts.txt</a>, <a href="data-raw/cell-bio.tsv">cell-bio.tsv</a>, <a href="data-raw/immuno.csv">immuno.csv</a></p>
 <p>🎬 Make a new script called <code>core-data-analysis.R</code> to carry out the rest of the work.</p>
 </section><section id="load-packages" class="level2"><h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
 <p>We need XXXX packages for this workshop:</p>
@@ -489,61 +490,125 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="look-at-the-data" class="level2"><h2 class="anchored" data-anchor-id="look-at-the-data">Look at the data!</h2>
-<div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read the first few lines of data-raw/cell-bio.tsv</span></span>
-<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data-raw/cell-bio.tsv"</span>, n_max <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "clone\treplicate\tframe\ttracking.id\tlineage.id\tposition.x\tposition.y\tpixel.position.x\tpixel.position.y\tvolume\tmean.thickness\tradius\tarea\tsphericity\tlength\twidth\torientation\tdry.mass\tdisplacement\tinstantaneous.velocity\tinstantaneous.velocity.x\tinstantaneous.velocity.y\ttrack.length\tperimeter\tlength.to.width"
-[2] "cloneA\t1\t1\t1\t1\t33.2200012207031\t1323.32995605469\t49\t1989\t1206.84997558594\t1.24838376045227\t17.5419406890869\t966.72998046875\t0.273000001907349\t74.2099990844727\t23.6900005340576\t-70.5500030517578\t301.709991455078\t0\t0\t0\t0\t0\t174.970001220703\t3.132545268531578"                                                 </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read the first few lines of data-raw/biotech-cts.txt</span></span>
-<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data-raw/biotech-cts.txt"</span>, n_max <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "\tSCK14_1\tSCK14_2\tSCK14_3\tSLK14_1\tSLK14_2\tSLK14_3\tTCK14_1\tTCK14_2\tTCK14_3\tTLK14_1\tTLK14_2\tTLK14_3"
-[2] "MSTRG.1\t560\t1526\t4168\t509\t762\t700\t481\t496\t422\t597\t406\t282"                                       </code></pre>
-</div>
-</div>
-<p>starts with a separator</p>
-<div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read the first few lines of data-raw/immuno.csv</span></span>
-<span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data-raw/immuno.csv"</span>, n_max <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "TIME,Time_MSW,Pulse_Width,FS_Lin,FS_Area,FS_Log,SS_Lin,SS_Area,SS_Log,E_coli_FITC_Lin,E_coli_FITC_Area,E_coli_FITC_Log,TNFa_APC_Lin,TNFa_APC_Area,TNFa_APC_Log,Event_Count,sample,treatment,antibody"
-[2] "3336,5,116,27304,58173,2082.88134765625,21432,41765,3269.8388671875,2.573944177309094,862,118.603271484375,1.7975737508309628,280,9.952330589294434,39289,ECOLIGreen_ISOTYPE.fcs,ECOLIGreen,ISOTYPE" </code></pre>
-</div>
-</div>
-</section><section id="import-the-data" class="level2"><h2 class="anchored" data-anchor-id="import-the-data">Import the data</h2>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/cell-bio.tsv"</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/cell-bio.tsv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/biotech-cts.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">biotech</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"transcript"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">immuno</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data-raw/immuno.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># janitor::clean_names()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="getting-an-overview" class="level2"><h2 class="anchored" data-anchor-id="getting-an-overview">Getting an overview</h2>
-<p>use <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code></p>
-<section id="summaries" class="level3"><h3 class="anchored" data-anchor-id="summaries">Summaries</h3>
-<p>summary summary stats group_by</p>
-</section><section id="visualisation" class="level3"><h3 class="anchored" data-anchor-id="visualisation">Visualisation</h3>
-<p>distributions boxplots / violin facet think about the number of variables and observations!! ggpairs</p>
-</section></section><section id="quality-control" class="level2"><h2 class="anchored" data-anchor-id="quality-control">Quality Control</h2>
-<section id="filtering-rows" class="level3"><h3 class="anchored" data-anchor-id="filtering-rows">filtering rows</h3>
-<p>a particular value NA make things zero</p>
-<p>PCA?</p>
+<p>It is almost always useful to take a look at your data (or at least think about its format) before you attempt to read it in.</p>
+<p>We will be working with the following data files in this workshop</p>
+<ul>
+<li><p><a href="data-raw/biotech-cts.txt">biotech-cts.txt</a>. These are RNA-Seq data from three replicates for each of two of wheat varieties (<u>S</u>usceptible and <u>T</u>olerant) grown at two potassium conditions (<u>C</u>ontrol <u>K</u> and <u>L</u>ow <u>K</u>). The data are counts of the number of reads.</p></li>
+<li><p><a href="data-raw/cell-bio.tsv">cell-bio.tsv</a>. These are measurements from a Livecyte microscope, which performs live cell imaging, tracking individual cells, and measurings cell shape and size parameters for thousands of cells as they grow and divide. Measurements are taken for three replicates from each of two cell lines A and B.</p></li>
+<li><p><a href="data-raw/immuno.csv">immuno.csv</a>. These are flow cytometry data for three treatments with each of two antibodies. The measures are Forward scatter, side scatter, red fluorescence and green fluorescence.</p></li>
+<li><p><a href="data-raw/xlaevis_counts_S20.csv">xlaevis_counts_S20.csv</a>. These are RNA-Seq data from frogs. There are 2 siblings from each of three fertilisations and one sibling was treated with FGF and the other was a control. The data are counts of the number of reads.</p></li>
+</ul>
+<p>🎬 Save these data files to the <code>data-raw/</code> folder:</p>
+<p>🎬 Consider the file extensions. What you think the extensions indicate?</p>
 <!-- #---THINKING ANSWER--- -->
+<!-- txt usually indicates a plain text file, where the columns are  -->
+<!-- often separated by a space but might also be separated by a tab,  -->
+<!-- a backslash or forward slash, or some other character.  -->
+<!-- Plain text files can be opened in notepad or other similar -->
+<!-- editor and still be readable. -->
+<!-- csv stands to comma separated values and tsv stands for tab  -->
+<!-- separated values. Both of these are plain text format. -->
+<p>🎬 Go to the Files pane click on the <code>xlaevis_counts_S20.csv</code> file and choose View File<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/rstudio-filepane-viewfile.png" class="img-fluid figure-img" alt="Rstudio Files pane showing the data files and the View File option that appears when you click on the a particular file"></p>
+<figcaption>RStudio Files Pane</figcaption></figure>
+</div>
+<p>Any plain text file will open in the top left pane. Note that this is NOT importing the data, it’s just viewing the file.</p>
+<p>🎬 Does it seem to be a csv file?</p>
+<p>🎬 Try opening the other files from the Files pane. What happens?</p>
+<p>🎬 Open each file in Excel. For the <code>.txt</code> and <code>.tsv</code> files you will need to show “All files (<em>.</em>)” in the file type dropdown to see them and you will need to work through the “Text Import Wizard” to open them.</p>
+<p>We are opening them each in Excel to see what they look like and to get a sense of the structure of the data. We are not going to use Excel to do anything.</p>
+<p>🎬 What do you notice? Does it look like this data will be easy to import and work with?</p>
+</section><section id="import-the-data" class="level2"><h2 class="anchored" data-anchor-id="import-the-data">Import the data</h2>
+<p>🎬 Import each of the data files into R:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/biotech-cts.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data-raw/cell-bio.tsv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">immuno</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data-raw/immuno.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">frogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data-raw/xlaevis_counts_S20.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>🎬 Click on each of the dataframes in the Environment pane to see what they look like. An alternative to clicking is to use the <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> function:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">cell_bio</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>🎬 In each case, describe what is in the rows and the columns of the dataframe. Where are the replicates/samples and where are the variables? Are there any things you’d like to fix/change?</p>
+<!-- #---THINKING ANSWER--- -->
+<p>🎬 Name of the first column in the <code>biotech</code> dataframe:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">biotech</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"transcript"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>🎬 Column names in the <code>cell_bio</code> dataframe:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu">clean_names</span><span class="op">(</span><span class="va">cell_bio</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in loadNamespace(x): there is no package called 'janitor'</code></pre>
+</div>
+</div>
+</section><section id="getting-an-overview-1" class="level2"><h2 class="anchored" data-anchor-id="getting-an-overview-1">Getting an overview 1</h2>
+</section><section id="summary" class="level2"><h2 class="anchored" data-anchor-id="summary"><code>summary()</code></h2>
+<p>R’s <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function is a quick way to get an overview of datasets. It gives you a six number summary for every numeric variable (the minimum, lower quartile, median, mean, upper quartile, and maximum). It also gives you a count of the number of missing values.</p>
+<p>🎬 Use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function to get an overview of each dataframe. It works well for these datasets. What types of dataset might this be less useful for? Which dataframes and columns have missing values? Which dataframes and variables seem very skewed? Which dataframes has more than one character variable?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- It is less useful for datasets with very many variables  -->
+<!-- (columns) because we aren't able to take that in all  -->
+<!-- at once. It is fills up the screen buffer and we can't -->
+<!-- see all the output at once. -->
+<!-- It is also less useful for datasets with many  -->
+<!-- character variables -->
+<!-- cell_bio has a perimeter column with 19948 NAs -->
+<!-- skew is revealed by the difference between the mean and  -->
+<!-- the median and a maximum that is much larger than all  -->
+<!-- the other values. The frogs and biotech dataframes have -->
+<!-- skewed variables. Skew is typical in RNA-Seq counts. -->
+<!-- immuno is the only dataset with more than one character -->
+<!-- variable (it has three) -->
+</section><section id="quality-control" class="level2"><h2 class="anchored" data-anchor-id="quality-control">Quality Control</h2>
+<section id="filtering-rows" class="level3"><h3 class="anchored" data-anchor-id="filtering-rows">Filtering rows</h3>
+<p>The filter function selects/drops a whole row on a condition. The condition can be based on the value in one or a combination of columns. We specify what we want to keep with the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function. This means you might often want to negate a condition with <code>!</code>.</p>
+<p>🎬 To remove the rows in cell_bio with missing values in the <code>perimeter</code> column:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>is.na(perimeter)</code> returns a logical vector (a vector of <code>TRUE</code>s and <code>FALSE</code>s) of the same length as the column. The <code>!</code> negates the logical vector so the <code>TRUE</code>s become <code>FALSE</code>s and the <code>FALSE</code>s become TRUE. This means that the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function <em>keeps</em> the rows where the perimeter column is not missing.</p>
+<p>🎬 There’s actually a tidyverse function that does the same thing as <code>filter(!is.na())</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>to work with a subset of particular value</p>
+<p>🎬 …</p>
+<p>to work with a subset of between values 🎬 …</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># filter out the debris</span></span>
+<span><span class="co"># immuno &lt;- immuno |&gt; </span></span>
+<span><span class="co">#   filter(between(FS_Lin, xmin, xmax)) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>🎬 now you…..</p>
+<p>🎬 now you…..</p>
+</section></section><section id="getting-an-overview-2" class="level2"><h2 class="anchored" data-anchor-id="getting-an-overview-2">Getting an overview 2</h2>
+<section id="group_by-and-summarise" class="level3"><h3 class="anchored" data-anchor-id="group_by-and-summarise">
+<code>group_by</code> and <code>summarise()</code>
+</h3>
+<p>🎬 ….</p>
+<p>🎬 …..</p>
+<p>🎬 now you…..</p>
+<p>🎬 now you…..</p>
+</section><section id="visualisation" class="level3"><h3 class="anchored" data-anchor-id="visualisation">Visualisation</h3>
+<p>Boxplots / violin plots</p>
+<p>🎬 ….</p>
+<p>🎬 now you…..</p>
+<p>histograms/density plots</p>
+<p>🎬 ….</p>
+<p>🎬 now you…..</p>
+<p>scatter plots</p>
+<p>🎬 ….</p>
+<p>🎬 now you…..</p>
+<p>PCA?</p>
 <p>You’re finished!</p>
 </section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
@@ -581,7 +646,10 @@ Xie, Yihui. 2022. <span>“Knitr: A General-Purpose Package for Dynamic Report G
 <div id="ref-kableExtra" class="csl-entry" role="listitem">
 Zhu, Hao. 2021. <span>“kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax.”</span> <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1"><p><strong>Do not</strong> be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly. This means your work will not be reproducible.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
