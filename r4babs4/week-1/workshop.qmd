@@ -216,6 +216,7 @@ We will be working with the following data files in this workshop
     RNA-Seq data from frogs. There are 2 siblings from each of three 
     fertilisations and one sibling was treated with FGF and the other 
     was a control. The data are counts of the number of reads.
+    
 
 🎬 Save these data files to the `data-raw/` folder:
 
@@ -314,6 +315,8 @@ cell_bio <- janitor::clean_names(cell_bio)
 ```
 
 
+## 
+
 ## Getting an overview 1
 
 ## `summary()`
@@ -351,7 +354,7 @@ R's `summary()` function is a quick way to get an overview of datasets. It gives
 The filter function selects/drops a whole row on a condition. The condition can be based on the value in one or a combination of columns.
 We specify what we want to keep with the `filter()` function. This means you might often want to negate a condition with `!`.
 
-🎬 To remove the rows in cell_bio with missing values in the `perimeter` column:
+🎬 To remove the rows in `cell_bio` with missing values in the `perimeter` column:
 
 ```{r}
 cell_bio <- cell_bio |> filter(!is.na(perimeter))
@@ -368,74 +371,92 @@ cell_bio <- cell_bio |> drop_na(perimeter)
 ```
 
 
-to work with a subset of particular value 
-
+Sometimes you might want to work with a subset of data. For example, you might want to examine just the Media treated cells in the `immuno` dataset. 
 🎬 ...
 
 ```{r}
+immuno_media <- immuno |> 
+  filter(treatment == "MEDIA")
 
 ```
 
 
-to work with a subset of between values
-🎬 ...
+Or just the Media treated cells with a `FS_Lin` between two values. You can apply two filters and the `between()` function to achieve this:
+
+🎬 Filter the `immuno` dataframe to keep only the rows where `FS_Lin` is between 7500 and 28000
 
 ```{r}
-# filter out the debris
-# immuno <- immuno |> 
-#   filter(between(FS_Lin, xmin, xmax)) 
+immuno_media_live <- immuno |>
+  filter(treatment == "MEDIA") |>
+  filter(between(FS_Lin, 7500, 28000))
 ```
 
 
-🎬 now you.....
-```{r}
-#| include: false
-
-#---CODING ANSWER---
-
-```
-
-🎬 now you.....
+🎬 Now you try. Filter the `immuno` dataframe to keep only the rows `FS_Lin` is between 7500 and 28000 and `SS_Lin` is between 15000 and 35000
 
 ```{r}
 #| include: false
 
 #---CODING ANSWER---
-
+immuno_live <- immuno |>
+  filter(between(FS_Lin, 7500, 28000)) |> 
+  filter(between(SS_Lin, 15000, 35000))
 ```
 
+### Selecting columns
+
+Whilst we can always specify the columns we want to use when working with data, sometimes we find it less overwhelming to create a new dataframe with only the columns we want. The `select()` function help us here.
 
 
-## Getting an overview 2
+🎬 Suppose we only want to work with the Susceptible varieties of wheat in the `biotech` dataframe. We can create a new dataframe with only the columns we want:
 
-### `group_by` and `summarise()`
-
-🎬 ....
 ```{r}
+biotech_susceptible <- biotech |> 
+  select(SCK14_1,
+         SCK14_2,
+         SCK14_3,
+         SLK14_1,
+         SLK14_2,
+         SLK14_3)
 
 ```
 
-🎬 .....
+In fact, there are a couple of alternatives to this. We can use the `starts_with()` function to select all the columns that start with a certain string:
+
+🎬 Select columns starting with `S` 
 ```{r}
+biotech_susceptible <- biotech |> 
+  select(starts_with("S"))
 
 ```
+There is an `ends_with()` function too!
 
-🎬 now you.....
+
+🎬  The colon notation allows us to select a range of columns. Select columns from `SCK14_1` to `SLK14_3` 
+
+```{r}
+biotech_susceptible <- biotech |> 
+  select(SCK14_1:SLK14_3)
+
+```
+Note that you need to pay attention to the order of the columns in your dataframe to use this.
+
+
+
+
+🎬 You can use select and filter together. Try creating a dataframe from `frogs` which has only the columns from sibling "_A" and only the rows where `S20_C_5` is above 20. 
+
+
 ```{r}
 #| include: false
 
 #---CODING ANSWER---
 
-```
-
-🎬 now you.....
-```{r}
-#| include: false
-
-#---CODING ANSWER---
+frogs_subset <- frogs |>   
+  filter(S20_C_5 > 20) |> 
+  select(ends_with("_A"))
 
 ```
-
 
 
 
@@ -487,14 +508,6 @@ scatter plots
 #---CODING ANSWER---
 
 ```
-
-
-
-PCA?
-
-
-
-
 
 
 
