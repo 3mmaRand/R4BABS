@@ -545,10 +545,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </div>
 <p>🎬 Column names in the <code>cell_bio</code> dataframe:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu">clean_names</span><span class="op">(</span><span class="va">cell_bio</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in loadNamespace(x): there is no package called 'janitor'</code></pre>
-</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">cell_bio</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="getting-an-overview-1" class="level2"><h2 class="anchored" data-anchor-id="getting-an-overview-1">Getting an overview 1</h2>
 </section><section id="summary" class="level2"><h2 class="anchored" data-anchor-id="summary"><code>summary()</code></h2>
@@ -573,18 +570,18 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>The filter function selects/drops a whole row on a condition. The condition can be based on the value in one or a combination of columns. We specify what we want to keep with the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function. This means you might often want to negate a condition with <code>!</code>.</p>
 <p>🎬 To remove the rows in cell_bio with missing values in the <code>perimeter</code> column:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>is.na(perimeter)</code> returns a logical vector (a vector of <code>TRUE</code>s and <code>FALSE</code>s) of the same length as the column. The <code>!</code> negates the logical vector so the <code>TRUE</code>s become <code>FALSE</code>s and the <code>FALSE</code>s become TRUE. This means that the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function <em>keeps</em> the rows where the perimeter column is not missing.</p>
 <p>🎬 There’s actually a tidyverse function that does the same thing as <code>filter(!is.na())</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>to work with a subset of particular value</p>
 <p>🎬 …</p>
 <p>to work with a subset of between values 🎬 …</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># filter out the debris</span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># filter out the debris</span></span>
 <span><span class="co"># immuno &lt;- immuno |&gt; </span></span>
 <span><span class="co">#   filter(between(FS_Lin, xmin, xmax)) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
