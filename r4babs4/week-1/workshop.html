@@ -363,18 +363,14 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
   <li><a href="#look-at-the-data" id="toc-look-at-the-data" class="nav-link" data-scroll-target="#look-at-the-data">Look at the data!</a></li>
   <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the data</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#getting-an-overview-1" id="toc-getting-an-overview-1" class="nav-link" data-scroll-target="#getting-an-overview-1">Getting an overview 1</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><code>summary()</code></a></li>
   <li>
 <a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">Quality Control</a>
   <ul class="collapse">
 <li><a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows">Filtering rows</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#getting-an-overview-2" id="toc-getting-an-overview-2" class="nav-link" data-scroll-target="#getting-an-overview-2">Getting an overview 2</a>
-  <ul class="collapse">
-<li><a href="#group_by-and-summarise" id="toc-group_by-and-summarise" class="nav-link" data-scroll-target="#group_by-and-summarise"><code>group_by</code> and <code>summarise()</code></a></li>
+  <li><a href="#selecting-columns" id="toc-selecting-columns" class="nav-link" data-scroll-target="#selecting-columns">Selecting columns</a></li>
   <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation">Visualisation</a></li>
   </ul>
 </li>
@@ -547,6 +543,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">cell_bio</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section><section id="section" class="level2"><h2 class="anchored" data-anchor-id="section"></h2>
 </section><section id="getting-an-overview-1" class="level2"><h2 class="anchored" data-anchor-id="getting-an-overview-1">Getting an overview 1</h2>
 </section><section id="summary" class="level2"><h2 class="anchored" data-anchor-id="summary"><code>summary()</code></h2>
 <p>R’s <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function is a quick way to get an overview of datasets. It gives you a six number summary for every numeric variable (the minimum, lower quartile, median, mean, upper quartile, and maximum). It also gives you a count of the number of missing values.</p>
@@ -568,7 +565,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </section><section id="quality-control" class="level2"><h2 class="anchored" data-anchor-id="quality-control">Quality Control</h2>
 <section id="filtering-rows" class="level3"><h3 class="anchored" data-anchor-id="filtering-rows">Filtering rows</h3>
 <p>The filter function selects/drops a whole row on a condition. The condition can be based on the value in one or a combination of columns. We specify what we want to keep with the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function. This means you might often want to negate a condition with <code>!</code>.</p>
-<p>🎬 To remove the rows in cell_bio with missing values in the <code>perimeter</code> column:</p>
+<p>🎬 To remove the rows in <code>cell_bio</code> with missing values in the <code>perimeter</code> column:</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -577,24 +574,45 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>to work with a subset of particular value</p>
-<p>🎬 …</p>
-<p>to work with a subset of between values 🎬 …</p>
+<p>Sometimes you might want to work with a subset of data. For example, you might want to examine just the Media treated cells in the <code>immuno</code> dataset. 🎬 …</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># filter out the debris</span></span>
-<span><span class="co"># immuno &lt;- immuno |&gt; </span></span>
-<span><span class="co">#   filter(between(FS_Lin, xmin, xmax)) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">immuno_media</span> <span class="op">&lt;-</span> <span class="va">immuno</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">treatment</span> <span class="op">==</span> <span class="st">"MEDIA"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>🎬 now you…..</p>
-<p>🎬 now you…..</p>
-</section></section><section id="getting-an-overview-2" class="level2"><h2 class="anchored" data-anchor-id="getting-an-overview-2">Getting an overview 2</h2>
-<section id="group_by-and-summarise" class="level3"><h3 class="anchored" data-anchor-id="group_by-and-summarise">
-<code>group_by</code> and <code>summarise()</code>
-</h3>
-<p>🎬 ….</p>
-<p>🎬 …..</p>
-<p>🎬 now you…..</p>
-<p>🎬 now you…..</p>
+<p>Or just the Media treated cells with a <code>FS_Lin</code> between two values. You can apply two filters and the <code><a href="https://dplyr.tidyverse.org/reference/between.html">between()</a></code> function to achieve this:</p>
+<p>🎬 Filter the <code>immuno</code> dataframe to keep only the rows where <code>FS_Lin</code> is between 7500 and 28000</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">immuno_media_live</span> <span class="op">&lt;-</span> <span class="va">immuno</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">treatment</span> <span class="op">==</span> <span class="st">"MEDIA"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">FS_Lin</span>, <span class="fl">7500</span>, <span class="fl">28000</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>🎬 Now you try. Filter the <code>immuno</code> dataframe to keep only the rows <code>FS_Lin</code> is between 7500 and 28000 and <code>SS_Lin</code> is between 15000 and 35000</p>
+</section><section id="selecting-columns" class="level3"><h3 class="anchored" data-anchor-id="selecting-columns">Selecting columns</h3>
+<p>Whilst we can always specify the columns we want to use when working with data, sometimes we find it less overwhelming to create a new dataframe with only the columns we want. The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function help us here.</p>
+<p>🎬 Suppose we only want to work with the Susceptible varieties of wheat in the <code>biotech</code> dataframe. We can create a new dataframe with only the columns we want:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech_susceptible</span> <span class="op">&lt;-</span> <span class="va">biotech</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">SCK14_1</span>,</span>
+<span>         <span class="va">SCK14_2</span>,</span>
+<span>         <span class="va">SCK14_3</span>,</span>
+<span>         <span class="va">SLK14_1</span>,</span>
+<span>         <span class="va">SLK14_2</span>,</span>
+<span>         <span class="va">SLK14_3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In fact, there are a couple of alternatives to this. We can use the <code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with()</a></code> function to select all the columns that start with a certain string:</p>
+<p>🎬 Select columns starting with <code>S</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech_susceptible</span> <span class="op">&lt;-</span> <span class="va">biotech</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"S"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There is an <code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with()</a></code> function too!</p>
+<p>🎬 The colon notation allows us to select a range of columns. Select columns from <code>SCK14_1</code> to <code>SLK14_3</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech_susceptible</span> <span class="op">&lt;-</span> <span class="va">biotech</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">SCK14_1</span><span class="op">:</span><span class="va">SLK14_3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that you need to pay attention to the order of the columns in your dataframe to use this.</p>
+<p>🎬 You can use select and filter together. Try creating a dataframe from <code>frogs</code> which has only the columns from sibling “_A” and only the rows where <code>S20_C_5</code> is above 20.</p>
 </section><section id="visualisation" class="level3"><h3 class="anchored" data-anchor-id="visualisation">Visualisation</h3>
 <p>Boxplots / violin plots</p>
 <p>🎬 ….</p>
@@ -605,7 +623,6 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>scatter plots</p>
 <p>🎬 ….</p>
 <p>🎬 now you…..</p>
-<p>PCA?</p>
 <p>You’re finished!</p>
 </section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
