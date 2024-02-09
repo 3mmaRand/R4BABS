@@ -36,9 +36,10 @@ The successful student will be able to:
 
 2.  [Workshop](workshop.qmd)
     
-    i. 💻 
-    ii. 💻  
-    iii. 💻 
+    i. 👩‍🏫 Find out why reproducible research matters and some tips for achieving it.  
+    ii. 👩‍🏫 Find out what big data are
+    iii. 💻 Understand some data files that are typical of big data
+    iv. 💻 Learn how to filter a dataset and create summaries and plots to get an overview
 
 
 3.  [Consolidate](study_after_workshop.qmd)
