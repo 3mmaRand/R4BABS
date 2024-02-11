@@ -56,7 +56,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_in_R.png) Make a new script then save it with a name like analysis.R to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Introduction to RStudio and your first graph` and load the **`tidyverse`** [@tidyverse] package
+![](images/do_in_R.png) Add a comment to the script: `# confidence intervals` and load the **`tidyverse`** [@tidyverse] package
 
 ![](images/do_in_R.png) Make a new folder called `data-raw`.
 
@@ -65,6 +65,12 @@ These four symbols are used at the beginning of each instruction so you know whe
 ## Remind yourself how to import files!
 
 [Importing data from files](../../r4babs1/week-8/workshop.html#importing-data-from-files) was covered in BABS 1 [@rand2023] if you need to remind yourself.
+
+## Check your settings
+
+[Changing some defaults to make life easier](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#changing-some-defaults-to-make-life-easier)
+
+[Some useful settings](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#some-useful-settings)
 
 ## Confidence intervals (large samples)
 
@@ -127,7 +133,7 @@ lcl
 ucl
 ```
 
-This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 +/- 0.07 mm
+This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 $\pm$ 0.07 mm
 
 ![](images/do_in_R.png) Between what values would you be 99% confident of the population mean being?
 
@@ -235,6 +241,16 @@ The first part of the command, `(m + t * se)` calculates the upper limit. This i
 
 <!-- lowers csa -->
 
+## Look after future you!
+
+Have a look at the Assessment Overview on the VLE. Part of the assessment for BIO00026C Becoming a Bioscientist: Grand Challenges the RStudio Project which supports the figures and analysis in your report. You will zip up the RStudio Project folder and submit it to the VLE. That folder should contain all the data, code and figures you have used in report and all of the results should be reproducible. Reproducible means that if someone downloads that zipped folder and unzips it they should be able to understand what the analysis was, what you did and why and be able to run all the code to reproduce the figures and results in your report without issue.
+
+You can practice this every week!
+
+![](images/do_in_R.png) Make sure your script is saved. Close down the "week-1" RStudio project using either the file menu or the menu on the top right where the Project name appears.
+
+![](images/do_on_your_computer.png) Locate the `week-1` folder in Windows explorer. Right click on the folder and select "Send to" and then "Compressed (zipped) folder". This will create a file called `week-1.zip`. Email this file to someone near you have have them email you with theirs. Your neighbour should be able to download `week-1.zip`, unzip it and then open the project in RStudio and run the code to reproduce all your work. Note: Save the downloaded `week-1.zip` some where that is NOT your "data-analysis-in-r-2" to avoid naming conflicts. Also do not save it in any RStudio project folder. 
+
 You're finished!
 
 # 🥳 Well Done! 🎉
@@ -250,7 +266,7 @@ You're finished!
 
 This contains all the code needed in the workshop even where it is not visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser]((https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
