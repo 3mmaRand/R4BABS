@@ -449,8 +449,10 @@ window.Quarto = {
 <a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
 <li><a href="#remind-yourself-how-to-import-files" id="toc-remind-yourself-how-to-import-files" class="nav-link" data-scroll-target="#remind-yourself-how-to-import-files">Remind yourself how to import files!</a></li>
+  <li><a href="#check-your-settings" id="toc-check-your-settings" class="nav-link" data-scroll-target="#check-your-settings">Check your settings</a></li>
   <li><a href="#confidence-intervals-large-samples" id="toc-confidence-intervals-large-samples" class="nav-link" data-scroll-target="#confidence-intervals-large-samples">Confidence intervals (large samples)</a></li>
   <li><a href="#confidence-intervals-small-samples" id="toc-confidence-intervals-small-samples" class="nav-link" data-scroll-target="#confidence-intervals-small-samples">Confidence intervals (small samples)</a></li>
+  <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
   </ul>
 </li>
   <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
@@ -516,11 +518,14 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Also on the Files tab click on <code>New Folder</code>. Type “data-analysis-in-r-2” in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS2.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Name the RStudio Project ‘week-1’.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like analysis.R to carry out the rest of the work.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Introduction to RStudio and your first graph</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># confidence intervals</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>data-raw</code>.</p>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
 <section id="remind-yourself-how-to-import-files" class="level2"><h2 class="anchored" data-anchor-id="remind-yourself-how-to-import-files">Remind yourself how to import files!</h2>
 <p><a href="../../r4babs1/week-8/workshop.html#importing-data-from-files">Importing data from files</a> was covered in BABS 1 <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span> if you need to remind yourself.</p>
+</section><section id="check-your-settings" class="level2"><h2 class="anchored" data-anchor-id="check-your-settings">Check your settings</h2>
+<p><a href="https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#changing-some-defaults-to-make-life-easier">Changing some defaults to make life easier</a></p>
+<p><a href="https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#some-useful-settings">Some useful settings</a></p>
 </section><section id="confidence-intervals-large-samples" class="level2"><h2 class="anchored" data-anchor-id="confidence-intervals-large-samples">Confidence intervals (large samples)</h2>
 <p>The data in <a href="data-raw/beewing.txt">beewing.txt</a> are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by:</p>
 <p><span class="math inline">\(\bar{x} \pm 1.96 \times s.e.\)</span></p>
@@ -562,7 +567,7 @@ Key
 <pre><code>[1] 4.626824</code></pre>
 </div>
 </div>
-<p>This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 +/- 0.07 mm</p>
+<p>This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 <span class="math inline">\(\pm\)</span> 0.07 mm</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Between what values would you be 99% confident of the population mean being?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- # the mean is 4.55 +/- 0.100. We are 99% certain the populations mean lies between 4.45 and 4.65 -->
@@ -599,6 +604,11 @@ Key
 <!-- the 95% confidence interval from 132.75 mu m^2 to 151.95 mu m^2  -->
 <!-- doesn't include 155 mu m^2 so we can conclude that DHA deficiency significantly  -->
 <!-- lowers csa -->
+</section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
+<p>Have a look at the Assessment Overview on the VLE. Part of the assessment for BIO00026C Becoming a Bioscientist: Grand Challenges the RStudio Project which supports the figures and analysis in your report. You will zip up the RStudio Project folder and submit it to the VLE. That folder should contain all the data, code and figures you have used in report and all of the results should be reproducible. Reproducible means that if someone downloads that zipped folder and unzips it they should be able to understand what the analysis was, what you did and why and be able to run all the code to reproduce the figures and results in your report without issue.</p>
+<p>You can practice this every week!</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make sure your script is saved. Close down the “week-1” RStudio project using either the file menu or the menu on the top right where the Project name appears.</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Locate the <code>week-1</code> folder in Windows explorer. Right click on the folder and select “Send to” and then “Compressed (zipped) folder”. This will create a file called <code>week-1.zip</code>. Email this file to someone near you have have them email you with theirs. Your neighbour should be able to download <code>week-1.zip</code>, unzip it and then open the project in RStudio and run the code to reproduce all your work. Note: Save the downloaded <code>week-1.zip</code> some where that is NOT your “data-analysis-in-r-2” to avoid naming conflicts. Also do not save it in any RStudio project folder.</p>
 <p>You’re finished!</p>
 </section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
@@ -609,7 +619,7 @@ Key
 <p><a href="../../r4babs2/week-1/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser]((https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd). Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
+<p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd">View the Qmd in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2023</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2022</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2021</a>)</span></p>
 </section><section id="references" class="level1">
 
