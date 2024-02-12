@@ -2564,7 +2564,7 @@
     "href": "r4babs2/week-2/workshop.html#look-after-future-you",
     "title": "Workshop",
     "section": "Look after future you!",
-    "text": "Look after future you!\nYou’re finished!",
+    "text": "Look after future you!\nMake life easier for future you by going back through your code and tidying up.\nYou might need to:\n\ncollect together library statements at the beginning of the code\nedit your comments for clarity and include a paragraph explaining what the analysis is about\nrename variables for consistency or clarity\nremove house keeping or exploratory code or mark it for later removal\nrestyle code, add code section headers etc\n\nIf you need to make additional notes that do not belong in the script, you can add them a text file called README.txt that future you will know what to do with!\nYou’re finished!",
     "crumbs": [
       "BABS 2",
       "Week 2: Introduction to statistical models: Single regression",
