@@ -458,7 +458,7 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Artwork by @allison_horst: "but now it's like"](images/r_first_then.png){fig-alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…' The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads 'but now its like…'” width="800"}
+![Artwork by @allison_horst: "but now its like"](images/r_first_then.png){fig-alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…'. The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colorful flowers. The text above the bottom illustration reads 'but now its like…'. ” width="800"}
 
 
 [Consolidate](study_after_workshop.qmd)
