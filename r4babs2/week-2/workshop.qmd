@@ -364,6 +364,18 @@ ggsave("figures/plant-growth.png",
 
 ## Look after future you!
 
+Make life easier for future you by going back through your code and tidying up.
+
+You might need to:
+
+
+-   collect together library statements at the beginning of the code
+-   edit your comments for clarity and include a paragraph explaining what the analysis is about
+-   rename variables for consistency or clarity
+-   remove house keeping or exploratory code or mark it for later removal
+-   restyle code, add code section headers etc
+
+If you need to make additional notes that do not belong in the script, you can add them a text file called README.txt that future you will know what to do with!
 
 You're finished!
 
