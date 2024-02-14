@@ -1260,7 +1260,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#experimental-design-and-aims-3",
     "title": "Independent Study to prepare for workshop",
     "section": "Experimental design and aims",
-    "text": "Experimental design and aims\n\nWe only expect to see red fluorescence (APC) if the treatment induces TNF-α production in macrophages and the TNF-α antibody is used.\nWe only expect to see green fluorescence (APC) if the treatment is E. coli\nThis is summarised in the figure on the next page",
+    "text": "Experimental design and aims\n\nWe only expect to see red fluorescence (APC) if the treatment induces TNF-α production in macrophages and the TNF-α antibody is used.\nWe only expect to see green fluorescence (FITC) if the treatment is E. coli\nThis is summarised in the figure on the next page",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Immunobiology",
@@ -1332,7 +1332,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#tools-1",
     "title": "Independent Study to prepare for workshop",
     "section": "Tools",
-    "text": "Tools\n\n\nImport, rename and subset columns using the flowCore package (Ellis et al. 2024)\nAutomated quality control with the flowAI package (Monaco et al. 2016)\nApply a “logicle” transformation using the flowCore package\nPut the data into a dataframe to make it easy to use tidyverse (tidverse?) tools like group_by(), summarise(), ggplot(), filter()",
+    "text": "Tools\n\n\nImport, rename and subset columns using the flowCore package (Ellis et al. 2024)\nAutomated quality control with the flowAI package (Monaco et al. 2016)\nApply a “logicle” transformation using the flowCore package\nPut the data into a dataframe to make it easy to use tidyverse (Wickham et al. 2019) tools like group_by(), summarise(), ggplot(), filter()",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Immunobiology",
@@ -1368,7 +1368,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#references",
     "title": "Independent Study to prepare for workshop",
     "section": "References",
-    "text": "References\n\n\n\n🔗 Data Analysis 2: Immunobiology - Sample data analysis\n\n\n\n\nEllis, B, Perry Haaland, Florian Hahne, Nolwenn Le Meur, Nishant Gopalakrishnan, Josef Spidlen, Mike Jiang, and Greg Finak. 2024. “flowCore: flowCore: Basic Structures for Flow Cytometry Data.”\n\n\nMonaco, Gianni, Hao Chen, Michael Poidinger, Jinmiao Chen, Joao Pedro de Magalhaes, and Anis Larbi. 2016. “flowAI: Automatic and Interactive Anomaly Discerning Tools for Flow Cytometry Data” 32. 10.1093/bioinformatics/btw191.\n\n\nParks, David R., Mario Roederer, and Wayne A. Moore. 2006. “A New “Logicle” Display Method Avoids Deceptive Effects of Logarithmic Scaling for Low Signals and Compensated Data.” Cytometry Part A 69A (6): 541–51. https://doi.org/10.1002/cyto.a.20258.",
+    "text": "References\n\n\n\n🔗 Data Analysis 2: Immunobiology - Sample data analysis\n\n\n\n\nEllis, B, Perry Haaland, Florian Hahne, Nolwenn Le Meur, Nishant Gopalakrishnan, Josef Spidlen, Mike Jiang, and Greg Finak. 2024. “flowCore: flowCore: Basic Structures for Flow Cytometry Data.”\n\n\nMonaco, Gianni, Hao Chen, Michael Poidinger, Jinmiao Chen, Joao Pedro de Magalhaes, and Anis Larbi. 2016. “flowAI: Automatic and Interactive Anomaly Discerning Tools for Flow Cytometry Data” 32. 10.1093/bioinformatics/btw191.\n\n\nParks, David R., Mario Roederer, and Wayne A. Moore. 2006. “A New “Logicle” Display Method Avoids Deceptive Effects of Logarithmic Scaling for Low Signals and Compensated Data.” Cytometry Part A 69A (6): 541–51. https://doi.org/10.1002/cyto.a.20258.\n\n\nWickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the Tidyverse” 4: 1686. https://doi.org/10.21105/joss.01686.",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Immunobiology",
