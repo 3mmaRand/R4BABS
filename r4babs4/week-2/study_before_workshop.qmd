@@ -87,9 +87,9 @@ These slides:
 ## Experimental design and aims
 
 -   We only expect to see red fluorescence (APC) if the treatment induces TNF-α 
-production in macrophages and the TNF-α antibody is used.
+production in macrophages *and* the TNF-α antibody is used.
 
--   We only expect to see green fluorescence (APC) if the treatment is *E. coli*
+-   We only expect to see green fluorescence (FITC) if the treatment is *E. coli*
 
 -   This is summarised in the figure on the next page
 
@@ -187,7 +187,7 @@ production in macrophages and the TNF-α antibody is used.
 
 -   Apply a "logicle" transformation using the **`flowCore`** package
 
--   Put the data into a dataframe to make it easy to use **`tidyverse`** [@tidverse] tools like
+-   Put the data into a dataframe to make it easy to use **`tidyverse`** [@tidyverse] tools like
     `group_by()`, `summarise()`, `ggplot()`, `filter()`
 
 :::
