@@ -574,19 +574,20 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">&lt;-</span> <span class="va">cell_bio</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">perimeter</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Sometimes you might want to work with a subset of data. For example, you might want to examine just the Media treated cells in the <code>immuno</code> dataset. 🎬 …</p>
+<p>Sometimes you might want to work with a subset of data. For example, you might want to examine just the Media treated cells in the <code>immuno</code> dataset.</p>
+<p>🎬 Create a new dataframe called <code>immuno_media</code> that contains only the rows where <code>treatment</code> is “MEDIA”</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">immuno_media</span> <span class="op">&lt;-</span> <span class="va">immuno</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">treatment</span> <span class="op">==</span> <span class="st">"MEDIA"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or just the Media treated cells with a <code>FS_Lin</code> between two values. You can apply two filters and the <code><a href="https://dplyr.tidyverse.org/reference/between.html">between()</a></code> function to achieve this:</p>
-<p>🎬 Filter the <code>immuno</code> dataframe to keep only the rows where <code>FS_Lin</code> is between 7500 and 28000</p>
+<p>🎬 Create a new dataframe called <code>immuno_media_live</code> that contains only the rows where <code>treatment</code> is “MEDIA” and <code>FS_Lin</code> is between 7500 and 28000:</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">immuno_media_live</span> <span class="op">&lt;-</span> <span class="va">immuno</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">treatment</span> <span class="op">==</span> <span class="st">"MEDIA"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">FS_Lin</span>, <span class="fl">7500</span>, <span class="fl">28000</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>🎬 Now you try. Filter the <code>immuno</code> dataframe to keep only the rows <code>FS_Lin</code> is between 7500 and 28000 and <code>SS_Lin</code> is between 15000 and 35000</p>
+<p>🎬 Now you try. Create a dataframe called <code>immuno_live</code> that contains only the rows where <code>FS_Lin</code> is between 7500 and 28000 and <code>SS_Lin</code> is between 15000 and 35000:</p>
 </section><section id="selecting-columns" class="level3"><h3 class="anchored" data-anchor-id="selecting-columns">Selecting columns</h3>
 <p>Whilst we can always specify the columns we want to use when working with data, sometimes we find it less overwhelming to create a new dataframe with only the columns we want. The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function help us here.</p>
 <p>🎬 Suppose we only want to work with the Susceptible varieties of wheat in the <code>biotech</code> dataframe. We can create a new dataframe with only the columns we want:</p>
@@ -614,15 +615,93 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>Note that you need to pay attention to the order of the columns in your dataframe to use this.</p>
 <p>🎬 You can use select and filter together. Try creating a dataframe from <code>frogs</code> which has only the columns from sibling “_A” and only the rows where <code>S20_C_5</code> is above 20.</p>
 </section><section id="visualisation" class="level3"><h3 class="anchored" data-anchor-id="visualisation">Visualisation</h3>
-<p>Boxplots / violin plots</p>
-<p>🎬 ….</p>
-<p>🎬 now you…..</p>
-<p>histograms/density plots</p>
-<p>🎬 ….</p>
-<p>🎬 now you…..</p>
-<p>scatter plots</p>
-<p>🎬 ….</p>
-<p>🎬 now you…..</p>
+<p>Histograms and density plots are useful for visualising the distribution of variables when we have many observations. Theya allow you to see features in the data that are not obvious from the summary statistics.</p>
+<ul>
+<li><p>A histogram shows the number of values in each range (bin), it is composed of touching bars. How a histogram looks depends on the number of bins used.</p></li>
+<li><p>A density plot shows the proportions on values in a range. The appearance of the distribution is not affected by the number of bins.</p></li>
+</ul>
+<p>🎬 To plot a histogram of <code>S20_C_5</code> in the <code>frogs</code> dataframe:</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">frogs</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">S20_C_5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This data is very skewed - there are so many low values that we can’t see the tiny bars for the higher values. Logging the counts is a way to make the distribution more visible.</p>
+<p>🎬 To plot the distribution of log <code>S20_C_5</code> in the <code>frogs</code> dataframe as a histogram:</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">frogs</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">S20_C_5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>🎬 Or a density plot:</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">frogs</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">S20_C_5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>I’ve used base 10 only because it is easy to convert to the original scale (1 is 10, 2 is 100, 3 is 1000 etc). The warning about rows being removed is expected - these are the counts of 0 since you can’t log a value of 0. The peak at zero suggests quite a few counts of 1. We would expect we would expect the distribution of counts to be roughly log normal because this is expression of all the genes in the genome<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. That peak near the low end is not expected for this distribution and suggests that these lower counts might be anomalies.</p>
+<p>The excess number of low counts indicates we might want to create a cut off for quality control. The removal of low counts is a common processing step in ’omic data.</p>
+<p>If you have two groups of data, you can compare their distributions on the same plot using the <code>fill</code> aesthetic and making the fill transparent with the <code>alpha</code> argument.</p>
+<p>🎬 To plot the distribution of <code>area</code> in the <code>cell_bio</code> dataframe as a density plot, with the <code>clone</code> variable as the fill:</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">area</span>, fill <span class="op">=</span> <span class="va">clone</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Boxplots and violin plots are also useful for visualising the distribution of a variable, especially when there are more than about 5 groups.</p>
+<p>🎬 To plot the distribution of <code>area</code> in the <code>cell_bio</code> dataframe as a boxplot, with the <code>clone</code> variable on the x-axis:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_bio</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">clone</span>, y <span class="op">=</span> <span class="va">area</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Suppose you want to see the distribution of many similar variables such as we have in <code>biotech</code>. You can apply the group function because the values are in separte columns than than in one column with a grouping variable. However, you can use the <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> function to make the dataframe long and then pipe into ggplot.</p>
+<p>🎬 Plot the distribution of the logged counts in the <code>biotech</code> dataframe as a boxplot, the samples on the x axis:</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">transcript</span>,</span>
+<span>               names_to <span class="op">=</span> <span class="st">"sample"</span>,</span>
+<span>               values_to <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sample</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The nice thing about the pipe, is that you need not create a new dataframe to do this. You can pipe the output of <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> directly into <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>. This is very useful when you are exploring the data and want to try out different visualisations.</p>
 <p>You’re finished!</p>
 </section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
@@ -663,6 +742,7 @@ Zhu, Hao. 2021. <span>“kableExtra: Construct Complex Table with ’Kable’ an
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 <ol>
 <li id="fn1"><p><strong>Do not</strong> be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly. This means your work will not be reproducible.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This a result of the&nbsp;<a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central limit theorem</a>,one consequence of which is that adding together lots of distributions - whatever distributions they are - will tend to a normal distribution.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
