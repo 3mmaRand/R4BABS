@@ -508,7 +508,7 @@ summary(mod)
 
 ## Look after future you!
 
-The code required to summarise, test, and plot data for any two-sample test AND for any for any one-way ANOVA is **exactly the same** except for the names of the dataframe, variables and the axis labels and limits. Take some time to comment it your code so that you can make use of it next week.
+The code required to summarise, test, and plot data for a two-independent-samples test AND for a one-way ANOVA is **exactly the same** except for the names of the dataframe, variables and the axis labels and limits. Take some time to comment it your code so that you can make use of it next week.
 
 ![](images/future_you.png){fig-alt="xxx" width="300"}
 

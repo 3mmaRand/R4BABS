@@ -122,4 +122,4 @@ ggsave("figures/csativa.png",
 
 ```
 
-1.  💻 another example
+<!-- 1.  💻 another example -->
