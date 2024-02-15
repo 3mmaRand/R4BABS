@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Data Analysis in R - Workshop</title>
@@ -524,6 +524,7 @@ $P22 Event Count  Event Count     65536         0     65535
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead><tr class="header">
@@ -692,6 +693,7 @@ $P22 Event Count  Event Count     65536         0     65535
 </table>
 </div>
 
+</div>
 </div>
 </div>
 <p>The first column gives the name of the column we would like to use. The columns labelled with “delete” were not used and we will be able to drop them.</p>
@@ -976,6 +978,7 @@ Quality control for the file: MEDIA_TNFAPC
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
@@ -1017,6 +1020,7 @@ Quality control for the file: MEDIA_TNFAPC
 </table>
 </div>
 </div>
+</div>
 <p>🎬 Find the number of cells in each sample after flowAI cleaning <em>and</em> removing debris</p>
 <div class="cell">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># number of cells in each sample</span></span>
@@ -1026,6 +1030,7 @@ Quality control for the file: MEDIA_TNFAPC
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
@@ -1067,6 +1072,7 @@ Quality control for the file: MEDIA_TNFAPC
 </table>
 </div>
 </div>
+</div>
 <p>🎬 Join two data frames together using the combination of the treatment and the antibody and calculate what % cells were removed from each sample:</p>
 <div class="cell">
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_n</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris_n</span> <span class="op">|&gt;</span> </span>
@@ -1075,6 +1081,7 @@ Quality control for the file: MEDIA_TNFAPC
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
@@ -1128,6 +1135,7 @@ Quality control for the file: MEDIA_TNFAPC
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <p>🎬 Plot the forward scatter and side scatter for each sample with the gate and the number of cells in each sample</p>
@@ -1217,6 +1225,7 @@ Quality control for the file: MEDIA_TNFAPC
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
@@ -1265,6 +1274,7 @@ Quality control for the file: MEDIA_TNFAPC
 </table>
 </div>
 </div>
+</div>
 <p>🎬 We can add the number of non-debris cells to this data frame and calculate the percentage of non-debris cells that are positive for TNF-α:</p>
 <div class="cell">
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris_tfna_pos</span> <span class="op">&lt;-</span> </span>
@@ -1274,6 +1284,7 @@ Quality control for the file: MEDIA_TNFAPC
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">antibody</th>
@@ -1348,6 +1359,7 @@ Quality control for the file: MEDIA_TNFAPC
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <p>The fact that a very low percentage of cells are positive for TNF-α in the isotype control is a good indication that cut off we used for the <code>TNFa_APC_Lin</code> signal is a good one.</p>
