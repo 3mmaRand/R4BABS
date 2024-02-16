@@ -812,7 +812,7 @@
     "href": "r4babs2/week-4/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "Last week you learnt how to use and interpret the general linear model when the x variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (analysis of variance). You will also learn about the Kruskal- Wallis test which can be used when the assumptions of the general linear model are not met.\n\nLearning objectives\nThe successful student will be able to:\n\nexplain the rationale behind ANOVA understand the meaning of the F values\nselect, appropriately, one-way ANOVA and Kruskal-Wallis\nknow what functions are used in R to run these tests and how to interpret them\nevaluate whether the assumptions of lm() are met\nscientifically report the results of these tests including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read One-way ANOVA and Kruskal-Wallis\n\nWorkshop\n\n💻 One-way ANOVA\n💻 Kruskal-Wallis\n\nConsolidate\n\n💻 Appropriately test if fitness and acclimation effect the sodium content of sweat\n💻 Appropriately test if insecticides vary in their effectiveness",
+    "text": "Last week you learnt how to use and interpret the general linear model when the x variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (analysis of variance). You will also learn about the Kruskal-Wallis test which can be used when the assumptions of the general linear model are not met.\n\nLearning objectives\nThe successful student will be able to:\n\nexplain the rationale behind ANOVA understand the meaning of the F values\nselect, appropriately, one-way ANOVA and Kruskal-Wallis\nknow what functions are used in R to run these tests and how to interpret them\nevaluate whether the assumptions of lm() are met\nscientifically report the results of these tests including appropriate figures\n\n\n\nInstructions\n\nPrepare\n\n📖 Read One-way ANOVA and Kruskal-Wallis\n\nWorkshop\n\n💻 One-way ANOVA\n💻 Kruskal-Wallis\n\nConsolidate\n\n💻 Appropriately test if fitness and acclimation effect the sodium content of sweat\n💻 Appropriately test if insecticides vary in their effectiveness",
     "crumbs": [
       "BABS 2",
       "Week 4: One-way ANOVA and Kruskal-Wallis",
@@ -1004,7 +1004,7 @@
     "href": "r4babs2/week-1/workshop.html#confidence-intervals-large-samples",
     "title": "Workshop",
     "section": "Confidence intervals (large samples)",
-    "text": "Confidence intervals (large samples)\nThe data in beewing.txt are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by:\n\\(\\bar{x} \\pm 1.96 \\times s.e.\\)\nWhere 1.96 is the quantile for 95% confidence.\n Save beewing.txt to your data-raw folder.\n Read in the data and check the structure of the resulting dataframe.\n Calculate and assign to variables: the mean, standard deviation and standard error:\n\n# mean\nm &lt;- mean(bee$wing)\n\n# standard deviation\nsd &lt;- sd(bee$wing)\n\n# sample size (needed for the se)\nn &lt;- length(bee$wing)\n\n# standard error\nse &lt;- sd / sqrt(n)\n\n To calculate the 95% confidence interval we need to look up the quantile (multiplier) using qnorm()\n\nq &lt;- qnorm(0.975)\n\nThis should be about 1.96.\n Now we can use it in our confidence interval calculation\n\nlcl &lt;- m - q * se\nucl &lt;- m + q * se\n\n Print the values\n\nlcl\n\n[1] 4.473176\n\nucl\n\n[1] 4.626824\n\n\nThis means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 \\(\\pm\\) 0.07 mm\n Between what values would you be 99% confident of the population mean being?",
+    "text": "Confidence intervals (large samples)\nThe data in beewing.txt are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by:\n\\(\\bar{x} \\pm 1.96 \\times s.e.\\)\nWhere 1.96 is the quantile for 95% confidence.\n Save beewing.txt to your data-raw folder.\n Read in the data and check the structure of the resulting dataframe.\n Calculate and assign to variables: the mean, standard deviation and standard error:\n\n# mean\nm &lt;- mean(beewing$wing_mm)\n\n# standard deviation\nsd &lt;- sd(beewing$wing_mm)\n\n# sample size (needed for the se)\nn &lt;- length(beewing$wing_mm)\n\n# standard error\nse &lt;- sd / sqrt(n)\n\n To calculate the 95% confidence interval we need to look up the quantile (multiplier) using qnorm()\n\nq &lt;- qnorm(0.975)\n\nThis should be about 1.96.\n Now we can use it in our confidence interval calculation\n\nlcl &lt;- m - q * se\nucl &lt;- m + q * se\n\n Print the values\n\nlcl\n\n[1] 4.473176\n\nucl\n\n[1] 4.626824\n\n\nThis means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 \\(\\pm\\) 0.07 mm\n Between what values would you be 99% confident of the population mean being?",
     "crumbs": [
       "BABS 2",
       "Week 1: The logic of hypothesis testing and CI",
@@ -1620,7 +1620,7 @@
     "href": "r4babs4/week-1/workshop.html#load-packages",
     "title": "Workshop",
     "section": "Load packages",
-    "text": "Load packages\nWe need XXXX packages for this workshop:\n\n\ntidyverse (Wickham et al. 2019): importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.\n\n🎬 Load tidyverse,xxxxxx and xxxxx\n\nlibrary(tidyverse)",
+    "text": "Load packages\nWe need the following packages for this workshop:\n\n\ntidyverse (Wickham et al. 2019): importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.\n\n🎬 Load tidyverse\n\nlibrary(tidyverse)",
     "crumbs": [
       "BABS 4",
       "Week 1: DA 1 Core",
@@ -2440,7 +2440,7 @@
     "href": "r4babs4/week-4/study_after_workshop.html",
     "title": "Independent Study to consolidate this week",
     "section": "",
-    "text": "Set up\nIf you have just opened RStudio you will want to load the tidyverse package\n\nlibrary(tidyverse)\n\nExercises",
+    "text": "Exercises\n🎬 Go through week 1 Core workshop.",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
@@ -2452,7 +2452,7 @@
     "href": "r4babs4/week-4/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\n📖 Read",
+    "text": "Prepare\n\n📖 Review the Workshop in Week 2 and try to apply the workflow to your own data so that you can identify problems and be ready to ask questions.",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",

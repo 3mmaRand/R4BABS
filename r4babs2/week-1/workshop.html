@@ -535,13 +535,13 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Calculate and assign to variables: the mean, standard deviation and standard error:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean</span></span>
-<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bee</span><span class="op">$</span><span class="va">wing</span><span class="op">)</span></span>
+<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">beewing</span><span class="op">$</span><span class="va">wing_mm</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># standard deviation</span></span>
-<span><span class="va">sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">bee</span><span class="op">$</span><span class="va">wing</span><span class="op">)</span></span>
+<span><span class="va">sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">beewing</span><span class="op">$</span><span class="va">wing_mm</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># sample size (needed for the se)</span></span>
-<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">bee</span><span class="op">$</span><span class="va">wing</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">beewing</span><span class="op">$</span><span class="va">wing_mm</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># standard error</span></span>
 <span><span class="va">se</span> <span class="op">&lt;-</span> <span class="va">sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
