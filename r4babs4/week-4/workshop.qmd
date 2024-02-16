@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-subtitle: "DA 3 Immunobiology"
+subtitle: "Data Analysis 3: Immunobiology - Your data analysis"
 toc: true
 toc-location: right
 editor: 

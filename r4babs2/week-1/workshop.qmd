@@ -91,21 +91,21 @@ Where 1.96 is the quantile for 95% confidence.
 
 #---CODING ANSWER---
 
-bee <- read_table("data-raw/beewing.txt")
-str(bee)
+beewing <- read_table("data-raw/beewing.txt")
+str(beewing)
 ```
 
 ![](images/do_in_R.png) Calculate and assign to variables: the mean, standard deviation and standard error:
 
 ```{r}
 # mean
-m <- mean(bee$wing)
+m <- mean(beewing$wing_mm)
 
 # standard deviation
-sd <- sd(bee$wing)
+sd <- sd(beewing$wing_mm)
 
 # sample size (needed for the se)
-n <- length(bee$wing)
+n <- length(beewing$wing_mm)
 
 # standard error
 se <- sd / sqrt(n)

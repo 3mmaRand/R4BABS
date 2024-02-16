@@ -1,12 +1,12 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "DA 3 Immunobiology"
+subtitle: "Data Analysis 3: Immunobiology - Your data analysis"
 toc: true
 toc-location: right
 ---
 
 1.  Prepare
 
-    i.  📖 Read 
+    i.  📖 Review the [Workshop in Week 2](../week-2/workshop.html) and try to apply the workflow to your own data so that you can identify problems and be ready to ask questions.
 
 

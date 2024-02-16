@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to consolidate this week"
-subtitle: "DA 3 Immunobiology"
+subtitle: "Data Analysis 3: Immunobiology - Your data analysis"
 toc: true
 toc-location: right
 format:
@@ -9,14 +9,9 @@ format:
     code-summary: "Answer - don't look until you have tried!"
 ---
 
-# Set up
 
-If you have just opened RStudio you will want to load the **`tidyverse`** package
-
-```{r}
-#| code-fold: false
-library(tidyverse)
-```
 
 # Exercises
+
+🎬 Go through week 1 Core workshop.
 

@@ -6,7 +6,7 @@ toc-location: right
 
 ---
 
-Last week you learnt how to use and interpret the general linear model when the *x* variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (**an**alysis **o**f **var**iance). You will also learn about the Kruskal- Wallis test which can be used when the assumptions of the general linear model are not met.
+Last week you learnt how to use and interpret the general linear model when the *x* variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (**an**alysis **o**f **var**iance). You will also learn about the Kruskal-Wallis test which can be used when the assumptions of the general linear model are not met.
 
 ### Learning objectives
 

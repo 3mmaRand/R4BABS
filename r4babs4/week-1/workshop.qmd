@@ -175,13 +175,13 @@ of the work.
 
 ## Load packages
 
-We need XXXX packages for this workshop:
+We need the following packages for this workshop:
 
 -   **`tidyverse`** [@tidyverse]: importing the meta data which is in a
     text file, working with the data once it is in a dataframe to
     filter, summarise and plot.
 
-🎬 Load **`tidyverse`**,**`xxxxxx`** and **`xxxxx`**
+🎬 Load **`tidyverse`**
 
 ```{r}
 library(tidyverse)
