@@ -5,8 +5,10 @@ toc: true
 toc-location: right
 ---
 
-1.  Prepare
-
-    i.  📖 Review the [Workshop in Week 2](../week-2/workshop.html) and try to apply the workflow to your own data so that you can identify problems and be ready to ask questions.
+1.  💻 Open the RStudio Project you created in the [Consolidation exercise from week 2](../week-2/study_after_workshop.html).
+   i.   Save your data files to the project.
+   ii.  Go through the script and identify the parts that you need to change to make it work for your data.
+   iii.  Can you identify code that you will not need to include?
+   iv.  Consider attempting to import and analyse your own data so that you can make good use of the workshop to resolve any issues you encounter.
 
 

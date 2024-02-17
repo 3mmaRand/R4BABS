@@ -13,5 +13,5 @@ format:
 
 # Exercises
 
-🎬 Go through week 1 Core workshop.
+🎬 Go through [Week 1 Core materials](../week-1/overview.html) and check you have applied the principles to your own data analysis.
 

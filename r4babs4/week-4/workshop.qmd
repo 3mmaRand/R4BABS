@@ -17,18 +17,24 @@ library(kableExtra)
 
 In this workshop you will use the tools you used in the previous workshop (and before!) to analyse the data you have collected. You will provide some key pieces of information for the class data set. 
 
-
-
-
 # Exercises
 
-## ...
+## Getting started on your own analysis
+
+🎬 Open the RStudio Project you created in the [Consolidation exercise from week 2](../week-2/study_after_workshop.html).
+
+🎬 If you have not already done so, save your data files to the project. Are the file names going to be easy for you to work with? If not, rename them.
+
+🎬 Open your R script and begin to analyse your data.
 
 
 
 ## Data for the class dataset.
 
+You need to provide the following information for the class dataset:
+
 -    
+
 
 
 

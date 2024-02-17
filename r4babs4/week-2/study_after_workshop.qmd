@@ -11,7 +11,7 @@ format:
 
 
 
-🎬 Create a new Project that you will use to analyse your own data and which you will submit as your RStudio Project. Populate it with folders you will need. The Project does not need to be named with your exam number at this stage. Next week's workshop will cover how to change the name of Project.
+🎬 Create a new Project that you will use to analyse your own data and which you will submit as your RStudio Project. Populate it with folders you will need. The Project does not need to be named with your exam number at this stage. The next workshop will cover how to change the name of Project.
 
 🎬 Make a copy of the R script from the workshop that you can use to analyse your own data. Go through the script to tidy it up. You might need to:
 
