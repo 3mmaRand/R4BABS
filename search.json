@@ -1380,7 +1380,7 @@
     "href": "r4babs4/week-2/study_after_workshop.html",
     "title": "Independent Study to consolidate this week",
     "section": "",
-    "text": "🎬 Create a new Project that you will use to analyse your own data and which you will submit as your RStudio Project. Populate it with folders you will need. The Project does not need to be named with your exam number at this stage. Next week’s workshop will cover how to change the name of Project.\n🎬 Make a copy of the R script from the workshop that you can use to analyse your own data. Go through the script to tidy it up. You might need to:\n\ncollect together library statements at the top of the script\nedit your comments for clarity\nrename variables for consistency or clarity\nremove house keeping or exploratory code or mark it for later removal\nrestyle code, add code section headers etc",
+    "text": "🎬 Create a new Project that you will use to analyse your own data and which you will submit as your RStudio Project. Populate it with folders you will need. The Project does not need to be named with your exam number at this stage. The next workshop will cover how to change the name of Project.\n🎬 Make a copy of the R script from the workshop that you can use to analyse your own data. Go through the script to tidy it up. You might need to:\n\ncollect together library statements at the top of the script\nedit your comments for clarity\nrename variables for consistency or clarity\nremove house keeping or exploratory code or mark it for later removal\nrestyle code, add code section headers etc",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Immunobiology",
@@ -1412,11 +1412,11 @@
     ]
   },
   {
-    "objectID": "r4babs4/week-4/workshop.html#section",
-    "href": "r4babs4/week-4/workshop.html#section",
+    "objectID": "r4babs4/week-4/workshop.html#getting-started-on-your-own-analysis",
+    "href": "r4babs4/week-4/workshop.html#getting-started-on-your-own-analysis",
     "title": "Workshop",
-    "section": "…",
-    "text": "…",
+    "section": "Getting started on your own analysis",
+    "text": "Getting started on your own analysis\n🎬 Open the RStudio Project you created in the Consolidation exercise from week 2.\n🎬 If you have not already done so, save your data files to the project. Are the file names going to be easy for you to work with? If not, rename them.\n🎬 Open your R script and begin to analyse your data.",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
@@ -1428,7 +1428,7 @@
     "href": "r4babs4/week-4/workshop.html#data-for-the-class-dataset.",
     "title": "Workshop",
     "section": "Data for the class dataset.",
-    "text": "Data for the class dataset.",
+    "text": "Data for the class dataset.\nYou need to provide the following information for the class dataset:",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
@@ -2440,7 +2440,7 @@
     "href": "r4babs4/week-4/study_after_workshop.html",
     "title": "Independent Study to consolidate this week",
     "section": "",
-    "text": "Exercises\n🎬 Go through week 1 Core workshop.",
+    "text": "Exercises\n🎬 Go through Week 1 Core materials and check you have applied the principles to your own data analysis.",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
@@ -2452,7 +2452,7 @@
     "href": "r4babs4/week-4/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\n📖 Review the Workshop in Week 2 and try to apply the workflow to your own data so that you can identify problems and be ready to ask questions.",
+    "text": "💻 Open the RStudio Project you created in the Consolidation exercise from week 2.\n\n\nSave your data files to the project.\nGo through the script and identify the parts that you need to change to make it work for your data.\nCan you identify code that you will not need to include?\nConsider attempting to import and analyse your own data so that you can make good use of the workshop to resolve any issues you encounter.",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
@@ -2746,7 +2746,7 @@
     "href": "r4babs2/week-3/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\n📖 Read Two-Sample tests",
+    "text": "📖 Read Two-Sample tests",
     "crumbs": [
       "BABS 2",
       "Week 3: Two-sample tests",
@@ -2794,7 +2794,7 @@
     "href": "r4babs2/week-6/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\nEither 📖 Read xxxxx in OR 📹 Watch",
+    "text": "📖 Read xxxxx",
     "crumbs": [
       "BABS 2",
       "Week 6: Chi-squared and correlation",
@@ -2818,7 +2818,7 @@
     "href": "r4babs2/week-4/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\n📖 Read One-way ANOVA and Kruskal-Wallis",
+    "text": "📖 Read One-way ANOVA and Kruskal-Wallis",
     "crumbs": [
       "BABS 2",
       "Week 4: One-way ANOVA and Kruskal-Wallis",
@@ -2842,7 +2842,7 @@
     "href": "r4babs2/week-5/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\n📖 Read Two-way ANOVA",
+    "text": "📖 Read Two-way ANOVA",
     "crumbs": [
       "BABS 2",
       "Week 5: Two-way ANOVA",
