@@ -40,6 +40,31 @@ We need three packages for this workshop:
 
 -   **`flowAI`** [@flowAI]: which performs automated quality control by checking for changes in instrument speed and signal intensity that indicate a problem for the reading for that cells
 
+::: {.callout-tip}
+## Working on University computers
+
+These packages are installed already. You can go straight to loading them.
+:::
+
+
+
+::: {.callout-tip}
+## Working on your own machine
+
+You will need to install these packages. 
+
+You can install **`tidyverse`** from CRAN in the normal way.
+
+**`flowCore`** and **`flowAI`** are not on CRAN but come from [Bioconductor]. 
+
+-   first install **`BiocManager`** from CRAN in the normal way.
+
+-   then install from Bioconductor using `BiocManager::install("flowCore")` and `BiocManager::install("flowAI")`
+
+If you have difficulty installing these packages, use the [Virtual Desktop Service](https://www.york.ac.uk/it-services/services/vds/.
+:::
+
+
 🎬 Load **`tidyverse`**,**`flowCore`** and **`flowAI`**
 
 ```{r}
