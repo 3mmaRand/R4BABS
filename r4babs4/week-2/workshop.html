@@ -436,6 +436,39 @@ window.Quarto = {
 <li><p><strong><code>flowCore</code></strong> <span class="citation" data-cites="flowCore">(<a href="#ref-flowCore" role="doc-biblioref">Ellis et al. 2024</a>)</span>: to import data from flow cytometry files (<code>.fcs</code>), apply the logicle transformation, and use functions for using a “flowSet” data structure.</p></li>
 <li><p><strong><code>flowAI</code></strong> <span class="citation" data-cites="flowAI">(<a href="#ref-flowAI" role="doc-biblioref">Monaco et al. 2016</a>)</span>: which performs automated quality control by checking for changes in instrument speed and signal intensity that indicate a problem for the reading for that cells</p></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Working on University computers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These packages are installed already. You can go straight to loading them.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Working on your own machine
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will need to install these packages.</p>
+<p>You can install <strong><code>tidyverse</code></strong> from CRAN in the normal way.</p>
+<p><strong><code>flowCore</code></strong> and <strong><code>flowAI</code></strong> are not on CRAN but come from [Bioconductor].</p>
+<ul>
+<li><p>first install <strong><code>BiocManager</code></strong> from CRAN in the normal way.</p></li>
+<li><p>then install from Bioconductor using <code>BiocManager::install("flowCore")</code> and <code>BiocManager::install("flowAI")</code></p></li>
+</ul>
+<p>If you have difficulty installing these packages, use the [Virtual Desktop Service](https://www.york.ac.uk/it-services/services/vds/.</p>
+</div>
+</div>
 <p>🎬 Load <strong><code>tidyverse</code></strong>,<strong><code>flowCore</code></strong> and <strong><code>flowAI</code></strong></p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">flowCore</span><span class="op">)</span></span>
