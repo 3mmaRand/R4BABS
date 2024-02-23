@@ -313,10 +313,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <li><a href="#getting-started-on-your-own-analysis" id="toc-getting-started-on-your-own-analysis" class="nav-link" data-scroll-target="#getting-started-on-your-own-analysis">Getting started on your own analysis</a></li>
   <li><a href="#data-for-the-class-dataset." id="toc-data-for-the-class-dataset." class="nav-link" data-scroll-target="#data-for-the-class-dataset.">Data for the class dataset.</a></li>
   <li><a href="#how-to-change-the-name-of-an-rstudio-project." id="toc-how-to-change-the-name-of-an-rstudio-project." class="nav-link" data-scroll-target="#how-to-change-the-name-of-an-rstudio-project.">How to change the name of an RStudio project.</a></li>
-  <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
   </ul>
 </li>
-  <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
   <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -349,14 +347,24 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </section><section id="data-for-the-class-dataset." class="level2"><h2 class="anchored" data-anchor-id="data-for-the-class-dataset.">Data for the class dataset.</h2>
 <p>You need to provide the following information for the class dataset:</p>
 <ul>
-<li>
-</li></ul></section><section id="how-to-change-the-name-of-an-rstudio-project." class="level2"><h2 class="anchored" data-anchor-id="how-to-change-the-name-of-an-rstudio-project.">How to change the name of an RStudio project.</h2>
-<p>You can change the name of an RStudio project closing the project and renaming the project folder and the <code>.Rproj</code> file.</p>
-</section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
-<p>……</p>
-<p>You’re finished!</p>
-</section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
-</section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
+<li><p>group_name: A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your rows</p></li>
+<li><p>cell_treatment: One of MEDIA, LPS or ECOLIGreen</p></li>
+<li><p>antibody: One of ISOTYPE or TNFAPC</p></li>
+<li><p>n_cells: number of cells in sample after flowAI cleaning</p></li>
+<li><p>n_cells_live: number of cells in sample after flowAI cleaning and removing debris</p></li>
+<li><p>perc_nondebris: % “cleaned” cells that were not debris</p></li>
+<li><p>apc_cut: threshold for logicle transformed TNFa_APC_Lin. This will be the same for all your samples</p></li>
+<li><p>apc_mfi: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells</p></li>
+<li><p>n_pos_tnfa: Number of TNF-α positive cells</p></li>
+<li><p>perc_tfna_pos: % non debris cells that are TNF-α positive cells</p></li>
+</ul>
+<p>Enter these in the <a href="https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0">BIO00066I Biomedical Sciences class data</a></p>
+</section><section id="how-to-change-the-name-of-an-rstudio-project." class="level2"><h2 class="anchored" data-anchor-id="how-to-change-the-name-of-an-rstudio-project.">How to change the name of an RStudio project.</h2>
+<p>You may need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project by:</p>
+<ul>
+<li><p>closing the project</p></li>
+<li><p>renaming both the project folder and the <code>.Rproj</code> file.</p></li>
+</ul></section></section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs4/week-4/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>

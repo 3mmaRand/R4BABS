@@ -1428,7 +1428,7 @@
     "href": "r4babs4/week-4/workshop.html#data-for-the-class-dataset.",
     "title": "Workshop",
     "section": "Data for the class dataset.",
-    "text": "Data for the class dataset.\nYou need to provide the following information for the class dataset:",
+    "text": "Data for the class dataset.\nYou need to provide the following information for the class dataset:\n\ngroup_name: A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your rows\ncell_treatment: One of MEDIA, LPS or ECOLIGreen\nantibody: One of ISOTYPE or TNFAPC\nn_cells: number of cells in sample after flowAI cleaning\nn_cells_live: number of cells in sample after flowAI cleaning and removing debris\nperc_nondebris: % “cleaned” cells that were not debris\napc_cut: threshold for logicle transformed TNFa_APC_Lin. This will be the same for all your samples\napc_mfi: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells\nn_pos_tnfa: Number of TNF-α positive cells\nperc_tfna_pos: % non debris cells that are TNF-α positive cells\n\nEnter these in the BIO00066I Biomedical Sciences class data",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
@@ -1440,19 +1440,7 @@
     "href": "r4babs4/week-4/workshop.html#how-to-change-the-name-of-an-rstudio-project.",
     "title": "Workshop",
     "section": "How to change the name of an RStudio project.",
-    "text": "How to change the name of an RStudio project.\nYou can change the name of an RStudio project closing the project and renaming the project folder and the .Rproj file.",
-    "crumbs": [
-      "BABS 4",
-      "Week 4: DA 3 Immunobiology",
-      "Workshop"
-    ]
-  },
-  {
-    "objectID": "r4babs4/week-4/workshop.html#look-after-future-you",
-    "href": "r4babs4/week-4/workshop.html#look-after-future-you",
-    "title": "Workshop",
-    "section": "Look after future you!",
-    "text": "Look after future you!\n……\nYou’re finished!",
+    "text": "How to change the name of an RStudio project.\nYou may need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project by:\n\nclosing the project\nrenaming both the project folder and the .Rproj file.",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
@@ -2452,7 +2440,7 @@
     "href": "r4babs4/week-4/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "💻 Open the RStudio Project you created in the Consolidation exercise from week 2.\n\n\nSave your data files to the project.\nGo through the script and identify the parts that you need to change to make it work for your data.\nCan you identify code that you will not need to include?\nConsider attempting to import and analyse your own data so that you can make good use of the workshop to resolve any issues you encounter.",
+    "text": "💻 Open the RStudio Project you created in the Consolidation exercise from week 2.\n\n\nSave your data files to the project.\nGo through the script and identify the parts that you need to change to make it work for your data.\nCan you identify code that you will not need to include?\nGo through the Week 2 Workshop and read the text to check you understand what is happening to the data.\nConsider attempting to import and analyse your own data so that you can make good use of the workshop to resolve any issues you encounter.",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
