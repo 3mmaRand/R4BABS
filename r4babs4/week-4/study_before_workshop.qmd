@@ -9,6 +9,7 @@ toc-location: right
    i.   Save your data files to the project.
    ii.  Go through the script and identify the parts that you need to change to make it work for your data.
    iii.  Can you identify code that you will not need to include?
-   iv.  Consider attempting to import and analyse your own data so that you can make good use of the workshop to resolve any issues you encounter.
+   iv.   Go through the [Week 2 Workshop](../week-2/workshop.html) and read the text to check you understand what is happening to the data.
+   v.  Consider attempting to import and analyse your own data so that you can make good use of the workshop to resolve any issues you encounter.
 
 

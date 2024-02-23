@@ -33,23 +33,36 @@ In this workshop you will use the tools you used in the previous workshop (and b
 
 You need to provide the following information for the class dataset:
 
--    
+-   group_name:	A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your rows
 
+-   cell_treatment:	One of MEDIA, LPS or ECOLIGreen
 
+-   antibody:	One of ISOTYPE or TNFAPC
+
+-   n_cells:	number of cells in sample after flowAI cleaning
+
+-   n_cells_live:	number of cells in sample after flowAI cleaning and removing debris
+
+-   perc_nondebris:	% "cleaned" cells that were not debris
+
+-   apc_cut:	threshold for logicle transformed TNFa_APC_Lin. This will be the same for all your samples
+
+-   apc_mfi:	Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells
+
+-   n_pos_tnfa:	Number of TNF-α positive cells
+
+-   perc_tfna_pos:	% non debris cells that are TNF-α positive cells    
+
+Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0)
 
 
 ## How to change the name of an RStudio project.
 
-You can change the name of an RStudio project closing the project and renaming the project folder and the `.Rproj` file.
+You may need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project by:
 
+-   closing the project
 
-## Look after future you!
-
-......
-
-You're finished!
-
-# 🥳 Well Done! 🎉
+-   renaming both the project folder and the `.Rproj` file.
 
 
 
