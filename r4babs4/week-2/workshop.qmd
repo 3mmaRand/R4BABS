@@ -55,13 +55,14 @@ You will need to install these packages.
 
 You can install **`tidyverse`** from CRAN in the normal way.
 
-**`flowCore`** and **`flowAI`** are not on CRAN but come from [Bioconductor]. 
+**`flowCore`** and **`flowAI`** are not on CRAN but come from [Bioconductor](https://www.bioconductor.org/). 
 
 -   first install **`BiocManager`** from CRAN in the normal way.
 
 -   then install from Bioconductor using `BiocManager::install("flowCore")` and `BiocManager::install("flowAI")`
 
-If you have difficulty installing these packages, use the [Virtual Desktop Service](https://www.york.ac.uk/it-services/services/vds/.
+If you have difficulty installing these packages, use the [Virtual Desktop Service](https://www.york.ac.uk/it-services/services/vds/) which allows you to log into a university machine from your laptop.
+
 :::
 
 
