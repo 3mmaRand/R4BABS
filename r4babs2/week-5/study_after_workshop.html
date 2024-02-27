@@ -414,18 +414,199 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 
 
 </header><section id="set-up" class="level1"><h1>Set up</h1>
-<p>If you have just opened RStudio you will want to load the <strong><code>tidyverse</code></strong> package</p>
+<p>If you have just opened RStudio you will want to load the <strong><code>tidyverse</code></strong> and <strong><code>emmeans</code></strong> packages.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans">emmeans</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
 <ol type="1">
-<li>💻</li>
+<li>💻 Researchers suspect there may be regional differences between two species of butterfly, <em>F.concocti</em> and <em>F.flappa</em>. They catch 8 randomly chosen individuals of each species in two regions (North and South) and measure their wing lengths in mm. The data are in <a href="data-raw/butterf.txt">butterf.txt</a>. What do you conclude about the size of these species in the North and South?</li>
 </ol>
-<ol start="2" type="1">
-<li>📖 Read <a href="https://3mmarand.github.io/comp4biosci/xxx.html">xxx</a>
-</li>
-</ol>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">butter</span>  <span class="op">&lt;-</span>  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_table.html">read_table</a></span><span class="op">(</span><span class="st">"data-raw/butterf.txt"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">butter</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a rough plot of the data  </span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">butter</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">region</span>, y <span class="op">=</span> <span class="va">winglen</span>, fill <span class="op">=</span> <span class="va">spp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># There seems to be little difference between the two species in the</span></span>
+<span><span class="co"># south but F.concocti</span></span>
+<span><span class="co"># is larger than F.flappa in the North.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a summary of the data</span></span>
+<span><span class="va">butter_summary</span> <span class="op">&lt;-</span> <span class="va">butter</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">region</span>, <span class="va">spp</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">winglen</span><span class="op">)</span>,</span>
+<span>            median <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">winglen</span><span class="op">)</span>,</span>
+<span>            sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">winglen</span><span class="op">)</span>,</span>
+<span>            n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">winglen</span><span class="op">)</span>,</span>
+<span>            se <span class="op">=</span> <span class="va">sd</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The data seem to be continuous so it is likely that a parametric</span></span>
+<span><span class="co"># test will be fine</span></span>
+<span><span class="co"># we will check the other assumptions after we have run the lm</span></span>
+<span></span>
+<span><span class="co"># build the statistical model</span></span>
+<span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">butter</span>, <span class="va">winglen</span> <span class="op">~</span> <span class="va">spp</span> <span class="op">*</span> <span class="va">region</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># examine it</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># the line starting (Intercept) is  β0  </span></span>
+<span><span class="co"># the line starting sppF.flappa is β1</span></span>
+<span><span class="co"># the line starting regionsouth is β2</span></span>
+<span><span class="co"># the line starting sppF.flappa:regionsouth is β3</span></span>
+<span></span>
+<span><span class="co"># F.concocti-north mean is β0 i.e., 32.275</span></span>
+<span><span class="co"># F.Flappa-north mean is β0 + β1 i.e., 32.275 - 7.875 = 24.4</span></span>
+<span><span class="co"># F.concocti-south is β0 + β2  i.e., 32.275 - 8.638 = 23.637</span></span>
+<span><span class="co"># F.Flappa--south is β0 + β1 + β2 + β3 </span></span>
+<span><span class="co">#           i.e., 32.275 - 7.875 - 8.638 + 7.713 = 23.475</span></span>
+<span></span>
+<span><span class="co"># The model of spp and region overall explains a significant </span></span>
+<span><span class="co"># amount (49%) of the variation in wing lengths</span></span>
+<span><span class="co"># (F = 8.1; d.f. = 3, 28; p = 0.0002). To see which of the three </span></span>
+<span><span class="co"># effects are significant we can use the `anova()` function on our</span></span>
+<span><span class="co"># model.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># There was a significant effect of species (F = 8.1; </span></span>
+<span><span class="co"># d.f. = 1, 28; p = 0.008) and region (F = 8.1; </span></span>
+<span><span class="co"># d.f. = 1, 28; p = 0.008) on wing length and these effects interact </span></span>
+<span><span class="co"># (F = 7.5; d.f. = 1, 28; p = 0.01)</span></span>
+<span></span>
+<span><span class="co"># It is important to consider how the interaction effect is</span></span>
+<span><span class="co"># influencing our interpretation of the main effects.</span></span>
+<span><span class="co"># Judging by the means and the rough plot, the significant</span></span>
+<span><span class="co"># effect of both species and region is due to the fact that</span></span>
+<span><span class="co"># F.concocti is larger than F.flappa in the North.</span></span>
+<span><span class="co"># In other words, we only have a significant effect of species</span></span>
+<span><span class="co"># in the North. </span></span>
+<span></span>
+<span></span>
+<span><span class="co"># the emmeans package will let us see exactly what comparisons</span></span>
+<span><span class="co"># are significant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod</span>, <span class="op">~</span> <span class="va">spp</span> <span class="op">*</span> <span class="va">region</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># As we suspected all the difference are between  F.concocti north</span></span>
+<span><span class="co"># and the other three groups. </span></span>
+<span> <span class="co"># F.concocti north - F.flappa north    p = 0.0026</span></span>
+<span> <span class="co"># F.concocti north - F.concocti south  p = 0.0010</span></span>
+<span> <span class="co"># F.concocti north - F.flappa south    p = 0.0008</span></span>
+<span></span>
+<span><span class="co"># There was a signifcant interaction between the effects of species </span></span>
+<span><span class="co"># and region (F = 7.5; d.f. = 1, 28; p = 0.01) with Northern</span></span>
+<span><span class="co"># F.concocti being significantly larger than F.concocti in the </span></span>
+<span><span class="co"># south (Tukey HSD: p = 0.0010) and F.flappa in the </span></span>
+<span><span class="co"># north (p = 0.0026) and south (p = 0.0008). This creates a </span></span>
+<span><span class="co"># significant difference between species averaged over region </span></span>
+<span><span class="co"># (F = 8.1; d.f. = 1, 28; p = 0.008) and region averaged over species</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># There is a significant effect of species (F = 8.1; </span></span>
+<span><span class="co"># d.f. = 1, 28; p = 0.008) and region (F = 11.5; d.f. = 1, 28; </span></span>
+<span><span class="co"># p = 0.002) on wing length. These effect are </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># let's check the assumptions</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod</span>, which <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we're looking for the variance in the residuals to be the same in both groups.</span></span>
+<span><span class="co"># This looks OK. Maybe a bit higher in the wild plants (with the higher mean)</span></span>
+<span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span>
+<span><span class="co"># On balance the use of lm() is probably justifiable  The variance isn't quite equal </span></span>
+<span><span class="co"># and the histogram looks a bit off normal but the normality test is NS and the </span></span>
+<span><span class="co"># effect (in the figure) is clear.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># A figure </span></span>
+<span><span class="va">butter_fig</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">butter</span>, </span>
+<span>             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">region</span>,</span>
+<span>                 y <span class="op">=</span> <span class="va">winglen</span>,</span>
+<span>                 shape <span class="op">=</span> <span class="va">spp</span><span class="op">)</span>,</span>
+<span>             position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitterdodge.html">position_jitterdodge</a></span><span class="op">(</span>dodge.width <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                                             jitter.width <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>                                             jitter.height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
+<span>             size <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>             colour <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">butter_summary</span>, </span>
+<span>                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">region</span>, </span>
+<span>                    ymin <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="va">se</span>, </span>
+<span>                    ymax <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="va">se</span>, </span>
+<span>                    group <span class="op">=</span> <span class="va">spp</span><span class="op">)</span>,</span>
+<span>                width <span class="op">=</span> <span class="fl">0.4</span>, </span>
+<span>                position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">butter_summary</span>, </span>
+<span>                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">region</span>, </span>
+<span>                    ymin <span class="op">=</span> <span class="va">mean</span>, </span>
+<span>                    ymax <span class="op">=</span> <span class="va">mean</span>, </span>
+<span>                    group <span class="op">=</span> <span class="va">spp</span><span class="op">)</span>,</span>
+<span>                width <span class="op">=</span> <span class="fl">0.3</span>, </span>
+<span>                position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"region"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Wing length (mm)"</span>,</span>
+<span>                     expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">55</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">19</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>                     name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="fu">italic</span><span class="op">(</span><span class="st">"F.concocti"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                                <span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="fu">italic</span><span class="op">(</span><span class="st">"F.flappa"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># F.concocti north - F.flappa north    p = 0.0026</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>,</span>
+<span>           x <span class="op">=</span> <span class="fl">0.75</span>, xend <span class="op">=</span> <span class="fl">1.25</span>,</span>
+<span>           y <span class="op">=</span> <span class="fl">40</span>, yend <span class="op">=</span> <span class="fl">40</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>,</span>
+<span>           x <span class="op">=</span> <span class="fl">1</span>,  y <span class="op">=</span> <span class="fl">42</span>,</span>
+<span>           label <span class="op">=</span> <span class="st">"p = 0.0026"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># F.concocti north - F.concocti south  p = 0.0010</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>,</span>
+<span>           x <span class="op">=</span> <span class="fl">0.75</span>, xend <span class="op">=</span> <span class="fl">1.75</span>,</span>
+<span>           y <span class="op">=</span> <span class="fl">44</span>, yend <span class="op">=</span> <span class="fl">44</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">1.25</span>,  y <span class="op">=</span> <span class="fl">46</span>,</span>
+<span>           label <span class="op">=</span> <span class="st">"p = 0.0010"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># F.concocti north - F.flappa south    p = 0.0008</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>,</span>
+<span>           x <span class="op">=</span> <span class="fl">0.75</span>, xend <span class="op">=</span> <span class="fl">2.25</span>,</span>
+<span>           y <span class="op">=</span> <span class="fl">48</span>, yend <span class="op">=</span> <span class="fl">48</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">1.5</span>,  y <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>           label <span class="op">=</span> <span class="st">"p = 0.0008"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.12</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># save figure to figures/butter.png</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figures/butter.png"</span>,</span>
+<span>       plot <span class="op">=</span> <span class="va">butter_fig</span>,</span>
+<span>       width <span class="op">=</span> <span class="fl">3.5</span>,</span>
+<span>       height <span class="op">=</span> <span class="fl">3.5</span>,</span>
+<span>       units <span class="op">=</span> <span class="st">"in"</span>,</span>
+<span>       dpi <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
