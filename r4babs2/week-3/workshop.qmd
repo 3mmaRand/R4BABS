@@ -91,7 +91,7 @@ ggplot(data = adip, aes(x = treatment, y = adiponectin)) +
 
 Summarising the data for each treatment group is the next sensible step. The most useful summary statistics are the means, standard deviations, sample sizes and standard errors.
 
-![](images/do_in_R.png) Create a data frame called `adip_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to the [Summarise](../../r4babs1/week-9/workshop.html#summarise) from the Week 9 workshop of BABS1 [@rand2023]
+![](images/do_in_R.png) Create a data frame called `adip_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to read the [Summarise](../../r4babs1/week-9/workshop.html#summarise) from the Week 9 workshop of BABS1 [@rand2023]
 
 ```{r}
 #| include: false  
@@ -287,7 +287,7 @@ It will generate a warning message "In is.na(x) : is.na() applied to non-(list o
 
 
 
-![](images/do_in_R.png) Save your figure to your figures folder.
+![](images/do_in_R.png) Save your figure to your figures folder. Make sure you [script figure saving with `ggsave()`](../../r4babs1/week-9/workshop.html#writing-figures-to-file).
 ```{r}
 #| include: false
 
@@ -436,7 +436,7 @@ ggsave("figures/grouse.png",
 
 ## Gene Expression
 
-Bambara groundnut (*Vigna subterranea*) is an African legume with good  nutritional value which can be influenced by low temperature stress. Researchers are interested in the expression levels of a particular set of 35 genes (`probe_id`) in response to temperature stress. They measure the expression of the genes at 23 and 18 degrees C (high and low temperature). These samples are **not** independent because we have two measure from one gene. The data are in [expr.xlxs](data-raw/expr.xlsx).
+Bambara groundnut (*Vigna subterranea*) is an African legume with good  nutritional value which can be influenced by low temperature stress. Researchers are interested in the expression levels of a particular set of 35 genes (`probe_id`) in response to temperature stress. They measure the expression of the genes at 23 and 18 degrees C (high and low temperature). These samples are **not** independent because we have two measure from one gene. The data are in [expr.xlsx](data-raw/expr.xlsx).
 
 ### Selecting
 ![](images/answer.png) What is the null hypothesis?
@@ -447,7 +447,7 @@ Bambara groundnut (*Vigna subterranea*) is an African legume with good  nutritio
 <!-- the expression at the higher t   = expression at the lower t -->
 
 
-![](images/do_in_R.png) Save a copy of [expr.xlxs](data-raw/expr.xlsx) and import the data. I named the dataframe `bambara`
+![](images/do_in_R.png) Save a copy of [expr.xlsx](data-raw/expr.xlsx) and import the data. I named the dataframe `bambara`
 
 ```{r}
 #| include: false  

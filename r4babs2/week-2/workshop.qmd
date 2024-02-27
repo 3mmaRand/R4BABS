@@ -321,7 +321,7 @@ ggplot(plant, aes(x = day, y = mass)) +
 ```
 
 
-![](images/do_in_R.png) Save your figure to your `figures` folder.
+![](images/do_in_R.png) Save your figure to your `figures` folder. Make sure you [script figure saving with `ggsave()`](../../r4babs1/week-9/workshop.html#writing-figures-to-file).
 
 ```{r}
 #| include: false
