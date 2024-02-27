@@ -534,7 +534,7 @@ Key
 </div>
 <section id="summarising-the-data" class="level3"><h3 class="anchored" data-anchor-id="summarising-the-data">Summarising the data</h3>
 <p>Summarising the data for each treatment group is the next sensible step. The most useful summary statistics are the means, standard deviations, sample sizes and standard errors.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>adip_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to the <a href="../../r4babs1/week-9/workshop.html#summarise">Summarise</a> from the Week 9 workshop of BABS1 <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>adip_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to read the <a href="../../r4babs1/week-9/workshop.html#summarise">Summarise</a> from the Week 9 workshop of BABS1 <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
 <p>You should get the following numbers:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -652,7 +652,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 </div>
 <p>For the segment, <code>annotate()</code> needs the <em>x</em> and <em>y</em> coordinates for the start and the finish of the line.</p>
 <p>The use of <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> allows you to specify formatting or special characters. <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> takes strings or <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> formatting. Each string or piece of LaTeX is separated by a <code>*</code> or a <code>~</code>. The <code>*</code> concatenates the strings without a space, <code>~</code> does so with a space. It will generate a warning message “In is.na(x) : is.na() applied to non-(list or vector) of type ‘expression’” which can be ignored.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Save your figure to your figures folder.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Save your figure to your figures folder. Make sure you <a href="../../r4babs1/week-9/workshop.html#writing-figures-to-file">script figure saving with <code>ggsave()</code></a>.</p>
 </section></section><section id="grouse-parasites" class="level2"><h2 class="anchored" data-anchor-id="grouse-parasites">Grouse Parasites</h2>
 <p>Grouse livers were dissected and the number of individuals of a parasitic nematode were counted for two estates ‘Gordon’ and ‘Moss’. We want to know if the two estates have different infection rates. The data are in <a href="data-raw/grouse.csv">grouse.csv</a></p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save a copy of <a href="data-raw/grouse.csv">grouse.csv</a> to <code>data-raw</code></p>
@@ -698,13 +698,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Annotate and format the figure so it is more suitable for a report and save it to your figures folder.</p>
 </section></section><section id="gene-expression" class="level2"><h2 class="anchored" data-anchor-id="gene-expression">Gene Expression</h2>
-<p>Bambara groundnut (<em>Vigna subterranea</em>) is an African legume with good nutritional value which can be influenced by low temperature stress. Researchers are interested in the expression levels of a particular set of 35 genes (<code>probe_id</code>) in response to temperature stress. They measure the expression of the genes at 23 and 18 degrees C (high and low temperature). These samples are <strong>not</strong> independent because we have two measure from one gene. The data are in <a href="data-raw/expr.xlsx">expr.xlxs</a>.</p>
+<p>Bambara groundnut (<em>Vigna subterranea</em>) is an African legume with good nutritional value which can be influenced by low temperature stress. Researchers are interested in the expression levels of a particular set of 35 genes (<code>probe_id</code>) in response to temperature stress. They measure the expression of the genes at 23 and 18 degrees C (high and low temperature). These samples are <strong>not</strong> independent because we have two measure from one gene. The data are in <a href="data-raw/expr.xlsx">expr.xlsx</a>.</p>
 <section id="selecting-1" class="level3"><h3 class="anchored" data-anchor-id="selecting-1">Selecting</h3>
 <p><img src="images/answer.png" class="img-fluid"> What is the null hypothesis?</p>
 <!-- #---THINKING ANSWER---  -->
 <!-- expression is not affected by temperature / for each gene,  -->
 <!-- the expression at the higher t   = expression at the lower t -->
-<p><img src="images/do_in_R.png" class="img-fluid"> Save a copy of <a href="data-raw/expr.xlsx">expr.xlxs</a> and import the data. I named the dataframe <code>bambara</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Save a copy of <a href="data-raw/expr.xlsx">expr.xlsx</a> and import the data. I named the dataframe <code>bambara</code></p>
 <p><img src="images/answer.png" class="img-fluid"> What is the appropriate parametric test?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- the appropriate parametric test is the paired sample lm  -->
