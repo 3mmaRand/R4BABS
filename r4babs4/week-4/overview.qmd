@@ -6,37 +6,36 @@ toc-location: right
 
 ---
 
-Last week you . You will now extend t
+This is the second of the three workshops which are specific to the Immunobiology strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, apply the workflow your learned in [Week 2](../week2/overview.qmd) to your own data.
 
 ### Learning objectives
 
 The successful student will be able to:
 
--   
+-   Explain the principles of each step in workflow provided in week 2
 
--   
+-   Edit the workflow provided in week 2 and apply it to their own data
 
--   
+-   Determine values from their data that contribute to the 
+    [class data set](https://3mmarand.github.io/R4BABS/r4babs4/week-4/workshop.html#data-for-the-class-dataset).
+    
+-   change the name of an RStudio project
 
--   
+-   Apply the principles covered in [Data Analysis 1: Core](https://3mmarand.github.io/R4BABS/r4babs4/week-1/overview.html) to their analysis
 
--   
 
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  📖 Read 
 
 
 2.  [Workshop](workshop.qmd)
     
-    i. 💻 One-way ANOVA
 
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻 
 
 
