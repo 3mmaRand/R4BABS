@@ -30,10 +30,8 @@ The successful student will be able to:
 1.  [Prepare](study_before_workshop.qmd)
 
 
-
 2.  [Workshop](workshop.qmd)
     
-
 
 3.  [Consolidate](study_after_workshop.qmd)
 
