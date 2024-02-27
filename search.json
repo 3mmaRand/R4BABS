@@ -1392,7 +1392,7 @@
     "href": "r4babs4/week-4/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "Last week you . You will now extend t\n\nLearning objectives\nThe successful student will be able to:\n\n\n\n\n\n\n\n\n\nInstructions\n\nPrepare\n\n📖 Read\n\nWorkshop\n\n💻 One-way ANOVA\n\nConsolidate\n\n💻",
+    "text": "This is the second of the three workshops which are specific to the Immunobiology strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, apply the workflow your learned in Week 2 to your own data.\n\nLearning objectives\nThe successful student will be able to:\n\nExplain the principles of each step in workflow provided in week 2\nEdit the workflow provided in week 2 and apply it to their own data\nDetermine values from their data that contribute to the class data set.\nchange the name of an RStudio project\nApply the principles covered in Data Analysis 1: Core to their analysis\n\n\n\nInstructions\n\nPrepare\nWorkshop\nConsolidate",
     "crumbs": [
       "BABS 4",
       "Week 4: DA 3 Immunobiology",
