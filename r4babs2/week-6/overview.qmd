@@ -25,15 +25,17 @@ The successful student will be able to:
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  📖 Read the 
+    i.  📖 Read Association 
 
 
 2.  [Workshop](workshop.qmd)
     
-    i.💻 
+    i.  💻 Test whether there is an association between the heights of sibling pairs
+    ii. 💻 Test whether there is an association between blood type and peptic ulcers
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻 
+    i.  💻 Test whether there the proportion of slug colour morphs is the same 
+          in two populations
+    ii. 💻 Test whether there is an association between .....
 
-    ii. 📖 Read 

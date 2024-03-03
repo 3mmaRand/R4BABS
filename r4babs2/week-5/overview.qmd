@@ -35,9 +35,10 @@ The successful student will be able to:
 2.  [Workshop](workshop.qmd)
     
     i. 💻 Two-way ANOVA Choline deficiency on neuron size
-    ii. 💻 What to do when the assumptions are not met
+    <!-- ii. 💻 What to do when the assumptions are not met -->
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻 Appropriately test if the addition of nitrogen and potassium to a crop influences yield and whether they act independently.
+    i.  💻 Appropriately test whether there are regional differences between 
+    two species of butterfly.
 
