@@ -1,19 +1,22 @@
 ---
 title: "Workshop"
-subtitle: "Chi-squared tests and correlation"
+subtitle: "Association: Correlation and Contingency"
 toc: true
 toc-location: right
 ---
 
 ```{r}
 #| include: false
+
 library(tidyverse)
 library(kableExtra)
 ```
 
 # Introduction
 
-![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxxxx" width="1000"}
+# Introduction
+
+![Artwork by @allison_horst: ](images/rainbowr.gif){fig-alt="Animated gif of the R logo with a rainbow that grows over the logo repeatedly." width="600"}
 
 ## Session overview
 
@@ -48,18 +51,336 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
-
 ![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-6`.
 
 ![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
 
-![](images/do_in_R.png) Make a two new scripts called `correlation.R` and `chi-squared-tests.R` to carry out the rest of the work.
+![](images/do_in_R.png) Make a two new scripts called `correlation.R` and `contingency-chi-squared-tests.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comments to each script such as: `# Correlation` and `#Chi-squared tests` and load the **`tidyverse`** [@tidyverse] package in each
+![](images/do_in_R.png) Add a comments to each script such as: `# Correlation` and `# Contingency Chi-squared tests` and load the **`tidyverse`** [@tidyverse] package in each
 
 # Exercises
 
+## Pearson's Correlation 
+
+The data given in [height.txt](data-raw/height.txt) are the heights of eleven sibling pairs. 
+
+![R](../pics/R.png) Save a copy of [height.txt](data-raw/height.txt) to your `data-raw` folder and import it.
+    
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+height <- read_table("data-raw/height.txt")
+```
+
+
+
+::: {.callout-tip}
+## Top Tip
+
+Did you know you can also read a file directly from the internet instead of saving it first?
+
+`height <- read_table("https://3mmarand.github.io/R4BABS/r4babs2/week-6/data-raw/data-raw/height.txt")`
+
+:::
+
+
+### Exploring
+
+![Q](../pics/Q.png) What type of variables are `older` and  `sister`? What are 
+the implications for the test? 
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- They have decimal places and height is a variable we would expect to be  -->
+<!-- normally distributed. It's probable that a parametric correlation is  -->
+<!-- fine. However they are quite small samples, making it difficult to -->
+<!-- show that so doing a non-parametric would not be especially  -->
+<!-- over cautious.  -->
+
+
+
+![Q](../pics/Q.png) Do a quick plot of the data. We don't have a causal 
+relationship here so either variable can go on the *x*-axis.
+   
+```{r}
+ggplot(height, aes(x = younger, y = older) ) +
+  geom_point()
+  
+```
+
+![Q](../pics/Q.png) Remembering that one of the assumptions for parametric 
+correlation is that any correlation should be linear, what do you 
+conclude from the plot? 
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- I'm not totally convinced these look linear - but then I wouldn't  -->
+<!-- be convinced of any other relationship either. There are not  -->
+<!-- always 'right' answers to these questions - sometimes we have  -->
+<!-- to make a judgement . -->
+
+
+### Applying, interpreting and reporting
+
+We will do a parametric correlation in any case. 
+
+![R](../pics/R.png) We can carry out a Pearson's product moment correlation
+with:
+
+```{r}
+cor.test(data = height, ~ older + younger, method = "pearson")
+```
+
+Notice that were are not using the `response ~ explanatory` form here 
+because this is not a causal relationship.
+
+Pearson is the default correlation smethod, therefore we could 
+omit `method = "pearson"`.
+  
+![Q](../pics/Q.png) What do you conclude from the test?  
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- There is no significant correlation between the heights of older  -->
+<!-- and younger siblings - the p value is greater than 0.05 -->
+
+
+### Illustrating
+
+![R](../pics/R.png) Create a better figure for our data using:
+
+```{r}
+fig1 <- ggplot(height, aes(x = younger, y = older)) +
+  geom_point() +
+  scale_x_continuous(name = "Younger sibling height (cm)",
+                     limits = c(120, 190),
+                     expand = c(0, 0)) +
+  scale_y_continuous(name = "Older sibling height (cm)",
+                     limits = c(120, 190),
+                     expand = c(0, 0)) +
+   theme_classic()
+
+fig1
+```
+
+
+![R](../pics/R.png) Use `ggsave()` to save your figure to file in your `figures` folder.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+ggsave("figures/sibling-height.png",
+       plot = fig1,
+       width = 3.5,
+       height = 3.5,
+       units = "in",
+       dpi = 300)
+
+```
+
+
+
+
+## Effect of sample size on correlation
+
+Now we will explore the effect of sample size on the value of the correlation 
+coefficient and its significance. 
+
+![R](../pics/R.png) Create a dataset with twice the number of observations 
+and examine it like this: 
+
+```{r}
+height2 <- rbind(height, height)
+View(height2)
+```
+
+Each pair of values will appear twice.
+
+![R](../pics/R.png) Now repeat the correlation with height2
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+cor.test(data = height2, ~ older + younger, method = "pearson")
+```
+   
+![Q](../pics/Q.png) What do you conclude? What does this tell you about 
+the sensitivity of correlation to sample size? 
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- The correlation coefficient is the same but now it's significant! -->
+<!-- When you are carrying out correlations you should take note of the  -->
+<!-- sample size. Often you see people carrying out correlations on very large -->
+<!-- datasets and, for example finding a correlation coefficient of r = 0.03 -->
+<!-- which is highly significant and drawing the conclusion that the correlation -->
+<!-- is very strong/meaningful. It isn't. Yes it is highly statistically  -->
+<!-- significant, but that doesn't necessarily mean it is biologically  -->
+<!-- significant. You need to both consider both the r value and the  -->
+<!-- p value - especially with large datasets. -->
+
+
+## Spearman's rank Correlation
+
+Since our sibling dataset is so small we might very reasonably have 
+chosen to do a non-parametric correlation. The same function is used 
+but we specify a different value for the `method` argument.
+
+![R](../pics/R.png) Carry out a Spearman's rank correlation: 
+
+```{r}
+cor.test(data = height, ~ older + younger, method = "spearman")
+```
+
+![Q](../pics/Q.png) What do you conclude?  
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- the correlation coefficient is different (r = 0.501), and so is the  -->
+<!-- p value (0.116).  -->
+<!-- Still not significant - as we would expect as non-parametric tests are  -->
+<!-- (usually) more conservative than parametric tests. -->
+
+## Blood group and ulcers
+
+A human geneticist found that in a sample of 477 blood group O people 65 
+had peptic ulcers whereas in a sample of 387 blood group A people 
+31 had peptic ulcers.
+
+![Q](../pics/Q.png) Draw a 2 x 2 table of these data (on a piece of paper).
+
+<!-- 2 x 2 contingency table. -->
+
+<!--              Blood group   Total -->
+
+<!--                  O     A         -->
+
+<!-- Ulcers Yes      65     31     96 -->
+
+<!--        No      412    356    768 -->
+
+<!-- Total          477    387    864 -->
+
+![Q](../pics/Q.png) What is your null hypothesis and what type of test is required?
+
+
+<!-- #---THINKING ANSWER--- --> 
+
+<!-- Here we are recording two categorical variables on each individual and we want  -->
+<!-- to see if there is an association between those variables i.e. we  -->
+<!-- want to perform a test of association. Our null hypothesis is  -->
+<!-- that there is no difference in the proportion of people with peptic  -->
+<!-- ulcers in the two blood-group phenotypes  so we have a contingency test -->
+
+### Blood group and ulcers - inbuilt test
+
+![R](../pics/R.png) Make a vector `obs` that holds the 4 observed numbers. 
+For the moment, don't worry about what order they are in.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+obs <- c(65, 412, 31, 356)
+```
+
+For a contingency chi squared test, the inbuilt chi-squared test can be 
+used in a straightforward way. However, we need to structure our data 
+as a 2 x 2 table rather than as a 1 x 4 vector. A 2 x 2 table can be created 
+with the `matrix()` function. We can also name the rows and columns which 
+helps us interpret the results.
+
+![R](../pics/R.png) To create a list containing two elements which are vectors 
+for the two groups in each variable we do:
+
+```{r}
+# list of two elements
+# the two variables are whether someone has an ulcer or not and whether 
+# they are blood group O or A
+vars <- list(ulcer = c("yes","no"), blood = c("O", "A"))
+vars
+
+```
+
+![R](../pics/R.png) Now we can create the matrix from our vector of numbers 
+`obs` and use our list `vars` to give the column and row names:
+
+```{r}
+ulcers <- matrix(obs, nrow = 2, dimnames = vars)
+ulcers
+```
+
+![R](../pics/R.png) Check the content of `ulcers` and recreate if 
+the numbers are not in the correct place (*i.e.*, do not match your table)
+
+![R](../pics/R.png) Run a contingency chi-squared with:
+
+```{r}
+chisq.test(ulcers, correct = FALSE)
+# you should look up the command in the manual to see what correct = FALSE does
+```
+
+To help us discover what is the direction of any deviation from the null hypothesis it is helpful to see what the expected values were. These are accessible in the `$expected` variable in the output value of the `chisq.test()` method (See the manual!).
+
+![R](../pics/R.png) View the expected values with:
+
+```{r}
+chisq.test(ulcers, correct = FALSE)$expected
+```
+
+![Q](../pics/Q.png) What do you conclude about the association between ABO blood group and peptic ulcers?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- People with group O seem to get more ulcers: 65 observed is higher than  -->
+<!-- the expected 53. People with group A have fewer than expected:  -->
+<!-- 31 observed is lower than the expected 43. -->
+
+<!-- For a contingency table such as this d.f. = (r - 1)(c - 1) = 1  -->
+<!-- i.e. (number of rows - 1)( number of columns - 1) -->
+
+### Blood group and ulcers- alternative data format.
+
+The data we were given was already tabulated. There are raw data in [blood_ulcers.txt](data-raw/blood_ulcers.txt). Examine this file to understand 
+the format
+
+![W](../pics/W.png) Save a copy of [blood_ulcers.txt](data-raw/blood_ulcers.txt) 
+to your `data-raw` folder
+
+![R](../pics/R.png) Read the data in to R and check the structure.
+
+```{r}
+#| include: false
+
+#---CODING ANSWER---
+
+blood_ulcers <- read_table("data-raw/blood_ulcers.txt")
+str(blood_ulcers)
+```
+
+
+![R](../pics/R.png) We can tabulate the data and assign it using the `table()` command:
+
+```{r}
+ulctab <- table(blood_ulcers$blood, blood_ulcers$ulcer)
+# examine the result
+ulctab
+
+```
+
+We need to give both variables to cross tabulate.
+
+![R](../pics/R.png) Now carry out the contingency chi-squared like this:
+
+```{r}
+chisq.test(ulctab, correct = FALSE)
+```
 
 
 You're finished!

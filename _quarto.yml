@@ -160,7 +160,7 @@ website:
              - href: r4babs2/week-5/study_after_workshop.qmd
                text: Consolidate!
           - text: ---
-          - section: "Week 6: Chi-squared and correlation"
+          - section: "Week 6: Association"
             contents:
              - href: r4babs2/week-6/overview.qmd
                text: About

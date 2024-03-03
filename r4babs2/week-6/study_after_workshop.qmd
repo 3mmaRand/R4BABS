@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to consolidate this week"
-subtitle: "Chi-squared tests and correlation"
+subtitle: "Association: Correlation and Contingency"
 toc: true
 toc-location: right
 format:

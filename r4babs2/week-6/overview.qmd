@@ -1,9 +1,13 @@
 ---
 title: "Overview"
-subtitle: "Chi-squared tests and correlation"
+subtitle: "Association: Chi-squared contingency and correlation"
 toc: true
 toc-location: right
 ---
+
+
+![Artwork by @allison_horst: ](images/code-hero.gif){fig-alt="Animated gif with pastel lines in the background. The words 'CODE HERO' in bold black text scroll across repeatedly." width="600"}
+
 
 This week you will 
 
@@ -11,19 +15,17 @@ This week you will
 
 The successful student will be able to:
 
--   
-
--  
-
--   
-
--   
+-   Explain the principles of correlation and chi-squared contingency tests
+-   Select, appropriately correlation and chi-squared contingency tests
+-   Apply and interpret a correlation and chi-squared contingency tests in R
+-   Appreciate the difference between statistical significance and biological significance
+-   Summarise and illustrate with appropriate R figures test results scientifically
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  📖 Read the book **OR** 📹 Watch two videos
+    i.  📖 Read the 
 
 
 2.  [Workshop](workshop.qmd)

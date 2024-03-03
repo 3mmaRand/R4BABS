@@ -59,4 +59,4 @@ Learning Data Analysis in R is like learning to speak a new language or play an 
 ## Two-way ANOVA
 
 
-## Chi-squared tests and correlation
+## Association: Correlation and Contingency
