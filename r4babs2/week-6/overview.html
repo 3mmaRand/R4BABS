@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -136,7 +156,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">Week 6: Chi-squared and correlation</a></li><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">About</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">Week 6: Association</a></li><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">About</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -339,7 +359,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">Week 6: Chi-squared and correlation</span></a>
+ <span class="menu-text">Week 6: Association</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -389,10 +409,10 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">Week 6: Chi-squared and correlation</a></li><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">About</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">Week 6: Association</a></li><li class="breadcrumb-item"><a href="../../r4babs2/week-6/overview.html">About</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Overview</h1>
-<p class="subtitle lead">Chi-squared tests and correlation</p>
+<p class="subtitle lead">Association: Chi-squared contingency and correlation</p>
 </div>
 
 
@@ -409,15 +429,22 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </header>
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/code-hero.gif" class="img-fluid figure-img" alt="Animated gif with pastel lines in the background. The words 'CODE HERO' in bold black text scroll across repeatedly." width="600"></p>
+<figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>:</figcaption>
+</figure>
+</div>
 <p>This week you will</p>
 <section id="learning-objectives" class="level3">
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
 <p>The successful student will be able to:</p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li>Explain the principles of correlation and chi-squared contingency tests</li>
+<li>Select, appropriately correlation and chi-squared contingency tests</li>
+<li>Apply and interpret a correlation and chi-squared contingency tests in R</li>
+<li>Appreciate the difference between statistical significance and biological significance</li>
+<li>Summarise and illustrate with appropriate R figures test results scientifically</li>
 </ul>
 </section>
 <section id="instructions" class="level3">
@@ -425,21 +452,29 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <ol type="1">
 <li><p><a href="../../r4babs2/week-6/study_before_workshop.html">Prepare</a></p>
 <ol type="i">
-<li>📖 Read the book <strong>OR</strong> 📹 Watch two videos</li>
+<li>📖 Read Association</li>
 </ol></li>
 <li><p><a href="../../r4babs2/week-6/workshop.html">Workshop</a></p>
-<p>i.💻</p></li>
+<ol type="i">
+<li>💻 Test whether there is an association between the heights of sibling pairs</li>
+<li>💻 Test whether there is an association between blood type and peptic ulcers</li>
+</ol></li>
 <li><p><a href="../../r4babs2/week-6/study_after_workshop.html">Consolidate</a></p>
 <ol type="i">
-<li><p>💻</p></li>
-<li><p>📖 Read</p></li>
+<li>💻 Test whether there the proportion of slug colour morphs is the same in two populations</li>
+<li>💻 Test whether there is an association between …..</li>
 </ol></li>
 </ol>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-allison_horst" class="csl-entry" role="listitem">
+Horst, Allison. 2023. <span>“Data Science Illustrations.”</span> <a href="https://allisonhorst.com/allison-horst">https://allisonhorst.com/allison-horst</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
