@@ -12,7 +12,7 @@ Last week you learnt how to use and interpret the general linear model when the 
 
 The successful student will be able to:
 
--   explain the rationale behind ANOVA understand the meaning of the F values 
+-   explain the rationale for ANOVA 
 
 -   select, appropriately, one-way ANOVA and Kruskal-Wallis 
 
