@@ -48,8 +48,6 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
-
 ![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-3`.
 
 ![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
@@ -150,8 +148,8 @@ summary(mod)
 
 <!-- #---THINKING ANSWER---  -->
 
-<!-- Adipoctyes treated with nicotinic acid (mean +/- s.e.: 7.51 +/- 1.10 pg/mL)  -->
-<!-- secrete significantly more adiponectin than controls (5.55  +/- 0.12 pg/mL)  -->
+<!-- Adipocytes treated with nicotinic acid (mean +/- s.e.: 7.51 +/- 0.38 pg/mL)  -->
+<!-- secrete significantly more adiponectin than controls (5.55  +/- 0.46 pg/mL)  -->
 <!-- (t = 3.27; d.f. = 28; p = 0.003). -->
 
 
