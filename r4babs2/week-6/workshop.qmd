@@ -65,7 +65,7 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 The data given in [height.txt](data-raw/height.txt) are the heights of eleven sibling pairs. 
 
-![R](../pics/R.png) Save a copy of [height.txt](data-raw/height.txt) to your `data-raw` folder and import it.
+![](images/do_in_R.png) Save a copy of [height.txt](data-raw/height.txt) to your `data-raw` folder and import it.
     
 ```{r}
 #| include: false
@@ -88,7 +88,7 @@ Did you know you can also read a file directly from the internet instead of savi
 
 ### Exploring
 
-![Q](../pics/Q.png) What type of variables are `older` and  `sister`? What are 
+![](images/answer.png) What type of variables are `older` and  `sister`? What are 
 the implications for the test? 
 
 <!-- #---THINKING ANSWER--- -->
@@ -101,7 +101,7 @@ the implications for the test?
 
 
 
-![Q](../pics/Q.png) Do a quick plot of the data. We don't have a causal 
+![](images/answer.png) Do a quick plot of the data. We don't have a causal 
 relationship here so either variable can go on the *x*-axis.
    
 ```{r}
@@ -110,7 +110,7 @@ ggplot(height, aes(x = younger, y = older) ) +
   
 ```
 
-![Q](../pics/Q.png) Remembering that one of the assumptions for parametric 
+![](images/answer.png) Remembering that one of the assumptions for parametric 
 correlation is that any correlation should be linear, what do you 
 conclude from the plot? 
 
@@ -126,7 +126,7 @@ conclude from the plot?
 
 We will do a parametric correlation in any case. 
 
-![R](../pics/R.png) We can carry out a Pearson's product moment correlation
+![](images/do_in_R.png) We can carry out a Pearson's product moment correlation
 with:
 
 ```{r}
@@ -139,7 +139,7 @@ because this is not a causal relationship.
 Pearson is the default correlation smethod, therefore we could 
 omit `method = "pearson"`.
   
-![Q](../pics/Q.png) What do you conclude from the test?  
+![](images/answer.png) What do you conclude from the test?  
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -149,7 +149,7 @@ omit `method = "pearson"`.
 
 ### Illustrating
 
-![R](../pics/R.png) Create a better figure for our data using:
+![](images/do_in_R.png) Create a better figure for our data using:
 
 ```{r}
 fig1 <- ggplot(height, aes(x = younger, y = older)) +
@@ -166,7 +166,7 @@ fig1
 ```
 
 
-![R](../pics/R.png) Use `ggsave()` to save your figure to file in your `figures` folder.
+![](images/do_in_R.png) Use `ggsave()` to save your figure to file in your `figures` folder.
 
 ```{r}
 #| include: false
@@ -190,7 +190,7 @@ ggsave("figures/sibling-height.png",
 Now we will explore the effect of sample size on the value of the correlation 
 coefficient and its significance. 
 
-![R](../pics/R.png) Create a dataset with twice the number of observations 
+![](images/do_in_R.png) Create a dataset with twice the number of observations 
 and examine it like this: 
 
 ```{r}
@@ -200,7 +200,7 @@ View(height2)
 
 Each pair of values will appear twice.
 
-![R](../pics/R.png) Now repeat the correlation with height2
+![](images/do_in_R.png) Now repeat the correlation with height2
 ```{r}
 #| include: false
 
@@ -209,7 +209,7 @@ Each pair of values will appear twice.
 cor.test(data = height2, ~ older + younger, method = "pearson")
 ```
    
-![Q](../pics/Q.png) What do you conclude? What does this tell you about 
+![](images/answer.png) What do you conclude? What does this tell you about 
 the sensitivity of correlation to sample size? 
 
 <!-- #---THINKING ANSWER--- -->
@@ -231,13 +231,13 @@ Since our sibling dataset is so small we might very reasonably have
 chosen to do a non-parametric correlation. The same function is used 
 but we specify a different value for the `method` argument.
 
-![R](../pics/R.png) Carry out a Spearman's rank correlation: 
+![](images/do_in_R.png) Carry out a Spearman's rank correlation: 
 
 ```{r}
 cor.test(data = height, ~ older + younger, method = "spearman")
 ```
 
-![Q](../pics/Q.png) What do you conclude?  
+![](images/answer.png) What do you conclude?  
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -252,7 +252,7 @@ A human geneticist found that in a sample of 477 blood group O people 65
 had peptic ulcers whereas in a sample of 387 blood group A people 
 31 had peptic ulcers.
 
-![Q](../pics/Q.png) Draw a 2 x 2 table of these data (on a piece of paper).
+![](images/answer.png) Draw a 2 x 2 table of these data (on a piece of paper).
 
 <!-- 2 x 2 contingency table. -->
 
@@ -266,7 +266,7 @@ had peptic ulcers whereas in a sample of 387 blood group A people
 
 <!-- Total          477    387    864 -->
 
-![Q](../pics/Q.png) What is your null hypothesis and what type of test is required?
+![](images/answer.png) What is your null hypothesis and what type of test is required?
 
 
 <!-- #---THINKING ANSWER--- --> 
@@ -279,7 +279,7 @@ had peptic ulcers whereas in a sample of 387 blood group A people
 
 ### Blood group and ulcers - inbuilt test
 
-![R](../pics/R.png) Make a vector `obs` that holds the 4 observed numbers. 
+![](images/do_in_R.png) Make a vector `obs` that holds the 4 observed numbers. 
 For the moment, don't worry about what order they are in.
 
 ```{r}
@@ -296,7 +296,7 @@ as a 2 x 2 table rather than as a 1 x 4 vector. A 2 x 2 table can be created
 with the `matrix()` function. We can also name the rows and columns which 
 helps us interpret the results.
 
-![R](../pics/R.png) To create a list containing two elements which are vectors 
+![](images/do_in_R.png) To create a list containing two elements which are vectors 
 for the two groups in each variable we do:
 
 ```{r}
@@ -308,7 +308,7 @@ vars
 
 ```
 
-![R](../pics/R.png) Now we can create the matrix from our vector of numbers 
+![](images/do_in_R.png) Now we can create the matrix from our vector of numbers 
 `obs` and use our list `vars` to give the column and row names:
 
 ```{r}
@@ -316,10 +316,10 @@ ulcers <- matrix(obs, nrow = 2, dimnames = vars)
 ulcers
 ```
 
-![R](../pics/R.png) Check the content of `ulcers` and recreate if 
+![](images/do_in_R.png) Check the content of `ulcers` and recreate if 
 the numbers are not in the correct place (*i.e.*, do not match your table)
 
-![R](../pics/R.png) Run a contingency chi-squared with:
+![](images/do_in_R.png) Run a contingency chi-squared with:
 
 ```{r}
 chisq.test(ulcers, correct = FALSE)
@@ -328,13 +328,13 @@ chisq.test(ulcers, correct = FALSE)
 
 To help us discover what is the direction of any deviation from the null hypothesis it is helpful to see what the expected values were. These are accessible in the `$expected` variable in the output value of the `chisq.test()` method (See the manual!).
 
-![R](../pics/R.png) View the expected values with:
+![](images/do_in_R.png) View the expected values with:
 
 ```{r}
 chisq.test(ulcers, correct = FALSE)$expected
 ```
 
-![Q](../pics/Q.png) What do you conclude about the association between ABO blood group and peptic ulcers?
+![](images/answer.png) What do you conclude about the association between ABO blood group and peptic ulcers?
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -353,7 +353,7 @@ the format
 ![W](../pics/W.png) Save a copy of [blood_ulcers.txt](data-raw/blood_ulcers.txt) 
 to your `data-raw` folder
 
-![R](../pics/R.png) Read the data in to R and check the structure.
+![](images/do_in_R.png) Read the data in to R and check the structure.
 
 ```{r}
 #| include: false
@@ -365,7 +365,7 @@ str(blood_ulcers)
 ```
 
 
-![R](../pics/R.png) We can tabulate the data and assign it using the `table()` command:
+![](images/do_in_R.png) We can tabulate the data and assign it using the `table()` command:
 
 ```{r}
 ulctab <- table(blood_ulcers$blood, blood_ulcers$ulcer)
@@ -376,7 +376,7 @@ ulctab
 
 We need to give both variables to cross tabulate.
 
-![R](../pics/R.png) Now carry out the contingency chi-squared like this:
+![](images/do_in_R.png) Now carry out the contingency chi-squared like this:
 
 ```{r}
 chisq.test(ulctab, correct = FALSE)
