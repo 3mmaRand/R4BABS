@@ -435,15 +435,13 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   <li><a href="#effect-of-sample-size-on-correlation" id="toc-effect-of-sample-size-on-correlation" class="nav-link" data-scroll-target="#effect-of-sample-size-on-correlation">Effect of sample size on correlation</a></li>
   <li><a href="#spearmans-rank-correlation" id="toc-spearmans-rank-correlation" class="nav-link" data-scroll-target="#spearmans-rank-correlation">Spearman’s rank Correlation</a></li>
   <li>
-<a href="#blood-group-and-ulcers" id="toc-blood-group-and-ulcers" class="nav-link" data-scroll-target="#blood-group-and-ulcers">Blood group and ulcers</a>
+<a href="#contingency-chi-squared-test" id="toc-contingency-chi-squared-test" class="nav-link" data-scroll-target="#contingency-chi-squared-test">Contingency chi-squared test</a>
   <ul class="collapse">
-<li><a href="#blood-group-and-ulcers---inbuilt-test" id="toc-blood-group-and-ulcers---inbuilt-test" class="nav-link" data-scroll-target="#blood-group-and-ulcers---inbuilt-test">Blood group and ulcers - inbuilt test</a></li>
-  <li><a href="#blood-group-and-ulcers--alternative-data-format." id="toc-blood-group-and-ulcers--alternative-data-format." class="nav-link" data-scroll-target="#blood-group-and-ulcers--alternative-data-format.">Blood group and ulcers- alternative data format.</a></li>
+<li><a href="#blood-group-and-ulcers--alternative-data-format." id="toc-blood-group-and-ulcers--alternative-data-format." class="nav-link" data-scroll-target="#blood-group-and-ulcers--alternative-data-format.">Blood group and ulcers- alternative data format.</a></li>
   </ul>
 </li>
   </ul>
 </li>
-  <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
   <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -599,15 +597,11 @@ sample estimates:
 <p><img src="images/do_in_R.png" class="img-fluid"> Use <code>ggsave()</code> to save your figure to file in your <code>figures</code> folder.</p>
 </section></section><section id="effect-of-sample-size-on-correlation" class="level2"><h2 class="anchored" data-anchor-id="effect-of-sample-size-on-correlation">Effect of sample size on correlation</h2>
 <p>Now we will explore the effect of sample size on the value of the correlation coefficient and its significance.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create a dataset with twice the number of observations and examine it like this:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a dataset with twice the number of observations:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">height2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">height</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">height2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in .External2(C_dataviewer, x, title): unable to start data viewer</code></pre>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">height2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">height</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Each pair of values will appear twice.</p>
+<p>Make sure you view the resulting dataframe. Each pair of values will appear twice.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now repeat the correlation with height2</p>
 <p><img src="images/answer.png" class="img-fluid"> What do you conclude? What does this tell you about the sensitivity of correlation to sample size?</p>
 <!-- #---THINKING ANSWER--- -->
@@ -624,7 +618,7 @@ sample estimates:
 <p>Since our sibling dataset is so small we might very reasonably have chosen to do a non-parametric correlation. The same function is used but we specify a different value for the <code>method</code> argument.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Carry out a Spearman’s rank correlation:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">height</span>, <span class="op">~</span> <span class="va">older</span> <span class="op">+</span> <span class="va">younger</span>, method <span class="op">=</span> <span class="st">"spearman"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">height</span>, <span class="op">~</span> <span class="va">older</span> <span class="op">+</span> <span class="va">younger</span>, method <span class="op">=</span> <span class="st">"spearman"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Spearman's rank correlation rho
@@ -643,7 +637,7 @@ sample estimates:
 <!-- p value (0.116).  -->
 <!-- Still not significant - as we would expect as non-parametric tests are  -->
 <!-- (usually) more conservative than parametric tests. -->
-</section><section id="blood-group-and-ulcers" class="level2"><h2 class="anchored" data-anchor-id="blood-group-and-ulcers">Blood group and ulcers</h2>
+</section><section id="contingency-chi-squared-test" class="level2"><h2 class="anchored" data-anchor-id="contingency-chi-squared-test">Contingency chi-squared test</h2>
 <p>A human geneticist found that in a sample of 477 blood group O people 65 had peptic ulcers whereas in a sample of 387 blood group A people 31 had peptic ulcers.</p>
 <p><img src="images/answer.png" class="img-fluid"> Draw a 2 x 2 table of these data (on a piece of paper).</p>
 <!-- 2 x 2 contingency table. -->
@@ -659,12 +653,11 @@ sample estimates:
 <!-- want to perform a test of association. Our null hypothesis is  -->
 <!-- that there is no difference in the proportion of people with peptic  -->
 <!-- ulcers in the two blood-group phenotypes  so we have a contingency test -->
-<section id="blood-group-and-ulcers---inbuilt-test" class="level3"><h3 class="anchored" data-anchor-id="blood-group-and-ulcers---inbuilt-test">Blood group and ulcers - inbuilt test</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a vector <code>obs</code> that holds the 4 observed numbers. For the moment, don’t worry about what order they are in.</p>
 <p>For a contingency chi squared test, the inbuilt chi-squared test can be used in a straightforward way. However, we need to structure our data as a 2 x 2 table rather than as a 1 x 4 vector. A 2 x 2 table can be created with the <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> function. We can also name the rows and columns which helps us interpret the results.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> To create a list containing two elements which are vectors for the two groups in each variable we do:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list of two elements</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list of two elements</span></span>
 <span><span class="co"># the two variables are whether someone has an ulcer or not and whether </span></span>
 <span><span class="co"># they are blood group O or A</span></span>
 <span><span class="va">vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ulcer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>,<span class="st">"no"</span><span class="op">)</span>, blood <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"O"</span>, <span class="st">"A"</span><span class="op">)</span><span class="op">)</span></span>
@@ -679,7 +672,7 @@ $blood
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now we can create the matrix from our vector of numbers <code>obs</code> and use our list <code>vars</code> to give the column and row names:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulcers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">obs</span>, nrow <span class="op">=</span> <span class="fl">2</span>, dimnames <span class="op">=</span> <span class="va">vars</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulcers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">obs</span>, nrow <span class="op">=</span> <span class="fl">2</span>, dimnames <span class="op">=</span> <span class="va">vars</span><span class="op">)</span></span>
 <span><span class="va">ulcers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     blood
@@ -691,7 +684,7 @@ ulcer   O   A
 <p><img src="images/do_in_R.png" class="img-fluid"> Check the content of <code>ulcers</code> and recreate if the numbers are not in the correct place (<em>i.e.</em>, do not match your table)</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Run a contingency chi-squared with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -699,12 +692,12 @@ ulcer   O   A
 data:  ulcers
 X-squared = 6.824, df = 1, p-value = 0.008994</code></pre>
 </div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># you should look up the command in the manual to see what correct = FALSE does</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># you should look up the command in the manual to see what correct = FALSE does</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To help us discover what is the direction of any deviation from the null hypothesis it is helpful to see what the expected values were. These are accessible in the <code>$expected</code> variable in the output value of the <code><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test()</a></code> method (See the manual!).</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> View the expected values with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">expected</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">expected</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     blood
 ulcer   O   A
@@ -719,13 +712,13 @@ ulcer   O   A
 <!-- 31 observed is lower than the expected 43. -->
 <!-- For a contingency table such as this d.f. = (r - 1)(c - 1) = 1  -->
 <!-- i.e. (number of rows - 1)( number of columns - 1) -->
-</section><section id="blood-group-and-ulcers--alternative-data-format." class="level3"><h3 class="anchored" data-anchor-id="blood-group-and-ulcers--alternative-data-format.">Blood group and ulcers- alternative data format.</h3>
+<section id="blood-group-and-ulcers--alternative-data-format." class="level3"><h3 class="anchored" data-anchor-id="blood-group-and-ulcers--alternative-data-format.">Blood group and ulcers- alternative data format.</h3>
 <p>The data we were given was already tabulated. There are raw data in <a href="data-raw/blood_ulcers.txt">blood_ulcers.txt</a>. Examine this file to understand the format</p>
-<p><img src="../pics/W.png" class="img-fluid" alt="W"> Save a copy of <a href="data-raw/blood_ulcers.txt">blood_ulcers.txt</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_on_internet.png" class="img-fluid"> Save a copy of <a href="data-raw/blood_ulcers.txt">blood_ulcers.txt</a> to your <code>data-raw</code> folder</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read the data in to R and check the structure.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> We can tabulate the data and assign it using the <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> command:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulctab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">blood_ulcers</span><span class="op">$</span><span class="va">blood</span>, <span class="va">blood_ulcers</span><span class="op">$</span><span class="va">ulcer</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulctab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">blood_ulcers</span><span class="op">$</span><span class="va">blood</span>, <span class="va">blood_ulcers</span><span class="op">$</span><span class="va">ulcer</span><span class="op">)</span></span>
 <span><span class="co"># examine the result</span></span>
 <span><span class="va">ulctab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -738,7 +731,7 @@ ulcer   O   A
 <p>We need to give both variables to cross tabulate.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now carry out the contingency chi-squared like this:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulctab</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulctab</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -747,13 +740,12 @@ data:  ulctab
 X-squared = 6.824, df = 1, p-value = 0.008994</code></pre>
 </div>
 </div>
-<p>You’re finished!</p>
-</section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
+<p>Congratulations on making it to the end of the stage 1 Data Analysis in R teaching!</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/xxx.png" class="img-fluid figure-img" width="1000"></p>
+<figure class="figure"><p><img src="images/code-hero.gif" class="img-fluid figure-img" width="600"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>:</figcaption></figure>
 </div>
-</section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
+</section></section></section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs2/week-6/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>

@@ -420,12 +420,57 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </div>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
 <ol type="1">
-<li>💻</li>
+<li>💻 The slug <em>Arion ater</em> has three major colour forms, black, chocolate brown and red. Sampling in population X revealed 27 black, 17 brown and 9 red individuals, whereas in population Y the corresponding numbers were 39, 10 and 21. Create an appropriate data structure and test whether the proportion of black, brown and red slugs differs between the two populations.</li>
 </ol>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#  names for the rows and columns</span></span>
+<span><span class="va">vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x"</span>,<span class="st">"y"</span><span class="op">)</span>, </span>
+<span>             colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"brown"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># matrix of the data with named columns and rows</span></span>
+<span><span class="va">slugs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">27</span>, <span class="fl">39</span>, <span class="fl">17</span>, <span class="fl">10</span>, <span class="fl">9</span>, <span class="fl">21</span><span class="op">)</span>, </span>
+<span>                nrow <span class="op">=</span> <span class="fl">2</span>, dimnames <span class="op">=</span> <span class="va">vars</span><span class="op">)</span></span>
+<span><span class="va">slugs</span></span>
+<span><span class="co"># gives me</span></span>
+<span><span class="co">#    colour</span></span>
+<span><span class="co"># pop black brown red</span></span>
+<span><span class="co">#   x    27    17   9</span></span>
+<span><span class="co">#   y    39    10  21</span></span>
+<span></span>
+<span><span class="co"># you may need to try a couple of times to get the numbers in </span></span>
+<span><span class="co"># the right places</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">slugs</span><span class="op">)</span></span>
+<span><span class="co"># X-squared = 6.5726, df = 2, p-value = 0.03739</span></span>
+<span></span>
+<span><span class="co"># p &lt; 0.05 so we reject the null hypothesis i.e., the proportions of the colour </span></span>
+<span><span class="co"># forms are significantly different in the two populations </span></span>
+<span><span class="co"># (mostly as a result of differences in the brown and red classes - </span></span>
+<span><span class="co"># look at the differences between observed and expected values for </span></span>
+<span><span class="co"># the three colour forms in the table above).</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">slugs</span><span class="op">)</span><span class="op">$</span><span class="va">expected</span></span>
+<span><span class="co">#       colour</span></span>
+<span><span class="co"># pop    black    brown      red</span></span>
+<span><span class="co">#   x 28.43902 11.63415 12.92683</span></span>
+<span><span class="co">#   y 37.56098 15.36585 17.07317</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <ol start="2" type="1">
-<li>📖 Read <a href="https://3mmarand.github.io/comp4biosci/xxx.html">xxx</a>
-</li>
+<li>💻 The raw, untabulated data are in <a href="data-raw/slugs.txt">slugs.txt</a>. Perform the test on these data.</li>
 </ol>
+<div class="cell">
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># import the data</span></span>
+<span><span class="va">slugs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_table.html">read_table</a></span><span class="op">(</span><span class="st">"data-raw/slugs.txt"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># put it into a table</span></span>
+<span><span class="va">slugtab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">slugs</span><span class="op">$</span><span class="va">colour</span>, <span class="va">slugs</span><span class="op">$</span><span class="va">pop</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># carry out the test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">slugtab</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
