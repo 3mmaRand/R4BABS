@@ -20,13 +20,63 @@ library(tidyverse)
 
 # Exercises
 
-1.  💻 
-
+1.  💻 The slug *Arion ater* has three major colour forms, black, chocolate brown and red. Sampling in population X revealed 27 black, 17 brown and 9 red individuals, whereas in population Y the corresponding numbers were 39, 10 and 21. Create an appropriate data structure and test whether the proportion of black, brown and red slugs differs between the two populations.
 
 ```{r}
 #| output: false
 
+#  names for the rows and columns
+vars <- list(pop = c("x","y"), 
+             colour = c("black", "brown", "red"))
+
+# matrix of the data with named columns and rows
+slugs <- matrix(c(27, 39, 17, 10, 9, 21), 
+                nrow = 2, dimnames = vars)
+slugs
+# gives me
+#    colour
+# pop black brown red
+#   x    27    17   9
+#   y    39    10  21
+
+# you may need to try a couple of times to get the numbers in 
+# the right places
 
 ```
 
-2.  📖 Read [xxx](https://3mmarand.github.io/comp4biosci/xxx.html)
+```{r}
+#| output: false
+
+chisq.test(slugs)
+# X-squared = 6.5726, df = 2, p-value = 0.03739
+
+# p < 0.05 so we reject the null hypothesis i.e., the proportions of the colour 
+# forms are significantly different in the two populations 
+# (mostly as a result of differences in the brown and red classes - 
+# look at the differences between observed and expected values for 
+# the three colour forms in the table above).
+chisq.test(slugs)$expected
+#       colour
+# pop    black    brown      red
+#   x 28.43902 11.63415 12.92683
+#   y 37.56098 15.36585 17.07317
+
+```
+
+
+2. 💻  The raw, untabulated data are in [slugs.txt](data-raw/slugs.txt). Perform the test on these data.
+
+```{r}
+#| output: false
+
+# import the data
+slugs <- read_table("data-raw/slugs.txt")
+
+# put it into a table
+slugtab <- table(slugs$colour, slugs$pop)
+
+# carry out the test
+chisq.test(slugtab)
+```
+
+

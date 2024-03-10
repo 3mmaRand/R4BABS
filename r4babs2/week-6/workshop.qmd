@@ -190,15 +190,14 @@ ggsave("figures/sibling-height.png",
 Now we will explore the effect of sample size on the value of the correlation 
 coefficient and its significance. 
 
-![](images/do_in_R.png) Create a dataset with twice the number of observations 
-and examine it like this: 
+![](images/do_in_R.png) Create a dataset with twice the number of observations: 
 
 ```{r}
 height2 <- rbind(height, height)
-View(height2)
+
 ```
 
-Each pair of values will appear twice.
+Make sure you view the resulting dataframe. Each pair of values will appear twice.
 
 ![](images/do_in_R.png) Now repeat the correlation with height2
 ```{r}
@@ -246,7 +245,7 @@ cor.test(data = height, ~ older + younger, method = "spearman")
 <!-- Still not significant - as we would expect as non-parametric tests are  -->
 <!-- (usually) more conservative than parametric tests. -->
 
-## Blood group and ulcers
+## Contingency chi-squared test
 
 A human geneticist found that in a sample of 477 blood group O people 65 
 had peptic ulcers whereas in a sample of 387 blood group A people 
@@ -277,7 +276,6 @@ had peptic ulcers whereas in a sample of 387 blood group A people
 <!-- that there is no difference in the proportion of people with peptic  -->
 <!-- ulcers in the two blood-group phenotypes  so we have a contingency test -->
 
-### Blood group and ulcers - inbuilt test
 
 ![](images/do_in_R.png) Make a vector `obs` that holds the 4 observed numbers. 
 For the moment, don't worry about what order they are in.
@@ -350,7 +348,7 @@ chisq.test(ulcers, correct = FALSE)$expected
 The data we were given was already tabulated. There are raw data in [blood_ulcers.txt](data-raw/blood_ulcers.txt). Examine this file to understand 
 the format
 
-![W](../pics/W.png) Save a copy of [blood_ulcers.txt](data-raw/blood_ulcers.txt) 
+![](images/do_on_internet.png) Save a copy of [blood_ulcers.txt](data-raw/blood_ulcers.txt) 
 to your `data-raw` folder
 
 ![](images/do_in_R.png) Read the data in to R and check the structure.
@@ -383,11 +381,9 @@ chisq.test(ulctab, correct = FALSE)
 ```
 
 
-You're finished!
+Congratulations on making it to the end of the stage 1 Data Analysis in R teaching!
 
-# 🥳 Well Done! 🎉
-
-![Artwork by @allison_horst: ](images/xxx.png){fig-alt="xxx" width="1000"}
+![Artwork by @allison_horst: ](images/code-hero.gif){fig-alt="Animated gif with pastel lines in the background. The words 'CODE HERO' in bold black text scroll across repeatedly." width="600"}
 
 # Independent study following the workshop
 
