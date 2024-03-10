@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Data Analysis in R - Workshop</title>
@@ -606,7 +606,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/ggplot2_masterpiece.png" class="img-fluid figure-img" alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."></p>
+<figure class="figure"><p><img src="images/ggplot2_masterpiece.png" class="img-fluid figure-img"></p>
 <figcaption>Data data Artwork from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst</figcaption></figure>
 </div>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
@@ -923,7 +923,7 @@ Tip: <code>ggplot()</code>
 </section></section><section id="pigeons" class="level2"><h2 class="anchored" data-anchor-id="pigeons">Pigeons</h2>
 <p>The data in <a href="data-raw/pigeon.txt">pigeon.txt</a> are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/interorbital.png" class="img-fluid figure-img" alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."></p>
+<figure class="figure"><p><img src="images/interorbital.png" class="img-fluid figure-img"></p>
 <figcaption>Interorbital width is the distance between the eyes</figcaption></figure>
 </div>
 <section id="import-1" class="level3"><h3 class="anchored" data-anchor-id="import-1">Import</h3>
@@ -1531,7 +1531,7 @@ Tip: <code>ggplot()</code>
 <p>You’re finished!</p>
 </section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/tidy-data.jpg" class="img-fluid figure-img" alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure"></p>
+<figure class="figure"><p><img src="images/tidy-data.jpg" class="img-fluid figure-img"></p>
 <figcaption>Illustrations from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst</figcaption></figure>
 </div>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
@@ -1653,6 +1653,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -1694,7 +1699,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

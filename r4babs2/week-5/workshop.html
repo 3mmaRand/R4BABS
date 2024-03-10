@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Data Analysis in R - Workshop</title>
@@ -460,7 +460,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/dragon-residuals-1.png" class="img-fluid figure-img" alt="A green striped dragon stands on a scale, noting how their weight is actually greater than what a model predicts it would be. Text reads 'Hi, I'm a 5.1 foot tall striped dragon and my weight is 3.9 tons...but my actual weight is 4.2 tons!' A stylized equation below shows that the residual is calculated by 4.2 - 3.9 = 0.3 tons." width="800"></p>
+<figure class="figure"><p><img src="images/dragon-residuals-1.png" class="img-fluid figure-img" width="800"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>:</figcaption></figure>
 </div>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
@@ -832,7 +832,7 @@ P value adjustment: tukey method for comparing a family of 4 estimates </code></
 <p>You’re finished!</p>
 </section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/dragon-residuals-2.png" class="img-fluid figure-img" alt="A hoard of multiple different dragons stand on scales, shouting out their residuals based on the model estimates (e.g. 'My residual is 0.2 tons! My residual is -0.4 tons! My residual is 0.9 tons!' A histogram to the right shows the distribution of these residuals, with text 'Check: are residuals normally distributed?'" width="800"></p>
+<figure class="figure"><p><img src="images/dragon-residuals-2.png" class="img-fluid figure-img" width="800"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>:</figcaption></figure>
 </div>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
@@ -959,6 +959,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -1000,7 +1005,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

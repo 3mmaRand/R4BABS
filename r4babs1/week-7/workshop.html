@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Data Analysis in R - Workshop</title>
@@ -397,7 +397,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/welcome_to_rstats_twitter.png" class="img-fluid figure-img" alt="Two fuzzy monsters standing side-by-side outside of a door frame through which is a magical wonderland of different R communities, with a 'mind blown' rainbow coming out of the one closest to the door. A welcome mat says 'Welcome'." width="800"></p>
+<figure class="figure"><p><img src="images/welcome_to_rstats_twitter.png" class="img-fluid figure-img" width="800"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: “Welcome to Rstats”</figcaption></figure>
 </div>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
@@ -932,6 +932,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -973,7 +978,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

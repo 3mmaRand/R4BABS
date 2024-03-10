@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Data Analysis in R - Workshop</title>
@@ -619,7 +619,7 @@ window.Quarto = {
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/continuous_discrete-01.png" class="img-fluid figure-img" alt="One the left: Continuous data - measures that can have possible infinite values within its range. A cute chick labelled I am 3.1 inches tall, I weigh 34.16 grams. One the right: Discrete observations can only exist at limited values, often counts. A cute octopus labelled I have 8 legs and 4 spots"></p>
+<figure class="figure"><p><img src="images/continuous_discrete-01.png" class="img-fluid figure-img"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: Continuous and Discrete</figcaption></figure>
 </div>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
@@ -698,7 +698,7 @@ Key
 <p>We will first read in <code>cat-coats.csv</code>. A <code>.csv.</code> extension suggests this is plain text file with comma separated columns. However, before we attempt to read it it, when should take a look at it. We can do this from RStudio</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Go to the Files pane (bottom right), click on the <code>cat-coats.csv</code> file and choose View File<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/rstudio-filepane-viewfile.png" class="img-fluid figure-img" alt="Rstudio Files pane showing the data files and the View File option that appears when you click on the a particular file"></p>
+<figure class="figure"><p><img src="images/rstudio-filepane-viewfile.png" class="img-fluid figure-img"></p>
 <figcaption>RStudio Files Pane</figcaption></figure>
 </div>
 <p>Any plain text file will open in the top left pane (Excel files will launch Excel).</p>
@@ -904,7 +904,7 @@ Key
 <p>You’re finished!</p>
 </section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/not_normal.png" class="img-fluid figure-img" alt="two distributions as characters. One is normal (bell-shaped) the other is not"></p>
+<figure class="figure"><p><img src="images/not_normal.png" class="img-fluid figure-img"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: Not normal</figcaption></figure>
 </div>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
@@ -1035,6 +1035,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -1076,7 +1081,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
