@@ -67,7 +67,7 @@ Cognitive performance is influenced by the choline intake in utero. To better un
 
 ![](images/do_on_your_computer.png) Save a copy of the data file [neuron-csa.xlsx](data-raw/neuron-csa.xlsx) to `data-raw`
 
-You have [previously read data from an excel file](../r4babs1/week-8/workshop.html#importing-data-from-files). 
+You have [previously read data from an excel file](../../r4babs1/week-8/workshop.html#importing-data-from-files). 
 
 
 ![](images/do_in_R.png) List the the names of the work sheets in the excel workbook. 
