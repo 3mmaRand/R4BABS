@@ -18,6 +18,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -307,21 +341,14 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
    
   <ul>
 <li>
-<a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+<a href="#exercises" id="toc-exercises" class="nav-link active" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-<li><a href="#session-overview" id="toc-session-overview" class="nav-link" data-scroll-target="#session-overview">Session overview</a></li>
-  <li><a href="#philosophy" id="toc-philosophy" class="nav-link" data-scroll-target="#philosophy">Philosophy</a></li>
+<li><a href="#add-your-data" id="toc-add-your-data" class="nav-link" data-scroll-target="#add-your-data">Add your data</a></li>
+  <li><a href="#organising-your-work" id="toc-organising-your-work" class="nav-link" data-scroll-target="#organising-your-work">Organising your work</a></li>
+  <li><a href="#importing-from-google-sheets" id="toc-importing-from-google-sheets" class="nav-link" data-scroll-target="#importing-from-google-sheets">Importing from google sheets</a></li>
+  <li><a href="#import-cleaned-data" id="toc-import-cleaned-data" class="nav-link" data-scroll-target="#import-cleaned-data">Import cleaned data</a></li>
   </ul>
 </li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-<li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">…</a></li>
-  <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
-  </ul>
-</li>
-  <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
   <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -330,7 +357,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs4/week-6/overview.html">Week 6: DA 4 Immunobiology</a></li><li class="breadcrumb-item"><a href="../../r4babs4/week-6/workshop.html">Workshop</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Workshop</h1>
-<p class="subtitle lead">DA 4 Immunobiology</p>
+<p class="subtitle lead">Data Analysis 4: Immunobiology - Your data presentation</p>
 </div>
 
 
@@ -344,56 +371,28 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   
 
 
-</header><section id="introduction" class="level1"><h1>Introduction</h1>
-<p>In this workshop you will</p>
-<section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this session you will carry out</p>
-</section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
-<p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
+</header><p>In this workshop</p>
+<section id="exercises" class="level1"><h1>Exercises</h1>
+<section id="add-your-data" class="level2"><h2 class="anchored" data-anchor-id="add-your-data">Add your data</h2>
+<p>Enter these in the <a href="https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0">BIO00066I Biomedical Sciences class data</a></p>
+<p>The columns you must add are: - <code>apc_mfi</code>: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells</p>
 <ul>
-<li>don’t worry about making mistakes</li>
-<li>don’t let what you can not do interfere with what you can do</li>
-<li>discussing code with your neighbours will help</li>
-<li>look things up in the independent study material</li>
-<li>look things up in your own code from earlier</li>
-<li>there are no stupid questions</li>
+<li>
+<code>perc_tfna_pos</code>: % non debris cells that are TNF-α positive cells</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>The other columns are calculations you make along the way and may help you get to the <code>apc_mfi</code> and <code>perc_tfna_pos</code> values. The column names are the same as those used in the <a href="../week-2/workshop.html">Data Analysis 2: Immunobiology - Sample data analysis</a> workshop</p>
+</section><section id="organising-your-work" class="level2"><h2 class="anchored" data-anchor-id="organising-your-work">Organising your work</h2>
+<p>script for import and cleaning and writing clean data to file because time consuming</p>
+<p>script for importing cleaned data gating live cells, summarising and plotting</p>
+</section><section id="importing-from-google-sheets" class="level2"><h2 class="anchored" data-anchor-id="importing-from-google-sheets">Importing from google sheets</h2>
+<p>The <a href="https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0">BIO00066I Biomedical Sciences class data</a> are in a google sheet. You can download the file as an excel file for .csv. file but it is also possible to import the data directly from the google sheet into R. Use whatever you prefer. An advantage of using the google sheet is you won’t have to remember to download the data when someone updates it.</p>
+<p>You can use the <code>googlesheets4</code> package <span class="citation" data-cites="googlesheets4">(<a href="#ref-googlesheets4" role="doc-biblioref">Bryan 2023</a>)</span> to do this.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org">googlesheets4</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Key
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Something you need to do on your computer. It may be opening programs or documents or locating a file.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.</p>
-<p><img src="images/do_on_internet.png" class="img-fluid"> Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.</p>
-<p><img src="images/answer.png" class="img-fluid"> A question for you to think about and answer. Record your answers in your script for future reference.</p>
-</div>
-</div>
-</section></section><section id="getting-started" class="level1"><h1>Getting started</h1>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-4</code> folder and name the RStudio Project <code>4-immunobiology</code>.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make new folders called <code>data-raw</code> and <code>figures</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>.....R</code> to carry out the rest of the work.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># "DA 4 Immunobiology</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
-</section><section id="exercises" class="level1"><h1>Exercises</h1>
-<section id="section" class="level2"><h2 class="anchored" data-anchor-id="section">…</h2>
-<!-- #---THINKING ANSWER---  -->
-<!-- Day is discrete (but ordered) and is the explanatory; mass looks continuous and  -->
-<!-- is the response.  -->
-<!-- The null hypothesis can be expressed as one of the following: day does not  -->
-<!-- explain the variation in mass; there is no linear relationship between  -->
-<!-- day and mass; slope of the best fitting straight line is zero -->
-</section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
-<p>……</p>
-<p>You’re finished!</p>
-</section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
-</section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
+</section><section id="import-cleaned-data" class="level2"><h2 class="anchored" data-anchor-id="import-cleaned-data">Import cleaned data</h2>
+<p>gating live cells</p>
+</section></section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs4/week-6/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
@@ -407,11 +406,11 @@ Key
 <div id="ref-allaire2022" class="csl-entry" role="listitem">
 Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe Dervieux. 2022. <em>Quarto</em>. <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
 </div>
+<div id="ref-googlesheets4" class="csl-entry" role="listitem">
+Bryan, Jennifer. 2023. <span>“Googlesheets4: Access Google Sheets Using the Sheets API V4.”</span> <a href="https://CRAN.R-project.org/package=googlesheets4">https://CRAN.R-project.org/package=googlesheets4</a>.
+</div>
 <div id="ref-R-core" class="csl-entry" role="listitem">
 R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-knitr" class="csl-entry" role="listitem">
 Xie, Yihui. 2022. <span>“Knitr: A General-Purpose Package for Dynamic Report Generation in r.”</span> <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.

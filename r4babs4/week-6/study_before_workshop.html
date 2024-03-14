@@ -313,7 +313,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs4/week-6/overview.html">Week 6: DA 4 Immunobiology</a></li><li class="breadcrumb-item"><a href="../../r4babs4/week-6/study_before_workshop.html">Prepare!</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Independent Study to prepare for workshop</h1>
-<p class="subtitle lead">DA 4 Immunobiology</p>
+<p class="subtitle lead">Data Analysis 4: Immunobiology - Your data presentation</p>
 </div>
 
 
@@ -330,11 +330,35 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </header>
 
 
+<p>The independent study is to check your progress and understanding. We have covered the steps listed below. If you have got behind, start from wherever you got to.</p>
 <ol type="1">
-<li><p>Prepare</p>
+<li><p>📖 <a href="../week-2/study_after_workshop.html">Read what the sample data are, get an overview of the analysis and tools</a></p></li>
+<li><p>💻 <a href="../week-2/workshop.html">Go through the sample data analysis</a> and make sure you understand the steps and the code</p>
 <ol type="i">
-<li></li>
+<li><p>You should have a single csv file with data from all 6 samples. The data has been cleaned with <strong><code>flowAI</code></strong> to remove cells ‘bad’ signals. The file has 19 columns with meaningful names. The TNFa_APC_Lin and E_coli_FITC_Lin columns have been logicle transformed. The file names were added to a column <code>sample</code> and columns indicating the treatment and antibody were created by extracting patterns from the file names. The code that does that relies on the names being in the format Treatment_Antibody. You can import this data as a dataframe and use familiar tidyverse tools.</p></li>
+<li><p>The treatments will be plotted in alphabetical order by default. We can change that order to “MEDIA”, “LPS”, “ECOLIGreen” using <code>fct_relevel()</code>. The code that does that relies on the treatment names being exactly “MEDIA”, “LPS”, “ECOLIGreen”. You can name the treaments differently but you will need to change the levels given in <code>fct_relevel()</code> accordingly.</p></li>
+<li><p>You should be able to plot side scatter against forward scatter for the six samples and add a rectangular gate for the live cells. You should be able to use this gate to filter the data to get a dataframe of live cells.</p></li>
+<li><p>You should be able calculate the number and percentage of live cells in each sample and annotate the figure in iii. with those percentages. These were in a dataframe I named <code>clean_trans_nondebris_n</code>.</p></li>
+<li><p>You should be able to plot the logicle transformed TNFa_APC_Lin against the E_coli_FITC_Lin for the live cells and add a gate for the TNF-α positive cells and label the rows (cells) in the dataframe as TNF-α positive or TNF-α negative. You should be able to calculate the number and percentage of of TNF-α positive cells in each sample. These were in a dataframe I named <code>clean_trans_nondebris_tfna_pos</code></p></li>
+<li><p>You should be able add a gate for the FITC positive cells and label the rows (cells) in the dataframe as FITC positive or FITC negative. You should be able to calculate the number and percentage of TNF-α positive cells in each sample using the same logic as in v.</p></li>
 </ol></li>
+<li><p>💻 Prepare to analyse your own data / the model data</p>
+<ol type="i">
+<li><p><a href="../week-2/study_after_workshop.html">Make a new RStudio Project, copy in the script and tidy it up</a></p></li>
+<li><p><a href="../week-2/study_after_workshop.html">Save your data</a>. Your data are on <a href="https://drive.google.com/drive/folders/16OBb5ABVBd6ZxKf8uG7lPTx6cSNLvisT">googledrive</a>. If you do not have any data you can use the Flow cytometry MODEL DATA</p></li>
+</ol></li>
+<li><p>💻 <a href="../week-4/workshop.html">Analyse your own data / the model data</a></p>
+<ol type="i">
+<li><p>Make your life easier renaming your data files to match the sample data.</p></li>
+<li><p>Note that your data has 16 columns. You need a different metadata file than used for the sample data. You will not need to <a href="../week-2/workshop.html#drop-the-unused-channels-columns">Drop the unused channels</a></p></li>
+</ol></li>
+<li><p>💻 Enter data from your analysis in to <a href="https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0">BIO00066I Biomedical Sciences class data</a></p>
+<p>The columns you must add are:</p>
+<ul>
+<li><p><code>apc_mfi</code>: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells</p></li>
+<li><p><code>perc_tfna_pos</code>: % non debris cells that are TNF-α positive cells</p></li>
+</ul>
+<p>The other columns are calculations you make along the way and may help you get to the <code>apc_mfi</code> and <code>perc_tfna_pos</code> values. The column names are the same as those used in the <a href="../week-2/workshop.html">Data Analysis 2: Immunobiology - Sample data analysis</a> workshop</p></li>
 </ol>
 
 
