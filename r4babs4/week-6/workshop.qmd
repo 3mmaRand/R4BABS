@@ -1,103 +1,62 @@
 ---
 title: "Workshop"
-subtitle: "DA 4 Immunobiology"
+subtitle: "Data Analysis 4: Immunobiology - Your data presentation"
 toc: true
 toc-location: right
 editor: 
   markdown: 
     wrap: sentence
 ---
+
 ```{r}
 #| include: false
 library(tidyverse)
 library(kableExtra)
 ```
 
-# Introduction
-
-In this workshop you will 
-
-
-
-## Session overview
-
-In this session you will carry out
-
-## Philosophy
-
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
-
--   don't worry about making mistakes
--   don't let what you can not do interfere with what you can do
--   discussing code with your neighbours will help
--   look things up in the independent study material
--   look things up in your own code from earlier 
--   there are no stupid questions
-
-::: callout-note
-## Key
-
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
-
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
-
-![](images/do_in_R.png)  Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
-
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
-
-![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
-:::
-
-# Getting started
-
-![](images/do_on_your_computer.png) Start RStudio from the Start menu.
-
-
-![](images/do_in_R.png)  Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-4` folder and name the RStudio Project `4-immunobiology`.
-
-![](images/do_in_R.png)   Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
-
-![](images/do_in_R.png)  Make a new script then save it with a name like `.....R` to carry out the rest of the work.
-
-![](images/do_in_R.png)  Add a comment to the script: `# "DA 4 Immunobiology`  and load the **`tidyverse`** [@tidyverse] package
-
+In this workshop 
 
 # Exercises
 
-## ...
+## Add your data
 
+Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0)
+
+The columns you must add are:
+-   `apc_mfi`:	Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells
+
+-   `perc_tfna_pos`:	% non debris cells that are TNF-α positive cells   
+
+The other columns are calculations you make along the way and may help you get 
+to the `apc_mfi` and `perc_tfna_pos` values. The column names are the same as 
+those used in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop
+
+## Organising your work
+
+script for import and cleaning and writing clean data to file because time consuming
+
+script for importing cleaned data gating live cells, summarising and plotting
+
+
+
+## Importing from google sheets
+
+The [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0) are in a google sheet.
+You can download the file as an excel file for .csv.
+file but it is also possible to import the data directly from the google sheet into R.
+Use whatever you prefer.
+An advantage of using the google sheet is you won't have to remember to download the data when someone updates it.
+
+You can use the `googlesheets4` package [@googlesheets4] to do this.
 
 ```{r}
-#| include: false
-
-#---CODING ANSWER---
-#
-
-
+library(googlesheets4)
 ```
 
-    
-
-<!-- #---THINKING ANSWER---  -->
-
-<!-- Day is discrete (but ordered) and is the explanatory; mass looks continuous and  -->
-<!-- is the response.  -->
-
-<!-- The null hypothesis can be expressed as one of the following: day does not  -->
-<!-- explain the variation in mass; there is no linear relationship between  -->
-<!-- day and mass; slope of the best fitting straight line is zero -->
+## Import cleaned data
 
 
-
-
-## Look after future you!
-
-......
-
-You're finished!
-
-# 🥳 Well Done! 🎉
-
+gating live cells
 
 
 # Independent study following the workshop
@@ -108,9 +67,12 @@ You're finished!
 
 This contains all the code needed in the workshop even where it is not visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-6/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical.
+Qmd stands for Quarto markdown.
+It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages.
+[View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-6/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
 
 # References
-

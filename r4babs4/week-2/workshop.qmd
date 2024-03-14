@@ -24,7 +24,7 @@ In this workshop you will learn how to analyse some sample flow cytometry data.
 
 🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you
 
-🎬 Use the Files pane to make a folders for the data. I suggest `data-raw/` and `data-meta/`
+🎬 Use the Files pane to make a folders for the data. I suggest `data-raw/`, `data-processed/` and `data-meta/`
 
 🎬 Make a new script called `sample-data-analysis.R` to carry out the rest of the work.
 

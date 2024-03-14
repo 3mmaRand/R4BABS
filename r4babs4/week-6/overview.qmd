@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-subtitle: "DA 4 Immunobiology"
+subtitle: "Data Analysis 4: Immunobiology - Your data presentation"
 toc: true
 toc-location: right
 ---
@@ -22,9 +22,7 @@ The successful student will be able to:
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
-
-    i.  📖 Read 
-
+    i.  Check where you are
 
 2.  [Workshop](workshop.qmd)
     
@@ -32,6 +30,6 @@ The successful student will be able to:
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻 
+    i.  💻 Continue with your analysis and reporting
 
-    ii. 📖 Read 
+
