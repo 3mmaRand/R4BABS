@@ -624,6 +624,21 @@ clean_trans_nondebris <- clean_trans_nondebris |>
                                E_coli_FITC_Lin >= fitc_cut ~ "FITC +'ve"))
 ```
 
+
+## Save the data
+
+We have filtered out the dead cells and debris and added labels to the data to indicate if the cells are positive or negative for TNF-α and *E. coli*. It would be a good idea to save this data to file so we can start from importing this data in the future rather than having to repeat all of the steps we have done so far.
+
+🎬 Save the data:
+
+```{r}
+write_csv(clean_trans_nondebris, "data-processed/live_labelled.csv")
+
+```
+
+
+
+
 ## Look after future you!
 
 🎬 This workshop is a template for the analysis of your own data. Go back through your script and check you understand what you have done. Can you identify where you will need to edit? Do you understand what you will need to assess in order to make edits needed for your own data? Examine all of the objects in the environment to check you understand what they are and why they are there.

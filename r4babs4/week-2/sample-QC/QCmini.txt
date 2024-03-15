@@ -5,3 +5,9 @@ LPS_ISOTYPE	50000	6.39	Flow Rate, Flow Signal and Flow Margin	6.39	0	0
 LPS_TNFAPC	50000	46.56	Flow Rate, Flow Signal and Flow Margin	46.56	0	0
 MEDIA_ISOTYPE	27250	45.73	Flow Rate, Flow Signal and Flow Margin	45.73	0	0
 MEDIA_TNFAPC	50000	45.85	Flow Rate, Flow Signal and Flow Margin	45.85	0	0
+ECOLIGreen_ISOTYPE	50000	43.33	Flow Rate, Flow Signal and Flow Margin	43.33	0	0
+ECOLIGreen_TNFAPC	50000	44.96	Flow Rate, Flow Signal and Flow Margin	44.96	0	0
+LPS_ISOTYPE	50000	6.39	Flow Rate, Flow Signal and Flow Margin	6.39	0	0
+LPS_TNFAPC	50000	46.56	Flow Rate, Flow Signal and Flow Margin	46.56	0	0
+MEDIA_ISOTYPE	27250	45.73	Flow Rate, Flow Signal and Flow Margin	45.73	0	0
+MEDIA_TNFAPC	50000	45.85	Flow Rate, Flow Signal and Flow Margin	45.85	0	0
