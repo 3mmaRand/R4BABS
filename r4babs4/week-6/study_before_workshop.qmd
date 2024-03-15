@@ -56,7 +56,7 @@ from wherever you got to.
     vi. You should be able add a gate for the FITC positive 
         cells and label the rows (cells) in the dataframe as 
         FITC positive or FITC negative. You should be able to 
-        calculate the number and percentage of TNF-α positive cells 
+        calculate the number and percentage of FITC positive cells 
         in each sample using the same logic as in v.
 
 3.  💻  Prepare to analyse your own data / the model data
