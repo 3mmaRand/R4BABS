@@ -393,6 +393,7 @@ window.Quarto = {
   </ul>
 </li>
   <li><a href="#quality-control-3-gating-to-determine-a-real-signal" id="toc-quality-control-3-gating-to-determine-a-real-signal" class="nav-link" data-scroll-target="#quality-control-3-gating-to-determine-a-real-signal">Quality control 3: Gating to determine a ‘real’ signal?</a></li>
+  <li><a href="#save-the-data-1" id="toc-save-the-data-1" class="nav-link" data-scroll-target="#save-the-data-1">Save the data</a></li>
   <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
   </ul>
 </li>
@@ -1426,6 +1427,12 @@ Quality control for the file: MEDIA_TNFAPC
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">clean_trans_nondebris</span> <span class="op">&lt;-</span> <span class="va">clean_trans_nondebris</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>fitc <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">E_coli_FITC_Lin</span> <span class="op">&lt;</span> <span class="va">fitc_cut</span> <span class="op">~</span> <span class="st">"FITC -'ve"</span>,</span>
 <span>                               <span class="va">E_coli_FITC_Lin</span> <span class="op">&gt;=</span> <span class="va">fitc_cut</span> <span class="op">~</span> <span class="st">"FITC +'ve"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="save-the-data-1" class="level2"><h2 class="anchored" data-anchor-id="save-the-data-1">Save the data</h2>
+<p>We have filtered out the dead cells and debris and added labels to the data to indicate if the cells are positive or negative for TNF-α and <em>E. coli</em>. It would be a good idea to save this data to file so we can start from importing this data in the future rather than having to repeat all of the steps we have done so far.</p>
+<p>🎬 Save the data:</p>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">clean_trans_nondebris</span>, <span class="st">"data-processed/live_labelled.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
 <p>🎬 This workshop is a template for the analysis of your own data. Go back through your script and check you understand what you have done. Can you identify where you will need to edit? Do you understand what you will need to assess in order to make edits needed for your own data? Examine all of the objects in the environment to check you understand what they are and why they are there.</p>

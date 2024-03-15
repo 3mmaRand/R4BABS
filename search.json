@@ -1349,6 +1349,18 @@
     ]
   },
   {
+    "objectID": "r4babs4/week-2/workshop.html#save-the-data-1",
+    "href": "r4babs4/week-2/workshop.html#save-the-data-1",
+    "title": "Workshop",
+    "section": "Save the data",
+    "text": "Save the data\nWe have filtered out the dead cells and debris and added labels to the data to indicate if the cells are positive or negative for TNF-α and E. coli. It would be a good idea to save this data to file so we can start from importing this data in the future rather than having to repeat all of the steps we have done so far.\n🎬 Save the data:\n\nwrite_csv(clean_trans_nondebris, \"data-processed/live_labelled.csv\")",
+    "crumbs": [
+      "BABS 4",
+      "Week 2: DA 2 Immunobiology",
+      "Workshop"
+    ]
+  },
+  {
     "objectID": "r4babs4/week-2/workshop.html#look-after-future-you",
     "href": "r4babs4/week-2/workshop.html#look-after-future-you",
     "title": "Workshop",
