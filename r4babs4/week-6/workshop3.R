@@ -3,42 +3,26 @@
 library(tidyverse)
 
 ## import --------------------------------------------------------------
-clean_trans <- read_csv("r4babs4/week-4/data-processed/ai_clean_logicle_trans.csv")
+clean_trans <- read_csv("r4babs4/week-6/data-processed/ai_clean_logicle_trans.csv")
 
-
-
-## scatter ss v fs -----------------------------------------------------
-ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
-  geom_hex(bins = 128) +
-  scale_fill_viridis_c() +
-  facet_grid(antibody ~ treatment) +
-  theme_bw()
+clean_trans <- clean_trans |> 
+  mutate(treatment = fct_relevel(treatment, c("MEDIA",
+                                              "LPS",
+                                              "ECOLIGreen")))
 
 
 ## gating live cells ---------------------------------------------------
 
 # fs and ss cutoffs for live cells
-xmin <- 25000
-xmax <- 40000
-ymin <- 5000
-ymax <- 18000
+xmin <- 15000
+xmax <- 35000
+ymin <- 7500
+ymax <- 28000
 
 
 # create a data frame with the coordinates of the box
 box <- data.frame(x = c(xmin, xmin, xmax, xmax),
                   y = c(ymin, ymax, ymax, ymin))
-
-
-## scatter ss v fs with live cell gate ---------------------------------
-ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
-  geom_hex(bins = 128) +
-  scale_fill_viridis_c() +
-  geom_polygon(data = box, aes(x = x, y = y), 
-               fill = NA, 
-               color = "red",
-               linewidth = 1) +
-  facet_grid(antibody ~ treatment) +
-  theme_bw()
 
 
 ## gate the data -------------------------------------------------------
@@ -48,13 +32,11 @@ clean_trans_nondebris <- clean_trans |>
          between(SS_Lin, ymin, ymax)) 
 
 
-
 ## summarise each sample after gating ----------------------------------
 # number of cells in each sample after AI cleaning but before gating
 clean_trans_n <-  clean_trans |> 
   group_by(antibody, treatment) |> 
   summarise(n = n()) 
-
 
 # number of cells in each sample after gating
 clean_trans_nondebris_n <-  clean_trans_nondebris |> 
@@ -68,7 +50,6 @@ clean_trans_nondebris_n <- clean_trans_nondebris_n |>
   mutate(perc_nondebris = round(n_nondebris/n * 100, 1) )
 
 
-
 ## fig1 ----------------------------------------------------------------
 (fig1 <- ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
   geom_hex(bins = 128) +
@@ -80,13 +61,14 @@ clean_trans_nondebris_n <- clean_trans_nondebris_n |>
   geom_text(data = clean_trans_nondebris_n, 
             aes(label = paste0(perc_nondebris, "%")), 
             x = 20000, 
-            y = 50000,
+            y = 45000,
             colour = "red",
             size = 4) +
   scale_y_continuous(expand = c(0, 0),
                      name = "SSC") +
   scale_x_continuous(expand = c(0, 0),
-                     name = "FSC") +
+                     name = "FSC",
+                     breaks = c(0, 20000, 40000)) +
   facet_grid(antibody ~ treatment) +
   theme_bw() +
   theme(legend.position = "none"))
@@ -101,7 +83,7 @@ ggsave("r4babs4/week-6/figures/1-live-cell-gating.png",
 # Scatterplots with SSC on the Y-axis and FSC on the X-axis for each of the six treatment-antibody combinations. The live cells are gated with a rectangular gate shown as a red box.  Dead cells and debris are outside the gate. The percentage of cells in the gate in each sample is shown in red text. 
 
 ## working out the APC gate --------------------------------------------
-apc_cut <- 2.1
+apc_cut <- 2
 
 ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin, 
                                   y = TNFa_APC_Lin)) +
@@ -133,39 +115,39 @@ clean_trans_nondebris_tfna_pos <-
   left_join(clean_trans_nondebris_n, by = c("antibody", "treatment")) |> 
   mutate(perc_tfna_pos = round(n_pos_tnfa/n_nondebris * 100, 1) )
 
-## fig2 ----------------------------------------------------------------
+# ## fig2 ----------------------------------------------------------------
+# (fig2 <- clean_trans_nondebris |> 
+#    filter(treatment == "MEDIA") |>
+#    ggplot(aes(x = TNFa_APC_Lin)) +
+#    geom_histogram(bins = 100) +
+#    geom_vline(xintercept = apc_cut, 
+#               color = "red") +
+#    geom_text(data = clean_trans_nondebris_tfna_pos |> 
+#                filter(treatment == "MEDIA"), 
+#              aes(label = paste0(perc_tfna_pos, 
+#                                 "% cells\nTNF-α +'ve\nMFI = ",
+#                                 mean_apc)), 
+#              x = 2.5, 
+#              y = 125,
+#              colour = "red",
+#              size = 3) +
+#    scale_y_continuous(expand = c(0, 0),
+#                       limits = c(0, 155)) +
+#    scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+#    facet_grid(~ antibody) +
+#    ggtitle("MEDIA treated") +
+#    theme_bw()  )
+# 
+# ggsave("r4babs4/week-6/figures/2-tnf-positive-media.png",
+#        device = "png",
+#        plot = fig2,
+#        width = 4,
+#        height = 2.5,
+#        units = "in",
+#        dpi = 300)
+
+
 (fig2 <- clean_trans_nondebris |> 
-   filter(treatment == "MEDIA") |>
-   ggplot(aes(x = TNFa_APC_Lin)) +
-   geom_histogram(bins = 100) +
-   geom_vline(xintercept = apc_cut, 
-              color = "red") +
-   geom_text(data = clean_trans_nondebris_tfna_pos |> 
-               filter(treatment == "MEDIA"), 
-             aes(label = paste0(perc_tfna_pos, 
-                                "% cells\nTNF-α +'ve\nMFI = ",
-                                mean_apc)), 
-             x = 2.5, 
-             y = 125,
-             colour = "red",
-             size = 3) +
-   scale_y_continuous(expand = c(0, 0),
-                      limits = c(0, 155)) +
-   scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
-   facet_grid(~ antibody) +
-   ggtitle("MEDIA treated") +
-   theme_bw()  )
-
-ggsave("r4babs4/week-6/figures/2-tnf-positive-media.png",
-       device = "png",
-       plot = fig2,
-       width = 4,
-       height = 2.5,
-       units = "in",
-       dpi = 300)
-
-
-(fig2_alt <- clean_trans_nondebris |> 
   filter(treatment == "MEDIA") |>
   ggplot(aes(x = TNFa_APC_Lin)) +
   geom_density(fill = "gray80") +
@@ -181,16 +163,16 @@ ggsave("r4babs4/week-6/figures/2-tnf-positive-media.png",
             colour = "red",
             size = 3) +
   scale_y_continuous(expand = c(0, 0),
-                     limits = c(0, 3.5),
+                     limits = c(0, 3),
                      name = "Density") +
     scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
     facet_grid(~ antibody) +
     ggtitle("MEDIA treated") +
   theme_bw())
 
-ggsave("r4babs4/week-6/figures/2-alt-tnf-positive-media.png",
+ggsave("r4babs4/week-6/figures/2-tnf-positive-media.png",
        device = "png",
-       plot = fig2_alt,
+       plot = fig2,
        width = 4,
        height = 2.5,
        units = "in",

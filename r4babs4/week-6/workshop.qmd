@@ -10,11 +10,11 @@ editor:
 
 ```{r}
 #| include: false
-library(tidyverse)
+
 library(kableExtra)
 ```
 
-In this workshop 
+In this workshop
 
 # Exercises
 
@@ -23,19 +23,264 @@ In this workshop
 Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0)
 
 The columns you must add are:
--   `apc_mfi`:	Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells
 
--   `perc_tfna_pos`:	% non debris cells that are TNF-α positive cells   
+-   `apc_mfi`: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells
 
-The other columns are calculations you make along the way and may help you get 
-to the `apc_mfi` and `perc_tfna_pos` values. The column names are the same as 
-those used in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop
+-   `perc_tfna_pos`: % non debris cells that are TNF-α positive cells
 
-## Organising your work
+The other columns are calculations you make along the way and may help you get to the `apc_mfi` and `perc_tfna_pos` values.
+The column names are the same as those used in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop.
 
-script for import and cleaning and writing clean data to file because time consuming
+## Set up
 
-script for importing cleaned data gating live cells, summarising and plotting
+🎬 Open the RStudio project you created in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop.
+
+🎬 Create a new script called `data-presentation.R`
+
+🎬 Load packages:
+
+```{r}
+library(tidyverse)
+```
+
+🎬 Save a copy of [live_labelled.csv](data-raw/live_labelled.csv) to your `data-processed` folder.
+These cells have been AI cleaned, gated to remove debris and dead cells, and labelled as positive or negative for the E_coli_FITC_Lin and TNFa_APC_Lin signals[^1].
+
+[^1]: [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop has been amended to include the instruction to save these data at the end.
+
+🎬 Import the data:
+
+```{r}
+clean_trans_nondebris <- read_csv("data-processed/live_labelled.csv")
+
+```
+🎬 Use `fct_relevel()` to put treatment groups in order so that our graphs are better to interpret.
+
+```{r}
+clean_trans_nondebris <- clean_trans_nondebris |> 
+  mutate(treatment = fct_relevel(treatment, c("MEDIA",
+                                              "LPS",
+                                              "ECOLIGreen")))
+```
+
+
+```{r}
+# number of cells in each sample after gating
+clean_trans_nondebris_n <-  clean_trans_nondebris |> 
+  group_by(antibody, treatment) |> 
+  summarise(n_nondebris = n()) 
+```
+
+
+
+🎬
+
+```{r}
+## summarise the number of TNF-α +'ve cells in each sample  
+clean_trans_nondebris_tfna_pos <- clean_trans_nondebris |> 
+  filter(tnfa == "TNF-α +'ve") |>
+  group_by(antibody, treatment) |>
+  summarise(n_pos_tnfa = n(),
+            mean_apc = round(mean(TNFa_APC_Lin), 2))
+
+## join the summary with the summary of the number of cells in each sample
+## and calculate the percentage of cells that are TNF-α +'ve
+clean_trans_nondebris_tfna_pos <- 
+  clean_trans_nondebris_tfna_pos |> 
+  left_join(clean_trans_nondebris_n, by = c("antibody", "treatment")) |> 
+  mutate(perc_tfna_pos = round(n_pos_tnfa/n_nondebris * 100, 1) )
+```
+
+
+
+## Distribution of one variable with gate
+
+🎬 apc cut
+
+```{r}
+apc_cut <- 2
+fitc_cut <- 2
+
+```
+
+### Multiple facets
+
+🎬 
+```{r}
+clean_trans_nondebris |> 
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+  facet_grid(treatment ~ antibody) +
+  theme_bw()
+```
+
+🎬
+
+```{r}
+clean_trans_nondebris |> 
+  filter(treatment == "MEDIA") |>
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+  facet_grid(~ antibody) +
+  theme_bw()
+```
+
+🎬
+
+```{r}
+clean_trans_nondebris |> 
+  filter(treatment == "MEDIA") |>
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+  scale_y_continuous(expand = c(0, 0),
+                       limits = c(0, 2.5),
+                       name = "Density") +
+  scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+  facet_grid(~ antibody) +
+  theme_bw()
+```
+
+
+### Plot annotation multiple facets
+
+1.  Most simple: in word/googledocs
+
+2.  In R and fully reproducibly
+
+🎬
+
+```{r}
+clean_trans_nondebris |> 
+  filter(treatment == "MEDIA") |>
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+  geom_text(data = clean_trans_nondebris_tfna_pos |> 
+              filter(treatment == "MEDIA"), 
+            aes(label = paste0(perc_tfna_pos, 
+                               "% cells\nTNF-α +'ve\nMFI = ",
+                               mean_apc)), 
+            x = 3, 
+            y = 2,
+            colour = "red",
+            size = 3) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 2.5),
+                     name = "Density") +
+  scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+  facet_grid(~ antibody) +
+  theme_bw()
+```
+### Write to file
+
+🎬 Assign the plot to `apc_distibution_media`
+
+```{r}
+apc_distibution_media <- clean_trans_nondebris |> 
+  filter(treatment == "MEDIA") |>
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+  geom_text(data = clean_trans_nondebris_tfna_pos |> 
+              filter(treatment == "MEDIA"), 
+            aes(label = paste0(perc_tfna_pos, 
+                               "% cells\nTNF-α +'ve\nMFI = ",
+                               mean_apc)), 
+            x = 3, 
+            y = 2,
+            colour = "red",
+            size = 3) +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 2.5),
+                     name = "Density") +
+  scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+  facet_grid(~ antibody) +
+  theme_bw()
+```
+
+
+
+🎬 Save the plot to a file:
+
+```{r}
+ggsave("figures/apc_distibution_media.png",
+       device = "png",
+       plot = apc_distibution_media,
+       width = 4,
+       height = 2.5,
+       units = "in",
+       dpi = 300)
+```
+
+
+### Overlay instead of facets
+
+```{r}
+clean_trans_nondebris |> 
+   filter(treatment == "MEDIA") |>
+   ggplot(aes(x = TNFa_APC_Lin, fill = antibody)) +
+   geom_density(alpha = 0.3) +
+   geom_vline(xintercept = apc_cut, 
+              color = "red") +
+   scale_fill_viridis_d(name = NULL) +
+   scale_y_continuous(expand = c(0, 0),
+                      limits = c(0, 2.5)) +
+   scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+   theme_bw() +
+   theme(legend.position = c(0.8, 0.85)) 
+```
+
+
+
+
+
+
+## Percentage of cells in each quadrant
+
+Calculate the the percentage of cells in each quadrant of a quadrant gated gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin
+
+
+```{r}
+ ## summarise the number of FITC +'ve cells in each sample  
+clean_trans_nondebris_fitc_pos <- clean_trans_nondebris |>
+  filter(fitc == "FITC +'ve") |>
+  group_by(antibody, treatment, .drop = FALSE) |>
+  summarise(n_pos_fitc = n(),
+            mean_fitc = round(mean(E_coli_FITC_Lin), 2))
+
+## join the summary with the summary of the number of cells in each sample
+## and calculate the percentage of cells that are FITC +'ve
+clean_trans_nondebris_fitc_pos <- 
+  clean_trans_nondebris_fitc_pos |> 
+  left_join(clean_trans_nondebris_n, by = c("antibody", "treatment")) |> 
+  mutate(perc_fitc_pos = round(n_pos_fitc/n_nondebris * 100, 1) )
+
+
+
+
+## calculate the percentage of cells in each quadrant
+all_combin_n <- clean_trans_nondebris |> 
+  group_by(antibody, treatment, tnfa, fitc, .drop = FALSE) |>
+  summarise(n = n())
+
+all_combin_perc <- clean_trans_nondebris_n |> 
+  select(n_nondebris, antibody, treatment) |> 
+  right_join(all_combin_n, by = c("antibody", "treatment")) |> 
+  mutate(perc = round(n / n_nondebris * 100, 1)) |> 
+  filter(perc > 0)
+
+
+```
+
+
 
 
 
@@ -53,10 +298,11 @@ You can use the `googlesheets4` package [@googlesheets4] to do this.
 library(googlesheets4)
 ```
 
-## Import cleaned data
 
+```{r}
 
-gating live cells
+```
+
 
 
 # Independent study following the workshop
