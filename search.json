@@ -909,7 +909,7 @@
     "href": "r4babs4/week-6/workshop.html#add-your-data",
     "title": "Workshop",
     "section": "Add your data",
-    "text": "Add your data\nEnter these in the BIO00066I Biomedical Sciences class data\nThe columns you must add are: - apc_mfi: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells\n\n\nperc_tfna_pos: % non debris cells that are TNF-α positive cells\n\nThe other columns are calculations you make along the way and may help you get to the apc_mfi and perc_tfna_pos values. The column names are the same as those used in the Data Analysis 2: Immunobiology - Sample data analysis workshop",
+    "text": "Add your data\nEnter these in the BIO00066I Biomedical Sciences class data\nThe columns you must add are:\n\napc_mfi: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells\nperc_tfna_pos: % non debris cells that are TNF-α positive cells\n\nThe other columns are calculations you make along the way and may help you get to the apc_mfi and perc_tfna_pos values. The column names are the same as those used in the Data Analysis 2: Immunobiology - Sample data analysis workshop.",
     "crumbs": [
       "BABS 4",
       "Week 6: DA 4 Immunobiology",
@@ -917,11 +917,35 @@
     ]
   },
   {
-    "objectID": "r4babs4/week-6/workshop.html#organising-your-work",
-    "href": "r4babs4/week-6/workshop.html#organising-your-work",
+    "objectID": "r4babs4/week-6/workshop.html#set-up",
+    "href": "r4babs4/week-6/workshop.html#set-up",
     "title": "Workshop",
-    "section": "Organising your work",
-    "text": "Organising your work\nscript for import and cleaning and writing clean data to file because time consuming\nscript for importing cleaned data gating live cells, summarising and plotting",
+    "section": "Set up",
+    "text": "Set up\n🎬 Open the RStudio project you created in the Data Analysis 2: Immunobiology - Sample data analysis workshop.\n🎬 Create a new script called data-presentation.R\n🎬 Load packages:\n\nlibrary(tidyverse)\n\n🎬 Save a copy of live_labelled.csv to your data-processed folder. These cells have been AI cleaned, gated to remove debris and dead cells, and labelled as positive or negative for the E_coli_FITC_Lin and TNFa_APC_Lin signals1.\n🎬 Import the data:\n\nclean_trans_nondebris &lt;- read_csv(\"data-processed/live_labelled.csv\")\n\n🎬 Use fct_relevel() to put treatment groups in order so that our graphs are better to interpret.\n\nclean_trans_nondebris &lt;- clean_trans_nondebris |&gt; \n  mutate(treatment = fct_relevel(treatment, c(\"MEDIA\",\n                                              \"LPS\",\n                                              \"ECOLIGreen\")))\n\n\n# number of cells in each sample after gating\nclean_trans_nondebris_n &lt;-  clean_trans_nondebris |&gt; \n  group_by(antibody, treatment) |&gt; \n  summarise(n_nondebris = n()) \n\n🎬\n\n## summarise the number of TNF-α +'ve cells in each sample  \nclean_trans_nondebris_tfna_pos &lt;- clean_trans_nondebris |&gt; \n  filter(tnfa == \"TNF-α +'ve\") |&gt;\n  group_by(antibody, treatment) |&gt;\n  summarise(n_pos_tnfa = n(),\n            mean_apc = round(mean(TNFa_APC_Lin), 2))\n\n## join the summary with the summary of the number of cells in each sample\n## and calculate the percentage of cells that are TNF-α +'ve\nclean_trans_nondebris_tfna_pos &lt;- \n  clean_trans_nondebris_tfna_pos |&gt; \n  left_join(clean_trans_nondebris_n, by = c(\"antibody\", \"treatment\")) |&gt; \n  mutate(perc_tfna_pos = round(n_pos_tnfa/n_nondebris * 100, 1) )",
+    "crumbs": [
+      "BABS 4",
+      "Week 6: DA 4 Immunobiology",
+      "Workshop"
+    ]
+  },
+  {
+    "objectID": "r4babs4/week-6/workshop.html#distribution-of-one-variable-with-gate",
+    "href": "r4babs4/week-6/workshop.html#distribution-of-one-variable-with-gate",
+    "title": "Workshop",
+    "section": "Distribution of one variable with gate",
+    "text": "Distribution of one variable with gate\n🎬 apc cut\n\napc_cut &lt;- 2\nfitc_cut &lt;- 2\n\nMultiple facets\n🎬\n\nclean_trans_nondebris |&gt; \n  ggplot(aes(x = TNFa_APC_Lin)) +\n  geom_density(fill = \"gray80\") +\n  geom_vline(xintercept = apc_cut, \n             color = \"red\") +\n  facet_grid(treatment ~ antibody) +\n  theme_bw()\n\n\n\n\n\n\n\n🎬\n\nclean_trans_nondebris |&gt; \n  filter(treatment == \"MEDIA\") |&gt;\n  ggplot(aes(x = TNFa_APC_Lin)) +\n  geom_density(fill = \"gray80\") +\n  geom_vline(xintercept = apc_cut, \n             color = \"red\") +\n  facet_grid(~ antibody) +\n  theme_bw()\n\n\n\n\n\n\n\n🎬\n\nclean_trans_nondebris |&gt; \n  filter(treatment == \"MEDIA\") |&gt;\n  ggplot(aes(x = TNFa_APC_Lin)) +\n  geom_density(fill = \"gray80\") +\n  geom_vline(xintercept = apc_cut, \n             color = \"red\") +\n  scale_y_continuous(expand = c(0, 0),\n                       limits = c(0, 2.5),\n                       name = \"Density\") +\n  scale_x_continuous(name = \"Logicle transformed APC TNF-α signal\") +\n  facet_grid(~ antibody) +\n  theme_bw()\n\n\n\n\n\n\n\nPlot annotation multiple facets\n\nMost simple: in word/googledocs\nIn R and fully reproducibly\n\n🎬\n\nclean_trans_nondebris |&gt; \n  filter(treatment == \"MEDIA\") |&gt;\n  ggplot(aes(x = TNFa_APC_Lin)) +\n  geom_density(fill = \"gray80\") +\n  geom_vline(xintercept = apc_cut, \n             color = \"red\") +\n  geom_text(data = clean_trans_nondebris_tfna_pos |&gt; \n              filter(treatment == \"MEDIA\"), \n            aes(label = paste0(perc_tfna_pos, \n                               \"% cells\\nTNF-α +'ve\\nMFI = \",\n                               mean_apc)), \n            x = 3, \n            y = 2,\n            colour = \"red\",\n            size = 3) +\n  scale_y_continuous(expand = c(0, 0),\n                     limits = c(0, 2.5),\n                     name = \"Density\") +\n  scale_x_continuous(name = \"Logicle transformed APC TNF-α signal\") +\n  facet_grid(~ antibody) +\n  theme_bw()\n\n\n\n\n\n\n\nWrite to file\n🎬 Assign the plot to apc_distibution_media\n\napc_distibution_media &lt;- clean_trans_nondebris |&gt; \n  filter(treatment == \"MEDIA\") |&gt;\n  ggplot(aes(x = TNFa_APC_Lin)) +\n  geom_density(fill = \"gray80\") +\n  geom_vline(xintercept = apc_cut, \n             color = \"red\") +\n  geom_text(data = clean_trans_nondebris_tfna_pos |&gt; \n              filter(treatment == \"MEDIA\"), \n            aes(label = paste0(perc_tfna_pos, \n                               \"% cells\\nTNF-α +'ve\\nMFI = \",\n                               mean_apc)), \n            x = 3, \n            y = 2,\n            colour = \"red\",\n            size = 3) +\n  scale_y_continuous(expand = c(0, 0),\n                     limits = c(0, 2.5),\n                     name = \"Density\") +\n  scale_x_continuous(name = \"Logicle transformed APC TNF-α signal\") +\n  facet_grid(~ antibody) +\n  theme_bw()\n\n🎬 Save the plot to a file:\n\nggsave(\"figures/apc_distibution_media.png\",\n       device = \"png\",\n       plot = apc_distibution_media,\n       width = 4,\n       height = 2.5,\n       units = \"in\",\n       dpi = 300)\n\nOverlay instead of facets\n\nclean_trans_nondebris |&gt; \n   filter(treatment == \"MEDIA\") |&gt;\n   ggplot(aes(x = TNFa_APC_Lin, fill = antibody)) +\n   geom_density(alpha = 0.3) +\n   geom_vline(xintercept = apc_cut, \n              color = \"red\") +\n   scale_fill_viridis_d(name = NULL) +\n   scale_y_continuous(expand = c(0, 0),\n                      limits = c(0, 2.5)) +\n   scale_x_continuous(name = \"Logicle transformed APC TNF-α signal\") +\n   theme_bw() +\n   theme(legend.position = c(0.8, 0.85))",
+    "crumbs": [
+      "BABS 4",
+      "Week 6: DA 4 Immunobiology",
+      "Workshop"
+    ]
+  },
+  {
+    "objectID": "r4babs4/week-6/workshop.html#percentage-of-cells-in-each-quadrant",
+    "href": "r4babs4/week-6/workshop.html#percentage-of-cells-in-each-quadrant",
+    "title": "Workshop",
+    "section": "Percentage of cells in each quadrant",
+    "text": "Percentage of cells in each quadrant\nCalculate the the percentage of cells in each quadrant of a quadrant gated gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin\n\n ## summarise the number of FITC +'ve cells in each sample  \nclean_trans_nondebris_fitc_pos &lt;- clean_trans_nondebris |&gt;\n  filter(fitc == \"FITC +'ve\") |&gt;\n  group_by(antibody, treatment, .drop = FALSE) |&gt;\n  summarise(n_pos_fitc = n(),\n            mean_fitc = round(mean(E_coli_FITC_Lin), 2))\n\n## join the summary with the summary of the number of cells in each sample\n## and calculate the percentage of cells that are FITC +'ve\nclean_trans_nondebris_fitc_pos &lt;- \n  clean_trans_nondebris_fitc_pos |&gt; \n  left_join(clean_trans_nondebris_n, by = c(\"antibody\", \"treatment\")) |&gt; \n  mutate(perc_fitc_pos = round(n_pos_fitc/n_nondebris * 100, 1) )\n\n\n\n\n## calculate the percentage of cells in each quadrant\nall_combin_n &lt;- clean_trans_nondebris |&gt; \n  group_by(antibody, treatment, tnfa, fitc, .drop = FALSE) |&gt;\n  summarise(n = n())\n\nall_combin_perc &lt;- clean_trans_nondebris_n |&gt; \n  select(n_nondebris, antibody, treatment) |&gt; \n  right_join(all_combin_n, by = c(\"antibody\", \"treatment\")) |&gt; \n  mutate(perc = round(n / n_nondebris * 100, 1)) |&gt; \n  filter(perc &gt; 0)",
     "crumbs": [
       "BABS 4",
       "Week 6: DA 4 Immunobiology",
@@ -941,11 +965,11 @@
     ]
   },
   {
-    "objectID": "r4babs4/week-6/workshop.html#import-cleaned-data",
-    "href": "r4babs4/week-6/workshop.html#import-cleaned-data",
+    "objectID": "r4babs4/week-6/workshop.html#footnotes",
+    "href": "r4babs4/week-6/workshop.html#footnotes",
     "title": "Workshop",
-    "section": "Import cleaned data",
-    "text": "Import cleaned data\ngating live cells",
+    "section": "Footnotes",
+    "text": "Footnotes\n\nData Analysis 2: Immunobiology - Sample data analysis workshop has been amended to include the instruction to save these data at the end.↩︎",
     "crumbs": [
       "BABS 4",
       "Week 6: DA 4 Immunobiology",
