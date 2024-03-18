@@ -14,7 +14,11 @@ editor:
 library(kableExtra)
 ```
 
-In this workshop
+In this workshop learn how to create density plots to visualise the distribution and gating of the signals and calculate the the percentage of cells in each quadrant of a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal. You will also grow your knowledge of ggplot annotation and data import from googlesheet.
+
+💻 Annotate ggplots
+
+💻 Import data from a googlesheet
 
 # Exercises
 
@@ -54,6 +58,37 @@ These cells have been AI cleaned, gated to remove debris and dead cells, and lab
 clean_trans_nondebris <- read_csv("data-processed/live_labelled.csv")
 
 ```
+🎬 I'm also going to select only columns I need to keep my life simple:
+
+```{r}
+clean_trans_nondebris <- clean_trans_nondebris |> 
+  select(FS_Lin,
+         SS_Lin,
+         E_coli_FITC_Lin,
+         TNFa_APC_Lin,
+         antibody,
+         treatment,
+         tnfa,
+         fitc)
+```
+
+
+
+
+These are the forward and side scatter, the two logicle-transformed signals the groups (treatment and antibody) and whether the cell is positive or negative for each of the signals. 
+
+🎬 Click on the data frame in the environment window to view it and make sure you have an understanding of the data.
+
+```{r}
+#| echo: false
+clean_trans_nondebris |> 
+  head(n = 10) |> 
+  knitr::kable() |> 
+  kable_styling() |> 
+  scroll_box(height = "200px")
+
+```
+
 🎬 Use `fct_relevel()` to put treatment groups in order so that our graphs are better to interpret.
 
 ```{r}
@@ -63,6 +98,9 @@ clean_trans_nondebris <- clean_trans_nondebris |>
                                               "ECOLIGreen")))
 ```
 
+We need to calculate some summary information such as the percent of  TNF-α positive cells in each sample and the mean fluorescence intensity of the TNFa_APC_Lin signal in the TNF-α positive cells. If you especially hate `R` but are familiar with pivot tables in Excel, then you could use that..... but it would not be as reproducible as using `R` and `tidyverse` functions.
+
+🎬 Calculate the number of cells in each sample:
 
 ```{r}
 # number of cells in each sample after gating
@@ -70,10 +108,20 @@ clean_trans_nondebris_n <-  clean_trans_nondebris |>
   group_by(antibody, treatment) |> 
   summarise(n_nondebris = n()) 
 ```
+🎬 Click on the dataframe in the environment window to view it and make sure you have an understanding of the summary.
+
+```{r}
+#| echo: false
+clean_trans_nondebris_n |> 
+  knitr::kable() |> 
+  kable_styling() |> 
+  scroll_box(height = "200px")
+
+```
 
 
+🎬 Calculate the number of TNF-α positive cells in each sample and the mean fluorescence intensity of the TNFa_APC_Lin signal in the TNF-α positive cells:
 
-🎬
 
 ```{r}
 ## summarise the number of TNF-α +'ve cells in each sample  
@@ -82,7 +130,22 @@ clean_trans_nondebris_tfna_pos <- clean_trans_nondebris |>
   group_by(antibody, treatment) |>
   summarise(n_pos_tnfa = n(),
             mean_apc = round(mean(TNFa_APC_Lin), 2))
+```
+🎬 Click on the dataframe in the environment window to view it and make sure you have an understanding of the summary.
 
+```{r}
+#| echo: false
+clean_trans_nondebris_tfna_pos |> 
+  knitr::kable() |> 
+  kable_styling() |> 
+  scroll_box(height = "200px")
+
+```
+In order to calculate the percentage of cells that are TNF-α positive, we need to join the two summaries together and add a column using `mutate()`.
+
+🎬 Join the summary of the total number of cells in each sample with the summary of the number of TNF-α +'ve cells in each sample and calculate the percentage of cells that are TNF-α +'ve:
+
+```{r}
 ## join the summary with the summary of the number of cells in each sample
 ## and calculate the percentage of cells that are TNF-α +'ve
 clean_trans_nondebris_tfna_pos <- 
@@ -91,118 +154,151 @@ clean_trans_nondebris_tfna_pos <-
   mutate(perc_tfna_pos = round(n_pos_tnfa/n_nondebris * 100, 1) )
 ```
 
+🎬 Click on the dataframe in the environment window to view it and make sure you have an understanding of the summary.
+
+```{r}
+#| echo: false
+clean_trans_nondebris_tfna_pos |> 
+  knitr::kable() |> 
+  kable_styling() |> 
+  scroll_box(height = "200px")
+
+```
+
+## Distribution of APC TNF-α signal with gate
+
+To annotate the distribution of APC TNF-α signal with the gate used to define whether the cells are positive or negative for TNF-α it is useful to assign that value to a variable that we can use in our plots. We will do the FITC gate value at the same time[^2].
+
+[^2]: You might want to look back at [Quality control 3: Gating to determine a ‘real’ signal](../week-2/workshop.html#quality-control-3-gating-to-determine-a-real-signal) in the week 2 workshop to remind yourself of how we determined the gate values for the sample data. 
 
 
-## Distribution of one variable with gate
-
-🎬 apc cut
+🎬 Assign the gate values to variables:
 
 ```{r}
 apc_cut <- 2
 fitc_cut <- 2
-
 ```
 
-### Multiple facets
 
-🎬 
+### Plot one sample
+
+The pipe (`|>`) allows us to filter the data before plotting it which allows select the sample we want to plot. 
+
+🎬 Plot the distribution of the APC TNF-α signal for the MEDIA `treatment` and the ISOTYPE `antibody`:
+
+
 ```{r}
 clean_trans_nondebris |> 
+    filter(treatment == "MEDIA",
+           antibody == "ISOTYPE") |>
   ggplot(aes(x = TNFa_APC_Lin)) +
   geom_density(fill = "gray80") +
   geom_vline(xintercept = apc_cut, 
              color = "red") +
-  facet_grid(treatment ~ antibody) +
-  theme_bw()
-```
-
-🎬
-
-```{r}
-clean_trans_nondebris |> 
-  filter(treatment == "MEDIA") |>
-  ggplot(aes(x = TNFa_APC_Lin)) +
-  geom_density(fill = "gray80") +
-  geom_vline(xintercept = apc_cut, 
-             color = "red") +
-  facet_grid(~ antibody) +
-  theme_bw()
-```
-
-🎬
-
-```{r}
-clean_trans_nondebris |> 
-  filter(treatment == "MEDIA") |>
-  ggplot(aes(x = TNFa_APC_Lin)) +
-  geom_density(fill = "gray80") +
-  geom_vline(xintercept = apc_cut, 
-             color = "red") +
-  scale_y_continuous(expand = c(0, 0),
-                       limits = c(0, 2.5),
-                       name = "Density") +
-  scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
-  facet_grid(~ antibody) +
-  theme_bw()
-```
-
-
-### Plot annotation multiple facets
-
-1.  Most simple: in word/googledocs
-
-2.  In R and fully reproducibly
-
-🎬
-
-```{r}
-clean_trans_nondebris |> 
-  filter(treatment == "MEDIA") |>
-  ggplot(aes(x = TNFa_APC_Lin)) +
-  geom_density(fill = "gray80") +
-  geom_vline(xintercept = apc_cut, 
-             color = "red") +
-  geom_text(data = clean_trans_nondebris_tfna_pos |> 
-              filter(treatment == "MEDIA"), 
-            aes(label = paste0(perc_tfna_pos, 
-                               "% cells\nTNF-α +'ve\nMFI = ",
-                               mean_apc)), 
-            x = 3, 
-            y = 2,
-            colour = "red",
-            size = 3) +
   scale_y_continuous(expand = c(0, 0),
                      limits = c(0, 2.5),
                      name = "Density") +
   scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
-  facet_grid(~ antibody) +
   theme_bw()
+
 ```
+-    `geom_vline()` adds a vertical line to the plot at the value of `apc_cut` which is the gate value we determined for the APC TNF-α signal.
+
+-   `geom_density()` is a smoothed version of a histogram and shows the distribution of the data. The fill argument sets the colour of the plot to a light grey.
+
+-   the expand argument in a `scale_x_....` or `scale_y_....` sets the axis line at zero rather than being below it.
+
+
+#### Plot annotation
+
+You have (at least) three options for adding the summary statistics to the plot.
+
+1.  Most simple: adding in word/googledocs (or whatever you write your report in).
+
+    Save the plot using `ggsave()`, insert as an image into your report and a text box.
+
+2.  In R by hard coding the values in the `geom_text()` function.
+
+```{r}
+
+clean_trans_nondebris |> 
+  filter(treatment == "MEDIA",
+         antibody == "ISOTYPE") |>
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+  geom_text(label = "0.1 % cells\nTNF-α +'ve\nMFI = 2.14",
+            x = 1.6,
+            y = 2.2,
+            colour = "red") +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 2.5),
+                     name = "Density") +
+  scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+  theme_bw()
+
+```
+
+
+3.  In R and fully reproducibly by using the `clean_trans_nondebris_tfna_pos` dataframe with the summary statistics in `geom_text()`. That dataframe also needs filtering to the sample you are plotting.
+
+```{r}
+clean_trans_nondebris |> 
+  filter(treatment == "MEDIA",
+         antibody == "ISOTYPE") |>
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+   geom_text(data = clean_trans_nondebris_tfna_pos |> 
+              filter(treatment == "MEDIA",
+                     antibody == "ISOTYPE"), 
+             aes(label = paste0(perc_tfna_pos, 
+                                "% cells\nTNF-α +'ve\nMFI = ",
+                                mean_apc)), 
+             x = 1.7, 
+             y = 2.1,
+             colour = "red") +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 2.5),
+                     name = "Density") +
+  scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+  theme_bw()
+
+```
+
+This has several advantages:
+
+-   if the data changes, the plot annotation will update automatically just as the distribution will.
+
+-   extending to multiple facets requires little extra work.
+
 ### Write to file
 
-🎬 Assign the plot to `apc_distibution_media`
+🎬 Assign the plot to `apc_distibution_media_isotype`
 
 ```{r}
-apc_distibution_media <- clean_trans_nondebris |> 
-  filter(treatment == "MEDIA") |>
+apc_distibution_media_isotype <- clean_trans_nondebris |> 
+  filter(treatment == "MEDIA",
+         antibody == "ISOTYPE") |>
   ggplot(aes(x = TNFa_APC_Lin)) +
   geom_density(fill = "gray80") +
   geom_vline(xintercept = apc_cut, 
              color = "red") +
-  geom_text(data = clean_trans_nondebris_tfna_pos |> 
-              filter(treatment == "MEDIA"), 
-            aes(label = paste0(perc_tfna_pos, 
-                               "% cells\nTNF-α +'ve\nMFI = ",
-                               mean_apc)), 
-            x = 3, 
-            y = 2,
-            colour = "red",
-            size = 3) +
+   geom_text(data = clean_trans_nondebris_tfna_pos |> 
+              filter(treatment == "MEDIA",
+                     antibody == "ISOTYPE"), 
+             aes(label = paste0(perc_tfna_pos, 
+                                "% cells\nTNF-α +'ve\nMFI = ",
+                                mean_apc)), 
+             x = 1.7, 
+             y = 2.1,
+             colour = "red") +
   scale_y_continuous(expand = c(0, 0),
                      limits = c(0, 2.5),
                      name = "Density") +
   scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
-  facet_grid(~ antibody) +
   theme_bw()
 ```
 
@@ -211,15 +307,47 @@ apc_distibution_media <- clean_trans_nondebris |>
 🎬 Save the plot to a file:
 
 ```{r}
-ggsave("figures/apc_distibution_media.png",
+ggsave("figures/apc_distibution_media_isotype.png",
        device = "png",
-       plot = apc_distibution_media,
+       plot = apc_distibution_media_isotype,
        width = 4,
        height = 2.5,
        units = "in",
        dpi = 300)
 ```
 
+
+### Multiple facets
+
+To plot all the samples in one go we can use `facet_grid()`.  `treatment ~ antibody` puts the treatments in rows and the antibodies in columns. Of course, we now don't need to filter the data to a single sample.
+
+🎬 Plot the distribution of the APC TNF-α signal for all samples:
+
+
+```{r}
+
+clean_trans_nondebris |> 
+  ggplot(aes(x = TNFa_APC_Lin)) +
+  geom_density(fill = "gray80") +
+  geom_vline(xintercept = apc_cut, 
+             color = "red") +
+   geom_text(data = clean_trans_nondebris_tfna_pos, 
+             aes(label = paste0(perc_tfna_pos, 
+                                "% cells\nTNF-α +'ve\nMFI = ",
+                                mean_apc)), 
+             x = 4, 
+             y = 1.8,
+             colour = "red") +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 2.5),
+                     name = "Density") +
+  scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+  facet_grid(treatment ~ antibody) +
+  theme_bw()
+```
+
+
+You can combine these ideas to do facet plots of a subset of the samples.
 
 ### Overlay instead of facets
 

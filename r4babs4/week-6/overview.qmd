@@ -17,7 +17,7 @@ The successful student will be able to:
     the APC TNF-α and FTIC signals in live cells
 
 -   calculate the the percentage of cells in each quadrant of a quadrant
-    gated gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin 
+    gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin 
 
 -   annotate ggplots as desired
 
