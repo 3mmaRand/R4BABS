@@ -382,7 +382,7 @@ These functions can also be used to change the name (`name = ...`) of the legend
 Instead of picking colours, I like to use the viridis scales.
 The viridis scales provide colour maps that are perceptually uniform in both colour and black-and-white.
 They are also designed to be perceived by viewers with common forms of colour blindness.
-See https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#introduction for more information.
+See [Introduction to viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#introduction) for more information.
 
 Here I use `scale_fill_viridis_d()`.
 The d stands for discrete.
