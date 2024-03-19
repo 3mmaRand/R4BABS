@@ -14,11 +14,8 @@ editor:
 library(kableExtra)
 ```
 
-In this workshop learn how to create density plots to visualise the distribution and gating of the signals and calculate the the percentage of cells in each quadrant of a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal. You will also grow your knowledge of ggplot annotation and data import from googlesheet.
-
-💻 Annotate ggplots
-
-💻 Import data from a googlesheet
+In this workshop learn how to create density plots to visualise the distribution and gating of the signals and calculate the the percentage of cells in each quadrant of a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal.
+You will also grow your knowledge of ggplot annotation and data import from googlesheet.
 
 # Exercises
 
@@ -58,6 +55,7 @@ These cells have been AI cleaned, gated to remove debris and dead cells, and lab
 clean_trans_nondebris <- read_csv("data-processed/live_labelled.csv")
 
 ```
+
 🎬 I'm also going to select only columns I need to keep my life simple:
 
 ```{r}
@@ -72,10 +70,7 @@ clean_trans_nondebris <- clean_trans_nondebris |>
          fitc)
 ```
 
-
-
-
-These are the forward and side scatter, the two logicle-transformed signals the groups (treatment and antibody) and whether the cell is positive or negative for each of the signals. 
+These are the forward and side scatter, the two logicle-transformed signals the groups (treatment and antibody) and whether the cell is positive or negative for each of the signals.
 
 🎬 Click on the data frame in the environment window to view it and make sure you have an understanding of the data.
 
@@ -98,7 +93,9 @@ clean_trans_nondebris <- clean_trans_nondebris |>
                                               "ECOLIGreen")))
 ```
 
-We need to calculate some summary information such as the percent of  TNF-α positive cells in each sample and the mean fluorescence intensity of the TNFa_APC_Lin signal in the TNF-α positive cells. If you especially hate `R` but are familiar with pivot tables in Excel, then you could use that..... but it would not be as reproducible as using `R` and `tidyverse` functions.
+We need to calculate some summary information such as the percent of TNF-α positive cells in each sample and the mean fluorescence intensity of the TNFa_APC_Lin signal in the TNF-α positive cells.
+If you especially hate `R` but are familiar with pivot tables in Excel, then you could use that.....
+but it would not be as reproducible as using `R` and `tidyverse` functions.
 
 🎬 Calculate the number of cells in each sample:
 
@@ -108,6 +105,7 @@ clean_trans_nondebris_n <-  clean_trans_nondebris |>
   group_by(antibody, treatment) |> 
   summarise(n_nondebris = n()) 
 ```
+
 🎬 Click on the dataframe in the environment window to view it and make sure you have an understanding of the summary.
 
 ```{r}
@@ -119,9 +117,7 @@ clean_trans_nondebris_n |>
 
 ```
 
-
 🎬 Calculate the number of TNF-α positive cells in each sample and the mean fluorescence intensity of the TNFa_APC_Lin signal in the TNF-α positive cells:
-
 
 ```{r}
 ## summarise the number of TNF-α +'ve cells in each sample  
@@ -131,6 +127,7 @@ clean_trans_nondebris_tfna_pos <- clean_trans_nondebris |>
   summarise(n_pos_tnfa = n(),
             mean_apc = round(mean(TNFa_APC_Lin), 2))
 ```
+
 🎬 Click on the dataframe in the environment window to view it and make sure you have an understanding of the summary.
 
 ```{r}
@@ -141,9 +138,10 @@ clean_trans_nondebris_tfna_pos |>
   scroll_box(height = "200px")
 
 ```
+
 In order to calculate the percentage of cells that are TNF-α positive, we need to join the two summaries together and add a column using `mutate()`.
 
-🎬 Join the summary of the total number of cells in each sample with the summary of the number of TNF-α +'ve cells in each sample and calculate the percentage of cells that are TNF-α +'ve:
+🎬 Join the summary of the total number of cells in each sample with the summary of the number of TNF-α positive cells in each sample and calculate the percentage of cells that are TNF-α positive:
 
 ```{r}
 ## join the summary with the summary of the number of cells in each sample
@@ -165,12 +163,18 @@ clean_trans_nondebris_tfna_pos |>
 
 ```
 
+::: callout-tip
+## Tip for your own summaries
+
+You can use the same process calculate the percentage of cells that are FITC positive in each sample and the mean fluorescence intensity of the FITC signal in the FITC positive cells.
+:::
+
 ## Distribution of APC TNF-α signal with gate
 
-To annotate the distribution of APC TNF-α signal with the gate used to define whether the cells are positive or negative for TNF-α it is useful to assign that value to a variable that we can use in our plots. We will do the FITC gate value at the same time[^2].
+To annotate the distribution of APC TNF-α signal with the gate used to define whether the cells are positive or negative for TNF-α it is useful to assign that value to a variable that we can use in our plots.
+We will do the FITC gate value at the same time[^2].
 
-[^2]: You might want to look back at [Quality control 3: Gating to determine a ‘real’ signal](../week-2/workshop.html#quality-control-3-gating-to-determine-a-real-signal) in the week 2 workshop to remind yourself of how we determined the gate values for the sample data. 
-
+[^2]: You might want to look back at [Quality control 3: Gating to determine a ‘real’ signal](../week-2/workshop.html#quality-control-3-gating-to-determine-a-real-signal) in the week 2 workshop to remind yourself of how we determined the gate values for the sample data.
 
 🎬 Assign the gate values to variables:
 
@@ -179,13 +183,11 @@ apc_cut <- 2
 fitc_cut <- 2
 ```
 
-
 ### Plot one sample
 
-The pipe (`|>`) allows us to filter the data before plotting it which allows select the sample we want to plot. 
+The pipe (`|>`) allows us to filter the data before plotting it which allows select the sample we want to plot.
 
 🎬 Plot the distribution of the APC TNF-α signal for the MEDIA `treatment` and the ISOTYPE `antibody`:
-
 
 ```{r}
 clean_trans_nondebris |> 
@@ -202,12 +204,13 @@ clean_trans_nondebris |>
   theme_bw()
 
 ```
--    `geom_vline()` adds a vertical line to the plot at the value of `apc_cut` which is the gate value we determined for the APC TNF-α signal.
 
--   `geom_density()` is a smoothed version of a histogram and shows the distribution of the data. The fill argument sets the colour of the plot to a light grey.
+-   `geom_vline()` adds a vertical line to the plot at the value of `apc_cut` which is the gate value we determined for the APC TNF-α signal.
+
+-   `geom_density()` is a smoothed version of a histogram and shows the distribution of the data.
+    The fill argument sets the colour of the plot to a light grey.
 
 -   the expand argument in a `scale_x_....` or `scale_y_....` sets the axis line at zero rather than being below it.
-
 
 #### Plot annotation
 
@@ -239,7 +242,6 @@ clean_trans_nondebris |>
   theme_bw()
 
 ```
-
 
 3.  In R and fully reproducibly by using the `clean_trans_nondebris_tfna_pos` dataframe with the summary statistics in `geom_text()`. That dataframe also needs filtering to the sample you are plotting.
 
@@ -302,8 +304,6 @@ apc_distibution_media_isotype <- clean_trans_nondebris |>
   theme_bw()
 ```
 
-
-
 🎬 Save the plot to a file:
 
 ```{r}
@@ -316,13 +316,13 @@ ggsave("figures/apc_distibution_media_isotype.png",
        dpi = 300)
 ```
 
-
 ### Multiple facets
 
-To plot all the samples in one go we can use `facet_grid()`.  `treatment ~ antibody` puts the treatments in rows and the antibodies in columns. Of course, we now don't need to filter the data to a single sample.
+To plot all the samples in one go we can use `facet_grid()`.
+`treatment ~ antibody` puts the treatments in rows and the antibodies in columns.
+Of course, we now don't need to filter the data to a single sample.
 
 🎬 Plot the distribution of the APC TNF-α signal for all samples:
-
 
 ```{r}
 
@@ -346,10 +346,49 @@ clean_trans_nondebris |>
   theme_bw()
 ```
 
+Note that adding plot annotations manually (method 1) and using R fully reproducibly (method 3) are possible on faceted plots but method 2 is not because you need the annotations to change with values in treatment and antibody.
 
-You can combine these ideas to do facet plots of a subset of the samples.
+::: callout-tip
+## Tip for your own plots
+
+You can combine filtering data and faceted plots to do facet plots of a subset of the samples.
+:::
 
 ### Overlay instead of facets
+
+Using facets is one way to show multiple samples in one plot.
+Another way is to overlay the plots by mapping the `fill` aesthetic to the `antibody` variable.
+Making the fill semi-transparent with `alpha = 0.3` allows you to see the overlap of the distributions.
+
+🎬 Overlay the distribution of the APC TNF-α signals for the media treated samples:
+
+```{r}
+clean_trans_nondebris |> 
+   filter(treatment == "MEDIA") |>
+   ggplot(aes(x = TNFa_APC_Lin, fill = antibody)) +
+   geom_density(alpha = 0.3) +
+   geom_vline(xintercept = apc_cut, 
+              color = "red") +
+   scale_y_continuous(expand = c(0, 0),
+                      limits = c(0, 2.5)) +
+   scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
+   theme_bw() 
+```
+
+To change the colours we need to used a `scale_fill_...` function.
+These functions can also be used to change the name (`name = ...`) of the legend and the names (`labels = c(...)`) of each group.
+`scale_fill_manual()` allows to specify the colours (`values = c(...)`) manually.
+
+Instead of picking colours, I like to use the viridis scales.
+The viridis scales provide colour maps that are perceptually uniform in both colour and black-and-white.
+They are also designed to be perceived by viewers with common forms of colour blindness.
+See https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#introduction for more information.
+
+Here I use `scale_fill_viridis_d()`.
+The d stands for discrete.
+The function `scale_fill_viridis_c()` would be used for continuous data.
+I've used the default "viridis" (or "D") option (do `?scale_fill_viridis_d` for all the options) and got rid of the "antibody" name.
+I also moved the legend.
 
 ```{r}
 clean_trans_nondebris |> 
@@ -363,54 +402,71 @@ clean_trans_nondebris |>
                       limits = c(0, 2.5)) +
    scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
    theme_bw() +
-   theme(legend.position = c(0.8, 0.85)) 
+   theme(legend.position = c(0.85, 0.85))
 ```
-
-
-
-
-
 
 ## Percentage of cells in each quadrant
 
-Calculate the the percentage of cells in each quadrant of a quadrant gated gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin
+We want to calculate the the percentage of cells in each quadrant of a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal.
 
+🎬 Calculate the number of cells in each quadrant for each sample:
 
 ```{r}
- ## summarise the number of FITC +'ve cells in each sample  
-clean_trans_nondebris_fitc_pos <- clean_trans_nondebris |>
-  filter(fitc == "FITC +'ve") |>
-  group_by(antibody, treatment, .drop = FALSE) |>
-  summarise(n_pos_fitc = n(),
-            mean_fitc = round(mean(E_coli_FITC_Lin), 2))
-
-## join the summary with the summary of the number of cells in each sample
-## and calculate the percentage of cells that are FITC +'ve
-clean_trans_nondebris_fitc_pos <- 
-  clean_trans_nondebris_fitc_pos |> 
-  left_join(clean_trans_nondebris_n, by = c("antibody", "treatment")) |> 
-  mutate(perc_fitc_pos = round(n_pos_fitc/n_nondebris * 100, 1) )
-
-
-
-
-## calculate the percentage of cells in each quadrant
+## calculate the number of cells in each quadrant
 all_combin_n <- clean_trans_nondebris |> 
-  group_by(antibody, treatment, tnfa, fitc, .drop = FALSE) |>
-  summarise(n = n())
-
-all_combin_perc <- clean_trans_nondebris_n |> 
-  select(n_nondebris, antibody, treatment) |> 
-  right_join(all_combin_n, by = c("antibody", "treatment")) |> 
-  mutate(perc = round(n / n_nondebris * 100, 1)) |> 
-  filter(perc > 0)
-
+  group_by(antibody, treatment, tnfa, fitc) |>
+  summarise(n = n()) 
 
 ```
 
+🎬 Click on the data frame in the environment window to view it and make sure you have an understanding of the data.
 
+```{r}
+#| echo: false
+all_combin_n |> 
+  knitr::kable() |> 
+  kable_styling() |> 
+  scroll_box(height = "200px")
 
+```
 
+As there are four quadrants and six samples, you would expect 24 rows in the data frame.
+However, there are only 23 rows.
+This is because there are no cells in the quadrant where both cells are positive for both TNF-α and FITC for the ISOTYOPE antibody and MEDIA treated samples.
+Since we are probably happy not to annotate a figure with 0 %, this is fine.
+
+To calculate the percentage of cells in each quadrant, we need to join this dataframe with the number of non-debris cells for each sample, *i.e.,* `clean_trans_nondebris_n`
+
+🎬 Calculate the percentage of cells in each quadrant for each sample:
+
+```{r}
+all_combin_perc <- all_combin_n |> 
+  left_join(clean_trans_nondebris_n, 
+            by = c("antibody", "treatment")) |> 
+  mutate(perc = round(n / n_nondebris * 100, 1)) |> 
+  filter(perc > 0)
+
+```
+
+I have additionally filtered out rows where the % cells rounds to 0.
+This is again because we are probably happy not to annotate a figure with 0 %.
+
+🎬 Click on the data frame in the environment window to view it and make sure you have an understanding of the data.
+
+```{r}
+#| echo: false
+all_combin_perc |> 
+  knitr::kable() |> 
+  kable_styling() |> 
+  scroll_box(height = "200px")
+
+```
+
+::: callout-tip
+## Tip for your own plots
+
+You can combine the concept of annotation and faceted plots to annotate a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal you made in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop.
+:::
 
 ## Importing from google sheets
 
@@ -423,15 +479,62 @@ An advantage of using the google sheet is you won't have to remember to download
 You can use the `googlesheets4` package [@googlesheets4] to do this.
 
 ```{r}
+#| eval: false
 library(googlesheets4)
+```
+
+```{r}
+#| eval: false
+file <- "https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0"
 ```
 
 
 ```{r}
-
+#| eval: false
+class_data <- read_sheet(file)
 ```
 
 
+You will be asked:
+```
+Is it OK to cache OAuth access credentials in the folder
+C:/Users/emmar/AppData/Local/gargle/gargle/Cache between R sessions?
+1: Yes
+2: No
+Selection: 
+```
+Type the number for yes.
+
+You will be prompted to authenticate with Google in a browser window.
+
+I suggest clicking the box for: 
+
+> See, edit, create, and delete all your Google Sheets spreadsheets. Learn more
+
+but you do not have to. Click allow/continue.
+
+You will see a message in the browser window:
+
+> Authentication complete. Please close this page and return to R.
+
+You should see that the class data has been imported into R.
+
+Note that you will probably want to do some quality control such has filtering out rows with missing data in some columns. We did this in the [Data Analysis 1: Core](../week-1/workshop.html#quality-control) workshop.
+
+
+## Analysis of the class data
+
+You should be able to apply techniques you have learned in stage 1 to the class data.
+You can find those materials on the VLE in the 17C/8C module sites.
+However, you may find it useful to use the latest version of those material which are available outside the VLE at without 2FA.
+
+Stage 1
+
+-   [Data Analysis in R for Becoming a Bioscientist 1](../../r4babs1/r4babs1.html) [rand2023]. Core concepts about scientific computing, types of variable, the role of variables in analysis and how to use RStudio to organise analysis and import, summarise and plot data.
+
+-   [Data Analysis in R for Becoming a Bioscientist 2](../../r4babs2/r4babs2.html) [rand2023]. The logic of hypothesis testing, confidence intervals, what is meant by a statistical model, two-sample tests and one- and two-way analysis of variance (ANOVA).
+
+-   Supporting book [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/) [@Rand_Comp_Analysis]
 
 # Independent study following the workshop
 
