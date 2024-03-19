@@ -471,7 +471,7 @@ You can combine the concept of annotation and faceted plots to annotate a quadra
 ## Importing from google sheets
 
 The [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0) are in a google sheet.
-You can download the file as an excel file for .csv.
+You can download the file as an excel file or .csv.
 file but it is also possible to import the data directly from the google sheet into R.
 Use whatever you prefer.
 An advantage of using the google sheet is you won't have to remember to download the data when someone updates it.
