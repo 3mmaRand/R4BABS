@@ -44,7 +44,7 @@ The column names are the same as those used in the [Data Analysis 2: Immunobiolo
 library(tidyverse)
 ```
 
-🎬 Save a copy of [live_labelled.csv](data-raw/live_labelled.csv) to your `data-processed` folder.
+🎬 Save a copy of [live_labelled.csv](data-processed/live_labelled.csv) to your `data-processed` folder.
 These cells have been AI cleaned, gated to remove debris and dead cells, and labelled as positive or negative for the E_coli_FITC_Lin and TNFa_APC_Lin signals[^1].
 
 [^1]: [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop has been amended to include the instruction to save these data at the end.
