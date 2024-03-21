@@ -30,6 +30,7 @@ The columns you must add are:
 -   `perc_tfna_pos`: % non debris cells that are TNF-α positive cells
 
 The other columns are calculations you make along the way and may help you get to the `apc_mfi` and `perc_tfna_pos` values.
+
 The column names are the same as those used in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop.
 
 ## Set up
@@ -138,6 +139,16 @@ clean_trans_nondebris_tfna_pos |>
   scroll_box(height = "200px")
 
 ```
+
+Note: If your dataframe has 0 rows first check you have written "TNF-α +'ve" correctly in the filter function (other no rows will match). If you have written it correctly, and you are working on your own machine, you may have different character encoding. The simplest solution: is to repeat the step in workshop 2
+
+-   is to repeat the step in workshop 2 "Add a label, tnfa, to the data to indicate if the cell is positive or negative for TNF-α" by using TNF-a rather than TNF-α in the labelling
+
+-   make sure you resave the data ("data-processed/live_labelled.csv") after that step
+
+-   make sure you edit the code in this workshop to reflect the change in the label
+
+
 
 In order to calculate the percentage of cells that are TNF-α positive, we need to join the two summaries together and add a column using `mutate()`.
 
