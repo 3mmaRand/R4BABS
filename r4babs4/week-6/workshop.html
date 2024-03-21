@@ -390,7 +390,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <li><p><code>apc_mfi</code>: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells</p></li>
 <li><p><code>perc_tfna_pos</code>: % non debris cells that are TNF-α positive cells</p></li>
 </ul>
-<p>The other columns are calculations you make along the way and may help you get to the <code>apc_mfi</code> and <code>perc_tfna_pos</code> values. The column names are the same as those used in the <a href="../week-2/workshop.html">Data Analysis 2: Immunobiology - Sample data analysis</a> workshop.</p>
+<p>The other columns are calculations you make along the way and may help you get to the <code>apc_mfi</code> and <code>perc_tfna_pos</code> values.</p>
+<p>The column names are the same as those used in the <a href="../week-2/workshop.html">Data Analysis 2: Immunobiology - Sample data analysis</a> workshop.</p>
 </section><section id="set-up" class="level2"><h2 class="anchored" data-anchor-id="set-up">Set up</h2>
 <p>🎬 Open the RStudio project you created in the <a href="../week-2/workshop.html">Data Analysis 2: Immunobiology - Sample data analysis</a> workshop.</p>
 <p>🎬 Create a new script called <code>data-presentation.R</code></p>
@@ -669,6 +670,12 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<p>Note: If your dataframe has 0 rows first check you have written “TNF-α +’ve” correctly in the filter function (other no rows will match). If you have written it correctly, and you are working on your own machine, you may have different character encoding. The simplest solution: is to repeat the step in workshop 2</p>
+<ul>
+<li><p>is to repeat the step in workshop 2 “Add a label, tnfa, to the data to indicate if the cell is positive or negative for TNF-α” by using TNF-a rather than TNF-α in the labelling</p></li>
+<li><p>make sure you resave the data (“data-processed/live_labelled.csv”) after that step</p></li>
+<li><p>make sure you edit the code in this workshop to reflect the change in the label</p></li>
+</ul>
 <p>In order to calculate the percentage of cells that are TNF-α positive, we need to join the two summaries together and add a column using <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
 <p>🎬 Join the summary of the total number of cells in each sample with the summary of the number of TNF-α positive cells in each sample and calculate the percentage of cells that are TNF-α positive:</p>
 <div class="cell">
