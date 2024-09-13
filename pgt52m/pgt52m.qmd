@@ -70,11 +70,10 @@ This week you will how to use and interpret the general linear model when the x 
 Last week you learnt how to use and interpret the general linear model when the x variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (analysis of variance). You will also learn about the Kruskal- Wallis test which can be used when the assumptions of the general linear model are not met.
 
 ## Week 9: Assessment intro
-This week will introduce you to the assessment for this module. We will look at a specimen assessment which will use techinques you have already learnt and apply them to analysing a dataset. Your assessment will use a different dataset but you will apply the same principles. We will be covering what your assessment submission should contain using this example.
-
+This week, we will introduce you to the assessment for this module. We will look at a specimen assessment using techniques you have already learned and apply them to analysing a dataset. Your assessment will use a different dataset but you will apply the same principles. We will be covering what your assessment submission should contain using this example.
 
 ## Week 10: Reproducible Reporting
-Following on from last weeks introduction to the assessment. You will be introduced to quarto, which is a way of generating reproducible reports and you will need for your assessment. This will cover how to embedd sections and exectuable chunks of R code within your quarto files.
+Following on from last week's introduction to the assessment. You will be introduced to quarto, which is a way of generating reproducible reports and you will need for your assessment. This will cover how to embed sections and executable chunks of R code within your quarto files.
 
 ## Week 11: Drop-in
-This session contains no set material, however we will cover topics that people have had difficulty with during the course and cover any material you may still be struggling with from the workshops. This will be our last timetabled session to ask questions prior to the asessment release and a good opportunities to ask any outstanding questions. No questions are silly questions! 
+This session contains no set material however, we will cover topics that people have had difficulty with during the course and cover any material you may still be struggling with from the workshops. This will be our last timetabled session to ask questions prior to the asessment release and a good opportunity to ask any outstanding questions. No questions are silly questions!
