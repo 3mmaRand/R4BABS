@@ -18,7 +18,9 @@ In this workshop you will learn how to analyse some sample flow cytometry data.
 
 # Exercises
 
-## Set up a Project
+## Set up 
+
+### Make a RStudio Project
 
 🎬 Start RStudio from the Start menu
 
@@ -30,7 +32,7 @@ In this workshop you will learn how to analyse some sample flow cytometry data.
 
 🎬 Record what you do and what you find out. All of it! Make notes on the inputs and outputs of each command. This will help you work out problems analysing your own data.
 
-## Load packages
+### Load packages
 
 We need three packages for this workshop:
 
@@ -220,7 +222,7 @@ fs_clean <- flow_auto_qc(fs,
 
 This is an example report: [ECOLIGreen_TNFAPC flowAI report](sample-QC/ECOLIGreen_TNFAPC_QC.html)
 
-## Plot distributions
+### Get a feel of your data: Plot distributions
 
 Plotting the distributions of our variables is very useful for getting an overview of our data. We'll just look at the first flowFrame to get over the principles.
 
