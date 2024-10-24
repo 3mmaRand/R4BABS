@@ -5,13 +5,16 @@ toc: true
 toc-location: right
 ---
 
-This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories.
+This week you will carry out some independent study to ensure you 
+have some understanding of computer file systems. We will introduce y
+ou to the concepts of paths and working directories.
 
 ![Artwork by @allison_horst: "code gets the blame"](images/code_gets_the_blame.jpg){fig-alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos"}
 
 ### Learning objectives
 
-The parentheses after each learning objective indicate where the content covers that objective.
+The parentheses after each learning objective indicate where the content 
+covers that objective.
 
 The successful student will be able to:
 
@@ -19,23 +22,30 @@ The successful student will be able to:
 -   explain the organisation of files and directories in a file systems 
 -   explain what a file is and give some common files types 
 -   explain what is meant by a plain text file
--   explain the relationship between the file extensions, the file format and associations with programs
+-   explain the relationship between the file extensions, the file 
+    format and associations with programs
 -   use a file manager
 -   explain root, home and working directories
 -   explain absolute and relative file paths
 -   know what R and RStudio are
 -   know how to organise their work
+-   use the Virtual Desktop Service
 
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  Join the video conference Intro: Data Handling - BIO00027C-A (Lecture) on your timetable
+    i.  If you have not done so already, read "An overview of Data Analysis
+        in R for BABS" in your degree and "An overview of Data Analysis in 
+        R for BABS 1"
 
     ii. Read What they forgot to teach you about computers
 
     iii. Read What are R and Rstudio?
+    
+    iv. Join the video conference Intro: Data Handling - BIO00027C-A (Lecture) 
+        on your timetable
 
 2.  [Workshop](workshop.qmd)
 
