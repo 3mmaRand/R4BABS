@@ -8,21 +8,23 @@ toc-location: right
 There is no formal workshop this week but I recommend setting yourself up to
 work from home
 
-1.  💻 Set up the Virtual Desktop. I very strongly recommend working on 
-    the University computers for this work. You will be using more specialised 
-    R packages than you might be used to. This is especially important 
-    if you often have difficulty updating and or installing software on 
-    your own machine, wouldn't know what what version of R you are using 
-    or don't realise there is a difference between R and RStudio. 
-    The uni machines always have up-to-date R and R packages and all 
-    the packages that appear in teaching materials. You can still work 
-    from home by using the
+1.  💻 Set up the Virtual Desktop. I recommend working on 
+    the University computers for this work. Installing R and RStudio 
+    is almost always straightforward but many people are still developing
+    their computing skills. If you sometimes have difficulty updating 
+    and or installing software on your own machine, wouldn't know what 
+    what versions of R and RStudio you are using or don't realise there 
+    is a difference between R and RStudio you will likely avoid trouble
+    by using the university machines. The uni machines always have 
+    up-to-date R and R packages and all the packages that appear in 
+    teaching materials. You can still work from home by using the
     [Virtual Desktop Service](https://www.york.ac.uk/it-services/tools/vds/). 
     The VDS allows you to log on to a university computer from your 
     own computer. It means you can access all software and filestores. 
     When using the VDS for R and RStudio, it usually makes sense to use 
     other software - such as a browser or file explorer - also through the VDS.
-    If you are confident in your ability to set up your own machine, you 
+    
+    However, If you are confident in your ability to set up your own machine, you 
     need:
     
     -   to know there is a 
