@@ -375,14 +375,23 @@ window.Quarto = {
   <li>
 <a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-<li><a href="#set-up-a-project" id="toc-set-up-a-project" class="nav-link" data-scroll-target="#set-up-a-project">Set up a Project</a></li>
+<li>
+<a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set up</a>
+  <ul class="collapse">
+<li><a href="#make-a-rstudio-project" id="toc-make-a-rstudio-project" class="nav-link" data-scroll-target="#make-a-rstudio-project">Make a RStudio Project</a></li>
   <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  </ul>
+</li>
   <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the data</a></li>
   <li><a href="#explore-the-data-structure" id="toc-explore-the-data-structure" class="nav-link" data-scroll-target="#explore-the-data-structure">Explore the data structure</a></li>
   <li><a href="#improve-the-column-names" id="toc-improve-the-column-names" class="nav-link" data-scroll-target="#improve-the-column-names">Improve the column names</a></li>
   <li><a href="#drop-the-unused-channels-columns" id="toc-drop-the-unused-channels-columns" class="nav-link" data-scroll-target="#drop-the-unused-channels-columns">Drop the unused channels (columns)</a></li>
-  <li><a href="#quality-control-1-automated-instrument-issues" id="toc-quality-control-1-automated-instrument-issues" class="nav-link" data-scroll-target="#quality-control-1-automated-instrument-issues">Quality control 1: Automated instrument issues</a></li>
-  <li><a href="#plot-distributions" id="toc-plot-distributions" class="nav-link" data-scroll-target="#plot-distributions">Plot distributions</a></li>
+  <li>
+<a href="#quality-control-1-automated-instrument-issues" id="toc-quality-control-1-automated-instrument-issues" class="nav-link" data-scroll-target="#quality-control-1-automated-instrument-issues">Quality control 1: Automated instrument issues</a>
+  <ul class="collapse">
+<li><a href="#get-a-feel-of-your-data-plot-distributions" id="toc-get-a-feel-of-your-data-plot-distributions" class="nav-link" data-scroll-target="#get-a-feel-of-your-data-plot-distributions">Get a feel of your data: Plot distributions</a></li>
+  </ul>
+</li>
   <li><a href="#transform-the-data" id="toc-transform-the-data" class="nav-link" data-scroll-target="#transform-the-data">Transform the data</a></li>
   <li><a href="#make-data-easier-to-work-with" id="toc-make-data-easier-to-work-with" class="nav-link" data-scroll-target="#make-data-easier-to-work-with">Make data easier to work with</a></li>
   <li><a href="#save-the-data" id="toc-save-the-data" class="nav-link" data-scroll-target="#save-the-data">Save the data</a></li>
@@ -424,13 +433,14 @@ window.Quarto = {
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
 <p>In this workshop you will learn how to analyse some sample flow cytometry data.</p>
 </section></section><section id="exercises" class="level1"><h1>Exercises</h1>
-<section id="set-up-a-project" class="level2"><h2 class="anchored" data-anchor-id="set-up-a-project">Set up a Project</h2>
+<section id="set-up" class="level2"><h2 class="anchored" data-anchor-id="set-up">Set up</h2>
+<section id="make-a-rstudio-project" class="level3"><h3 class="anchored" data-anchor-id="make-a-rstudio-project">Make a RStudio Project</h3>
 <p>🎬 Start RStudio from the Start menu</p>
 <p>🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you</p>
 <p>🎬 Use the Files pane to make a folders for the data. I suggest <code>data-raw/</code>, <code>data-processed/</code> and <code>data-meta/</code></p>
 <p>🎬 Make a new script called <code>sample-data-analysis.R</code> to carry out the rest of the work.</p>
 <p>🎬 Record what you do and what you find out. All of it! Make notes on the inputs and outputs of each command. This will help you work out problems analysing your own data.</p>
-</section><section id="load-packages" class="level2"><h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+</section><section id="load-packages" class="level3"><h3 class="anchored" data-anchor-id="load-packages">Load packages</h3>
 <p>We need three packages for this workshop:</p>
 <ul>
 <li><p><strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>: importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.</p></li>
@@ -477,7 +487,7 @@ Working on your own machine
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note: Load tidyverse last because <strong><code>flowCore</code></strong> also has some functions with the same names as functions in <strong><code>tidyverse</code></strong> and you will want the tidyverse ones.</p>
-</section><section id="import-the-data" class="level2"><h2 class="anchored" data-anchor-id="import-the-data">Import the data</h2>
+</section></section><section id="import-the-data" class="level2"><h2 class="anchored" data-anchor-id="import-the-data">Import the data</h2>
 <p>There are six data files, one for each treatment and antibody combination:</p>
 <ul>
 <li><a href="data-raw/ECOLIGreen_ISOTYPE.fcs">ECOLIGreen_ISOTYPE.fcs</a></li>
@@ -802,7 +812,7 @@ Quality control for the file: MEDIA_TNFAPC
 <p>❓ What has been removed through the QC process?</p>
 <p>❓ What is in the folder “sample-QC”?</p>
 <p>This is an example report: <a href="sample-QC/ECOLIGreen_TNFAPC_QC.html">ECOLIGreen_TNFAPC flowAI report</a></p>
-</section><section id="plot-distributions" class="level2"><h2 class="anchored" data-anchor-id="plot-distributions">Plot distributions</h2>
+<section id="get-a-feel-of-your-data-plot-distributions" class="level3"><h3 class="anchored" data-anchor-id="get-a-feel-of-your-data-plot-distributions">Get a feel of your data: Plot distributions</h3>
 <p>Plotting the distributions of our variables is very useful for getting an overview of our data. We’ll just look at the first flowFrame to get over the principles.</p>
 <p>🎬 Plot the distribution of the TNFa_APC signal in the first flowFrame in the flowSet:</p>
 <div class="cell">
@@ -846,7 +856,7 @@ Quality control for the file: MEDIA_TNFAPC
 </div>
 </div>
 <p>Now our data are easier to see.</p>
-</section><section id="transform-the-data" class="level2"><h2 class="anchored" data-anchor-id="transform-the-data">Transform the data</h2>
+</section></section><section id="transform-the-data" class="level2"><h2 class="anchored" data-anchor-id="transform-the-data">Transform the data</h2>
 <p>In fact, we will apply a different transformation called “logicle” <span class="citation" data-cites="parks2006">(<a href="#ref-parks2006" role="doc-biblioref">Parks, Roederer, and Moore 2006</a>)</span>. This transformation is has a similar effect as logging but avoids some problems that can occur with flow cytometry data and especially flow cytometry data that have been “compensated” . Compensation is routinely applied to flow cytometry data to correct for fluorophores being detected in in multiple channels. This was not a problem in our experiment.</p>
 <p>A transformation is applied in two steps: the transformations needed is estimated from the data and then that transformation is applied.</p>
 <p>We need to apply the transformation only to apply it to the <code>TNFa_APC_Lin</code> and <code>E_coli_FITC_Lin</code> columns. These in the 10th and 13th columns of the flowFrames.</p>
