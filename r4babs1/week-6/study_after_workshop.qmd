@@ -6,4 +6,5 @@ toc-location: right
 ---
 
 
-There is no additional study this week but you may want to look ahead to next week.
+There is no additional study this week but you may want to look 
+ahead to next week.
