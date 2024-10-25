@@ -6,8 +6,11 @@ toc-location: right
 ---
 
 This week you will carry out some independent study to ensure you 
-have some understanding of computer file systems. We will introduce y
-ou to the concepts of paths and working directories.
+have some understanding of computer file systems. We will introduce 
+you to the concepts of paths and working directories. You will also 
+set your own machine up to use the Virtual Desktop Service which allows
+you to log in to a university machine from your own computer so you 
+can work easily at home outside of workshops.
 
 ![Artwork by @allison_horst: "code gets the blame"](images/code_gets_the_blame.jpg){fig-alt="A charactered has slipped on a banana skin and is blaming the code character but the real culprits, holding bananas, are mismanaged files, navigating your computing and typos"}
 
@@ -49,7 +52,7 @@ The successful student will be able to:
 
 2.  [Workshop](workshop.qmd)
 
-    i.  Optional: Install R and RStudio
+    i.  Set up the Virtual Desktop Service
 
 3.  [Consolidate](study_after_workshop.qmd)
 
