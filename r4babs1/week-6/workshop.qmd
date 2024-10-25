@@ -23,6 +23,8 @@ work from home
     own computer. It means you can access all software and filestores. 
     When using the VDS for R and RStudio, it usually makes sense to use 
     other software - such as a browser or file explorer - also through the VDS.
+    Go to the [Virtual Desktop Service](https://www.york.ac.uk/it-services/tools/vds/)
+    for set up instructions.
     
     However, If you are confident in your ability to set up your own machine, you 
     need:
@@ -30,15 +32,15 @@ work from home
     -   to know there is a 
         [difference between R and RStudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio)
     -   [Install R and Rstudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#installing-r-and-rstudio)
-    -   to using R 4.4 and RStudio 2024.09.0 Build 375 ("Cranberry Hibiscus")
-    -   be certain you are actually using R 4.4 - it is written in the top edge
+    -   to us R 4.4 and RStudio 2024.09.0 Build 375 ("Cranberry Hibiscus")
+    -   to be certain you are actually using R 4.4 - it is written in the top edge
         of the console window. By default RStudio uses the latest version on 
         R on your machine. 
 
     It is possible to access all your files on your university account without 
     using the VDS. For example, if you want to work on uni machines at uni 
-    and your machine at home. You can best do this by mapping a drive:      
-    https://support.york.ac.uk/s/topic/0TO4K000000lA5ZWAU/filestores.
+    and your machine at home. You can best do this by 
+    [mapping a drive](https://support.york.ac.uk/s/topic/0TO4K000000lA5ZWAU/filestores).
     If you store everything on google drive you can also read/write to that 
     like any other drive using google drive app.
 
