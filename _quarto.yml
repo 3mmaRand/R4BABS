@@ -17,7 +17,7 @@ website:
         href: "https://mastodon.social/users/3mma"
         text: "Emma on mastodon"
       - icon: github
-        href: https://github.com/3mmaRand/R4BABS
+        href: "https://github.com/3mmaRand"
         text: "Emma on GitHub"  
  
   navbar:
@@ -45,7 +45,7 @@ website:
         href: "https://mastodon.social/users/3mma"
         text: "Emma on mastodon"
       - icon: github
-        href: https://github.com/3mmaRand/R4BABS
+        href: "https://github.com/3mmaRand"
         text: "Emma on GitHub"  
 
 
@@ -362,6 +362,8 @@ format:
       margin-width: 300px
 
     author-meta: Emma Rand
+
+fig-dpi: 600
 
 bibliography: references.bib
 
