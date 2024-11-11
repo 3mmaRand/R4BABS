@@ -21,8 +21,8 @@ out of the one closest to the door. A welcome mat says 'Welcome'." width="800"}
 
 ## Session overview
 
-In this introduction you will start working with RStudio. You will type
-in some data plot it and then customise your plot.
+In this workshop you will use RStudio to write R code. You will type
+in some data, plot it and then customise your plot.
 
 ## Philosophy
 

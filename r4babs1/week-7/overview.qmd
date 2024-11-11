@@ -5,7 +5,12 @@ toc: true
 toc-location: right
 ---
 
-This week you will start writing R code in RStudio and will create your first graph! You will learn about data types such as "numerics" and "characters" and some of the different types of objects in R such as "vectors" and "dataframes". These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.
+This week you will start using RStudio to write R code and you will create your 
+first graph! You will learn about data types such as "numerics" and "characters"
+and object types such as "vectors" and "dataframes". These are the building 
+blocks for the rest of your R journey. You will also learn about the layout of
+RStudio and a workflow using scripts and RStudio Projects to keep your work 
+organised.
 
 ![Artwork by @allison_horst: "bless this workflow"](images/workflow.png){fig-alt="An organized kitchen with sections labeled 'tools', 'report' and 'files', while a monster in a chef's hat stirs in a bowl labeled 'code.'"}
 
@@ -26,12 +31,14 @@ The successful student will be able to:
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  First Steps in RStudio: **Either** 📖 Read the book **OR** 📹 Watch two videos
+    i.  First Steps in RStudio: **Either** 📖 Read the book **OR** 📹 Watch 
+        two videos
 
 
 2.  [Workshop](workshop.qmd)
     
-    i.💻 🐈 Coat colour of cats. Type in some data, perform calculations on, and plot it.
+    i.  💻 🐈 Coat colour of cats. Type in some data, perform calculations on, 
+      and plot it.
 
 3.  [Consolidate](study_after_workshop.qmd)
 
