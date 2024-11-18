@@ -13,15 +13,24 @@ library(kableExtra)
 
 # Introduction
 
-![Artwork by @allison_horst: Continuous and Discrete](images/continuous_discrete-01.png){fig-alt="One the left: Continuous data - measures that can have possible infinite values within its range. A cute chick labelled I am 3.1 inches tall, I weigh 34.16 grams. One the right: Discrete observations can only exist at limited values, often counts. A cute octopus labelled I have 8 legs and 4 spots"}
+![Artwork by @allison_horst: Continuous and
+Discrete](images/continuous_discrete-01.png){fig-alt="One the left: Continuous data - measures that can have possible infinite values within its range. A cute chick labelled I am 3.1 inches tall, I weigh 34.16 grams. One the right: Discrete observations can only exist at limited values, often counts. A cute octopus labelled I have 8 legs and 4 spots"}
 
 ## Session overview
 
-In this workshop you will learn how to import data from files and create summaries and plots for it. You will also get more practice with working directories, formatting figures and the pipe.
+In this workshop you will learn how to import data from files in your
+working directory and from a folder in your working directory. This will
+develop your understanding of working directories and paths. You will
+also create summaries and plots for data you import. This will give you
+more practice customising plots and using the pipe.
 
 ## Philosophy
 
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
+Workshops are not a test. It is expected that you often don't know how
+to start, make a lot of mistakes and need help. It is expected that you
+are familiar with independent study content before the workshop.
+However, you need not remember or understand every detail as the
+workshop should build and consolidate your understanding. Tips
 
 -   don't worry about making mistakes
 -   don't let what you can not do interfere with what you can do
@@ -33,55 +42,95 @@ Workshops are not a test. It is expected that you often don't know how to start,
 ::: callout-note
 ## Key
 
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+These four symbols are used at the beginning of each instruction so you
+know where to carry out the instruction.
 
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
+![](images/do_on_your_computer.png) Something you need to do on your
+computer. It may be opening programs or documents or locating a file.
 
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+![](images/do_in_R.png) Something you should do in RStudio. It will
+often be typing a command or using the menus but might also be creating
+folders, locating or moving files.
 
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
+![](images/do_on_internet.png) Something you should do in your browser
+on the internet. It may be searching for information, going to the VLE
+or downloading a file.
 
-![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+![](images/answer.png) A question for you to think about and answer.
+Record your answers in your script for future reference.
 :::
 
 # Getting started
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-1` folder and name the RStudio Project 'week-8'.
+![](images/do_in_R.png) Make an RStudio project for this workshop by
+clicking on the drop-down menu on top right where it says
+`Project: (None)` and choosing New Project, then New Directory, then New
+Project. Navigate to the `data-analysis-in-r-1` folder and name the
+RStudio Project 'week-8'.
 
-![](images/do_in_R.png) Make a new script then save it with a name like `analysis.R` to carry out the rest of the work.
+![](images/do_in_R.png) Make a new script then save it with a name like
+`import-summarise-plot.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Types of variable, the normal distribution and summarising data`
+![](images/do_in_R.png) Add a comment to the script:
+`# Types of variable, the normal distribution and summarising data`
 
 # Exercises
 
 ## Importing data from files
 
-Last week we created data [by typing the values in to R](../week-7/workshop.html#creating-the-data). This is not practical when you have added a lot of data to a spreadsheet, or you are using data file that has been supplied to you by a person or a machine. Far more commonly, we import data from a file into R. This requires you know two pieces of information.
+Last week we created data [by typing the values in to
+R](../week-7/workshop.html#creating-the-data). This is not practical
+when you have a lot of data. For example if you have recorded a lot of
+data into a spreadsheet, or you are using a data file that has been
+supplied to you by a person or a machine. Far more commonly, we import
+data from a file into R. This requires you know two pieces of
+information.
 
 1.  What format the data are in
 
-    The format of the data determines what function you will use to import it and the file extension often indicates format.
+    The format of the data determines what function you will use to
+    import it and the file extension often indicates format.
 
-    -   `.txt` a plain text file[^1], where the columns are often separated by a space but might also be separated by a tab, a backslash or forward slash, or some other character
-    -   `.csv` a plain text file where the columns are separated by commas
+    -   `.txt` a plain text file[^1], where the columns are often
+        separated by a space but might also be separated by a tab, a
+        backslash or forward slash, or some other character
+    -   `.csv` a plain text file where the columns are separated by
+        commas
     -   `.xlsx` an Excel file
 
 2.  Where the file is relative to your working directory
 
-    `R` can only read in a file if you say where it is, *i.e.*, you give its **relative path**. 
+    `R` can only read in a file if you say where it is, *i.e.*, you give
+    its **relative path**.
 
-We will first save the four files for this workshop to our Project folder (`week-8`) and read them in. Then we will then create a new folder inside our Project folder called `data-raw`, move the data files into it and read them in from there. This will allow you to see how the file paths need to be modified when a file is not in your working directory. 
+[^1]: Plain text files can be opened in notepad or other similar editor
+    and still be readable.
 
-![](images/do_on_your_computer.png) Save these four files in to your `week-8` folder
+We will first save the four files for this workshop to our Project
+folder (`week-8`) and read them in. Then we will then create a new
+folder inside our Project folder called `data-raw`, move the data files
+into it and read them in from there. This will allow you to see how the
+file paths need to be modified when a file is not in your working
+directory.
 
--   The coat colour and mass of 62 cats: [cat-coats.csv](data-raw/cat-coats.csv)
--   The relative size of over 5000 cells measure by forward scatter (FSC) in flow cytometry: [cell-size.txt](data-raw/cell-size.txt)
--   The number of sternopleural bristles on 96 female *Drosophila*: [bristles.txt](data-raw/bristles.txt)
--   The number of sternopleural bristles on 96 female *Drosophila* (with technical replicates): [bristles-mean.xlsx](data-raw/bristles-mean.xlsx)
+![](images/do_on_your_computer.png) Save these four files in to your
+`week-8` folder
 
-The first three files can be read in with core **`tidyverse`** @tidyverse functions and the last can be read in with the **`readxl`** @readxl package.
+-   The coat colour and mass of 62 cats:
+    [cat-coats.csv](data-raw/cat-coats.csv)
+-   The relative size of over 5000 cells measure by forward scatter
+    (FSC) in flow cytometry: [cell-size.txt](data-raw/cell-size.txt)
+-   The number of sternopleural bristles on 96 female *Drosophila*:
+    [bristles.txt](data-raw/bristles.txt)
+-   The number of sternopleural bristles on 96 female *Drosophila* (with
+    technical replicates):
+    [bristles-mean.xlsx](data-raw/bristles-mean.xlsx)
+
+The first three files can be read in with core **`tidyverse`**
+@tidyverse functions and the last can be read in with the **`readxl`**
+@readxl package.
 
 ![](images/do_in_R.png) Load the two packages
 
@@ -90,13 +139,25 @@ library(tidyverse)
 library(readxl)
 ```
 
-We will first read in `cat-coats.csv`. A `.csv.` extension suggests this is plain text file with comma separated columns. However, before we attempt to read it it, when should take a look at it. We can do this from RStudio
+We will first read in `cat-coats.csv`. A `.csv.` extension suggests this
+is plain text file with comma separated columns. However, before we
+attempt to read it it, when should take a look at it. We can do this
+from RStudio
 
-![](images/do_in_R.png) Go to the Files pane (bottom right), click on the `cat-coats.csv` file and choose View File[^2]
+![](images/do_in_R.png) Go to the Files pane (bottom right), click on
+the `cat-coats.csv` file and choose View File[^2]
 
-![RStudio Files Pane](images/rstudio-filepane-viewfile.png){fig-alt="Rstudio Files pane showing the data files and the View File option that appears when you click on the a particular file"}
+[^2]: **Do not** be tempted to import data this way. Unless you are
+    careful, your data import will not be scripted or will not be
+    scripted correctly.
 
-Any plain text file will open in the top left pane (Excel files will launch Excel).
+![RStudio Files
+Pane](images/rstudio-filepane-viewfile.png){fig-alt="Rstudio Files pane 
+showing the data files and the View File option that appears when you click 
+on the a particular file"}
+
+Any plain text file will open in the top left pane (Excel files will
+launch Excel).
 
 ![](images/answer.png) Is the file csv?
 
@@ -117,11 +178,14 @@ Any plain text file will open in the top left pane (Excel files will launch Exce
 cats <- read_csv("cat-coats.csv")
 ```
 
-The data from the file a read into a dataframe called `cats` and you will be able to see it in the Environment.
+The data from the file a read into a dataframe called `cats` and you
+will be able to see it in the Environment.
 
-![](images/do_in_R.png) Click on each of the remaining files and choose View File.
+![](images/do_in_R.png) Click on each of the remaining files and choose
+View File.
 
-![](images/answer.png) In each case, say what the format is and what types of variables it contains.
+![](images/answer.png) In each case, say what the format is and what
+types of variables it contains.
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -139,16 +203,22 @@ The data from the file a read into a dataframe called `cats` and you will be abl
 
 <!-- from 1 to 96 and mean count seems to be continuous -->
 
-We use the `read_table()`[^3] command to read in plain text files of single columns or where the columns are separated by spaces...
+We use the `read_table()`[^3] command to read in plain text files of
+single columns or where the columns are separated by spaces.
 
-![](images/do_in_R.png) ...so in `cell-size.txt` can be read into a dataframe called `cells` like this:
+[^3]: note `read_csv()` and `read_table()` are the same functions with
+    some different settings.
+
+![](images/do_in_R.png) The file `cell-size.txt` can be read into a
+dataframe called `cells` using `read_table()`:
 
 ```{r}
 #| eval: false
 cells <- read_table("cell-size.txt")
 ```
 
-![](images/do_in_R.png) Now you try reading `bristles.txt` in to a dataframe called `fly_bristles`
+![](images/do_in_R.png) Now you try reading `bristles.txt` in to a
+dataframe called `fly_bristles`
 
 ```{r}
 #| include: false
@@ -158,9 +228,14 @@ cells <- read_table("cell-size.txt")
 fly_bristles <- read_table("bristles.txt")
 ```
 
-The **`readxl`** package we loaded earlier has two useful functions for working with Excel files: `excel_sheets("filename.xlsx")` will list the sheets in an Excel workbook; `read_excel("filename.xlsx")` will read in to top sheet or a specified sheet with a small modification `read_excel("filename.xlsx", sheet = "Sheet1")`.
+The **`readxl`** package we loaded earlier has two useful functions for
+working with Excel files: `excel_sheets("filename.xlsx")` will list the
+sheets in an Excel workbook; `read_excel("filename.xlsx")` will read in
+to top sheet or a specified sheet with a small modification
+`read_excel("filename.xlsx", sheet = "Sheet1")`.
 
-![](images/do_in_R.png) List the the names of the sheets and read in the sheet with the data like this:
+![](images/do_in_R.png) List the the names of the sheets and read in the
+sheet with the data like this:
 
 ```{r}
 #| eval: false
@@ -168,22 +243,34 @@ excel_sheets("bristles-mean.xlsx")
 fly_bristles_means <- read_excel("bristles-mean.xlsx", sheet = "means")
 ```
 
-Well done! You can now read read in from files in your working directory.
+Well done! You can now read read in from files in your working
+directory.
 
-To help you understand relative file paths, we will now move the data files.
+To help you understand relative file paths, we will now move the data
+files.
 
-![](images/do_in_R.png) First remove the dataframes you just created to make it easier to see whether you can successfully read in the files from a different place:
+![](images/do_in_R.png) First remove the dataframes you just created to
+make it easier to see whether you can successfully read in the files
+from a different place:
 
 ```{r}
 #| eval: false
 rm(cats, fly_bristles, cells, fly_bristles_means)
 ```
 
-![](images/do_in_R.png) Now make a new folder called `data-raw`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+![](images/do_in_R.png) Now make a new folder called `data-raw`. You can
+do this on the Files Pane by clicking New Folder and typing into the box
+that appears.
 
-![](images/do_in_R.png) Check the boxes next to the file names and choose More \| Move... and select the `data-raw` folder.
+![](images/do_in_R.png) Check the boxes next to the file names and
+choose More \| Move... and select the `data-raw` folder.
 
-![RStudio Files Pane](images/rstudio-filepane-move-files.png){fig-alt="Rstudio Files pane showing the boxes nest to the data files check and the pop-up menu with the Move... option"} The files will move. To import data from files in the `data-raw` folder, you need to give the relative path to the file from the working directory. The working directory is the Project folder, `week-8` so the relative path is `data-raw/cat-coats.csv`
+![RStudio Files
+Pane](images/rstudio-filepane-move-files.png){fig-alt="Rstudio Files pane showing the boxes nest to the data files check and the pop-up menu with the Move... option"}
+The files will move. To import data from files in the `data-raw` folder,
+you need to give the relative path to the file from the working
+directory. The working directory is the Project folder, `week-8` so the
+relative path is `data-raw/cat-coats.csv`
 
 ![](images/do_in_R.png) Import the `cat-coats.csv` data like this:
 
@@ -202,17 +289,25 @@ fly_bristles <- read_table("data-raw/bristles.txt")
 fly_bristles_means <- read_excel("data-raw/bristles-mean.xlsx")
 ```
 
-From this point forward in the course, we will always create a `data-raw` folder each time we make a new Project.
+From this point forward in the course, we will always create a
+`data-raw` folder each time we make a new Project.
 
-These are the most common forms of data file you will encounter at first. However, data can certainly come to you in other formats particularly when they have come from particular software. Usually, there is an `R` package specially for that format.
+These are the most common forms of data file you will encounter at
+first. However, data can certainly come to you in other formats
+particularly when they have come from particular software. Usually,
+there is an `R` package specially for that format.
 
-In the rest of the workshop we will take each dataset in turn and create summaries and plots appropriate for the data types. Data is summarised using the `group_by()` and `summarise()` functions
+In the rest of the workshop we will take each dataset in turn and create
+summaries and plots appropriate for the data types. Data is summarised
+using the `group_by()` and `summarise()` functions
 
 ## Summarising discrete data: Cat coat
 
-The most appropriate way to summarise nominal data like the colour of cat coats is to tabulate the number of cats with each colour.
+The most appropriate way to summarise nominal data like the colour of
+cat coats is to tabulate the number of cats with each colour.
 
-![](images/do_in_R.png) Summarise the `cats` dataframe by counting the number of cats in each category
+![](images/do_in_R.png) Summarise the `cats` dataframe by counting the
+number of cats in each category
 
 ```{r}
 cats |> 
@@ -222,13 +317,18 @@ cats |>
 
 `|>` is the pipe and can be produced with Ctrl+Shift+M
 
-This sort of data might be represented with a barchart. You have two options for producing that barchart:
+This sort of data might be represented with a barchart. You have two
+options for producing that barchart:
 
 1.  plot the summary table using `geom_col()`
 
 2.  plot the raw data using `geom_bar()`
 
-We did the first of these [last week](../week-7/workshop.html#plotting-the-data-with-ggplot). The `geom_col()` function uses the numbers in a second column to determine how high the bars are. However, the `geom_bar()` function will do the tabulating for you.
+We did the first of these [last
+week](../week-7/workshop.html#plotting-the-data-with-ggplot). The
+`geom_col()` function uses the numbers in a second column to determine
+how high the bars are. However, the `geom_bar()` function will do the
+tabulating for you.
 
 ![](images/do_in_R.png) Plot the coat data using `geom_bar`:
 
@@ -237,13 +337,16 @@ ggplot(cats, aes(x = coat)) +
   geom_bar()
 ```
 
-The gaps that `R` put automatically between the bars reflects that the coat colours are discrete categories.
+The gaps that `R` put automatically between the bars reflects that the
+coat colours are discrete categories.
 
 ## Summarising Counts: Bristles
 
-Counts are discrete and can be thought of a categories with an order (ordinal).
+Counts are discrete and can be thought of a categories with an order
+(ordinal).
 
-![](images/do_in_R.png) Summarise the `fly_bristles` dataframe by counting the number of flies in each category of bristle number
+![](images/do_in_R.png) Summarise the `fly_bristles` dataframe by
+counting the number of flies in each category of bristle number
 
 ```{r}
 #| include: false
@@ -254,9 +357,11 @@ fly_bristles |>
   count()
 ```
 
-Since counts are numbers, we might also want to calculate some summary statistics such as the median and interquartile range.
+Since counts are numbers, we might also want to calculate some summary
+statistics such as the median and interquartile range.
 
-![](images/do_in_R.png) Summarise the `fly_bristles` dataframe by calculate the median and interquartile range
+![](images/do_in_R.png) Summarise the `fly_bristles` dataframe by
+calculate the median and interquartile range
 
 ```{r}
 fly_bristles |> 
@@ -264,17 +369,32 @@ fly_bristles |>
             IQR(number))
 ```
 
-As the interquartile is `r IQR(fly_bristles$number)` and the median is `r median(fly_bristles$number)` then 25% flies have `r median(fly_bristles$number) - IQR(fly_bristles$number)/2` bristles or fewer and 25% have `r median(fly_bristles$number) + IQR(fly_bristles$number)/2` or more.
+As the interquartile is `r IQR(fly_bristles$number)` and the median is
+`r median(fly_bristles$number)` then 25% flies have
+`r median(fly_bristles$number) - IQR(fly_bristles$number)/2` bristles or
+fewer and 25% have
+`r median(fly_bristles$number) + IQR(fly_bristles$number)/2` or more.
 
-The distribution of counts[^4] is not symmetrical for lower counts so the mean is not usually a good way to summarise count data.
+The distribution of counts[^4] is not symmetrical for lower counts so
+the mean is not usually a good way to summarise count data.
 
-![](images/do_in_R.png) If you want to save the table you created and give the columns better names you can make two adjustments:
+[^4]: Count data are usually "Poisson" distributed.
+
+![](images/do_in_R.png) If you want to save the table you created and
+give the columns better names you can make two adjustments:
 
 ```{r}
 fly_bristles_summary <- fly_bristles |> 
   summarise(med = median(number),
             interquartile = IQR(number))
 ```
+
+-   we have saved the output to an object `fly_bristles_summary` using 
+    assignment `<-`. This means you will not see output from the command.
+
+-   we have given the columns better names `med` and `interquartile` using
+    the `=` operator.
+
 
 ![](images/do_in_R.png) Plot the bristles data using `geom_bar`:
 
@@ -286,13 +406,23 @@ ggplot(fly_bristles, aes(x = number)) +
   geom_bar()
 ```
 
-If counts have a a high mean and big range, like number of hairs on a person's head, then you can often treat them as continuous. This means you can use statistics like the mean and standard deviation to summarise them, histograms to plot them and use some standard statistical tests on them.
+If counts have a a high mean and big range, like number of hairs on a
+person's head, then you can often treat them as continuous. This means
+you can use statistics like the mean and standard deviation to summarise
+them, histograms to plot them and use some standard statistical tests on
+them.
 
 ## Summarising continuous data
 
 ### Cat mass
 
-The variable `mass` in the `cats` dataframe is continuous. Very many continuous variables have a normal distribution. e normal distribution is also known as the bell-shaped curve. If we had the mass of all the cats in the world, we would find many cats were near the mean and fewer would be away from the mean, either much lighter or much heavier. In fact 68% would be within one standard deviation of the mean and about 96% would be within two standard deviations.
+The variable `mass` in the `cats` dataframe is continuous. Very many
+continuous variables have a normal distribution. e normal distribution
+is also known as the bell-shaped curve. If we had the mass of all the
+cats in the world, we would find many cats were near the mean and fewer
+would be away from the mean, either much lighter or much heavier. In
+fact 68% would be within one standard deviation of the mean and about
+96% would be within two standard deviations.
 
 ```{r}
 #| echo: false
@@ -316,7 +446,8 @@ ggplot(data = data.frame(x = c(0, 9)), aes(x)) +
              colour = "darkcyan", 
              size = 10, 
              label.padding = unit(0.5, "lines")) +
-  geom_segment(aes(x = mean - sd, y = 0.225, xend =  mean + sd, yend = 0.225),
+  geom_segment(aes(x = mean - sd, y = 0.225, 
+                   xend =  mean + sd, yend = 0.225),
                arrow = arrow(length = unit(0.5, "cm"), ends = "both"),
                colour = "darkcyan", 
                size = 1) +
@@ -329,7 +460,8 @@ ggplot(data = data.frame(x = c(0, 9)), aes(x)) +
              colour = "mediumpurple3", 
              size = 10, 
              label.padding = unit(0.5, "lines"),) +
-  geom_segment(aes(x = mean -  2 * sd, y = 0.125, xend =  mean + 2 * sd, yend = 0.125),
+  geom_segment(aes(x = mean -  2 * sd, y = 0.125, 
+                   xend =  mean + 2 * sd, yend = 0.125),
                arrow = arrow(length = unit(0.5, "cm"), ends = "both"),
                colour = "mediumpurple3", 
                size = 1) +
@@ -344,9 +476,12 @@ cats |>
   summarise(mean = mean(mass))
 ```
 
-We can add any sort of summary by placing it inside the the summarise parentheses. Each one is separated by a comma. We did this to find the median and the interquatrile range for fly bristles.
+We can add any sort of summary by placing it inside the the summarise
+parentheses. Each one is separated by a comma. We did this to find the
+median and the interquatrile range for fly bristles.
 
-![](images/do_in_R.png) For example, another way to calculate the number of values is to use the `length()` function:
+![](images/do_in_R.png) For example, another way to calculate the number
+of values is to use the `length()` function:
 
 ```{r}
 cats |> 
@@ -354,7 +489,8 @@ cats |>
             n = length(mass))
 ```
 
-![](images/do_in_R.png) Adapt the code to calculate the mean, the sample size *and* the standard deviation (`sd()`)
+![](images/do_in_R.png) Adapt the code to calculate the mean, the sample
+size *and* the standard deviation (`sd()`)
 
 ```{r}
 #| include: false
@@ -366,20 +502,33 @@ cats |>
             standard_dev = sd(mass))
 ```
 
-A single continuous variable can be plotted using a histogram to show the shape of the distribution.
+A single continuous variable can be plotted using a histogram to show
+the shape of the distribution.
 
-![](images/do_in_R.png) Plots a histogram of cats mass:
+![](images/do_in_R.png) Plot a histogram of cats mass:
 
 ```{r}
 ggplot(cats, aes(x = mass)) +
   geom_histogram(bins = 15, colour = "black") 
 ```
 
-Notice that there are no gaps between the bars which reflects that `mass` is continuous. `bins` determines how many groups the variable is divided up into (i.e., the number of bars) and `colour` sets the colour for the outline of the bars. A sample of 62 is a relatively small number of values for plotting a distribution and the number of bins used determines how smooth or normally distributed the values look.
+Notice that there are no gaps between the bars which reflects that
+`mass` is continuous. `bins` determines how many groups the variable is
+divided up into (*i.e.*, the number of bars) and `colour` sets the colour
+for the outline of the bars. A sample of 62 is a relatively small number
+of values for plotting a distribution and the number of bins used
+determines how smooth or normally distributed the values look.
 
-![](images/do_in_R.png) Experiment with the number of bins. Does the number of bins affect how you view the distribution.
+![](images/do_in_R.png) Experiment with the number of bins. Does the
+number of bins affect how you view the distribution.
 
-Next week we will practice summarise and plotting data files with several variables but just to give you a taste, we will find summary statistics about mass for each of the coat types. ![](images/do_in_R.png) The `group_by()` function is used before the summarise() to do calculations for each of the coats:
+Next week we will practice summarise and plotting data files with
+several variables but just to give you a taste, we will find summary
+statistics about mass for each of the coat types.
+
+
+![](images/do_in_R.png) The `group_by()` function is used before the
+summarise() to do calculations for each of the coats:
 
 ```{r}
 cats |> 
@@ -390,9 +539,11 @@ cats |>
 
 You can read this as:
 
-> take cats *and then* group by coat *and then* summarise by finding the mean of mass and the standard deviation of mass
+> take cats *and then* group by coat *and then* summarise by finding the
+> mean of mass and the standard deviation of mass
 
-![](images/answer.png) Why do we get an `NA` for the standard deviation of the calico cats?
+![](images/answer.png) Why do we get an `NA` for the standard deviation
+of the calico cats?
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -402,7 +553,8 @@ You can read this as:
 
 ### Cells
 
-![](images/do_in_R.png) Summarise the `cells` dataframe by calculating the mean, median, sample size and standard deviation of `FSC`.
+![](images/do_in_R.png) Summarise the `cells` dataframe by calculating
+the mean, median, sample size and standard deviation of `FSC`.
 
 ```{r}
 #| include: false
@@ -415,7 +567,8 @@ cells |>
             standard_dev = sd(FSC))
 ```
 
-![](images/do_in_R.png) Add a column for the standard error which is given by $\frac{s.d.}{\sqrt{n}}$
+![](images/do_in_R.png) Add a column for the standard error which is
+given by $\frac{s.d.}{\sqrt{n}}$
 
 ```{r}
 #| include: false
@@ -431,40 +584,60 @@ cells |>
 
 ### Means of counts
 
-Many things are quite difficult to measure or count and in these cases we often do **technical replicates**. A technical replicate allows us the measure the exact same thing to check how variable the measurement process is. For example, *Drosophila* are small and counting their sternopleural bristles is tricky. In addition, where a bristle is short (young) or broken scientists might vary in whether they count it. Or people or machines might vary in measuring the concentration of the same solution.
+Many things are quite difficult to measure or count and in these cases
+we often do **technical replicates**. A technical replicate allows us
+the measure the exact same thing to check how variable the measurement
+process is. For example, *Drosophila* are small and counting their
+sternopleural bristles is tricky. In addition, where a bristle is short
+(young) or broken scientists might vary in whether they count it. Or
+people or machines might vary in measuring the concentration of the same
+solution.
 
-When we do technical replicates we calculate their mean and use that as the measure. This is what is in our `fly_bristles_means` dataframe - the bristles of each of the 96 flies was counted by 5 people and the data are those means. These has an impact on how we plot and summarise the dataset because the distribution of mean counts is continuous! We can use means, standard deviations and histograms. This will be an exercise in [Consolidate](study_after_workshop.qmd).
+When we do technical replicates we calculate their mean and use that as
+the measure. This is what is in our `fly_bristles_means` dataframe - the
+bristles of each of the 96 flies was counted by 5 people and the data
+are those means. These has an impact on how we plot and summarise the
+dataset because the distribution of mean counts is continuous! We can
+use means, standard deviations and histograms. This will be an exercise
+in [Consolidate](study_after_workshop.qmd).
 
 ## Look after future you!
 
-Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of nominal, continuous and count data and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [nominal_data.R](assets/nominal_data.R). You may wish to comment your version much more.
+Future you is going to summarise and plot data from the "River
+practicals". You can make this much easier by documenting what you have
+done now. At the moment all of your code from this workshop is in a
+single file, probably called `import-summarise-plot.R`. I recommend 
+making a new script for each of nominal, continuous and count data and 
+copying the code which imports, summarises and plots it. This will make 
+it easier for future you to find the code you need. Here is an example:
+[nominal_data.R](assets/nominal_data.R). You may wish to comment your
+version much more.
 
 You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Artwork by @allison_horst: Not normal](images/not_normal.png){fig-alt="two distributions as characters. One is normal (bell-shaped) the other is not"}
+![Artwork by @allison_horst: Not
+normal](images/not_normal.png){fig-alt="two distributions as characters. One is normal (bell-shaped) the other is not"}
 
 # Independent study following the workshop
 
 [Consolidate](study_after_workshop.qmd)
 
-
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not
+visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd
+stands for Quarto markdown. It allows code and ordinary text to be
+interweaved to produce well-formatted reports including webpages. [View
+the Qmd in
+Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and
+`#---THINKING ANSWER---`
 
-
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr],
+`kableExtra` [@kableExtra]
 
 # References
-
-[^1]: Plain text files can be opened in notepad or other similar editor and still be readable.
-
-[^2]: **Do not** be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly.
-
-[^3]: note `read_csv()` and `read_table()` are the same functions with some different settings.
-
-[^4]: Count data are usually "Poisson" distributed.
