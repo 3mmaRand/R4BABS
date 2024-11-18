@@ -54,8 +54,6 @@ website:
       style: "floating"
       contents:
           - href: r4babs1/r4babs1.qmd
-          - text: ---
-          - text: ---
           - section: "Week 6: Understanding file systems"
             contents:
              - href: r4babs1/week-6/overview.qmd
@@ -66,7 +64,6 @@ website:
                text: Workshop
              - href: r4babs1/week-6/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 7: Introduction to R and project organisation"
             contents:
              - href: r4babs1/week-7/overview.qmd
@@ -77,7 +74,6 @@ website:
                text: Workshop
              - href: r4babs1/week-7/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 8: Types of variable, summarising and plotting data"
             contents:
              - href: r4babs1/week-8/overview.qmd
@@ -88,7 +84,6 @@ website:
                text: Workshop
              - href: r4babs1/week-8/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 9: Summarising data with several variables"
             contents:
              - href: r4babs1/week-9/overview.qmd
@@ -103,8 +98,6 @@ website:
       style: "floating"
       contents:
           - href: r4babs2/r4babs2.qmd
-          - text: ---
-          - text: ---
           - section: "Week 1: The logic of hypothesis testing and CI"
             contents:
              - href: r4babs2/week-1/overview.qmd
@@ -115,7 +108,6 @@ website:
                text: Workshop
              - href: r4babs2/week-1/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 2: Introduction to statistical models: Single regression"
             contents:
              - href: r4babs2/week-2/overview.qmd
@@ -126,7 +118,6 @@ website:
                text: Workshop
              - href: r4babs2/week-2/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 3: Two-sample tests"
             contents:
              - href: r4babs2/week-3/overview.qmd
@@ -137,7 +128,6 @@ website:
                text: Workshop
              - href: r4babs2/week-3/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 4: One-way ANOVA and Kruskal-Wallis"
             contents:
              - href: r4babs2/week-4/overview.qmd
@@ -148,7 +138,6 @@ website:
                text: Workshop
              - href: r4babs2/week-4/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 5: Two-way ANOVA"
             contents:
              - href: r4babs2/week-5/overview.qmd
@@ -159,7 +148,6 @@ website:
                text: Workshop
              - href: r4babs2/week-5/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 6: Association"
             contents:
              - href: r4babs2/week-6/overview.qmd
@@ -174,8 +162,6 @@ website:
       style: "floating"
       contents:
           - href: r4babs4/r4babs4.qmd
-          - text: ---
-          - text: ---
           - section: "Week 1: DA 1 Core"
             contents:
              - href: r4babs4/week-1/overview.qmd
@@ -186,7 +172,6 @@ website:
                text: Workshop
              - href: r4babs4/week-1/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 2: DA 2 Immunobiology"
             contents:
              - href: r4babs4/week-2/overview.qmd
@@ -197,7 +182,6 @@ website:
                text: Workshop
              - href: r4babs4/week-2/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 4: DA 3 Immunobiology"
             contents:
              - href: r4babs4/week-4/overview.qmd
@@ -208,7 +192,6 @@ website:
                text: Workshop
              - href: r4babs4/week-4/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 6: DA 4 Immunobiology"
             contents:
              - href: r4babs4/week-6/overview.qmd
@@ -224,8 +207,6 @@ website:
       background: light
       contents:
           - href: pgt52m/pgt52m.qmd
-          - text: ---
-          - text: ---
           - section: "Week 1: Understanding file systems"
             contents:
              - href: pgt52m/week-1/overview.qmd
@@ -236,7 +217,6 @@ website:
                text: Workshop
              - href: pgt52m/week-1/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 2: Introduction to R and project organisation"
             contents:
              - href: pgt52m/week-2/overview.qmd
@@ -247,7 +227,6 @@ website:
                text: Workshop
              - href: pgt52m/week-2/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 3: Types of variable, summarising and plotting data"
             contents:
              - href: pgt52m/week-3/overview.qmd
@@ -258,7 +237,6 @@ website:
                text: Workshop
              - href: pgt52m/week-3/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 4: Summarising data with several variables"
             contents:
              - href: pgt52m/week-4/overview.qmd
@@ -269,7 +247,6 @@ website:
                text: Workshop
              - href: pgt52m/week-4/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 5: The logic of hypothesis testing and CI"
             contents:
              - href: pgt52m/week-5/overview.qmd
@@ -280,7 +257,6 @@ website:
                text: Workshop
              - href: pgt52m/week-5/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 6: Introduction to statistical models: Single regression"
             contents:
              - href: pgt52m/week-6/overview.qmd
@@ -291,7 +267,6 @@ website:
                text: Workshop
              - href: pgt52m/week-6/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 7: Two-sample tests"
             contents:
              - href: pgt52m/week-7/overview.qmd
@@ -302,7 +277,6 @@ website:
                text: Workshop
              - href: pgt52m/week-7/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 8: One-way ANOVA and Kruskal-Wallis"
             contents:
              - href: pgt52m/week-8/overview.qmd
@@ -313,7 +287,6 @@ website:
                text: Workshop
              - href: pgt52m/week-8/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 9: Introduction to the Assessment"
             contents:
              - href: pgt52m/week-9/overview.qmd
@@ -324,7 +297,6 @@ website:
                text: Workshop
              - href: pgt52m/week-9/study_after_workshop.qmd
                text: Consolidate!
-          - text: ---
           - section: "Week 10: Reproducible Reporting"
             contents:
              - href:
