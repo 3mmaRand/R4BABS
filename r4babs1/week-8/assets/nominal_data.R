@@ -9,9 +9,9 @@
 # used here.
 
 # Carried out with
-# R Core Team (2023). R: A language and environment for statistical computing.
-# R Foundation for Statistical Computing, Vienna, Austria. 
-# URL https://www.R-project.org/.
+# R Core Team (2024). _R: A Language and Environment for Statistical 
+# Computing_. R Foundation for Statistical Computing, Vienna, 
+# Austria. <https://www.R-project.org/>.
 # Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, 
 # Hayes A,Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K,
 # Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, 
