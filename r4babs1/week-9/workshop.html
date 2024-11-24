@@ -370,6 +370,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   <li><a href="#visualise-1" id="toc-visualise-1" class="nav-link" data-scroll-target="#visualise-1">Visualise</a></li>
   </ul>
 </li>
+  <li><a href="#look-after-future-you" id="toc-look-after-future-you" class="nav-link" data-scroll-target="#look-after-future-you">Look after future you!</a></li>
   </ul>
 </li>
   <li><a href="#well-done" id="toc-well-done" class="nav-link" data-scroll-target="#well-done">🥳 Well Done! 🎉</a></li>
@@ -403,7 +404,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
 <p>In this workshop you will learn to summarise and plot datasets with more than one variable and how to write figures to files. You will also get more practice with working directories, importing data, formatting figures and the pipe.</p>
 </section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
-<p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
+<p>Workshops are not a test. It is expected that you often don’t know how to start , make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
 <ul>
 <li>don’t worry about making mistakes</li>
 <li>don’t let what you can not do interfere with what you can do</li>
@@ -433,28 +434,34 @@ Key
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-1</code> folder and name the RStudio Project ‘week-9’.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>data-raw</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>analysis.R</code> to carry out the rest of the work.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Summarising data in with several variables and the role of variables in analysis</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>summarise-plot-data-with-several-vars.R</code> to carry out the rest of the work.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Summarising data in      with several variables and the role of variables in analysis</code></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add code to load the <strong><code>tidyverse</code></strong> package <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span></p>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
-<p>You are going to practice how to summarise and plot data as follows:</p>
+<p>The <a href="../../r4babs1/week-9/study_before_workshop.html">Independent Study to prepare for workshop</a> explained how to summarise and plot a dataset containing one continuous response and one nominal explanatory variable with two groups.</p>
+<p>Here you are going to learn how to summarise the following types of data set:</p>
 <ul>
-<li>one continuous response and one nominal explanatory variable with three groups</li>
-<li>one continuous response and one nominal explanatory variable with two groups but the supplied data first need converting to tidy format</li>
-<li>two continuous variables</li>
+<li>one continuous response and one nominal explanatory variable with three groups: myoglobin concentration in seal species</li>
+<li>one continuous response and one nominal explanatory variable with two groups <em>but</em> the supplied data first need converting to tidy format: interorbital width in pigeons from two populations</li>
+<li>two continuous variables: ulna length and height in humans</li>
 </ul>
-<p>Note that the <a href="../../r4babs1/week-9/study_before_workshop.html">Independent Study to prepare for workshop</a> covered one continuous response and one nominal explanatory variable with two groups.</p>
+<p>You should start to notice how similar the code is for all of these and also w here they differ.</p>
 <section id="myoglobin-in-seal-muscle" class="level2"><h2 class="anchored" data-anchor-id="myoglobin-in-seal-muscle">Myoglobin in seal muscle</h2>
 <p>The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in <a href="data-raw/seal.csv">seal.csv</a>. Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.</p>
 <section id="import" class="level3"><h3 class="anchored" data-anchor-id="import">Import</h3>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/seal.csv">seal.csv</a> to your <code>data-raw</code> folder</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>seal</code>. . You might want to look up <a href="../week-8/workshop.html#importing-data-from-files">data import from last week</a>.</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/seal.csv">seal.csv</a> to your <code>data-raw</code> folder.</p>
+<p>In the next step you will import the daya and I suggest you look up data import from last week. There are two ways you could do that.</p>
+<ol type="1">
+<li><p>Open your own script from last week. You do not need to open the <code>week-8</code> RStudio Project itself - you can open the script you used by navigating to through the File pane. After you have found it and clicked on it to open, I suggest showing your working directory in your File Pane again. You can do that by clicking on the little arrow at the end of the path printed on the Console window.</p></li>
+<li><p>Go the the <a href="../week-8/workshop.html#importing-data-from-files" target="_blank">workshop page from last week</a>.</p></li>
+</ol>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>seal</code>.</p>
 <p><img src="images/answer.png" class="img-fluid"> What types of variables do you have in the <code>seal</code> dataframe? What role would you expect them to play in analysis?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- there are two variables: `myoglobin` is the response and is continuous -->
 <!-- and `species` is explanatory. `species` is categorical with three  -->
 <!-- levels (groups). -->
-<p>The key point here is that the fundamental structure of:</p>
+<p>A key point here is that the fundamental structure of:</p>
 <ul>
 <li><p>one continuous response and one nominal explanatory variable with two groups (<a href="data-raw/adipocytes.txt">adipocytes</a>), and</p></li>
 <li><p>one continuous response and one nominal explanatory variable with three groups (<a href="data-raw/seal.csv">seals</a>)</p></li>
@@ -474,8 +481,15 @@ Tip
 </div>
 </div>
 </section><section id="summarise" class="level3"><h3 class="anchored" data-anchor-id="summarise">Summarise</h3>
-<p>Summarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like <code>myoglobin</code> are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the <code>group_by()</code> and <code>summarise()</code> functions along with the functions that do the calculations.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>seal_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.</p>
+<p>Summarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like <code>myoglobin</code> are:</p>
+<ul>
+<li>mean</li>
+<li>standard deviation</li>
+<li>sample size</li>
+<li>standard error</li>
+</ul>
+<p>We <em>can</em> get those for the whole <code>myoglobin</code> column, like we did for the <a href="../week-8/workshop.html#cells"><code>FSA</code> column in the cells dataset last week</a>. However, it is likely to be more useful to summarise <code>myoglobin</code> separately for each seal species. We can achieve this using <code>group_by()</code> before <code>summarise()</code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>seal_summary</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that contains the means, standard deviations, sample sizes and standard errors for each of the seal species:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seal_summary</span> <span class="op">&lt;-</span> <span class="va">seal</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -522,7 +536,7 @@ Tip
 </div>
 </div>
 </section><section id="visualise" class="level3"><h3 class="anchored" data-anchor-id="visualise">Visualise</h3>
-<p>Most commonly, we put the explanatory variable on the <em>x</em> axis and the response variable on the <em>y</em> axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.</p>
+<p>Most commonly, we put the explanatory variable on the <em>x</em> axis and the response variable on the <em>y</em> axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show <strong>all</strong> the raw data points wherever possible.</p>
 <p>We are going to create a figure like this:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -532,8 +546,36 @@ Tip
 </div>
 </div>
 </div>
-<p>In this figure, we have the data points themselves which are in <code>seal</code> dataframe and the means and standard errors which are in the <code>seal_summary</code> dataframe. That is, we have two dataframes we want to plot.</p>
-<p>Here you will learn that dataframes and aesthetics can be specified <em>within a <code>geom_xxxx</code></em> (rather than in the <code>ggplot()</code>). This is very useful if the geom only applies to some of the data you want to plot.</p>
+<p>In this figure, we have two dataframes:</p>
+<ul>
+<li>the <code>seal</code> dataframe which contains the raw data points</li>
+<li>the <code>seal_summary</code> dataframe which contains the means and standard errors.</li>
+</ul>
+<p>So far we have plotted just one dataframe on a figure and we have specified the dataframe to be plotted and the columns to plot inside the <code>ggplot()</code> command. For examples:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">cats</span>, </span>
+<span>       <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">coat</span>, <span class="va">mass</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"darkcyan"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Coat colour"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Mass (kg)"</span>, </span>
+<span>                     expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">fly_bristles_means</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean_count</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">10</span>, </span>
+<span>                 colour <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                 fill <span class="op">=</span> <span class="st">"skyblue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Number of bristles"</span>,</span>
+<span>                     expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Frequency"</span>,</span>
+<span>                     expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">35</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here you will learn that dataframes and aesthetics can be specified <em>within a <code>geom_xxxx</code></em> rather than within <code>ggplot()</code>. This is very useful if the geom only applies to some of the data you want to plot.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -547,42 +589,12 @@ Tip: <code>ggplot()</code>
 <p>You put the <code>data</code> argument and <code>aes()</code> inside <code>ggplot()</code> if you want all the <code>geoms</code> to use that dataframe and variables. If you want a different dataframe for a <code>geom</code>, put the <code>data</code> argument and <code>aes()</code> inside the <code>geom_xxxx()</code></p>
 </div>
 </div>
-<p>I will build the plot up in small steps <strong>but you should edit your <em>existing</em> <code>ggplot()</code> command as we go.</strong></p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Plot the data points first.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, </span>
-<span>             <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="4200"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Notice how we have given the data argument and the aesthetics inside the geom. The variables <code>species</code> and <code>myoglobin</code> are in the <code>seal</code> dataframe</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> So the data points don’t overlap, we can add some random jitter in the <em>x</em> direction (edit your existing code):</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, </span>
-<span>             <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
-<span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="4200"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Note that <code>position = position_jitter(width = 0.1, height = 0)</code> is inside the <code>geom_point()</code> parentheses, after the <code>aes()</code> and a comma.</p>
-<p>We’ve set the vertical jitter to 0 because, in contrast to the categorical <em>x</em>-axis, movement on the <em>y</em>-axis has meaning (the myoglobin levels).</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Let’s make the points a light grey (edit your existing code):</p>
+<p>I will build the plot up in small steps <strong>but you should edit your <em>existing</em><code>ggplot()</code> command as we go.</strong></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Plot the raw data points first:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, </span>
-<span>             <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
-<span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
-<span>             colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>             <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="4200"></p>
@@ -590,10 +602,48 @@ Tip: <code>ggplot()</code>
 </div>
 </div>
 </div>
+<p>Notice:</p>
+<ul>
+<li><p><code>geom_point()</code> is the geom to plot points</p></li>
+<li><p>we have given the data argument and the aesthetics inside the geom.</p></li>
+<li><p>the variables given in the aes(), <code>species</code> and <code>myoglobin</code>, are columns in the dataframe, <code>seal</code>, given in the data argument.</p></li>
+</ul>
+<p><img src="images/do_in_R.png" class="img-fluid"> We can ensure the points do not overlap, by adding some random jitter in the <em>x</em> direction (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, </span>
+<span>             <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
+<span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="4200"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice:</p>
+<ul>
+<li><p><code>position = position_jitter(width = 0.1, height = 0)</code> is inside the <code>geom_point()</code> parentheses, <em>after</em> the <code>aes()</code> and a comma.</p></li>
+<li><p>We’ve set the vertical jitter to 0 because, in contrast to the categorical <em>x</em>-axis, movement on the <em>y</em>-axis has meaning (the myoglobin levels).</p></li>
+</ul>
+<p><img src="images/do_in_R.png" class="img-fluid"> Let’s make the points a light grey (edit your existing code):</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, </span>
+<span>             <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
+<span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
+<span>             colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="4200"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for errorbars (edit your existing code):</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
 <span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
 <span>             colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -602,41 +652,52 @@ Tip: <code>ggplot()</code>
 <span>                width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="4200"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>We have specified the <code>seal_summary</code> dataframe and the variables <code>species</code>, <code>mean</code> and <code>se</code> are in that.</p>
-<p>There are several ways you could add the mean. You could use <code>geom_point()</code> but I like to use <code>geom_errorbar()</code> again with the <code>ymin</code> and <code>ymax</code> both set to the mean.</p>
+<p>Notice:</p>
+<ul>
+<li><p><code>geom_errorbar()</code> is the geom to plot error bars</p></li>
+<li><p>we have given the data argument and the aesthetics inside the geom.</p></li>
+<li><p>the variables given in the aes(), <code>species</code>, <code>mean</code> and <code>se</code>, are columns in the dataframe, <code>seal_summary</code>, given in the data argument.</p></li>
+</ul>
+<p>We would like to add the mean. You could use <code>geom_point()</code> but I like to use another <code>geom_errorbar()</code> to get a line by setting <code>ymin</code> and <code>ymax</code> to the mean.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a <code>geom_errorbar()</code> for the mean (edit your existing code):</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># raw data</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
 <span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
 <span>             colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># error bars</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="va">se</span>, ymax <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="va">se</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># line for the mean</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span>, ymax <span class="op">=</span> <span class="va">mean</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="4200"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Alter the axis labels and limits using <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> (edit your existing code):</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># raw data</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
 <span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
 <span>             colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># error bars</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="va">se</span>, ymax <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="va">se</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># line for the mean</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span>, ymax <span class="op">=</span> <span class="va">mean</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
@@ -646,21 +707,24 @@ Tip: <code>ggplot()</code>
 <span>  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Species"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="4200"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>You only need to use <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.</p>
+<p>You only need to use name in <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Format the figure in a way that is more suitable for including in a report using <code>theme_classic()</code> (edit your existing code):</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># raw data</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
 <span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
 <span>             colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># error bars</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="va">se</span>, ymax <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="va">se</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># line for the mean</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span>, ymax <span class="op">=</span> <span class="va">mean</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
@@ -671,22 +735,25 @@ Tip: <code>ggplot()</code>
 <span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="4200"></p>
 </figure>
 </div>
 </div>
 </div>
 </section><section id="writing-figures-to-file" class="level3"><h3 class="anchored" data-anchor-id="writing-figures-to-file">Writing figures to file</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>figures</code>.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Edit you ggplot code so that you assign the figure to a variable.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Edit your ggplot code so that you assign the figure to a variable.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sealfig</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sealfig</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># raw data</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">myoglobin</span><span class="op">)</span>,</span>
 <span>             position <span class="op">=</span> <span class="fu">position_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.1</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
 <span>             colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># error bars</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="va">se</span>, ymax <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="va">se</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># line for the mean</span></span>
 <span>  <span class="fu">geom_errorbar</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seal_summary</span>, </span>
 <span>                <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span>, ymin <span class="op">=</span> <span class="va">mean</span>, ymax <span class="op">=</span> <span class="va">mean</span><span class="op">)</span>,</span>
 <span>                width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
@@ -697,9 +764,10 @@ Tip: <code>ggplot()</code>
 <span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The figure won’t be shown in the Plots tab - the output has gone into <code>sealfig</code> rather than to the Plots tab. To make it appear in the Plots tab type <code>sealfig</code></p>
+<p>There is a command to save the figure to a file. This is useful if you want to include the figure in a report or presentation especially if you want good control over the size and format of multiple figures.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> The <code>ggsave()</code> command will write a ggplot figure to a file:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggsave</span><span class="op">(</span><span class="st">"figures/seal-muscle.png"</span>,</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggsave</span><span class="op">(</span><span class="st">"figures/seal-muscle.png"</span>,</span>
 <span>       plot <span class="op">=</span> <span class="va">sealfig</span>,</span>
 <span>       device <span class="op">=</span> <span class="st">"png"</span>,</span>
 <span>       width <span class="op">=</span> <span class="fl">4</span>,</span>
@@ -716,7 +784,7 @@ Tip: <code>ggplot()</code>
 <figcaption>Interorbital width is the distance between the eyes</figcaption></figure>
 </div>
 <section id="import-1" class="level3"><h3 class="anchored" data-anchor-id="import-1">Import</h3>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/pigeon.txt">pigeon.txt</a> to your <code>data-raw</code> folder</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/pigeon.txt">pigeon.txt</a> to your <code>data-raw</code> folder.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>pigeons</code>.</p>
 <p><img src="images/answer.png" class="img-fluid"> What variables are there in the <code>pigeons</code> dataframe?</p>
 <!-- #---THINKING ANSWER--- -->
@@ -900,7 +968,7 @@ Tip: <code>ggplot()</code>
 </div>
 </div>
 <p>This data is not in ‘tidy’ format <span class="citation" data-cites="Wickham2014-nl">(<a href="#ref-Wickham2014-nl" role="doc-biblioref">Wickham 2014</a>)</span>.</p>
-<p>Tidy format has variables in column and observations in rows. All of the distance measurements should be in one column and a second column should give the population.</p>
+<p>Tidy format has variables in columns and observations in rows. All of the distance measurements should be in one column with a second column giving the population.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
@@ -1238,7 +1306,7 @@ Tip: <code>ggplot()</code>
 </div>
 <p>Data which is in tidy format is easier to summarise, analyses and plot because the organisation matches the conceptual structure of the data:</p>
 <ul>
-<li>it is more obvious what the variables are because they columns are named with them - in the untidy format, that the measures are distances is not clear and what A and B are isn’t clear</li>
+<li>it is more obvious what the variables are because they columns are named with them - in the untidy format, that the measures are distances is not clear, and what A and B are isn’t clear</li>
 <li>it is more obvious that there is no relationship between any of the pigeons except for population</li>
 <li>functions are designed to work with variables in columns</li>
 </ul></section><section id="tidying-data" class="level3"><h3 class="anchored" data-anchor-id="tidying-data">Tidying data</h3>
@@ -1246,12 +1314,12 @@ Tip: <code>ggplot()</code>
 <p><code>pivot_longer()</code> collects the values from specified columns (<code>cols</code>) into a single column (<code>values_to</code>) and creates a column to indicate the group (<code>names_to</code>).</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Put the data in tidy format:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pigeons</span> <span class="op">&lt;-</span> <span class="fu">pivot_longer</span><span class="op">(</span>data <span class="op">=</span> <span class="va">pigeons</span>, </span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pigeons</span> <span class="op">&lt;-</span> <span class="fu">pivot_longer</span><span class="op">(</span>data <span class="op">=</span> <span class="va">pigeons</span>, </span>
 <span>                        cols <span class="op">=</span> <span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, </span>
 <span>                        names_to <span class="op">=</span> <span class="st">"population"</span>, </span>
 <span>                        values_to <span class="op">=</span> <span class="st">"distance"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment <code>&lt;-</code> Note: the data in the file are unchanged.</p>
+<p>We have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment <code>&lt;-</code> Note: the actual data in the file are unchanged, only the dataframe in R is changed.</p>
 </section></section><section id="ulna-and-height" class="level2"><h2 class="anchored" data-anchor-id="ulna-and-height">Ulna and height</h2>
 <p>The datasets we have used up to this point, have had a continuous variable and a categorical variable where it makes sense to summarise the response for each of the different groups in the categorical variable and plot the response on the <em>y</em>-axis. We will now summarise a dataset with two continuous variables. The data in <a href="data-raw/height.txt">height.txt</a> are the ulna length (cm) and height (m) of 30 people. In this case, it is more appropriate to summarise both of thee variables and to plot them as a scatter plot.</p>
 <p>We will use <code>summarise()</code> again but we do not need the <code>group_by()</code> function this time. We will also need to use each of the summary functions, such as <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, twice, once for each variable.</p>
@@ -1261,7 +1329,7 @@ Tip: <code>ggplot()</code>
 </section><section id="summarise-1" class="level3"><h3 class="anchored" data-anchor-id="summarise-1">Summarise</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>ulna_heights_summary</code> that contains the sample size and means, standard deviations and standard errors for both variables.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulna_heights_summary</span> <span class="op">&lt;-</span> <span class="va">ulna_heights</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulna_heights_summary</span> <span class="op">&lt;-</span> <span class="va">ulna_heights</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">ulna</span><span class="op">)</span>,</span>
 <span>            mean_ulna <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ulna</span><span class="op">)</span>,</span>
 <span>            std_ulna <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">ulna</span><span class="op">)</span>,</span>
@@ -1297,22 +1365,24 @@ Tip: <code>ggplot()</code>
 </div>
 </section><section id="visualise-1" class="level3"><h3 class="anchored" data-anchor-id="visualise-1">Visualise</h3>
 <p>To plot make a scatter plot we need to use <code>geom_point()</code> again but without any scatter. In this case, it does not really matter which variable is on the <em>x</em>-axis and which is on the <em>y</em>-axis.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a simple scatter plot</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make a simple scatter plot:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">ulna_heights</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">ulna</span>, y <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">ulna_heights</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">ulna</span>, y <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="4200"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>If you have time, you may want to format the figure more appropriately.</p>
-<!-- ## Look after future you! -->
-<!-- Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more. -->
+</section></section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
+<p>Future you is going to summarise and plot data from the “River practicals”. You can make this much easier by documenting what you have done now. Go through your script (<code>summarise-plot-data-with-several-vars.R</code>) and remove code that you do not need. Add comments to the code you do need to explain what it does.</p>
+<!-- Here is an example: [seals-analysis.R](assets/seals-analysis.R).  -->
+<!-- You may wish to comment your version much more. -->
 <p>You’re finished!</p>
-</section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
+</section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/tidy-data.jpg" class="img-fluid figure-img" alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure"></p>
 <figcaption>Illustrations from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst</figcaption></figure>
@@ -1346,7 +1416,10 @@ Xie, Yihui. 2022. <span>“Knitr: A General-Purpose Package for Dynamic Report G
 <div id="ref-kableExtra" class="csl-entry" role="listitem">
 Zhu, Hao. 2021. <span>“kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax.”</span> <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1"><p>“Create a dataframe called <code>seal_summary</code>” means assign the output of the <code>group_by()</code> and <code>summarise()</code> code to something called <code>seal_summary</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
