@@ -3,6 +3,9 @@ title: "Workshop"
 subtitle: "The logic of hypothesis testing and confidence intervals"
 toc: true
 toc-location: right
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r}
@@ -13,15 +16,28 @@ library(kableExtra)
 
 # Introduction
 
-![Artwork by @allison_horst:  "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
+![Artwork by : "love this class"](images/love-this-class.png){fig-alt=
+"A little monster flying a biplane wearing aviator glasses, pulling a
+banner that says 'Fully expecting to hate this class.' Below, a teacher
+wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled
+'CODE' cheering desperately with pom-poms, trying to help students
+believe stats is actually going to be awesomely life-changing."
+width="800"}
 
 ## Session overview
 
-In this session you will remind yourself how to import files, and calculate confidence intervals on large and small samples.
+In this session you will remind yourself how to import files, and
+calculate confidence intervals on large and small samples. You will also
+learn how to create a zip file - this is what you will submit for the
+assessment.
 
 ## Philosophy
 
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
+Workshops are not a test. It is expected that you often don't know how
+to start, make a lot of mistakes and need help. It is expected that you
+are familiar with independent study content before the workshop.
+However, you need not remember or understand every detail as the
+workshop should build and consolidate your understanding. Tips
 
 -   don't worry about making mistakes
 -   don't let what you can not do interfere with what you can do
@@ -33,30 +49,48 @@ Workshops are not a test. It is expected that you often don't know how to start,
 ::: callout-note
 ## Key
 
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+These four symbols are used at the beginning of each instruction so you
+know where to carry out the instruction.
 
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
+![](images/do_on_your_computer.png) Something you need to do on your
+computer. It may be opening programs or documents or locating a file.
 
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+![](images/do_in_R.png) Something you should do in RStudio. It will
+often be typing a command or using the menus but might also be creating
+folders, locating or moving files.
 
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
+![](images/do_on_internet.png) Something you should do in your browser
+on the internet. It may be searching for information, going to the VLE
+or a file.
 
-![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+![](images/answer.png) A question for you to think about and answer.
+Record your answers in your script for future reference.
 :::
 
 # Getting started
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
+![](images/do_in_R.png) Go the Files tab in the lower right pane and
+click on the `...` on the right. This will open a "Go to folder" window.
+Navigate to a place on your computer where you keep your work. Click
+Open.
 
-![](images/do_in_R.png) Also on the Files tab click on `New Folder`. Type "data-analysis-in-r-2" in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS2.
+![](images/do_in_R.png) Also on the Files tab click on `New Folder`.
+Type "data-analysis-in-r-2" in to the box. This will be the folder that
+we work in throughout the Data Analysis in R part BABS2.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Name the RStudio Project 'week-1'.
+![](images/do_in_R.png) Make an RStudio project for this workshop by
+clicking on the drop-down menu on top right where it says
+`Project: (None)` and choosing New Project, then New Directory, then New
+Project. Name the RStudio Project 'week-1'.
 
-![](images/do_in_R.png) Make a new script then save it with a name like analysis.R to carry out the rest of the work.
+![](images/do_in_R.png) Make a new script then save it with a name like
+`analysis.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# confidence intervals` and load the **`tidyverse`** [@tidyverse] package
+![](images/do_in_R.png) Add a comment to the script:
+`# confidence intervals` and load the **`tidyverse`** [@tidyverse]
+package
 
 ![](images/do_in_R.png) Make a new folder called `data-raw`.
 
@@ -64,27 +98,33 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ## Remind yourself how to import files!
 
-[Importing data from files](../../r4babs1/week-8/workshop.html#importing-data-from-files) was covered in BABS 1 [@rand2023] if you need to remind yourself.
+[Importing data from
+files](../../r4babs1/week-8/workshop.html#importing-data-from-files) was
+covered in BABS 1 [@rand2023] if you need to remind yourself.
 
 ## Check your settings
 
-[Changing some defaults to make life easier](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#changing-some-defaults-to-make-life-easier)
+[Changing some defaults to make life
+easier](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#changing-some-defaults-to-make-life-easier)
 
-[Some useful settings](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#some-useful-settings)
+[Some useful
+settings](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#some-useful-settings)
 
 ## Confidence intervals (large samples)
 
-The data in [beewing.txt](data-raw/beewing.txt) are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by:
-
+The data in [beewing.txt](data-raw/beewing.txt) are left wing widths of
+100 honey bees (mm). The confidence interval for large samples is given
+by:
 
 $\bar{x} \pm 1.96 \times s.e.$
 
-
 Where 1.96 is the quantile for 95% confidence.
 
-![](images/do_on_your_computer.png) Save [beewing.txt](data-raw/beewing.txt) to your `data-raw` folder.
+![](images/do_on_your_computer.png) Save
+[beewing.txt](data-raw/beewing.txt) to your `data-raw` folder.
 
-![](images/do_in_R.png) Read in the data and check the structure of the resulting dataframe.
+![](images/do_in_R.png) Read in the data and check the structure of the
+resulting dataframe.
 
 ```{r}
 #| include: false
@@ -95,7 +135,8 @@ beewing <- read_table("data-raw/beewing.txt")
 str(beewing)
 ```
 
-![](images/do_in_R.png) Calculate and assign to variables: the mean, standard deviation and standard error:
+![](images/do_in_R.png) Calculate and assign to variables: the mean,
+standard deviation and standard error:
 
 ```{r}
 # mean
@@ -111,7 +152,8 @@ n <- length(beewing$wing_mm)
 se <- sd / sqrt(n)
 ```
 
-![](images/do_in_R.png) To calculate the 95% confidence interval we need to look up the quantile (multiplier) using `qnorm()`
+![](images/do_in_R.png) To calculate the 95% confidence interval we need
+to look up the quantile (multiplier) using `qnorm()`:
 
 ```{r}
 q <- qnorm(0.975)
@@ -119,23 +161,32 @@ q <- qnorm(0.975)
 
 This should be about 1.96.
 
-![](images/do_in_R.png) Now we can use it in our confidence interval calculation
+![](images/do_in_R.png) Now we can use it in our confidence interval
+calculation:
 
 ```{r}
 lcl <- m - q * se
 ucl <- m + q * se
 ```
 
-![](images/do_in_R.png) Print the values
+I used the names `lcl` and `ucl` to stand for "lower confidence limit"
+and "upper confidence limit" respectively.
+
+![](images/do_in_R.png) Print the values:
 
 ```{r}
 lcl
 ucl
 ```
 
-This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 $\pm$ 0.07 mm
+This means we are 95% confident the population mean lies between
+`r round(lcl,2)` mm and `r round(ucl,2)` mm. The amount we have
+added/subtracted from the mean (`q * se`) is `r round(q * se, 2)` and a
+common way of giving a mean is `r round(m, 2)` $\pm$
+`r round(q * se, 2)` mm.
 
-![](images/do_in_R.png) Between what values would you be 99% confident of the population mean being?
+![](images/do_in_R.png) Between what values would you be *99%* confident
+of the population mean being?
 
 ```{r}
 #| include: false
@@ -149,26 +200,48 @@ ucl <- m + q * se
 
 ```
 
+::: callout-tip
+## Hint
+
+You will need to think about what probability to give `qnorm()`. For 95%
+confidence intervals we had to give 0.975. This is because 95% is 2.5%
+(0.025) in each tail of the distribution.
+:::
+
 <!-- #---THINKING ANSWER--- -->
 
-<!-- # the mean is 4.55 +/- 0.100. We are 99% certain the populations mean lies between 4.45 and 4.65 -->
+<!-- the mean is 4.55 +/- 0.100. We are 99% certain the populations  -->
 
+<!-- mean between 4.45 and 4.65 -->
 
 ## Confidence intervals (small samples)
 
 The confidence interval for small samples is given by:
 
+$\bar{x} \pm t_{[d.f]} \times s.e.$
 
-$\bar{x} \pm \sf t_{[d.f]} \times s.e.$
+The only difference between the C.I. calculation for small samples and
+the C.I. calculation for large sample is the multiplier. For large
+samples we use the "the standard normal distribution" accessed with
+`qnorm()`; for small samples we use the "*t* distribution" assessed with
+`qt()`.
 
-The only difference between the calculation for small and large sample is the multiple. For large samples we use the "the standard normal distribution" accessed with `qnorm()`; for small samples we use the "*t* distribution" assessed with `qt()`.The value returned by `q(t)` is larger than that returned by `qnorm()` which reflects the greater uncertainty we have on estimations of population means based on small samples.
+The value returned by `q(t)` is larger than that by `qnorm()` which
+reflects the greater uncertainty we have on estimations of population
+means based on small samples.
 
+The fatty acid Docosahexaenoic acid (DHA) is a major component of
+membrane phospholipids in nerve cells and deficiency leads to many
+behavioural and functional deficits. The cross sectional area of neurons
+in the CA 1 region of the hippocampus of normal rats is 155 $\mu m^2$. A
+DHA deficient diet was fed to 8 animals and the cross sectional area
+(csa) of neurons is given in [neuron.txt](data-raw/neuron.txt)
 
-The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phospholipids in nerve cells and deficiency leads to many behavioural and functional deficits. The cross sectional area of neurons in the CA 1 region of the hippocampus of normal rats is 155 $\mu m^2$. A DHA deficient diet was fed to 8 animals and the cross sectional area (csa) of neurons is given in [neuron.txt](data-raw/neuron.txt)
+![](images/do_on_your_computer.png) Save
+[neuron.txt](data-raw/neuron.txt) to your `data-raw` folder
 
-![](images/do_on_your_computer.png) Save [neuron.txt](data-raw/neuron.txt) to your `data-raw` folder
-
-![](images/do_in_R.png) Read in the data and check the structure of the resulting dataframe
+![](images/do_in_R.png) Read in the data and check the structure of the
+resulting dataframe
 
 ```{r}
 #| include: false
@@ -195,13 +268,16 @@ m <- mean(neur$csa)
 
 #---CODING ANSWER---
 
-# I created intermediate variables for sd and n
+# I created intermediate variables for sd and n but you may have done
+# in a single line
 sd <- sd(neur$csa)
 n <- length(neur$csa)
 se <- sd / sqrt(n)
 ```
 
-To work out the confidence interval for our sample mean we need to use the *t* distribution because it is a small sample. This means we need to determine the degrees of freedom (the number in the sample minus one).
+To work out the confidence interval for our sample mean we need to use
+the *t* distribution because it is a small sample. This means we need to
+determine the degrees of freedom (the number in the sample minus one).
 
 ![](images/do_in_R.png) We can assign this to a variable, `df`, using:
 
@@ -215,7 +291,10 @@ df <- length(neur$csa) - 1
 t <- qt(0.975, df = df)
 ```
 
-Note that we are using `qt()` rather than `qnorm()` but that the probability, 0.975, used is the same. Finally, we need to put our mean, standard error and *t* value in the equation. $\bar{x} \pm \sf t_{[d.f]} \times s.e.$.
+Note that we are using `qt()` rather than `qnorm()` but that the
+probability, 0.975, used is the same. Finally, we need to put our mean,
+standard error and *t* value in the equation.
+$\bar{x} \pm t_{[d.f]} \times s.e.$.
 
 ![](images/do_in_R.png) The upper confidence limit is:
 
@@ -223,7 +302,9 @@ Note that we are using `qt()` rather than `qnorm()` but that the probability, 0.
 (m + t * se) |> round(2)
 ```
 
-The first part of the command, `(m + t * se)` calculates the upper limit. This is 'piped' in to the `round()` function to round the result to two decimal places.
+The first part of the command, `(m + t * se)` calculates the upper
+limit. This is 'piped' in to the `round()` function to round the result
+to two decimal places.
 
 ![](images/do_in_R.png) Calculate the lower confidence limit:
 
@@ -231,43 +312,74 @@ The first part of the command, `(m + t * se)` calculates the upper limit. This i
 (m - t * se) |>  round(2)
 ```
 
-![](images/answer.png) Given the upper and lower confidence values for the estimate of the population mean, what do you think about the effect of the DHA deficient diet?
+![](images/answer.png) Given the upper and lower confidence values for
+the estimate of the population mean, what do you think about the effect
+of the DHA deficient diet?
 
 <!-- #---THINKING ANSWER--- -->
 
 <!-- the 95% confidence interval from 132.75 mu m^2 to 151.95 mu m^2  -->
 
-<!-- doesn't include 155 mu m^2 so we can conclude that DHA deficiency significantly  -->
+<!-- doesn't include 155 mu m^2 so we can conclude that DHA deficiency  -->
 
-<!-- lowers csa -->
+<!-- significantly lowers  cross sectional area-->
 
 ## Look after future you!
 
-Have a look at the Assessment Overview on the VLE. Part of the assessment for BIO00026C Becoming a Bioscientist: Grand Challenges the RStudio Project which supports the figures and analysis in your report. You will zip up the RStudio Project folder and submit it to the VLE. That folder should contain all the data, code and figures you have used in report and all of the results should be reproducible. Reproducible means that if someone downloads that zipped folder and unzips it they should be able to understand what the analysis was, what you did and why and be able to run all the code to reproduce the figures and results in your report without issue.
+Have a look at the Assessment Overview on the VLE. Part of the
+assessment for BIO00026C Becoming a Bioscientist: Grand Challenges is to
+submit the RStudio Project which supports the figures and analysis in
+your report. You will zip up the RStudio Project folder and submit it to
+the VLE. That folder should contain all the data, code and figures you
+have used in your report and all of the results should be reproducible.
+Reproducible means that if someone downloads that zipped folder and
+unzips it they should be able to understand what the analysis was, what
+you did and why and be able to run all the code to reproduce the figures
+and results in your report without issue.
 
 You can practice this every week!
 
-![](images/do_in_R.png) Make sure your script is saved. Close down the "week-1" RStudio project using either the file menu or the menu on the top right where the Project name appears.
+![](images/do_in_R.png) Make sure your script is saved. Close down the
+"week-1" RStudio project using either the file menu or the menu on the
+top right where the Project name appears.
 
-![](images/do_on_your_computer.png) Locate the `week-1` folder in Windows explorer. Right click on the folder and select "Send to" and then "Compressed (zipped) folder". This will create a file called `week-1.zip`. Email this file to someone near you have have them email you with theirs. Your neighbour should be able to download `week-1.zip`, unzip it and then open the project in RStudio and run the code to reproduce all your work. Note: Save the downloaded `week-1.zip` some where that is NOT your "data-analysis-in-r-2" to avoid naming conflicts. Also do not save it in any RStudio project folder. 
+![](images/do_on_your_computer.png) Locate the `week-1` folder in
+Windows explorer. Right click on the folder and select "Send to" and
+then "Compressed (zipped) folder". This will create a file called
+`week-1.zip`. Email this file to someone near you have have them email
+you with theirs. Your neighbour should be able to download `week-1.zip`,
+unzip it and then open the project in RStudio and run the code to
+reproduce all your work. ** Note: Save the downloaded `week-1.zip` some
+where that is NOT your "data-analysis-in-r-2" to avoid naming 
+conflicts.** Also do not save it in any RStudio project folder.
 
 You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Artwork by @allison_horst: "We belive in you!"](images/we-believe.png){fig-alt="Header text 'R learners' above five friendly monsters holding up signs that together read 'we believe in you.'" width="800"}
+![Artwork by @allison_horst: "We belive in
+you!"](images/we-believe.png){fig-alt="Header text 'R learners' above 
+five friendly monsters holding up signs that together read 'we believe 
+in you.'"width="800"}
 
 # Independent study following the workshop
 
 [Consolidate](study_after_workshop.qmd)
 
-
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not
+visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd
+stands for Quarto markdown. It allows code and ordinary text to be
+interweaved to produce well-formatted reports including webpages. [View
+the Qmd in
+Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and
+`#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr],
+`kableExtra` [@kableExtra]
 
 # References

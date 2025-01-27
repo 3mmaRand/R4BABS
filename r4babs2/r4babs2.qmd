@@ -6,18 +6,9 @@ toc-location: right
 
 # Welcome!
 
-Welcome to an exciting six-week journey into data analysis with R! 
-In this part of the module, we’ll explore key concepts that are essential
-for any budding bioscientist, including **the logic of hypothesis testing**, 
-a foundation for making informed decisions based on data and 
-**Statistical models** for analysing patterns and relationships across multiple 
-variables.
+Welcome to an exciting six-week journey into data analysis with R! In this part of the module, we’ll explore key concepts that are essential for any budding bioscientist, including **the logic of hypothesis testing**, a foundation for making informed decisions based on data and **Statistical models** for analysing patterns and relationships across multiple variables.
 
-This module builds on your skills from BABS1 step-by-step, helping you gain 
-confidence in applying statistical tools to real-world bioscience problems. 
-By the end, you’ll have a solid understanding of how to analyse data to go with
-your existing skills in summarising and plotting it.
-
+This module builds on your skills from BABS1 step-by-step, helping you gain confidence in applying statistical tools to real-world bioscience problems. By the end, you’ll have a solid understanding of how to analyse data to go with your existing skills in summarising and plottin g it.
 
 ## Module Learning Objectives
 
@@ -29,59 +20,29 @@ The BABS2 Module Learning outcomes that relate to the Data Analysis in R content
 
 -   Use R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically
 
--   Communicate research in scientific reports and via oral presentation.
+-   Communicate research in scientific reports and via oral presentation
 
 # How this part of the module is organised
 
-This module is designed to help you learn as you go — meaning you won’t need to 
-spend hours revising. Instead, you’ll build skills gradually and steadily 
-through a structured weekly schedule that combines contact time and guided 
-independent study. The goal is to make learning manageable, effective, and 
-enjoyable.
+This module is designed to help you learn as you go — meaning you won’t need to spend hours revising. Instead, you’ll build skills gradually and steadily through a structured weekly schedule that combines contact time and guided independent study. The goal is to make learning manageable, effective, and enjoyable.
 
 Each week has:
 
--   An "About" page which gives a topic summary, the Learning Objectives,  and 
-    the instructions for the week. You should read this first.
+-   An "About" page which gives a topic summary, the Learning Objectives, and the instructions for the week. You should read this first.
 
--   Some independent study on the "Prepare!" page to help you get ready for 
-    the workshop. This will be reading from the course book ([Computational 
-    Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)), 
-    watching a video, or doing some coding or some set up. The preparation is 
-    designed to take about 30-45 minutes on average. To make it more fun and 
-    more productive, study with other people.
+-   Some independent study on the "Prepare!" page to help you get ready for the workshop. This will be reading from the course book , watching a video, or doing some coding or some set up. The preparation is designed to take about 30-45 minutes on average. To make it more fun and more productive, study with other people.
 
--   A two-hour workshop using R to apply concepts you are learning. We will 
-    usually start with a demonstration of an example from the "Prepare!" tasks.
-    You will spend most of the workshop diving into exercises, and building on 
-    previous weeks’ skills while being introduced to new concepts. Anything you 
-    have not done before is explained and guided but you will also have the 
-    opportunity to solve problems using using the skills gained in previous 
-    workshops on your own or with others. I often remind 
-    you to take care of future you by making notes so you can look up your 
-    previous work but you can also search the 
-    [R4BABS](https://3mmarand.github.io/R4BABS/) site (search is top right). 
-    
--   The "Consolidate!" page has independent exercises to reinforce what you’re
-    learning. These are similar to the workshop activities but with less 
-    guidance to encourage independent thinking. Occasionally, there will also 
-    be some reading. It is designed to take about 30-45 mins on average but may
-    be quicker if you understood the workshop very well or slower if you need 
-    to revisit parts.
+-   A two-hour workshop using R to apply concepts you are learning. We usually start with a demonstration of an example from the "Prepare!" tasks. You will spend most of the workshop diving into exercises, and building on previous weeks’ skills while being introduced to new concepts. Anything you have not done before is explained and guided but you will also have the opportunity to solve problems using using the skills gained in previous workshops on your own or others. I often remind you to take care of future you by making notes so you can look up your previous work but you can also search the [R4BABS](https://3mmarand.github.io/R4BABS/) site (search is top right).
+
+-   The "Consolidate!" page has independent exercises to reinforce what you’re learning. These are similar to the workshop activities but with less guidance to encourage independent thinking. Occasionally, there will also be some reading. It is designed to take about 30-45 mins on average but may be quicker if you understood the workshop very well or slower if you need to revisit parts.
 
 # Tips for Learning R:
 
-Learning R is a bit like learning a new language, picking up a musical
-instrument, or mastering a sport — you can’t cram it all at once. Consistency 
-is key. Even small, regular practice sessions are more effective than trying 
-to do it all in one go.
+Learning R is a bit like learning a new language, picking up a musical instrument, or mastering a sport — you can’t cram it all at once. Consistency is key. Even small, regular practice sessions are more effective than trying to do it all in one go.
 
--   a little bit of engagement and practice is always better than none, so 
-    celebrate bit effort!
+-   a little bit of engagement and practice is always better than none, so celebrate each bit effort!
 
--   if you fall behind, don’t stress. Just pick up where you left off — there’s 
-    no need to skip ahead. It is fine to work on a previous week’s workshop!
-
+-   if you fall behind, don’t stress. Just pick up where you left off — there’s no need to skip ahead. It is fine to work on a previous week’s workshop!
 
 # Content
 
