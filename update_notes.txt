@@ -52,21 +52,27 @@ Add a folder for each strand which contains strand specific content.
 Group only access to relevant folder  done by SAS
 
 VLE iframe
-Week 1 Data Analysis in R for BABS 2
+
+<h2 style="color:MediumSeaGreen;">Read an Overview of R for BABS 2 (below) <a href="https://3mmarand.github.io/R4BABS/r4babs2/r4babs2.html" target="_blank">or open page on external site</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/r4babs2.html" allow="fullscreen"  width="800" height="800"></iframe>
 
 
-<h2 style="color:MediumSeaGreen;">Overview  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/overview.html" target="_blank">Direct link</a></h2>
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/overview.html" title="Overview" allow="fullscreen"  width="800" height="600"></iframe>
+
+<h2 style="color:MediumSeaGreen;">Read an overview of Week 5 (below) <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/overview.html" target="_blank">or open page on external site</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/overview.html" allow="fullscreen"  width="800" height="800"></iframe>
 
 
-<h2 style="color:MediumSeaGreen;">Independent Study to do before the workshop  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_before_workshop.html" target="_blank">Direct link</a></h2>
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_before_workshop.html" title="Prepare" allow="fullscreen"  width="800" height="400"></iframe>
+<h2 style="color:MediumSeaGreen;">Do this independent study (below) <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_before_workshop.html" target="_blank">or open page on external site</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_before_workshop.html" allow="fullscreen"  width="800" height="800"></iframe>
 
-<h2 style="color:MediumSeaGreen;">Workshop material  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/workshop.html" target="_blank">Direct link</a></h2>
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/workshop.html" title="Workshop" allow="fullscreen"  width="800" height="400"></iframe>
 
-<h2 style="color:MediumSeaGreen;">Independent Study to do after the workshop  <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_after_workshop.html" target="_blank">Direct link</a></h2>
-<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_after_workshop.html" title="Consolidation" allow="fullscreen"  width="800" height="400"></iframe>
+<h2 style="color:MediumSeaGreen;">Attend the workshop (material below) <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/workshop.html" target="_blank">or open page on external site</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/workshop.html" allow="fullscreen"  width="800" height="800"></iframe>
+
+
+
+<h2 style="color:MediumSeaGreen;">Do this independent study following the workshop to consolidate your learning (below) <a href="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_after_workshop.html" target="_blank">or open page on external site</a></h2>
+<iframe src="https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_after_workshop.html" allow="fullscreen"  width="800" height="800"></iframe>
 
 
 ###############
