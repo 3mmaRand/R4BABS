@@ -13,9 +13,6 @@ website:
   page-footer:
     left: "Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <https://github.com/3mmaRand/R4BABS>"
     right:
-      - icon: mastodon
-        href: "https://mastodon.social/users/3mma"
-        text: "Emma on mastodon"
       - icon: github
         href: "https://github.com/3mmaRand"
         text: "Emma on GitHub"  
@@ -41,9 +38,6 @@ website:
       - text: "PGT 52M"
         file:  pgt52m/pgt52m.qmd
     tools:
-      - icon: mastodon
-        href: "https://mastodon.social/users/3mma"
-        text: "Emma on mastodon"
       - icon: github
         href: "https://github.com/3mmaRand"
         text: "Emma on GitHub"  
