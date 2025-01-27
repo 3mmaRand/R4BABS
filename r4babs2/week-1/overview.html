@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -146,7 +126,6 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://mastodon.social/users/3mma" title="Emma on mastodon" class="quarto-navigation-tool px-1" aria-label="Emma on mastodon"><i class="bi bi-mastodon"></i></a>
     <a href="https://github.com/3mmaRand" title="Emma on GitHub" class="quarto-navigation-tool px-1" aria-label="Emma on GitHub"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -423,18 +402,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 
 
 <p>This week we will cover the logic of consider the logic of hypothesis testing and type 1 and type 2 errors. We will also find out what the sampling distribution of the mean and the standard error are, and how to calculate confidence intervals.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/type-1-error.png" class="img-fluid figure-img" alt="A cute population with a normal distribution with two samples, one which happens to have at mean at the low end of the population and one at the high end. The population is saying 'yes, I'm still sure I birthed both of you'. Because these samples are relatively rare - would happen less than 5% of the time - we would conclude they did not come from this population. That would be making a type 1 error." width="600"></p>
-<figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: “type 1 error”</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/type-2-error.png" class="img-fluid figure-img" alt="Two cute populations with a normal distribution with very little overlap. There are two samples, one which happens to have at mean at the low end of one population and and the other at the high end of the other population so that the two samples are close togther. Deciding these two samples were from the same population would be making a type 2 error." width="600"></p>
-<figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: “type 2 error”</figcaption>
-</figure>
-</div>
+<p><img src="images/type-1-error.png" class="img-fluid" alt="Artwork by : “type 1 error”">{fig-alt= “A cute population with a normal distribution with two samples, one which happens to have at mean at the low end of the population and one at the high end. The population is saying ‘yes, I’m still sure I birthed both you’. Because these samples are relatively rare - would happen less than 5% of the time - we would conclude they did not come from this population. That would be making a type 1 error.” width=“600”}</p>
+<p><img src="images/type-2-error.png" class="img-fluid" alt="Artwork by : “type 2 error”">{fig-alt= “Two cute populations with a normal distribution with very little overlap. There are two samples, one which happens to have at mean at the low end of one population and and the other at the high end of the other population so that the two samples are close togther. Deciding these two samples were from the same population would be making a type 2 error.” width=“600”}</p>
 <section id="learning-objectives" class="level3">
 <h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
 <p>The successful student will be able to:</p>
@@ -467,14 +436,9 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </ol>
 
 
-
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-allison_horst" class="csl-entry" role="listitem">
-Horst, Allison. 2023. <span>“Data Science Illustrations.”</span> <a href="https://allisonhorst.com/allison-horst">https://allisonhorst.com/allison-horst</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -908,11 +872,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
-    <a class="nav-link" href="https://mastodon.social/users/3mma">
-<p>Emma on mastodon</p>
-</a>
-  </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://github.com/3mmaRand">
 <p>Emma on GitHub</p>

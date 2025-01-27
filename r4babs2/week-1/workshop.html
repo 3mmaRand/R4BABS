@@ -190,7 +190,6 @@ window.Quarto = {
 </ul>
 </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://mastodon.social/users/3mma" title="Emma on mastodon" class="quarto-navigation-tool px-1" aria-label="Emma on mastodon"><i class="bi bi-mastodon"></i></a>
     <a href="https://github.com/3mmaRand" title="Emma on GitHub" class="quarto-navigation-tool px-1" aria-label="Emma on GitHub"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -472,12 +471,9 @@ window.Quarto = {
 
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/love-this-class.png" class="img-fluid figure-img" alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"></p>
-<figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: “love this class”</figcaption></figure>
-</div>
+<p><img src="images/love-this-class.png" class="img-fluid" alt="Artwork by : “love this class”">{fig-alt= “A little monster flying a biplane wearing aviator glasses, pulling a banner that says ‘Fully expecting to hate this class.’ Below, a teacher wearing a cheerleading outfit labeled ‘STATS’ with a bullhorn labeled ‘CODE’ cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing.” width=“800”}</p>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this session you will remind yourself how to import files, and calculate confidence intervals on large and small samples.</p>
+<p>In this session you will remind yourself how to import files, and calculate confidence intervals on large and small samples. You will also learn how to create a zip file - this is what you will submit for the assessment.</p>
 </section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
 <p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
 <ul>
@@ -501,7 +497,7 @@ Key
 <p>These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Something you need to do on your computer. It may be opening programs or documents or locating a file.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.</p>
-<p><img src="images/do_on_internet.png" class="img-fluid"> Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.</p>
+<p><img src="images/do_on_internet.png" class="img-fluid"> Something you should do in your browser on the internet. It may be searching for information, going to the VLE or a file.</p>
 <p><img src="images/answer.png" class="img-fluid"> A question for you to think about and answer. Record your answers in your script for future reference.</p>
 </div>
 </div>
@@ -510,7 +506,7 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Go the Files tab in the lower right pane and click on the <code>...</code> on the right. This will open a “Go to folder” window. Navigate to a place on your computer where you keep your work. Click Open.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Also on the Files tab click on <code>New Folder</code>. Type “data-analysis-in-r-2” in to the box. This will be the folder that we work in throughout the Data Analysis in R part BABS2.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Name the RStudio Project ‘week-1’.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like analysis.R to carry out the rest of the work.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>analysis.R</code> to carry out the rest of the work.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># confidence intervals</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new folder called <code>data-raw</code>.</p>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
@@ -539,17 +535,18 @@ Key
 <span><span class="co"># standard error</span></span>
 <span><span class="va">se</span> <span class="op">&lt;-</span> <span class="va">sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> To calculate the 95% confidence interval we need to look up the quantile (multiplier) using <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> To calculate the 95% confidence interval we need to look up the quantile (multiplier) using <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This should be about 1.96.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Now we can use it in our confidence interval calculation</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Now we can use it in our confidence interval calculation:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lcl</span> <span class="op">&lt;-</span> <span class="va">m</span> <span class="op">-</span> <span class="va">q</span> <span class="op">*</span> <span class="va">se</span></span>
 <span><span class="va">ucl</span> <span class="op">&lt;-</span> <span class="va">m</span> <span class="op">+</span> <span class="va">q</span> <span class="op">*</span> <span class="va">se</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> Print the values</p>
+<p>I used the names <code>lcl</code> and <code>ucl</code> to stand for “lower confidence limit” and “upper confidence limit” respectively.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Print the values:</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lcl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -560,14 +557,29 @@ Key
 <pre><code>[1] 4.626824</code></pre>
 </div>
 </div>
-<p>This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The usual way of expressing this is that the mean is 4.55 <span class="math inline">\(\pm\)</span> 0.07 mm</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Between what values would you be 99% confident of the population mean being?</p>
+<p>This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The amount we have added/subtracted from the mean (<code>q * se</code>) is 0.08 and a common way of giving a mean is 4.55 <span class="math inline">\(\pm\)</span> 0.08 mm.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Between what values would you be <em>99%</em> confident of the population mean being?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will need to think about what probability to give <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>. For 95% confidence intervals we had to give 0.975. This is because 95% is 2.5% (0.025) in each tail of the distribution.</p>
+</div>
+</div>
 <!-- #---THINKING ANSWER--- -->
-<!-- # the mean is 4.55 +/- 0.100. We are 99% certain the populations mean lies between 4.45 and 4.65 -->
+<!-- the mean is 4.55 +/- 0.100. We are 99% certain the populations  -->
+<!-- mean between 4.45 and 4.65 -->
 </section><section id="confidence-intervals-small-samples" class="level2"><h2 class="anchored" data-anchor-id="confidence-intervals-small-samples">Confidence intervals (small samples)</h2>
 <p>The confidence interval for small samples is given by:</p>
-<p><span class="math inline">\(\bar{x} \pm \sf t_{[d.f]} \times s.e.\)</span></p>
-<p>The only difference between the calculation for small and large sample is the multiple. For large samples we use the “the standard normal distribution” accessed with <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>; for small samples we use the “<em>t</em> distribution” assessed with <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code>.The value returned by <code>q(t)</code> is larger than that returned by <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> which reflects the greater uncertainty we have on estimations of population means based on small samples.</p>
+<p><span class="math inline">\(\bar{x} \pm t_{[d.f]} \times s.e.\)</span></p>
+<p>The only difference between the C.I. calculation for small samples and the C.I. calculation for large sample is the multiplier. For large samples we use the “the standard normal distribution” accessed with <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>; for small samples we use the “<em>t</em> distribution” assessed with <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code>.</p>
+<p>The value returned by <code>q(t)</code> is larger than that by <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> which reflects the greater uncertainty we have on estimations of population means based on small samples.</p>
 <p>The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phospholipids in nerve cells and deficiency leads to many behavioural and functional deficits. The cross sectional area of neurons in the CA 1 region of the hippocampus of normal rats is 155 <span class="math inline">\(\mu m^2\)</span>. A DHA deficient diet was fed to 8 animals and the cross sectional area (csa) of neurons is given in <a href="data-raw/neuron.txt">neuron.txt</a></p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/neuron.txt">neuron.txt</a> to your <code>data-raw</code> folder</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure of the resulting dataframe</p>
@@ -582,7 +594,7 @@ Key
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="fl">0.975</span>, df <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that we are using <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code> rather than <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> but that the probability, 0.975, used is the same. Finally, we need to put our mean, standard error and <em>t</em> value in the equation. <span class="math inline">\(\bar{x} \pm \sf t_{[d.f]} \times s.e.\)</span>.</p>
+<p>Note that we are using <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code> rather than <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> but that the probability, 0.975, used is the same. Finally, we need to put our mean, standard error and <em>t</em> value in the equation. <span class="math inline">\(\bar{x} \pm t_{[d.f]} \times s.e.\)</span>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> The upper confidence limit is:</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">m</span> <span class="op">+</span> <span class="va">t</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -595,17 +607,17 @@ Key
 <p><img src="images/answer.png" class="img-fluid"> Given the upper and lower confidence values for the estimate of the population mean, what do you think about the effect of the DHA deficient diet?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- the 95% confidence interval from 132.75 mu m^2 to 151.95 mu m^2  -->
-<!-- doesn't include 155 mu m^2 so we can conclude that DHA deficiency significantly  -->
-<!-- lowers csa -->
+<!-- doesn't include 155 mu m^2 so we can conclude that DHA deficiency  -->
+<!-- significantly lowers  cross sectional area-->
 </section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
-<p>Have a look at the Assessment Overview on the VLE. Part of the assessment for BIO00026C Becoming a Bioscientist: Grand Challenges the RStudio Project which supports the figures and analysis in your report. You will zip up the RStudio Project folder and submit it to the VLE. That folder should contain all the data, code and figures you have used in report and all of the results should be reproducible. Reproducible means that if someone downloads that zipped folder and unzips it they should be able to understand what the analysis was, what you did and why and be able to run all the code to reproduce the figures and results in your report without issue.</p>
+<p>Have a look at the Assessment Overview on the VLE. Part of the assessment for BIO00026C Becoming a Bioscientist: Grand Challenges is to submit the RStudio Project which supports the figures and analysis in your report. You will zip up the RStudio Project folder and submit it to the VLE. That folder should contain all the data, code and figures you have used in your report and all of the results should be reproducible. Reproducible means that if someone downloads that zipped folder and unzips it they should be able to understand what the analysis was, what you did and why and be able to run all the code to reproduce the figures and results in your report without issue.</p>
 <p>You can practice this every week!</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make sure your script is saved. Close down the “week-1” RStudio project using either the file menu or the menu on the top right where the Project name appears.</p>
-<p><img src="images/do_on_your_computer.png" class="img-fluid"> Locate the <code>week-1</code> folder in Windows explorer. Right click on the folder and select “Send to” and then “Compressed (zipped) folder”. This will create a file called <code>week-1.zip</code>. Email this file to someone near you have have them email you with theirs. Your neighbour should be able to download <code>week-1.zip</code>, unzip it and then open the project in RStudio and run the code to reproduce all your work. Note: Save the downloaded <code>week-1.zip</code> some where that is NOT your “data-analysis-in-r-2” to avoid naming conflicts. Also do not save it in any RStudio project folder.</p>
+<p><img src="images/do_on_your_computer.png" class="img-fluid"> Locate the <code>week-1</code> folder in Windows explorer. Right click on the folder and select “Send to” and then “Compressed (zipped) folder”. This will create a file called <code>week-1.zip</code>. Email this file to someone near you have have them email you with theirs. Your neighbour should be able to download <code>week-1.zip</code>, unzip it and then open the project in RStudio and run the code to reproduce all your work. ** Note: Save the downloaded <code>week-1.zip</code> some where that is NOT your “data-analysis-in-r-2” to avoid naming conflicts.** Also do not save it in any RStudio project folder.</p>
 <p>You’re finished!</p>
 </section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/we-believe.png" class="img-fluid figure-img" alt="Header text 'R learners' above five friendly monsters holding up signs that together read 'we believe in you.'" width="800"></p>
+<figure class="figure"><p><img src="images/we-believe.png" class="img-fluid figure-img" alt="Header text 'R learners' above  five friendly monsters holding up signs that together read 'we believe  in you.'" width="800"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: “We belive in you!”</figcaption></figure>
 </div>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
@@ -1073,11 +1085,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item">
-    <a class="nav-link" href="https://mastodon.social/users/3mma">
-<p>Emma on mastodon</p>
-</a>
-  </li>  
-    <li class="nav-item">
     <a class="nav-link" href="https://github.com/3mmaRand">
 <p>Emma on GitHub</p>
 </a>
