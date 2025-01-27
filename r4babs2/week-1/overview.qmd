@@ -5,13 +5,27 @@ toc: true
 toc-location: right
 ---
 
-This week we will cover the logic of consider the logic of hypothesis testing and type 1 and type 2 errors. We will also find out what the sampling distribution of the mean and the standard error are, and how to calculate confidence intervals.
+This week we will cover the logic of consider the logic of hypothesis testing 
+and type 1 and type 2 errors. We will also find out what the sampling 
+distribution of the mean and the standard error are, and how to calculate 
+confidence intervals.
 
 
-![Artwork by @allison_horst: "type 1 error"](images/type-1-error.png){fig-alt="A cute population with a normal distribution with two samples, one which happens to have at mean at the low end of the population and one at the high end. The population is saying 'yes, I'm still sure I birthed both of you'. Because these samples are relatively rare - would happen less than 5% of the time - we would conclude they did not come from this population. That would be making a type 1 error." width="600"}
+![Artwork by @allison_horst: "type 1 error"](images/type-1-error.png){fig-alt=
+"A cute population with a normal distribution with two samples, one which 
+happens to have at mean at the low end of the population and one at the 
+high end. The population is saying 'yes, I'm still sure I birthed both 
+you'. Because these samples are relatively rare - would happen less 
+than 5% of the time - we would conclude they did not come from this 
+population. That would be making a type 1 error." width="600"}
 
 
-![Artwork by @allison_horst: "type 2 error"](images/type-2-error.png){fig-alt="Two cute populations with a normal distribution with very little overlap. There are two samples, one which happens to have at mean at the low end of one population and and the other at the high end of the other population so that the two samples are close togther. Deciding these two samples were from the same population would be making a type 2 error." width="600"}
+![Artwork by @allison_horst: "type 2 error"](images/type-2-error.png){fig-alt=
+"Two cute populations with a normal distribution with very little overlap. 
+There are two samples, one which happens to have at mean at the low end of 
+one population and and the other at the high end of the other population 
+so that the two samples are close togther. Deciding these two samples were 
+from the same population would be making a type 2 error." width="600"}
 
 
 ### Learning objectives

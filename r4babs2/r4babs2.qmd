@@ -21,13 +21,18 @@ your existing skills in summarising and plotting it.
 
 ## Module Learning Objectives
 
-The BABS2 Module Learning outcomes that relate to the Data Analysis in R content are:
+The BABS2 Module Learning outcomes that relate to the Data Analysis in R 
+content are:
 
--   Think creatively to address a Grand Challenge by designing investigations with testable hypotheses and rigorous controls
+-   Think creatively to address a Grand Challenge by designing investigations 
+    with testable hypotheses and rigorous controls
 
--   Appropriately select classical univariate statistical tests and some non-parametric equivalents to a given scenario and recognise when these are not suitable
+-   Appropriately select classical univariate statistical tests and some 
+    non-parametric equivalents to a given scenario and recognise when these
+    are not suitable
 
--   Use R to perform these analyses, reproducibly, on data in a variety of formats and present the results graphically
+-   Use R to perform these analyses, reproducibly, on data in a variety of 
+    formats and present the results graphically
 
 -   Communicate research in scientific reports and via oral presentation.
 
