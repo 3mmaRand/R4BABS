@@ -9,4 +9,7 @@ toc-location: right
 
 2. 📖 Read [Confidence Intervals](https://3mmarand.github.io/comp4biosci/confidence_intervals.html) 
 
+3. If you have not yet done so, I recommend setting up the Virtual 
+   Desktop Service. [Instructions are in BABS1](../../r4babs1/week-6/workshop.html)
+
 
