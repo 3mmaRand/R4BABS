@@ -521,7 +521,7 @@ Key
 <p>Where 1.96 is the quantile for 95% confidence.</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/beewing.txt">beewing.txt</a> to your <code>data-raw</code> folder.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure of the resulting dataframe.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Calculate and assign to variables: the mean, standard deviation and standard error:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Calculate and assign to variables: the mean, standard deviation, sample size and standard error:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean</span></span>
 <span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">beewing</span><span class="op">$</span><span class="va">wing_mm</span><span class="op">)</span></span>
@@ -557,7 +557,11 @@ Key
 <pre><code>[1] 4.626824</code></pre>
 </div>
 </div>
-<p>This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm. The amount we have added/subtracted from the mean (<code>q * se</code>) is 0.08 and a common way of giving a mean is 4.55 <span class="math inline">\(\pm\)</span> 0.08 mm.</p>
+<p>This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> How would you write this up in a report?</p>
+<!-- #---THINKING ANSWER--- -->
+<!-- The left wing of bees have a mean width of 4.55 mm,  -->
+<!-- 95% C.I. [4.47, 4.63]. -->
 <p><img src="images/do_in_R.png" class="img-fluid"> Between what values would you be <em>99%</em> confident of the population mean being?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
