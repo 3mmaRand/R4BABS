@@ -136,7 +136,7 @@ str(beewing)
 ```
 
 ![](images/do_in_R.png) Calculate and assign to variables: the mean,
-standard deviation and standard error:
+standard deviation, sample size and standard error:
 
 ```{r}
 # mean
@@ -180,10 +180,14 @@ ucl
 ```
 
 This means we are 95% confident the population mean lies between
-`r round(lcl,2)` mm and `r round(ucl,2)` mm. The amount we have
-added/subtracted from the mean (`q * se`) is `r round(q * se, 2)` and a
-common way of giving a mean is `r round(m, 2)` $\pm$
-`r round(q * se, 2)` mm.
+`r round(lcl,2)` mm and `r round(ucl,2)` mm. 
+
+![](images/do_in_R.png) How would you write this up in a report?
+
+<!-- #---THINKING ANSWER--- -->
+
+<!-- The left wing of bees have a mean width of 4.55 mm,  -->
+<!-- 95% C.I. [4.47, 4.63]. -->
 
 ![](images/do_in_R.png) Between what values would you be *99%* confident
 of the population mean being?
