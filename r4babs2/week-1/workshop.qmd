@@ -16,13 +16,9 @@ library(kableExtra)
 
 # Introduction
 
-![Artwork by : "love this class"](images/love-this-class.png){fig-alt=
-"A little monster flying a biplane wearing aviator glasses, pulling a
-banner that says 'Fully expecting to hate this class.' Below, a teacher
-wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled
-'CODE' cheering desperately with pom-poms, trying to help students
-believe stats is actually going to be awesomely life-changing."
-width="800"}
+
+![Artwork by @allison_horst:  "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
+
 
 ## Session overview
 
