@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-subtitle: "Data Analysis 2: Immunobiology - Sample data analysis"
+subtitle: "Data Analysis 2: Biomedical sciences - Sample data analysis"
 toc: true
 toc-location: right
 ---

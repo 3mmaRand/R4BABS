@@ -1,10 +1,10 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Data Analysis 2: Immunobiology - Sample data analysis"
+subtitle: "Data Analysis 2: Biomedical sciences - Sample data analysis"
 author: "Emma Rand"
 format: 
   revealjs:
-    footer: "🔗 [Data Analysis 2: Immunobiology - Sample data analysis](https://3mmarand.github.io/R4BABS/r4babs4/week-2/overview.html)"
+    footer: "🔗 [Data Analysis 2: Biomedical sciences - Sample data analysis](https://3mmarand.github.io/R4BABS/r4babs4/week-2/overview.html)"
     slide-number: true
     chalkboard: true
     code-link: true
@@ -20,11 +20,11 @@ editor:
 
 There are three workshops:
 
-1.  Week 2 DA 2: Immunobiology - Sample data analysis
+1.  Week 2 DA 2: Biomedical sciences - Sample data analysis
 
-2.  Week 4 DA 3: Immunobiology - Analysis of your own data
+2.  Week 4 DA 3: Biomedical sciences - Analysis of your own data
 
-3.  Week 6 DA 4: Immunobiology - Customising figures
+3.  Week 6 DA 4: Biomedical sciences - Customising figures
 
 
 ## Overview

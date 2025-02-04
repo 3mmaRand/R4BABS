@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to consolidate this week"
-subtitle: "DA 4 Immunobiology"
+subtitle: "DA 4 Biomedical sciences"
 toc: true
 toc-location: right
 format:

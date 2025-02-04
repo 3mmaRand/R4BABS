@@ -7,7 +7,7 @@ toc-location: right
 
 This is the last of the four BABS modules and you will draw together many of the elements from the previous BABS modules to perform a guided research project in an area of bioscience related to your degree programme. There will be one core workshop and three workshops specific to your project strand.
 
-This page has the material for the Core workshop and the three Immunobiology workshops. All material is on the VLE.
+This page has the material for the Core workshop and the three Biomedical sciences workshops. All material is on the VLE.
 
 ## Module Learning Objectives
 
@@ -25,18 +25,18 @@ Use R to perform these analyses, reproducibly, on data in a variety of formats a
 This is taken by all students. The independent study to prepare you for the workshop is revision of some stage 1 core concepts. It covers file types, file systems,  working directories,  paths and RStudio Projects. You may feel completely confident with them but many students will benefit from a refresher. In the workshop we will cover Project organisation, working with data that has many variables and observations, getting an overview with summaries and distribution plots, and how to filter rows and columns.
 
 
-## Week 2 Data Analysis 2: Immunobiology - Sample data analysis
+## Week 2 Data Analysis 2: Biomedical sciences - Sample data analysis
 
-This is the first of the three workshops which are specific to the Immunobiology strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, we will guide you through the analysis of a sample data set just like the one you will generate. Jillian collected these data in designing this set of practicals. You will learn both how to analyse the data and what your own data should look like. We will mainly rely on default formats for figures.
+This is the first of the three workshops which are specific to the Biomedical sciences strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, we will guide you through the analysis of a sample data set just like the one you will generate. Jillian collected these data in designing this set of practicals. You will learn both how to analyse the data and what your own data should look like. We will mainly rely on default formats for figures.
 
 
 
-## Week 4 Data Analysis 3: Immunobiology - Analysis of your own data
+## Week 4 Data Analysis 3: Biomedical sciences - Analysis of your own data
 
 In this workshop, you will apply the workflow you learned in the previous workshop to analyse your own data with our support.
 
 
 
-## Week 6 Data Analysis 4: Immunobiology - Customising figures
+## Week 6 Data Analysis 4: Biomedical sciences - Customising figures
 
 In this workshop you will how to customise figures with colour or greyscale, labels, and other features to make them more suitable for publication.

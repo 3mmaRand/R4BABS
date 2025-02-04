@@ -1,0 +1,96 @@
+💚💻 BIO00026C Data Analysis in R for BABS 2 demonstrating
+
+
+Hi GTA team!
+It is fantastic to have your involvement in this stage 1 module. It would be impossible to teach this module without your help so thank you very much. The workshops are in weeks 1 to 6
+
+The easist way to access materials is Data Analysis in R for BABS 2 as there's no 2FA and it's only the data analysis material rather than everything in the 26C module.
+
+I think many of you have demonstrated for stage 1 Data Analysis in R before. BABS 2 covers the logic of hypothesis testing, confidence intervals, what is meant by a statistical model, two-sample tests and one- and two-way analysis of variance (ANOVA).
+
+I send a weekly email to students 0800 Wednesday about the following week and I will copy all of you in on all of those. They will be easy to find/search for in your inboxes 💚💻 BIO00026C. The first of these goes out tomorrow. 
+
+I emphasise the use of RStudio projects (not using setwd), relative paths, and use the tidyverse and the (native) pipe (|>). Please also use these even when you know other ways - consistency is really helpful for new users. 
+
+I'm very happy to answer any queries you have about the material but you'll probably find each other have the most useful perspective! 
+
+Best wishes and see you soon,
+
+Emma 
+
+
+
+###############################################################
+💚💻 BIO00026C Data Analysis in R for BABS 2
+
+👋 Hello Everyone,
+
+TL,DR: 
+R for BABS2 is organised like R for BABS1
+Email coming on Wednesday about week 1
+Do some revision of BABS1 
+
+Next week you start the Data Analysis in R part of BABS 2. Over six weeks you will learn about the logic of hypothesis testing, confidence intervals, what is meant by a statistical model, two-sample tests and one- and two-way analysis of variance (ANOVA).
+
+The organisation of 💚 Data Analysis in R for BABS 2 is just like it was for 🧡Data Analysis in R for BABS 1:
+Each week has:
+An overview which gives the Learning Objectives, a topic summary and the instructions for the week. You should read this first.
+
+Some independent study to “Prepare!” you for the workshop. It is designed to take about 30-45 mins on average. 
+
+A two-hour workshop using R. This will usually start with me doing a short demonstration of one or more of the examples that were in “Prepare!” but you will spend most of the session going through some exercises. 
+
+Some independent study to “Consolidate!” what you have learned. It is designed to take about 30-45 mins on average.
+
+I will email each Wednesday 0800 with the Overview, links and instructions for the following week. So you will get Week 1 information shortly (if you just can't wait you can see it all without 2FA here: Data Analysis in R for BABS 2)
+
+However, the main aim of this email is to encourage you to go through Data Analysis in R for BABS1 to revise and prepare you for this semester. You can access it through the BIO00027C BABS1 VLE site or without 2FA here: Data Analysis in R for BABS 21. Or by searching your inbox for 🧡💻 BIO00027C
+
+bests,
+Emma
+
+
+
+###############################################################
+
+
+
+
+
+
+###############################################################
+
+
+
+
+
+###############################################################
+
+
+
+
+
+
+###############################################################
+
+
+
+
+
+
+###############################################################
+
+
+
+
+
+
+###############################################################
+
+
+
+
+
+
+###############################################################
+

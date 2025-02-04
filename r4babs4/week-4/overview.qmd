@@ -1,12 +1,12 @@
 ---
 title: "Overview"
-subtitle: "DA 3 Immunobiology"
+subtitle: "DA 3 Biomedical sciences"
 toc: true
 toc-location: right
 
 ---
 
-This is the second of the three workshops which are specific to the Immunobiology strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, apply the workflow your learned in [Week 2](../week2/overview.qmd) to your own data.
+This is the second of the three workshops which are specific to the Biomedical sciences strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, apply the workflow your learned in [Week 2](../week2/overview.qmd) to your own data.
 
 ### Learning objectives
 
