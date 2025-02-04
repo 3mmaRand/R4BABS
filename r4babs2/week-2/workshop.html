@@ -451,13 +451,12 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 
 
 </header><section id="introduction" class="level1"><h1>Introduction</h1>
-<p>In this workshop you will get practice in applying, interpreting and reporting single linear regression.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/linear-regression-dragon.png" class="img-fluid figure-img" alt="Two blue dragons stand on scales next to a vertical yardstick showing one slightly taller than the other. Regression estimates are shown at the top as an equation: 'weight (tons) = 2.4 + 0.3*height', with explanatory text reading 'If all other variables are constant, we expect a 1 foot taller dragon to weight 0.3 tons more, on average.'" width="800"></p>
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>: “linear regression dragons”</figcaption></figure>
 </div>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this session you will carry out, interpret and report on a single linear regression.</p>
+<p>In this session you will carry out, interpret and report a single linear regression.</p>
 </section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
 <p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
 <ul>
@@ -487,8 +486,7 @@ Key
 </div>
 </section></section><section id="getting-started" class="level1"><h1>Getting started</h1>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Go the Files tab in the lower right pane and click on the <code>...</code> on the right. This will open a “Go to folder” window. Navigate to a place on your computer where you keep your work. Click Open.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-2</code> folder and name the RStudio Project <code>week-2</code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-2</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> folder and name the RStudio Project <code>week-2</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make new folders called <code>data-raw</code> and <code>figures</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>single-linear-regression.R</code> to carry out the rest of the work.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Introduction to statistical models: Single linear-regression</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
@@ -582,7 +580,7 @@ F-statistic: 88.37 on 1 and 49 DF,  p-value: 1.503e-12</code></pre>
 </div>
 <p>I also rounded the values to two decimal places.</p>
 </section><section id="checking-assumptions" class="level3"><h3 class="anchored" data-anchor-id="checking-assumptions">Checking assumptions</h3>
-<p>We need to examine the residuals. Very conveniently, the object which is created by <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> contains a variable called <code>$residuals</code>. Also conveniently, the R’s <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function can used on the output objects of <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>. The assumptions demand that each y is drawn from a normal distribution for each x and these normal distributions have the same variance. Therefore we plot the residuals against the fitted values to see if the variance is the same for all the values of x. The fitted - predicted - values are the values on the line of best fit. Each residual is the difference between the fitted values and the observed value.</p>
+<p>We need to examine the residuals. Very conveniently, the object which is created by <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> contains a variable called <code>$residuals</code>. Also conveniently, the R’s <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function can used on the output objects of <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>. The assumptions of the GLM demand that each <em>y</em> is drawn from a normal distribution for each <em>x</em> and these normal distributions have the same variance. Therefore, we plot the residuals against the fitted values to see if the variance is the same for all the values of <em>x</em>. The fitted - or predicted - values are the values on the line of best fit. Each residual is the difference between the fitted values and the observed value.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot the model residuals against the fitted values like this:</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod</span>, which <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -640,11 +638,11 @@ W = 0.96377, p-value = 0.1208</code></pre>
 </div>
 </div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> The <code>geom_smooth()</code> function will had a variety of fitted lines to a plot. We want a line so we need to specify <code>method = "lm"</code>:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> The <code>geom_smooth()</code> function will add a variety of fitted lines to a plot. We want a straight line so we need to specify <code>method = "lm"</code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">plant</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">day</span>, y <span class="op">=</span> <span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>   </span>
-<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, </span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, </span>
 <span>              se <span class="op">=</span> <span class="cn">FALSE</span>, </span>
 <span>              colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -660,7 +658,7 @@ W = 0.96377, p-value = 0.1208</code></pre>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">plant</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">day</span>, y <span class="op">=</span> <span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, </span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, </span>
 <span>              se <span class="op">=</span> <span class="cn">FALSE</span>, </span>
 <span>              colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">annotate</span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">20</span>, y <span class="op">=</span> <span class="fl">110</span>, </span>
@@ -698,7 +696,7 @@ W = 0.96377, p-value = 0.1208</code></pre>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
 <p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-2/workshop.qmd">View the Qmd in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
-<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2023</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2022</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2021</a>)</span></p>
+<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
 
@@ -711,7 +709,7 @@ Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, and Christophe De
 Horst, Allison. 2023. <span>“Data Science Illustrations.”</span> <a href="https://allisonhorst.com/allison-horst">https://allisonhorst.com/allison-horst</a>.
 </div>
 <div id="ref-R-core" class="csl-entry" role="listitem">
-R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div id="ref-rand2023" class="csl-entry" role="listitem">
 Rand, Emma. 2023. <em>Data Analysis in r for Becoming a Bioscientist</em>. <a href="https://3mmarand.github.io/R4BABS/">https://3mmarand.github.io/R4BABS/</a>.
@@ -719,13 +717,22 @@ Rand, Emma. 2023. <em>Data Analysis in r for Becoming a Bioscientist</em>. <a hr
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
-<div id="ref-knitr" class="csl-entry" role="listitem">
-Xie, Yihui. 2022. <span>“Knitr: A General-Purpose Package for Dynamic Report Generation in r.”</span> <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+<div id="ref-knitr3" class="csl-entry" role="listitem">
+Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC.
+</div>
+<div id="ref-knitr2" class="csl-entry" role="listitem">
+———. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-knitr1" class="csl-entry" role="listitem">
+———. 2024. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 <div id="ref-kableExtra" class="csl-entry" role="listitem">
-Zhu, Hao. 2021. <span>“kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax.”</span> <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
+Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1"><p>You made this folder in <a href="../week-1/workshop.html#getting-started">Week 1.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
