@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-subtitle: "Data Analysis 4: Immunobiology - Your data presentation"
+subtitle: "Data Analysis 4: Biomedical sciences - Your data presentation"
 toc: true
 toc-location: right
 ---

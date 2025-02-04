@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Data Analysis 4: Immunobiology - Your data presentation"
+subtitle: "Data Analysis 4: Biomedical sciences - Your data presentation"
 toc: true
 toc-location: right
 ---
@@ -88,5 +88,5 @@ from wherever you got to.
     The other columns are calculations you make along the 
     way and may help you get to the `apc_mfi` and `perc_tfna_pos`
     values. The column names are the same as those used in the 
-    [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) 
+    [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) 
     workshop

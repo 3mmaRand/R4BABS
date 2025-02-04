@@ -1,6 +1,6 @@
 ---
 title: "Independent Study to prepare for workshop"
-subtitle: "Data Analysis 3: Immunobiology - Your data analysis"
+subtitle: "Data Analysis 3: Biomedical sciences - Your data analysis"
 toc: true
 toc-location: right
 ---

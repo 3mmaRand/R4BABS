@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-subtitle: "Data Analysis 4: Immunobiology - Your data presentation"
+subtitle: "Data Analysis 4: Biomedical sciences - Your data presentation"
 toc: true
 toc-location: right
 editor: 
@@ -31,11 +31,11 @@ The columns you must add are:
 
 The other columns are calculations you make along the way and may help you get to the `apc_mfi` and `perc_tfna_pos` values.
 
-The column names are the same as those used in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop.
+The column names are the same as those used in the [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) workshop.
 
 ## Set up
 
-🎬 Open the RStudio project you created in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop.
+🎬 Open the RStudio project you created in the [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) workshop.
 
 🎬 Create a new script called `data-presentation.R`
 
@@ -48,7 +48,7 @@ library(tidyverse)
 🎬 Save a copy of [live_labelled.csv](data-processed/live_labelled.csv) to your `data-processed` folder.
 These cells have been AI cleaned, gated to remove debris and dead cells, and labelled as positive or negative for the E_coli_FITC_Lin and TNFa_APC_Lin signals[^1].
 
-[^1]: [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop has been amended to include the instruction to save these data at the end.
+[^1]: [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) workshop has been amended to include the instruction to save these data at the end.
 
 🎬 Import the data:
 
@@ -476,7 +476,7 @@ all_combin_perc |>
 ::: callout-tip
 ## Tip for your own plots
 
-You can combine the concept of annotation and faceted plots to annotate a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal you made in the [Data Analysis 2: Immunobiology - Sample data analysis](../week-2/workshop.html) workshop.
+You can combine the concept of annotation and faceted plots to annotate a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal you made in the [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) workshop.
 :::
 
 ## Importing from google sheets
