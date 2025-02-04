@@ -58,20 +58,14 @@
   year     =  2014,
   url      = "https://vita.had.co.nz/papers/tidy-data.pdf",
 }
-@article{knitr,
-	title = {knitr: A General-Purpose Package for Dynamic Report Generation in R},
-	author = {Xie, Yihui},
-	year = {2022},
-	date = {2022},
-	url = {https://yihui.org/knitr/}
-}
 
-@article{kableExtra,
-	title = {kableExtra: Construct Complex Table with 'kable' and Pipe Syntax},
-	author = {Zhu, Hao},
-	year = {2021},
-	date = {2021},
-	url = {https://CRAN.R-project.org/package=kableExtra}
+
+@Manual{kableExtra,
+  title = {kableExtra: Construct Complex Table with 'kable' and Pipe Syntax},
+  author = {Hao Zhu},
+  year = {2024},
+  note = {R package version 1.4.0},
+  url = {https://CRAN.R-project.org/package=kableExtra},
 }
 
 @book{rand2023,
@@ -110,7 +104,7 @@
     author = {{R Core Team}},
     organization = {R Foundation for Statistical Computing},
     address = {Vienna, Austria},
-    year = {2023},
+    year = {2024},
     url = {https://www.R-project.org/},
   }
 
@@ -135,11 +129,11 @@
 }
 
 @Manual{emmeans,
-    title = {emmeans: Estimated Marginal Means, aka Least-Squares Means},
-    author = {Russell V. Lenth},
-    year = {2023},
-    note = {R package version 1.8.7},
-    url = {https://CRAN.R-project.org/package=emmeans},
+  title = {emmeans: Estimated Marginal Means, aka Least-Squares Means},
+  author = {Russell V. Lenth},
+  year = {2024},
+  note = {R package version 1.10.5},
+  url = {https://CRAN.R-project.org/package=emmeans},
 }
 
 @article{baggerly2009,
@@ -224,4 +218,118 @@
    url = {https://3mmarand.github.io/comp4biosci/},
    version = {0.1},
    year = {2023}
+}
+
+@Manual{rmarkdown1,
+  title = {rmarkdown: Dynamic Documents for R},
+  author = {JJ Allaire and Yihui Xie and Christophe Dervieux and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone},
+  year = {2024},
+  note = {R package version 2.28},
+  url = {https://github.com/rstudio/rmarkdown},
+}
+
+@Book{rmarkdown2,
+  title = {R Markdown: The Definitive Guide},
+  author = {Yihui Xie and J.J. Allaire and Garrett Grolemund},
+  publisher = {Chapman and Hall/CRC},
+  address = {Boca Raton, Florida},
+  year = {2018},
+  isbn = {9781138359338},
+  url = {https://bookdown.org/yihui/rmarkdown},
+}
+
+@Book{rmarkdown3,
+  title = {R Markdown Cookbook},
+  author = {Yihui Xie and Christophe Dervieux and Emily Riederer},
+  publisher = {Chapman and Hall/CRC},
+  address = {Boca Raton, Florida},
+  year = {2020},
+  isbn = {9780367563837},
+  url = {https://bookdown.org/yihui/rmarkdown-cookbook},
+}
+
+@Manual{knitr1,
+  title = {knitr: A General-Purpose Package for Dynamic Report Generation in R},
+  author = {Yihui Xie},
+  year = {2024},
+  note = {R package version 1.48},
+  url = {https://yihui.org/knitr/},
+}
+
+@Book{knitr2,
+  title = {Dynamic Documents with {R} and knitr},
+  author = {Yihui Xie},
+  publisher = {Chapman and Hall/CRC},
+  address = {Boca Raton, Florida},
+  year = {2015},
+  edition = {2nd},
+  note = {ISBN 978-1498716963},
+  url = {https://yihui.org/knitr/},
+}
+
+@InCollection{knitr3,
+  booktitle = {Implementing Reproducible Computational Research},
+  editor = {Victoria Stodden and Friedrich Leisch and Roger D. Peng},
+  title = {knitr: A Comprehensive Tool for Reproducible Research in {R}},
+  author = {Yihui Xie},
+  publisher = {Chapman and Hall/CRC},
+  year = {2014},
+  note = {ISBN 978-1466561595},
+}
+
+@Manual{GGally,
+  title = {GGally: Extension to 'ggplot2'},
+  author = {Barret Schloerke and Di Cook and Joseph Larmarange and Francois Briatte and Moritz Marbach and Edwin Thoen and Amos Elberg and Jason Crowley},
+  year = {2024},
+  note = {R package version 2.2.1},
+  url = {https://CRAN.R-project.org/package=GGally},
+}
+
+@Manual{glue,
+  title = {glue: Interpreted String Literals},
+  author = {Jim Hester and Jennifer Bryan},
+  year = {2024},
+  note = {R package version 1.8.0},
+  url = {https://CRAN.R-project.org/package=glue},
+}
+
+@Manual{FSA,
+  title = {FSA: Simple Fisheries Stock Assessment Methods},
+  author = {Derek H. Ogle and Jason C. Doll and A. Powell Wheeler and Alexis Dinno},
+  year = {2023},
+  note = {R package version 0.9.5},
+  url = {https://CRAN.R-project.org/package=FSA},
+}
+
+@Manual{janitor,
+  title = {janitor: Simple Tools for Examining and Cleaning Dirty Data},
+  author = {Sam Firke},
+  year = {2023},
+  note = {R package version 2.2.0},
+  url = {https://CRAN.R-project.org/package=janitor},
+}
+
+@Manual{hexbin,
+  title = {hexbin: Hexagonal Binning Routines},
+  author = {Dan Carr and ported by Nicholas Lewin-Koh and Martin Maechler and contains copies of lattice functions written by Deepayan Sarkar},
+  year = {2024},
+  note = {R package version 1.28.4},
+  url = {https://CRAN.R-project.org/package=hexbin},
+}
+
+@Manual{ggExtra,
+  title = {ggExtra: Add Marginal Histograms to 'ggplot2', and More 'ggplot2'
+Enhancements},
+  author = {Dean Attali and Christopher Baker},
+  year = {2023},
+  note = {R package version 0.10.1},
+  url = {https://CRAN.R-project.org/package=ggExtra},
+}
+
+@Manual{renv,
+  title = {renv: Project Environments},
+  author = {Kevin Ushey and Hadley Wickham},
+  year = {2024},
+  note = {R package version 1.0.7},
+  url = {https://CRAN.R-project.org/package=renv},
 }
