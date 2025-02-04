@@ -379,7 +379,8 @@ Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qm
 Coding and thinking answers are marked with `#---CODING ANSWER---` and
 `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr],
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
+[@knitr1; @knitr2; @knitr3],
 `kableExtra` [@kableExtra]
 
 # References

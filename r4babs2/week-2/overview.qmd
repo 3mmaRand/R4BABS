@@ -5,7 +5,18 @@ toc: true
 toc-location: right
 ---
 
-This week you will be introduced to the idea of a statistical "model" in general and to general linear model in particular. Our first general linear model will be single linear regression which puts a line of best fit through data so the response can be predicted from the explanatory variable. We will consider the two "parameters" estimated by the model (the slope and the intercept) and whether these differ from zero
+This week, you'll learn about statistical *models*, which are
+mathematical representations of data relationships. Specifically, you'll
+explore the *general linear model (GLM)*, a broad framework for
+analyzing data patterns.
+
+Your first GLM will be *simple linear regression*, which fits a straight
+line to data to predict a *response variable* (outcome) based on an
+*explanatory variable* (predictor). We'll examine the two key
+*parameters* estimated in this model: the *slope* (which shows how the
+predictor influences the outcome) and the *intercept* (the value when
+the predictor is zero). We'll also assess whether these values are
+significantly different from zero.
 
 ### Learning objectives
 
@@ -13,7 +24,8 @@ The successful student will be able to:
 
 -   explain what is meant by a statistical model and fitting a model
 
--   know what the general linear model is and how it relates to regression
+-   know what the general linear model is and how it relates to
+    regression
 
 -   explain the principle of regression and know when it can be applied
 
@@ -21,7 +33,8 @@ The successful student will be able to:
 
 -   evaluate whether the assumptions of regression are met
 
--   scientifically report a regression result including appropriate figures 
+-   scientifically report a regression result including appropriate
+    figures
 
 ### Instructions
 
@@ -31,11 +44,12 @@ The successful student will be able to:
     ii. 📖 Read Single linear regression
 
 2.  [Workshop](workshop.qmd)
-    
+
     i.💻 Carry out a single linear regression
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i. 💻 Appropriately analyse the relationsip between juvenile hormone and mandible size in stage beetles
-    ii. 💻 Appropriately analyse the relationsip between anxiety and performance
-
+    i.  💻 Appropriately analyse the relationship between juvenile
+        hormone and mandible size in stage beetles
+    ii. 💻 Appropriately analyse the relationship between anxiety and
+        performance

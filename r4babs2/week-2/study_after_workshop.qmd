@@ -102,7 +102,7 @@ shapiro.test(mod$residuals) # the also test not sig diff from normal
 # a better plot
 ggplot(stag, aes(x = jh, y = mand) ) +
   geom_point() +
-  geom_smooth(method = lm, se = FALSE, colour = "black") +
+  geom_smooth(method = "lm", se = FALSE, colour = "black") +
   scale_x_continuous(name = "Juvenile hormone (arbitrary units)",
                      expand = c(0, 0),
                      limits = c(0, 32)) +

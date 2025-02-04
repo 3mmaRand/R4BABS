@@ -707,7 +707,8 @@ produce well-formatted reports including webpages. [View the Qmd in Browser](htt
 Coding and thinking answers are marked with `#---CODING ANSWER---` and 
 `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], 
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
+[@knitr1; @knitr2; @knitr3],
 `kableExtra` [@kableExtra]
 
 # References
