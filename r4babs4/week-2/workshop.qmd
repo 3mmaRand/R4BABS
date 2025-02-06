@@ -14,59 +14,85 @@ library(kableExtra)
 
 ## Session overview
 
-In this workshop you will learn how to analyse some sample flow cytometry data.
+In this workshop you will learn how to analyse some sample flow
+cytometry data which is formatted in the same way as the data you will
+produce.
 
 # Exercises
 
-## Set up 
+## Set up
 
 ### Make a RStudio Project
 
-🎬 Start RStudio from the Start menu
+🎬 Start RStudio from the Start menu.
 
-🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you
+🎬 Make an RStudio project. Be deliberate about where you create it so
+that it is a good place for you.
 
-🎬 Use the Files pane to make a folders for the data. I suggest `data-raw/`, `data-processed/` and `data-meta/`
+🎬 Use the Files pane to make a folders for the data. I suggest
+`data-raw/`, `data-processed/` and `data-meta/`
 
-🎬 Make a new script called `sample-data-analysis.R` to carry out the rest of the work.
+🎬 Make a new script called `sample-data-analysis.R` to carry out the
+rest of the work.
 
-🎬 Record what you do and what you find out. All of it! Make notes on the inputs and outputs of each command. This will help you work out problems analysing your own data.
+🎬 Record what you do and what you find out. All of it! Make notes on
+the inputs and outputs of each command. This will help you work out
+problems analysing your own data.
 
 ### Load packages
 
 We need three packages for this workshop:
 
--   **`tidyverse`** [@tidyverse]: importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.
+-   **`tidyverse`** [@tidyverse]: importing the meta data which is in a
+    text file, working with the data once it is in a dataframe to
+    filter, summarise and plot.
 
--   **`flowCore`** [@flowCore]: to import data from flow cytometry files (`.fcs`), apply the logicle transformation, and use functions for using a "flowSet" data structure.
+-   **`flowCore`** [@flowCore]: to import data from flow cytometry files
+    (`.fcs`), apply the logicle transformation, and use functions for
+    using a "flowSet" data structure.
 
--   **`flowAI`** [@flowAI]: which performs automated quality control by checking for changes in instrument speed and signal intensity that indicate a problem for the reading for that cells
+-   **`flowAI`** [@flowAI]: which performs automated quality control by
+    checking for changes in instrument speed and signal intensity that
+    indicate a problem for the reading for that cells
 
-::: {.callout-tip}
-## Working on University computers
+::: callout-tip
+## Working on University computers or using the Virtual Desktop Service
 
-These packages are installed already. You can go straight to loading them.
+These packages are installed already. You can go straight to loading
+them.
 :::
 
-
-
-::: {.callout-tip}
+::: callout-warning
 ## Working on your own machine
 
-You will need to install these packages. 
+I recommend working on the University computers for this work. You can
+still work from home by using the [Virtual Desktop
+Service](https://www.york.ac.uk/it-services/tools/vds/). The VDS allows
+you to log on to a university computer from your own computer. It means
+you can access all software and filestores. When using the VDS for R a
+nd RStudio, it usually makes sense to use other software - such as a
+browser or file explorer - also through the VDS. Go to the [Virtual
+Desktop Service](https://www.york.ac.uk/it-services/tools/vds/) for set
+up instructions.
+
+However, If you are confident in your ability to set up your own
+machine, you will need to install these packages.
 
 You can install **`tidyverse`** from CRAN in the normal way.
 
-**`flowCore`** and **`flowAI`** are not on CRAN but come from [Bioconductor](https://www.bioconductor.org/). 
+**`flowCore`** and **`flowAI`** are not on CRAN but come from
+[Bioconductor](https://www.bioconductor.org/).
 
 -   first install **`BiocManager`** from CRAN in the normal way.
 
--   then install from Bioconductor using `BiocManager::install("flowCore")` and `BiocManager::install("flowAI")`
+-   then install from Bioconductor using
+    `BiocManager::install("flowCore")` and
+    `BiocManager::install("flowAI")`
 
-If you have difficulty installing these packages, use the [Virtual Desktop Service](https://www.york.ac.uk/it-services/services/vds/) which allows you to log into a university machine from your laptop.
-
+If you have difficulty installing these packages, use the [Virtual
+Desktop Service](https://www.york.ac.uk/it-services/services/vds/) which
+allows you to log into a university machine from your laptop.
 :::
-
 
 🎬 Load **`tidyverse`**,**`flowCore`** and **`flowAI`**
 
@@ -76,11 +102,18 @@ library(flowAI)
 library(tidyverse)
 ```
 
-Note: Load tidyverse last because **`flowCore`** also has some functions with the same names as functions in **`tidyverse`** and you will want the tidyverse ones.
+::: callout-important
+## Order of package loading
+
+Load tidyverse last because **`flowCore`** also has some functions with
+the same names as functions in **`tidyverse`** and you will want the
+tidyverse ones.
+:::
 
 ## Import the data
 
-There are six data files, one for each treatment and antibody combination:
+There are six data files, one for each treatment and antibody
+combination:
 
 -   [ECOLIGreen_ISOTYPE.fcs](data-raw/ECOLIGreen_ISOTYPE.fcs)
 -   [ECOLIGreen_TNFAPC.fcs](data-raw/ECOLIGreen_TNFAPC.fcs)
@@ -89,13 +122,27 @@ There are six data files, one for each treatment and antibody combination:
 -   [MEDIA_ISOTYPE.fcs](data-raw/MEDIA_ISOTYPE.fcs)
 -   [MEDIA_TNFAPC.fcs](data-raw/MEDIA_TNFAPC.fcs)
 
-🎬 Save copies of each file (right click and save as) to your `data-raw/` folder.
+🎬 Save copies of each file (right click and save as) to your
+`data-raw/` folder.
 
 These are six files associated with one experiment.
 
-We are going to use the command `read.flowSet()` from the **`flowCore`** package to import the data. In R, the data from one file is stored in a "flowFrame" object. A flowFrame is a data structure in the same way that a dataframe or a vector is a data structure. A flowFrame has "slots". The first slot is called `exprs` and contains the data itself in matrix which looks just like a dataframe. The second is called `parameters` and contains the names of the columns in `exprs`. The third is called `description` and contains information about the `.fcs` file.
+We are going to use the command `read.flowSet()` from the **`flowCore`**
+package to import the data. In R, the data from one file is stored in a
+"flowFrame" object. A flowFrame is a data structure in the same way that
+a dataframe or a vector is a data structure. A flowFrame has "slots".
 
-A "flowSet" is a list of flowFrames which are related. They are related in that they have the same column names, came off the same machine, and are part of the same experiment. Such data needs to be treated int he same way which is why it is useful to have a structure like a flowSet.
+-   The first slot is called `exprs` and contains the data itself in
+    matrix which looks just like a dataframe.
+-   The second is called `parameters` and contains the names of the
+    columns in `exprs`.
+-   The third is called `description` and contains information about the
+    `.fcs` file.
+
+A "flowSet" is a list of related flowFrames. They are related in that
+they have the same column names, came from the same machine, and are
+part of the same experiment. Such data needs to be treated in the same
+way which is why it is useful to have a structure like a flowSet.
 
 🎬 Make a variable to hold the file names:
 
@@ -103,16 +150,26 @@ A "flowSet" is a list of flowFrames which are related. They are related in that 
 myfiles <- list.files("data-raw", pattern = ".fcs$")
 ```
 
-`list.files()` will return a character vector of the names of the files `data-raw/`. The `pattern` argument is a "regular expression" which is used to filter the names of the files. Here we are asking for the names of the files which end in `.fcs`. This would be very useful if you had other file types in that folder. In our case, there are only `.fcs` files in that folder.
+`list.files()` will return a character vector of the names of the files
+`data-raw/`. The `pattern` argument is a "regular expression" which is
+used to filter the names of the files. Here we are asking for the names
+of the files which end in `.fcs`. This would be very useful if you had
+other file types in that folder. In our case, there are only `.fcs`
+files in that folder.
 
-Type `myfiles` to check it contains what you expect.
+🎬 Type `myfiles` to check it contains what you expect.
 
-🎬 Use `read.flowSet()` to import the files from the folder `data-raw/` that are listed in the variable `myfiles` and name the resulting flowSet `fs`:
+🎬 Use `read.flowSet()` to import the files from the folder `data-raw/`
+that are listed in the variable `myfiles` and name the resulting flowSet
+`fs`:
 
 ```{r}
 fs <- read.flowSet(myfiles, 
                    path = "data-raw")
 ```
+
+You now have a flowSet which is a list of 6 flowFrames, one for each
+`.fcs` file.
 
 ## Explore the data structure
 
@@ -122,15 +179,21 @@ fs <- read.flowSet(myfiles,
 fs 
 ```
 
-We can use a list index to access the first flowFrame in the flowSet.
+We can index the list to access the first flowFrame in the flowSet.
 
-🎬 Type `fs[[1]]` to see the information about the first flowFrame in the flowSet:
+🎬 Type `fs[[1]]` to see the information about the first flowFrame in
+the flowSet:
 
 ```{r}
 fs[[1]] 
 ```
 
-🎬 You can use the `exprs()` function to access the actual data and pipe it to `View()` to show it in a window:
+This tells you there are 50000 cells (rows) and 16 columns in this
+dataset. The first two columns `TIME` and `Time MSW` give the time in
+binary format since the beginning of the data acquisition.
+
+🎬 You can use the `exprs()` function to access the actual data and pipe
+it to `View()` to show it in a window:
 
 ```{r}
 #| eval: false
@@ -143,11 +206,26 @@ exprs(fs[[1]]) |> View()
 colnames(fs)
 ```
 
+The side scatter (`SS`) and forward scatter (`FS`) columns are used to
+select the live cells. The fluorescence measurements are in the FL
+columns and it is the linear values, `FL 1 Lin` and `FL 8 Lin` that have
+our FITC and APC signals respectively.
+
+::: callout-tip
+These exploratory steps are to help you understand the R objects you
+have. They are not essential parts of the analysis.
+:::
+
 ## Improve the column names
 
-Names like `FL 1` meaning "fluorescence channel 1" are not very informative. In our experiment we also only used channel 1 and channel 8. A list of more useful column names are given in [meta.csv](data-meta/meta.csv). We can import this file and use the resulting dataframe to rename columns in our flowFrames.
+Names like `FL 1 Lin` meaning "fluorescence channel 1 linear" are not 
+very informative. A list of more useful column names are given in
+[meta.csv](data-meta/meta.csv). We can import this file and use the
+resulting dataframe to rename columns in our flowFrames. This will make
+it easier to understand our data and results.
 
-🎬 Save a copy of the file (right click and save as) to your `data-meta/` folder
+🎬 Save a copy of the file (right click and save as) to your
+`data-meta/` folder
 
 🎬 Import the meta data and examine it:
 
@@ -165,8 +243,6 @@ meta |>
 
 ```
 
-The first column gives the name of the column we would like to use. The columns labelled with "delete" were not used and we will be able to drop them.
-
 🎬 Assign the names in `meta$name` to the columns in the flowFrames:
 
 ```{r}
@@ -175,29 +251,26 @@ colnames(fs) <- meta$name
 colnames(fs) 
 ```
 
-## Drop the unused channels (columns)
+::: callout-tip
+You don't have to use the names I have used for your own analysis if
+you prefer different names. Simply edit the `meta.csv` file. However,
+you do need to keep the Time column named that way for the next step
+to proceed.
+:::
 
-🎬 subset the flowSet to include only the columns we are interested in:
-
-```{r}
-fs <- fs[, c(1:12, 19:22)]
-```
-
-This means columns 13 to 18 are dropped. Note that those columns are dropped in every flowFrame in the flowSet. That's the power of the flowSet data structure.
-
-```{r}
-colnames(fs) 
-```
 
 ## Quality control 1: Automated instrument issues
 
-**`flowAI`** is a package that provides a set of tools for automated QC of flow cytometry data. It checks for:
+**`flowAI`** is a package that provides a set of tools for automated QC
+of flow cytometry data. It checks for:
 
--   changes in instrument speed,
+-   changes in instrument speed using the Time column,
 -   changes signal intensity
 -   cells that are outside the dynamic range
 
-It generates a new flowSet with the problematic events removed along with a folder containing filtered `.fcs` files and a quality control report in html format. It will take a few minutes to do all files.
+It generates a new flowSet with the problematic events removed along
+with a folder containing filtered `.fcs` files and a quality control
+report in html format. It will take a few minutes to do all files.
 
 🎬 Run the automated quality control:
 
@@ -208,25 +281,25 @@ fs_clean <- flow_auto_qc(fs,
                          folder_results = "sample-QC")
 ```
 
-
 ```{r}
 #| eval: false
 fs_clean <- flow_auto_qc(fs, 
                          folder_results = "sample-QC")
 ```
 
-
 ❓ What has been removed through the QC process?
 
 ❓ What is in the folder "sample-QC"?
 
-This is an example report: [ECOLIGreen_TNFAPC flowAI report](sample-QC/ECOLIGreen_TNFAPC_QC.html)
-
 ### Get a feel of your data: Plot distributions
 
-Plotting the distributions of our variables is very useful for getting an overview of our data. We'll just look at the first flowFrame to get over the principles.
+Plotting the distributions of our variables is very useful for getting
+an overview of our data. We'll just look at the first flowFrame to get
+over the principles. However, you may wish to examine all of the flow
+frames of your own data. 
 
-🎬 Plot the distribution of the TNFa_APC signal in the first flowFrame in the flowSet:
+🎬 Plot the distribution of the linear TNFa_APC signal in the first 
+flowFrame in the flowSet:
 
 ```{r}
 exprs(fs_clean[[1]]) |> 
@@ -236,19 +309,8 @@ exprs(fs_clean[[1]]) |>
 
 ```
 
-This is a very skewed distribution which makes visualisation hard. It is common to log skewed distributions to improve visualisation. We have a column called `TNFa_APC_Log` so let's look at that.
-
-🎬 Plot the distribution of `TNFa_APC_Log` :
-
-```{r}
-exprs(fs_clean[[1]]) |> 
-  data.frame() |> 
-  ggplot(aes(x = TNFa_APC_Log)) +
-  geom_histogram(bins = 100)
-
-```
-
-Hmmmm, The column labelled Log, does not seem to be.
+This is a very skewed distribution which makes visualisation hard. It is
+common to log skewed distributions to improve visualisation. 
 
 🎬 Plot the distribution of the logged `TNFa_APC_Lin` column:
 
@@ -264,27 +326,37 @@ Now our data are easier to see.
 
 ## Transform the data
 
-In fact, we will apply a different transformation called "logicle" [@parks2006]. This transformation is has a similar effect as logging but avoids some problems that can occur with flow cytometry data and especially flow cytometry data that have been "compensated" . Compensation is routinely applied to flow cytometry data to correct for fluorophores being detected in in multiple channels. This was not a problem in our experiment.
+In fact, we will apply a different transformation called "logicle"
+[@parks2006]. This transformation is has a similar effect as logging but
+avoids some problems that can occur with flow cytometry data and
+especially flow cytometry data that have been "compensated" .
+Compensation is routinely applied to flow cytometry data to correct for
+fluorophores being detected in in multiple channels. This was not a
+problem in our experiment.
 
-A transformation is applied in two steps: the transformations needed is estimated from the data and then that transformation is applied.
+The transformation is applied in two steps: the transformation needed 
+is estimated from the data and then that transformation is applied.
 
-We need to apply the transformation only to apply it to the `TNFa_APC_Lin` and `E_coli_FITC_Lin` columns. These in the 10th and 13th columns of the flowFrames.
+We need to apply the transformation only to the `TNFa_APC_Lin` and
+`E_coli_FITC_Lin` columns. The `estimateLogicle()` function refers to 
+columns as channels.
 
 🎬 Estimate the transformation from the data:
 
 ```{r}
 trans <- estimateLogicle(fs_clean[[1]],
-                         colnames(fs_clean[,c(10, 13)]))
+                         channels = c("E_coli_FITC_Lin", "TNFa_APC_Lin"))
 ```
 
-🎬 Apply the transformation to all the`TNFa_APC_Lin` and `E_coli_FITC_Lin` columns the flowSet:
+🎬 Apply the transformation to all the`TNFa_APC_Lin` and
+`E_coli_FITC_Lin` columns the flowSet:
 
 ```{r}
 # apply the transformation
 fs_clean_trans <- transform(fs_clean, trans)
 ```
 
-🎬 Examine the effect:
+🎬 Examine the effect on the first flow frame:
 
 ```{r}
 exprs(fs_clean_trans[[1]]) |> 
@@ -294,13 +366,20 @@ exprs(fs_clean_trans[[1]]) |>
 
 ```
 
+
+
 That looks better.
 
 ## Make data easier to work with
 
-We are going to get the data from the flowSet and put in a dataframe. FlowCore contains many functions for gating (filtering), plotting and summarising flowSets but putting the data into a dataframe will make it easier for you to use tools you already know and understand what you are doing.
+We are going to get the data from the flowSet and put in a dataframe.
+FlowCore contains many functions for gating (filtering), plotting and
+summarising flowSets but putting the data into a dataframe will make it
+easier for you to use tools you already know and more easily follow
+the priciples of what you are doing.
 
-We will be using familiar tools like `group_by()` and `summarise()`, `filter()` and `ggplot()`
+We will be using familiar tools like `group_by()` and `summarise()`,
+`filter()` and `ggplot()`
 
 🎬 Put the transformed data into a data frame:
 
@@ -309,15 +388,23 @@ We will be using familiar tools like `group_by()` and `summarise()`, `filter()` 
 clean_trans <- fsApply(fs_clean_trans, exprs) |> data.frame() 
 ```
 
-`fsApply(flowSet, function)` applies a function to every flowFrame in a flowSet. Here we are accessed the data matirx in each with `exprs()`.
+`fsApply(flowSet, function)` applies a function to every flowFrame in a
+flowSet. Here we have accessed the data matirx in each with `exprs()`.
 
-The are 171245 rows (cells) in the dataset. You can view it by clicking on the dataframe in the Environment. At the moment, we cannot tell which row (cell) is from which sample. We can add the sample names as a column in that dataframe.
+The are `r nrow(clean_trans)` rows (cells) in the dataset. You can view 
+it by clicking on the dataframe in the Environment. At the moment, 
+we cannot tell which row (cell) is from which sample but we can add the 
+sample names as a column in that dataframe.
 
--   Each sample name needs to appear as many times as there are cells (events) in the corresponding flowFrame. For example, `dim(fs_clean_trans[[1]])["events"]` is 28335 cells.
+-   Each sample name needs to appear as many times as there are cells
+    (events) in the corresponding flowFrame. For example,
+    `dim(fs_clean_trans[[1]])["events"]` is 
+    `r dim(fs_clean_trans[[1]])["events"]` cells.
 
 -   `sampleNames(fs_clean_trans)` gives the names of the samples.
 
--   We can use the `rep()` function to repeat the sample names the correct number of times.
+-   We can use the `rep()` function to repeat the sample names the
+    correct number of times.
 
 🎬 Add the sample name to each row:
 
@@ -332,9 +419,14 @@ clean_trans <- clean_trans |>
                                        dim(fs_clean_trans[[6]])["events"])))
 ```
 
-The sample name contains the information about which antibody and treatment the sample was. Our analysis will be a little easier if we add this information to separate columns. We can extract the antibody and treatment from the sample name using the `extract()` function and two "regular expressions".
+The sample name contains the information about which antibody and
+treatment the sample was. Our analysis will be a little easier if we add
+this information to separate columns. We can extract the antibody and
+treatment from the sample name using the `extract()` function and two
+"regular expressions".
 
-🎬 Add columns for treatment and antibody by extracting that information from the sample name:
+🎬 Add columns for treatment and antibody by extracting that information
+from the sample name:
 
 ```{r}
 clean_trans <- clean_trans |> 
@@ -345,19 +437,35 @@ clean_trans <- clean_trans |>
 ```
 
 -   the sample name is treatment_antibody
--   each pattern matching the treatment and antibody is enclosed in parentheses
+-   each pattern matching the treatment and antibody is enclosed in
+    parentheses
 -   we want to keep those patterns to go in the new columns
--   the underscore is matched but not enclosed in parentheses so it is not kept
+-   the underscore is matched but not enclosed in parentheses so it is
+    not kept
 -   `.fcs` is matched but not enclosed in parentheses so it is not kept
 -   the `remove = FALSE` argument means that the original column is kept
 -   `[]` enclose a set of characters
--   `a-z` means any lower case letter, `A-Z` means any upper case letter so `[a-zA-Z]` means any letter
+-   `a-z` means any lower case letter, `A-Z` means any upper case letter
+    so `[a-zA-Z]` means any letter
 -   `+` means one or more of the preceding character set
 -   so`[a-zA-Z]+` means one or more letters
 
+::: callout-important
+## Adding the treatment and antibody information
+
+We have added the treatment and antibody information to each row by
+processing the names of the `fcs` files. This works because the file 
+names have a specific format which we have matched with the regex.
+When you work with your own data, the easist thing to do is ensure your
+files have the same names as the same data.
+:::
+
+
 🎬 View the dataframe to see the new columns.
 
-Our treatments have an order. Media is the control, LPS should be next and ECOLIGreen should be last. We can use the `fct_relevel()` function to put groups in order so that our graphs are better to interpret.
+Our treatments have an order. Media is the control, LPS should be next
+and ECOLIGreen should be last. We can use the `fct_relevel()` function
+to put groups in order so that our graphs are better to interpret.
 
 ```{r}
 clean_trans <- clean_trans |> 
@@ -366,9 +474,13 @@ clean_trans <- clean_trans |>
                                               "ECOLIGreen")))
 ```
 
+
+
+
 ## Save the data
 
-We have cleaned and transform our data. It is a good idea to save it at this point so that we can start from here if we need to.
+We have cleaned and transform our data. It is a good idea to save it at
+this point so that we can start from here if we need to.
 
 🎬 Save the data:
 
@@ -377,16 +489,23 @@ write_csv(clean_trans, "data-processed/ai_clean_logicle_trans.csv")
 
 ```
 
-
 ## Quality control 2: 'Gating' to Removing debris
 
-Some of the cells will have died and broken during the experiment. We need to perform quality control on our data to remove observations that have that have the size and granularity that is not typical of a live cell. This is done by filtering on the forward scatter (size) and side scatter (granularity) channels.
+Some of the cells will have died and broken during the experiment. We
+need to perform quality control on our data to remove observations that
+have that have the size and granularity that is not typical of a live
+cell. This is done by filtering on the forward scatter (size) and side
+scatter (granularity) channels.
 
-In flow cytometry, it is common to describe filtering as "gating" and the observations (cells) being kept as "in the gate".
+In flow cytometry, it is common to describe filtering as "gating" and
+the observations (cells) being kept as "in the gate".
 
-We create a scatter plot of the forward scatter (size) and side scatter (granularity) for each sample to see where we should put the gate.
+We create a scatter plot of the forward scatter (size) and side scatter
+(granularity) for each sample to see where we should put the gate.
 
-We could use `geom_point()` but many points will overlap so it is difficult to see the density of points. `geom_hex()` puts the points in bins and colours the bin with the number of points.
+We could use `geom_point()` but many points will overlap so it is
+difficult to see the density of points. `geom_hex()` puts the points in
+bins and colours the bin with the number of points.
 
 🎬 Plot the forward scatter and side scatter for each sample
 
@@ -398,11 +517,18 @@ ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
   theme_bw()
 ```
 
-We can see a cloud of points in the middle of the plot. This is where the cells are. There are also a lot of points in the bottom left corner. These are likely to be debris. We can draw a gate around the cloud of points to remove the debris. We should use the same filter/gate on all six data sets for consistency. The gates can be a rectangle, polygon, or ellipse. We will use a rectangle first.
+We can see a cloud of points in the middle of the plot. This is where
+the live cells are. Points towards the corners, especially in the bottom
+left corner are likely to be cell debris. We can draw a gate around the 
+cloud of points to remove the debris. We should use the same filter/gate
+on all six data sets for consistency. The gates can be a rectangle, 
+polygon, or ellipse. We will use a rectangle.
 
 ### Manual rectangular gate
 
-Use the zoom on the plot window to better see the cloud of points and the axis values. You need to use minimum and maximum $x$ and $y$ values to define the rectangle. I chose the the values below but you might judge the gate differently.
+Use the zoom on the plot window to better see the cloud of points and
+the axis values. You need to use minimum and maximum $x$ and $y$ values
+to define the rectangle. 
 
 🎬 Define the minimum and maximum $x$ and $y$ values for the gate:
 
@@ -413,14 +539,26 @@ ymin <- 7500
 ymax <- 28000
 ```
 
-🎬 Put those values in a dataframe so we can plot the gate on the hexbin plot:
+
+::: callout-important
+## Choosing values for your own data
+
+I chose theses values but you might judge the gate differently.
+You will certainly need to use different values for your own data.
+The next plot will help you refine them.
+:::
+
+
+🎬 Put those values in a dataframe so we can plot the gate on the hexbin
+plot:
 
 ```{r}
 box <- data.frame(x = c(xmin, xmin, xmax, xmax),
                   y = c(ymin, ymax, ymax, ymin))
 ```
 
-🎬 Plot the forward scatter and side scatter for each sample with the gate:
+🎬 Plot the forward scatter and side scatter for each sample with the
+gate:
 
 ```{r}
 ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
@@ -434,21 +572,26 @@ ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
   theme_bw()
 ```
 
-🎬 Adjust the values of `xmin`, `xmax`, `ymin`, and `ymax` to get a gate that you are happy with.
+🎬 Adjust the values of `xmin`, `xmax`, `ymin`, and `ymax` to get a gate
+that you are happy with.
 
-We have drawn the gate on the plot but we need to use it to filter out the debris (rows) from our data. We want only the cells with `FS_Lin` values that are between the `xmin` and `xmax` and `SS_Lin` that are between `ymin` and `ymax` values we chose.
+We have drawn the gate on the plot but we need to use it to filter out
+the debris (rows) from our data. We want only the cells with `FS_Lin`
+values that are between the `xmin` and `xmax` and `SS_Lin` that are
+between `ymin` and `ymax` values we chose.
 
 🎬 Filter the data to remove the debris:
 
 ```{r}
 # filter out the debris
-clean_trans_nondebris <- clean_trans |> 
+clean_trans_live <- clean_trans |> 
   filter(between(FS_Lin, xmin, xmax),
          between(SS_Lin, ymin, ymax)) 
 
 ```
 
-`clean_trans_nondebris` now has 161010 cells. We should report how many cells were in the gate for each sample.
+`clean_trans_live` now has `r nrow(clean_trans_live)` cells. 
+We should report how many cells were *in the gate* for each sample.
 
 🎬 Find the number of cells in each sample after flowAI cleaning:
 
@@ -459,39 +602,49 @@ clean_trans_n <-  clean_trans |>
   summarise(n = n()) 
 ```
 
+Note than we use the clean and transformed data for summarising the
+number in each set after cleaning.
+
 ```{r}
 #| echo: false
 knitr::kable(clean_trans_n)
 ```
 
-🎬 Find the number of cells in each sample after flowAI cleaning *and* removing debris
+🎬 Find the number of cells in each sample after flowAI cleaning *and*
+removing debris
 
 ```{r}
 # number of cells in each sample
-clean_trans_nondebris_n <-  clean_trans_nondebris |> 
+clean_trans_live_n <-  clean_trans_live |> 
   group_by(antibody, treatment) |> 
-  summarise(n_nondebris = n()) 
+  summarise(n_live = n()) 
 ```
+
+Now we use the clean, transformed and gated data.
+
 
 ```{r}
 #| echo: false
-knitr::kable(clean_trans_nondebris_n)
+knitr::kable(clean_trans_live_n)
 ```
 
-🎬 Join two data frames together using the combination of the treatment and the antibody and calculate what % cells were removed from each sample:
+🎬 Join two data frames together using the combination of the treatment
+and the antibody and calculate what % cells remained in each
+sample after gating (*i.e.*, the % live cells):
 
 ```{r}
-clean_trans_nondebris_n <- clean_trans_nondebris_n |> 
+clean_trans_live_n <- clean_trans_live_n |> 
   left_join(clean_trans_n, by = c("antibody", "treatment")) |> 
-  mutate(perc_nondebris = round(n_nondebris/n * 100, 1) )
+  mutate(perc_live = round(n_live/n * 100, 1) )
 ```
 
 ```{r}
 #| echo: false
-knitr::kable(clean_trans_nondebris_n)
+knitr::kable(clean_trans_live_n)
 ```
 
-🎬 Plot the forward scatter and side scatter for each sample with the gate and the number of cells in each sample
+🎬 Plot the forward scatter and side scatter for each sample with the
+gate and the number of cells in each sample.
 
 ```{r}
 ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
@@ -501,20 +654,33 @@ ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
                fill = NA, 
                color = "red",
                linewidth = 1) +
-  geom_text(data = clean_trans_nondebris_n, 
-            aes(label = paste0(perc_nondebris, "%")), 
+  geom_text(data = clean_trans_live_n, 
+            aes(label = paste0(perc_live, "%")), 
             x = 45000, 
             y = 1000,
             colour = "red",
             size = 5) +
   facet_grid(antibody ~ treatment) +
   theme_bw() 
+
+
+
 ```
 
-🎬 Plot the `TNFa_APC_Lin` and `E_coli_FITC_Lin` signals for these live cells:
+::: callout-tip
+## Reporting
+
+This figure allows you to report what data you included in your analysis
+of the `TNFa_APC_Lin` and `E_coli_FITC_Lin` signals.
+:::
+
+
+
+🎬 Plot the `TNFa_APC_Lin` and `E_coli_FITC_Lin` signals for these live
+cells:
 
 ```{r}
-ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin, 
+ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin, 
                                   y = TNFa_APC_Lin)) +
   geom_hex(bins = 128) +
   scale_fill_viridis_c() +
@@ -524,27 +690,38 @@ ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin,
 
 ## Quality control 3: Gating to determine a 'real' signal?
 
-From now on we are working with the clean data, that is the dataframe `clean_trans_nondebris`.
+From now on we are working with the cleaned and gated data, that is,
+the dataframe `clean_trans_live`.
 
 We have two signals:
 
--   `TNFa_APC_Lin` is should indicate the amount of TNF-α protein in the cell
--   `E_coli_FITC_Lin` should indicate the amount of *E. coli* in the cell
+-   `TNFa_APC_Lin` is should indicate the amount of TNF-α protein in the
+    cell
+-   `E_coli_FITC_Lin` should indicate the amount of *E. coli* in the
+    cell
 
-When the antibody is the isotype there is no TNF-α so that level of `TNFa_APC_Lin` signal is the control. If you look at the top row of scatter plots, you can see that when values of `TNFa_APC_Lin` are below 2 the cells are negative for TNF-α and for `TNFa_APC_Lin` values above 2 the cells are positive for TNFa.
+### The `TNFa_APC_Lin` signal
 
-We can use this to set a threshold for the `TNFa_APC_Lin` signal and label the cells as positive or negative for TNF-α.
+When the antibody is ISOTYPE there is no TNF-α so that level of
+`TNFa_APC_Lin` signal means no TNF-α. In other words, that signal is a 
+control. If you look at the top row of scatter plots, that level seems 
+to be about 3.8. In the rest of the data set we should assume any signal
+below 3.8 means there is no TNF-α.
+
+We can use this to set a threshold for the `TNFa_APC_Lin` signal and
+then label cells as either positive or negative for TNF-α.
 
 🎬 Define the threshold for the `TNFa_APC_Lin` signal:
 
 ```{r}
-apc_cut <- 2
+apc_cut <- 3.8
 ```
 
-🎬 Plot the `TNFa_APC_Lin` and `E_coli_FITC_Lin` with the threshold for the `TNFa_APC_Lin` signal:
+🎬 Plot the `TNFa_APC_Lin` and `E_coli_FITC_Lin` with the threshold for
+the `TNFa_APC_Lin` signal:
 
 ```{r}
-ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin, 
+ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin, 
                                   y = TNFa_APC_Lin)) +
   geom_hex(bins = 128) +
   geom_hline(yintercept = apc_cut, 
@@ -554,48 +731,93 @@ ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin,
   theme_bw()
 ```
 
-🎬 Add a label, `tnfa`, to the data to indicate if the cell is positive or negative for TNF-α
+That looks about right. We will use this value to label each cell as 
+positive or negative for TNF-α.
+
+🎬 Add a label, `tnfa`, to the data to indicate if the cell is positive
+or negative for TNF-α
 
 ```{r}
-clean_trans_nondebris <- clean_trans_nondebris |> 
+clean_trans_live <- clean_trans_live |> 
   mutate(tnfa = case_when(TNFa_APC_Lin < apc_cut ~ "TNF-α -'ve",
                                TNFa_APC_Lin >= apc_cut ~ "TNF-α +'ve"))
 ```
 
-🎬 Summarise each group by finding the number of TNF-α positive cells and the mean `TNFa_APC_Lin` signal for each group:
+🎬 Summarise each group by finding the number of TNF-α positive cells
+and the mean `TNFa_APC_Lin` signal for each group:
 
 ```{r}
-clean_trans_nondebris_tfna_pos <- clean_trans_nondebris |> 
+clean_trans_live_tfna_pos <- clean_trans_live |> 
   filter(tnfa == "TNF-α +'ve") |>
   group_by(antibody, treatment) |>
-  summarise(n_pos = n(),
+  summarise(n_pos_tnfa = n(),
             mean_apc = mean(TNFa_APC_Lin))
 ```
 
 ```{r}
 #| echo: false
-knitr::kable(clean_trans_nondebris_tfna_pos)
+knitr::kable(clean_trans_live_tfna_pos)
 ```
 
-🎬 We can add the number of non-debris cells to this data frame and calculate the percentage of non-debris cells that are positive for TNF-α:
+🎬 We can add the number of live cells to this data frame and
+calculate the percentage of live cells that are positive for
+TNF-α:
 
 ```{r}
-clean_trans_nondebris_tfna_pos <- 
-  clean_trans_nondebris_tfna_pos |> 
-  left_join(clean_trans_nondebris_n, by = c("antibody", "treatment")) |> 
-  mutate(perc_tfna_pos = round(n_pos/n_nondebris * 100, 1) )
+clean_trans_live_tfna_pos <- 
+  clean_trans_live_tfna_pos |> 
+  left_join(clean_trans_live_n, by = c("antibody", "treatment")) |> 
+  mutate(perc_pos_tnfa = round(n_pos_tnfa/n_live * 100, 1) )
 ```
+
+
+🎬 And put the columns into a more logical order:
+
+```{r}
+clean_trans_live_tfna_pos <- 
+  clean_trans_live_tfna_pos |> 
+  select(antibody,
+         treatment,
+         n,
+         n_live,
+         perc_live,
+         mean_apc,
+         n_pos_tnfa,
+         perc_pos_tnfa)
+
+```
+
+
 
 ```{r}
 #| echo: false
-knitr::kable(clean_trans_nondebris_tfna_pos)
+knitr::kable(clean_trans_live_tfna_pos)
 ```
 
-The fact that a very low percentage of cells are positive for TNF-α in the isotype control is a good indication that cut off we used for the `TNFa_APC_Lin` signal is a good one.
+The fact that a very low percentage of cells are positive for TNF-α in
+the isotype control is a good indication that cut off we used for the
+`TNFa_APC_Lin` signal is a good one.
+
+TNFAPC-MEDIA combination tells us how much TNF-α we expect in 
+unstimulated cells.
+
+This is important data for your write up and will be your contribution 
+to the calss data set so you should write it to file.
+
+🎬 Write `clean_trans_live_tfna_pos` to file:
+
+```{r}
+write_csv(clean_trans_live_tfna_pos, 
+          "data-processed/clean_trans_live_tfna_pos.csv")
+```
+
+### The `E_coli_FITC_Lin` signal
 
 We can apply the same logic to the `E_coli_FITC_Lin` signal.
 
-For either antibody when the treatment is media or LPS there is no *E.coli* so that level of `E_coli_FITC_Lin` signal is the control. When `E_coli_FITC_Lin` is \< 2 then cells are negative for *E.coli*; when `E_coli_FITC_Lin` is \> 2 then cells are positive for *E.coli*. The fact that this is also 2 is a coincidence - for your own data your values for both of these are likely to differ.
+For either antibody, when the treatment is media or LPS there is no
+*E.coli* so that level of `E_coli_FITC_Lin` signal means zero. That 
+level looks to be about 2.
 
 🎬 Define the threshold for the `E_coli_FITC_Lin` signal:
 
@@ -603,10 +825,31 @@ For either antibody when the treatment is media or LPS there is no *E.coli* so t
 fitc_cut <- 2
 ```
 
-🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for both signals:
+🎬 Add a label, `fitc`, to the data to indicate if the cell is positive
+or negative for FITC
 
 ```{r}
-ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin, 
+clean_trans_live <- clean_trans_live |> 
+  mutate(fitc = case_when(E_coli_FITC_Lin < fitc_cut ~ "FITC -'ve",
+                               E_coli_FITC_Lin >= fitc_cut ~ "FITC +'ve"))
+```
+
+::: callout-tip
+## Tip for your own summaries
+
+You may wish to repeat the process we used for the `TNFa_APC_Lin`
+signal to find out the number of cells that are FITC positive in each 
+sample and the mean intensity of the FITC signal in the FITC positive 
+cells.
+:::
+
+### A figure to report baselines for both signals
+
+🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for
+both signals:
+
+```{r}
+ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin, 
                                   y = TNFa_APC_Lin)) +
   geom_hex(bins = 128) +
   geom_hline(yintercept = apc_cut, 
@@ -618,32 +861,31 @@ ggplot(clean_trans_nondebris, aes(x = E_coli_FITC_Lin,
   theme_bw()
 ```
 
-🎬 Add a label, `fitc`, to the data to indicate if the cell is positive or negative for FITC
-
-```{r}
-clean_trans_nondebris <- clean_trans_nondebris |> 
-  mutate(fitc = case_when(E_coli_FITC_Lin < fitc_cut ~ "FITC -'ve",
-                               E_coli_FITC_Lin >= fitc_cut ~ "FITC +'ve"))
-```
 
 
 ## Save the data
 
-We have filtered out the dead cells and debris and added labels to the data to indicate if the cells are positive or negative for TNF-α and *E. coli*. It would be a good idea to save this data to file so we can start from importing this data in the future rather than having to repeat all of the steps we have done so far.
+We have filtered out the dead cells and debris and added labels to the
+data to indicate if the cells are positive or negative for TNF-α and *E.
+coli*. It would be a good idea to save this data to file so we can start
+from importing this data in the future rather than having to repeat all
+of the steps we have done so far.
 
 🎬 Save the data:
 
 ```{r}
-write_csv(clean_trans_nondebris, "data-processed/live_labelled.csv")
+write_csv(clean_trans_live, "data-processed/live_labelled.csv")
 
 ```
 
-
-
-
 ## Look after future you!
 
-🎬 This workshop is a template for the analysis of your own data. Go back through your script and check you understand what you have done. Can you identify where you will need to edit? Do you understand what you will need to assess in order to make edits needed for your own data? Examine all of the objects in the environment to check you understand what they are and why they are there.
+🎬 This workshop is a template for the analysis of your own data. Go
+back through your script and check you understand what you have done.
+Can you identify where you will need to edit? Do you understand what you
+will need to assess in order to make edits needed for your own data?
+Examine all of the objects in the environment to check you understand
+what they are and why they are there.
 
 You're finished!
 
@@ -655,10 +897,19 @@ You're finished!
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not
+visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-2/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd
+stands for Quarto markdown. It allows code and ordinary text to be
+interweaved to produce well-formatted reports including webpages. [View
+the Qmd in
+Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-2/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and
+`#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
+[@knitr1; @knitr2; @knitr3],
+`kableExtra` [@kableExtra]
 
 # References

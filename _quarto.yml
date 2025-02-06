@@ -166,7 +166,7 @@ website:
                text: Workshop
              - href: r4babs4/week-1/study_after_workshop.qmd
                text: Consolidate!
-          - section: "Week 2: DA 2 Immunobiology"
+          - section: "Week 2: DA 2 Biomed. Sci"
             contents:
              - href: r4babs4/week-2/overview.qmd
                text: About
@@ -176,7 +176,7 @@ website:
                text: Workshop
              - href: r4babs4/week-2/study_after_workshop.qmd
                text: Consolidate!
-          - section: "Week 4: DA 3 Immunobiology"
+          - section: "Week 4: DA 3 Biomed. Sci"
             contents:
              - href: r4babs4/week-4/overview.qmd
                text: About
@@ -186,7 +186,7 @@ website:
                text: Workshop
              - href: r4babs4/week-4/study_after_workshop.qmd
                text: Consolidate!
-          - section: "Week 6: DA 4 Immunobiology"
+          - section: "Week 6: DA 4 Biomed. Sci"
             contents:
              - href: r4babs4/week-6/overview.qmd
                text: About
