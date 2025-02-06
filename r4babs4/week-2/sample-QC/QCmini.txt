@@ -1,0 +1,7 @@
+Name file	n. of events	% anomalies	analysis from	% anomalies flow Rate	% anomalies Signal	% anomalies Margins
+ECOLIGreen_ISOTYPE	50000	11.81	Flow Rate, Flow Signal and Flow Margin	11.81	0	0
+ECOLIGreen_TNFAPC	50000	34.82	Flow Rate, Flow Signal and Flow Margin	34.82	0	0
+LPS_ISOTYPE	50000	36.42	Flow Rate, Flow Signal and Flow Margin	36.42	0	0
+LPS_TNFAPC	50000	36.11	Flow Rate, Flow Signal and Flow Margin	36.11	0	0
+MEDIA_ISOTYPE	27250	26.04	Flow Rate, Flow Signal and Flow Margin	26.04	0	0
+MEDIA_TNFAPC	50000	37.82	Flow Rate, Flow Signal and Flow Margin	37.82	0	0

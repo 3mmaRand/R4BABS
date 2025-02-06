@@ -561,6 +561,8 @@ It allows code and ordinary text to be interweaved to produce well-formatted rep
 [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-6/workshop.qmd).
 Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
+[@knitr1; @knitr2; @knitr3],
+`kableExtra` [@kableExtra]
 
 # References
