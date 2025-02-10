@@ -179,11 +179,11 @@ Emma Rand
 <section>
 <section id="overview" class="title-slide slide level1 center">
 <h1>Overview</h1>
-<p>There are three workshops:</p>
+<p>There are three Biomedical Sciences specific data analysis workshops</p>
 <ol type="1">
-<li><p>Week 2 DA 2: Biomedical sciences - Sample data analysis</p></li>
-<li><p>Week 4 DA 3: Biomedical sciences - Analysis of your own data</p></li>
-<li><p>Week 6 DA 4: Biomedical sciences - Customising figures</p></li>
+<li><p>Week 2 Step-by-step Analysis of sample data</p></li>
+<li><p>Week 4 Supported Analysis of your own data</p></li>
+<li><p>Week 6 Customising figures and considering the Class data</p></li>
 </ol>
 </section>
 <section id="overview-1" class="slide level2">
@@ -191,7 +191,7 @@ Emma Rand
 <div>
 <p>These slides:</p>
 <ul>
-<li class="fragment"><p>Prepare you for the sample data analysis workshop; your own data will be like the sample data</p></li>
+<li class="fragment"><p>Prepare you for the workshop analysing the sample data…. and your own data, which is in the same format</p></li>
 <li class="fragment"><p>Summarise the experimental design and aims</p></li>
 <li class="fragment"><p>Explain what the data are</p></li>
 <li class="fragment"><p>Go through the analytical steps conceptually</p></li>
@@ -211,8 +211,8 @@ Emma Rand
 <li class="fragment"><p>Macrophages produce TNF-α in response to bacterial infection</p></li>
 <li class="fragment"><p>Question: <em>Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?</em></p></li>
 <li class="fragment"><p>Therefore we need 3 treatments: Media (control), Lipopolysaccharide (LPS, Cell wall component of <em>E. coli</em>) and live <em>E. coli</em></p></li>
-<li class="fragment"><p>We measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC)</p></li>
-<li class="fragment"><p>Therefore we need a control for antibody binding and use Isotype antibody</p></li>
+<li class="fragment"><p>We measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC) - this will bind and fluoresce red</p></li>
+<li class="fragment"><p>Therefore we also need a control for antibody binding and use Isotype antibody - this will bind but not fluoresce</p></li>
 </ul>
 </div>
 </section>
@@ -220,10 +220,10 @@ Emma Rand
 <h2>Experimental design and aims</h2>
 <div>
 <ul>
-<li class="fragment"><p>Macrophages are treated with one of three treatments: Media, LPS <em>E. coli</em> which are NeonGreen fluorescence</p></li>
+<li class="fragment"><p>Macrophages are treated with one of three treatments: Media, LPS or NeonGreen fluorescent <em>E.coli</em></p></li>
 <li class="fragment"><p>Two antibodies are used for each treatment: Isotype antibody, TNF-α antibody conjugated to Allophycocyanin (APC)</p></li>
-<li class="fragment"><p>Thus there are 3 x 2 = 6 combinations</p></li>
-<li class="fragment"><p>Two variable of interest: red fluorescence, green fluorescence</p></li>
+<li class="fragment"><p>Thus there are 3 x 2 = 6 combinations (<em>i.e.,</em> 6 datasets)</p></li>
+<li class="fragment"><p>Two variables of interest: red fluorescence, green fluorescence</p></li>
 <li class="fragment"><p>We also measure forward scatter (cell size) and side scatter (cell granularity) which can be used to quality control the cells</p></li>
 </ul>
 </div>
@@ -252,7 +252,7 @@ Emma Rand
 <li class="fragment"><p>The data are in a flow cytometry standard format (FCS) file</p></li>
 <li class="fragment"><p>Each FCS file contains data from one sample</p></li>
 <li class="fragment"><p>You will have 6 FCS files, one for each combination of treatment and antibody</p></li>
-<li class="fragment"><p>there are 22 variables in columns and up to 50000 cells in rows</p></li>
+<li class="fragment"><p>there are 16 variables in columns and up to 50000 cells in rows</p></li>
 </ul>
 </div>
 </section>
@@ -261,11 +261,11 @@ Emma Rand
 <div>
 <div style="font-size: 80%;">
 <ul>
-<li class="fragment"><p>the 22 columns: TIME, Time MSW, Pulse Width, FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin, FL 1 Area, FL 1 Log, FL 2 Lin, FL 2 Area, FL 2 Log, FL 3 Lin, FL 3 Area, FL 3 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count</p></li>
+<li class="fragment"><p>the 16 columns: TIME, Time MSW, Pulse Width, FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin, FL 1 Area, FL 1 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count</p></li>
 <li class="fragment"><p>FS is Forward scatter, SS is Side scatter, FL is fluorescence channel</p></li>
 <li class="fragment"><p>FL 1 is the green fluorescence channel and we will rename it E_coli_FITC</p></li>
 <li class="fragment"><p>FL 8 is the red fluorescence channel and we will rename it TNFa_APC</p></li>
-<li class="fragment"><p>FL 2 and FL 3 are not used in this experiment and we will delete those columns</p></li>
+<li class="fragment"><p>We will use the Lin columns only</p></li>
 <li class="fragment"><p>We will use just four columns: E_coli_FITC_Lin, TNFa_APC_Lin, FS Lin, and SS Lin</p></li>
 </ul>
 </div>
@@ -291,13 +291,13 @@ Emma Rand
 <div>
 <div style="font-size: 80%;">
 <ul>
-<li class="fragment"><p>Import the data into R, improve the column names and remove unwanted columns</p></li>
+<li class="fragment"><p>Import the data into R and improve the column names</p></li>
 <li class="fragment"><p>Apply automated quality control</p></li>
 <li class="fragment"><p>Apply a “logicle” transformation <span class="citation" data-cites="parks2006">(<a href="#/references" role="doc-biblioref" onclick="">Parks, Roederer, and Moore 2006</a>)</span> to the fluorescence channels (similar to logging)</p></li>
 <li class="fragment"><p>Explore the data with scatter plots and histograms/density plots</p></li>
-<li class="fragment"><p>Use FS Lin and SS Lin to determine what cells (rows) to remove as debris</p></li>
+<li class="fragment"><p>Use FS Lin and SS Lin to determine what cells (rows) to remove as dead/debris</p></li>
 <li class="fragment"><p>Determine cut-offs for cells being positive for TNF-α and <em>E. coli</em></p></li>
-<li class="fragment"><p>Calculate the percentage of cells that are positive for TNF-α for each treatment</p></li>
+<li class="fragment"><p>Calculate the percentage of cells that are positive for TNF-α for each treatment combination</p></li>
 </ul>
 </div>
 </div>
@@ -311,7 +311,7 @@ Emma Rand
 <h2>Tools</h2>
 <div>
 <ul>
-<li class="fragment"><p>Import, rename and subset columns using the <strong><code>flowCore</code></strong> package <span class="citation" data-cites="flowCore">(<a href="#/references" role="doc-biblioref" onclick="">Ellis et al. 2024</a>)</span></p></li>
+<li class="fragment"><p>Import and rename columns using the <strong><code>flowCore</code></strong> package <span class="citation" data-cites="flowCore">(<a href="#/references" role="doc-biblioref" onclick="">Ellis et al. 2024</a>)</span></p></li>
 <li class="fragment"><p>Automated quality control with the <strong><code>flowAI</code></strong> package <span class="citation" data-cites="flowAI">(<a href="#/references" role="doc-biblioref" onclick="">Monaco et al. 2016</a>)</span></p></li>
 <li class="fragment"><p>Apply a “logicle” transformation using the <strong><code>flowCore</code></strong> package</p></li>
 <li class="fragment"><p>Put the data into a dataframe to make it easy to use <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#/references" role="doc-biblioref" onclick="">Wickham et al. 2019</a>)</span> tools like <code>group_by()</code>, <code>summarise()</code>, <code>ggplot()</code>, <code>filter()</code></p></li>
@@ -326,7 +326,7 @@ Emma Rand
 <li class="fragment"><p>The <code>flowFrame</code> object contains the data from the FCS file and metadata about the experiment</p></li>
 <li class="fragment"><p>A collection of related <code>flowFrames</code> are stored in a <code>flowSet</code> object</p></li>
 <li class="fragment"><p><strong><code>flowAI</code></strong> and <strong><code>flowCore</code></strong> functions work with <code>flowSet</code> objects</p></li>
-<li class="fragment"><p>After that we can convert the <code>flowSet</code> to a dataframe to use <strong><code>tidyverse</code></strong> tools</p></li>
+<li class="fragment"><p>After that we can convert the <code>flowSet</code> to a dataframe to use <strong><code>tidyverse</code></strong> tools with which you are more familiar</p></li>
 </ul>
 </div>
 </section></section>

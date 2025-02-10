@@ -4,7 +4,7 @@
     "href": "r4babs4/week-2/study_after_workshop.html",
     "title": "Independent Study to consolidate this week",
     "section": "",
-    "text": "🎬 Create a new Project that you will use to analyse your own data and which you will submit as your RStudio Project. Populate it with folders you will need. The Project does not need to be named with your exam number at this stage. The next workshop will cover how to change the name of Project.\n🎬 Make a copy of the R script from the workshop that you can use to analyse your own data. Go through the script to tidy it up. You might need to:\n\ncollect together library statements at the top of the script\nedit your comments for clarity\nrename variables for consistency or clarity\nremove house keeping or exploratory code or mark it for later removal\nrestyle code, add code section headers etc",
+    "text": "🎬 Go through the prior study and workshop again making notes on the data analysis process. Ignore the code, just check you understand the steps conceptually.\n🎬 Create a new Project that you will use to analyse your own data and which you will submit as your RStudio Project. Populate it with the folders you will need. The Project does not need to be named with your exam number at this stage. The next workshop will cover how to change the name of Project.\n🎬 Make a copy of the R script from the workshop that you can use to analyse your own data. Go through the script to tidy it up. You might need to:\n\ncollect together library statements at the top of the script\nedit your comments for clarity\nrename variables for consistency or clarity\nremove house keeping or exploratory code or mark it for later removal\nrestyle code, add code section headers etc",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -16,7 +16,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#overview-1",
     "title": "Independent Study to prepare for workshop",
     "section": "Overview",
-    "text": "Overview\n\nThese slides:\n\nPrepare you for the sample data analysis workshop; your own data will be like the sample data\nSummarise the experimental design and aims\nExplain what the data are\nGo through the analytical steps conceptually\nExplain what tools we will use in the workshop to do the analysis",
+    "text": "Overview\n\nThese slides:\n\nPrepare you for the workshop analysing the sample data…. and your own data, which is in the same format\nSummarise the experimental design and aims\nExplain what the data are\nGo through the analytical steps conceptually\nExplain what tools we will use in the workshop to do the analysis",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -28,7 +28,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#experimental-design-and-aims-1",
     "title": "Independent Study to prepare for workshop",
     "section": "Experimental design and aims",
-    "text": "Experimental design and aims\n\n\nMacrophages produce TNF-α in response to bacterial infection\nQuestion: Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?\nTherefore we need 3 treatments: Media (control), Lipopolysaccharide (LPS, Cell wall component of E. coli) and live E. coli\nWe measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC)\nTherefore we need a control for antibody binding and use Isotype antibody",
+    "text": "Experimental design and aims\n\n\nMacrophages produce TNF-α in response to bacterial infection\nQuestion: Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?\nTherefore we need 3 treatments: Media (control), Lipopolysaccharide (LPS, Cell wall component of E. coli) and live E. coli\nWe measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC) - this will bind and fluoresce red\nTherefore we also need a control for antibody binding and use Isotype antibody - this will bind but not fluoresce",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -40,7 +40,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#experimental-design-and-aims-2",
     "title": "Independent Study to prepare for workshop",
     "section": "Experimental design and aims",
-    "text": "Experimental design and aims\n\n\nMacrophages are treated with one of three treatments: Media, LPS E. coli which are NeonGreen fluorescence\nTwo antibodies are used for each treatment: Isotype antibody, TNF-α antibody conjugated to Allophycocyanin (APC)\nThus there are 3 x 2 = 6 combinations\nTwo variable of interest: red fluorescence, green fluorescence\nWe also measure forward scatter (cell size) and side scatter (cell granularity) which can be used to quality control the cells",
+    "text": "Experimental design and aims\n\n\nMacrophages are treated with one of three treatments: Media, LPS or NeonGreen fluorescent E.coli\nTwo antibodies are used for each treatment: Isotype antibody, TNF-α antibody conjugated to Allophycocyanin (APC)\nThus there are 3 x 2 = 6 combinations (i.e., 6 datasets)\nTwo variables of interest: red fluorescence, green fluorescence\nWe also measure forward scatter (cell size) and side scatter (cell granularity) which can be used to quality control the cells",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -76,7 +76,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#the-data-1",
     "title": "Independent Study to prepare for workshop",
     "section": "The data",
-    "text": "The data\n\n\nThe data are in a flow cytometry standard format (FCS) file\nEach FCS file contains data from one sample\nYou will have 6 FCS files, one for each combination of treatment and antibody\nthere are 22 variables in columns and up to 50000 cells in rows",
+    "text": "The data\n\n\nThe data are in a flow cytometry standard format (FCS) file\nEach FCS file contains data from one sample\nYou will have 6 FCS files, one for each combination of treatment and antibody\nthere are 16 variables in columns and up to 50000 cells in rows",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -88,7 +88,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#the-data-2",
     "title": "Independent Study to prepare for workshop",
     "section": "The data",
-    "text": "The data\n\n\n\nthe 22 columns: TIME, Time MSW, Pulse Width, FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin, FL 1 Area, FL 1 Log, FL 2 Lin, FL 2 Area, FL 2 Log, FL 3 Lin, FL 3 Area, FL 3 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count\nFS is Forward scatter, SS is Side scatter, FL is fluorescence channel\nFL 1 is the green fluorescence channel and we will rename it E_coli_FITC\nFL 8 is the red fluorescence channel and we will rename it TNFa_APC\nFL 2 and FL 3 are not used in this experiment and we will delete those columns\nWe will use just four columns: E_coli_FITC_Lin, TNFa_APC_Lin, FS Lin, and SS Lin",
+    "text": "The data\n\n\n\nthe 16 columns: TIME, Time MSW, Pulse Width, FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin, FL 1 Area, FL 1 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count\nFS is Forward scatter, SS is Side scatter, FL is fluorescence channel\nFL 1 is the green fluorescence channel and we will rename it E_coli_FITC\nFL 8 is the red fluorescence channel and we will rename it TNFa_APC\nWe will use the Lin columns only\nWe will use just four columns: E_coli_FITC_Lin, TNFa_APC_Lin, FS Lin, and SS Lin",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -112,7 +112,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#analytical-steps-1",
     "title": "Independent Study to prepare for workshop",
     "section": "Analytical steps",
-    "text": "Analytical steps\n\n\n\nImport the data into R, improve the column names and remove unwanted columns\nApply automated quality control\nApply a “logicle” transformation (Parks, Roederer, and Moore 2006) to the fluorescence channels (similar to logging)\nExplore the data with scatter plots and histograms/density plots\nUse FS Lin and SS Lin to determine what cells (rows) to remove as debris\nDetermine cut-offs for cells being positive for TNF-α and E. coli\nCalculate the percentage of cells that are positive for TNF-α for each treatment",
+    "text": "Analytical steps\n\n\n\nImport the data into R and improve the column names\nApply automated quality control\nApply a “logicle” transformation (Parks, Roederer, and Moore 2006) to the fluorescence channels (similar to logging)\nExplore the data with scatter plots and histograms/density plots\nUse FS Lin and SS Lin to determine what cells (rows) to remove as dead/debris\nDetermine cut-offs for cells being positive for TNF-α and E. coli\nCalculate the percentage of cells that are positive for TNF-α for each treatment combination",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -124,7 +124,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#tools-1",
     "title": "Independent Study to prepare for workshop",
     "section": "Tools",
-    "text": "Tools\n\n\nImport, rename and subset columns using the flowCore package (Ellis et al. 2024)\nAutomated quality control with the flowAI package (Monaco et al. 2016)\nApply a “logicle” transformation using the flowCore package\nPut the data into a dataframe to make it easy to use tidyverse (Wickham et al. 2019) tools like group_by(), summarise(), ggplot(), filter()",
+    "text": "Tools\n\n\nImport and rename columns using the flowCore package (Ellis et al. 2024)\nAutomated quality control with the flowAI package (Monaco et al. 2016)\nApply a “logicle” transformation using the flowCore package\nPut the data into a dataframe to make it easy to use tidyverse (Wickham et al. 2019) tools like group_by(), summarise(), ggplot(), filter()",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
@@ -136,7 +136,7 @@
     "href": "r4babs4/week-2/study_before_workshop.html#the-data-in-r",
     "title": "Independent Study to prepare for workshop",
     "section": "The data in R",
-    "text": "The data in R\n\n\nthe flowCore package imports each FCS file as a flowFrame object\nThe flowFrame object contains the data from the FCS file and metadata about the experiment\nA collection of related flowFrames are stored in a flowSet object\nflowAI and flowCore functions work with flowSet objects\nAfter that we can convert the flowSet to a dataframe to use tidyverse tools",
+    "text": "The data in R\n\n\nthe flowCore package imports each FCS file as a flowFrame object\nThe flowFrame object contains the data from the FCS file and metadata about the experiment\nA collection of related flowFrames are stored in a flowSet object\nflowAI and flowCore functions work with flowSet objects\nAfter that we can convert the flowSet to a dataframe to use tidyverse tools with which you are more familiar",
     "crumbs": [
       "BABS 4",
       "Week 2: DA 2 Biomed. Sci",
