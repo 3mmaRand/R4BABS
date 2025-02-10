@@ -7,6 +7,7 @@ editor:
   markdown: 
     wrap: sentence
 ---
+
 ```{r}
 #| include: false
 library(tidyverse)
@@ -15,7 +16,9 @@ library(kableExtra)
 
 # Introduction
 
-In this workshop you will use the tools you used in the previous workshop (and before!) to analyse the data you have collected. You will provide some key pieces of information for the class data set. 
+In this workshop you will use the tools you used in the previous 
+workshop (and before!) to analyse the data you have collected.
+You will provide some key pieces of information for the class data set.
 
 # Exercises
 
@@ -23,51 +26,61 @@ In this workshop you will use the tools you used in the previous workshop (and b
 
 🎬 Open the RStudio Project you created in the [Consolidation exercise from week 2](../week-2/study_after_workshop.html).
 
-🎬 If you have not already done so, save your data files to the project. Are the file names going to be easy for you to work with? If not, rename them. [Remember](../week-2/workshop.html#make-data-easier-to-work-with) that we used the file names to label to rows with their treatment (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so if you do not match the names you will need to change the code in "Add columns for treatment and antibody by extracting that information from the sample name." and in "We can use the `fct_relevel()` function to put groups in order so that our graphs are better to interpret."
-
-🎬 The sample data had [22 columns](../week-2/workshop.html#explore-the-data-structure). We used [meta.csv](../week-2/data-meta/meta.csv) to rename the columns. Some of those columns were not used and we [dropped them](../week-2/workshop.html#drop-the-unused-channels-columns). You data has been created without those columns. You will therefore use a different [meta.csv](../week-4/data-meta/meta.csv) file and you will **not** need to drop any columns.
-
+🎬 If you have not already done so, save your data files to the project.
+Are the file names going to be easy for you to work with?
+[Remember](../week-2/workshop.html#make-data-easier-to-work-with) that 
+we used the file names to label to rows with their treatment (Media, 
+LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so if you do not 
+match the names you will need to redesign the code appropriately. It is 
+easier to rename your files!
 
 🎬 Open your R script and begin to analyse your data.
-
-
 
 ## Data for the class dataset.
 
 You need to provide the following information for the class dataset:
 
--   `group_name`:	A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your rows
+-   group_name A name for your group. Take care not to use a name used
+    by others. Take care to use the exactly the same name for each of 
+    your rows
 
--   `cell_treatment`:	One of MEDIA, LPS or ECOLIGreen
+-   `cell_treatment`One of MEDIA, LPS or ECOLIGreen 
 
--   `antibody`:	One of ISOTYPE or TNFAPC
+-   `antibody` One of ISOTYPE or TNFAPC
 
--   `n_cells`:	number of cells in sample after flowAI cleaning
+-   `n` The number of cells in sample after flowAI cleaning
 
--   `n_cells_live`:	number of cells in sample after flowAI cleaning and removing debris
+-   `n_live` The number of cells in sample after flowAI cleaning *and* 
+     removing dead cells/debris ("gating") (*i.e.*, the % live cells)
 
--   `perc_nondebris`:	% "cleaned" cells that were not debris
+-   `perc_live` The % of cells in sample after flowAI cleaning *and* 
+     removing dead cells/debris ("gating") (*i.e.*, the % live cells)
 
--   `apc_cut`:	threshold for logicle transformed TNFa_APC_Lin. This will be the same for all your samples
+-   `apc_cut` threshold for logicle transformed TNFa_APC_Lin. This 
+     should be the *same* for all your samples and indicates the level 
+     at which cells are postive for TNF-α positive
 
--   `apc_mfi`:	Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells
+-   `mean_apc` Mean fluorescence intensity of the logicle transformed 
+     TNFa_APC_Lin in the TNF-α positive cells
 
--   `n_pos_tnfa`:	Number of TNF-α positive cells
+-   `n_pos_tnfa` Number of TNF-α positive cells
 
--   `perc_tfna_pos`:	% non debris cells that are TNF-α positive cells    
+-   `perc_pos_tnfa` Percent of live cells that are TNF-α positive
 
-Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0)
+Enter these in the [BIO00066I Biomedical Sciences class data]()
 
+Some columns are required for the class analysis.
+Other columns help you get to the required values and help others 
+determine the reliability of your data.
 
 ## How to change the name of an RStudio project.
 
-You may need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project by:
+You will need to rename your RStudio Project to your exam number 
+before you submit. You can change the name of an RStudio project by:
 
 -   closing the project
 
 -   renaming both the project folder and the `.Rproj` file.
-
-
 
 # Independent study following the workshop
 
@@ -77,11 +90,12 @@ You may need to rename your RStudio Project to your exam number before you submi
 
 This contains all the code needed in the workshop even where it is not visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-4/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical.
+Qmd stands for Quarto markdown.
+It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages.
+[View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-4/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1; @knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References
-
