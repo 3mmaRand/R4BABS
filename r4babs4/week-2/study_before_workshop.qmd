@@ -15,26 +15,24 @@ editor:
     wrap: 72
 ---
 
-
 # Overview
 
-There are three workshops:
+There are three Biomedical Sciences specific data analysis workshops
 
-1.  Week 2 DA 2: Biomedical sciences - Sample data analysis
+1.  Week 2 Step-by-step Analysis of sample data
 
-2.  Week 4 DA 3: Biomedical sciences - Analysis of your own data
+2.  Week 4 Supported Analysis of your own data
 
-3.  Week 6 DA 4: Biomedical sciences - Customising figures
-
+3.  Week 6 Customising figures and considering the Class data
 
 ## Overview
 
 ::: incremental
 These slides:
 
--   Prepare you for the sample data analysis workshop; your own data 
-    will be like the sample data
-
+-   Prepare you for the workshop analysing the sample data....
+    and your own data, which is in the same format
+    
 -   Summarise the experimental design and aims
 
 -   Explain what the data are
@@ -46,50 +44,49 @@ These slides:
 
 # Experimental design and aims
 
-
 ## Experimental design and aims
 
 ::: incremental
-
 -   Macrophages produce TNF-α in response to bacterial infection
 
--   Question: *Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?*
-    
--   Therefore we need 3 treatments: Media (control), Lipopolysaccharide (LPS, Cell 
-    wall component of *E. coli*) and live *E. coli* 
+-   Question: *Does the production of TNF-α by macrophages require live
+    bacteria, or is the cell wall component sufficient?*
 
--   We measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC)
+-   Therefore we need 3 treatments: Media (control), Lipopolysaccharide
+    (LPS, Cell wall component of *E. coli*) and live *E. coli*
 
--   Therefore we need a control for antibody binding and use Isotype antibody
+-   We measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin
+    (APC) - this will bind and fluoresce red
 
+-   Therefore we also need a control for antibody binding and use 
+    Isotype antibody - this will bind but not fluoresce
 :::
-
 
 ## Experimental design and aims
 
 ::: incremental
--   Macrophages are treated with one of three treatments: Media,
-    LPS  *E. coli* which are NeonGreen fluorescence
+-   Macrophages are treated with one of three treatments: Media, LPS or
+    NeonGreen fluorescent *E.coli*
 
--   Two antibodies are used for each treatment: Isotype antibody, TNF-α antibody
-    conjugated to Allophycocyanin (APC) 
+-   Two antibodies are used for each treatment: Isotype antibody, TNF-α
+    antibody conjugated to Allophycocyanin (APC)
 
--   Thus there are 3 x 2 = 6 combinations
+-   Thus there are 3 x 2 = 6 combinations (*i.e.,* 6 datasets)
 
--   Two variable of interest: red fluorescence, green fluorescence
+-   Two variables of interest: red fluorescence, green fluorescence
 
--   We also measure forward scatter (cell size) and side scatter 
-    (cell granularity) which can be used to quality control the cells
+-   We also measure forward scatter (cell size) and side scatter (cell
+    granularity) which can be used to quality control the cells
 :::
-
-
 
 ## Experimental design and aims
 
--   We only expect to see red fluorescence (APC) if the treatment induces TNF-α 
-production in macrophages *and* the TNF-α antibody is used.
+-   We only expect to see red fluorescence (APC) if the treatment
+    induces TNF-α production in macrophages *and* the TNF-α antibody is
+    used.
 
--   We only expect to see green fluorescence (FITC) if the treatment is *E. coli*
+-   We only expect to see green fluorescence (FITC) if the treatment is
+    *E. coli*
 
 -   This is summarised in the figure on the next page
 
@@ -97,134 +94,134 @@ production in macrophages *and* the TNF-α antibody is used.
 
 ![](images/66I-exp-des-TNF-α.png)
 
-
 # The data
 
 ## The data
 
 ::: incremental
-
 -   The data are in a flow cytometry standard format (FCS) file
 
 -   Each FCS file contains data from one sample
 
--   You will have 6 FCS files, one for each combination of treatment
-    and antibody
-    
--   there are 22 variables in columns and up to 50000 cells in rows
-:::
+-   You will have 6 FCS files, one for each combination of treatment and
+    antibody
 
+-   there are 16 variables in columns and up to 50000 cells in rows
+:::
 
 ## The data
 
-::: incremental
+:::: incremental
 ::: {style="font-size: 80%;"}
--   the 22 columns: TIME, Time MSW, Pulse Width,
-    FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin,
-    FL 1 Area, FL 1 Log, FL 2 Lin, FL 2 Area, FL 2 Log, FL 3 Lin,
-    FL 3 Area, FL 3 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count
+-   the 16 columns: TIME, Time MSW, Pulse Width, FS Lin, FS Area, FS
+    Log, SS Lin, SS Area, SS Log, FL 1 Lin, FL 1 Area, FL 1 Log, 
+    FL 8 Lin, FL 8 Area, FL 8 Log, Event Count
 
--   FS is Forward scatter, SS is Side scatter, FL is fluorescence channel
+-   FS is Forward scatter, SS is Side scatter, FL is fluorescence
+    channel
 
--   FL 1 is the green fluorescence channel and we will rename it E_coli_FITC
+-   FL 1 is the green fluorescence channel and we will rename it
+    E_coli_FITC
 
 -   FL 8 is the red fluorescence channel and we will rename it TNFa_APC
 
--   FL 2 and FL 3 are not used in this experiment and we will delete those columns
+-   We will use the Lin columns only
 
--   We will use just four columns: E_coli_FITC_Lin, TNFa_APC_Lin,
-    FS Lin, and SS Lin
-
+-   We will use just four columns: E_coli_FITC_Lin, TNFa_APC_Lin, FS
+    Lin, and SS Lin
 :::
-:::
+::::
 
 # Analytical steps
 
 ## Overview
 
 ::: incremental
+-   The analysis of flow cytometry data is relatively simple
+    conceptually
 
--   The analysis of flow cytometry data is relatively simple conceptually
-
--   We apply several quality control steps to the data to remove anomalous 
-    signals, dead cells and debris
+-   We apply several quality control steps to the data to remove
+    anomalous signals, dead cells and debris
 
 -   We use scatter plots, calculate means, and find percentages of cells
     in different regions of the scatter plots
-
 :::
 
 ## Analytical steps
 
-::: incremental
+:::: incremental
 ::: {style="font-size: 80%;"}
--   Import the data into R, improve the column names and remove unwanted
-    columns
+-   Import the data into R and improve the column names
 
 -   Apply automated quality control
 
--   Apply a "logicle" transformation [@parks2006] to the fluorescence channels (similar to logging)
+-   Apply a "logicle" transformation [@parks2006] to the fluorescence
+    channels (similar to logging)
 
 -   Explore the data with scatter plots and histograms/density plots
 
--   Use FS Lin and SS Lin to determine what cells (rows) to remove as debris
+-   Use FS Lin and SS Lin to determine what cells (rows) to remove as
+    dead/debris
 
 -   Determine cut-offs for cells being positive for TNF-α and *E. coli*
 
--   Calculate the percentage of cells that are positive for TNF-α for each treatment
+-   Calculate the percentage of cells that are positive for TNF-α for
+    each treatment combination
 :::
-:::
+::::
 
 # Tools
 
 ## Tools
 
 ::: incremental
-   
--   Import, rename and subset columns using the **`flowCore`** package [@flowCore]
+-   Import and rename columns using the **`flowCore`** package
+    [@flowCore]
 
 -   Automated quality control with the **`flowAI`** package [@flowAI]
 
 -   Apply a "logicle" transformation using the **`flowCore`** package
 
--   Put the data into a dataframe to make it easy to use **`tidyverse`** [@tidyverse] tools like
-    `group_by()`, `summarise()`, `ggplot()`, `filter()`
-
+-   Put the data into a dataframe to make it easy to use **`tidyverse`**
+    [@tidyverse] tools like `group_by()`, `summarise()`, `ggplot()`,
+    `filter()`
 :::
-
 
 ## The data in R
 
 ::: incremental
-
 -   the `flowCore` package imports each FCS file as a `flowFrame` object
 
 -   The `flowFrame` object contains the data from the FCS file and
     metadata about the experiment
 
--   A collection of related `flowFrames` are stored in a `flowSet` object
+-   A collection of related `flowFrames` are stored in a `flowSet`
+    object
 
--   **`flowAI`** and **`flowCore`** functions work with `flowSet` objects
+-   **`flowAI`** and **`flowCore`** functions work with `flowSet`
+    objects
 
 -   After that we can convert the `flowSet` to a dataframe to use
-    **`tidyverse`** tools
+    **`tidyverse`** tools with which you are more familiar
 :::
-
 
 # Summary
 
 ## Summary
 
--   Sample data are like the data you will produce in your own experiment
+-   Sample data are like the data you will produce in your own
+    experiment
 
--   3 treatments x 2 antibodies = 6 combinations; 4 variables upto 50000 cells each
+-   3 treatments x 2 antibodies = 6 combinations; 4 variables upto 50000
+    cells each
 
--   The analysis is conceptually simple: quality control, transformation, scatter plots, 
-    and calculating percentages
-    
--   The week 2 workshop analyses the sample data, in the week 4 workshop you will 
-    analyse your own data
-    
--   We will use the **`flowCore`**, **`flowAI`** and **`tidyverse`** packages to do the analysis
+-   The analysis is conceptually simple: quality control,
+    transformation, scatter plots, and calculating percentages
+
+-   The week 2 workshop analyses the sample data, in the week 4 workshop
+    you will analyse your own data
+
+-   We will use the **`flowCore`**, **`flowAI`** and **`tidyverse`**
+    packages to do the analysis
 
 ## References
