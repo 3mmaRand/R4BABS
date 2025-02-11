@@ -336,26 +336,26 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
 <section id="getting-started-on-your-own-analysis" class="level2"><h2 class="anchored" data-anchor-id="getting-started-on-your-own-analysis">Getting started on your own analysis</h2>
 <p>🎬 Open the RStudio Project you created in the <a href="../week-2/study_after_workshop.html">Consolidation exercise from week 2</a>.</p>
-<p>🎬 If you have not already done so, save your data files to the project. Are the file names going to be easy for you to work with? If not, rename them. <a href="../week-2/workshop.html#make-data-easier-to-work-with">Remember</a> that we used the file names to label to rows with their treatment (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so if you do not match the names you will need to change the code in “Add columns for treatment and antibody by extracting that information from the sample name.” and in “We can use the <code>fct_relevel()</code> function to put groups in order so that our graphs are better to interpret.”</p>
-<p>🎬 The sample data had <a href="../week-2/workshop.html#explore-the-data-structure">22 columns</a>. We used <a href="../week-2/data-meta/meta.csv">meta.csv</a> to rename the columns. Some of those columns were not used and we <a href="../week-2/workshop.html#drop-the-unused-channels-columns">dropped them</a>. You data has been created without those columns. You will therefore use a different <a href="../week-4/data-meta/meta.csv">meta.csv</a> file and you will <strong>not</strong> need to drop any columns.</p>
+<p>🎬 If you have not already done so, save your data files to the project. Are the file names going to be easy for you to work with? <a href="../week-2/workshop.html#make-data-easier-to-work-with">Remember</a> that we used the file names to label to rows with their treatment (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so if you do not match the names you will need to redesign the code appropriately. It is easier to rename your files!</p>
 <p>🎬 Open your R script and begin to analyse your data.</p>
 </section><section id="data-for-the-class-dataset." class="level2"><h2 class="anchored" data-anchor-id="data-for-the-class-dataset.">Data for the class dataset.</h2>
 <p>You need to provide the following information for the class dataset:</p>
 <ul>
-<li><p><code>group_name</code>: A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your rows</p></li>
-<li><p><code>cell_treatment</code>: One of MEDIA, LPS or ECOLIGreen</p></li>
-<li><p><code>antibody</code>: One of ISOTYPE or TNFAPC</p></li>
-<li><p><code>n_cells</code>: number of cells in sample after flowAI cleaning</p></li>
-<li><p><code>n_cells_live</code>: number of cells in sample after flowAI cleaning and removing debris</p></li>
-<li><p><code>perc_nondebris</code>: % “cleaned” cells that were not debris</p></li>
-<li><p><code>apc_cut</code>: threshold for logicle transformed TNFa_APC_Lin. This will be the same for all your samples</p></li>
-<li><p><code>apc_mfi</code>: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells</p></li>
-<li><p><code>n_pos_tnfa</code>: Number of TNF-α positive cells</p></li>
-<li><p><code>perc_tfna_pos</code>: % non debris cells that are TNF-α positive cells</p></li>
+<li><p>group_name A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your rows</p></li>
+<li><p><code>cell_treatment</code>One of MEDIA, LPS or ECOLIGreen</p></li>
+<li><p><code>antibody</code> One of ISOTYPE or TNFAPC</p></li>
+<li><p><code>n</code> The number of cells in sample after flowAI cleaning</p></li>
+<li><p><code>n_live</code> The number of cells in sample after flowAI cleaning <em>and</em> removing dead cells/debris (“gating”) (<em>i.e.</em>, the % live cells)</p></li>
+<li><p><code>perc_live</code> The % of cells in sample after flowAI cleaning <em>and</em> removing dead cells/debris (“gating”) (<em>i.e.</em>, the % live cells)</p></li>
+<li><p><code>apc_cut</code> threshold for logicle transformed TNFa_APC_Lin. This should be the <em>same</em> for all your samples and indicates the level at which cells are postive for TNF-α positive</p></li>
+<li><p><code>mean_apc</code> Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells</p></li>
+<li><p><code>n_pos_tnfa</code> Number of TNF-α positive cells</p></li>
+<li><p><code>perc_pos_tnfa</code> Percent of live cells that are TNF-α positive</p></li>
 </ul>
-<p>Enter these in the <a href="https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0">BIO00066I Biomedical Sciences class data</a></p>
+<p>Enter these in the <a href="">BIO00066I Biomedical Sciences class data</a></p>
+<p>Some columns are required for the class analysis. Other columns help you get to the required values and help others determine the reliability of your data.</p>
 </section><section id="how-to-change-the-name-of-an-rstudio-project." class="level2"><h2 class="anchored" data-anchor-id="how-to-change-the-name-of-an-rstudio-project.">How to change the name of an RStudio project.</h2>
-<p>You may need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project by:</p>
+<p>You will need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project by:</p>
 <ul>
 <li><p>closing the project</p></li>
 <li><p>renaming both the project folder and the <code>.Rproj</code> file.</p></li>
