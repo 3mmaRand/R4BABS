@@ -312,11 +312,9 @@ names(biotech)[1] <- "transcript"
 cell_bio <- janitor::clean_names(cell_bio)
 ```
 
-## 
-
 ## Getting an overview 1
 
-## `summary()`
+### `summary()`
 
 R's `summary()` function is a quick way to get an overview of datasets.
 It gives you a six number summary for every numeric variable (the
@@ -326,8 +324,8 @@ also gives you a count of the number of missing values.
 🎬 Use the `summary()` function to get an overview of each dataframe. It
 works well for these datasets. What types of dataset might this be less
 useful for? Which dataframes and columns have missing values? Which
-dataframes and variables seem very skewed? Which dataframes has more
-than one character variable?
+dataframes and variables seem very skewed? Which dataframe has more than
+one character variable?
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -335,7 +333,7 @@ than one character variable?
 
 <!-- (columns) because we aren't able to take that in all  -->
 
-<!-- at once. It is fills up the screen buffer and we can't -->
+<!-- at once. It fills up the screen buffer and we can't -->
 
 <!-- see all the output at once. -->
 
@@ -362,9 +360,9 @@ than one character variable?
 ### Filtering rows
 
 The filter function selects/drops a whole row on a condition. The
-condition can be based on the value in one or a combination of columns.
-We specify what we want to keep with the `filter()` function. This means
-you might often want to negate a condition with `!`.
+condition can be based on the value in one, or a combination, of
+columns. We specify what we want to keep with the `filter()` function.
+This means you might often want to negate a condition with `!`.
 
 🎬 To remove the rows in `cell_bio` with missing values in the
 `perimeter` column:
@@ -493,12 +491,16 @@ frogs_subset <- frogs |>
 ### Visualisation
 
 Histograms and density plots are useful for visualising the distribution
-of variables when we have many observations. Theya allow you to see features in the data that are not obvious from the summary statistics.
+of variables when we have many observations. Theya allow you to see
+features in the data that are not obvious from the summary statistics.
 
--   A histogram shows the number of values in each range (bin), it is composed of touching bars. How a histogram looks depends on the number of bins used.
+-   A histogram shows the number of values in each range (bin), it is
+    composed of touching bars. How a histogram looks depends on the
+    number of bins used.
 
--   A density plot shows the proportions on values in a range. The appearance of the distribution is not affected by the number of bins.
-
+-   A density plot shows the proportions on values in a range. The
+    appearance of the distribution is not affected by the number of
+    bins.
 
 🎬 To plot a histogram of `S20_C_5` in the `frogs` dataframe:
 
@@ -510,12 +512,12 @@ frogs |>
 
 ```
 
-
 This data is very skewed - there are so many low values that we can’t
 see the tiny bars for the higher values. Logging the counts is a way to
 make the distribution more visible.
 
-🎬 To plot the distribution of log `S20_C_5` in the `frogs` dataframe as a histogram:
+🎬 To plot the distribution of log `S20_C_5` in the `frogs` dataframe as
+a histogram:
 
 ```{r}
 frogs |> 
@@ -527,14 +529,12 @@ frogs |>
 
 🎬 Or a density plot:
 
-
 ```{r}
 frogs |> 
   ggplot(aes(x = log10(S20_C_5))) +
   geom_density()
 
 ```
-
 
 I’ve used base 10 only because it is easy to convert to the original
 scale (1 is 10, 2 is 100, 3 is 1000 etc). The warning about rows being
@@ -555,10 +555,12 @@ The excess number of low counts indicates we might want to create a cut
 off for quality control. The removal of low counts is a common
 processing step in ’omic data.
 
+If you have two groups of data, you can compare their distributions on
+the same plot using the `fill` aesthetic and making the fill transparent
+with the `alpha` argument.
 
-If you have two groups of data, you can compare their distributions on the same plot using the `fill` aesthetic and making the fill transparent with the `alpha` argument.
-
-🎬 To plot the distribution of `area` in the `cell_bio` dataframe as a density plot, with the `clone` variable as the fill:
+🎬 To plot the distribution of `area` in the `cell_bio` dataframe as a
+density plot, with the `clone` variable as the fill:
 
 ```{r}
 cell_bio |> 
@@ -567,12 +569,12 @@ cell_bio |>
 
 ```
 
-
 Boxplots and violin plots are also useful for visualising the
 distribution of a variable, especially when there are more than about 5
 groups.
 
-🎬 To plot the distribution of `area` in the `cell_bio` dataframe as a boxplot, with the `clone` variable on the x-axis:
+🎬 To plot the distribution of `area` in the `cell_bio` dataframe as a
+boxplot, with the `clone` variable on the x-axis:
 
 ```{r}
 cell_bio |> 
@@ -580,10 +582,16 @@ cell_bio |>
   geom_boxplot()
 
 ```
-Suppose you want to see the distribution of many similar variables such as we have in `biotech`. You can apply the group function because the values are in separte columns than than in one column with a grouping variable. However, you can use the `pivot_longer()` function to make the dataframe long and then pipe into ggplot.
 
-🎬 Plot the distribution of the logged counts in the `biotech` dataframe as a boxplot, the samples on the x axis:
+Suppose you want to see the distribution of many similar variables such
+as we have in `biotech`. You cannot map a variable to `x` or `fill` as
+we did in the two previous cases because the values are in *separate*
+columns rather than than in *one* column with a second column giving a
+group. However, we can use the `pivot_longer()` function to reformat the
+data and then pipe it into ggplot.
 
+🎬 Plot the distribution of the logged counts in the `biotech` dataframe
+as a boxplot, the samples on the x axis:
 
 ```{r}
 biotech |> 
@@ -595,10 +603,33 @@ biotech |>
 
 ```
 
-The nice thing about the pipe, is that you need not create a new dataframe to do this. You can pipe the output of `pivot_longer()` directly into `ggplot()`. This is very useful when you are exploring the data and want to try out different visualisations.
+
+```{r}
+library(tidyverse)
+```
+
+This code takes the `biotech` dataframe and transforms it dataset from 
+wide format to long format. It takes all columns except `transcript` (`cols = -transcript`) and gathers them into two new columns:
+
+  - `"sample"` → Stores the original column names 
+     (`SCK14_1`, `SCK14_2`, etc.).
+  - `"count"` → Stores the values from those columns.
+
+Now, instead of multiple sample columns, we have a table like this:
+
+| transcript | sample  | count |
+|------------|--------|-------|
+| MSTRG.1   | SCK14_1 | 560   |
+| MSTRG.1   | SCK14_2 | 1526  |
+| MSTRG.1   | SCK14_3 | 4168  |
+| MSTRG.10  | SCK14_1 | 0     |
 
 
-
+which is piped straight into ggplot. The nice thing about the pipe, is 
+that you need not create a new dataframe to do this. You can pipe the 
+output of `pivot_longer()` directly into `ggplot()`. This is very useful 
+when you are exploring the data and want to try out different 
+visualisations.
 
 You're finished!
 
@@ -621,8 +652,7 @@ Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-1/workshop.qm
 Coding and thinking answers are marked with `#---CODING ANSWER---` and
 `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References
