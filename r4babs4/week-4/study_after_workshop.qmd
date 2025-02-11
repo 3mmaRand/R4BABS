@@ -9,9 +9,10 @@ format:
     code-summary: "Answer - don't look until you have tried!"
 ---
 
-
-
 # Exercises
 
-🎬 Go through [Week 1 Core materials](../week-1/overview.html) and check you have applied the principles to your own data analysis.
+1.  💻 Ensure you have added your data to the class data
 
+
+2.  📖 Go through [Week 1 Core materials](../week-1/overview.html) 
+    and check you have applied the principles to your own data analysis.

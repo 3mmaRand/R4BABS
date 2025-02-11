@@ -5,25 +5,33 @@ toc: true
 toc-location: right
 ---
 
-1.  📖 Read  [Understanding file systems](https://3mmarand.github.io/comp4biosci/file_systems.html). Approximately 15 - 20 minutes. This is revision of some stage 1 core concepts. It covers file types,  filesystems.  working directories and paths. You may feel completely confident with them but many students will benefit from a refresher. 
+1.  📖 Read [Understanding file
+    systems](https://3mmarand.github.io/comp4biosci/file_systems.html).
+    Approximately 15 - 20 minutes. This is revision of some stage 1 core
+    concepts. It covers file types, filesystems. working directories and
+    paths. You may feel completely confident with them but many students
+    will benefit from a refresher.
 
-2. 📖 Read  [RStudio Projects](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#rstudio-projects). Section 7.1 only. Approximately 5 - 10 minutes. This is revision but part of the assessment requires that you use an RStudio project so if you aren't sure you are using them, you might want to check.
+2.  📖 Read [RStudio
+    Projects](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#rstudio-projects).
+    Section 7.1 only. Approximately 5 - 10 minutes. This is revision but
+    part of the assessment requires that you use an RStudio project so
+    if you aren't sure you are using them, you might want to check.
 
-
-Entirely optionally, you might want to review some other stage 1 content. You can access these through the past VLE sites but you might find it helpful to use my latest versions because I have improved them, there is no 2FA and the sites are searchable.
-
+Entirely optionally, you might want to review some other stage 1
+content. You can access these through the past VLE sites but you might
+find it helpful to use my latest versions because I have improved them,
+there is no 2FA and the sites are searchable.
 
 Stage 1
 
 -   [Data Analysis in R for Becoming a Bioscientist
-    1](../../r4babs1/r4babs1.html).Core
-    concepts about scientific computing, types of variable, the role of
-    variables in analysis and how to use RStudio to organise analysis
-    and import, summarise and plot data.
+    1](../../r4babs1/r4babs1.html).Core concepts about scientific
+    computing, types of variable, the role of variables in analysis and
+    how to use RStudio to organise analysis and import, summarise and
+    plot data.
 
 -   [Data Analysis in R for Becoming a Bioscientist
-    2](../../r4babs2/r4babs2.html). The
-    logic of hypothesis testing, confidence intervals, what is meant by
-    a statistical model, two-sample tests and one- and two-way analysis
-    of variance (ANOVA). 
-
+    2](../../r4babs2/r4babs2.html). The logic of hypothesis testing,
+    confidence intervals, what is meant by a statistical model,
+    two-sample tests and one- and two-way analysis of variance (ANOVA).

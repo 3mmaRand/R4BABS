@@ -3,10 +3,13 @@ title: "Overview"
 subtitle: "DA 3 Biomedical sciences"
 toc: true
 toc-location: right
-
 ---
 
-This is the second of the three workshops which are specific to the Biomedical sciences strand. The aim of these workshops is to teach you how to analyse the flow cytometry data you will collect in the practicals. In this workshop, apply the workflow your learned in [Week 2](../week2/overview.qmd) to your own data.
+This is the second of the three workshops which are specific to the
+Biomedical sciences strand. The aim of these workshops is to teach you
+how to analyse the flow cytometry data you will collect in the
+practicals. In this workshop, apply the workflow your learned in [Week
+2](../week-2/overview.qmd) to your own data.
 
 ### Learning objectives
 
@@ -16,24 +19,19 @@ The successful student will be able to:
 
 -   Edit the workflow provided in week 2 and apply it to their own data
 
--   Determine values from their data that contribute to the 
-    [class data set](https://3mmarand.github.io/R4BABS/r4babs4/week-4/workshop.html#data-for-the-class-dataset).
-    
+-   Determine values from their data that contribute to the [class data
+    set](workshop.html#data-for-the-class-dataset).
+
 -   change the name of an RStudio project
 
--   Apply the principles covered in [Data Analysis 1: Core](https://3mmarand.github.io/R4BABS/r4babs4/week-1/overview.html) to their analysis
-
-
+-   Apply the principles covered in [Data Analysis 1:
+    Core](../week-1/overview.html)
+    to their analysis
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-
 2.  [Workshop](workshop.qmd)
-    
 
 3.  [Consolidate](study_after_workshop.qmd)
-
-
-
