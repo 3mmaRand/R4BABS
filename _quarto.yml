@@ -308,6 +308,7 @@ execute:
   output: true
   error: true
   collapse: true
+  freeze: auto
 
 engine: knitr
 
@@ -328,6 +329,11 @@ format:
       margin-width: 300px
 
     author-meta: Emma Rand
+
+
+metadata-files:
+  - _downlit.yml
+
 
 fig-dpi: 600
 
