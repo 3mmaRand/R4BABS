@@ -418,9 +418,10 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">csativa</span>  <span class="op">&lt;-</span>  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_table.html">read_table</a></span><span class="op">(</span><span class="st">"data-raw/csativa.txt"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">csativa</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># First realise that this is a two sample test. You have two independent samples</span></span>
-<span><span class="co">#  - there are a total of 100 different plants and the values in one </span></span>
-<span><span class="co">#  group have no relationship to the values in the other.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co"># First realise that this is a two sample test. You have two </span></span>
+<span><span class="co"># independent samples - there are a total of 100 different plants </span></span>
+<span><span class="co"># and the values in one group have no relationship to the values </span></span>
+<span><span class="co"># in the other.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -441,7 +442,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The data seem to be continuous so it is likely that a parametric test will be fine</span></span>
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The data seem to be continuous so it is likely that a parametric </span></span>
+<span><span class="co"># test will be fine.</span></span>
 <span><span class="co"># we will check the other assumptions after we have run the lm</span></span>
 <span></span>
 <span><span class="co"># build the statistical model</span></span>
@@ -450,22 +452,26 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <span></span>
 <span><span class="co"># examine it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
-<span><span class="co"># So there is a significant difference but you need to make sure you know the direction!</span></span>
-<span><span class="co"># Wild plants have a significantly higher omega 3 content (mean +/- s.e =  56.41 +/- 1.11) </span></span>
-<span><span class="co"># than modified plants (49.46 +/- 0.82)(t = 5.03; d.f. = 98; p &lt; 0.0001).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co"># So there is a significant difference but you need to make sure </span></span>
+<span><span class="co"># you know the direction!</span></span>
+<span><span class="co"># Wild plants have a significantly higher omega 3 content </span></span>
+<span><span class="co"># (mean +/- s.e =  56.41 +/- 1.11) than modified plants </span></span>
+<span><span class="co"># (49.46 +/- 0.82)(t = 5.03; d.f. = 98; p &lt; 0.0001).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># let's check the assumptions</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod</span>, which <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we're looking for the variance in the residuals to be the same in both groups.</span></span>
-<span><span class="co"># This looks OK. Maybe a bit higher in the wild plants (with the higher mean)</span></span>
+</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we're looking for the variance in the residuals to be the </span></span>
+<span><span class="co"># same in both groups.</span></span>
+<span><span class="co"># This looks OK. Maybe a bit higher in the wild plants</span></span>
+<span><span class="co"># (with the higher mean)</span></span>
 <span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span>
-<span><span class="co"># On balance the use of lm() is probably justifiable  The variance isn't quite equal </span></span>
-<span><span class="co"># and the histogram looks a bit off normal but the normality test is NS and the </span></span>
-<span><span class="co"># effect (in the figure) is clear.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co"># On balance the use of lm() is probably justifiable  The variance </span></span>
+<span><span class="co"># isn't quite equal and the histogram looks a bit off normal but </span></span>
+<span><span class="co"># the normality test is NS and the effect (in the figure) is clear.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">

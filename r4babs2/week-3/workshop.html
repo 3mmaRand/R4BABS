@@ -508,10 +508,10 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Two-sample tests</code> and load the <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> package</p>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
 <section id="adiponectin-secretion" class="level2"><h2 class="anchored" data-anchor-id="adiponectin-secretion">Adiponectin secretion</h2>
-<p>Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in <a href="data-raw/adipocytes.txt">adipocytes.txt</a>. Each row represents an independent sample of adipocytes and the first column gives the concentration adiponectin and the second column indicates whether they were treated with nicotinic acid or not.</p>
+<p>Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured in the medium. The data are in <a href="data-raw/adipocytes.txt">adipocytes.txt</a>. Each row represents an independent sample of adipocytes and the first column gives the concentration of adiponectin and the second column indicates whether they were treated with nicotinic acid or not (the control).</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save a copy of <a href="data-raw/adipocytes.txt">adipocytes.txt</a> to <code>data-raw</code></p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure. I used the name <code>adip</code> for the dataframe/tibble.</p>
-<p>We have a tibble containing two variables: <code>adiponectin</code> is the response and is continuous and <code>treatment</code> is explanatory. <code>treatment</code> is categorical with two levels (groups). The first task is visualise the data to get an overview. For continuous response variables with categorical explanatory variables you could use <code>geom_point()</code>, <code>geom_boxplot()</code> or a variety of other geoms. I often use <code>geom_violin()</code> which allows us to see the distribution - the violin is fatter where there are more data points.</p>
+<p>We have a tibble containing two variables: <code>adiponectin</code> is the response variable and is continuous; <code>treatment</code> is explanatory. <code>treatment</code> is categorical with two levels (groups). The first task is visualise the data to get an overview. For continuous response variables with categorical explanatory variables you could use <code>geom_point()</code>, <code>geom_boxplot()</code> or a variety of other geoms. I often use <code>geom_violin()</code> which allows us to see the distribution - the violin is fatter where there are more data points.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Do a quick plot of the data:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">adip</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">treatment</span>, y <span class="op">=</span> <span class="va">adiponectin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -525,7 +525,7 @@ Key
 </div>
 <section id="summarising-the-data" class="level3"><h3 class="anchored" data-anchor-id="summarising-the-data">Summarising the data</h3>
 <p>Summarising the data for each treatment group is the next sensible step. The most useful summary statistics are the means, standard deviations, sample sizes and standard errors.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>adip_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to read the <a href="../../r4babs1/week-9/workshop.html#summarise">Summarise</a> from the Week 9 workshop of BABS1 <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>adip_summary</code> that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to read the <a href="../../r4babs1/week-9/workshop.html#summarise">Summarise section</a> from the Week 9 workshop of BABS1 <span class="citation" data-cites="rand2023">(<a href="#ref-rand2023" role="doc-biblioref">Rand 2023</a>)</span></p>
 <p>You should get the following numbers:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -554,6 +554,24 @@ Key
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember that you can see the contents of a dataframe with any of these:</p>
+<ul>
+<li>type the name of the dataframe in the console: prints the dataframe to console</li>
+<li>click on the dataframe name in the Environment window: opens a spreadsheet like view of the dataframe in the Code window</li>
+<li>typing <code>View(dataframe)</code> in the console: opens a spreadsheet like view of the dataframe in the Code window</li>
+</ul>
 </div>
 </div>
 </section><section id="selecting-a-test" class="level3"><h3 class="anchored" data-anchor-id="selecting-a-test">Selecting a test</h3>
@@ -598,7 +616,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 <!-- secrete significantly more adiponectin than controls (5.55  +/- 0.46 pg/mL)  -->
 <!-- (t = 3.27; d.f. = 28; p = 0.003). -->
 </section><section id="check-assumptions" class="level3"><h3 class="anchored" data-anchor-id="check-assumptions">Check assumptions</h3>
-<p>The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the <code>mod$residuals</code> variable. You may want to refer to <a href="../week-2/workshop.html#checking-assumptions">Checking assumptions</a> in the “Single regression” workshop.</p>
+<p>The assumptions of the general linear model are that the residuals – the difference between predicted value (<em>i.e</em>., the group mean) and observed values - are normally distributed, and have homogeneous variance. To check these we can examine the <code>mod$residuals</code> variable. You may want to refer to <a href="../week-2/workshop.html#checking-assumptions">Checking assumptions</a> in the “Single regression” workshop.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot the model residuals against the fitted values.</p>
 <p><img src="images/answer.png" class="img-fluid"> What to you conclude?</p>
 <!-- #---THINKING ANSWER--- -->
@@ -640,7 +658,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 </div>
 </div>
 <p>For the segment, <code>annotate()</code> needs the <em>x</em> and <em>y</em> coordinates for the start and the finish of the line.</p>
-<p>The use of <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> allows you to specify formatting or special characters. <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> takes strings or <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> formatting. Each string or piece of LaTeX is separated by a <code>*</code> or a <code>~</code>. The <code>*</code> concatenates the strings without a space, <code>~</code> does so with a space. It will generate a warning message “In is.na(x) : is.na() applied to non-(list or vector) of type ‘expression’” which can be ignored.</p>
+<p>The use of <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> allows you to specify formatting or special characters. <code><a href="https://rdrr.io/r/base/expression.html">expression()</a></code> takes strings<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> or <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> formatting. Each string or piece of LaTeX is separated by a <code>*</code> or a <code>~</code>. The <code>*</code> concatenates the strings without a space, <code>~</code> does so with a space. It will generate a warning message “In is.na(x) : is.na() applied to non-(list or vector) of type ‘expression’” which can be ignored.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Save your figure to your figures folder. Make sure you <a href="../../r4babs1/week-9/workshop.html#writing-figures-to-file">script figure saving with <code>ggsave()</code></a>.</p>
 </section></section><section id="grouse-parasites" class="level2"><h2 class="anchored" data-anchor-id="grouse-parasites">Grouse Parasites</h2>
 <p>Grouse livers were dissected and the number of individuals of a parasitic nematode were counted for two estates ‘Gordon’ and ‘Moss’. We want to know if the two estates have different infection rates. The data are in <a href="data-raw/grouse.csv">grouse.csv</a></p>
@@ -698,42 +716,71 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <!-- #---THINKING ANSWER--- -->
 <!-- the appropriate parametric test is the paired sample lm  -->
 </section><section id="applying-interpreting-and-reporting-2" class="level3"><h3 class="anchored" data-anchor-id="applying-interpreting-and-reporting-2">Applying, interpreting and reporting</h3>
-<p>A paired test requires us to test whether the difference in expression between high and low temperatures is zero on average. One handy way to achieve this is to organise our groups into two columns. The <code>pivot_wider()</code> function will do this for us. We need to tell it what column gives the identifiers (i.e., matches the the pairs) - the probe_ids in this case. We also need to say which variable contains what will become the column names and which contains the values.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Pivot the data so there is a column for each temperature:</p>
-<div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bambara</span> <span class="op">&lt;-</span> <span class="va">bambara</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">temperature</span>, </span>
-<span>              values_from <span class="op">=</span> <span class="va">expression</span>, </span>
-<span>              id_cols <span class="op">=</span> <span class="va">probe_id</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><img src="images/do_in_R.png" class="img-fluid"> Click on the <code>bambara</code> dataframe in the environment to open a view of it so that you understand what <code>pivot_wider()</code> has done.</p>
+<p>A paired test requires account for the variation between genes.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a paired-sample model like this:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">bambara</span>, </span>
-<span>          <span class="va">highert</span> <span class="op">-</span> <span class="va">lowert</span> <span class="op">~</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">bambara</span>, </span>
+<span>          <span class="va">expression</span> <span class="op">~</span> <span class="va">temperature</span> <span class="op">+</span> <span class="va">probe_id</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Since we have done <code>highert - lowert</code>, the “(Intercept) Estimate” will be the average of the higher temperature expression minus the lower temperature expression for each gene.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Examine the model with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = highert - lowert ~ 1, data = bambara)
+lm(formula = expression ~ temperature + probe_id, data = bambara)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--1.05478 -0.46058  0.09682  0.33342  1.06892 
+    Min      1Q  Median      3Q     Max 
+-0.5345 -0.2094  0.0000  0.2094  0.5345 
 
 Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)  0.30728    0.09591   3.204  0.00294 **
+                                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                      2.00019    0.28773   6.952 5.15e-08 ***
+temperaturelowert               -0.30728    0.09591  -3.204  0.00294 ** 
+probe_idGma.12117.1.S1_at        0.11320    0.40122   0.282  0.77955    
+probe_idGma.12565.1.A1_at        1.31450    0.40122   3.276  0.00243 ** 
+probe_idGma.12641.1.A1_at        0.41440    0.40122   1.033  0.30896    
+probe_idGma.12911.1.A1_s_at      0.21940    0.40122   0.547  0.58806    
+probe_idGma.13045.1.S1_at        0.02165    0.40122   0.054  0.95728    
+probe_idGma.1679.1.A1_at         0.15610    0.40122   0.389  0.69965    
+probe_idGma.17385.1.S1_at        0.35280    0.40122   0.879  0.38540    
+probe_idGma.2266.1.S1_s_at      -0.27105    0.40122  -0.676  0.50388    
+probe_idGma.2555.1.S1_s_at      -0.74210    0.40122  -1.850  0.07308 .  
+probe_idGma.4452.1.A1_s_at      -0.39600    0.40122  -0.987  0.33062    
+probe_idGma.5163.2.S1_at         0.69635    0.40122   1.736  0.09169 .  
+probe_idGma.6423.1.S1_at         0.09230    0.40122   0.230  0.81943    
+probe_idGma.8525.1.S1_s_at       0.87865    0.40122   2.190  0.03549 *  
+probe_idGmaAffx.19961.1.S1_at    0.38790    0.40122   0.967  0.34047    
+probe_idGmaAffx.24949.1.S1_at    0.17475    0.40122   0.436  0.66592    
+probe_idGmaAffx.30443.1.S1_at    0.36625    0.40122   0.913  0.36775    
+probe_idGmaAffx.33657.1.S1_at   -0.37655    0.40122  -0.939  0.35460    
+probe_idGmaAffx.36315.1.S1_at    1.80255    0.40122   4.493 7.73e-05 ***
+probe_idGmaAffx.37672.1.A1_at    0.60275    0.40122   1.502  0.14225    
+probe_idGmaAffx.39830.1.S1_at    0.11055    0.40122   0.276  0.78457    
+probe_idGmaAffx.44319.1.S1_at    0.45780    0.40122   1.141  0.26183    
+probe_idGmaAffx.52122.1.S1_at    1.17505    0.40122   2.929  0.00604 ** 
+probe_idGmaAffx.55864.1.S1_at   -0.40805    0.40122  -1.017  0.31632    
+probe_idGmaAffx.5705.1.S1_at     0.81750    0.40122   2.038  0.04944 *  
+probe_idGmaAffx.59856.1.S1_at   -0.22190    0.40122  -0.553  0.58384    
+probe_idGmaAffx.67021.2.S1_at    0.22690    0.40122   0.566  0.57543    
+probe_idGmaAffx.68483.1.S1_at    0.81930    0.40122   2.042  0.04897 *  
+probe_idGmaAffx.7166.1.S1_at    -1.01450    0.40122  -2.529  0.01626 *  
+probe_idGmaAffx.77709.1.S1_at    0.72625    0.40122   1.810  0.07913 .  
+probe_idGmaAffx.77888.1.S1_at    0.17170    0.40122   0.428  0.67139    
+probe_idGmaAffx.81915.1.S1_at    0.64390    0.40122   1.605  0.11777    
+probe_idGmaAffx.8717.1.S1_at     0.93150    0.40122   2.322  0.02638 *  
+probe_idGmaAffx.93493.1.S1_s_at  0.37840    0.40122   0.943  0.35227    
+probe_idGmaAffx.9536.1.S1_at    -0.61725    0.40122  -1.538  0.13320    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.5674 on 34 degrees of freedom</code></pre>
+Residual standard error: 0.4012 on 34 degrees of freedom
+Multiple R-squared:  0.8238,    Adjusted R-squared:  0.6424 
+F-statistic: 4.542 on 35 and 34 DF,  p-value: 1.273e-05</code></pre>
 </div>
 </div>
+<p>The “(Intercept) Estimate” will be the average of the higher temperature expression because <code>h</code> come before <code>l</code> in the alphabet. The “temperaturelowert” is how much the expression changes on average going from higher to lower temperatures. You can ignore the rest of the output.</p>
 <p><img src="images/answer.png" class="img-fluid"> State your conclusion from the test in a form suitable for including in a report. Make sure you give the direction of any significant effect.</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- The expression of individual genes is significantly higher at higher temperatures  -->
@@ -773,7 +820,11 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino 
 <div id="ref-kableExtra" class="csl-entry" role="listitem">
 Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1"><p>A string in R is a sequence of characters enclosed in quotes, used to represent text data.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>LaTeX is a typesetting system used for scientific documents, enabling precise control over equations, symbols, and document structure.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
