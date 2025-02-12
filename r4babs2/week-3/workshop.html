@@ -89,7 +89,7 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-632b8ef7842c909ba635808513577bd1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-30de0f3b183af2e72832c6e1cd3032c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -781,11 +781,29 @@ F-statistic: 4.542 on 35 and 34 DF,  p-value: 1.273e-05</code></pre>
 </div>
 </div>
 <p>The “(Intercept) Estimate” will be the average of the higher temperature expression because <code>h</code> come before <code>l</code> in the alphabet. The “temperaturelowert” is how much the expression changes on average going from higher to lower temperatures. You can ignore the rest of the output.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> If you prefer, you can use the <code><a href="https://rdrr.io/r/stats/anova.html">anova()</a></code> function on the model object:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: expression
+            Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+temperature  1  1.6524 1.65240 10.2649  0.002943 ** 
+probe_id    34 23.9354 0.70398  4.3732 2.079e-05 ***
+Residuals   34  5.4732 0.16098                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>This presents you with less information. The <em>p</em>-value for the effect of temperate on gene expression will always be the same as in the larger table.</p>
 <p><img src="images/answer.png" class="img-fluid"> State your conclusion from the test in a form suitable for including in a report. Make sure you give the direction of any significant effect.</p>
 <!-- #---THINKING ANSWER--- -->
-<!-- The expression of individual genes is significantly higher at higher temperatures  -->
-<!-- than lower temperatures (t = 3.20, d.f. = 34, p = 0.0029) with an average difference -->
+<!-- The expression of individual genes is significantly  -->
+<!-- higher at higher temperatures than lower temperatures  -->
+<!-- (t = 3.20, d.f. = 34, p = 0.0029) with an average difference -->
 <!-- of 0.307 units. -->
+<!-- You could instead quote (F = 10.3; d.f. = 1, 34, ; p = 0.0029) -->
 </section></section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
 <p>The code required to summarise, test, and plot data for a two-independent-samples test AND for a one-way ANOVA is <strong>exactly the same</strong> except for the names of the dataframe, variables and the axis labels and limits. Take some time to comment it your code so that you can make use of it next week.</p>
 <p><img src="images/future_you.png" class="img-fluid" alt="xxx" width="300"></p>
@@ -796,7 +814,7 @@ F-statistic: 4.542 on 35 and 34 DF,  p-value: 1.273e-05</code></pre>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
 <p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd">View the Qmd in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
-<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref"><strong>knitr?</strong></a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
+<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
 
@@ -816,6 +834,15 @@ Rand, Emma. 2023. <em>Data Analysis in r for Becoming a Bioscientist</em>. <a hr
 </div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-knitr3" class="csl-entry" role="listitem">
+Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC.
+</div>
+<div id="ref-knitr2" class="csl-entry" role="listitem">
+———. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-knitr1" class="csl-entry" role="listitem">
+———. 2024. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 <div id="ref-kableExtra" class="csl-entry" role="listitem">
 Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.

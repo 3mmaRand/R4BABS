@@ -89,7 +89,7 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-632b8ef7842c909ba635808513577bd1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-30de0f3b183af2e72832c6e1cd3032c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -466,7 +466,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
 <p>In this session you will get practice in choosing between, performing, and presenting the results of, one-way ANOVA and Kruskal-Wallis in R.</p>
 </section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
-<p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
+<p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding.</p>
+<p>Tips</p>
 <ul>
 <li>don’t worry about making mistakes</li>
 <li>don’t let what you can not do interfere with what you can do</li>
@@ -494,7 +495,6 @@ Key
 </div>
 </section></section><section id="getting-started" class="level1"><h1>Getting started</h1>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Start RStudio from the Start menu.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Go the Files tab in the lower right pane and click on the <code>...</code> on the right. This will open a “Go to folder” window. Navigate to a place on your computer where you keep your work. Click Open.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says <code>Project: (None)</code> and choosing New Project, then New Directory, then New Project. Navigate to the <code>data-analysis-in-r-2</code> folder and name the RStudio Project <code>week-4</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make new folders called <code>data-raw</code> and <code>figures</code>. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a new script then save it with a name like <code>one-way-anova-and-kw.R</code> to carry out the rest of the work.</p>
@@ -631,8 +631,8 @@ P value adjustment: tukey method for comparing a family of 3 estimates </code></
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot the model residuals against the fitted values.</p>
 <p><img src="images/answer.png" class="img-fluid"> What to you conclude?</p>
 <!-- #---THINKING ANSWER--- -->
-<!-- The residuals look 'homogeneously' distributed. That is, the variance is the same  -->
-<!-- for the two groups  -->
+<!-- The residuals look 'homogeneously' distributed. That is,  -->
+<!-- the variance is the same for the two groups  -->
 <p>To examine normality of the model residuals we can plot them as a histogram and do a normality test on them.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Plot a histogram of the residuals.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Use the <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code> to test the normality of the model residuals</p>
@@ -660,18 +660,21 @@ P value adjustment: tukey method for comparing a family of 3 estimates </code></
 <p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure. I used the name <code>leaf</code> for the dataframe/tibble.</p>
 <p><img src="images/answer.png" class="img-fluid"> What kind of variables do we have?</p>
 <!-- #---THINKING ANSWER---  -->
-<!-- we have birch, a categorical variable with three groups, and counts in -->
-<!-- eggs  which is the response. counts are numeric but discrete. -->
+<!-- we have birch, a categorical variable with three  -->
+<!-- groups, and counts in  eggs  which is the response.  -->
+<!-- counts are numeric but discrete. -->
 <p><img src="images/do_in_R.png" class="img-fluid"> Do a quick plot of the data.</p>
 <p><img src="images/answer.png" class="img-fluid"> Using your common sense, do these data look normally distributed?</p>
 <!-- #---THINKING ANSWER---  -->
-<!-- No and little need to test - they're counts, and have unequal variances -->
+<!-- No and little need to test - they're counts, and have unequal  -->
+<!-- variances -->
 <p><img src="images/answer.png" class="img-fluid"> Why is a Kruskal-Wallis appropriate in this case?</p>
 <!-- #---THINKING ANSWER---  -->
-<!-- the data are counts hence they are not continuous. We can sometimes treat  -->
-<!-- count data as continuous if there is a large number of possible values and  -->
-<!-- the distance between each value relative to the range is small but this is  -->
-<!-- not the case here. In addition there are only ten values in each group  -->
+<!-- the data are counts hence they are not continuous. We can  -->
+<!-- sometimes treat count data as continuous if there is a large  -->
+<!-- number of possible values and the distance between each value  -->
+<!-- relative to the range is small but this is not the case here.  -->
+<!-- In addition there are only ten values in each group -->
 <p><img src="images/do_in_R.png" class="img-fluid"> Calculate the medians, means and sample sizes.</p>
 </section><section id="applying-interpreting-and-reporting-1" class="level3"><h3 class="anchored" data-anchor-id="applying-interpreting-and-reporting-1">Applying, interpreting and reporting</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Carry out a Kruskal-Wallis:</p>
@@ -711,11 +714,12 @@ Kruskal-Wallis chi-squared = 6.3393, df = 2, p-value = 0.04202</code></pre>
 <!-- birch (the highest and lowest number of eggs) -->
 <p><img src="images/answer.png" class="img-fluid"> Write up the result is a form suitable for a report.</p>
 <!-- #---THINKING ANSWER---  -->
-<!-- There is a significant difference in the rate of leafminer attack between birch  -->
-<!-- species (Kruskal-Wallis: chi-squared = 6.34, df = 2, p-value = 0.042).  -->
-<!-- Post-hoc testing revealed that difference to be between the White Birch with the  -->
-<!-- lowest number of eggs (median = 14) and Yellow Birch with the highest (median = 54)  -->
-<!-- (*z* = 2.52; *p* = 0.035).  -->
+<!-- There is a significant difference in the rate of leafminer  -->
+<!-- attack between birch species (Kruskal-Wallis: chi-squared = 6.34, -->
+<!-- df = 2, p-value = 0.042). Post-hoc testing revealed that  -->
+<!-- difference to be between the White Birch with the lowest number  -->
+<!-- of eggs (median = 14) and Yellow Birch with the highest  -->
+<!-- (median = 54) (*z* = 2.52; *p* = 0.035). -->
 </section><section id="illustrating-1" class="level3"><h3 class="anchored" data-anchor-id="illustrating-1">Illustrating</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> A box plot is an appropriate choice for illustrating a Kruskal-Wallis. Can you produce a figure like this?</p>
 <div class="cell">
@@ -737,7 +741,7 @@ Kruskal-Wallis chi-squared = 6.3393, df = 2, p-value = 0.04202</code></pre>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
 <p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-4/workshop.qmd">View the Qmd in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
-<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref"><strong>knitr?</strong></a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
+<p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
 
@@ -763,6 +767,15 @@ Tukey, John W. 1949. <span>“Comparing Individual Means in the Analysis of Vari
 </div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-knitr3" class="csl-entry" role="listitem">
+Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research in <span>R</span>.”</span> In <em>Implementing Reproducible Computational Research</em>, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC.
+</div>
+<div id="ref-knitr2" class="csl-entry" role="listitem">
+———. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-knitr1" class="csl-entry" role="listitem">
+———. 2024. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 <div id="ref-kableExtra" class="csl-entry" role="listitem">
 Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
