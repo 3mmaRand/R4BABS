@@ -11,7 +11,8 @@ format:
 
 # Set up
 
-If you have just opened RStudio you will want to load the **`tidyverse`** package
+If you have just opened RStudio you will want to load the
+**`tidyverse`** package
 
 ```{r}
 #| code-fold: false
@@ -20,8 +21,13 @@ library(tidyverse)
 
 # Exercises
 
-1.  💻  Sports scientists were investigating the effects of fitness and heat acclimatisation on the sodium content of sweat. They measured the sodium content of the sweat (μmoll^−1) of three groups of individuals: unfit and unacclimatised (UU); fit and unacclimatised(FU); and fit and acclimatised (FA). The are in [sweat.txt](data-raw/sweat.txt). Is there a difference between the groups in the sodium content of their sweat?
-
+1.  💻 Sports scientists were investigating the effects of fitness and
+    heat acclimatisation on the sodium content of sweat. They measured
+    the sodium content of the sweat (μmoll\^−1) of three groups of
+    individuals: unfit and unacclimatised (UU); fit and
+    unacclimatised(FU); and fit and acclimatised (FA). The are in
+    [sweat.txt](data-raw/sweat.txt). Is there a difference between the
+    groups in the sodium content of their sweat?
 
 ```{r}
 #| output: false
@@ -31,24 +37,23 @@ sweat <- read_table("data-raw/sweat.txt")
 str(sweat)
 ```
 
-
 ```{r}
 #| output: false
 
 # quick plot of the data
 ggplot(data = sweat, aes(x = gp, y = na)) +
   geom_boxplot()
-# Since the sample sizes are small and not the same in each group and the 
-# variance in the FA gp looks a bit lower, I'm leaning to a non-parametric test K-W.
-# However, don't panic if you decided to do an anova
+# Since the sample sizes are small and not the same in each 
+# group and the variance in the FA gp looks a bit lower, I'm 
+# leaning to a non-parametric test K-W. However, don't panic if 
+# you decided to do an anova
 ```
-
 
 ```{r}
 #| output: false
 # calculate some summary stats 
-sweat_summary <- sweat %>% 
-  group_by(gp) %>% 
+sweat_summary <- sweat |> 
+  group_by(gp) |> 
   summarise(mean = mean(na),
             n = length(na),
             median = median(na))
@@ -61,9 +66,9 @@ sweat_summary <- sweat %>%
 # Kruskal-Wallis
 kruskal.test(data = sweat, na ~ gp)
 # We can say there is a difference between the groups in the sodium 
-# content of their sweat (chi-squared = 11.9802, df = 2, p-value = 0.002503).
-# Unfit and unacclimatised people have most salty sweat, 
-# Fit and acclimatised people the least salty.
+# content of their sweat (chi-squared = 11.9802, df = 2, 
+# p-value = 0.002503). Unfit and unacclimatised people have  
+# most salty sweat, Fit and acclimatised people the least salty.
 
 ```
 
@@ -73,14 +78,15 @@ kruskal.test(data = sweat, na ~ gp)
 # a post-hoc test to see where the sig differences lie:
 library(FSA)
 dunnTest(data = sweat, na ~ gp)
-# Fit and acclimatised people (median = 49.5 μmoll^−1) have significantly less sodium in their
-#  sweat than the unfit and unacclimatised people (70 μmoll^−1) 
-# (Kruskal-Wallis multiple comparison p-values adjusted with the Holm method: p = 0.0026).
-# Fit and unacclimatised (54 μmoll^−1)  also have significantly less sodium in their
-# people have sodium concentrations than unfit and unacclimatised people (p = 0.033). 
-# There was no difference between the Fit and unacclimatised and the Fit and acclimatised. See figure 1.
+# Fit and acclimatised people (median = 49.5 μmoll^−1) have 
+# significantly less sodium in their sweat than the unfit and 
+# unacclimatised people (70 μmoll^−1) (Kruskal-Wallis multiple 
+# comparison p-values adjusted with the Holm method: p = 0.0026). Fit 
+# and unacclimatised (54 μmoll^−1)  also have significantly less 
+# sodium in their people have sodium concentrations than unfit and 
+# unacclimatised people (p = 0.033). There was no difference between 
+# the Fit and unacclimatised and the Fit and acclimatised. See figure 1.
 ```
-
 
 ```{r}
 #| output: false
@@ -105,17 +111,21 @@ ggplot(sweat, aes(x = gp, y = na) ) +
            label = expression(italic(p)~"= 0.0340")) +
   theme_classic()
 
-#Figure 1. Sodium content of sweat for three groups: Fit and acclimatised
-#(FA), Fit and unacclimatised (FU) and Unfit and unacclimatised (UU). Heavy lines
-#indicate the median, boxes the interquartile range and whiskers the range. 
+# Figure 1. Sodium content of sweat for three groups: Fit and 
+# acclimatised (FA), Fit and unacclimatised (FU) and Unfit and 
+# unacclimatised (UU). Heavy lines indicate the median, boxes the 
+# interquartile range and whiskers the range. 
 
 
 ```
 
-
-
-
-2.  💻   The data are given in [biomass.txt](data-raw/biomass.txt) are taken from an experiment in which the insect pest biomass (g) was measured on plots sprayed with water (control) or one of five different insecticides. Do the insecticides vary in their effectiveness? What advice would you give to a person: - currently using insecticide E? - trying to choose between A and D? - trying to choose between C and B?
+2.  💻 The data are given in [biomass.txt](data-raw/biomass.txt) are
+    taken from an experiment in which the insect pest biomass (g) was
+    measured on plots sprayed with water (control) or one of five
+    different insecticides. Do the insecticides vary in their
+    effectiveness? What advice would you give to a person: - currently
+    using insecticide E? - trying to choose between A and D? - trying to
+    choose between C and B?
 
 ```{r}
 #| output: false
@@ -143,15 +153,16 @@ biom <- biom |>
 # quick plot of the data
 ggplot(data = biom, aes(x = spray, y = biomass)) +
   geom_boxplot()
-# Looks like there is a difference between sprays. E doesn't look very effective.
+# Looks like there is a difference between sprays. E doesn't look 
+# very effective.
 ```
 
 ```{r}
 #| output: false
 
 # summary statistics
-biom_summary <- biom %>% 
-  group_by(spray) %>% 
+biom_summary <- biom |> 
+  group_by(spray) |> 
   summarise(mean = mean(biomass),
             median = median(biomass),
             sd = sd(biomass),
@@ -174,7 +185,8 @@ biom_summary <- biom %>%
 # arry out an ANOVA and examine the results 
 mod <- lm(data = biom, biomass ~ spray)
 summary(mod)
-# spray type does have an effect F-statistic: 26.46 on 5 and 54 DF,  p-value: 2.081e-13
+# spray type does have an effect F-statistic: 26.46 on 5 and 54 DF,  
+# p-value: 2.081e-13
 ```
 
 ```{r}
@@ -203,8 +215,9 @@ emmeans(mod, ~ spray) |> pairs()
 #  What advice would you give to a person currently
 #   + trying to choose between A and D? Choose A because A has sig lower
 #   insect biomass than D 
-#   + trying to choose between C and B? It doesn't matter because there is 
-#   no difference in insect biomass. Use other criteria to chose (e.g., price)
+#   + trying to choose between C and B? It doesn't matter because there 
+#   is no difference in insect biomass. Use other criteria to chose 
+#   (e.g., price)
 # We might report this like:
 # There is a very highly significant effect of spray type on pest 
 # biomass (F = 26.5; d.f., 5, 54; p < 0.001). Post-hoc testing 
@@ -273,7 +286,8 @@ ggplot() +
            label = "*", size = 5) +
   theme_classic()
 
-# Figure 1. The mean pest biomass following various insecticide treatments.
-# Error bars are +/- 1 S.E. Significant comparisons are indicated: * is p < 0.05, ** p < 0.01 and *** is p < 0.001
+# Figure 1. The mean pest biomass following various insecticide 
+# treatments. # Error bars are +/- 1 S.E. Significant comparisons 
+# are indicated: * is p < 0.05, ** p < 0.01 and *** is p < 0.001
 
 ```

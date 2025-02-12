@@ -20,14 +20,18 @@ library(kableExtra)
 
 ## Session overview
 
-In this session you will get practice in choosing between, performing, and presenting the results of, one-way ANOVA and Kruskal-Wallis in R.
+In this session you will get practice in choosing between, performing, 
+and presenting the results of, one-way ANOVA and Kruskal-Wallis in R.
 
 ## Philosophy
 
 Workshops are not a test.
-It is expected that you often don't know how to start, make a lot of mistakes and need help.
-It is expected that you are familiar with independent study content before the workshop.
-However, you need not remember or understand every detail as the workshop should build and consolidate your understanding.
+It is expected that you often don't know how to start, make a lot of 
+mistakes and need help. It is expected that you are familiar with 
+independent study content before the workshop. However, you need not 
+remember or understand every detail as the workshop should build and
+consolidate your understanding.
+
 Tips
 
 -   don't worry about making mistakes
@@ -40,16 +44,19 @@ Tips
 ::: callout-note
 ## Key
 
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+These four symbols are used at the beginning of each instruction so 
+you know where to carry out the instruction.
 
 ![](images/do_on_your_computer.png) Something you need to do on your computer.
 It may be opening programs or documents or locating a file.
 
 ![](images/do_in_R.png) Something you should do in RStudio.
-It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+It will often be typing a command or using the menus but might also be 
+creating folders, locating or moving files.
 
-![](images/do_on_internet.png) Something you should do in your browser on the internet.
-It may be searching for information, going to the VLE or downloading a file.
+![](images/do_on_internet.png) Something you should do in your 
+browser on the internet. It may be searching for information, 
+going to the VLE or downloading a file.
 
 ![](images/answer.png) A question for you to think about and answer.
 Record your answers in your script for future reference.
@@ -59,30 +66,37 @@ Record your answers in your script for future reference.
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right.
-This will open a "Go to folder" window.
-Navigate to a place on your computer where you keep your work.
-Click Open.
+![](images/do_in_R.png) Make an RStudio project for this workshop 
+by clicking on the drop-down menu on top right where it says 
+`Project: (None)` and choosing New Project, then New Directory, 
+then New Project. Navigate to the `data-analysis-in-r-2` folder and 
+name the RStudio Project `week-4`.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project.
-Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-4`.
+![](images/do_in_R.png) Make new folders called `data-raw` 
+and `figures`. You can do this on the Files Pane by clicking 
+New Folder and typing into the box that appears.
 
-![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+![](images/do_in_R.png) Make a new script then save it with a 
+name like `one-way-anova-and-kw.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Make a new script then save it with a name like `one-way-anova-and-kw.R` to carry out the rest of the work.
-
-![](images/do_in_R.png) Add a comment to the script: `# One-way ANOVA and Kruskal-Wallis` and load the **`tidyverse`** [@tidyverse] package
+![](images/do_in_R.png) Add a comment to the script: 
+`# One-way ANOVA and Kruskal-Wallis` and load 
+the **`tidyverse`** [@tidyverse] package
 
 # Exercises
 
 ## Myoglobin in seal muscle
 
-The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in [seal.csv](data-raw/seal.csv).
+The myoglobin concentration of skeletal muscle of three species 
+of seal in grams per kilogram of muscle was determined and the 
+data are given in [seal.csv](data-raw/seal.csv).
 We want to know if there is a difference between species.
 Each row represents an individual seal.
-The first column gives the myoglobin concentration and the second column indicates species.
+The first column gives the myoglobin concentration and the 
+second column indicates species.
 
-![](images/do_on_your_computer.png) Save a copy of the data file [seal.csv](data-raw/seal.csv) to `data-raw`
+![](images/do_on_your_computer.png) Save a copy of the data 
+file [seal.csv](data-raw/seal.csv) to `data-raw`
 
 ![](images/do_in_R.png) Read in the data and check the structure.
 I used the name `seal` for the dataframe/tibble.
@@ -106,7 +120,8 @@ str(seal)
 
 ### Exploring
 
-![](images/do_in_R.png) Do a quick plot of the data. You may need to refer to a previous workshop
+![](images/do_in_R.png) Do a quick plot of the data.
+You may need to refer to a previous workshop
 
 ```{r}
 #| include: false
@@ -119,11 +134,15 @@ ggplot(data = seal, aes(x = species, y = myoglobin)) +
 
 ### Summarising the data
 
-Do you remember [Look after future you!](../week-3/workshop.html#look-after-future-you)
+Do you remember 
+[Look after future you!](../week-3/workshop.html#look-after-future-you)
 
-![](images/do_in_R.png) If you followed that tip you'll be able to open that script and whizz through summarising,testing and plotting.
+![](images/do_in_R.png) If you followed that tip you'll be able to 
+open that script and whizz through summarising,testing and plotting.
 
-![](images/do_in_R.png) Create a data frame called `seal_summary` that contains the means, standard deviations, sample sizes and standard errors for each species.
+![](images/do_in_R.png) Create a data frame called `seal_summary` 
+that contains the means, standard deviations, sample sizes and 
+standard errors for each species.
 
 ```{r}
 #| include: false
@@ -150,7 +169,8 @@ knitr::kable(seal_summary) %>%
 
 ### Applying, interpreting and reporting
 
-We can now carry out a one-way ANOVA using the same `lm()` function we used for two-sample tests.
+We can now carry out a one-way ANOVA using the same `lm()` 
+function we used for two-sample tests.
 
 ![](images/do_in_R.png) Carry out an ANOVA and examine the results with:
 
@@ -159,7 +179,9 @@ mod <- lm(data = seal, myoglobin ~ species)
 summary(mod)
 ```
 
-Remember: the tilde (`~`) means test the values in `myoglobin` when grouped by the values in `species.` Or explain `myoglobin` with `species`
+Remember: the tilde (`~`) means test the values in `myoglobin` 
+when grouped by the values in `species.` Or explain `myoglobin` 
+with `species`
 
 ![](images/answer.png) What do you conclude so far from the test?
 Write your conclusion in a form suitable for a report.
@@ -170,7 +192,8 @@ Write your conclusion in a form suitable for a report.
 
 <!-- Seal species (F = 5.35; d.f. = 2, 87; p = 0.006). -->
 
-![](images/answer.png) Can you relate the values under `Estimate` to the means?
+![](images/answer.png) Can you relate the values under `Estimate` to 
+the means?
 
 <!-- #---THINKING ANSWER---  -->
 
@@ -186,10 +209,13 @@ Write your conclusion in a form suitable for a report.
 
 <!-- Weddell mean is β0 + β2  i.e., 42.316 + 2.344 -->
 
-The ANOVA is significant but this only tells us that species matters, meaning at least two of the means differ.
+The ANOVA is significant but this only tells us that species 
+matters, meaning at least two of the means differ.
 To find out which means differ, we need a post-hoc test.
-A post-hoc ("after this") test is done after a significant ANOVA test.
-There are several possible post-hoc tests and we will be using Tukey's HSD (honestly significant difference) test [@tukey1949] implemented in the **`emmeans`** [@emmeans] package.
+A post-hoc ("after this") test is done after a significant 
+ANOVA test. There are several possible post-hoc tests and we will 
+be using Tukey's HSD (honestly significant difference) test 
+[@tukey1949] implemented in the **`emmeans`** [@emmeans] package.
 
 ![](images/do_in_R.png) Load the package
 
@@ -204,9 +230,12 @@ emmeans(mod, ~ species) |> pairs()
 
 ```
 
-Each row is a comparison between the two means in the 'contrast' column. The 'estimate' column is the difference between those means and the 'p.value' indicates whether that difference is significant.
+Each row is a comparison between the two means in the 'contrast' 
+column. The 'estimate' column is the difference between those means 
+and the 'p.value' indicates whether that difference is significant.
 
-A plot can be used to visualise the result of the post-hoc which can be especially useful when there are very many comparisons.
+A plot can be used to visualise the result of the post-hoc which 
+can be especially useful when there are very many comparisons.
 
 ![](images/do_in_R.png) Plot the results of the post-hoc test:
 
@@ -226,11 +255,16 @@ Where the purple bars overlap, there is no significant difference.
 
 ### Check assumptions
 
-The assumptions of the general linear model are that the residuals -- the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance.
-To check these we can examine the `mod$residuals` variable.
-You may want to refer to [Checking assumptions](../week-2/workshop.html#checking-assumptions) in the "Single regression" workshop.
+The assumptions of the general linear model are that the 
+residuals -- the difference between predicted value 
+(i.e., the group mean) and observed values - are normally 
+distributed and have homogeneous variance. To check these we can 
+examine the `mod$residuals` variable. You may want to refer 
+to [Checking assumptions](../week-2/workshop.html#checking-assumptions) 
+in the "Single regression" workshop.
 
-![](images/do_in_R.png) Plot the model residuals against the fitted values.
+![](images/do_in_R.png) Plot the model residuals against the 
+fitted values.
 
 ```{r}
 #| include: false
@@ -244,11 +278,12 @@ plot(mod, which = 1)
 
 <!-- #---THINKING ANSWER--- -->
 
-<!-- The residuals look 'homogeneously' distributed. That is, the variance is the same  -->
+<!-- The residuals look 'homogeneously' distributed. That is,  -->
 
-<!-- for the two groups  -->
+<!-- the variance is the same for the two groups  -->
 
-To examine normality of the model residuals we can plot them as a histogram and do a normality test on them.
+To examine normality of the model residuals we can plot them as a 
+histogram and do a normality test on them.
 
 ![](images/do_in_R.png) Plot a histogram of the residuals.
 
@@ -261,7 +296,8 @@ ggplot(mapping = aes(x = mod$residuals)) +
   geom_histogram(bins = 10)
 ```
 
-![](images/do_in_R.png) Use the `shapiro.test()` to test the normality of the model residuals
+![](images/do_in_R.png) Use the `shapiro.test()` to test the 
+normality of the model residuals
 
 ```{r}
 #| include: false
@@ -284,7 +320,9 @@ shapiro.test(mod$residuals)
 ### Illustrating
 
 ![](images/do_in_R.png) Create a figure like the one below.
-You may need to refer to [Visualise](../../r4babs1/week-9/workshop.html#visualise) from the "Summarising data with several variables" workshop [@rand2023]
+You may need to refer to 
+[Visualise](../../r4babs1/week-9/workshop.html#visualise) from 
+the "Summarising data with several variables" workshop [@rand2023]
 
 We will again use both our `seal` and `seal_summary` dataframes.
 
@@ -365,10 +403,14 @@ ggsave("figures/seal.png",
 
 ## Leafminers on Birch
 
-Larvae of the Ambermarked birch leafminer, *Profenusa thomsoni*, feed on the interior leaf tissues of Birch (Betula) species.
-They do not normally kill the tree but can weaken it making it susceptible to attack from other species.
-Researchers are interested in whether there is a difference in the rates at which white, grey and yellow birch are attacked.
-They introduce adult female *P.thomsoni* to a green house containing 30 young trees (ten of each type) and later count the egg laying events on each tree.
+Larvae of the Ambermarked birch leafminer, *Profenusa thomsoni*, 
+feed on the interior leaf tissues of Birch (Betula) species.
+They do not normally kill the tree but can weaken it making 
+it susceptible to attack from other species. Researchers are 
+interested in whether there is a difference in the rates at 
+which white, grey and yellow birch are attacked. They introduce adult 
+female *P.thomsoni* to a green house containing 30 young trees 
+(ten of each type) and later count the egg laying events on each tree.
 The data are in [leaf.txt](data-raw/leaf.txt).
 
 ### Exploring
@@ -389,9 +431,11 @@ str(leaf)
 
 <!-- #---THINKING ANSWER---  -->
 
-<!-- we have birch, a categorical variable with three groups, and counts in -->
+<!-- we have birch, a categorical variable with three  -->
 
-<!-- eggs  which is the response. counts are numeric but discrete. -->
+<!-- groups, and counts in  eggs  which is the response.  -->
+
+<!-- counts are numeric but discrete. -->
 
 ![](images/do_in_R.png) Do a quick plot of the data.
 
@@ -404,23 +448,28 @@ ggplot(data = leaf, aes(x = birch, y = eggs)) +
   geom_boxplot()
 ```
 
-![](images/answer.png) Using your common sense, do these data look normally distributed?
+![](images/answer.png) Using your common sense, do these data look
+normally distributed?
 
 <!-- #---THINKING ANSWER---  -->
 
-<!-- No and little need to test - they're counts, and have unequal variances -->
+<!-- No and little need to test - they're counts, and have unequal  -->
+
+<!-- variances -->
 
 ![](images/answer.png) Why is a Kruskal-Wallis appropriate in this case?
 
 <!-- #---THINKING ANSWER---  -->
 
-<!-- the data are counts hence they are not continuous. We can sometimes treat  -->
+<!-- the data are counts hence they are not continuous. We can  -->
 
-<!-- count data as continuous if there is a large number of possible values and  -->
+<!-- sometimes treat count data as continuous if there is a large  -->
 
-<!-- the distance between each value relative to the range is small but this is  -->
+<!-- number of possible values and the distance between each value  -->
 
-<!-- not the case here. In addition there are only ten values in each group  -->
+<!-- relative to the range is small but this is not the case here.  -->
+
+<!-- In addition there are only ten values in each group -->
 
 ![](images/do_in_R.png) Calculate the medians, means and sample sizes.
 
@@ -451,8 +500,9 @@ kruskal.test(data = leaf, eggs ~ birch)
 
 <!-- the number of laying events by *P.thomsoni*  -->
 
-A significant Kruskal-Wallis tells us at least two of the groups differ but where do the differences lie?
-The Dunn test is a post-hoc multiple comparison test for a significant Kruskal-Wallis.
+A significant Kruskal-Wallis tells us at least two of the groups differ 
+but where do the differences lie? The Dunn test is a post-hoc multiple 
+comparison test for a significant Kruskal-Wallis.
 It is available in the package **`FSA`**
 
 ![](images/do_in_R.png) Load the package using:
@@ -467,8 +517,8 @@ library(FSA)
 dunnTest(data = leaf, eggs ~ birch)
 ```
 
-The `P.adj` column gives *p*-value for the comparison listed in the first column.
-`Z` is the test statistic.
+The `P.adj` column gives *p*-value for the comparison listed 
+in the first column. `Z` is the test statistic.
 
 ![](images/answer.png) What do you conclude from the test?
 
@@ -482,20 +532,22 @@ The `P.adj` column gives *p*-value for the comparison listed in the first column
 
 <!-- #---THINKING ANSWER---  -->
 
-<!-- There is a significant difference in the rate of leafminer attack between birch  -->
+<!-- There is a significant difference in the rate of leafminer  -->
 
-<!-- species (Kruskal-Wallis: chi-squared = 6.34, df = 2, p-value = 0.042).  -->
+<!-- attack between birch species (Kruskal-Wallis: chi-squared = 6.34, -->
 
-<!-- Post-hoc testing revealed that difference to be between the White Birch with the  -->
+<!-- df = 2, p-value = 0.042). Post-hoc testing revealed that  -->
 
-<!-- lowest number of eggs (median = 14) and Yellow Birch with the highest (median = 54)  -->
+<!-- difference to be between the White Birch with the lowest number  -->
 
-<!-- (*z* = 2.52; *p* = 0.035).  -->
+<!-- of eggs (median = 14) and Yellow Birch with the highest  -->
+
+<!-- (median = 54) (*z* = 2.52; *p* = 0.035). -->
 
 ### Illustrating
 
-![](images/do_in_R.png) A box plot is an appropriate choice for illustrating a Kruskal-Wallis.
-Can you produce a figure like this?
+![](images/do_in_R.png) A box plot is an appropriate choice for 
+illustrating a Kruskal-Wallis. Can you produce a figure like this?
 
 ```{r}
 #| echo: false
@@ -525,13 +577,19 @@ You're finished!
 
 [Consolidate](study_after_workshop.qmd)
 
-
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is 
+not visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-4/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical.
+Qmd stands for Quarto markdown.
+It allows code and ordinary text to be interweaved to produce 
+well-formatted reports including webpages.
+[View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-4/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` 
+and `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1; @knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References

@@ -3,25 +3,30 @@ title: "Overview"
 subtitle: "One-way ANOVA and Kruskal-Wallis"
 toc: true
 toc-location: right
-
 ---
 
-Last week you learnt how to use and interpret the general linear model when the *x* variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (**an**alysis **o**f **var**iance). You will also learn about the Kruskal-Wallis test which can be used when the assumptions of the general linear model are not met.
+Last week you learnt how to use and interpret the general linear model
+when the *x* variable was categorical with two groups. You will now
+extend that to situations when there are more than two groups. This is
+often known as the one-way ANOVA (**an**alysis **o**f **var**iance). You
+will also learn about the Kruskal-Wallis test which can be used when the
+assumptions of the general linear model are not met.
 
 ### Learning objectives
 
 The successful student will be able to:
 
--   explain the rationale for ANOVA 
+-   explain the rationale for ANOVA
 
--   select, appropriately, one-way ANOVA and Kruskal-Wallis 
+-   select, appropriately, one-way ANOVA and Kruskal-Wallis
 
--   know what functions are used in R to run these tests and how to interpret them
+-   know what functions are used in R to run these tests and how to
+    interpret them
 
 -   evaluate whether the assumptions of `lm()` are met
 
--   scientifically report the results of these tests including appropriate figures
-
+-   scientifically report the results of these tests including
+    appropriate figures
 
 ### Instructions
 
@@ -29,14 +34,14 @@ The successful student will be able to:
 
     i.  📖 Read One-way ANOVA and Kruskal-Wallis
 
-
 2.  [Workshop](workshop.qmd)
-    
-    i. 💻 One-way ANOVA
+
+    i.  💻 One-way ANOVA
     ii. 💻 Kruskal-Wallis
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻  Appropriately test if fitness and acclimation effect the sodium content of sweat
-    ii.  💻  Appropriately test if insecticides vary in their effectiveness
-
+    i.  💻 Appropriately test if fitness and acclimation effect the
+        sodium content of sweat
+    ii. 💻 Appropriately test if insecticides vary in their
+        effectiveness
