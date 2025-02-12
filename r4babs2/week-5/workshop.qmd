@@ -48,7 +48,6 @@ These four symbols are used at the beginning of each instruction so you know whe
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and click on the `...` on the right. This will open a "Go to folder" window. Navigate to a place on your computer where you keep your work. Click Open.
 
 ![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-5`.
 
