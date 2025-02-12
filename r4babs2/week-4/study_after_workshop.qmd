@@ -11,7 +11,8 @@ format:
 
 # Set up
 
-If you have just opened RStudio you will want to load the **`tidyverse`** package
+If you have just opened RStudio you will want to load the
+**`tidyverse`** package
 
 ```{r}
 #| code-fold: false
@@ -20,8 +21,13 @@ library(tidyverse)
 
 # Exercises
 
-1.  💻  Sports scientists were investigating the effects of fitness and heat acclimatisation on the sodium content of sweat. They measured the sodium content of the sweat (μmoll^−1) of three groups of individuals: unfit and unacclimatised (UU); fit and unacclimatised(FU); and fit and acclimatised (FA). The are in [sweat.txt](data-raw/sweat.txt). Is there a difference between the groups in the sodium content of their sweat?
-
+1.  💻 Sports scientists were investigating the effects of fitness and
+    heat acclimatisation on the sodium content of sweat. They measured
+    the sodium content of the sweat (μmoll\^−1) of three groups of
+    individuals: unfit and unacclimatised (UU); fit and
+    unacclimatised(FU); and fit and acclimatised (FA). The are in
+    [sweat.txt](data-raw/sweat.txt). Is there a difference between the
+    groups in the sodium content of their sweat?
 
 ```{r}
 #| output: false
@@ -30,7 +36,6 @@ library(tidyverse)
 sweat <- read_table("data-raw/sweat.txt")
 str(sweat)
 ```
-
 
 ```{r}
 #| output: false
@@ -43,12 +48,11 @@ ggplot(data = sweat, aes(x = gp, y = na)) +
 # However, don't panic if you decided to do an anova
 ```
 
-
 ```{r}
 #| output: false
 # calculate some summary stats 
-sweat_summary <- sweat %>% 
-  group_by(gp) %>% 
+sweat_summary <- sweat |> 
+  group_by(gp) |> 
   summarise(mean = mean(na),
             n = length(na),
             median = median(na))
@@ -81,7 +85,6 @@ dunnTest(data = sweat, na ~ gp)
 # There was no difference between the Fit and unacclimatised and the Fit and acclimatised. See figure 1.
 ```
 
-
 ```{r}
 #| output: false
 ggplot(sweat, aes(x = gp, y = na) ) +
@@ -112,10 +115,13 @@ ggplot(sweat, aes(x = gp, y = na) ) +
 
 ```
 
-
-
-
-2.  💻   The data are given in [biomass.txt](data-raw/biomass.txt) are taken from an experiment in which the insect pest biomass (g) was measured on plots sprayed with water (control) or one of five different insecticides. Do the insecticides vary in their effectiveness? What advice would you give to a person: - currently using insecticide E? - trying to choose between A and D? - trying to choose between C and B?
+2.  💻 The data are given in [biomass.txt](data-raw/biomass.txt) are
+    taken from an experiment in which the insect pest biomass (g) was
+    measured on plots sprayed with water (control) or one of five
+    different insecticides. Do the insecticides vary in their
+    effectiveness? What advice would you give to a person: - currently
+    using insecticide E? - trying to choose between A and D? - trying to
+    choose between C and B?
 
 ```{r}
 #| output: false
@@ -150,8 +156,8 @@ ggplot(data = biom, aes(x = spray, y = biomass)) +
 #| output: false
 
 # summary statistics
-biom_summary <- biom %>% 
-  group_by(spray) %>% 
+biom_summary <- biom |> 
+  group_by(spray) |> 
   summarise(mean = mean(biomass),
             median = median(biomass),
             sd = sd(biomass),

@@ -55,8 +55,8 @@ ggplot(data = csativa, aes(x = plant, y = omega)) +
 #| output: false
 
 # create a summary of the data
-csativa_summary <- csativa %>%
-  group_by(plant) %>%
+csativa_summary <- csativa |>
+  group_by(plant) |>
   summarise(mean = mean(omega),
             std = sd(omega),
             n = length(omega),
