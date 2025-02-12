@@ -13,58 +13,90 @@ library(kableExtra)
 
 # Introduction
 
-![Artwork by @allison_horst: "How much I think I know about R"](images/how-much-i-know.png){fig-alt="Illustrated line plot of 'How much I think I know about R' on the y-axis, and 'Time' on the x-axis. Along the line are emoji-style faces, showing the non-linear progression of R knowledge over time. At first, a nervous face becomes a happy face early on in learning, then a grimace face at an intermediate peak before a steep decline (with an exhausted face at the local minimum). Then, a determined face charges back up a hill, reaching another peak with a mind-blown face and text annotation 'join R community on twitter' followed by another decline, but this time the faces look happy even though their 'How much I think I know about R' value is declining." width="800"}
+![Artwork by @allison_horst: "How much I think I know about
+R"](images/how-much-i-know.png){fig-alt="Illustrated line plot of 'How much I think I know about R' on the y-axis, and 'Time' on the x-axis. Along the line are emoji-style faces, showing the non-linear progression of R knowledge over time. At first, a nervous face becomes a happy face early on in learning, then a grimace face at an intermediate peak before a steep decline (with an exhausted face at the local minimum). Then, a determined face charges back up a hill, reaching another peak with a mind-blown face and text annotation 'join R community on twitter' followed by another decline, but this time the faces look happy even though their 'How much I think I know about R' value is declining."
+width="800"}
 
 ## Session overview
 
-In this workshop you will get practice in choosing between, performing, and presenting the results of, two-sample tests and their non-parametric equivalents in R.
+In this workshop you will get practice in choosing between, performing,
+and presenting the results of, two-sample tests and their non-parametric
+equivalents in R.
 
 ## Philosophy
 
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
+Workshops are not a test. It is expected that you often don't know how
+to start, make a lot of mistakes and need help. It is expected that you
+are familiar with independent study content before the workshop.
+However, you need not remember or understand every detail as the
+workshop should build and consolidate your understanding. Tips
 
 -   don't worry about making mistakes
 -   don't let what you can not do interfere with what you can do
 -   discussing code with your neighbours will help
 -   look things up in the independent study material
--   look things up in your own code from earlier 
+-   look things up in your own code from earlier
 -   there are no stupid questions
 
 ::: callout-note
 ## Key
 
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+These four symbols are used at the beginning of each instruction so you
+know where to carry out the instruction.
 
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
+![](images/do_on_your_computer.png) Something you need to do on your
+computer. It may be opening programs or documents or locating a file.
 
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+![](images/do_in_R.png) Something you should do in RStudio. It will
+often be typing a command or using the menus but might also be creating
+folders, locating or moving files.
 
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
+![](images/do_on_internet.png) Something you should do in your browser
+on the internet. It may be searching for information, going to the VLE
+or downloading a file.
 
-![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+![](images/answer.png) A question for you to think about and answer.
+Record your answers in your script for future reference.
 :::
 
 # Getting started
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-3`.
+![](images/do_in_R.png) Make an RStudio project for this workshop by
+clicking on the drop-down menu on top right where it says
+`Project: (None)` and choosing New Project, then New Directory, then New
+Project. Navigate to the `data-analysis-in-r-2` folder and name the
+RStudio Project `week-3`.
 
-![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+![](images/do_in_R.png) Make new folders called `data-raw` and
+`figures`. You can do this on the Files Pane by clicking New Folder and
+typing into the box that appears.
 
-![](images/do_in_R.png) Make a new script then save it with a name like `two-sample-tests.R` to carry out the rest of the work.
+![](images/do_in_R.png) Make a new script then save it with a name like
+`two-sample-tests.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Two-sample tests` and load the **`tidyverse`** [@tidyverse] package
+![](images/do_in_R.png) Add a comment to the script:
+`# Two-sample tests` and load the **`tidyverse`** [@tidyverse] package
 
-# Exercises 
+# Exercises
 
 ## Adiponectin secretion
 
-Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in [adipocytes.txt](data-raw/adipocytes.txt). Each row represents an independent sample of adipocytes and the first column gives the concentration adiponectin and the second column indicates whether they were treated with nicotinic acid or not. 
+Adiponectin is exclusively secreted from adipose tissue and modulates a
+number of metabolic processes. Nicotinic acid can affect adiponectin
+secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a
+control treatment and adiponectin concentration (pg/mL) measured in the
+medium. The data are in [adipocytes.txt](data-raw/adipocytes.txt). Each
+row represents an independent sample of adipocytes and the first column
+gives the concentration of adiponectin and the second column indicates
+whether they were treated with nicotinic acid or not (the control).
 
-![](images/do_on_your_computer.png) Save a copy of [adipocytes.txt](data-raw/adipocytes.txt) to `data-raw`
+![](images/do_on_your_computer.png) Save a copy of
+[adipocytes.txt](data-raw/adipocytes.txt) to `data-raw`
 
-![](images/do_in_R.png) Read in the data and check the structure. I used the name `adip` for the dataframe/tibble.
+![](images/do_in_R.png) Read in the data and check the structure. I used
+the name `adip` for the dataframe/tibble.
 
 ```{r}
 #| include: false  
@@ -74,30 +106,42 @@ adip  <-  read_table("data-raw/adipocytes.txt")
 str(adip)
 ```
 
-We have a tibble containing two variables: `adiponectin` is the response and is continuous and `treatment` is explanatory. `treatment` is categorical with two levels (groups). The first task is visualise the data to get an overview. For continuous response variables with categorical explanatory variables you could use `geom_point()`, `geom_boxplot()` or a variety of other geoms. I often use `geom_violin()` which allows us to see the distribution  - the violin is fatter where there are more data points.
-
-
+We have a tibble containing two variables: `adiponectin` is the response
+variable and is continuous; `treatment` is explanatory. `treatment` is
+categorical with two levels (groups). The first task is visualise the
+data to get an overview. For continuous response variables with
+categorical explanatory variables you could use `geom_point()`,
+`geom_boxplot()` or a variety of other geoms. I often use
+`geom_violin()` which allows us to see the distribution - the violin is
+fatter where there are more data points.
 
 ![](images/do_in_R.png) Do a quick plot of the data:
+
 ```{r}
 ggplot(data = adip, aes(x = treatment, y = adiponectin)) +
   geom_violin()
 ```
 
-
 ### Summarising the data
 
-Summarising the data for each treatment group is the next sensible step. The most useful summary statistics are the means, standard deviations, sample sizes and standard errors.
+Summarising the data for each treatment group is the next sensible step.
+The most useful summary statistics are the means, standard deviations,
+sample sizes and standard errors.
 
-![](images/do_in_R.png) Create a data frame called `adip_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples. You may need to read the [Summarise](../../r4babs1/week-9/workshop.html#summarise) from the Week 9 workshop of BABS1 [@rand2023]
+![](images/do_in_R.png) Create a data frame called `adip_summary` that
+contains the means, standard deviations, sample sizes and standard
+errors for the control and nicotinic acid treated samples. You may need
+to read the [Summarise
+section](../../r4babs1/week-9/workshop.html#summarise) from the Week 9
+workshop of BABS1 [@rand2023]
 
 ```{r}
 #| include: false  
 
 #| #---CODING ANSWER---
 
-adip_summary <- adip %>%
-  group_by(treatment) %>%
+adip_summary <- adip |>
+  group_by(treatment) |>
   summarise(mean = mean(adiponectin),
             std = sd(adiponectin),
             n = length(adiponectin),
@@ -109,22 +153,33 @@ You should get the following numbers:
 
 ```{r}
 #| echo: false
-knitr::kable(adip_summary) %>% 
+knitr::kable(adip_summary) |> 
   kableExtra::kable_styling()
 ```
 
+::: callout-tip
+Remember that you can see the contents of a dataframe with any of these:
+
+-   type the name of the dataframe in the console: prints the dataframe
+    to console
+-   click on the dataframe name in the Environment window: opens a
+    spreadsheet like view of the dataframe in the Code window
+-   typing `View(dataframe)` in the console: opens a spreadsheet like
+    view of the dataframe in the Code window
+:::
 
 ### Selecting a test
 
-![](images/answer.png) Do you think this is a paired-sample test or two-sample test?
+![](images/answer.png) Do you think this is a paired-sample test or
+two-sample test?
 
 <!-- #---THINKING ANSWER---  -->
 
 <!-- Two-sample - the samples are either control or nicotinic acid treated, not both.  -->
+
 <!-- There is no link between the first control value and the first nicotinic acid  -->
+
 <!-- value. The two samples are independent and it is a two-sample -->
-
-
 
 ### Applying, interpreting and reporting
 
@@ -135,31 +190,36 @@ mod <- lm(data = adip,
           adiponectin ~ treatment)
 ```
 
-
 ![](images/do_in_R.png) Examine the model with:
 
 ```{r}
 summary(mod)
 ```
 
-
-
-![](images/answer.png) What do you conclude from the test? Write your conclusion in a form suitable for a report. 
+![](images/answer.png) What do you conclude from the test? Write your
+conclusion in a form suitable for a report.
 
 <!-- #---THINKING ANSWER---  -->
 
 <!-- Adipocytes treated with nicotinic acid (mean +/- s.e.: 7.51 +/- 0.38 pg/mL)  -->
+
 <!-- secrete significantly more adiponectin than controls (5.55  +/- 0.46 pg/mL)  -->
+
 <!-- (t = 3.27; d.f. = 28; p = 0.003). -->
-
-
-
 
 ### Check assumptions
 
-The assumptions of the general linear model are that the residuals – the difference between predicted value (i.e., the group mean) and observed values - are normally distributed and have homogeneous variance. To check these we can examine the `mod$residuals` variable. You may want to refer to [Checking assumptions](../week-2/workshop.html#checking-assumptions) in the "Single regression" workshop.
+The assumptions of the general linear model are that the residuals – the
+difference between predicted value (*i.e*., the group mean) and observed
+values - are normally distributed, and have homogeneous variance. To
+check these we can examine the `mod$residuals` variable. You may want to
+refer to [Checking
+assumptions](../week-2/workshop.html#checking-assumptions) in the
+"Single regression" workshop.
 
-![](images/do_in_R.png)  Plot the model residuals against the fitted values.
+![](images/do_in_R.png) Plot the model residuals against the fitted
+values.
+
 ```{r}
 #| include: false
 
@@ -168,17 +228,19 @@ The assumptions of the general linear model are that the residuals – the diffe
 plot(mod, which = 1)
 ```
 
-
-![](images/answer.png)  What to you conclude?
+![](images/answer.png) What to you conclude?
 
 <!-- #---THINKING ANSWER--- -->
 
 <!-- The residuals look 'homogeneously' distributed. That is, the variance is the same  -->
+
 <!-- for the three groups  -->
 
-To examine normality of the model residuals we can plot them as a histogram and do a normality test on them.
+To examine normality of the model residuals we can plot them as a
+histogram and do a normality test on them.
 
-![](images/do_in_R.png)  Plot a histogram of the residuals.
+![](images/do_in_R.png) Plot a histogram of the residuals.
+
 ```{r}
 #| include: false
 
@@ -188,9 +250,9 @@ ggplot(mapping = aes(x = mod$residuals)) +
   geom_histogram(bins = 10)
 ```
 
+![](images/do_in_R.png) Use the `shapiro.test()` to test the normality
+of the model residuals
 
-
-![](images/do_in_R.png) Use the `shapiro.test()` to test the normality of the model residuals
 ```{r}
 #| include: false
 
@@ -199,18 +261,21 @@ ggplot(mapping = aes(x = mod$residuals)) +
 shapiro.test(mod$residuals)
 ```
 
-![](images/answer.png)  What to you conclude?
+![](images/answer.png) What to you conclude?
 
 <!-- #---THINKING ANSWER--- -->
 
 <!-- the residuals appear roughly normally distributed.  -->
+
 <!-- The histogram is symmetrical and the shapiro test is NS. -->
 
 <!-- Overall, it seems the assumptions are met -->
 
 ### Illustrating
 
-![](images/do_in_R.png) Create a figure like the one below. You may need to refer to [Visualise](../../r4babs1/week-9/workshop.html#visualise) from the "Summarising data with several variables" workshop [@rand2023]
+![](images/do_in_R.png) Create a figure like the one below. You may need
+to refer to [Visualise](../../r4babs1/week-9/workshop.html#visualise)
+from the "Summarising data with several variables" workshop [@rand2023]
 
 ```{r}
 #| echo: false
@@ -235,11 +300,15 @@ ggplot() +
 
 ```
 
-
-We now need to annotate the figure with the results from the statistical test. This most commonly done with a line linking the means being compared and the *p*-value. The `annotate()` function can be used to draw the line and then to add the value. The line is a `segment` and the *p*-value is a `text`.
+We now need to annotate the figure with the results from the statistical
+test. This most commonly done with a line linking the means being
+compared and the *p*-value. The `annotate()` function can be used to
+draw the line and then to add the value. The line is a `segment` and the
+*p*-value is a `text`.
 
 ![](images/do_in_R.png) Add annotation to the figure by adding:
-```r
+
+``` r
 ...... +
   annotate("segment", x = 1, xend = 2, 
            y = 11.3, yend = 11.3,
@@ -247,7 +316,7 @@ We now need to annotate the figure with the results from the statistical test. T
   annotate("text", x = 1.5,  y = 11.7, 
            label = expression(italic(p)~"= 0.003")) +
   theme_classic()
-```  
+```
 
 ```{r}
 #| echo: false
@@ -275,17 +344,28 @@ ggplot() +
   theme_classic()
 ```
 
+For the segment, `annotate()` needs the *x* and *y* coordinates for the
+start and the finish of the line.
 
+The use of `expression()` allows you to specify formatting or special
+characters. `expression()` takes strings[^1] or
+[LaTeX](https://en.wikipedia.org/wiki/LaTeX)[^2] formatting. Each string
+or piece of LaTeX is separated by a `*` or a `~`. The `*` concatenates
+the strings without a space, `~` does so with a space. It will generate
+a warning message "In is.na(x) : is.na() applied to non-(list or vector)
+of type 'expression'" which can be ignored.
 
+[^1]: A string in R is a sequence of characters enclosed in quotes, used
+    to represent text data.
 
-For the segment, `annotate()` needs the *x* and *y* coordinates for the start and the finish of the line.
+[^2]: LaTeX is a typesetting system used for scientific documents,
+    enabling precise control over equations, symbols, and document
+    structure.
 
-The use of `expression()` allows you to specify formatting or special characters. `expression()` takes strings or [LaTeX](https://en.wikipedia.org/wiki/LaTeX) formatting. Each string or piece of LaTeX is separated by a `*` or a `~`. The `*` concatenates the strings without a space, `~` does so with a space.
-It will generate a warning message "In is.na(x) : is.na() applied to non-(list or vector) of type 'expression'" which can be ignored.
+![](images/do_in_R.png) Save your figure to your figures folder. Make
+sure you [script figure saving with
+`ggsave()`](../../r4babs1/week-9/workshop.html#writing-figures-to-file).
 
-
-
-![](images/do_in_R.png) Save your figure to your figures folder. Make sure you [script figure saving with `ggsave()`](../../r4babs1/week-9/workshop.html#writing-figures-to-file).
 ```{r}
 #| include: false
 
@@ -316,7 +396,6 @@ fig1 <- ggplot() +
 
 ```
 
-
 ```{r}
 #| include: false
 
@@ -334,12 +413,16 @@ ggsave("figures/adipo.png",
 
 ## Grouse Parasites
 
-Grouse livers were dissected and the number of individuals of a parasitic nematode were counted for two estates 'Gordon' and 'Moss'. We want to know if the two estates have different infection rates. The data are in [grouse.csv](data-raw/grouse.csv)
+Grouse livers were dissected and the number of individuals of a
+parasitic nematode were counted for two estates 'Gordon' and 'Moss'. We
+want to know if the two estates have different infection rates. The data
+are in [grouse.csv](data-raw/grouse.csv)
 
+![](images/do_on_your_computer.png) Save a copy of
+[grouse.csv](data-raw/grouse.csv) to `data-raw`
 
-![](images/do_on_your_computer.png) Save a copy of [grouse.csv](data-raw/grouse.csv) to `data-raw`
-
-![](images/do_in_R.png) Read in the data and check the structure. I used the name `grouse` for the dataframe/tibble.
+![](images/do_in_R.png) Read in the data and check the structure. I used
+the name `grouse` for the dataframe/tibble.
 
 ```{r}
 #| include: false  
@@ -348,17 +431,17 @@ Grouse livers were dissected and the number of individuals of a parasitic nemato
 grouse  <-  read_csv("data-raw/grouse.csv")
 str(grouse)
 ```
- 
 
 ### Selecting
 
-![](images/answer.png) Using your common sense, do these data look normally distributed? 
+![](images/answer.png) Using your common sense, do these data look
+normally distributed?
 
 <!-- #---THINKING ANSWER---  -->
 
 <!-- No and little need to test/plot - they're counts, skewed and  -->
-<!-- have unequal variances -->
 
+<!-- have unequal variances -->
 
 ![](images/answer.png) What test do you suggest?
 
@@ -366,44 +449,51 @@ str(grouse)
 
 <!-- two-sample Wilcoxon (unpaired) AKA Mann-Whitney -->
 
-
 ### Applying, interpreting and reporting
 
-![](images/do_in_R.png) Summarise the data by finding the median of each group:
+![](images/do_in_R.png) Summarise the data by finding the median of each
+group:
+
 ```{r}
 #| include: false  
 
 # ---CODING ANSWER---
-grouse %>% 
-  group_by(estate) %>% 
+grouse |> 
+  group_by(estate) |> 
   summarise(median(nematodes))
 ```
 
+![](images/do_in_R.png) Carry out a two-sample Wilcoxon test (also known
+as a Mann-Whitney):
 
-![](images/do_in_R.png)  Carry out a two-sample Wilcoxon test (also known as a Mann-Whitney):
 ```{r}
 wilcox.test(data = grouse, nematodes ~ estate)
 ```
-![](images/answer.png) What do you conclude from the test? Write your conclusion in a form suitable for a report. 
+
+![](images/answer.png) What do you conclude from the test? Write your
+conclusion in a form suitable for a report.
 
 <!-- #---THINKING ANSWER---  -->
 
 <!-- Grouse on Gordon had significantly more nematodes (median = 13.5) than those  -->
+
 <!-- on Moss (median = 5) (W = 78; n1 = 10, n2 = 10; p = 0.03546). -->
-
-
 
 ### Illustrating
 
-A box plot is a usually good choice for illustrating a two-sample Wilcoxon test because it shows the median and interquartile range.
+A box plot is a usually good choice for illustrating a two-sample
+Wilcoxon test because it shows the median and interquartile range.
 
-![](images/do_in_R.png) We can create a simple boxplot with:  
+![](images/do_in_R.png) We can create a simple boxplot with:
+
 ```{r}
 ggplot(data = grouse, aes(x = estate, y = nematodes) ) +
   geom_boxplot() 
 ```
 
-![](images/do_in_R.png) Annotate and format the figure so it is more suitable for a report and save it to your figures folder.  
+![](images/do_in_R.png) Annotate and format the figure so it is more
+suitable for a report and save it to your figures folder.
+
 ```{r}
 #| include: false  
 
@@ -434,18 +524,26 @@ ggsave("figures/grouse.png",
 
 ## Gene Expression
 
-Bambara groundnut (*Vigna subterranea*) is an African legume with good  nutritional value which can be influenced by low temperature stress. Researchers are interested in the expression levels of a particular set of 35 genes (`probe_id`) in response to temperature stress. They measure the expression of the genes at 23 and 18 degrees C (high and low temperature). These samples are **not** independent because we have two measure from one gene. The data are in [expr.xlsx](data-raw/expr.xlsx).
+Bambara groundnut (*Vigna subterranea*) is an African legume with good
+nutritional value which can be influenced by low temperature stress.
+Researchers are interested in the expression levels of a particular set
+of 35 genes (`probe_id`) in response to temperature stress. They measure
+the expression of the genes at 23 and 18 degrees C (high and low
+temperature). These samples are **not** independent because we have two
+measure from one gene. The data are in [expr.xlsx](data-raw/expr.xlsx).
 
 ### Selecting
+
 ![](images/answer.png) What is the null hypothesis?
 
 <!-- #---THINKING ANSWER---  -->
 
 <!-- expression is not affected by temperature / for each gene,  -->
+
 <!-- the expression at the higher t   = expression at the lower t -->
 
-
-![](images/do_in_R.png) Save a copy of [expr.xlsx](data-raw/expr.xlsx) and import the data. I named the dataframe `bambara`
+![](images/do_in_R.png) Save a copy of [expr.xlsx](data-raw/expr.xlsx)
+and import the data. I named the dataframe `bambara`
 
 ```{r}
 #| include: false  
@@ -463,30 +561,16 @@ bambara  <-  read_excel("data-raw/expr.xlsx")
 
 <!-- the appropriate parametric test is the paired sample lm  -->
 
-
 ### Applying, interpreting and reporting
 
-A paired test requires us to test whether the difference in expression between high and low temperatures is zero on average. One handy way to achieve this is to organise our groups into two columns. The `pivot_wider()` function will do this for us. We need to tell it what column gives the identifiers (i.e., matches the the pairs) - the probe_ids in this case. We also need to say which variable contains what will become the column names and which contains the values.
-
-![](images/do_in_R.png) Pivot the data so there is a column for each temperature: 
-```{r}
-bambara <- bambara |> 
-  pivot_wider(names_from = temperature, 
-              values_from = expression, 
-              id_cols = probe_id)
-```
-
-![](images/do_in_R.png) Click on the `bambara` dataframe in the environment to open a view of it so that you understand what `pivot_wider()` has done.
-
+A paired test requires account for the variation between genes.
 
 ![](images/do_in_R.png) Create a paired-sample model like this:
 
 ```{r}
 mod <- lm(data = bambara, 
-          highert - lowert ~ 1)
+          expression ~ temperature + probe_id)
 ```
-
-Since we have done `highert - lowert`, the "(Intercept) Estimate" will be the average of the higher temperature expression minus the lower temperature expression for each gene.
 
 ![](images/do_in_R.png) Examine the model with:
 
@@ -494,40 +578,56 @@ Since we have done `highert - lowert`, the "(Intercept) Estimate" will be the av
 summary(mod)
 ```
 
+The "(Intercept) Estimate" will be the average of the higher temperature
+expression because `h` come before `l` in the alphabet. The
+"temperaturelowert" is how much the expression changes on average going
+from higher to lower temperatures. You can ignore the rest of the
+output.
 
-![](images/answer.png) State your conclusion from the test in a form suitable for including in a report. Make sure you give the direction of any significant effect.
+![](images/answer.png) State your conclusion from the test in a form
+suitable for including in a report. Make sure you give the direction of
+any significant effect.
 
 <!-- #---THINKING ANSWER--- -->
 
 <!-- The expression of individual genes is significantly higher at higher temperatures  -->
-<!-- than lower temperatures (t = 3.20, d.f. = 34, p = 0.0029) with an average difference -->
-<!-- of 0.307 units. -->
 
+<!-- than lower temperatures (t = 3.20, d.f. = 34, p = 0.0029) with an average difference -->
+
+<!-- of 0.307 units. -->
 
 ## Look after future you!
 
-The code required to summarise, test, and plot data for a two-independent-samples test AND for a one-way ANOVA is **exactly the same** except for the names of the dataframe, variables and the axis labels and limits. Take some time to comment it your code so that you can make use of it next week.
+The code required to summarise, test, and plot data for a
+two-independent-samples test AND for a one-way ANOVA is **exactly the
+same** except for the names of the dataframe, variables and the axis
+labels and limits. Take some time to comment it your code so that you
+can make use of it next week.
 
 ![](images/future_you.png){fig-alt="xxx" width="300"}
-
 
 You're finished!
 
 # 🥳 Well Done! 🎉
 
-
-
 # Independent study following the workshop
 
 [Consolidate](study_after_workshop.qmd)
 
-
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not
+visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd
+stands for Quarto markdown. It allows code and ordinary text to be
+interweaved to produce well-formatted reports including webpages. [View
+the Qmd in
+Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and
+`#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr],
+`kableExtra` [@kableExtra]
 
 # References
