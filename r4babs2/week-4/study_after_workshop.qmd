@@ -233,6 +233,8 @@ emmeans(mod, ~ spray) |> pairs()
 
 # I reordered the bars to make is easier for me to annotate with
 # I also used * to indicate significance
+# Normally we don't mark NS results but here I have because it is an 
+# important result - E is useless
 
 ggplot() +
   geom_point(data = biom, aes(x = reorder(spray, biomass), y = biomass),

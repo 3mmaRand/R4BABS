@@ -5,8 +5,19 @@ toc: true
 toc-location: right
 ---
 
-This week we will extend of our understanding by learning how to include *two*
-categorical explanatory variables in a general linear model. This model is often known as the two-way ANOVA. It has three null hypotheses
+So far you have learnt how to use and interpret the general linear model
+when:
+
+-   the *x* variable was continuous
+-   the *x* variable was categorical with two groups
+-   the *x* variable was categorical with two or more groups
+
+This week we will extend of our understanding by learning how to include
+*two* categorical explanatory variables in a general linear model. This
+model is often known as the two-way ANOVA. It allows us to design
+experiments to test whether a response is influenced by two variables
+*and* whether those two variables act independently on the response or
+interact in some way.
 
 ### Learning objectives
 
@@ -22,8 +33,8 @@ The successful student will be able to:
 
 -   understand the meaning of the interaction term
 
--   scientifically report a two-way ANOVA result including appropriate figures
-
+-   scientifically report a two-way ANOVA result including appropriate
+    figures
 
 ### Instructions
 
@@ -31,14 +42,12 @@ The successful student will be able to:
 
     i.  📖 Read Two-way ANOVA
 
-
 2.  [Workshop](workshop.qmd)
-    
-    i. 💻 Two-way ANOVA Choline deficiency on neuron size
-    <!-- ii. 💻 What to do when the assumptions are not met -->
+
+    i.  💻 Two-way ANOVA Choline deficiency on neuron size
+        <!-- ii. 💻 What to do when the assumptions are not met -->
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  💻 Appropriately test whether there are regional differences between 
-    two species of butterfly.
-
+    i.  💻 Appropriately test whether there are regional differences
+        between two species of butterfly.
