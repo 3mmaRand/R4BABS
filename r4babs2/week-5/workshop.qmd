@@ -516,7 +516,6 @@ not on top of each other. We can achieve that by:
 by side above each brain region:
 
 ```{r}
-#| highlight: [4-6, 13, 15, 20, 23]
 
 ggplot() +
   geom_point(data = neuron, 
