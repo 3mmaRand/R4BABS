@@ -456,7 +456,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <figcaption>Artwork by <span class="citation" data-cites="allison_horst">Horst (<a href="#ref-allison_horst" role="doc-biblioref">2023</a>)</span>:</figcaption></figure>
 </div>
 <section id="session-overview" class="level2"><h2 class="anchored" data-anchor-id="session-overview">Session overview</h2>
-<p>In this workshop you will get practice in applying, interpreting and reporting two-way ANOVA including the interaction term and post-hoc testing.</p>
+<p>In this workshop you will get practice in applying, interpreting and reporting a two-way ANOVA including the interaction term and post-hoc testing.</p>
 </section><section id="philosophy" class="level2"><h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
 <p>Workshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips</p>
 <ul>
@@ -492,13 +492,13 @@ Key
 <p><img src="images/do_in_R.png" class="img-fluid"> Add a comment to the script: <code># Two-way ANOVA</code></p>
 </section><section id="exercises" class="level1"><h1>Exercises</h1>
 <section id="effect-of-brain-region-and-choline-deficiency-on-neuron-size" class="level2"><h2 class="anchored" data-anchor-id="effect-of-brain-region-and-choline-deficiency-on-neuron-size">Effect of brain region and choline deficiency on neuron size</h2>
-<p>Cognitive performance is influenced by the choline intake in utero. To better understand this phenomenon, pregnant mice were fed a control or choline-deficient diet and their offspring examined. The cross sectional area (CSA) of cholinergic neurons was determined in two brain regions, the MSN and the DB. The data are given in <a href="data-raw/neuron-csa.xlsx">neuron-csa.xlsx</a></p>
+<p>Cognitive performance is influenced by the choline intake in utero. To better understand this phenomenon, pregnant mice were fed a control or choline-deficient diet and their offspring examined. The cross sectional area (CSA) of cholinergic neurons was determined in two brain regions, the MSN and the DB. The data are given in <a href="data-raw/neuron-csa.xlsx">neuron-csa.xlsx</a>. They are organised into two sheets, one for each region. This is quite common to see but it is also common (and perfectly fine) to have all the data in one sheet (in tidy format).</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save a copy of the data file <a href="data-raw/neuron-csa.xlsx">neuron-csa.xlsx</a> to <code>data-raw</code></p>
-<p>You have <a href="../../r4babs1/week-8/workshop.html#importing-data-from-files">previously read data from an excel file</a>.</p>
+<p>You have <a href="../../r4babs1/week-8/workshop.html#importing-data-from-files">previously read data from an excel file</a>. As the data are in two sheets we need to know the name of the sheets to import them.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> List the the names of the work sheets in the excel workbook.</p>
 <p>These data are organised into two worksheets, one for each brain region</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Read in each sheet. I used the names <code>db</code> and <code>msn</code> for the two dataframes/tibble.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> We have the top half and the bottom half of a data set and can combine these togther with <code>bind_rows()</code></p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Read in each sheet. I used the names <code>db</code> and <code>msn</code> for the two resulting dataframes/tibbles.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> We have the top half and the bottom half of a data set and can combine these together with <code>bind_rows()</code></p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">neuron</span> <span class="op">&lt;-</span> <span class="fu">bind_rows</span><span class="op">(</span><span class="va">db</span>, <span class="va">msn</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -510,7 +510,7 @@ Key
 <!-- These are the explanatory variables. We also have a continuous  -->
 <!-- variable, CSA, which is the response. -->
 <section id="exploring" class="level3"><h3 class="anchored" data-anchor-id="exploring">Exploring</h3>
-<p>When we have a single explanatory variable, it always goes on the <em>x</em>-axis. Here we have two explanatory variables: brain region and diet. We can map one of the explanatory variables to the <em>x</em>-axis and the other to a aesthetic like colour, shape or fill.</p>
+<p>When we have a single explanatory variable, it always goes on the <em>x</em>-axis. Here we have two explanatory variables: brain region and diet. We can map one of the explanatory variables to the <em>x</em>-axis and the other to another aesthetic (aes) like colour, shape or fill.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Do a quick plot of the data:</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">neuron</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">BrainRegion</span>, y <span class="op">=</span> <span class="va">CSA</span>, fill <span class="op">=</span> <span class="va">Diet</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -522,19 +522,19 @@ Key
 </div>
 </div>
 </div>
-<p>Whether we map BrainRegion to the <em>x</em>-axis or the fill does not really matter. It looks as though the cross sectional area of neurons is higher for the control diet than the deficient diet (the average of the read bars is grater than the average of the blue bars). It also looks like there might be a significant interaction between the effects of diet and brain region because the effect of diet seems to be greater in the DB region.</p>
+<p>Whether we map BrainRegion or Diet to the <em>x</em>-axis does not matter. It looks as though the cross sectional area of neurons is higher for the control diet than the deficient diet (the average of the read bars is greater than the average of the blue bars). It also looks like there might be a significant interaction between the effects of diet and brain region because the effect of diet seems to be greater in the DB region.</p>
 </section><section id="summarising-the-data" class="level3"><h3 class="anchored" data-anchor-id="summarising-the-data">Summarising the data</h3>
 <p>Just as we needed to incorporate the second explanatory variable in the rough plot, we need to incorporate it into our summary. We do this by adding it to the <code>group_by()</code>.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a data frame called <code>neuron_summary</code> that contains the means, standard deviations, sample sizes and standard errors for each group:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">neuron_summary</span> <span class="op">&lt;-</span> <span class="va">neuron</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">BrainRegion</span>, <span class="va">Diet</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">neuron_summary</span> <span class="op">&lt;-</span> <span class="va">neuron</span>  <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">BrainRegion</span>, <span class="va">Diet</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">CSA</span><span class="op">)</span>,</span>
 <span>            std <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">CSA</span><span class="op">)</span>,</span>
 <span>            n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">CSA</span><span class="op">)</span>,</span>
 <span>            se <span class="op">=</span> <span class="va">std</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You will get a message that you don’t need to worry about <code></code>summarise()<code>has grouped output by 'BrainRegion'. You can override using the</code>.groups<code>argument.&gt;</code></p>
+<p>You will get a message that you don’t need to worry about summarise()<code>has grouped output by 'BrainRegion'. You can override using the</code>.groups<code>argument.&gt;</code></p>
 <p>You should get the following numbers:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -741,7 +741,7 @@ P value adjustment: tukey method for comparing a family of 4 estimates </code></
 </div>
 </div>
 <p>How can we show the two diets separately?</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> We can map the <code>Diet</code> variable to the shape aesthetic!</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> We can map the <code>Diet</code> variable to the shape aesthetic<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>!</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">neuron</span>, </span>
@@ -772,8 +772,14 @@ P value adjustment: tukey method for comparing a family of 4 estimates </code></
 </div>
 </div>
 </div>
-<p>Oh, that isn’t quite what we want! We want the two diets side-by-side, not on top of each other.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> We can achieve that by using setting the <code>position</code> argument to <code>position_jitterdodge()</code> in the <code>geom_point()</code> and to <code>position_dodge()</code> in the two <code>geom_errorbar()</code>. We also have to specify that the error bars are grouped by <code>Diet</code> since they are not otherwise mapped to a shape, colour or fill.</p>
+<p>Oh, that isn’t quite what we want! We want the two diets side-by-side, not on top of each other. We can achieve that by:</p>
+<ul>
+<li>setting the <code>position</code> argument to <code>position_jitterdodge()</code> in the <code>geom_point()</code>
+</li>
+<li>setting the <code>position</code> argument to <code>position_dodge()</code> in the two <code>geom_errorbar()</code>.</li>
+<li>specifying that the error bars are grouped by <code>Diet</code> since they are not otherwise mapped to a shape, colour or fill.</li>
+</ul>
+<p><img src="images/do_in_R.png" class="img-fluid"> Put the points and error bars for each diet side by side above each brain region:</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">neuron</span>, </span>
@@ -810,13 +816,16 @@ P value adjustment: tukey method for comparing a family of 4 estimates </code></
 </div>
 </div>
 </div>
+<p>Now we need to add the statistical result. You can remind yourself how to do that by looking at <a href="../week-3/workshop.html#illustrating">the week 3 workshop</a>. Remember, the lines go between two means that differ significantly.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add the annotation of the statistical results</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Finally, we can move the legend to a space on the plot area which helps you minimise the width needed like this:</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">......</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.15</span>, <span class="fl">0.15</span><span class="op">)</span>,</span>
+<span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"inside"</span>,</span>
+<span>        legend.position.inside <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.15</span>, <span class="fl">0.15</span><span class="op">)</span>,</span>
 <span>        legend.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><code>legend.position = "inside"</code> puts the legend within the plotting area and the default is to put it right in the middle. A different location is specified with <code>legend.position.inside = c(0.15, 0.15)</code> - and the values are the proportions in the <em>x</em> and <em>y</em> directions respectively.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Save your figure to your figures folder.</p>
 <p>You’re finished!</p>
 </section></section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
@@ -865,7 +874,10 @@ Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research
 <div id="ref-kableExtra" class="csl-entry" role="listitem">
 Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
-</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1"><p>You might instead map Diet to the colour aesthetic.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

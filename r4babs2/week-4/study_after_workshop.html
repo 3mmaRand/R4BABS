@@ -583,6 +583,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <div class="cell">
 <details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># I reordered the bars to make is easier for me to annotate with</span></span>
 <span><span class="co"># I also used * to indicate significance</span></span>
+<span><span class="co"># Normally we don't mark NS results but here I have because it is an </span></span>
+<span><span class="co"># important result - E is useless</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">biom</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">spray</span>, <span class="va">biomass</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">biomass</span><span class="op">)</span>,</span>

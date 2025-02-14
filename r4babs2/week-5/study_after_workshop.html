@@ -476,8 +476,8 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># There was a significant effect of species (F = 8.1; </span></span>
-<span><span class="co"># d.f. = 1, 28; p = 0.008) and region (F = 8.1; </span></span>
-<span><span class="co"># d.f. = 1, 28; p = 0.008) on wing length and these effects interact </span></span>
+<span><span class="co"># d.f. = 1, 28; p = 0.008) and region (F = 11.5; </span></span>
+<span><span class="co"># d.f. = 1, 28; p = 0.002) on wing length and these effects interact </span></span>
 <span><span class="co"># (F = 7.5; d.f. = 1, 28; p = 0.01)</span></span>
 <span></span>
 <span><span class="co"># It is important to consider how the interaction effect is</span></span>
@@ -512,26 +512,20 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># There is a significant effect of species (F = 8.1; </span></span>
-<span><span class="co"># d.f. = 1, 28; p = 0.008) and region (F = 11.5; d.f. = 1, 28; </span></span>
-<span><span class="co"># p = 0.002) on wing length. These effect are </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># let's check the assumptions</span></span>
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># let's check the assumptions</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mod</span>, which <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we're looking for the variance in the residuals to be the same in both groups.</span></span>
+</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we're looking for the variance in the residuals to be the same in both groups.</span></span>
 <span><span class="co"># This looks OK. Maybe a bit higher in the wild plants (with the higher mean)</span></span>
 <span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span>
+</details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span>
 <span><span class="co"># On balance the use of lm() is probably justifiable  The variance isn't quite equal </span></span>
 <span><span class="co"># and the histogram looks a bit off normal but the normality test is NS and the </span></span>
 <span><span class="co"># effect (in the figure) is clear.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># A figure </span></span>
+<details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># A figure </span></span>
 <span><span class="va">butter_fig</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">butter</span>, </span>
 <span>             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">region</span>,</span>
@@ -588,7 +582,10 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <span>           label <span class="op">=</span> <span class="st">"p = 0.0008"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>        legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.12</span><span class="op">)</span><span class="op">)</span> </span>
+<span>        legend.position <span class="op">=</span> <span class="st">"inside"</span>,</span>
+<span>        legend.position.inside <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.12</span><span class="op">)</span>,</span>
+<span>        legend.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
 <span></span>
 <span><span class="co"># save figure to figures/butter.png</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"figures/butter.png"</span>,</span>
