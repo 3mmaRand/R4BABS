@@ -103,8 +103,8 @@ summary(mod)
 anova(mod)
 
 # There was a significant effect of species (F = 8.1; 
-# d.f. = 1, 28; p = 0.008) and region (F = 8.1; 
-# d.f. = 1, 28; p = 0.008) on wing length and these effects interact 
+# d.f. = 1, 28; p = 0.008) and region (F = 11.5; 
+# d.f. = 1, 28; p = 0.002) on wing length and these effects interact 
 # (F = 7.5; d.f. = 1, 28; p = 0.01)
 
 # It is important to consider how the interaction effect is
@@ -138,15 +138,6 @@ emmeans(mod, ~ spp * region) |> pairs()
 # significant difference between species averaged over region 
 # (F = 8.1; d.f. = 1, 28; p = 0.008) and region averaged over species
 ```
-
-```{r}
-
-# There is a significant effect of species (F = 8.1; 
-# d.f. = 1, 28; p = 0.008) and region (F = 11.5; d.f. = 1, 28; 
-# p = 0.002) on wing length. These effect are 
-
-```
-
 
 
 ```{r}
@@ -224,7 +215,10 @@ butter_fig <- ggplot() +
            label = "p = 0.0008") +
   theme_classic() +
   theme(legend.title = element_blank(),
-        legend.position = c(0.2, 0.12)) 
+        legend.position = "inside",
+        legend.position.inside = c(0.2, 0.12),
+        legend.background = element_rect(colour = "black"))
+
 
 # save figure to figures/butter.png
 ggsave("figures/butter.png",

@@ -320,9 +320,14 @@ shapiro.test(mod$residuals)
 ### Illustrating
 
 ![](images/do_in_R.png) Create a figure like the one below.
-You may need to refer to 
-[Visualise](../../r4babs1/week-9/workshop.html#visualise) from 
-the "Summarising data with several variables" workshop [@rand2023]
+You may need to refer to:
+
+-   [Visualise](../../r4babs1/week-9/workshop.html#visualise) from 
+    the "Summarising data with several variables" workshop [@rand2023]
+
+-   [The week 3 workshop](../week-3/workshop.html#illustrating) 
+    [@rand2023] for annotating. Remember, the lines go between two 
+    means that differ significantly.
 
 We will again use both our `seal` and `seal_summary` dataframes.
 
