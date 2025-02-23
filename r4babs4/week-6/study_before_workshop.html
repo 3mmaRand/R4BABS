@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.41">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-30de0f3b183af2e72832c6e1cd3032c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -324,35 +324,18 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </header>
 
 
-<p>The independent study is to check your progress and understanding. We have covered the steps listed below. If you have got behind, start from wherever you got to.</p>
+<p>The independent study allows you to check you have the files you need having applied the workflow from <a href="../week-2/overview.html">Week 2</a> to your own data (or the replacement data if you do not have your own data) in <a href="../week-2/overview.html">Week 4</a>. However, you will be able to use files prepared from the sample data for the week 6 workshop if you have not completed week 4.</p>
 <ol type="1">
-<li><p>📖 <a href="../week-2/study_after_workshop.html">Read what the sample data are, get an overview of the analysis and tools</a></p></li>
-<li><p>💻 <a href="../week-2/workshop.html">Go through the sample data analysis</a> and make sure you understand the steps and the code</p>
-<ol type="i">
-<li><p>You should have a single csv file with data from all 6 samples. The data has been cleaned with <strong><code>flowAI</code></strong> to remove cells ‘bad’ signals. The file has 19 columns with meaningful names. The TNFa_APC_Lin and E_coli_FITC_Lin columns have been logicle transformed. The file names were added to a column <code>sample</code> and columns indicating the treatment and antibody were created by extracting patterns from the file names. The code that does that relies on the names being in the format Treatment_Antibody. You can import this data as a dataframe and use familiar tidyverse tools.</p></li>
-<li><p>The treatments will be plotted in alphabetical order by default. We can change that order to “MEDIA”, “LPS”, “ECOLIGreen” using <code>fct_relevel()</code>. The code that does that relies on the treatment names being exactly “MEDIA”, “LPS”, “ECOLIGreen”. You can name the treaments differently but you will need to change the levels given in <code>fct_relevel()</code> accordingly.</p></li>
-<li><p>You should be able to plot side scatter against forward scatter for the six samples and add a rectangular gate for the live cells. You should be able to use this gate to filter the data to get a dataframe of live cells.</p></li>
-<li><p>You should be able calculate the number and percentage of live cells in each sample and annotate the figure in iii. with those percentages. These were in a dataframe I named <code>clean_trans_nondebris_n</code>.</p></li>
-<li><p>You should be able to plot the logicle transformed TNFa_APC_Lin against the E_coli_FITC_Lin for the live cells and add a gate for the TNF-α positive cells and label the rows (cells) in the dataframe as TNF-α positive or TNF-α negative. You should be able to calculate the number and percentage of of TNF-α positive cells in each sample. These were in a dataframe I named <code>clean_trans_nondebris_tfna_pos</code></p></li>
-<li><p>You should be able add a gate for the FITC positive cells and label the rows (cells) in the dataframe as FITC positive or FITC negative. You should be able to calculate the number and percentage of FITC positive cells in each sample using the same logic as in v.</p></li>
-</ol></li>
-<li><p>💻 Prepare to analyse your own data / the model data</p>
-<ol type="i">
-<li><p><a href="../week-2/study_after_workshop.html">Make a new RStudio Project, copy in the script and tidy it up</a></p></li>
-<li><p><a href="../week-2/study_after_workshop.html">Save your data</a>. Your data are on <a href="https://drive.google.com/drive/folders/16OBb5ABVBd6ZxKf8uG7lPTx6cSNLvisT">googledrive</a>. If you do not have any data you can use the Flow cytometry MODEL DATA</p></li>
-</ol></li>
-<li><p>💻 <a href="../week-4/workshop.html">Analyse your own data / the model data</a></p>
-<ol type="i">
-<li><p>Make your life easier renaming your data files to match the sample data.</p></li>
-<li><p>Note that your data has 16 columns. You need a different metadata file than used for the sample data. You will not need to <a href="../week-2/workshop.html#drop-the-unused-channels-columns">Drop the unused channels</a></p></li>
-</ol></li>
-<li><p>💻 Enter data from your analysis in to <a href="https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0">BIO00066I Biomedical Sciences class data</a></p>
-<p>The columns you must add are:</p>
+<li><p>You should have an RStudio Project with at least: folders for raw data, meta data, samples after quality control and processed data, a script</p></li>
+<li><p>You should have processed data files:</p>
 <ul>
-<li><p><code>apc_mfi</code>: Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells</p></li>
-<li><p><code>perc_tfna_pos</code>: % non debris cells that are TNF-α positive cells</p></li>
-</ul>
-<p>The other columns are calculations you make along the way and may help you get to the <code>apc_mfi</code> and <code>perc_tfna_pos</code> values. The column names are the same as those used in the <a href="../week-2/workshop.html">Data Analysis 2: Biomedical sciences - Sample data analysis</a> workshop</p></li>
+<li><code>ai_clean_logicle_trans.csv</code>: Each row is a cell. These are the AI cleaned cells with logicle-transformed TNFa_APC_Lin and E_coli_FITC_Lin signals. Each cell is labelled with the sample (filename) it came from, its treatment and antibody. The cells have not been gated -<br>
+<em>i.e.</em>, some of the “cells” in this dataset are dead/debris.</li>
+<li><code>clean_trans_live_tfna_pos.csv</code>: Each row is a sample (a treatment-antibody combination). For each sample there is: the number of cells after AI cleaning, the number of live cells after gatting, the percentage of live cells, the number TNF-α postive cells, the percentage of TNF-α postive cells and the of the mean APC signal in the live cells and TNF-α postive cells</li>
+<li><code>live_labelled.csv</code>: Each row is a cell. These are the AI cleaned, live cells with logicle-transformed TNFa_APC_Lin and E_coli_FITC_Lin signals. Each cell is labelled with the sample (filename) it came from, its treatment and antibody, and whether it is TNF-α positive (<em>i.e.</em> has a TNFa_APC_Lin level above the APC cut off used) or negative and whether it is FITC positive (<em>i.e.</em> E_coli_FITC_Lin level above the FITC cut off used) or negative.</li>
+<li>you may also have the FITC equivalent of <code>clean_trans_live_tfna_pos.csv</code></li>
+</ul></li>
+<li><p>Enter the values from your analysis to: <a href="https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link">BIO00066I Biomedical Sciences class data</a>. The column names are the same as those used in the <a href="../week-2/workshop.html">Data Analysis 2: Biomedical sciences - Sample data analysis</a> workshop. The columns you must add are marked in green. Other information helps you get to the required values and helps others determine the reliability of your data. The workshops show how to calculate all these values.</p></li>
 </ol>
 
 
