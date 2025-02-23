@@ -36,6 +36,12 @@ easier to rename your files!
 
 🎬 Open your R script and begin to analyse your data.
 
+
+🎬 Use `ggsave()` to write plots you might use in your report to file.
+You will learn how to produce a variety of other plots in Week 6
+
+
+
 ## Data for the class dataset.
 
 You need to provide the following information for the class dataset:

@@ -5,88 +5,52 @@ toc: true
 toc-location: right
 ---
 
-The independent study is to check your progress and understanding. We 
-have covered the steps listed below. If you have got behind, start 
-from wherever you got to.
+The independent study allows you to check you have the files you need
+having applied the workflow from [Week 2](../week-2/overview.html) to 
+your own data (or the replacement data if you do not have your own 
+data) in [Week 4](../week-2/overview.html). However, you will be able
+to use files prepared from the sample data for the week 6 workshop if
+you have not completed week 4.
 
 
-1.  📖  [Read what the sample data are, get an overview of the analysis and tools](../week-2/study_after_workshop.html)
+1.  You should have an RStudio Project with at least: folders for 
+    raw data, meta data, samples after quality control and processed 
+    data, a script
+
+2.  You should have processed data files:
+
+    -   `ai_clean_logicle_trans.csv`: Each row is a cell. These are the 
+         AI cleaned cells with logicle-transformed TNFa_APC_Lin
+         and E_coli_FITC_Lin signals. Each cell is 
+         labelled with the sample (filename) it came from, its 
+         treatment and antibody. The cells have not been gated -  
+         *i.e.*, some of the "cells" in this dataset are
+         dead/debris.
+    -   `clean_trans_live_tfna_pos.csv`: Each row is a sample (a
+         treatment-antibody combination). For each sample there is: 
+         the number of cells after AI cleaning, the number of live 
+         cells after gatting, the percentage of live cells, the number 
+         TNF-α postive cells, the percentage of TNF-α postive cells and
+         the of the mean APC signal in the live cells and TNF-α postive
+         cells
+    -   `live_labelled.csv`: Each row is a cell. These are the AI 
+         cleaned, live cells with logicle-transformed TNFa_APC_Lin
+         and E_coli_FITC_Lin signals. Each cell is 
+         labelled with the sample (filename) it came from, its 
+         treatment and antibody, and whether it is TNF-α positive
+         (*i.e.* has a TNFa_APC_Lin level above the APC cut off used)
+         or negative and whether it is FITC positive
+         (*i.e.* E_coli_FITC_Lin level above the FITC cut off
+         used) or negative.
+    -    you may also have the FITC equivalent of
+         `clean_trans_live_tfna_pos.csv`
+         
+3.  Enter the values from your analysis to: 
+    [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link). The column names are the same as those 
+    used in the [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) workshop. The columns you must add
+    are marked in green. Other information helps you get to the 
+    required values and helps others determine the reliability of your 
+    data. The workshops show how to calculate all these values.
 
 
-2.  💻  [Go through the sample data analysis](../week-2/workshop.html) and make sure you understand the steps and the code
-    
-    i. You should have a single csv file with data from all 6 samples. 
-       The data has been cleaned with **`flowAI`** to remove cells 
-       'bad' signals. The file has 19 columns with meaningful names. 
-       The TNFa_APC_Lin and E_coli_FITC_Lin columns have been logicle 
-       transformed. The file names were added to a column `sample` and 
-       columns indicating the treatment and antibody were created 
-       by extracting patterns from the file names.  The code that 
-       does that relies on the names being in the format 
-       Treatment_Antibody. You can import this data as a dataframe 
-       and use familiar tidyverse tools. 
 
-    ii. The treatments will be plotted in alphabetical order by 
-        default. We can change that order to "MEDIA", "LPS", 
-        "ECOLIGreen" using `fct_relevel()`. The code that does that 
-        relies on the treatment names being exactly "MEDIA", "LPS", 
-        "ECOLIGreen". You can name the treaments differently but
-        you will need to change the levels given in `fct_relevel()` 
-        accordingly.
-       
-    iii. You should be able to plot side scatter against forward 
-         scatter for the six samples and add a rectangular gate
-         for the live cells. You should be able to use this gate
-         to filter the data to get a dataframe of live cells.
-  
-    iv. You should be able calculate the number and percentage of 
-        live cells in each sample and annotate the figure in iii. 
-        with those percentages. These were in a dataframe I named
-        `clean_trans_nondebris_n`.
-        
-    v.  You should be able to plot the logicle transformed 
-        TNFa_APC_Lin against the E_coli_FITC_Lin for the live 
-        cells and add a gate for the TNF-α positive 
-        cells and label the rows (cells) in the dataframe as 
-        TNF-α positive or TNF-α negative. You should be able to 
-        calculate the number and percentage of of TNF-α positive 
-        cells in each sample. These were in a dataframe I named 
-        `clean_trans_nondebris_tfna_pos` 
-    
-    vi. You should be able add a gate for the FITC positive 
-        cells and label the rows (cells) in the dataframe as 
-        FITC positive or FITC negative. You should be able to 
-        calculate the number and percentage of FITC positive cells 
-        in each sample using the same logic as in v.
-
-3.  💻  Prepare to analyse your own data / the model data
-
-    i.  [Make a new RStudio Project, copy in the script and tidy it up](../week-2/study_after_workshop.html)
-    
-    ii.  [Save your data](../week-2/study_after_workshop.html). Your data are on [googledrive](https://drive.google.com/drive/folders/16OBb5ABVBd6ZxKf8uG7lPTx6cSNLvisT). If you do not have any data you can use the Flow cytometry MODEL DATA
-
-4.  💻  [Analyse your own data / the model data](../week-4/workshop.html)
-    
-    i.  Make your life easier renaming your data files to match the 
-        sample data.
-        
-    ii.  Note that your data has 16 columns. You need a different
-         metadata file than used for the sample data. You will not 
-         need to [Drop the unused channels](../week-2/workshop.html#drop-the-unused-channels-columns)
-
-
-5.  💻  Enter data from your analysis in to [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/104EXdgsiIq-FuRF9Ly9zewEVdpkVWbyOwxSAmiqJepg/edit#gid=0)
-
-    The columns you must add are:
-    
-    -   `apc_mfi`:	Mean fluorescence intensity of the logicle 
-         transformed TNFa_APC_Lin in the TNF-α positive cells
-    
-    -   `perc_tfna_pos`:	% non debris cells that are TNF-α 
-         positive cells   
-    
-    The other columns are calculations you make along the 
-    way and may help you get to the `apc_mfi` and `perc_tfna_pos`
-    values. The column names are the same as those used in the 
-    [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) 
-    workshop
