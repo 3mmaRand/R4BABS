@@ -802,7 +802,7 @@ TNFAPC-MEDIA combination tells us how much TNF-α we expect in
 unstimulated cells.
 
 This is important data for your write up and will be your contribution 
-to the calss data set so you should write it to file.
+to the class data set so you should write it to file.
 
 🎬 Write `clean_trans_live_tfna_pos` to file:
 

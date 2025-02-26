@@ -44,15 +44,15 @@ You will learn how to produce a variety of other plots in Week 6
 
 ## Data for the class dataset.
 
-You need to provide the following information for the class dataset:
+The class data will be summary information for the ECOLIGreen_TNFAPC, 
+LPS_TNFAPC, and MEDIA_TNFAPC samples.  You need to provide the 
+following information:
 
--   group_name A name for your group. Take care not to use a name used
+-   `group_name` A name for your group. Take care not to use a name used
     by others. Take care to use the exactly the same name for each of 
-    your rows
+    your 3 rows
 
 -   `cell_treatment`One of MEDIA, LPS or ECOLIGreen 
-
--   `antibody` One of ISOTYPE or TNFAPC
 
 -   `n` The number of cells in sample after flowAI cleaning
 
@@ -73,7 +73,7 @@ You need to provide the following information for the class dataset:
 
 -   `perc_pos_tnfa` Percent of live cells that are TNF-α positive
 
-Enter these in the [BIO00066I Biomedical Sciences class data]()
+Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?gid=1267502769#gid=1267502769)
 
 Some columns are required for the class analysis.
 Other columns help you get to the required values and help others 
@@ -82,11 +82,12 @@ determine the reliability of your data.
 ## How to change the name of an RStudio project.
 
 You will need to rename your RStudio Project to your exam number 
-before you submit. You can change the name of an RStudio project by:
+before you submit. You can change the name of an RStudio project at 
+any time by:
 
 -   closing the project
 
--   renaming both the project folder and the `.Rproj` file.
+-   renaming *both* the project folder and the `.Rproj` file.
 
 # Independent study following the workshop
 
