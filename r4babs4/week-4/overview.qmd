@@ -20,7 +20,7 @@ The successful student will be able to:
 -   Edit the workflow provided in week 2 and apply it to their own data
 
 -   Determine values from their data that contribute to the [class data
-    set](workshop.html#data-for-the-class-dataset).
+    set](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?gid=1267502769#gid=1267502769).
 
 -   change the name of an RStudio project
 
