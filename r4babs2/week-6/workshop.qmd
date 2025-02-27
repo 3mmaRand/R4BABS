@@ -14,59 +14,87 @@ library(kableExtra)
 
 # Introduction
 
-# Introduction
-
-![Artwork by @allison_horst: ](images/rainbowr.gif){fig-alt="Animated gif of the R logo with a rainbow that grows over the logo repeatedly." width="600"}
+![Artwork by
+@allison_horst:](images/rainbowr.gif){fig-alt="Animated gif of the R logo with a rainbow that grows over the logo repeatedly."
+width="600"}
 
 ## Session overview
 
-In this session you will 
+In this session you will:
+
+-   test whether there is an association two continuous variables using
+    parametric and non-parametric correlations
+-   learn about the effect of sample size on correlation
+-   test whether there is an association between two categorical
+    variables using the chi-squared contingency test
 
 ## Philosophy
 
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
+Workshops are not a test. It is expected that you often don't know how
+to start, make a lot of mistakes and need help. It is expected that you
+are familiar with independent study content before the workshop.
+However, you need not remember or understand every detail as the
+workshop should build and consolidate your understanding. Tips
 
 -   don't worry about making mistakes
 -   don't let what you can not do interfere with what you can do
 -   discussing code with your neighbours will help
 -   look things up in the independent study material
--   look things up in your own code from earlier 
+-   look things up in your own code from earlier
 -   there are no stupid questions
 
 ::: callout-note
 ## Key
 
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+These four symbols are used at the beginning of each instruction so you
+know where to carry out the instruction.
 
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
+![](images/do_on_your_computer.png) Something you need to do on your
+computer. It may be opening programs or documents or locating a file.
 
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+![](images/do_in_R.png) Something you should do in RStudio. It will
+often be typing a command or using the menus but might also be creating
+folders, locating or moving files.
 
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
+![](images/do_on_internet.png) Something you should do in your browser
+on the internet. It may be searching for information, going to the VLE
+or downloading a file.
 
-![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+![](images/answer.png) A question for you to think about and answer.
+Record your answers in your script for future reference.
 :::
 
 # Getting started
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-2` folder and name the RStudio Project `week-6`.
+![](images/do_in_R.png) Make an RStudio project for this workshop by
+clicking on the drop-down menu on top right where it says
+`Project: (None)` and choosing New Project, then New Directory, then New
+Project. Navigate to the `data-analysis-in-r-2` folder and name the
+RStudio Project `week-6`.
 
-![](images/do_in_R.png) Make new folders called `data-raw` and `figures`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+![](images/do_in_R.png) Make new folders called `data-raw` and
+`figures`. You can do this on the Files Pane by clicking New Folder and
+typing into the box that appears.
 
-![](images/do_in_R.png) Make a two new scripts called `correlation.R` and `contingency-chi-squared-tests.R` to carry out the rest of the work.
+![](images/do_in_R.png) Make a two new scripts called `correlation.R`
+and `contingency-chi-squared-tests.R` to carry out the rest of the work.
 
-![](images/do_in_R.png) Add a comments to each script such as: `# Correlation` and `# Contingency Chi-squared tests` and load the **`tidyverse`** [@tidyverse] package in each
+![](images/do_in_R.png) Add a comments to each script such as:
+`# Correlation` and `# Contingency Chi-squared tests` and load the
+**`tidyverse`** [@tidyverse] package in each
 
 # Exercises
 
-## Pearson's Correlation 
+## Pearson's Correlation
 
-The data given in [height.txt](data-raw/height.txt) are the heights of eleven sibling pairs. 
+The data given in [height.txt](data-raw/height.txt) are the heights of
+eleven sibling pairs.
 
-![](images/do_in_R.png) Save a copy of [height.txt](data-raw/height.txt) to your `data-raw` folder and import it.
-    
+![](images/do_in_R.png) Save a copy of [height.txt](data-raw/height.txt)
+to your `data-raw` folder and import it.
+
 ```{r}
 #| include: false
 
@@ -74,78 +102,91 @@ The data given in [height.txt](data-raw/height.txt) are the heights of eleven si
 height <- read_table("data-raw/height.txt")
 ```
 
-
-
-::: {.callout-tip}
+::: callout-tip
 ## Top Tip
 
-Did you know you can also read a file directly from the internet instead of saving it first?
+Did you know you can also read a file directly from the internet instead
+of saving it first?
 
-`height <- read_table("https://3mmarand.github.io/R4BABS/r4babs2/week-6/data-raw/data-raw/height.txt")`
+```{r}
+height <- read_table("https://3mmarand.github.io/R4BABS/r4babs2/week-6/data-raw/data-raw/height.txt")
+```
 
+This valuable if you need the latest version of a regularly updated
+file.
+
+However, if you are concerned about the file disappearing or moving,
+then it would be better to save it.
 :::
-
 
 ### Exploring
 
-![](images/answer.png) What type of variables are `older` and  `sister`? What are 
-the implications for the test? 
+![](images/answer.png) What type of variables are `older` and `younger`?
+What are the implications for the test?
 
 <!-- #---THINKING ANSWER--- -->
 
-<!-- They have decimal places and height is a variable we would expect to be  -->
-<!-- normally distributed. It's probable that a parametric correlation is  -->
-<!-- fine. However they are quite small samples, making it difficult to -->
-<!-- show that so doing a non-parametric would not be especially  -->
-<!-- over cautious.  -->
+<!-- They have decimal places and height is a variable  -->
 
+<!-- we would expect to be normally distributed. It's probable  -->
 
+<!-- that a parametric correlation is fine. However they  -->
 
-![](images/answer.png) Do a quick plot of the data. We don't have a causal 
-relationship here so either variable can go on the *x*-axis.
-   
+<!-- are quite small samples, making it difficult to -->
+
+<!-- show that so doing a non-parametric would not  -->
+
+<!-- be especially over cautious. -->
+
+![](images/answer.png) Do a quick plot of the data. We don't have a
+causal relationship here so either variable can go on the *x*-axis.
+
 ```{r}
 ggplot(height, aes(x = younger, y = older) ) +
   geom_point()
   
 ```
 
-![](images/answer.png) Remembering that one of the assumptions for parametric 
-correlation is that any correlation should be linear, what do you 
-conclude from the plot? 
+![](images/answer.png) Remembering that one of the assumptions for
+parametric correlation is that any correlation should be linear, what do
+you conclude from the plot?
 
 <!-- #---THINKING ANSWER--- -->
 
 <!-- I'm not totally convinced these look linear - but then I wouldn't  -->
-<!-- be convinced of any other relationship either. There are not  -->
-<!-- always 'right' answers to these questions - sometimes we have  -->
-<!-- to make a judgement . -->
 
+<!-- be convinced of any other relationship either. There are not  -->
+
+<!-- always 'right' answers to these questions - sometimes we have  -->
+
+<!-- to make a judgement . -->
 
 ### Applying, interpreting and reporting
 
-We will do a parametric correlation in any case. 
+We will do a parametric correlation in any case.
 
-![](images/do_in_R.png) We can carry out a Pearson's product moment correlation
-with:
+![](images/do_in_R.png) We can carry out a Pearson's product moment
+correlation with:
 
 ```{r}
 cor.test(data = height, ~ older + younger, method = "pearson")
 ```
 
-Notice that were are not using the `response ~ explanatory` form here 
-because this is not a causal relationship.
+Notice:
 
-Pearson is the default correlation smethod, therefore we could 
-omit `method = "pearson"`.
-  
-![](images/answer.png) What do you conclude from the test?  
+-   we are not using the `response ~ explanatory` form here because this
+    is not a causal relationship.
+
+-   Pearson is the default correlation method, therefore we could omit
+    `method = "pearson"`.
+
+![](images/answer.png) What do you conclude from the test?
 
 <!-- #---THINKING ANSWER--- -->
 
-<!-- There is no significant correlation between the heights of older  -->
-<!-- and younger siblings - the p value is greater than 0.05 -->
+<!-- There is no significant correlation between the heights of  -->
 
+<!-- older and younger siblings - the p value is greater than 0.05 -->
 
 ### Illustrating
 
@@ -165,8 +206,16 @@ fig1 <- ggplot(height, aes(x = younger, y = older)) +
 fig1
 ```
 
+::: callout-important
+## Figure legend - Axes
 
-![](images/do_in_R.png) Use `ggsave()` to save your figure to file in your `figures` folder.
+In this figure we have started the axes at 120 so we can see the data
+more easily. You would want to draw the readers attention to this in the
+figure legend.
+:::
+
+![](images/do_in_R.png) Use `ggsave()` to save your figure to file in
+your `figures` folder.
 
 ```{r}
 #| include: false
@@ -182,24 +231,25 @@ ggsave("figures/sibling-height.png",
 
 ```
 
-
-
-
 ## Effect of sample size on correlation
 
-Now we will explore the effect of sample size on the value of the correlation 
-coefficient and its significance. 
+Now we will explore the effect of sample size on the value of the
+correlation coefficient and its significance.
 
-![](images/do_in_R.png) Create a dataset with twice the number of observations: 
+![](images/do_in_R.png) Create a dataset with twice the number of
+observations:
 
 ```{r}
 height2 <- rbind(height, height)
 
 ```
 
-Make sure you view the resulting dataframe. Each pair of values will appear twice.
+`rbind()` binds rows together so it repeats the data. Make sure you 
+view the resulting dataframe. Each pair of values will
+appear twice.
 
 ![](images/do_in_R.png) Now repeat the correlation with height2
+
 ```{r}
 #| include: false
 
@@ -207,51 +257,62 @@ Make sure you view the resulting dataframe. Each pair of values will appear twic
 
 cor.test(data = height2, ~ older + younger, method = "pearson")
 ```
-   
-![](images/answer.png) What do you conclude? What does this tell you about 
-the sensitivity of correlation to sample size? 
+
+![](images/answer.png) What do you conclude? What does this tell you
+about the sensitivity of correlation to sample size?
 
 <!-- #---THINKING ANSWER--- -->
 
-<!-- The correlation coefficient is the same but now it's significant! -->
-<!-- When you are carrying out correlations you should take note of the  -->
-<!-- sample size. Often you see people carrying out correlations on very large -->
-<!-- datasets and, for example finding a correlation coefficient of r = 0.03 -->
-<!-- which is highly significant and drawing the conclusion that the correlation -->
-<!-- is very strong/meaningful. It isn't. Yes it is highly statistically  -->
-<!-- significant, but that doesn't necessarily mean it is biologically  -->
-<!-- significant. You need to both consider both the r value and the  -->
+<!-- The correlation coefficient is the same but now it's  -->
+<!-- significant!  -->
+<!-- When you are carrying out correlations you should  -->
+<!-- take note of the sample size. Often you see  -->
+<!-- people carrying out correlations on very large -->
+<!-- datasets and, for example finding a  -->
+<!-- correlation coefficient of r = 0.03 (a very small -->
+<!-- correlation) that is significant and drawing  -->
+<!-- the conclusion that the correlation is very  -->
+<!-- strong/meaningful. It isn't. Yes it is highly  -->
+<!-- statistically significant, but that doesn't  -->
+<!-- necessarily mean it is biologically significant.  -->
+<!-- You need to both consider both the r value and the -->
 <!-- p value - especially with large datasets. -->
-
 
 ## Spearman's rank Correlation
 
-Since our sibling dataset is so small we might very reasonably have 
-chosen to do a non-parametric correlation. The same function is used 
+Since our sibling dataset is so small we might very reasonably have
+chosen to do a non-parametric correlation on the grounds that it is 
+difficult to determine normality on small samples.
+
+The same function is used for a non-parametric correlation 
 but we specify a different value for the `method` argument.
 
-![](images/do_in_R.png) Carry out a Spearman's rank correlation: 
+![](images/do_in_R.png) Carry out a Spearman's rank correlation:
 
 ```{r}
 cor.test(data = height, ~ older + younger, method = "spearman")
 ```
 
-![](images/answer.png) What do you conclude?  
+![](images/answer.png) What do you conclude?
 
 <!-- #---THINKING ANSWER--- -->
 
-<!-- the correlation coefficient is different (r = 0.501), and so is the  -->
-<!-- p value (0.116).  -->
-<!-- Still not significant - as we would expect as non-parametric tests are  -->
-<!-- (usually) more conservative than parametric tests. -->
+<!-- the correlation coefficient is different (r = 0.501),   -->
+
+<!-- and so is the p value (0.116).  -->
+
+<!-- Still not significant - as we would expect as non-parametric  -->
+
+<!-- tests are  (usually) more conservative than parametric tests. -->
 
 ## Contingency chi-squared test
 
-A human geneticist found that in a sample of 477 blood group O people 65 
-had peptic ulcers whereas in a sample of 387 blood group A people 
-31 had peptic ulcers.
+A human geneticist found that in a sample of 477 blood group O people 65
+had peptic ulcers whereas in a sample of 387 blood group A people 31 had
+peptic ulcers.
 
-![](images/answer.png) Draw a 2 x 2 table of these data (on a piece of paper).
+![](images/answer.png) Draw a 2 x 2 table of these data (on a piece of
+paper).
 
 <!-- 2 x 2 contingency table. -->
 
@@ -265,20 +326,19 @@ had peptic ulcers whereas in a sample of 387 blood group A people
 
 <!-- Total          477    387    864 -->
 
-![](images/answer.png) What is your null hypothesis and what type of test is required?
+![](images/answer.png) What is your null hypothesis?
 
+<!-- #---THINKING ANSWER--- -->
 
-<!-- #---THINKING ANSWER--- --> 
+<!-- Here we are recording two categorical variables on -->
+<!-- each individual and we want to see if there is an -->
+<!-- association between those variables. Our null  -->
+<!-- hypothesis is that there is no difference  -->
+<!-- in the proportion of people with peptic ulcers in  -->
+<!-- the two blood-group phenotypes. -->
 
-<!-- Here we are recording two categorical variables on each individual and we want  -->
-<!-- to see if there is an association between those variables i.e. we  -->
-<!-- want to perform a test of association. Our null hypothesis is  -->
-<!-- that there is no difference in the proportion of people with peptic  -->
-<!-- ulcers in the two blood-group phenotypes  so we have a contingency test -->
-
-
-![](images/do_in_R.png) Make a vector `obs` that holds the 4 observed numbers. 
-For the moment, don't worry about what order they are in.
+![](images/do_in_R.png) Make a vector `obs` that holds the 4 observed
+numbers. For the moment, don't worry about what order they are in.
 
 ```{r}
 #| include: false
@@ -288,14 +348,14 @@ For the moment, don't worry about what order they are in.
 obs <- c(65, 412, 31, 356)
 ```
 
-For a contingency chi squared test, the inbuilt chi-squared test can be 
-used in a straightforward way. However, we need to structure our data 
-as a 2 x 2 table rather than as a 1 x 4 vector. A 2 x 2 table can be created 
-with the `matrix()` function. We can also name the rows and columns which 
-helps us interpret the results.
+For a contingency chi squared test, the inbuilt chi-squared test can be
+used in a straightforward way. However, we need to structure our data as
+a 2 x 2 table rather than as a 1 x 4 vector. A 2 x 2 table can be
+created with the `matrix()` function. We can also name the rows and
+columns which helps us interpret the results.
 
-![](images/do_in_R.png) To create a list containing two elements which are vectors 
-for the two groups in each variable we do:
+![](images/do_in_R.png) To create a list containing two elements which
+are vectors for the two groups in each variable we do:
 
 ```{r}
 # list of two elements
@@ -306,25 +366,36 @@ vars
 
 ```
 
-![](images/do_in_R.png) Now we can create the matrix from our vector of numbers 
-`obs` and use our list `vars` to give the column and row names:
+![](images/do_in_R.png) Now we can create the matrix from our vector of
+numbers `obs` and use our list `vars` to give the column and row names:
 
 ```{r}
 ulcers <- matrix(obs, nrow = 2, dimnames = vars)
 ulcers
 ```
 
-![](images/do_in_R.png) Check the content of `ulcers` and recreate if 
-the numbers are not in the correct place (*i.e.*, do not match your table)
+![](images/do_in_R.png) Check the content of `ulcers` and recreate if
+the numbers are not in the correct place (*i.e.*, do not match your
+table)
 
 ![](images/do_in_R.png) Run a contingency chi-squared with:
 
 ```{r}
 chisq.test(ulcers, correct = FALSE)
-# you should look up the command in the manual to see what correct = FALSE does
+# you could look up the command in the manual to see what 
+# correct = FALSE does
 ```
 
-To help us discover what is the direction of any deviation from the null hypothesis it is helpful to see what the expected values were. These are accessible in the `$expected` variable in the output value of the `chisq.test()` method (See the manual!).
+This significant so we know that the proportion of people with an ulcer
+is different in the two blood groups. In other words, there is an
+association between ulcers and blood group.
+
+It is not obvious from the printed test information, which blood 
+group has a higher association with ulcers. We can find this out by 
+examining the expected values were. The expected values are what
+we expect to see if the null hypothesis is correct. They can be
+accessed in the `$expected` variable in the output value of the
+`chisq.test()` method (See the manual!).
 
 ![](images/do_in_R.png) View the expected values with:
 
@@ -332,24 +403,33 @@ To help us discover what is the direction of any deviation from the null hypothe
 chisq.test(ulcers, correct = FALSE)$expected
 ```
 
-![](images/answer.png) What do you conclude about the association between ABO blood group and peptic ulcers?
+![](images/answer.png) What do you conclude about the association
+between ABO blood group and peptic ulcers?
 
 <!-- #---THINKING ANSWER--- -->
 
-<!-- People with group O seem to get more ulcers: 65 observed is higher than  -->
-<!-- the expected 53. People with group A have fewer than expected:  -->
-<!-- 31 observed is lower than the expected 43. -->
-
-<!-- For a contingency table such as this d.f. = (r - 1)(c - 1) = 1  -->
+<!-- People with group O seem to get more ulcers: 65 observed  -->
+<!-- is higher than the expected 53. People with group  -->
+<!-- A have fewer than expected: 31 observed is lower  -->
+<!-- than the expected 43. -->
+<!-- For a contingency table such as this  -->
+<!-- d.f. = (r - 1)(c - 1) = 1 -->
 <!-- i.e. (number of rows - 1)( number of columns - 1) -->
 
 ### Blood group and ulcers- alternative data format.
 
-The data we were given was already tabulated. There are raw data in [blood_ulcers.txt](data-raw/blood_ulcers.txt). Examine this file to understand 
-the format
+The data you have just used were already tabulated. Often data arrives
+untabluated - imagine you have several medical variables about
+individuals, you would have an invidual in each row with columns 
+indicating blood group and ulcer status along with other measures
+such as age, height and mass.
 
-![](images/do_on_internet.png) Save a copy of [blood_ulcers.txt](data-raw/blood_ulcers.txt) 
-to your `data-raw` folder
+
+There are raw data in [blood_ulcers.txt](data-raw/blood_ulcers.txt). 
+Examine this file to understand the format
+
+![](images/do_on_internet.png) Save a copy of
+[blood_ulcers.txt](data-raw/blood_ulcers.txt) to your `data-raw` folder
 
 ![](images/do_in_R.png) Read the data in to R and check the structure.
 
@@ -362,8 +442,8 @@ blood_ulcers <- read_table("data-raw/blood_ulcers.txt")
 str(blood_ulcers)
 ```
 
-
-![](images/do_in_R.png) We can tabulate the data and assign it using the `table()` command:
+![](images/do_in_R.png) We can tabulate the data and assign it using the
+`table()` command:
 
 ```{r}
 ulctab <- table(blood_ulcers$blood, blood_ulcers$ulcer)
@@ -374,30 +454,38 @@ ulctab
 
 We need to give both variables to cross tabulate.
 
-![](images/do_in_R.png) Now carry out the contingency chi-squared like this:
+![](images/do_in_R.png) Now carry out the contingency chi-squared like
+this:
 
 ```{r}
 chisq.test(ulctab, correct = FALSE)
 ```
 
+Congratulations on making it to the end of the stage 1 Data Analysis in
+R teaching!
 
-Congratulations on making it to the end of the stage 1 Data Analysis in R teaching!
-
-![Artwork by @allison_horst: ](images/code-hero.gif){fig-alt="Animated gif with pastel lines in the background. The words 'CODE HERO' in bold black text scroll across repeatedly." width="600"}
+![Artwork by
+@allison_horst:](images/code-hero.gif){fig-alt="Animated gif with pastel lines in the background. The words 'CODE HERO' in bold black text scroll across repeatedly."
+width="600"}
 
 # Independent study following the workshop
 
 [Consolidate](study_after_workshop.qmd)
 
-
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not
+visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-6/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd
+stands for Quarto markdown. It allows code and ordinary text to be
+interweaved to produce well-formatted reports including webpages. [View
+the Qmd in
+Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-6/workshop.qmd).
+Coding and thinking answers are marked with `#---CODING ANSWER---` and
+`#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References
