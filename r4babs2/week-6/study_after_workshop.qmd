@@ -11,7 +11,8 @@ format:
 
 # Set up
 
-If you have just opened RStudio you will want to load the **`tidyverse`** package
+If you have just opened RStudio you will want to load the
+**`tidyverse`** package
 
 ```{r}
 #| code-fold: false
@@ -20,7 +21,12 @@ library(tidyverse)
 
 # Exercises
 
-1.  💻 The slug *Arion ater* has three major colour forms, black, chocolate brown and red. Sampling in population X revealed 27 black, 17 brown and 9 red individuals, whereas in population Y the corresponding numbers were 39, 10 and 21. Create an appropriate data structure and test whether the proportion of black, brown and red slugs differs between the two populations.
+1.  💻 The slug *Arion ater* has three major colour forms, black,
+    chocolate brown and red. Sampling in population X revealed 27 black,
+    17 brown and 9 red individuals, whereas in population Y the
+    corresponding numbers were 39, 10 and 21. Create an appropriate data
+    structure and test whether the proportion of black, brown and red
+    slugs differs between the two populations.
 
 ```{r}
 #| output: false
@@ -63,8 +69,8 @@ chisq.test(slugs)$expected
 
 ```
 
-
-2. 💻  The raw, untabulated data are in [slugs.txt](data-raw/slugs.txt). Perform the test on these data.
+2.  💻 The raw, untabulated data are in [slugs.txt](data-raw/slugs.txt).
+    Perform the test on these data.
 
 ```{r}
 #| output: false
@@ -80,3 +86,54 @@ chisq.test(slugtab)
 ```
 
 
+3.  💻 The data in [marks.csv](data-raw/marks.csv) give the marks 
+    for ten students in two subjects: Data Analysis and Biology. 
+    We have previously asked if there is difference in marks between 
+    between the subjects and analysed with a paired-sample test. 
+    However, we might instead ask if there is a correlation between
+    subjects. Neither of these approaches is better - which you use
+    depends on the question you are asking.
+    Carry out a correlation on these data and create a figure suitable
+    for a report.
+
+```{r}
+#| output: false
+
+# import the data
+marks <- read_csv("data-raw/marks.csv")
+
+# we need to pivot the data to wide
+marks_wide <- marks |> 
+  pivot_wider(values_from = mark, 
+              names_from = subject, 
+              id_cols = student)
+# rough plot
+ggplot(data = marks_wide,
+       aes(x = Biology, y = DataAnalysis)) +
+  geom_point()
+
+
+# This is a small data sets and it is difficult to make
+# judgements about the assumptions of a parametric correlation
+# therefor we wil do a Spearman's rank correlation
+cor.test(data = marks_wide, ~ Biology + DataAnalysis,
+         method = "spearman")
+
+# There was a significant positive correlation (r = 0.96) between
+# Biology and Data Analysis marks (Spearmans’s rank correlation: 
+# S = 6.03; n = 10; p-value < 0.0001).
+
+
+ggplot(data = marks_wide,
+       aes(x = Biology, y = DataAnalysis))  +
+  geom_point() +
+  scale_y_continuous(name = "Biology mark",
+                     expand = c(0, 0), limits = c(0, 100)) +
+  scale_x_continuous(name = "Data Analysis mark",
+                     expand = c(0, 0), limits = c(0, 100)) +
+  annotate("text", x = 15,  y = 80, 
+           label = expression(italic(r)~"= 0.96; "~italic(p)~"< 0.0001")) +
+  theme_classic()
+
+
+```
