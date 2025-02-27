@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.41">
+<meta name="generator" content="quarto-1.6.42">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Workshop – Data Analysis in R</title>
@@ -52,10 +52,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-30de0f3b183af2e72832c6e1cd3032c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-29052ecf37f791cd0f0a96b6313e2a7b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -340,11 +340,10 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>🎬 Open your R script and begin to analyse your data.</p>
 <p>🎬 Use <code>ggsave()</code> to write plots you might use in your report to file. You will learn how to produce a variety of other plots in Week 6</p>
 </section><section id="data-for-the-class-dataset." class="level2"><h2 class="anchored" data-anchor-id="data-for-the-class-dataset.">Data for the class dataset.</h2>
-<p>You need to provide the following information for the class dataset:</p>
+<p>The class data will be summary information for the ECOLIGreen_TNFAPC, LPS_TNFAPC, and MEDIA_TNFAPC samples. You need to provide the following information:</p>
 <ul>
-<li><p>group_name A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your rows</p></li>
+<li><p><code>group_name</code> A name for your group. Take care not to use a name used by others. Take care to use the exactly the same name for each of your 3 rows</p></li>
 <li><p><code>cell_treatment</code>One of MEDIA, LPS or ECOLIGreen</p></li>
-<li><p><code>antibody</code> One of ISOTYPE or TNFAPC</p></li>
 <li><p><code>n</code> The number of cells in sample after flowAI cleaning</p></li>
 <li><p><code>n_live</code> The number of cells in sample after flowAI cleaning <em>and</em> removing dead cells/debris (“gating”) (<em>i.e.</em>, the % live cells)</p></li>
 <li><p><code>perc_live</code> The % of cells in sample after flowAI cleaning <em>and</em> removing dead cells/debris (“gating”) (<em>i.e.</em>, the % live cells)</p></li>
@@ -353,13 +352,13 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <li><p><code>n_pos_tnfa</code> Number of TNF-α positive cells</p></li>
 <li><p><code>perc_pos_tnfa</code> Percent of live cells that are TNF-α positive</p></li>
 </ul>
-<p>Enter these in the <a href="">BIO00066I Biomedical Sciences class data</a></p>
+<p>Enter these in the <a href="https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?gid=1267502769#gid=1267502769">BIO00066I Biomedical Sciences class data</a></p>
 <p>Some columns are required for the class analysis. Other columns help you get to the required values and help others determine the reliability of your data.</p>
 </section><section id="how-to-change-the-name-of-an-rstudio-project." class="level2"><h2 class="anchored" data-anchor-id="how-to-change-the-name-of-an-rstudio-project.">How to change the name of an RStudio project.</h2>
-<p>You will need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project by:</p>
+<p>You will need to rename your RStudio Project to your exam number before you submit. You can change the name of an RStudio project at any time by:</p>
 <ul>
 <li><p>closing the project</p></li>
-<li><p>renaming both the project folder and the <code>.Rproj</code> file.</p></li>
+<li><p>renaming <em>both</em> the project folder and the <code>.Rproj</code> file.</p></li>
 </ul></section></section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs4/week-4/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
