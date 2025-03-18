@@ -41,9 +41,8 @@ adip_summary <- adip %>%
             sd = sd(adiponectin),
             n = length(adiponectin),
             se = sd/sqrt(n),
-            dif = qt(0.975, df = n - 1) * se,
-            lower_ci = mean - dif,
-            uppp_ci = mean + dif)
+            lcl95 = mean - qt(0.975, df = n - 1) * se,
+            ucl95 = mean + qt(0.975, df = n - 1) * se)
 
 
 # we conclude we're 95% certain the mean for the control group is 
