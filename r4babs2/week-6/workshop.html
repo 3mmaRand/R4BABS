@@ -515,10 +515,7 @@ Top Tip
 <div class="callout-body-container callout-body">
 <p>Did you know you can also read a file directly from the internet instead of saving it first?</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">height</span> <span class="op">&lt;-</span> <span class="fu">read_table</span><span class="op">(</span><span class="st">"https://3mmarand.github.io/R4BABS/r4babs2/week-6/data-raw/data-raw/height.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in open.connection(con, "rb"): HTTP error 404.</code></pre>
-</div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">height</span> <span class="op">&lt;-</span> <span class="fu">read_table</span><span class="op">(</span><span class="st">"https://3mmarand.github.io/R4BABS/r4babs2/week-6/data-raw/height.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This valuable if you need the latest version of a regularly updated file.</p>
 <p>However, if you are concerned about the file disappearing or moving, then it would be better to save it.</p>
@@ -535,7 +532,7 @@ Top Tip
 <!-- be especially over cautious. -->
 <p><img src="images/answer.png" class="img-fluid"> Do a quick plot of the data. We don’t have a causal relationship here so either variable can go on the <em>x</em>-axis.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">height</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">younger</span>, y <span class="op">=</span> <span class="va">older</span><span class="op">)</span> <span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">height</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">younger</span>, y <span class="op">=</span> <span class="va">older</span><span class="op">)</span> <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -551,10 +548,10 @@ Top Tip
 <!-- always 'right' answers to these questions - sometimes we have  -->
 <!-- to make a judgement . -->
 </section><section id="applying-interpreting-and-reporting" class="level3"><h3 class="anchored" data-anchor-id="applying-interpreting-and-reporting">Applying, interpreting and reporting</h3>
-<p>We will do a parametric correlation in any case.</p>
+<p>We will do a parametric correlation.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> We can carry out a Pearson’s product moment correlation with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">height</span>, <span class="op">~</span> <span class="va">older</span> <span class="op">+</span> <span class="va">younger</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">height</span>, <span class="op">~</span> <span class="va">older</span> <span class="op">+</span> <span class="va">younger</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -581,7 +578,7 @@ sample estimates:
 </section><section id="illustrating" class="level3"><h3 class="anchored" data-anchor-id="illustrating">Illustrating</h3>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a better figure for our data using:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fig1</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">height</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">younger</span>, y <span class="op">=</span> <span class="va">older</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fig1</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">height</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">younger</span>, y <span class="op">=</span> <span class="va">older</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Younger sibling height (cm)"</span>,</span>
 <span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">190</span><span class="op">)</span>,</span>
@@ -617,7 +614,7 @@ Figure legend - Axes
 <p>Now we will explore the effect of sample size on the value of the correlation coefficient and its significance.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Create a dataset with twice the number of observations:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">height2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">height</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">height2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">height</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code> binds rows together so it repeats the data. Make sure you view the resulting dataframe. Each pair of values will appear twice.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now repeat the correlation with height2</p>
@@ -638,11 +635,11 @@ Figure legend - Axes
 <!-- You need to both consider both the r value and the -->
 <!-- p value - especially with large datasets. -->
 </section><section id="spearmans-rank-correlation" class="level2"><h2 class="anchored" data-anchor-id="spearmans-rank-correlation">Spearman’s rank Correlation</h2>
-<p>Since our sibling dataset is so small we might very reasonably have chosen to do a non-parametric correlation on the grounds that it is difficult to determine normality on small samples.</p>
+<p>Since our sibling dataset is so small we might very reasonably have chosen to do a non-parametric correlation on the grounds that it is difficult to determine either normality or linearity on small samples.</p>
 <p>The same function is used for a non-parametric correlation but we specify a different value for the <code>method</code> argument.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Carry out a Spearman’s rank correlation:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">height</span>, <span class="op">~</span> <span class="va">older</span> <span class="op">+</span> <span class="va">younger</span>, method <span class="op">=</span> <span class="st">"spearman"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">height</span>, <span class="op">~</span> <span class="va">older</span> <span class="op">+</span> <span class="va">younger</span>, method <span class="op">=</span> <span class="st">"spearman"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Spearman's rank correlation rho
@@ -679,10 +676,30 @@ sample estimates:
 <!-- in the proportion of people with peptic ulcers in  -->
 <!-- the two blood-group phenotypes. -->
 <p><img src="images/do_in_R.png" class="img-fluid"> Make a vector <code>obs</code> that holds the 4 observed numbers. For the moment, don’t worry about what order they are in.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Completely forgotten how to make a vector?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since we have been reading date in from files, you might have forgotten how to create a vector of values. You can remind yourself from either:</p>
+<ul>
+<li>Computational Analysis for Bioscientists: <a href="https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#data-structures-vectors">To create a vector called <code>ages</code> of several numbers</a>
+</li>
+<li>BABS 1 Week 7 Workshop (our first): <a href="https://3mmarand.github.io/R4BABS/r4babs1/week-7/workshop.html#creating-the-data">Making vector that hold cat coat colours</a>
+</li>
+</ul>
+<p>You have used vectors a lot since - every time you have used <code>c(....)</code> - but you might not have realised it.</p>
+</div>
+</div>
 <p>For a contingency chi squared test, the inbuilt chi-squared test can be used in a straightforward way. However, we need to structure our data as a 2 x 2 table rather than as a 1 x 4 vector. A 2 x 2 table can be created with the <code><a href="https://rdrr.io/r/base/matrix.html">matrix()</a></code> function. We can also name the rows and columns which helps us interpret the results.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> To create a list containing two elements which are vectors for the two groups in each variable we do:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list of two elements</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># list of two elements</span></span>
 <span><span class="co"># the two variables are whether someone has an ulcer or not and whether </span></span>
 <span><span class="co"># they are blood group O or A</span></span>
 <span><span class="va">vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ulcer <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yes"</span>,<span class="st">"no"</span><span class="op">)</span>, blood <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"O"</span>, <span class="st">"A"</span><span class="op">)</span><span class="op">)</span></span>
@@ -697,7 +714,7 @@ $blood
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now we can create the matrix from our vector of numbers <code>obs</code> and use our list <code>vars</code> to give the column and row names:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulcers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">obs</span>, nrow <span class="op">=</span> <span class="fl">2</span>, dimnames <span class="op">=</span> <span class="va">vars</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulcers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">obs</span>, nrow <span class="op">=</span> <span class="fl">2</span>, dimnames <span class="op">=</span> <span class="va">vars</span><span class="op">)</span></span>
 <span><span class="va">ulcers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     blood
@@ -709,7 +726,7 @@ ulcer   O   A
 <p><img src="images/do_in_R.png" class="img-fluid"> Check the content of <code>ulcers</code> and recreate if the numbers are not in the correct place (<em>i.e.</em>, do not match your table)</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Run a contingency chi-squared with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -717,14 +734,12 @@ ulcer   O   A
 data:  ulcers
 X-squared = 6.824, df = 1, p-value = 0.008994</code></pre>
 </div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># you could look up the command in the manual to see what </span></span>
-<span><span class="co"># correct = FALSE does</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This significant so we know that the proportion of people with an ulcer is different in the two blood groups. In other words, there is an association between ulcers and blood group.</p>
+<p>This significant ($p = $ 0.009) so we know that the proportion of people with an ulcer is different in the two blood groups. In other words, there is an association between ulcers and blood group.</p>
 <p>It is not obvious from the printed test information, which blood group has a higher association with ulcers. We can find this out by examining the expected values were. The expected values are what we expect to see if the null hypothesis is correct. They can be accessed in the <code>$expected</code> variable in the output value of the <code><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test()</a></code> method (See the manual!).</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> View the expected values with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">expected</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulcers</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">expected</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     blood
 ulcer   O   A
@@ -748,7 +763,7 @@ ulcer   O   A
 <p><img src="images/do_in_R.png" class="img-fluid"> Read the data in to R and check the structure.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> We can tabulate the data and assign it using the <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> command:</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulctab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">blood_ulcers</span><span class="op">$</span><span class="va">blood</span>, <span class="va">blood_ulcers</span><span class="op">$</span><span class="va">ulcer</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ulctab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">blood_ulcers</span><span class="op">$</span><span class="va">blood</span>, <span class="va">blood_ulcers</span><span class="op">$</span><span class="va">ulcer</span><span class="op">)</span></span>
 <span><span class="co"># examine the result</span></span>
 <span><span class="va">ulctab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -761,7 +776,7 @@ ulcer   O   A
 <p>We need to give both variables to cross tabulate.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now carry out the contingency chi-squared like this:</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulctab</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">ulctab</span>, correct <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
