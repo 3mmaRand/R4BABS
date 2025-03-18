@@ -3,6 +3,9 @@ title: "Workshop"
 subtitle: "Association: Correlation and Contingency"
 toc: true
 toc-location: right
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r}
@@ -109,7 +112,7 @@ Did you know you can also read a file directly from the internet instead
 of saving it first?
 
 ```{r}
-height <- read_table("https://3mmarand.github.io/R4BABS/r4babs2/week-6/data-raw/data-raw/height.txt")
+height <- read_table("https://3mmarand.github.io/R4BABS/r4babs2/week-6/data-raw/height.txt")
 ```
 
 This valuable if you need the latest version of a regularly updated
@@ -163,7 +166,7 @@ you conclude from the plot?
 
 ### Applying, interpreting and reporting
 
-We will do a parametric correlation in any case.
+We will do a parametric correlation.
 
 ![](images/do_in_R.png) We can carry out a Pearson's product moment
 correlation with:
@@ -244,9 +247,8 @@ height2 <- rbind(height, height)
 
 ```
 
-`rbind()` binds rows together so it repeats the data. Make sure you 
-view the resulting dataframe. Each pair of values will
-appear twice.
+`rbind()` binds rows together so it repeats the data. Make sure you view
+the resulting dataframe. Each pair of values will appear twice.
 
 ![](images/do_in_R.png) Now repeat the correlation with height2
 
@@ -264,28 +266,41 @@ about the sensitivity of correlation to sample size?
 <!-- #---THINKING ANSWER--- -->
 
 <!-- The correlation coefficient is the same but now it's  -->
+
 <!-- significant!  -->
+
 <!-- When you are carrying out correlations you should  -->
+
 <!-- take note of the sample size. Often you see  -->
+
 <!-- people carrying out correlations on very large -->
+
 <!-- datasets and, for example finding a  -->
+
 <!-- correlation coefficient of r = 0.03 (a very small -->
+
 <!-- correlation) that is significant and drawing  -->
+
 <!-- the conclusion that the correlation is very  -->
+
 <!-- strong/meaningful. It isn't. Yes it is highly  -->
+
 <!-- statistically significant, but that doesn't  -->
+
 <!-- necessarily mean it is biologically significant.  -->
+
 <!-- You need to both consider both the r value and the -->
+
 <!-- p value - especially with large datasets. -->
 
 ## Spearman's rank Correlation
 
 Since our sibling dataset is so small we might very reasonably have
-chosen to do a non-parametric correlation on the grounds that it is 
-difficult to determine normality on small samples.
+chosen to do a non-parametric correlation on the grounds that it is
+difficult to determine either normality or linearity on small samples.
 
-The same function is used for a non-parametric correlation 
-but we specify a different value for the `method` argument.
+The same function is used for a non-parametric correlation but we
+specify a different value for the `method` argument.
 
 ![](images/do_in_R.png) Carry out a Spearman's rank correlation:
 
@@ -331,14 +346,36 @@ paper).
 <!-- #---THINKING ANSWER--- -->
 
 <!-- Here we are recording two categorical variables on -->
+
 <!-- each individual and we want to see if there is an -->
+
 <!-- association between those variables. Our null  -->
+
 <!-- hypothesis is that there is no difference  -->
+
 <!-- in the proportion of people with peptic ulcers in  -->
+
 <!-- the two blood-group phenotypes. -->
 
 ![](images/do_in_R.png) Make a vector `obs` that holds the 4 observed
 numbers. For the moment, don't worry about what order they are in.
+
+::: callout-tip
+## Completely forgotten how to make a vector?
+
+Since we have been reading date in from files, you might have forgotten
+how to create a vector of values. You can remind yourself from either:
+
+-   Computational Analysis for Bioscientists: [To create a vector called
+    `ages` of several
+    numbers](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#data-structures-vectors)
+-   BABS 1 Week 7 Workshop (our first): [Making vector that hold cat
+    coat
+    colours](https://3mmarand.github.io/R4BABS/r4babs1/week-7/workshop.html#creating-the-data)
+
+You have used vectors a lot since - every time you have used `c(....)` -
+but you might not have realised it.
+:::
 
 ```{r}
 #| include: false
@@ -382,20 +419,21 @@ table)
 
 ```{r}
 chisq.test(ulcers, correct = FALSE)
-# you could look up the command in the manual to see what 
-# correct = FALSE does
+
 ```
 
-This significant so we know that the proportion of people with an ulcer
+This significant 
+($p = $ `r chisq.test(ulcers, correct = FALSE)$p.value |> round(4)`) 
+so we know that the proportion of people with an ulcer
 is different in the two blood groups. In other words, there is an
 association between ulcers and blood group.
 
-It is not obvious from the printed test information, which blood 
-group has a higher association with ulcers. We can find this out by 
-examining the expected values were. The expected values are what
-we expect to see if the null hypothesis is correct. They can be
-accessed in the `$expected` variable in the output value of the
-`chisq.test()` method (See the manual!).
+It is not obvious from the printed test information, which blood group
+has a higher association with ulcers. We can find this out by examining
+the expected values were. The expected values are what we expect to see
+if the null hypothesis is correct. They can be accessed in the
+`$expected` variable in the output value of the `chisq.test()` method
+(See the manual!).
 
 ![](images/do_in_R.png) View the expected values with:
 
@@ -409,23 +447,28 @@ between ABO blood group and peptic ulcers?
 <!-- #---THINKING ANSWER--- -->
 
 <!-- People with group O seem to get more ulcers: 65 observed  -->
+
 <!-- is higher than the expected 53. People with group  -->
+
 <!-- A have fewer than expected: 31 observed is lower  -->
+
 <!-- than the expected 43. -->
+
 <!-- For a contingency table such as this  -->
+
 <!-- d.f. = (r - 1)(c - 1) = 1 -->
+
 <!-- i.e. (number of rows - 1)( number of columns - 1) -->
 
 ### Blood group and ulcers- alternative data format.
 
 The data you have just used were already tabulated. Often data arrives
 untabluated - imagine you have several medical variables about
-individuals, you would have an invidual in each row with columns 
-indicating blood group and ulcer status along with other measures
-such as age, height and mass.
+individuals, you would have an invidual in each row with columns
+indicating blood group and ulcer status along with other measures such
+as age, height and mass.
 
-
-There are raw data in [blood_ulcers.txt](data-raw/blood_ulcers.txt). 
+There are raw data in [blood_ulcers.txt](data-raw/blood_ulcers.txt).
 Examine this file to understand the format
 
 ![](images/do_on_internet.png) Save a copy of

@@ -56,8 +56,8 @@ slugs
 chisq.test(slugs)
 # X-squared = 6.5726, df = 2, p-value = 0.03739
 
-# p < 0.05 so we reject the null hypothesis i.e., the proportions of the colour 
-# forms are significantly different in the two populations 
+# p < 0.05 so we reject the null hypothesis i.e., the proportions of the  
+# colour forms are significantly different in the two populations 
 # (mostly as a result of differences in the brown and red classes - 
 # look at the differences between observed and expected values for 
 # the three colour forms in the table above).
