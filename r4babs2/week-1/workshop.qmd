@@ -16,9 +16,9 @@ library(kableExtra)
 
 # Introduction
 
-
-![Artwork by @allison_horst:  "love this class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing." width="800"}
-
+![Artwork by @allison_horst: "love this
+class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing."
+width="800"}
 
 ## Session overview
 
@@ -114,7 +114,9 @@ by:
 
 $\bar{x} \pm 1.96 \times s.e.$
 
-Where 1.96 is the quantile for 95% confidence.
+This means the upper limit is $\bar{x} + 1.96 \times s.e.$ and the lower
+limit is $\bar{x} - 1.96 \times s.e.$. 1.96 is the "quantile" for 95% 
+confidence and can be found using the `qnorm()` function.
 
 ![](images/do_on_your_computer.png) Save
 [beewing.txt](data-raw/beewing.txt) to your `data-raw` folder.
@@ -131,58 +133,69 @@ beewing <- read_table("data-raw/beewing.txt")
 str(beewing)
 ```
 
-![](images/do_in_R.png) Calculate and assign to variables: the mean,
-standard deviation, sample size and standard error:
+![](images/do_in_R.png) Use the `summarise()` function to calculate: the
+mean, standard deviation, sample size and standard error and save them 
+in a dataframe called `beewing_summary`:
+
 
 ```{r}
-# mean
-m <- mean(beewing$wing_mm)
-
-# standard deviation
-sd <- sd(beewing$wing_mm)
-
-# sample size (needed for the se)
-n <- length(beewing$wing_mm)
-
-# standard error
-se <- sd / sqrt(n)
+beewing_summary <- beewing |> 
+  summarise(mean = mean(wing_mm),
+            n = length(wing_mm),
+            sd = sd(wing_mm),
+            se = sd / sqrt(n))
 ```
 
-![](images/do_in_R.png) To calculate the 95% confidence interval we need
-to look up the quantile (multiplier) using `qnorm()`:
+To see the values in the `beewing_summary` dataframe you can either
+type and run `beewing_summary` or click on the dataframe in the
+Environment tab.
+
+
+::: callout-note
+## Where did you do this before?
+
+In the BABS 1 week 8 workshop we [summarised the mass of cats](../../r4babs1/week-8/workshop.html#cat-mass) using this 
+method. You can look back at that if you need to.
+
+:::
+
+
+To calculate the 95% confidence interval we need to look up the 
+quantile (multiplier) using `qnorm()`:
 
 ```{r}
-q <- qnorm(0.975)
+qnorm(0.975)
 ```
 
-This should be about 1.96.
+This should be about 1.96. We can use this piece of code along with
+the `mean` and `se` columns to add the upper and lower confidence 
+limits to the `beewing_summary` dataframe using `mutate()`:
 
-![](images/do_in_R.png) Now we can use it in our confidence interval
-calculation:
+
+![](images/do_in_R.png) Add the upper and lower confidence 
+limits to the `beewing_summary` dataframe:
 
 ```{r}
-lcl <- m - q * se
-ucl <- m + q * se
+beewing_summary <- beewing_summary |> 
+  mutate(lcl95 = mean - qnorm(0.975) * se,
+         ucl95 = mean + qnorm(0.975) * se)
 ```
 
-I used the names `lcl` and `ucl` to stand for "lower confidence limit"
-and "upper confidence limit" respectively.
 
-![](images/do_in_R.png) Print the values:
+I used the names `lcl95` and `ucl95` to stand for "95% lower confidence 
+limit" and "95% upper confidence limit" respectively.
 
-```{r}
-lcl
-ucl
-```
 
 This means we are 95% confident the population mean lies between
-`r round(lcl,2)` mm and `r round(ucl,2)` mm. 
+`r round(beewing_summary$lcl95,2)` mm and 
+`r round(beewing_summary$ucl95,2)` mm.
 
 ![](images/do_in_R.png) How would you write this up in a report?
 
 <!-- #---THINKING ANSWER--- -->
 
 <!-- The left wing of bees have a mean width of 4.55 mm,  -->
+
 <!-- 95% C.I. [4.47, 4.63]. -->
 
 ![](images/do_in_R.png) Between what values would you be *99%* confident
@@ -194,9 +207,9 @@ of the population mean being?
 #---CODING ANSWER---
 
 # qnorm(0.975) gives the quantile for 95%. For 99% we need qnorm(0.995)
-q <- qnorm(0.995)
-lcl <- m - q * se
-ucl <- m + q * se
+beewing_summary <- beewing_summary |> 
+  mutate(lcl99 = mean - qnorm(0.975) * se,
+         ucl99 = mean + qnorm(0.975) * se)
 
 ```
 
@@ -247,69 +260,43 @@ resulting dataframe
 #| include: false
 
 #---CODING ANSWER---
-neur <- read_table("data-raw/neuron.txt")
+neuron <- read_table("data-raw/neuron.txt")
 ```
 
-![](images/do_in_R.png) Assign the mean to `m`.
+![](images/do_in_R.png) Calculate: the mean, standard deviation, 
+sample size and standard error and save them in a dataframe called 
+`neuron_summary`:
 
 ```{r}
-#| include: false
-
-#---CODING ANSWER---
-
-m <- mean(neur$csa)
-
-```
-
-![](images/do_in_R.png) Calculate and assign the standard error to `se`.
-
-```{r}
-#| include: false
-
-#---CODING ANSWER---
-
-# I created intermediate variables for sd and n but you may have done
-# in a single line
-sd <- sd(neur$csa)
-n <- length(neur$csa)
-se <- sd / sqrt(n)
+neuron_summary <- neuron |> 
+  summarise(mean = mean(csa),
+            n = length(csa),
+            sd = sd(csa),
+            se = sd / sqrt(n))
 ```
 
 To work out the confidence interval for our sample mean we need to use
 the *t* distribution because it is a small sample. This means we need to
 determine the degrees of freedom (the number in the sample minus one).
 
-![](images/do_in_R.png) We can assign this to a variable, `df`, using:
+The *t* value is found using:  `qt(0.975, df = n - 1)`. Note that we are 
+using `qt()` rather than `qnorm()` but that the probability, 0.975, 
+used is the same.
+
+This should be about 2.36. This is bigger than 1.96 to reflect the lower
+confidence we have in a mean from a small sample. We can use this piece 
+of code along with the `mean` and `se` columns to add the upper and 
+lower confidence 
+limits to the `neuron_summary` dataframe using `mutate()`:
+
+
+![](images/do_in_R.png) Add the upper and lower confidence 
+limits to the `neuron_summary` dataframe:
 
 ```{r}
-df <- length(neur$csa) - 1
-```
-
-![](images/do_in_R.png) The *t* value is found by:
-
-```{r}
-t <- qt(0.975, df = df)
-```
-
-Note that we are using `qt()` rather than `qnorm()` but that the
-probability, 0.975, used is the same. Finally, we need to put our mean,
-standard error and *t* value in the equation.
-$\bar{x} \pm t_{[d.f]} \times s.e.$.
-
-![](images/do_in_R.png) The upper confidence limit is:
-
-```{r}
-(m + t * se) |> round(2)
-```
-
-The first part of the command, `(m + t * se)` calculates the upper
-limit. This is 'piped' in to the `round()` function to round the result
-to two decimal places.
-
-![](images/do_in_R.png) Calculate the lower confidence limit:
-
-```{r include=FALSE}
-(m - t * se) |>  round(2)
+neuron_summary <- neuron_summary |> 
+  mutate(lcl95 = mean - qt(0.975, df = n - 1) * se,
+         ucl95 = mean + qt(0.975, df = n - 1) * se)
 ```
 
 ![](images/answer.png) Given the upper and lower confidence values for
@@ -349,18 +336,17 @@ then "Compressed (zipped) folder". This will create a file called
 `week-1.zip`. Email this file to someone near you have have them email
 you with theirs. Your neighbour should be able to download `week-1.zip`,
 unzip it and then open the project in RStudio and run the code to
-reproduce all your work. ** Note: Save the downloaded `week-1.zip` some
-where that is NOT your "data-analysis-in-r-2" to avoid naming 
-conflicts.** Also do not save it in any RStudio project folder.
+reproduce all your work. \*\* Note: Save the downloaded `week-1.zip`
+some where that is NOT your "data-analysis-in-r-2" to avoid naming
+conflicts.\*\* Also do not save it in any RStudio project folder.
 
 You're finished!
 
 # 🥳 Well Done! 🎉
 
 ![Artwork by @allison_horst: "We belive in
-you!"](images/we-believe.png){fig-alt="Header text 'R learners' above 
-five friendly monsters holding up signs that together read 'we believe 
-in you.'"width="800"}
+you!"](images/we-believe.png){fig-alt="Header text 'R learners' above  five friendly monsters holding up signs that together read 'we believe  in you.'"
+width="800"}
 
 # Independent study following the workshop
 
@@ -379,8 +365,7 @@ Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qm
 Coding and thinking answers are marked with `#---CODING ANSWER---` and
 `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References
