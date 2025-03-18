@@ -521,45 +521,46 @@ Key
 </section><section id="confidence-intervals-large-samples" class="level2"><h2 class="anchored" data-anchor-id="confidence-intervals-large-samples">Confidence intervals (large samples)</h2>
 <p>The data in <a href="data-raw/beewing.txt">beewing.txt</a> are left wing widths of 100 honey bees (mm). The confidence interval for large samples is given by:</p>
 <p><span class="math inline">\(\bar{x} \pm 1.96 \times s.e.\)</span></p>
-<p>Where 1.96 is the quantile for 95% confidence.</p>
+<p>This means the upper limit is <span class="math inline">\(\bar{x} + 1.96 \times s.e.\)</span> and the lower limit is <span class="math inline">\(\bar{x} - 1.96 \times s.e.\)</span>. 1.96 is the “quantile” for 95% confidence and can be found using the <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> function.</p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/beewing.txt">beewing.txt</a> to your <code>data-raw</code> folder.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure of the resulting dataframe.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Calculate and assign to variables: the mean, standard deviation, sample size and standard error:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Use the <code>summarise()</code> function to calculate: the mean, standard deviation, sample size and standard error and save them in a dataframe called <code>beewing_summary</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean</span></span>
-<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">beewing</span><span class="op">$</span><span class="va">wing_mm</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># standard deviation</span></span>
-<span><span class="va">sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">beewing</span><span class="op">$</span><span class="va">wing_mm</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># sample size (needed for the se)</span></span>
-<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">beewing</span><span class="op">$</span><span class="va">wing_mm</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># standard error</span></span>
-<span><span class="va">se</span> <span class="op">&lt;-</span> <span class="va">sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beewing_summary</span> <span class="op">&lt;-</span> <span class="va">beewing</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">wing_mm</span><span class="op">)</span>,</span>
+<span>            n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">wing_mm</span><span class="op">)</span>,</span>
+<span>            sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">wing_mm</span><span class="op">)</span>,</span>
+<span>            se <span class="op">=</span> <span class="va">sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> To calculate the 95% confidence interval we need to look up the quantile (multiplier) using <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>:</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To see the values in the <code>beewing_summary</code> dataframe you can either type and run <code>beewing_summary</code> or click on the dataframe in the Environment tab.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>This should be about 1.96.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Now we can use it in our confidence interval calculation:</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lcl</span> <span class="op">&lt;-</span> <span class="va">m</span> <span class="op">-</span> <span class="va">q</span> <span class="op">*</span> <span class="va">se</span></span>
-<span><span class="va">ucl</span> <span class="op">&lt;-</span> <span class="va">m</span> <span class="op">+</span> <span class="va">q</span> <span class="op">*</span> <span class="va">se</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Where did you do this before?
 </div>
-<p>I used the names <code>lcl</code> and <code>ucl</code> to stand for “lower confidence limit” and “upper confidence limit” respectively.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Print the values:</p>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the BABS 1 week 8 workshop we <a href="../../r4babs1/week-8/workshop.html#cat-mass">summarised the mass of cats</a> using this method. You can look back at that if you need to.</p>
+</div>
+</div>
+<p>To calculate the 95% confidence interval we need to look up the quantile (multiplier) using <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lcl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.473176</code></pre>
-</div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ucl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.626824</code></pre>
+<pre><code>[1] 1.959964</code></pre>
 </div>
 </div>
+<p>This should be about 1.96. We can use this piece of code along with the <code>mean</code> and <code>se</code> columns to add the upper and lower confidence limits to the <code>beewing_summary</code> dataframe using <code>mutate()</code>:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add the upper and lower confidence limits to the <code>beewing_summary</code> dataframe:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beewing_summary</span> <span class="op">&lt;-</span> <span class="va">beewing_summary</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>lcl95 <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span>,</span>
+<span>         ucl95 <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I used the names <code>lcl95</code> and <code>ucl95</code> to stand for “95% lower confidence limit” and “95% upper confidence limit” respectively.</p>
 <p>This means we are 95% confident the population mean lies between 4.47 mm and 4.63 mm.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> How would you write this up in a report?</p>
 <!-- #---THINKING ANSWER--- -->
@@ -590,27 +591,23 @@ Hint
 <p>The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phospholipids in nerve cells and deficiency leads to many behavioural and functional deficits. The cross sectional area of neurons in the CA 1 region of the hippocampus of normal rats is 155 <span class="math inline">\(\mu m^2\)</span>. A DHA deficient diet was fed to 8 animals and the cross sectional area (csa) of neurons is given in <a href="data-raw/neuron.txt">neuron.txt</a></p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/neuron.txt">neuron.txt</a> to your <code>data-raw</code> folder</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure of the resulting dataframe</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Assign the mean to <code>m</code>.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Calculate and assign the standard error to <code>se</code>.</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Calculate: the mean, standard deviation, sample size and standard error and save them in a dataframe called <code>neuron_summary</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">neuron_summary</span> <span class="op">&lt;-</span> <span class="va">neuron</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">csa</span><span class="op">)</span>,</span>
+<span>            n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">csa</span><span class="op">)</span>,</span>
+<span>            sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">csa</span><span class="op">)</span>,</span>
+<span>            se <span class="op">=</span> <span class="va">sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>To work out the confidence interval for our sample mean we need to use the <em>t</em> distribution because it is a small sample. This means we need to determine the degrees of freedom (the number in the sample minus one).</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> We can assign this to a variable, <code>df</code>, using:</p>
+<p>The <em>t</em> value is found using: <code>qt(0.975, df = n - 1)</code>. Note that we are using <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code> rather than <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> but that the probability, 0.975, used is the same.</p>
+<p>This should be about 2.36. This is bigger than 1.96 to reflect the lower confidence we have in a mean from a small sample. We can use this piece of code along with the <code>mean</code> and <code>se</code> columns to add the upper and lower confidence limits to the <code>neuron_summary</code> dataframe using <code>mutate()</code>:</p>
+<p><img src="images/do_in_R.png" class="img-fluid"> Add the upper and lower confidence limits to the <code>neuron_summary</code> dataframe:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">neur</span><span class="op">$</span><span class="va">csa</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">neuron_summary</span> <span class="op">&lt;-</span> <span class="va">neuron_summary</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>lcl95 <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="fl">0.975</span>, df <span class="op">=</span> <span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span>,</span>
+<span>         ucl95 <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="fl">0.975</span>, df <span class="op">=</span> <span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/do_in_R.png" class="img-fluid"> The <em>t</em> value is found by:</p>
-<div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="fl">0.975</span>, df <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note that we are using <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code> rather than <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> but that the probability, 0.975, used is the same. Finally, we need to put our mean, standard error and <em>t</em> value in the equation. <span class="math inline">\(\bar{x} \pm t_{[d.f]} \times s.e.\)</span>.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> The upper confidence limit is:</p>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">m</span> <span class="op">+</span> <span class="va">t</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 151.95</code></pre>
-</div>
-</div>
-<p>The first part of the command, <code>(m + t * se)</code> calculates the upper limit. This is ‘piped’ in to the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function to round the result to two decimal places.</p>
-<p><img src="images/do_in_R.png" class="img-fluid"> Calculate the lower confidence limit:</p>
 <p><img src="images/answer.png" class="img-fluid"> Given the upper and lower confidence values for the estimate of the population mean, what do you think about the effect of the DHA deficient diet?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- the 95% confidence interval from 132.75 mu m^2 to 151.95 mu m^2  -->
