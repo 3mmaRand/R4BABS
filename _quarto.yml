@@ -9,9 +9,16 @@ website:
   #   style: simple
   #   palette: light
   google-analytics: "G-50FV9HPTRE"
+  repo-actions: [edit]  
+  repo-url: https://github.com/3mmaRand/comp4biosci
+
+  other-links:
+    - text: "Make a suggestion"
+      icon: chat-left-dots
+      href: "#"                 # dummy, 
 
   page-footer:
-    left: "Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <https://github.com/3mmaRand/R4BABS>"
+    left: "Rand, E. (2025). Data Analysis in R for Becoming a Bioscientist (Version 0.2) <https://github.com/3mmaRand/R4BABS>"
     right:
       - icon: github
         href: "https://github.com/3mmaRand"
@@ -19,11 +26,8 @@ website:
  
   navbar:
     background: light
-    twitter-card: true
     site-url: "https://3mmarand.github.io/R4BABS/"
     repo-url: "https://github.com/3mmaRand/R4BABS"
-    issue-url: "https://github.com/3mmaRand/R4BABS/issues/new/choose"
-    repo-actions: [edit, issue]
     page-navigation: true
     search: true
     left:
@@ -319,14 +323,38 @@ format:
     link-external-filter: '^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS'
     theme:
       light: [cosmo, custom.scss]
+      dark:  [solar, custom.scss]
     code-copy: true
     code-link: true
+    code-tools: true
     code-overflow: wrap
     code-line-numbers: false
+    lightbox:
+      match: auto
+      loop: false
     grid:
       sidebar-width: 250px
       body-width: 900px
       margin-width: 300px
+    include-after-body:
+      text: |
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // grab all links under “Other Links” in the right-hand TOC
+          const links = document.querySelectorAll('.quarto-other-links ul li a');
+          links.forEach(function(a) {
+            // find the one whose text is exactly “Make a suggestion”
+            if (a.textContent.trim() === 'Make a suggestion') {
+              const pageUrl   = encodeURIComponent(window.location.href);
+              const pageTitle = encodeURIComponent(document.title);
+              a.href = 'https://github.com/3mmaRand/comp4biosci/issues/new'
+                     + '?title=' + pageTitle
+                     + '&body='  + pageUrl;
+              a.target = '_blank';
+            }
+          });
+        });
+        </script>
 
     author-meta: Emma Rand
 
