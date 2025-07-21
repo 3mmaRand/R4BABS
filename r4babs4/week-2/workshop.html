@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Workshop – Data Analysis in R</title>
@@ -19,8 +19,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -31,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -81,15 +82,23 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-29052ecf37f791cd0f0a96b6313e2a7b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-a03e91e75e70fe074cb6f9e1686248b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-efba4cb111cfd8b4774c90a6412e7cf1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-a03e91e75e70fe074cb6f9e1686248b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -153,7 +162,169 @@ window.Quarto = {
 };
 </script>
 </head>
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
@@ -192,6 +363,7 @@ window.Quarto = {
 </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
     <a href="https://github.com/3mmaRand" title="Emma on GitHub" class="quarto-navigation-tool px-1" aria-label="Emma on GitHub"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
@@ -410,11 +582,11 @@ window.Quarto = {
   <li><a href="#independent-study-following-the-workshop" id="toc-independent-study-following-the-workshop" class="nav-link" data-scroll-target="#independent-study-following-the-workshop">Independent study following the workshop</a></li>
   <li><a href="#the-code-file" id="toc-the-code-file" class="nav-link" data-scroll-target="#the-code-file">The Code file</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/3mmaRand/comp4biosci/edit/main/r4babs4/week-2/workshop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="#"><i class="bi bi-chat-left-dots"></i>Make a suggestion</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../r4babs4/week-2/overview.html">Week 2: DA 2 Biomed. Sci</a></li><li class="breadcrumb-item"><a href="../../r4babs4/week-2/workshop.html">Workshop</a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Workshop</h1>
+<div class="quarto-title-block"><div><h1 class="title">Workshop</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Data Analysis 2: Biomedical sciences - Sample data analysis</p>
 </div>
 
@@ -658,7 +830,6 @@ Tip
 </tbody>
 </table>
 </div>
-
 </div>
 </div>
 <p>🎬 Assign the names in <code>meta$name</code> to the columns in the flowFrames:</p>
@@ -698,27 +869,27 @@ Tip
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Quality control for the file: ECOLIGreen_ISOTYPE
-11.81% of anomalous cells detected in the flow rate check. 
+3.73% of anomalous cells detected in the flow rate check. 
 0% of anomalous cells detected in signal acquisition check. 
 0% of anomalous cells detected in the dynamic range check. 
 Quality control for the file: ECOLIGreen_TNFAPC
-34.82% of anomalous cells detected in the flow rate check. 
+2.93% of anomalous cells detected in the flow rate check. 
 0% of anomalous cells detected in signal acquisition check. 
 0% of anomalous cells detected in the dynamic range check. 
 Quality control for the file: LPS_ISOTYPE
-36.42% of anomalous cells detected in the flow rate check. 
+4.31% of anomalous cells detected in the flow rate check. 
 0% of anomalous cells detected in signal acquisition check. 
 0% of anomalous cells detected in the dynamic range check. 
 Quality control for the file: LPS_TNFAPC
-36.11% of anomalous cells detected in the flow rate check. 
+4.13% of anomalous cells detected in the flow rate check. 
 0% of anomalous cells detected in signal acquisition check. 
 0% of anomalous cells detected in the dynamic range check. 
 Quality control for the file: MEDIA_ISOTYPE
-26.04% of anomalous cells detected in the flow rate check. 
+7.45% of anomalous cells detected in the flow rate check. 
 0% of anomalous cells detected in signal acquisition check. 
 0% of anomalous cells detected in the dynamic range check. 
 Quality control for the file: MEDIA_TNFAPC
-37.82% of anomalous cells detected in the flow rate check. 
+4.11% of anomalous cells detected in the flow rate check. 
 0% of anomalous cells detected in signal acquisition check. 
 0% of anomalous cells detected in the dynamic range check. </code></pre>
 </div>
@@ -739,7 +910,7 @@ Quality control for the file: MEDIA_TNFAPC
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="workshop_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -753,7 +924,7 @@ Quality control for the file: MEDIA_TNFAPC
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="workshop_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -781,7 +952,7 @@ Quality control for the file: MEDIA_TNFAPC
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="workshop_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -796,9 +967,9 @@ Quality control for the file: MEDIA_TNFAPC
 <span><span class="va">clean_trans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/fsApply.html">fsApply</a></span><span class="op">(</span><span class="va">fs_clean_trans</span>, <span class="va">exprs</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>fsApply(flowSet, function)</code> applies a function to every flowFrame in a flowSet. Here we have accessed the data matirx in each with <code><a href="https://rdrr.io/pkg/Biobase/man/exprs.html">exprs()</a></code>.</p>
-<p>The are 191663 rows (cells) in the dataset. You can view it by clicking on the dataframe in the Environment. At the moment, we cannot tell which row (cell) is from which sample but we can add the sample names as a column in that dataframe.</p>
+<p>The are 265617 rows (cells) in the dataset. You can view it by clicking on the dataframe in the Environment. At the moment, we cannot tell which row (cell) is from which sample but we can add the sample names as a column in that dataframe.</p>
 <ul>
-<li><p>Each sample name needs to appear as many times as there are cells (events) in the corresponding flowFrame. For example, <code>dim(fs_clean_trans[[1]])["events"]</code> is 44095 cells.</p></li>
+<li><p>Each sample name needs to appear as many times as there are cells (events) in the corresponding flowFrame. For example, <code>dim(fs_clean_trans[[1]])["events"]</code> is 48135 cells.</p></li>
 <li><p><code>sampleNames(fs_clean_trans)</code> gives the names of the samples.</p></li>
 <li><p>We can use the <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function to repeat the sample names the correct number of times.</p></li>
 </ul>
@@ -879,7 +1050,7 @@ Adding the treatment and antibody information
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="workshop_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -925,7 +1096,7 @@ Choosing values for your own data
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="workshop_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -939,7 +1110,7 @@ Choosing values for your own data
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/flowCore/man/filter-methods.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">FS_Lin</span>, <span class="va">xmin</span>, <span class="va">xmax</span><span class="op">)</span>,</span>
 <span>         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">SS_Lin</span>, <span class="va">ymin</span>, <span class="va">ymax</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>clean_trans_live</code> now has 179794 cells. We should report how many cells were <em>in the gate</em> for each sample.</p>
+<p><code>clean_trans_live</code> now has 249009 cells. We should report how many cells were <em>in the gate</em> for each sample.</p>
 <p>🎬 Find the number of cells in each sample after flowAI cleaning:</p>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># </span></span>
@@ -960,32 +1131,32 @@ Choosing values for your own data
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">20154</td>
+<td style="text-align: right;">25221</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">31789</td>
+<td style="text-align: right;">47846</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">44095</td>
+<td style="text-align: right;">48135</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">31089</td>
+<td style="text-align: right;">47945</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">31945</td>
+<td style="text-align: right;">47934</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">32591</td>
+<td style="text-align: right;">48536</td>
 </tr>
 </tbody>
 </table>
@@ -1011,32 +1182,32 @@ Choosing values for your own data
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">17856</td>
+<td style="text-align: right;">22313</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">30675</td>
+<td style="text-align: right;">46128</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">41927</td>
+<td style="text-align: right;">45748</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">28085</td>
+<td style="text-align: right;">43256</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">30536</td>
+<td style="text-align: right;">45757</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">30715</td>
+<td style="text-align: right;">45807</td>
 </tr>
 </tbody>
 </table>
@@ -1062,44 +1233,44 @@ Choosing values for your own data
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">17856</td>
-<td style="text-align: right;">20154</td>
-<td style="text-align: right;">88.6</td>
+<td style="text-align: right;">22313</td>
+<td style="text-align: right;">25221</td>
+<td style="text-align: right;">88.5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">30675</td>
-<td style="text-align: right;">31789</td>
-<td style="text-align: right;">96.5</td>
+<td style="text-align: right;">46128</td>
+<td style="text-align: right;">47846</td>
+<td style="text-align: right;">96.4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">41927</td>
-<td style="text-align: right;">44095</td>
-<td style="text-align: right;">95.1</td>
+<td style="text-align: right;">45748</td>
+<td style="text-align: right;">48135</td>
+<td style="text-align: right;">95.0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">28085</td>
-<td style="text-align: right;">31089</td>
-<td style="text-align: right;">90.3</td>
+<td style="text-align: right;">43256</td>
+<td style="text-align: right;">47945</td>
+<td style="text-align: right;">90.2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">30536</td>
-<td style="text-align: right;">31945</td>
-<td style="text-align: right;">95.6</td>
+<td style="text-align: right;">45757</td>
+<td style="text-align: right;">47934</td>
+<td style="text-align: right;">95.5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">30715</td>
-<td style="text-align: right;">32591</td>
-<td style="text-align: right;">94.2</td>
+<td style="text-align: right;">45807</td>
+<td style="text-align: right;">48536</td>
+<td style="text-align: right;">94.4</td>
 </tr>
 </tbody>
 </table>
@@ -1124,7 +1295,7 @@ Choosing values for your own data
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-35-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="workshop_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -1152,7 +1323,7 @@ Reporting
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-36-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="workshop_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -1185,7 +1356,7 @@ Reporting
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-38-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="workshop_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -1218,38 +1389,38 @@ Reporting
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">3.950328</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">3.957716</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">41</td>
-<td style="text-align: right;">3.968852</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">3.943064</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">278</td>
-<td style="text-align: right;">3.867921</td>
+<td style="text-align: right;">306</td>
+<td style="text-align: right;">3.867121</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">20066</td>
-<td style="text-align: right;">4.121845</td>
+<td style="text-align: right;">30951</td>
+<td style="text-align: right;">4.120422</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">30481</td>
-<td style="text-align: right;">5.075325</td>
+<td style="text-align: right;">45676</td>
+<td style="text-align: right;">5.075094</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">30686</td>
-<td style="text-align: right;">5.201248</td>
+<td style="text-align: right;">45767</td>
+<td style="text-align: right;">5.200902</td>
 </tr>
 </tbody>
 </table>
@@ -1302,61 +1473,61 @@ Reporting
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">20154</td>
-<td style="text-align: right;">17856</td>
-<td style="text-align: right;">88.6</td>
-<td style="text-align: right;">3.950328</td>
-<td style="text-align: right;">38</td>
+<td style="text-align: right;">25221</td>
+<td style="text-align: right;">22313</td>
+<td style="text-align: right;">88.5</td>
+<td style="text-align: right;">3.957716</td>
+<td style="text-align: right;">46</td>
 <td style="text-align: right;">0.2</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">31789</td>
-<td style="text-align: right;">30675</td>
-<td style="text-align: right;">96.5</td>
-<td style="text-align: right;">3.968852</td>
-<td style="text-align: right;">41</td>
+<td style="text-align: right;">47846</td>
+<td style="text-align: right;">46128</td>
+<td style="text-align: right;">96.4</td>
+<td style="text-align: right;">3.943064</td>
+<td style="text-align: right;">63</td>
 <td style="text-align: right;">0.1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ISOTYPE</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">44095</td>
-<td style="text-align: right;">41927</td>
-<td style="text-align: right;">95.1</td>
-<td style="text-align: right;">3.867921</td>
-<td style="text-align: right;">278</td>
+<td style="text-align: right;">48135</td>
+<td style="text-align: right;">45748</td>
+<td style="text-align: right;">95.0</td>
+<td style="text-align: right;">3.867121</td>
+<td style="text-align: right;">306</td>
 <td style="text-align: right;">0.7</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">MEDIA</td>
-<td style="text-align: right;">31089</td>
-<td style="text-align: right;">28085</td>
-<td style="text-align: right;">90.3</td>
-<td style="text-align: right;">4.121845</td>
-<td style="text-align: right;">20066</td>
-<td style="text-align: right;">71.4</td>
+<td style="text-align: right;">47945</td>
+<td style="text-align: right;">43256</td>
+<td style="text-align: right;">90.2</td>
+<td style="text-align: right;">4.120422</td>
+<td style="text-align: right;">30951</td>
+<td style="text-align: right;">71.6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">LPS</td>
-<td style="text-align: right;">31945</td>
-<td style="text-align: right;">30536</td>
-<td style="text-align: right;">95.6</td>
-<td style="text-align: right;">5.075325</td>
-<td style="text-align: right;">30481</td>
+<td style="text-align: right;">47934</td>
+<td style="text-align: right;">45757</td>
+<td style="text-align: right;">95.5</td>
+<td style="text-align: right;">5.075094</td>
+<td style="text-align: right;">45676</td>
 <td style="text-align: right;">99.8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TNFAPC</td>
 <td style="text-align: left;">ECOLIGreen</td>
-<td style="text-align: right;">32591</td>
-<td style="text-align: right;">30715</td>
-<td style="text-align: right;">94.2</td>
-<td style="text-align: right;">5.201248</td>
-<td style="text-align: right;">30686</td>
+<td style="text-align: right;">48536</td>
+<td style="text-align: right;">45807</td>
+<td style="text-align: right;">94.4</td>
+<td style="text-align: right;">5.200902</td>
+<td style="text-align: right;">45767</td>
 <td style="text-align: right;">99.9</td>
 </tr>
 </tbody>
@@ -1412,7 +1583,7 @@ Tip for your own summaries
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="workshop_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="4200"></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="workshop_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
@@ -1435,6 +1606,8 @@ Tip for your own summaries
 <p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
+
+<!-- -->
 
 
 </section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -1469,241 +1642,311 @@ Xie, Yihui. 2014. <span>“Knitr: A Comprehensive Tool for Reproducible Research
 Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
 </div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
         }
-        return container.innerHTML
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1711,193 +1954,1086 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb47" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Workshop"</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Data Analysis 2: Biomedical sciences - Sample data analysis"</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="an">toc-location:</span><span class="co"> right</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Session overview</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>In this workshop you will learn how to analyse some sample flow</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>cytometry data which is formatted in the same way as the data you will</span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a>produce.</span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exercises</span></span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Set up</span></span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### Make a RStudio Project</span></span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a>🎬 Start RStudio from the Start menu.</span>
+<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-31"><a href="#cb47-31" aria-hidden="true" tabindex="-1"></a>🎬 Make an RStudio project. Be deliberate about where you create it so</span>
+<span id="cb47-32"><a href="#cb47-32" aria-hidden="true" tabindex="-1"></a>that it is a good place for you.</span>
+<span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a>🎬 Use the Files pane to make a folders for the data. I suggest</span>
+<span id="cb47-35"><a href="#cb47-35" aria-hidden="true" tabindex="-1"></a><span class="in">`data-raw/`</span>, <span class="in">`data-processed/`</span> and <span class="in">`data-meta/`</span></span>
+<span id="cb47-36"><a href="#cb47-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-37"><a href="#cb47-37" aria-hidden="true" tabindex="-1"></a>🎬 Make a new script called <span class="in">`sample-data-analysis.R`</span> to carry out the</span>
+<span id="cb47-38"><a href="#cb47-38" aria-hidden="true" tabindex="-1"></a>rest of the work.</span>
+<span id="cb47-39"><a href="#cb47-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-40"><a href="#cb47-40" aria-hidden="true" tabindex="-1"></a>🎬 Record what you do and what you find out. All of it! Make notes on</span>
+<span id="cb47-41"><a href="#cb47-41" aria-hidden="true" tabindex="-1"></a>the inputs and outputs of each command. This will help you work out</span>
+<span id="cb47-42"><a href="#cb47-42" aria-hidden="true" tabindex="-1"></a>problems analysing your own data.</span>
+<span id="cb47-43"><a href="#cb47-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-44"><a href="#cb47-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Load packages</span></span>
+<span id="cb47-45"><a href="#cb47-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-46"><a href="#cb47-46" aria-hidden="true" tabindex="-1"></a>We need three packages for this workshop:</span>
+<span id="cb47-47"><a href="#cb47-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-48"><a href="#cb47-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**`tidyverse`** <span class="co">[</span><span class="ot">@tidyverse</span><span class="co">]</span>: importing the meta data which is in a</span>
+<span id="cb47-49"><a href="#cb47-49" aria-hidden="true" tabindex="-1"></a>    text file, working with the data once it is in a dataframe to</span>
+<span id="cb47-50"><a href="#cb47-50" aria-hidden="true" tabindex="-1"></a>    filter, summarise and plot.</span>
+<span id="cb47-51"><a href="#cb47-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-52"><a href="#cb47-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**`flowCore`** <span class="co">[</span><span class="ot">@flowCore</span><span class="co">]</span>: to import data from flow cytometry files</span>
+<span id="cb47-53"><a href="#cb47-53" aria-hidden="true" tabindex="-1"></a>    (<span class="in">`.fcs`</span>), apply the logicle transformation, and use functions for</span>
+<span id="cb47-54"><a href="#cb47-54" aria-hidden="true" tabindex="-1"></a>    using a "flowSet" data structure.</span>
+<span id="cb47-55"><a href="#cb47-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-56"><a href="#cb47-56" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**`flowAI`** <span class="co">[</span><span class="ot">@flowAI</span><span class="co">]</span>: which performs automated quality control by</span>
+<span id="cb47-57"><a href="#cb47-57" aria-hidden="true" tabindex="-1"></a>    checking for changes in instrument speed and signal intensity that</span>
+<span id="cb47-58"><a href="#cb47-58" aria-hidden="true" tabindex="-1"></a>    indicate a problem for the reading for that cells</span>
+<span id="cb47-59"><a href="#cb47-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-60"><a href="#cb47-60" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb47-61"><a href="#cb47-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working on University computers or using the Virtual Desktop Service</span></span>
+<span id="cb47-62"><a href="#cb47-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-63"><a href="#cb47-63" aria-hidden="true" tabindex="-1"></a>These packages are installed already. You can go straight to loading</span>
+<span id="cb47-64"><a href="#cb47-64" aria-hidden="true" tabindex="-1"></a>them.</span>
+<span id="cb47-65"><a href="#cb47-65" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-66"><a href="#cb47-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-67"><a href="#cb47-67" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb47-68"><a href="#cb47-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working on your own machine</span></span>
+<span id="cb47-69"><a href="#cb47-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-70"><a href="#cb47-70" aria-hidden="true" tabindex="-1"></a>I recommend working on the University computers for this work. You can</span>
+<span id="cb47-71"><a href="#cb47-71" aria-hidden="true" tabindex="-1"></a>still work from home by using the [Virtual Desktop</span>
+<span id="cb47-72"><a href="#cb47-72" aria-hidden="true" tabindex="-1"></a>Service](https://www.york.ac.uk/it-services/tools/vds/). The VDS allows</span>
+<span id="cb47-73"><a href="#cb47-73" aria-hidden="true" tabindex="-1"></a>you to log on to a university computer from your own computer. It means</span>
+<span id="cb47-74"><a href="#cb47-74" aria-hidden="true" tabindex="-1"></a>you can access all software and filestores. When using the VDS for R a</span>
+<span id="cb47-75"><a href="#cb47-75" aria-hidden="true" tabindex="-1"></a>nd RStudio, it usually makes sense to use other software - such as a</span>
+<span id="cb47-76"><a href="#cb47-76" aria-hidden="true" tabindex="-1"></a>browser or file explorer - also through the VDS. Go to the [Virtual</span>
+<span id="cb47-77"><a href="#cb47-77" aria-hidden="true" tabindex="-1"></a>Desktop Service](https://www.york.ac.uk/it-services/tools/vds/) for set</span>
+<span id="cb47-78"><a href="#cb47-78" aria-hidden="true" tabindex="-1"></a>up instructions.</span>
+<span id="cb47-79"><a href="#cb47-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-80"><a href="#cb47-80" aria-hidden="true" tabindex="-1"></a>However, If you are confident in your ability to set up your own</span>
+<span id="cb47-81"><a href="#cb47-81" aria-hidden="true" tabindex="-1"></a>machine, you will need to install these packages.</span>
+<span id="cb47-82"><a href="#cb47-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-83"><a href="#cb47-83" aria-hidden="true" tabindex="-1"></a>You can install **`tidyverse`** from CRAN in the normal way.</span>
+<span id="cb47-84"><a href="#cb47-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-85"><a href="#cb47-85" aria-hidden="true" tabindex="-1"></a>**`flowCore`** and **`flowAI`** are not on CRAN but come from</span>
+<span id="cb47-86"><a href="#cb47-86" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Bioconductor</span><span class="co">](https://www.bioconductor.org/)</span>.</span>
+<span id="cb47-87"><a href="#cb47-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-88"><a href="#cb47-88" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>first install **`BiocManager`** from CRAN in the normal way.</span>
+<span id="cb47-89"><a href="#cb47-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-90"><a href="#cb47-90" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>then install from Bioconductor using</span>
+<span id="cb47-91"><a href="#cb47-91" aria-hidden="true" tabindex="-1"></a>    <span class="in">`BiocManager::install("flowCore")`</span> and</span>
+<span id="cb47-92"><a href="#cb47-92" aria-hidden="true" tabindex="-1"></a>    <span class="in">`BiocManager::install("flowAI")`</span></span>
+<span id="cb47-93"><a href="#cb47-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-94"><a href="#cb47-94" aria-hidden="true" tabindex="-1"></a>If you have difficulty installing these packages, use the [Virtual</span>
+<span id="cb47-95"><a href="#cb47-95" aria-hidden="true" tabindex="-1"></a>Desktop Service](https://www.york.ac.uk/it-services/services/vds/) which</span>
+<span id="cb47-96"><a href="#cb47-96" aria-hidden="true" tabindex="-1"></a>allows you to log into a university machine from your laptop.</span>
+<span id="cb47-97"><a href="#cb47-97" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-98"><a href="#cb47-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-99"><a href="#cb47-99" aria-hidden="true" tabindex="-1"></a>🎬 Load **`tidyverse`**,**`flowCore`** and **`flowAI`**</span>
+<span id="cb47-100"><a href="#cb47-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-103"><a href="#cb47-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-104"><a href="#cb47-104" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flowCore)</span>
+<span id="cb47-105"><a href="#cb47-105" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flowAI)</span>
+<span id="cb47-106"><a href="#cb47-106" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb47-107"><a href="#cb47-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-108"><a href="#cb47-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-109"><a href="#cb47-109" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb47-110"><a href="#cb47-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Order of package loading</span></span>
+<span id="cb47-111"><a href="#cb47-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-112"><a href="#cb47-112" aria-hidden="true" tabindex="-1"></a>Load tidyverse last because **`flowCore`** also has some functions with</span>
+<span id="cb47-113"><a href="#cb47-113" aria-hidden="true" tabindex="-1"></a>the same names as functions in **`tidyverse`** and you will want the</span>
+<span id="cb47-114"><a href="#cb47-114" aria-hidden="true" tabindex="-1"></a>tidyverse ones.</span>
+<span id="cb47-115"><a href="#cb47-115" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-116"><a href="#cb47-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-117"><a href="#cb47-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import the data</span></span>
+<span id="cb47-118"><a href="#cb47-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-119"><a href="#cb47-119" aria-hidden="true" tabindex="-1"></a>There are six data files, one for each treatment and antibody</span>
+<span id="cb47-120"><a href="#cb47-120" aria-hidden="true" tabindex="-1"></a>combination:</span>
+<span id="cb47-121"><a href="#cb47-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-122"><a href="#cb47-122" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">ECOLIGreen_ISOTYPE.fcs</span><span class="co">](data-raw/ECOLIGreen_ISOTYPE.fcs)</span></span>
+<span id="cb47-123"><a href="#cb47-123" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">ECOLIGreen_TNFAPC.fcs</span><span class="co">](data-raw/ECOLIGreen_TNFAPC.fcs)</span></span>
+<span id="cb47-124"><a href="#cb47-124" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">LPS_ISOTYPE.fcs</span><span class="co">](data-raw/LPS_ISOTYPE.fcs)</span></span>
+<span id="cb47-125"><a href="#cb47-125" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">LPS_TNFAPC.fcs</span><span class="co">](data-raw/LPS_TNFAPC.fcs)</span></span>
+<span id="cb47-126"><a href="#cb47-126" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">MEDIA_ISOTYPE.fcs</span><span class="co">](data-raw/MEDIA_ISOTYPE.fcs)</span></span>
+<span id="cb47-127"><a href="#cb47-127" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">MEDIA_TNFAPC.fcs</span><span class="co">](data-raw/MEDIA_TNFAPC.fcs)</span></span>
+<span id="cb47-128"><a href="#cb47-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-129"><a href="#cb47-129" aria-hidden="true" tabindex="-1"></a>🎬 Save copies of each file (right click and save as) to your</span>
+<span id="cb47-130"><a href="#cb47-130" aria-hidden="true" tabindex="-1"></a><span class="in">`data-raw/`</span> folder.</span>
+<span id="cb47-131"><a href="#cb47-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-132"><a href="#cb47-132" aria-hidden="true" tabindex="-1"></a>These are six files associated with one experiment.</span>
+<span id="cb47-133"><a href="#cb47-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-134"><a href="#cb47-134" aria-hidden="true" tabindex="-1"></a>We are going to use the command <span class="in">`read.flowSet()`</span> from the **`flowCore`**</span>
+<span id="cb47-135"><a href="#cb47-135" aria-hidden="true" tabindex="-1"></a>package to import the data. In R, the data from one file is stored in a</span>
+<span id="cb47-136"><a href="#cb47-136" aria-hidden="true" tabindex="-1"></a>"flowFrame" object. A flowFrame is a data structure in the same way that</span>
+<span id="cb47-137"><a href="#cb47-137" aria-hidden="true" tabindex="-1"></a>a dataframe or a vector is a data structure. A flowFrame has "slots".</span>
+<span id="cb47-138"><a href="#cb47-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-139"><a href="#cb47-139" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The first slot is called <span class="in">`exprs`</span> and contains the data itself in</span>
+<span id="cb47-140"><a href="#cb47-140" aria-hidden="true" tabindex="-1"></a>    matrix which looks just like a dataframe.</span>
+<span id="cb47-141"><a href="#cb47-141" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The second is called <span class="in">`parameters`</span> and contains the names of the</span>
+<span id="cb47-142"><a href="#cb47-142" aria-hidden="true" tabindex="-1"></a>    columns in <span class="in">`exprs`</span>.</span>
+<span id="cb47-143"><a href="#cb47-143" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The third is called <span class="in">`description`</span> and contains information about the</span>
+<span id="cb47-144"><a href="#cb47-144" aria-hidden="true" tabindex="-1"></a>    <span class="in">`.fcs`</span> file.</span>
+<span id="cb47-145"><a href="#cb47-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-146"><a href="#cb47-146" aria-hidden="true" tabindex="-1"></a>A "flowSet" is a list of related flowFrames. They are related in that</span>
+<span id="cb47-147"><a href="#cb47-147" aria-hidden="true" tabindex="-1"></a>they have the same column names, came from the same machine, and are</span>
+<span id="cb47-148"><a href="#cb47-148" aria-hidden="true" tabindex="-1"></a>part of the same experiment. Such data needs to be treated in the same</span>
+<span id="cb47-149"><a href="#cb47-149" aria-hidden="true" tabindex="-1"></a>way which is why it is useful to have a structure like a flowSet.</span>
+<span id="cb47-150"><a href="#cb47-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-151"><a href="#cb47-151" aria-hidden="true" tabindex="-1"></a>🎬 Make a variable to hold the file names:</span>
+<span id="cb47-152"><a href="#cb47-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-155"><a href="#cb47-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-156"><a href="#cb47-156" aria-hidden="true" tabindex="-1"></a>myfiles <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data-raw"</span>, <span class="at">pattern =</span> <span class="st">".fcs$"</span>)</span>
+<span id="cb47-157"><a href="#cb47-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-158"><a href="#cb47-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-159"><a href="#cb47-159" aria-hidden="true" tabindex="-1"></a><span class="in">`list.files()`</span> will return a character vector of the names of the files</span>
+<span id="cb47-160"><a href="#cb47-160" aria-hidden="true" tabindex="-1"></a><span class="in">`data-raw/`</span>. The <span class="in">`pattern`</span> argument is a "regular expression" which is</span>
+<span id="cb47-161"><a href="#cb47-161" aria-hidden="true" tabindex="-1"></a>used to filter the names of the files. Here we are asking for the names</span>
+<span id="cb47-162"><a href="#cb47-162" aria-hidden="true" tabindex="-1"></a>of the files which end in <span class="in">`.fcs`</span>. This would be very useful if you had</span>
+<span id="cb47-163"><a href="#cb47-163" aria-hidden="true" tabindex="-1"></a>other file types in that folder. In our case, there are only <span class="in">`.fcs`</span></span>
+<span id="cb47-164"><a href="#cb47-164" aria-hidden="true" tabindex="-1"></a>files in that folder.</span>
+<span id="cb47-165"><a href="#cb47-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-166"><a href="#cb47-166" aria-hidden="true" tabindex="-1"></a>🎬 Type <span class="in">`myfiles`</span> to check it contains what you expect.</span>
+<span id="cb47-167"><a href="#cb47-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-168"><a href="#cb47-168" aria-hidden="true" tabindex="-1"></a>🎬 Use <span class="in">`read.flowSet()`</span> to import the files from the folder <span class="in">`data-raw/`</span></span>
+<span id="cb47-169"><a href="#cb47-169" aria-hidden="true" tabindex="-1"></a>that are listed in the variable <span class="in">`myfiles`</span> and name the resulting flowSet</span>
+<span id="cb47-170"><a href="#cb47-170" aria-hidden="true" tabindex="-1"></a><span class="in">`fs`</span>:</span>
+<span id="cb47-171"><a href="#cb47-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-174"><a href="#cb47-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-175"><a href="#cb47-175" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">read.flowSet</span>(myfiles, </span>
+<span id="cb47-176"><a href="#cb47-176" aria-hidden="true" tabindex="-1"></a>                   <span class="at">path =</span> <span class="st">"data-raw"</span>)</span>
+<span id="cb47-177"><a href="#cb47-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-178"><a href="#cb47-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-179"><a href="#cb47-179" aria-hidden="true" tabindex="-1"></a>You now have a flowSet which is a list of 6 flowFrames, one for each</span>
+<span id="cb47-180"><a href="#cb47-180" aria-hidden="true" tabindex="-1"></a><span class="in">`.fcs`</span> file.</span>
+<span id="cb47-181"><a href="#cb47-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-182"><a href="#cb47-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Explore the data structure</span></span>
+<span id="cb47-183"><a href="#cb47-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-184"><a href="#cb47-184" aria-hidden="true" tabindex="-1"></a>🎬 Type <span class="in">`fs`</span> to see what it contains:</span>
+<span id="cb47-185"><a href="#cb47-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-188"><a href="#cb47-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-189"><a href="#cb47-189" aria-hidden="true" tabindex="-1"></a>fs </span>
+<span id="cb47-190"><a href="#cb47-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-191"><a href="#cb47-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-192"><a href="#cb47-192" aria-hidden="true" tabindex="-1"></a>We can index the list to access the first flowFrame in the flowSet.</span>
+<span id="cb47-193"><a href="#cb47-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-194"><a href="#cb47-194" aria-hidden="true" tabindex="-1"></a>🎬 Type <span class="in">`fs[[1]]`</span> to see the information about the first flowFrame in</span>
+<span id="cb47-195"><a href="#cb47-195" aria-hidden="true" tabindex="-1"></a>the flowSet:</span>
+<span id="cb47-196"><a href="#cb47-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-199"><a href="#cb47-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-200"><a href="#cb47-200" aria-hidden="true" tabindex="-1"></a>fs[[<span class="dv">1</span>]] </span>
+<span id="cb47-201"><a href="#cb47-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-202"><a href="#cb47-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-203"><a href="#cb47-203" aria-hidden="true" tabindex="-1"></a>This tells you there are 50000 cells (rows) and 16 columns in this</span>
+<span id="cb47-204"><a href="#cb47-204" aria-hidden="true" tabindex="-1"></a>dataset. The first two columns <span class="in">`TIME`</span> and <span class="in">`Time MSW`</span> give the time in</span>
+<span id="cb47-205"><a href="#cb47-205" aria-hidden="true" tabindex="-1"></a>binary format since the beginning of the data acquisition.</span>
+<span id="cb47-206"><a href="#cb47-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-207"><a href="#cb47-207" aria-hidden="true" tabindex="-1"></a>🎬 You can use the <span class="in">`exprs()`</span> function to access the actual data and pipe</span>
+<span id="cb47-208"><a href="#cb47-208" aria-hidden="true" tabindex="-1"></a>it to <span class="in">`View()`</span> to show it in a window:</span>
+<span id="cb47-209"><a href="#cb47-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-212"><a href="#cb47-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-213"><a href="#cb47-213" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb47-214"><a href="#cb47-214" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> <span class="fu">View</span>()</span>
+<span id="cb47-215"><a href="#cb47-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-216"><a href="#cb47-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-217"><a href="#cb47-217" aria-hidden="true" tabindex="-1"></a>🎬 List the column names in each of the flowFrames:</span>
+<span id="cb47-218"><a href="#cb47-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-221"><a href="#cb47-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-222"><a href="#cb47-222" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(fs)</span>
+<span id="cb47-223"><a href="#cb47-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-224"><a href="#cb47-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-225"><a href="#cb47-225" aria-hidden="true" tabindex="-1"></a>The side scatter (<span class="in">`SS`</span>) and forward scatter (<span class="in">`FS`</span>) columns are used to</span>
+<span id="cb47-226"><a href="#cb47-226" aria-hidden="true" tabindex="-1"></a>select the live cells. The fluorescence measurements are in the FL</span>
+<span id="cb47-227"><a href="#cb47-227" aria-hidden="true" tabindex="-1"></a>columns and it is the linear values, <span class="in">`FL 1 Lin`</span> and <span class="in">`FL 8 Lin`</span> that have</span>
+<span id="cb47-228"><a href="#cb47-228" aria-hidden="true" tabindex="-1"></a>our FITC and APC signals respectively.</span>
+<span id="cb47-229"><a href="#cb47-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-230"><a href="#cb47-230" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb47-231"><a href="#cb47-231" aria-hidden="true" tabindex="-1"></a>These exploratory steps are to help you understand the R objects you</span>
+<span id="cb47-232"><a href="#cb47-232" aria-hidden="true" tabindex="-1"></a>have. They are not essential parts of the analysis.</span>
+<span id="cb47-233"><a href="#cb47-233" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-234"><a href="#cb47-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-235"><a href="#cb47-235" aria-hidden="true" tabindex="-1"></a><span class="fu">## Improve the column names</span></span>
+<span id="cb47-236"><a href="#cb47-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-237"><a href="#cb47-237" aria-hidden="true" tabindex="-1"></a>Names like <span class="in">`FL 1 Lin`</span> meaning "fluorescence channel 1 linear" are not </span>
+<span id="cb47-238"><a href="#cb47-238" aria-hidden="true" tabindex="-1"></a>very informative. A list of more useful column names are given in</span>
+<span id="cb47-239"><a href="#cb47-239" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">meta.csv</span><span class="co">](data-meta/meta.csv)</span>. We can import this file and use the</span>
+<span id="cb47-240"><a href="#cb47-240" aria-hidden="true" tabindex="-1"></a>resulting dataframe to rename columns in our flowFrames. This will make</span>
+<span id="cb47-241"><a href="#cb47-241" aria-hidden="true" tabindex="-1"></a>it easier to understand our data and results.</span>
+<span id="cb47-242"><a href="#cb47-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-243"><a href="#cb47-243" aria-hidden="true" tabindex="-1"></a>🎬 Save a copy of the file (right click and save as) to your</span>
+<span id="cb47-244"><a href="#cb47-244" aria-hidden="true" tabindex="-1"></a><span class="in">`data-meta/`</span> folder</span>
+<span id="cb47-245"><a href="#cb47-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-246"><a href="#cb47-246" aria-hidden="true" tabindex="-1"></a>🎬 Import the meta data and examine it:</span>
+<span id="cb47-247"><a href="#cb47-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-250"><a href="#cb47-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-251"><a href="#cb47-251" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-meta/meta.csv"</span>)</span>
+<span id="cb47-252"><a href="#cb47-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-253"><a href="#cb47-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-254"><a href="#cb47-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-257"><a href="#cb47-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-258"><a href="#cb47-258" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-259"><a href="#cb47-259" aria-hidden="true" tabindex="-1"></a>meta <span class="sc">|&gt;</span> </span>
+<span id="cb47-260"><a href="#cb47-260" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-261"><a href="#cb47-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-262"><a href="#cb47-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"200px"</span>)</span>
+<span id="cb47-263"><a href="#cb47-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-264"><a href="#cb47-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-265"><a href="#cb47-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-266"><a href="#cb47-266" aria-hidden="true" tabindex="-1"></a>🎬 Assign the names in <span class="in">`meta$name`</span> to the columns in the flowFrames:</span>
+<span id="cb47-267"><a href="#cb47-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-270"><a href="#cb47-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-271"><a href="#cb47-271" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(fs) <span class="ot">&lt;-</span> meta<span class="sc">$</span>name</span>
+<span id="cb47-272"><a href="#cb47-272" aria-hidden="true" tabindex="-1"></a><span class="co"># view the effect</span></span>
+<span id="cb47-273"><a href="#cb47-273" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(fs) </span>
+<span id="cb47-274"><a href="#cb47-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-275"><a href="#cb47-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-276"><a href="#cb47-276" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb47-277"><a href="#cb47-277" aria-hidden="true" tabindex="-1"></a>You don't have to use the names I have used for your own analysis if</span>
+<span id="cb47-278"><a href="#cb47-278" aria-hidden="true" tabindex="-1"></a>you prefer different names. Simply edit the <span class="in">`meta.csv`</span> file. However,</span>
+<span id="cb47-279"><a href="#cb47-279" aria-hidden="true" tabindex="-1"></a>you do need to keep the Time column named that way for the next step</span>
+<span id="cb47-280"><a href="#cb47-280" aria-hidden="true" tabindex="-1"></a>to proceed.</span>
+<span id="cb47-281"><a href="#cb47-281" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-282"><a href="#cb47-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-283"><a href="#cb47-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-284"><a href="#cb47-284" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 1: Automated instrument issues</span></span>
+<span id="cb47-285"><a href="#cb47-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-286"><a href="#cb47-286" aria-hidden="true" tabindex="-1"></a>**`flowAI`** is a package that provides a set of tools for automated QC</span>
+<span id="cb47-287"><a href="#cb47-287" aria-hidden="true" tabindex="-1"></a>of flow cytometry data. It checks for:</span>
+<span id="cb47-288"><a href="#cb47-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-289"><a href="#cb47-289" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>changes in instrument speed using the Time column,</span>
+<span id="cb47-290"><a href="#cb47-290" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>changes signal intensity</span>
+<span id="cb47-291"><a href="#cb47-291" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>cells that are outside the dynamic range</span>
+<span id="cb47-292"><a href="#cb47-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-293"><a href="#cb47-293" aria-hidden="true" tabindex="-1"></a>It generates a new flowSet with the problematic events removed along</span>
+<span id="cb47-294"><a href="#cb47-294" aria-hidden="true" tabindex="-1"></a>with a folder containing filtered <span class="in">`.fcs`</span> files and a quality control</span>
+<span id="cb47-295"><a href="#cb47-295" aria-hidden="true" tabindex="-1"></a>report in html format. It will take a few minutes to do all files.</span>
+<span id="cb47-296"><a href="#cb47-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-297"><a href="#cb47-297" aria-hidden="true" tabindex="-1"></a>🎬 Run the automated quality control:</span>
+<span id="cb47-298"><a href="#cb47-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-301"><a href="#cb47-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-302"><a href="#cb47-302" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-303"><a href="#cb47-303" aria-hidden="true" tabindex="-1"></a>fs_clean <span class="ot">&lt;-</span> <span class="fu">flow_auto_qc</span>(fs, </span>
+<span id="cb47-304"><a href="#cb47-304" aria-hidden="true" tabindex="-1"></a>                         <span class="at">html_report =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb47-305"><a href="#cb47-305" aria-hidden="true" tabindex="-1"></a>                         <span class="at">folder_results =</span> <span class="st">"sample-QC"</span>)</span>
+<span id="cb47-306"><a href="#cb47-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-307"><a href="#cb47-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-310"><a href="#cb47-310" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-311"><a href="#cb47-311" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb47-312"><a href="#cb47-312" aria-hidden="true" tabindex="-1"></a>fs_clean <span class="ot">&lt;-</span> <span class="fu">flow_auto_qc</span>(fs, </span>
+<span id="cb47-313"><a href="#cb47-313" aria-hidden="true" tabindex="-1"></a>                         <span class="at">folder_results =</span> <span class="st">"sample-QC"</span>)</span>
+<span id="cb47-314"><a href="#cb47-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-315"><a href="#cb47-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-316"><a href="#cb47-316" aria-hidden="true" tabindex="-1"></a>❓ What has been removed through the QC process?</span>
+<span id="cb47-317"><a href="#cb47-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-318"><a href="#cb47-318" aria-hidden="true" tabindex="-1"></a>❓ What is in the folder "sample-QC"?</span>
+<span id="cb47-319"><a href="#cb47-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-320"><a href="#cb47-320" aria-hidden="true" tabindex="-1"></a><span class="fu">### Get a feel of your data: Plot distributions</span></span>
+<span id="cb47-321"><a href="#cb47-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-322"><a href="#cb47-322" aria-hidden="true" tabindex="-1"></a>Plotting the distributions of our variables is very useful for getting</span>
+<span id="cb47-323"><a href="#cb47-323" aria-hidden="true" tabindex="-1"></a>an overview of our data. We'll just look at the first flowFrame to get</span>
+<span id="cb47-324"><a href="#cb47-324" aria-hidden="true" tabindex="-1"></a>over the principles. However, you may wish to examine all of the flow</span>
+<span id="cb47-325"><a href="#cb47-325" aria-hidden="true" tabindex="-1"></a>frames of your own data. </span>
+<span id="cb47-326"><a href="#cb47-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-327"><a href="#cb47-327" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the linear TNFa_APC signal in the first </span>
+<span id="cb47-328"><a href="#cb47-328" aria-hidden="true" tabindex="-1"></a>flowFrame in the flowSet:</span>
+<span id="cb47-329"><a href="#cb47-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-332"><a href="#cb47-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-333"><a href="#cb47-333" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
+<span id="cb47-334"><a href="#cb47-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-335"><a href="#cb47-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-336"><a href="#cb47-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
+<span id="cb47-337"><a href="#cb47-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-338"><a href="#cb47-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-339"><a href="#cb47-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-340"><a href="#cb47-340" aria-hidden="true" tabindex="-1"></a>This is a very skewed distribution which makes visualisation hard. It is</span>
+<span id="cb47-341"><a href="#cb47-341" aria-hidden="true" tabindex="-1"></a>common to log skewed distributions to improve visualisation. </span>
+<span id="cb47-342"><a href="#cb47-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-343"><a href="#cb47-343" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the logged <span class="in">`TNFa_APC_Lin`</span> column:</span>
+<span id="cb47-344"><a href="#cb47-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-347"><a href="#cb47-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-348"><a href="#cb47-348" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
+<span id="cb47-349"><a href="#cb47-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-350"><a href="#cb47-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(TNFa_APC_Lin))) <span class="sc">+</span></span>
+<span id="cb47-351"><a href="#cb47-351" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
+<span id="cb47-352"><a href="#cb47-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-353"><a href="#cb47-353" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-354"><a href="#cb47-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-355"><a href="#cb47-355" aria-hidden="true" tabindex="-1"></a>Now our data are easier to see.</span>
+<span id="cb47-356"><a href="#cb47-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-357"><a href="#cb47-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## Transform the data</span></span>
+<span id="cb47-358"><a href="#cb47-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-359"><a href="#cb47-359" aria-hidden="true" tabindex="-1"></a>In fact, we will apply a different transformation called "logicle"</span>
+<span id="cb47-360"><a href="#cb47-360" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@parks2006</span><span class="co">]</span>. This transformation is has a similar effect as logging but</span>
+<span id="cb47-361"><a href="#cb47-361" aria-hidden="true" tabindex="-1"></a>avoids some problems that can occur with flow cytometry data and</span>
+<span id="cb47-362"><a href="#cb47-362" aria-hidden="true" tabindex="-1"></a>especially flow cytometry data that have been "compensated" .</span>
+<span id="cb47-363"><a href="#cb47-363" aria-hidden="true" tabindex="-1"></a>Compensation is routinely applied to flow cytometry data to correct for</span>
+<span id="cb47-364"><a href="#cb47-364" aria-hidden="true" tabindex="-1"></a>fluorophores being detected in in multiple channels. This was not a</span>
+<span id="cb47-365"><a href="#cb47-365" aria-hidden="true" tabindex="-1"></a>problem in our experiment.</span>
+<span id="cb47-366"><a href="#cb47-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-367"><a href="#cb47-367" aria-hidden="true" tabindex="-1"></a>The transformation is applied in two steps: the transformation needed </span>
+<span id="cb47-368"><a href="#cb47-368" aria-hidden="true" tabindex="-1"></a>is estimated from the data and then that transformation is applied.</span>
+<span id="cb47-369"><a href="#cb47-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-370"><a href="#cb47-370" aria-hidden="true" tabindex="-1"></a>We need to apply the transformation only to the <span class="in">`TNFa_APC_Lin`</span> and</span>
+<span id="cb47-371"><a href="#cb47-371" aria-hidden="true" tabindex="-1"></a><span class="in">`E_coli_FITC_Lin`</span> columns. The <span class="in">`estimateLogicle()`</span> function refers to </span>
+<span id="cb47-372"><a href="#cb47-372" aria-hidden="true" tabindex="-1"></a>columns as channels.</span>
+<span id="cb47-373"><a href="#cb47-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-374"><a href="#cb47-374" aria-hidden="true" tabindex="-1"></a>🎬 Estimate the transformation from the data:</span>
+<span id="cb47-375"><a href="#cb47-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-378"><a href="#cb47-378" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-379"><a href="#cb47-379" aria-hidden="true" tabindex="-1"></a>trans <span class="ot">&lt;-</span> <span class="fu">estimateLogicle</span>(fs_clean[[<span class="dv">1</span>]],</span>
+<span id="cb47-380"><a href="#cb47-380" aria-hidden="true" tabindex="-1"></a>                         <span class="at">channels =</span> <span class="fu">c</span>(<span class="st">"E_coli_FITC_Lin"</span>, <span class="st">"TNFa_APC_Lin"</span>))</span>
+<span id="cb47-381"><a href="#cb47-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-382"><a href="#cb47-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-383"><a href="#cb47-383" aria-hidden="true" tabindex="-1"></a>🎬 Apply the transformation to all the<span class="in">`TNFa_APC_Lin`</span> and</span>
+<span id="cb47-384"><a href="#cb47-384" aria-hidden="true" tabindex="-1"></a><span class="in">`E_coli_FITC_Lin`</span> columns the flowSet:</span>
+<span id="cb47-385"><a href="#cb47-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-388"><a href="#cb47-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-389"><a href="#cb47-389" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the transformation</span></span>
+<span id="cb47-390"><a href="#cb47-390" aria-hidden="true" tabindex="-1"></a>fs_clean_trans <span class="ot">&lt;-</span> <span class="fu">transform</span>(fs_clean, trans)</span>
+<span id="cb47-391"><a href="#cb47-391" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-392"><a href="#cb47-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-393"><a href="#cb47-393" aria-hidden="true" tabindex="-1"></a>🎬 Examine the effect on the first flow frame:</span>
+<span id="cb47-394"><a href="#cb47-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-397"><a href="#cb47-397" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-398"><a href="#cb47-398" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean_trans[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
+<span id="cb47-399"><a href="#cb47-399" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-400"><a href="#cb47-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-401"><a href="#cb47-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
+<span id="cb47-402"><a href="#cb47-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-403"><a href="#cb47-403" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-404"><a href="#cb47-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-405"><a href="#cb47-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-406"><a href="#cb47-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-407"><a href="#cb47-407" aria-hidden="true" tabindex="-1"></a>That looks better.</span>
+<span id="cb47-408"><a href="#cb47-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-409"><a href="#cb47-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## Make data easier to work with</span></span>
+<span id="cb47-410"><a href="#cb47-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-411"><a href="#cb47-411" aria-hidden="true" tabindex="-1"></a>We are going to get the data from the flowSet and put in a dataframe.</span>
+<span id="cb47-412"><a href="#cb47-412" aria-hidden="true" tabindex="-1"></a>FlowCore contains many functions for gating (filtering), plotting and</span>
+<span id="cb47-413"><a href="#cb47-413" aria-hidden="true" tabindex="-1"></a>summarising flowSets but putting the data into a dataframe will make it</span>
+<span id="cb47-414"><a href="#cb47-414" aria-hidden="true" tabindex="-1"></a>easier for you to use tools you already know and more easily follow</span>
+<span id="cb47-415"><a href="#cb47-415" aria-hidden="true" tabindex="-1"></a>the priciples of what you are doing.</span>
+<span id="cb47-416"><a href="#cb47-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-417"><a href="#cb47-417" aria-hidden="true" tabindex="-1"></a>We will be using familiar tools like <span class="in">`group_by()`</span> and <span class="in">`summarise()`</span>,</span>
+<span id="cb47-418"><a href="#cb47-418" aria-hidden="true" tabindex="-1"></a><span class="in">`filter()`</span> and <span class="in">`ggplot()`</span></span>
+<span id="cb47-419"><a href="#cb47-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-420"><a href="#cb47-420" aria-hidden="true" tabindex="-1"></a>🎬 Put the transformed data into a data frame:</span>
+<span id="cb47-421"><a href="#cb47-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-424"><a href="#cb47-424" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-425"><a href="#cb47-425" aria-hidden="true" tabindex="-1"></a><span class="co"># Put into a data frame for ease of use</span></span>
+<span id="cb47-426"><a href="#cb47-426" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> <span class="fu">fsApply</span>(fs_clean_trans, exprs) <span class="sc">|&gt;</span> <span class="fu">data.frame</span>() </span>
+<span id="cb47-427"><a href="#cb47-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-428"><a href="#cb47-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-429"><a href="#cb47-429" aria-hidden="true" tabindex="-1"></a><span class="in">`fsApply(flowSet, function)`</span> applies a function to every flowFrame in a</span>
+<span id="cb47-430"><a href="#cb47-430" aria-hidden="true" tabindex="-1"></a>flowSet. Here we have accessed the data matirx in each with <span class="in">`exprs()`</span>.</span>
+<span id="cb47-431"><a href="#cb47-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-432"><a href="#cb47-432" aria-hidden="true" tabindex="-1"></a>The are <span class="in">`r nrow(clean_trans)`</span> rows (cells) in the dataset. You can view </span>
+<span id="cb47-433"><a href="#cb47-433" aria-hidden="true" tabindex="-1"></a>it by clicking on the dataframe in the Environment. At the moment, </span>
+<span id="cb47-434"><a href="#cb47-434" aria-hidden="true" tabindex="-1"></a>we cannot tell which row (cell) is from which sample but we can add the </span>
+<span id="cb47-435"><a href="#cb47-435" aria-hidden="true" tabindex="-1"></a>sample names as a column in that dataframe.</span>
+<span id="cb47-436"><a href="#cb47-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-437"><a href="#cb47-437" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Each sample name needs to appear as many times as there are cells</span>
+<span id="cb47-438"><a href="#cb47-438" aria-hidden="true" tabindex="-1"></a>    (events) in the corresponding flowFrame. For example,</span>
+<span id="cb47-439"><a href="#cb47-439" aria-hidden="true" tabindex="-1"></a>    <span class="in">`dim(fs_clean_trans[[1]])["events"]`</span> is </span>
+<span id="cb47-440"><a href="#cb47-440" aria-hidden="true" tabindex="-1"></a>    <span class="in">`r dim(fs_clean_trans[[1]])["events"]`</span> cells.</span>
+<span id="cb47-441"><a href="#cb47-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-442"><a href="#cb47-442" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`sampleNames(fs_clean_trans)`</span> gives the names of the samples.</span>
+<span id="cb47-443"><a href="#cb47-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-444"><a href="#cb47-444" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>We can use the <span class="in">`rep()`</span> function to repeat the sample names the</span>
+<span id="cb47-445"><a href="#cb47-445" aria-hidden="true" tabindex="-1"></a>    correct number of times.</span>
+<span id="cb47-446"><a href="#cb47-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-447"><a href="#cb47-447" aria-hidden="true" tabindex="-1"></a>🎬 Add the sample name to each row:</span>
+<span id="cb47-448"><a href="#cb47-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-451"><a href="#cb47-451" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-452"><a href="#cb47-452" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-453"><a href="#cb47-453" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">sample =</span> <span class="fu">rep</span>(<span class="fu">sampleNames</span>(fs_clean_trans),</span>
+<span id="cb47-454"><a href="#cb47-454" aria-hidden="true" tabindex="-1"></a>                             <span class="at">times =</span> <span class="fu">c</span>(<span class="fu">dim</span>(fs_clean_trans[[<span class="dv">1</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-455"><a href="#cb47-455" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">2</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-456"><a href="#cb47-456" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">3</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-457"><a href="#cb47-457" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">4</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-458"><a href="#cb47-458" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">5</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-459"><a href="#cb47-459" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">6</span>]])[<span class="st">"events"</span>])))</span>
+<span id="cb47-460"><a href="#cb47-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-461"><a href="#cb47-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-462"><a href="#cb47-462" aria-hidden="true" tabindex="-1"></a>The sample name contains the information about which antibody and</span>
+<span id="cb47-463"><a href="#cb47-463" aria-hidden="true" tabindex="-1"></a>treatment the sample was. Our analysis will be a little easier if we add</span>
+<span id="cb47-464"><a href="#cb47-464" aria-hidden="true" tabindex="-1"></a>this information to separate columns. We can extract the antibody and</span>
+<span id="cb47-465"><a href="#cb47-465" aria-hidden="true" tabindex="-1"></a>treatment from the sample name using the <span class="in">`extract()`</span> function and two</span>
+<span id="cb47-466"><a href="#cb47-466" aria-hidden="true" tabindex="-1"></a>"regular expressions".</span>
+<span id="cb47-467"><a href="#cb47-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-468"><a href="#cb47-468" aria-hidden="true" tabindex="-1"></a>🎬 Add columns for treatment and antibody by extracting that information</span>
+<span id="cb47-469"><a href="#cb47-469" aria-hidden="true" tabindex="-1"></a>from the sample name:</span>
+<span id="cb47-470"><a href="#cb47-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-473"><a href="#cb47-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-474"><a href="#cb47-474" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-475"><a href="#cb47-475" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(sample, </span>
+<span id="cb47-476"><a href="#cb47-476" aria-hidden="true" tabindex="-1"></a>          <span class="at">remove =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb47-477"><a href="#cb47-477" aria-hidden="true" tabindex="-1"></a>          <span class="fu">c</span>(<span class="st">"treatment"</span>, <span class="st">"antibody"</span>),</span>
+<span id="cb47-478"><a href="#cb47-478" aria-hidden="true" tabindex="-1"></a>          <span class="st">"([a-zA-Z]+)_([a-zA-Z]+).fcs"</span>)</span>
+<span id="cb47-479"><a href="#cb47-479" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-480"><a href="#cb47-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-481"><a href="#cb47-481" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the sample name is treatment_antibody</span>
+<span id="cb47-482"><a href="#cb47-482" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>each pattern matching the treatment and antibody is enclosed in</span>
+<span id="cb47-483"><a href="#cb47-483" aria-hidden="true" tabindex="-1"></a>    parentheses</span>
+<span id="cb47-484"><a href="#cb47-484" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we want to keep those patterns to go in the new columns</span>
+<span id="cb47-485"><a href="#cb47-485" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the underscore is matched but not enclosed in parentheses so it is</span>
+<span id="cb47-486"><a href="#cb47-486" aria-hidden="true" tabindex="-1"></a>    not kept</span>
+<span id="cb47-487"><a href="#cb47-487" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`.fcs`</span> is matched but not enclosed in parentheses so it is not kept</span>
+<span id="cb47-488"><a href="#cb47-488" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="in">`remove = FALSE`</span> argument means that the original column is kept</span>
+<span id="cb47-489"><a href="#cb47-489" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`[]`</span> enclose a set of characters</span>
+<span id="cb47-490"><a href="#cb47-490" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`a-z`</span> means any lower case letter, <span class="in">`A-Z`</span> means any upper case letter</span>
+<span id="cb47-491"><a href="#cb47-491" aria-hidden="true" tabindex="-1"></a>    so <span class="in">`[a-zA-Z]`</span> means any letter</span>
+<span id="cb47-492"><a href="#cb47-492" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`+`</span> means one or more of the preceding character set</span>
+<span id="cb47-493"><a href="#cb47-493" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>so<span class="in">`[a-zA-Z]+`</span> means one or more letters</span>
+<span id="cb47-494"><a href="#cb47-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-495"><a href="#cb47-495" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb47-496"><a href="#cb47-496" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adding the treatment and antibody information</span></span>
+<span id="cb47-497"><a href="#cb47-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-498"><a href="#cb47-498" aria-hidden="true" tabindex="-1"></a>We have added the treatment and antibody information to each row by</span>
+<span id="cb47-499"><a href="#cb47-499" aria-hidden="true" tabindex="-1"></a>processing the names of the <span class="in">`fcs`</span> files. This works because the file </span>
+<span id="cb47-500"><a href="#cb47-500" aria-hidden="true" tabindex="-1"></a>names have a specific format which we have matched with the regex.</span>
+<span id="cb47-501"><a href="#cb47-501" aria-hidden="true" tabindex="-1"></a>When you work with your own data, the easist thing to do is ensure your</span>
+<span id="cb47-502"><a href="#cb47-502" aria-hidden="true" tabindex="-1"></a>files have the same names as the same data.</span>
+<span id="cb47-503"><a href="#cb47-503" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-504"><a href="#cb47-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-505"><a href="#cb47-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-506"><a href="#cb47-506" aria-hidden="true" tabindex="-1"></a>🎬 View the dataframe to see the new columns.</span>
+<span id="cb47-507"><a href="#cb47-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-508"><a href="#cb47-508" aria-hidden="true" tabindex="-1"></a>Our treatments have an order. Media is the control, LPS should be next</span>
+<span id="cb47-509"><a href="#cb47-509" aria-hidden="true" tabindex="-1"></a>and ECOLIGreen should be last. We can use the <span class="in">`fct_relevel()`</span> function</span>
+<span id="cb47-510"><a href="#cb47-510" aria-hidden="true" tabindex="-1"></a>to put groups in order so that our graphs are better to interpret.</span>
+<span id="cb47-511"><a href="#cb47-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-514"><a href="#cb47-514" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-515"><a href="#cb47-515" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-516"><a href="#cb47-516" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="fu">c</span>(<span class="st">"MEDIA"</span>,</span>
+<span id="cb47-517"><a href="#cb47-517" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"LPS"</span>,</span>
+<span id="cb47-518"><a href="#cb47-518" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"ECOLIGreen"</span>)))</span>
+<span id="cb47-519"><a href="#cb47-519" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-520"><a href="#cb47-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-521"><a href="#cb47-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-522"><a href="#cb47-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-523"><a href="#cb47-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-524"><a href="#cb47-524" aria-hidden="true" tabindex="-1"></a><span class="fu">## Save the data</span></span>
+<span id="cb47-525"><a href="#cb47-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-526"><a href="#cb47-526" aria-hidden="true" tabindex="-1"></a>We have cleaned and transform our data. It is a good idea to save it at</span>
+<span id="cb47-527"><a href="#cb47-527" aria-hidden="true" tabindex="-1"></a>this point so that we can start from here if we need to.</span>
+<span id="cb47-528"><a href="#cb47-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-529"><a href="#cb47-529" aria-hidden="true" tabindex="-1"></a>🎬 Save the data:</span>
+<span id="cb47-530"><a href="#cb47-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-533"><a href="#cb47-533" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-534"><a href="#cb47-534" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans, <span class="st">"data-processed/ai_clean_logicle_trans.csv"</span>)</span>
+<span id="cb47-535"><a href="#cb47-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-536"><a href="#cb47-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-537"><a href="#cb47-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-538"><a href="#cb47-538" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 2: 'Gating' to Removing debris</span></span>
+<span id="cb47-539"><a href="#cb47-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-540"><a href="#cb47-540" aria-hidden="true" tabindex="-1"></a>Some of the cells will have died and broken during the experiment. We</span>
+<span id="cb47-541"><a href="#cb47-541" aria-hidden="true" tabindex="-1"></a>need to perform quality control on our data to remove observations that</span>
+<span id="cb47-542"><a href="#cb47-542" aria-hidden="true" tabindex="-1"></a>have that have the size and granularity that is not typical of a live</span>
+<span id="cb47-543"><a href="#cb47-543" aria-hidden="true" tabindex="-1"></a>cell. This is done by filtering on the forward scatter (size) and side</span>
+<span id="cb47-544"><a href="#cb47-544" aria-hidden="true" tabindex="-1"></a>scatter (granularity) channels.</span>
+<span id="cb47-545"><a href="#cb47-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-546"><a href="#cb47-546" aria-hidden="true" tabindex="-1"></a>In flow cytometry, it is common to describe filtering as "gating" and</span>
+<span id="cb47-547"><a href="#cb47-547" aria-hidden="true" tabindex="-1"></a>the observations (cells) being kept as "in the gate".</span>
+<span id="cb47-548"><a href="#cb47-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-549"><a href="#cb47-549" aria-hidden="true" tabindex="-1"></a>We create a scatter plot of the forward scatter (size) and side scatter</span>
+<span id="cb47-550"><a href="#cb47-550" aria-hidden="true" tabindex="-1"></a>(granularity) for each sample to see where we should put the gate.</span>
+<span id="cb47-551"><a href="#cb47-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-552"><a href="#cb47-552" aria-hidden="true" tabindex="-1"></a>We could use <span class="in">`geom_point()`</span> but many points will overlap so it is</span>
+<span id="cb47-553"><a href="#cb47-553" aria-hidden="true" tabindex="-1"></a>difficult to see the density of points. <span class="in">`geom_hex()`</span> puts the points in</span>
+<span id="cb47-554"><a href="#cb47-554" aria-hidden="true" tabindex="-1"></a>bins and colours the bin with the number of points.</span>
+<span id="cb47-555"><a href="#cb47-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-556"><a href="#cb47-556" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample</span>
+<span id="cb47-557"><a href="#cb47-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-560"><a href="#cb47-560" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-561"><a href="#cb47-561" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
+<span id="cb47-562"><a href="#cb47-562" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-563"><a href="#cb47-563" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-564"><a href="#cb47-564" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-565"><a href="#cb47-565" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-566"><a href="#cb47-566" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-567"><a href="#cb47-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-568"><a href="#cb47-568" aria-hidden="true" tabindex="-1"></a>We can see a cloud of points in the middle of the plot. This is where</span>
+<span id="cb47-569"><a href="#cb47-569" aria-hidden="true" tabindex="-1"></a>the live cells are. Points towards the corners, especially in the bottom</span>
+<span id="cb47-570"><a href="#cb47-570" aria-hidden="true" tabindex="-1"></a>left corner are likely to be cell debris. We can draw a gate around the </span>
+<span id="cb47-571"><a href="#cb47-571" aria-hidden="true" tabindex="-1"></a>cloud of points to remove the debris. We should use the same filter/gate</span>
+<span id="cb47-572"><a href="#cb47-572" aria-hidden="true" tabindex="-1"></a>on all six data sets for consistency. The gates can be a rectangle, </span>
+<span id="cb47-573"><a href="#cb47-573" aria-hidden="true" tabindex="-1"></a>polygon, or ellipse. We will use a rectangle.</span>
+<span id="cb47-574"><a href="#cb47-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-575"><a href="#cb47-575" aria-hidden="true" tabindex="-1"></a><span class="fu">### Manual rectangular gate</span></span>
+<span id="cb47-576"><a href="#cb47-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-577"><a href="#cb47-577" aria-hidden="true" tabindex="-1"></a>Use the zoom on the plot window to better see the cloud of points and</span>
+<span id="cb47-578"><a href="#cb47-578" aria-hidden="true" tabindex="-1"></a>the axis values. You need to use minimum and maximum $x$ and $y$ values</span>
+<span id="cb47-579"><a href="#cb47-579" aria-hidden="true" tabindex="-1"></a>to define the rectangle. </span>
+<span id="cb47-580"><a href="#cb47-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-581"><a href="#cb47-581" aria-hidden="true" tabindex="-1"></a>🎬 Define the minimum and maximum $x$ and $y$ values for the gate:</span>
+<span id="cb47-582"><a href="#cb47-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-585"><a href="#cb47-585" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-586"><a href="#cb47-586" aria-hidden="true" tabindex="-1"></a>xmin <span class="ot">&lt;-</span> <span class="dv">15000</span></span>
+<span id="cb47-587"><a href="#cb47-587" aria-hidden="true" tabindex="-1"></a>xmax <span class="ot">&lt;-</span> <span class="dv">35000</span></span>
+<span id="cb47-588"><a href="#cb47-588" aria-hidden="true" tabindex="-1"></a>ymin <span class="ot">&lt;-</span> <span class="dv">7500</span></span>
+<span id="cb47-589"><a href="#cb47-589" aria-hidden="true" tabindex="-1"></a>ymax <span class="ot">&lt;-</span> <span class="dv">28000</span></span>
+<span id="cb47-590"><a href="#cb47-590" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-591"><a href="#cb47-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-592"><a href="#cb47-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-593"><a href="#cb47-593" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb47-594"><a href="#cb47-594" aria-hidden="true" tabindex="-1"></a><span class="fu">## Choosing values for your own data</span></span>
+<span id="cb47-595"><a href="#cb47-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-596"><a href="#cb47-596" aria-hidden="true" tabindex="-1"></a>I chose theses values but you might judge the gate differently.</span>
+<span id="cb47-597"><a href="#cb47-597" aria-hidden="true" tabindex="-1"></a>You will certainly need to use different values for your own data.</span>
+<span id="cb47-598"><a href="#cb47-598" aria-hidden="true" tabindex="-1"></a>The next plot will help you refine them.</span>
+<span id="cb47-599"><a href="#cb47-599" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-600"><a href="#cb47-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-601"><a href="#cb47-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-602"><a href="#cb47-602" aria-hidden="true" tabindex="-1"></a>🎬 Put those values in a dataframe so we can plot the gate on the hexbin</span>
+<span id="cb47-603"><a href="#cb47-603" aria-hidden="true" tabindex="-1"></a>plot:</span>
+<span id="cb47-604"><a href="#cb47-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-607"><a href="#cb47-607" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-608"><a href="#cb47-608" aria-hidden="true" tabindex="-1"></a>box <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(xmin, xmin, xmax, xmax),</span>
+<span id="cb47-609"><a href="#cb47-609" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> <span class="fu">c</span>(ymin, ymax, ymax, ymin))</span>
+<span id="cb47-610"><a href="#cb47-610" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-611"><a href="#cb47-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-612"><a href="#cb47-612" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample with the</span>
+<span id="cb47-613"><a href="#cb47-613" aria-hidden="true" tabindex="-1"></a>gate:</span>
+<span id="cb47-614"><a href="#cb47-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-617"><a href="#cb47-617" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-618"><a href="#cb47-618" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
+<span id="cb47-619"><a href="#cb47-619" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-620"><a href="#cb47-620" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-621"><a href="#cb47-621" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> box, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), </span>
+<span id="cb47-622"><a href="#cb47-622" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="cn">NA</span>, </span>
+<span id="cb47-623"><a href="#cb47-623" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb47-624"><a href="#cb47-624" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb47-625"><a href="#cb47-625" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-626"><a href="#cb47-626" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-627"><a href="#cb47-627" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-628"><a href="#cb47-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-629"><a href="#cb47-629" aria-hidden="true" tabindex="-1"></a>🎬 Adjust the values of <span class="in">`xmin`</span>, <span class="in">`xmax`</span>, <span class="in">`ymin`</span>, and <span class="in">`ymax`</span> to get a gate</span>
+<span id="cb47-630"><a href="#cb47-630" aria-hidden="true" tabindex="-1"></a>that you are happy with.</span>
+<span id="cb47-631"><a href="#cb47-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-632"><a href="#cb47-632" aria-hidden="true" tabindex="-1"></a>We have drawn the gate on the plot but we need to use it to filter out</span>
+<span id="cb47-633"><a href="#cb47-633" aria-hidden="true" tabindex="-1"></a>the debris (rows) from our data. We want only the cells with <span class="in">`FS_Lin`</span></span>
+<span id="cb47-634"><a href="#cb47-634" aria-hidden="true" tabindex="-1"></a>values that are between the <span class="in">`xmin`</span> and <span class="in">`xmax`</span> and <span class="in">`SS_Lin`</span> that are</span>
+<span id="cb47-635"><a href="#cb47-635" aria-hidden="true" tabindex="-1"></a>between <span class="in">`ymin`</span> and <span class="in">`ymax`</span> values we chose.</span>
+<span id="cb47-636"><a href="#cb47-636" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-637"><a href="#cb47-637" aria-hidden="true" tabindex="-1"></a>🎬 Filter the data to remove the debris:</span>
+<span id="cb47-638"><a href="#cb47-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-641"><a href="#cb47-641" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-642"><a href="#cb47-642" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out the debris</span></span>
+<span id="cb47-643"><a href="#cb47-643" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-644"><a href="#cb47-644" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(FS_Lin, xmin, xmax),</span>
+<span id="cb47-645"><a href="#cb47-645" aria-hidden="true" tabindex="-1"></a>         <span class="fu">between</span>(SS_Lin, ymin, ymax)) </span>
+<span id="cb47-646"><a href="#cb47-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-647"><a href="#cb47-647" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-648"><a href="#cb47-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-649"><a href="#cb47-649" aria-hidden="true" tabindex="-1"></a><span class="in">`clean_trans_live`</span> now has <span class="in">`r nrow(clean_trans_live)`</span> cells. </span>
+<span id="cb47-650"><a href="#cb47-650" aria-hidden="true" tabindex="-1"></a>We should report how many cells were *in the gate* for each sample.</span>
+<span id="cb47-651"><a href="#cb47-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-652"><a href="#cb47-652" aria-hidden="true" tabindex="-1"></a>🎬 Find the number of cells in each sample after flowAI cleaning:</span>
+<span id="cb47-653"><a href="#cb47-653" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-656"><a href="#cb47-656" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-657"><a href="#cb47-657" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb47-658"><a href="#cb47-658" aria-hidden="true" tabindex="-1"></a>clean_trans_n <span class="ot">&lt;-</span>  clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-659"><a href="#cb47-659" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span> </span>
+<span id="cb47-660"><a href="#cb47-660" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) </span>
+<span id="cb47-661"><a href="#cb47-661" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-662"><a href="#cb47-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-663"><a href="#cb47-663" aria-hidden="true" tabindex="-1"></a>Note than we use the clean and transformed data for summarising the</span>
+<span id="cb47-664"><a href="#cb47-664" aria-hidden="true" tabindex="-1"></a>number in each set after cleaning.</span>
+<span id="cb47-665"><a href="#cb47-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-668"><a href="#cb47-668" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-669"><a href="#cb47-669" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-670"><a href="#cb47-670" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_n)</span>
+<span id="cb47-671"><a href="#cb47-671" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-672"><a href="#cb47-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-673"><a href="#cb47-673" aria-hidden="true" tabindex="-1"></a>🎬 Find the number of cells in each sample after flowAI cleaning *and*</span>
+<span id="cb47-674"><a href="#cb47-674" aria-hidden="true" tabindex="-1"></a>removing debris</span>
+<span id="cb47-675"><a href="#cb47-675" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-678"><a href="#cb47-678" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-679"><a href="#cb47-679" aria-hidden="true" tabindex="-1"></a><span class="co"># number of cells in each sample</span></span>
+<span id="cb47-680"><a href="#cb47-680" aria-hidden="true" tabindex="-1"></a>clean_trans_live_n <span class="ot">&lt;-</span>  clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-681"><a href="#cb47-681" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span> </span>
+<span id="cb47-682"><a href="#cb47-682" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_live =</span> <span class="fu">n</span>()) </span>
+<span id="cb47-683"><a href="#cb47-683" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-684"><a href="#cb47-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-685"><a href="#cb47-685" aria-hidden="true" tabindex="-1"></a>Now we use the clean, transformed and gated data.</span>
+<span id="cb47-686"><a href="#cb47-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-687"><a href="#cb47-687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-690"><a href="#cb47-690" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-691"><a href="#cb47-691" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-692"><a href="#cb47-692" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_n)</span>
+<span id="cb47-693"><a href="#cb47-693" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-694"><a href="#cb47-694" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-695"><a href="#cb47-695" aria-hidden="true" tabindex="-1"></a>🎬 Join two data frames together using the combination of the treatment</span>
+<span id="cb47-696"><a href="#cb47-696" aria-hidden="true" tabindex="-1"></a>and the antibody and calculate what % cells remained in each</span>
+<span id="cb47-697"><a href="#cb47-697" aria-hidden="true" tabindex="-1"></a>sample after gating (*i.e.*, the % live cells):</span>
+<span id="cb47-698"><a href="#cb47-698" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-701"><a href="#cb47-701" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-702"><a href="#cb47-702" aria-hidden="true" tabindex="-1"></a>clean_trans_live_n <span class="ot">&lt;-</span> clean_trans_live_n <span class="sc">|&gt;</span> </span>
+<span id="cb47-703"><a href="#cb47-703" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clean_trans_n, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"antibody"</span>, <span class="st">"treatment"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-704"><a href="#cb47-704" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_live =</span> <span class="fu">round</span>(n_live<span class="sc">/</span>n <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>) )</span>
+<span id="cb47-705"><a href="#cb47-705" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-706"><a href="#cb47-706" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-709"><a href="#cb47-709" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-710"><a href="#cb47-710" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-711"><a href="#cb47-711" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_n)</span>
+<span id="cb47-712"><a href="#cb47-712" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-713"><a href="#cb47-713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-714"><a href="#cb47-714" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample with the</span>
+<span id="cb47-715"><a href="#cb47-715" aria-hidden="true" tabindex="-1"></a>gate and the number of cells in each sample.</span>
+<span id="cb47-716"><a href="#cb47-716" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-719"><a href="#cb47-719" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-720"><a href="#cb47-720" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
+<span id="cb47-721"><a href="#cb47-721" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-722"><a href="#cb47-722" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-723"><a href="#cb47-723" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> box, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), </span>
+<span id="cb47-724"><a href="#cb47-724" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="cn">NA</span>, </span>
+<span id="cb47-725"><a href="#cb47-725" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb47-726"><a href="#cb47-726" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb47-727"><a href="#cb47-727" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> clean_trans_live_n, </span>
+<span id="cb47-728"><a href="#cb47-728" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(perc_live, <span class="st">"%"</span>)), </span>
+<span id="cb47-729"><a href="#cb47-729" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="dv">45000</span>, </span>
+<span id="cb47-730"><a href="#cb47-730" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="dv">1000</span>,</span>
+<span id="cb47-731"><a href="#cb47-731" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"red"</span>,</span>
+<span id="cb47-732"><a href="#cb47-732" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb47-733"><a href="#cb47-733" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-734"><a href="#cb47-734" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span>
+<span id="cb47-735"><a href="#cb47-735" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-736"><a href="#cb47-736" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-737"><a href="#cb47-737" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-738"><a href="#cb47-738" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-739"><a href="#cb47-739" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-740"><a href="#cb47-740" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb47-741"><a href="#cb47-741" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reporting</span></span>
+<span id="cb47-742"><a href="#cb47-742" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-743"><a href="#cb47-743" aria-hidden="true" tabindex="-1"></a>This figure allows you to report what data you included in your analysis</span>
+<span id="cb47-744"><a href="#cb47-744" aria-hidden="true" tabindex="-1"></a>of the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> signals.</span>
+<span id="cb47-745"><a href="#cb47-745" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-746"><a href="#cb47-746" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-747"><a href="#cb47-747" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-748"><a href="#cb47-748" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-749"><a href="#cb47-749" aria-hidden="true" tabindex="-1"></a>🎬 Plot the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> signals for these live</span>
+<span id="cb47-750"><a href="#cb47-750" aria-hidden="true" tabindex="-1"></a>cells:</span>
+<span id="cb47-751"><a href="#cb47-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-754"><a href="#cb47-754" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-755"><a href="#cb47-755" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
+<span id="cb47-756"><a href="#cb47-756" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-757"><a href="#cb47-757" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-758"><a href="#cb47-758" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-759"><a href="#cb47-759" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-760"><a href="#cb47-760" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-761"><a href="#cb47-761" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-762"><a href="#cb47-762" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-763"><a href="#cb47-763" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 3: Gating to determine a 'real' signal?</span></span>
+<span id="cb47-764"><a href="#cb47-764" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-765"><a href="#cb47-765" aria-hidden="true" tabindex="-1"></a>From now on we are working with the cleaned and gated data, that is,</span>
+<span id="cb47-766"><a href="#cb47-766" aria-hidden="true" tabindex="-1"></a>the dataframe <span class="in">`clean_trans_live`</span>.</span>
+<span id="cb47-767"><a href="#cb47-767" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-768"><a href="#cb47-768" aria-hidden="true" tabindex="-1"></a>We have two signals:</span>
+<span id="cb47-769"><a href="#cb47-769" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-770"><a href="#cb47-770" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`TNFa_APC_Lin`</span> is should indicate the amount of TNF-α protein in the</span>
+<span id="cb47-771"><a href="#cb47-771" aria-hidden="true" tabindex="-1"></a>    cell</span>
+<span id="cb47-772"><a href="#cb47-772" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`E_coli_FITC_Lin`</span> should indicate the amount of *E. coli* in the</span>
+<span id="cb47-773"><a href="#cb47-773" aria-hidden="true" tabindex="-1"></a>    cell</span>
+<span id="cb47-774"><a href="#cb47-774" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-775"><a href="#cb47-775" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `TNFa_APC_Lin` signal</span></span>
+<span id="cb47-776"><a href="#cb47-776" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-777"><a href="#cb47-777" aria-hidden="true" tabindex="-1"></a>When the antibody is ISOTYPE there is no TNF-α so that level of</span>
+<span id="cb47-778"><a href="#cb47-778" aria-hidden="true" tabindex="-1"></a><span class="in">`TNFa_APC_Lin`</span> signal means no TNF-α. In other words, that signal is a </span>
+<span id="cb47-779"><a href="#cb47-779" aria-hidden="true" tabindex="-1"></a>control. If you look at the top row of scatter plots, that level seems </span>
+<span id="cb47-780"><a href="#cb47-780" aria-hidden="true" tabindex="-1"></a>to be about 3.8. In the rest of the data set we should assume any signal</span>
+<span id="cb47-781"><a href="#cb47-781" aria-hidden="true" tabindex="-1"></a>below 3.8 means there is no TNF-α.</span>
+<span id="cb47-782"><a href="#cb47-782" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-783"><a href="#cb47-783" aria-hidden="true" tabindex="-1"></a>We can use this to set a threshold for the <span class="in">`TNFa_APC_Lin`</span> signal and</span>
+<span id="cb47-784"><a href="#cb47-784" aria-hidden="true" tabindex="-1"></a>then label cells as either positive or negative for TNF-α.</span>
+<span id="cb47-785"><a href="#cb47-785" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-786"><a href="#cb47-786" aria-hidden="true" tabindex="-1"></a>🎬 Define the threshold for the <span class="in">`TNFa_APC_Lin`</span> signal:</span>
+<span id="cb47-787"><a href="#cb47-787" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-790"><a href="#cb47-790" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-791"><a href="#cb47-791" aria-hidden="true" tabindex="-1"></a>apc_cut <span class="ot">&lt;-</span> <span class="fl">3.8</span></span>
+<span id="cb47-792"><a href="#cb47-792" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-793"><a href="#cb47-793" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-794"><a href="#cb47-794" aria-hidden="true" tabindex="-1"></a>🎬 Plot the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> with the threshold for</span>
+<span id="cb47-795"><a href="#cb47-795" aria-hidden="true" tabindex="-1"></a>the <span class="in">`TNFa_APC_Lin`</span> signal:</span>
+<span id="cb47-796"><a href="#cb47-796" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-799"><a href="#cb47-799" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-800"><a href="#cb47-800" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
+<span id="cb47-801"><a href="#cb47-801" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-802"><a href="#cb47-802" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-803"><a href="#cb47-803" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> apc_cut, </span>
+<span id="cb47-804"><a href="#cb47-804" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb47-805"><a href="#cb47-805" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-806"><a href="#cb47-806" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-807"><a href="#cb47-807" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-808"><a href="#cb47-808" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-809"><a href="#cb47-809" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-810"><a href="#cb47-810" aria-hidden="true" tabindex="-1"></a>That looks about right. We will use this value to label each cell as </span>
+<span id="cb47-811"><a href="#cb47-811" aria-hidden="true" tabindex="-1"></a>positive or negative for TNF-α.</span>
+<span id="cb47-812"><a href="#cb47-812" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-813"><a href="#cb47-813" aria-hidden="true" tabindex="-1"></a>🎬 Add a label, <span class="in">`tnfa`</span>, to the data to indicate if the cell is positive</span>
+<span id="cb47-814"><a href="#cb47-814" aria-hidden="true" tabindex="-1"></a>or negative for TNF-α</span>
+<span id="cb47-815"><a href="#cb47-815" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-818"><a href="#cb47-818" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-819"><a href="#cb47-819" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-820"><a href="#cb47-820" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tnfa =</span> <span class="fu">case_when</span>(TNFa_APC_Lin <span class="sc">&lt;</span> apc_cut <span class="sc">~</span> <span class="st">"TNF-α -'ve"</span>,</span>
+<span id="cb47-821"><a href="#cb47-821" aria-hidden="true" tabindex="-1"></a>                               TNFa_APC_Lin <span class="sc">&gt;=</span> apc_cut <span class="sc">~</span> <span class="st">"TNF-α +'ve"</span>))</span>
+<span id="cb47-822"><a href="#cb47-822" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-823"><a href="#cb47-823" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-824"><a href="#cb47-824" aria-hidden="true" tabindex="-1"></a>🎬 Summarise each group by finding the number of TNF-α positive cells</span>
+<span id="cb47-825"><a href="#cb47-825" aria-hidden="true" tabindex="-1"></a>and the mean <span class="in">`TNFa_APC_Lin`</span> signal for each group:</span>
+<span id="cb47-826"><a href="#cb47-826" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-829"><a href="#cb47-829" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-830"><a href="#cb47-830" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-831"><a href="#cb47-831" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tnfa <span class="sc">==</span> <span class="st">"TNF-α +'ve"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb47-832"><a href="#cb47-832" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span></span>
+<span id="cb47-833"><a href="#cb47-833" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_pos_tnfa =</span> <span class="fu">n</span>(),</span>
+<span id="cb47-834"><a href="#cb47-834" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_apc =</span> <span class="fu">mean</span>(TNFa_APC_Lin))</span>
+<span id="cb47-835"><a href="#cb47-835" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-836"><a href="#cb47-836" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-839"><a href="#cb47-839" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-840"><a href="#cb47-840" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-841"><a href="#cb47-841" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_tfna_pos)</span>
+<span id="cb47-842"><a href="#cb47-842" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-843"><a href="#cb47-843" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-844"><a href="#cb47-844" aria-hidden="true" tabindex="-1"></a>🎬 We can add the number of live cells to this data frame and</span>
+<span id="cb47-845"><a href="#cb47-845" aria-hidden="true" tabindex="-1"></a>calculate the percentage of live cells that are positive for</span>
+<span id="cb47-846"><a href="#cb47-846" aria-hidden="true" tabindex="-1"></a>TNF-α:</span>
+<span id="cb47-847"><a href="#cb47-847" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-850"><a href="#cb47-850" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-851"><a href="#cb47-851" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> </span>
+<span id="cb47-852"><a href="#cb47-852" aria-hidden="true" tabindex="-1"></a>  clean_trans_live_tfna_pos <span class="sc">|&gt;</span> </span>
+<span id="cb47-853"><a href="#cb47-853" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clean_trans_live_n, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"antibody"</span>, <span class="st">"treatment"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-854"><a href="#cb47-854" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_pos_tnfa =</span> <span class="fu">round</span>(n_pos_tnfa<span class="sc">/</span>n_live <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>) )</span>
+<span id="cb47-855"><a href="#cb47-855" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-856"><a href="#cb47-856" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-857"><a href="#cb47-857" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-858"><a href="#cb47-858" aria-hidden="true" tabindex="-1"></a>🎬 And put the columns into a more logical order:</span>
+<span id="cb47-859"><a href="#cb47-859" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-862"><a href="#cb47-862" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-863"><a href="#cb47-863" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> </span>
+<span id="cb47-864"><a href="#cb47-864" aria-hidden="true" tabindex="-1"></a>  clean_trans_live_tfna_pos <span class="sc">|&gt;</span> </span>
+<span id="cb47-865"><a href="#cb47-865" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(antibody,</span>
+<span id="cb47-866"><a href="#cb47-866" aria-hidden="true" tabindex="-1"></a>         treatment,</span>
+<span id="cb47-867"><a href="#cb47-867" aria-hidden="true" tabindex="-1"></a>         n,</span>
+<span id="cb47-868"><a href="#cb47-868" aria-hidden="true" tabindex="-1"></a>         n_live,</span>
+<span id="cb47-869"><a href="#cb47-869" aria-hidden="true" tabindex="-1"></a>         perc_live,</span>
+<span id="cb47-870"><a href="#cb47-870" aria-hidden="true" tabindex="-1"></a>         mean_apc,</span>
+<span id="cb47-871"><a href="#cb47-871" aria-hidden="true" tabindex="-1"></a>         n_pos_tnfa,</span>
+<span id="cb47-872"><a href="#cb47-872" aria-hidden="true" tabindex="-1"></a>         perc_pos_tnfa)</span>
+<span id="cb47-873"><a href="#cb47-873" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-874"><a href="#cb47-874" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-875"><a href="#cb47-875" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-876"><a href="#cb47-876" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-877"><a href="#cb47-877" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-880"><a href="#cb47-880" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-881"><a href="#cb47-881" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-882"><a href="#cb47-882" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_tfna_pos)</span>
+<span id="cb47-883"><a href="#cb47-883" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-884"><a href="#cb47-884" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-885"><a href="#cb47-885" aria-hidden="true" tabindex="-1"></a>The fact that a very low percentage of cells are positive for TNF-α in</span>
+<span id="cb47-886"><a href="#cb47-886" aria-hidden="true" tabindex="-1"></a>the isotype control is a good indication that cut off we used for the</span>
+<span id="cb47-887"><a href="#cb47-887" aria-hidden="true" tabindex="-1"></a><span class="in">`TNFa_APC_Lin`</span> signal is a good one.</span>
+<span id="cb47-888"><a href="#cb47-888" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-889"><a href="#cb47-889" aria-hidden="true" tabindex="-1"></a>TNFAPC-MEDIA combination tells us how much TNF-α we expect in </span>
+<span id="cb47-890"><a href="#cb47-890" aria-hidden="true" tabindex="-1"></a>unstimulated cells.</span>
+<span id="cb47-891"><a href="#cb47-891" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-892"><a href="#cb47-892" aria-hidden="true" tabindex="-1"></a>This is important data for your write up and will be your contribution </span>
+<span id="cb47-893"><a href="#cb47-893" aria-hidden="true" tabindex="-1"></a>to the class data set so you should write it to file.</span>
+<span id="cb47-894"><a href="#cb47-894" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-895"><a href="#cb47-895" aria-hidden="true" tabindex="-1"></a>🎬 Write <span class="in">`clean_trans_live_tfna_pos`</span> to file:</span>
+<span id="cb47-896"><a href="#cb47-896" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-899"><a href="#cb47-899" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-900"><a href="#cb47-900" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans_live_tfna_pos, </span>
+<span id="cb47-901"><a href="#cb47-901" aria-hidden="true" tabindex="-1"></a>          <span class="st">"data-processed/clean_trans_live_tfna_pos.csv"</span>)</span>
+<span id="cb47-902"><a href="#cb47-902" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-903"><a href="#cb47-903" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-904"><a href="#cb47-904" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `E_coli_FITC_Lin` signal</span></span>
+<span id="cb47-905"><a href="#cb47-905" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-906"><a href="#cb47-906" aria-hidden="true" tabindex="-1"></a>We can apply the same logic to the <span class="in">`E_coli_FITC_Lin`</span> signal.</span>
+<span id="cb47-907"><a href="#cb47-907" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-908"><a href="#cb47-908" aria-hidden="true" tabindex="-1"></a>For either antibody, when the treatment is media or LPS there is no</span>
+<span id="cb47-909"><a href="#cb47-909" aria-hidden="true" tabindex="-1"></a>*E.coli* so that level of <span class="in">`E_coli_FITC_Lin`</span> signal means zero. That </span>
+<span id="cb47-910"><a href="#cb47-910" aria-hidden="true" tabindex="-1"></a>level looks to be about 2.</span>
+<span id="cb47-911"><a href="#cb47-911" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-912"><a href="#cb47-912" aria-hidden="true" tabindex="-1"></a>🎬 Define the threshold for the <span class="in">`E_coli_FITC_Lin`</span> signal:</span>
+<span id="cb47-913"><a href="#cb47-913" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-916"><a href="#cb47-916" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-917"><a href="#cb47-917" aria-hidden="true" tabindex="-1"></a>fitc_cut <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb47-918"><a href="#cb47-918" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-919"><a href="#cb47-919" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-920"><a href="#cb47-920" aria-hidden="true" tabindex="-1"></a>🎬 Add a label, <span class="in">`fitc`</span>, to the data to indicate if the cell is positive</span>
+<span id="cb47-921"><a href="#cb47-921" aria-hidden="true" tabindex="-1"></a>or negative for FITC</span>
+<span id="cb47-922"><a href="#cb47-922" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-925"><a href="#cb47-925" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-926"><a href="#cb47-926" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-927"><a href="#cb47-927" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fitc =</span> <span class="fu">case_when</span>(E_coli_FITC_Lin <span class="sc">&lt;</span> fitc_cut <span class="sc">~</span> <span class="st">"FITC -'ve"</span>,</span>
+<span id="cb47-928"><a href="#cb47-928" aria-hidden="true" tabindex="-1"></a>                               E_coli_FITC_Lin <span class="sc">&gt;=</span> fitc_cut <span class="sc">~</span> <span class="st">"FITC +'ve"</span>))</span>
+<span id="cb47-929"><a href="#cb47-929" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-930"><a href="#cb47-930" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-931"><a href="#cb47-931" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb47-932"><a href="#cb47-932" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tip for your own summaries</span></span>
+<span id="cb47-933"><a href="#cb47-933" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-934"><a href="#cb47-934" aria-hidden="true" tabindex="-1"></a>You may wish to repeat the process we used for the <span class="in">`TNFa_APC_Lin`</span></span>
+<span id="cb47-935"><a href="#cb47-935" aria-hidden="true" tabindex="-1"></a>signal to find out the number of cells that are FITC positive in each </span>
+<span id="cb47-936"><a href="#cb47-936" aria-hidden="true" tabindex="-1"></a>sample and the mean intensity of the FITC signal in the FITC positive </span>
+<span id="cb47-937"><a href="#cb47-937" aria-hidden="true" tabindex="-1"></a>cells.</span>
+<span id="cb47-938"><a href="#cb47-938" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-939"><a href="#cb47-939" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-940"><a href="#cb47-940" aria-hidden="true" tabindex="-1"></a><span class="fu">### A figure to report baselines for both signals</span></span>
+<span id="cb47-941"><a href="#cb47-941" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-942"><a href="#cb47-942" aria-hidden="true" tabindex="-1"></a>🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for</span>
+<span id="cb47-943"><a href="#cb47-943" aria-hidden="true" tabindex="-1"></a>both signals:</span>
+<span id="cb47-944"><a href="#cb47-944" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-947"><a href="#cb47-947" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-948"><a href="#cb47-948" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
+<span id="cb47-949"><a href="#cb47-949" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-950"><a href="#cb47-950" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-951"><a href="#cb47-951" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> apc_cut, </span>
+<span id="cb47-952"><a href="#cb47-952" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb47-953"><a href="#cb47-953" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> fitc_cut, </span>
+<span id="cb47-954"><a href="#cb47-954" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb47-955"><a href="#cb47-955" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-956"><a href="#cb47-956" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-957"><a href="#cb47-957" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-958"><a href="#cb47-958" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-959"><a href="#cb47-959" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-960"><a href="#cb47-960" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-961"><a href="#cb47-961" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-962"><a href="#cb47-962" aria-hidden="true" tabindex="-1"></a><span class="fu">## Save the data</span></span>
+<span id="cb47-963"><a href="#cb47-963" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-964"><a href="#cb47-964" aria-hidden="true" tabindex="-1"></a>We have filtered out the dead cells and debris and added labels to the</span>
+<span id="cb47-965"><a href="#cb47-965" aria-hidden="true" tabindex="-1"></a>data to indicate if the cells are positive or negative for TNF-α and *E.</span>
+<span id="cb47-966"><a href="#cb47-966" aria-hidden="true" tabindex="-1"></a>coli*. It would be a good idea to save this data to file so we can start</span>
+<span id="cb47-967"><a href="#cb47-967" aria-hidden="true" tabindex="-1"></a>from importing this data in the future rather than having to repeat all</span>
+<span id="cb47-968"><a href="#cb47-968" aria-hidden="true" tabindex="-1"></a>of the steps we have done so far.</span>
+<span id="cb47-969"><a href="#cb47-969" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-970"><a href="#cb47-970" aria-hidden="true" tabindex="-1"></a>🎬 Save the data:</span>
+<span id="cb47-971"><a href="#cb47-971" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-974"><a href="#cb47-974" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-975"><a href="#cb47-975" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans_live, <span class="st">"data-processed/live_labelled.csv"</span>)</span>
+<span id="cb47-976"><a href="#cb47-976" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-977"><a href="#cb47-977" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-978"><a href="#cb47-978" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-979"><a href="#cb47-979" aria-hidden="true" tabindex="-1"></a><span class="fu">## Look after future you!</span></span>
+<span id="cb47-980"><a href="#cb47-980" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-981"><a href="#cb47-981" aria-hidden="true" tabindex="-1"></a>🎬 This workshop is a template for the analysis of your own data. Go</span>
+<span id="cb47-982"><a href="#cb47-982" aria-hidden="true" tabindex="-1"></a>back through your script and check you understand what you have done.</span>
+<span id="cb47-983"><a href="#cb47-983" aria-hidden="true" tabindex="-1"></a>Can you identify where you will need to edit? Do you understand what you</span>
+<span id="cb47-984"><a href="#cb47-984" aria-hidden="true" tabindex="-1"></a>will need to assess in order to make edits needed for your own data?</span>
+<span id="cb47-985"><a href="#cb47-985" aria-hidden="true" tabindex="-1"></a>Examine all of the objects in the environment to check you understand</span>
+<span id="cb47-986"><a href="#cb47-986" aria-hidden="true" tabindex="-1"></a>what they are and why they are there.</span>
+<span id="cb47-987"><a href="#cb47-987" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-988"><a href="#cb47-988" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
+<span id="cb47-989"><a href="#cb47-989" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-990"><a href="#cb47-990" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
+<span id="cb47-991"><a href="#cb47-991" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-992"><a href="#cb47-992" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
+<span id="cb47-993"><a href="#cb47-993" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-994"><a href="#cb47-994" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
+<span id="cb47-995"><a href="#cb47-995" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-996"><a href="#cb47-996" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
+<span id="cb47-997"><a href="#cb47-997" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-998"><a href="#cb47-998" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
+<span id="cb47-999"><a href="#cb47-999" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
+<span id="cb47-1000"><a href="#cb47-1000" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-1001"><a href="#cb47-1001" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
+<span id="cb47-1002"><a href="#cb47-1002" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
+<span id="cb47-1003"><a href="#cb47-1003" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages. [View</span>
+<span id="cb47-1004"><a href="#cb47-1004" aria-hidden="true" tabindex="-1"></a>the Qmd in</span>
+<span id="cb47-1005"><a href="#cb47-1005" aria-hidden="true" tabindex="-1"></a>Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-2/workshop.qmd).</span>
+<span id="cb47-1006"><a href="#cb47-1006" aria-hidden="true" tabindex="-1"></a>Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span> and</span>
+<span id="cb47-1007"><a href="#cb47-1007" aria-hidden="true" tabindex="-1"></a><span class="in">`#---THINKING ANSWER---`</span></span>
+<span id="cb47-1008"><a href="#cb47-1008" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-1009"><a href="#cb47-1009" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> </span>
+<span id="cb47-1010"><a href="#cb47-1010" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@knitr1; @knitr2; @knitr3</span><span class="co">]</span>,</span>
+<span id="cb47-1011"><a href="#cb47-1011" aria-hidden="true" tabindex="-1"></a><span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
+<span id="cb47-1012"><a href="#cb47-1012" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-1013"><a href="#cb47-1013" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p>Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <a href="https://github.com/3mmaRand/R4BABS" class="uri">https://github.com/3mmaRand/R4BABS</a></p>
+<p>Rand, E. (2025). Data Analysis in R for Becoming a Bioscientist (Version 0.2) <a href="https://github.com/3mmaRand/R4BABS" class="uri">https://github.com/3mmaRand/R4BABS</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/3mmaRand/comp4biosci/edit/main/r4babs4/week-2/workshop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item">
@@ -1908,7 +3044,54 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </ul>
 </div>
   </div>
-</footer>
+</footer><script>
+document.addEventListener("DOMContentLoaded", function() {
+  // grab all links under “Other Links” in the right-hand TOC
+  const links = document.querySelectorAll('.quarto-other-links ul li a');
+  links.forEach(function(a) {
+    // find the one whose text is exactly “Make a suggestion”
+    if (a.textContent.trim() === 'Make a suggestion') {
+      const pageUrl   = encodeURIComponent(window.location.href);
+      const pageTitle = encodeURIComponent(document.title);
+      a.href = 'https://github.com/3mmaRand/comp4biosci/issues/new'
+             + '?title=' + pageTitle
+             + '&body='  + pageUrl;
+      a.target = '_blank';
+    }
+  });
+});
+</script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 </body></html>

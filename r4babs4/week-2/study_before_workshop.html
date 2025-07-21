@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Emma Rand">
   <title>Data Analysis in R – Independent Study to prepare for workshop</title>
@@ -49,7 +49,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-50FV9HPTRE"></script>
 
   <script type="text/javascript">
@@ -188,7 +188,6 @@ Emma Rand
 </section>
 <section id="overview-1" class="slide level2">
 <h2>Overview</h2>
-<div>
 <p>These slides:</p>
 <ul>
 <li class="fragment"><p>Prepare you for the workshop analysing the sample data…. and your own data, which is in the same format</p></li>
@@ -197,7 +196,6 @@ Emma Rand
 <li class="fragment"><p>Go through the analytical steps conceptually</p></li>
 <li class="fragment"><p>Explain what tools we will use in the workshop to do the analysis</p></li>
 </ul>
-</div>
 </section></section>
 <section>
 <section id="experimental-design-and-aims" class="title-slide slide level1 center">
@@ -206,7 +204,6 @@ Emma Rand
 </section>
 <section id="experimental-design-and-aims-1" class="slide level2">
 <h2>Experimental design and aims</h2>
-<div>
 <ul>
 <li class="fragment"><p>Macrophages produce TNF-α in response to bacterial infection</p></li>
 <li class="fragment"><p>Question: <em>Does the production of TNF-α by macrophages require live bacteria, or is the cell wall component sufficient?</em></p></li>
@@ -214,11 +211,9 @@ Emma Rand
 <li class="fragment"><p>We measure TNF-α with a TNF-α antibody conjugated to Allophycocyanin (APC) - this will bind and fluoresce red</p></li>
 <li class="fragment"><p>Therefore we also need a control for antibody binding and use Isotype antibody - this will bind but not fluoresce</p></li>
 </ul>
-</div>
 </section>
 <section id="experimental-design-and-aims-2" class="slide level2">
 <h2>Experimental design and aims</h2>
-<div>
 <ul>
 <li class="fragment"><p>Macrophages are treated with one of three treatments: Media, LPS or NeonGreen fluorescent <em>E.coli</em></p></li>
 <li class="fragment"><p>Two antibodies are used for each treatment: Isotype antibody, TNF-α antibody conjugated to Allophycocyanin (APC)</p></li>
@@ -226,7 +221,6 @@ Emma Rand
 <li class="fragment"><p>Two variables of interest: red fluorescence, green fluorescence</p></li>
 <li class="fragment"><p>We also measure forward scatter (cell size) and side scatter (cell granularity) which can be used to quality control the cells</p></li>
 </ul>
-</div>
 </section>
 <section id="experimental-design-and-aims-3" class="slide level2">
 <h2>Experimental design and aims</h2>
@@ -247,18 +241,15 @@ Emma Rand
 </section>
 <section id="the-data-1" class="slide level2">
 <h2>The data</h2>
-<div>
 <ul>
 <li class="fragment"><p>The data are in a flow cytometry standard format (FCS) file</p></li>
 <li class="fragment"><p>Each FCS file contains data from one sample</p></li>
 <li class="fragment"><p>You will have 6 FCS files, one for each combination of treatment and antibody</p></li>
 <li class="fragment"><p>there are 16 variables in columns and up to 50000 cells in rows</p></li>
 </ul>
-</div>
 </section>
 <section id="the-data-2" class="slide level2">
 <h2>The data</h2>
-<div>
 <div style="font-size: 80%;">
 <ul>
 <li class="fragment"><p>the 16 columns: TIME, Time MSW, Pulse Width, FS Lin, FS Area, FS Log, SS Lin, SS Area, SS Log, FL 1 Lin, FL 1 Area, FL 1 Log, FL 8 Lin, FL 8 Area, FL 8 Log, Event Count</p></li>
@@ -269,7 +260,6 @@ Emma Rand
 <li class="fragment"><p>We will use just four columns: E_coli_FITC_Lin, TNFa_APC_Lin, FS Lin, and SS Lin</p></li>
 </ul>
 </div>
-</div>
 </section></section>
 <section>
 <section id="analytical-steps" class="title-slide slide level1 center">
@@ -278,17 +268,14 @@ Emma Rand
 </section>
 <section id="overview-2" class="slide level2">
 <h2>Overview</h2>
-<div>
 <ul>
 <li class="fragment"><p>The analysis of flow cytometry data is relatively simple conceptually</p></li>
 <li class="fragment"><p>We apply several quality control steps to the data to remove anomalous signals, dead cells and debris</p></li>
 <li class="fragment"><p>We use scatter plots, calculate means, and find percentages of cells in different regions of the scatter plots</p></li>
 </ul>
-</div>
 </section>
 <section id="analytical-steps-1" class="slide level2">
 <h2>Analytical steps</h2>
-<div>
 <div style="font-size: 80%;">
 <ul>
 <li class="fragment"><p>Import the data into R and improve the column names</p></li>
@@ -300,7 +287,6 @@ Emma Rand
 <li class="fragment"><p>Calculate the percentage of cells that are positive for TNF-α for each treatment combination</p></li>
 </ul>
 </div>
-</div>
 </section></section>
 <section>
 <section id="tools" class="title-slide slide level1 center">
@@ -309,18 +295,15 @@ Emma Rand
 </section>
 <section id="tools-1" class="slide level2">
 <h2>Tools</h2>
-<div>
 <ul>
 <li class="fragment"><p>Import and rename columns using the <strong><code>flowCore</code></strong> package <span class="citation" data-cites="flowCore">(<a href="#/references" role="doc-biblioref" onclick="">Ellis et al. 2024</a>)</span></p></li>
 <li class="fragment"><p>Automated quality control with the <strong><code>flowAI</code></strong> package <span class="citation" data-cites="flowAI">(<a href="#/references" role="doc-biblioref" onclick="">Monaco et al. 2016</a>)</span></p></li>
 <li class="fragment"><p>Apply a “logicle” transformation using the <strong><code>flowCore</code></strong> package</p></li>
 <li class="fragment"><p>Put the data into a dataframe to make it easy to use <strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#/references" role="doc-biblioref" onclick="">Wickham et al. 2019</a>)</span> tools like <code>group_by()</code>, <code>summarise()</code>, <code>ggplot()</code>, <code>filter()</code></p></li>
 </ul>
-</div>
 </section>
 <section id="the-data-in-r" class="slide level2">
 <h2>The data in R</h2>
-<div>
 <ul>
 <li class="fragment"><p>the <code>flowCore</code> package imports each FCS file as a <code>flowFrame</code> object</p></li>
 <li class="fragment"><p>The <code>flowFrame</code> object contains the data from the FCS file and metadata about the experiment</p></li>
@@ -328,7 +311,6 @@ Emma Rand
 <li class="fragment"><p><strong><code>flowAI</code></strong> and <strong><code>flowCore</code></strong> functions work with <code>flowSet</code> objects</p></li>
 <li class="fragment"><p>After that we can convert the <code>flowSet</code> to a dataframe to use <strong><code>tidyverse</code></strong> tools with which you are more familiar</p></li>
 </ul>
-</div>
 </section></section>
 <section>
 <section id="summary" class="title-slide slide level1 center">
@@ -582,190 +564,172 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino 
       });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
-          }
-        }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
             }
           }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          return false;
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
             }
-          }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
         }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
               }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
     
 
 </body></html>
