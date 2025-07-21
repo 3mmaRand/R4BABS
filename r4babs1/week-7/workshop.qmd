@@ -14,15 +14,13 @@ library(kableExtra)
 # Introduction
 
 ![Artwork by @allison_horst: "Welcome to
-Rstats"](images/welcome_to_rstats_twitter.png){fig-alt="Two fuzzy monsters 
-standing side-by-side outside of a door frame through which is a magical 
-wonderland of different R communities, with a 'mind blown' rainbow coming 
-out of the one closest to the door. A welcome mat says 'Welcome'." width="800"}
+Rstats"](images/welcome_to_rstats_twitter.png){fig-alt="Two fuzzy monsters   standing side-by-side outside of a door frame through which is a magical   wonderland of different R communities, with a 'mind blown' rainbow coming   out of the one closest to the door. A welcome mat says 'Welcome'."
+width="800"}
 
 ## Session overview
 
-In this workshop you will use RStudio to write R code. You will type
-in some data, plot it and then customise your plot.
+In this workshop you will use RStudio to write R code. You will type in
+some data, plot it and then customise your plot.
 
 ## Philosophy
 
@@ -188,21 +186,21 @@ once and then loaded each session. **`ggplot2`** is one of the
 ::: callout-important
 ## Important
 
-If you are working on a University computer (or the VDS) you *do not*
-need to install **`tidyverse`**.
+**If you are working on a University computer (or the VDS) you *do not*
+need to install** `tidyverse`**.**
 
 If you are working on your own computer or using RStudio cloud you *do*
 need to install **`tidyverse`**.
-:::
 
 To install a package:
 
-![](images/do_in_R.png) Go the Packages tab on the lower right pane.
-Click Install and type **`tidyverse`** into the box that appears. DO **not**
-do if working on a Uni computer.
+Go the Packages tab on the lower right pane. Click Install and type
+**`tidyverse`** into the box that appears. DO **not** do if working on a
+Uni computer.
 
 Wait until you get the prompt back. It will take a few moments, be
 patient!
+:::
 
 To use a package which is installed you have to load it with the
 `library()` function. You will need to do this whether you are working
@@ -550,18 +548,9 @@ You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Artwork by @allison_horst: "but now its 
-like"](images/r_first_then.png){fig-alt="A
-digital cartoon with two illustrations: the top shows the R-logo with a
-scary face, and a small scared little fuzzy monster holding up a white
-flag in surrender while under a dark storm cloud. The text above says
-'at first I was like…'. The lower cartoon is a friendly, smiling R-logo
-jumping up to give a happy fuzzy monster a high-five under a smiling sun
-and next to colourful flowers. The text above the bottom illustration
-reads 'but now its like…'. " width="800"}
-
-
-
+![Artwork by @allison_horst: "but now its
+like"](images/r_first_then.png){fig-alt="A digital cartoon with two illustrations: the top shows the R-logo with a scary face, and a small scared little fuzzy monster holding up a white flag in surrender while under a dark storm cloud. The text above says 'at first I was like…'. The lower cartoon is a friendly, smiling R-logo jumping up to give a happy fuzzy monster a high-five under a smiling sun and next to colourful flowers. The text above the bottom illustration reads 'but now its like…'. "
+width="800"}
 
 [Consolidate](study_after_workshop.qmd)
 
@@ -572,14 +561,12 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [View
-the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-7/workshop.qmd).
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+interweaved to produce well-formatted reports including webpages. View
+the source code for this workshop using the `</> Code` button at the top
+of the page. Coding and thinking answers are marked with
+`#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References
