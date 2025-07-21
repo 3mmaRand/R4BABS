@@ -16,9 +16,6 @@ can work easily at home outside of workshops.
 
 ### Learning objectives
 
-The parentheses after each learning objective indicate where the content 
-covers that objective.
-
 The successful student will be able to:
 
 -   explain what an operating system is
