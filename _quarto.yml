@@ -11,7 +11,7 @@ website:
   google-analytics: "G-50FV9HPTRE"
 
   page-footer:
-    left: "Rand, E. (2023). Data Analysis in R for Becoming a Bioscientist (Version 0.1) <https://github.com/3mmaRand/R4BABS>"
+    left: "Rand, E. (2025). Data Analysis in R for Becoming a Bioscientist (Version 0.2) <https://github.com/3mmaRand/R4BABS>"
     right:
       - icon: github
         href: "https://github.com/3mmaRand"
@@ -19,7 +19,6 @@ website:
  
   navbar:
     background: light
-    twitter-card: true
     site-url: "https://3mmarand.github.io/R4BABS/"
     repo-url: "https://github.com/3mmaRand/R4BABS"
     issue-url: "https://github.com/3mmaRand/R4BABS/issues/new/choose"
@@ -321,6 +320,7 @@ format:
       light: [cosmo, custom.scss]
     code-copy: true
     code-link: true
+    code-tools: true
     code-overflow: wrap
     code-line-numbers: false
     grid:
