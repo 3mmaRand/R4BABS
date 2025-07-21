@@ -318,6 +318,7 @@ format:
     link-external-filter: '^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS'
     theme:
       light: [cosmo, custom.scss]
+      dark:  [solar, custom.scss]
     code-copy: true
     code-link: true
     code-tools: true
