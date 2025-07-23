@@ -283,8 +283,7 @@ from the "Summarising data with several variables" workshop [@rand2023]
 #---CODING ANSWER---
 ggplot() +
   geom_point(data = adip, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = adip_summary, 
                 aes(x = treatment, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
@@ -306,6 +305,56 @@ compared and the *p*-value. The `annotate()` function can be used to
 draw the line and then to add the value. The line is a `segment` and the
 *p*-value is a `text`.
 
+#### Annotation - method 1
+
+You can annotate the *p*-value manually by typing it in to the appropriate
+`annotate()` function. 
+
+![](images/do_in_R.png) Add annotation to the figure by adding:
+
+``` r
+...... +
+annotate("segment", x = 1, xend = 2, 
+         y = 11.3, yend = 11.3,
+         colour = "black") +
+annotate("text", x = 1.5,  y = 11.7, 
+         label = "italic(p) == 0.0028",
+         parse = TRUE)
+ .....
+```
+
+-   `annotate("segment", ...)` adds a line to the figure starting at
+    *x = 1* and *y = 11.3* and ending at *x = 2* and *y = 11.3*
+-   `annotate("text", ...)` adds text to the figure at *x = 1.5* and
+    *y = 11.7*
+-   the `label` is written in R’s plotmath syntax rather than being a 
+    normal string. 
+    -   `italic(p)` renders the letter *p* in italics
+    -   `==` is the plotmath symbol for "=" 
+-   `parse = TRUE` tells ggplot2 to interpret that string as a
+    plotmath expression rather than literally adding "italic(p) == 0.0028". 
+
+
+However, it is more reproducible to extract the *p*-value from the model 
+object. 
+
+#### Annotation - method 2
+
+![](images/do_in_R.png) Extract the *p*-value from the model object:
+
+```{r}
+p_value <- broom::glance(mod) |> pull(p.value) |> round(4)
+```
+
+-   **`broom** is a package that turns model outputs into more easy to use tidy 
+    formats
+-   **`glance(mod)`** puts information from mod including the *p*-value into a 
+    dataframe
+-   `pull(p.value)` extracts the value from *p*-value column in the dataframe
+-   `round(4)` rounds the *p*-value to 4 decimal places
+
+The segment and text can then be added to the figure.
+
 ![](images/do_in_R.png) Add annotation to the figure by adding:
 
 ``` r
@@ -314,17 +363,23 @@ draw the line and then to add the value. The line is a `segment` and the
            y = 11.3, yend = 11.3,
            colour = "black") +
   annotate("text", x = 1.5,  y = 11.7, 
-           label = expression(italic(p)~"= 0.003")) +
-  theme_classic()
+           label = glue::glue("italic(p) == { p_value }"),
+                              parse = TRUE)) +
+.....
 ```
+-  The glue package allows us to use R objects in strings so their v
+   values are printed.
+-  We use curly braces `{}` a round the R object so it is understood as an 
+   R object and its value is written rather than literally writing "p_value"
+
+
 
 ```{r}
 #| echo: false
 
 ggplot() +
   geom_point(data = adip, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = adip_summary, 
                 aes(x = treatment, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
@@ -339,28 +394,11 @@ ggplot() +
   annotate("segment", x = 1, xend = 2, 
            y = 11.3, yend = 11.3,
            colour = "black") +
-  annotate("text", x = 1.5,  y = 11.7, 
-           label = expression(italic(p)~"= 0.003")) +
+  annotate("text", x = 1.5,  y = 11.7,
+           label = glue::glue("italic(p) == { p_value }"),
+                              parse = TRUE) +
   theme_classic()
 ```
-
-For the segment, `annotate()` needs the *x* and *y* coordinates for the
-start and the finish of the line.
-
-The use of `expression()` allows you to specify formatting or special
-characters. `expression()` takes strings[^1] or
-[LaTeX](https://en.wikipedia.org/wiki/LaTeX)[^2] formatting. Each string
-or piece of LaTeX is separated by a `*` or a `~`. The `*` concatenates
-the strings without a space, `~` does so with a space. It will generate
-a warning message "In is.na(x) : is.na() applied to non-(list or vector)
-of type 'expression'" which can be ignored.
-
-[^1]: A string in R is a sequence of characters enclosed in quotes, used
-    to represent text data.
-
-[^2]: LaTeX is a typesetting system used for scientific documents,
-    enabling precise control over equations, symbols, and document
-    structure.
 
 ![](images/do_in_R.png) Save your figure to your figures folder. Make
 sure you [script figure saving with
@@ -374,8 +412,7 @@ sure you [script figure saving with
 # Assign the figure to a variable
 fig1 <- ggplot() +
   geom_point(data = adip, aes(x = treatment, y = adiponectin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = adip_summary, 
                 aes(x = treatment, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
@@ -391,7 +428,8 @@ fig1 <- ggplot() +
            y = 11.3, yend = 11.3,
            colour = "black") +
   annotate("text", x = 1.5,  y = 11.7, 
-           label = expression(italic(p)~"= 0.003")) +
+           label = glue::glue("italic(p) == { p_value }"),
+                              parse = TRUE) +
   theme_classic()
 
 ```
@@ -479,6 +517,9 @@ conclusion in a form suitable for a report.
 
 <!-- on Moss (median = 5) (W = 78; n1 = 10, n2 = 10; p = 0.03546). -->
 
+
+
+
 ### Illustrating
 
 A box plot is a usually good choice for illustrating a two-sample
@@ -491,9 +532,21 @@ ggplot(data = grouse, aes(x = estate, y = nematodes) ) +
   geom_boxplot() 
 ```
 
+
 ![](images/do_in_R.png) Annotate and format the figure so it is more
 suitable for a report and save it to your figures folder.
 
+::: callout-tip
+If you want to use method 2 for annotating the *p*-value, you can
+extract the *p*-value with
+```{r}
+p_value <- wilcox.test(data = grouse, nematodes ~ estate) |> 
+  broom::tidy() |> 
+  pull(p.value) |>
+  round(4)
+
+```
+:::
 ```{r}
 #| include: false  
 
@@ -510,7 +563,8 @@ fig2 <- ggplot(data = grouse, aes(x = estate, y = nematodes) ) +
            y = 67, yend = 67,
            colour = "black") +
   annotate("text", x = 1.5,  y = 69, 
-           label = expression(italic(p)~"= 0.035")) +
+          label = glue::glue("italic(p) == { p_value }"),
+          parse = TRUE) +
   theme_classic()
 
 # save figure to figures/grouse.png
@@ -521,6 +575,7 @@ ggsave("figures/grouse.png",
        units = "in",
        dpi = 300)
 ```
+
 
 ## Gene Expression
 
@@ -638,9 +693,9 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [View
-the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-3/workshop.qmd).
+interweaved to produce well-formatted reports including webpages.  View
+the source code for this workshop using the `</> Code` button at the top
+of the page.
 Coding and thinking answers are marked with `#---CODING ANSWER---` and
 `#---THINKING ANSWER---`
 
