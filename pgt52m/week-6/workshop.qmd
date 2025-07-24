@@ -337,10 +337,36 @@ ggplot(plant, aes(x = day, y = mass)) +
 We have to tell `annotate()` what type of geom we want - `text` in this
 case, - where to put it, and the text we want to appear.
 
+Instead of hardcoding the equation, we can use the values of `b0` and
+`b1` that we assigned earlier. This is a neat trick that makes or work
+more reproducible. If the data were updated, we would not need to change
+the equation in the figure.
+
+```{r}
+ggplot(plant, aes(x = day, y = mass)) +
+  geom_point() +
+  geom_smooth(method = "lm", 
+              se = FALSE, 
+              colour = "black") +
+  annotate("text", x = 20, y = 110, 
+           label = glue::glue("mass = { b1 } * day {if (b0<0) \"-\" else \"+\"} { abs(b0) }") ) +
+  theme_classic()
+
+```
+
+-   The `glue::glue()` function allows us to use variables in the text -
+    the variables go inside curly braces
+-   `{ b1 }` and `{ abs(b0) }` are the variables we assigned earlier and
+    they will be replaced with their values in the text.
+-   The `if (b0<0) \"-\" else \"+\"` part is a conditional that adds a
+    minus sign if the intercept is negative and a plus sign if it is
+    positive. The `abs(b0)` part makes sure we only show the absolute
+    value of the intercept.
+
 ![](images/do_in_R.png) Improve the axes. You may need to refer back
 [Changing the
-axes](../week-2/workshop.html#changing-the-axes) from the
-Week 2 workshop [@rand2023]
+axes](../../r4babs1/week-7/workshop.html#changing-the-axes) from the
+Week 7 workshop in BABS1 [@rand2023]
 
 ```{r}
 #| include: false
@@ -359,22 +385,24 @@ ggplot(plant, aes(x = day, y = mass)) +
                      limits = c(0, 120),
                      expand = c(0,0)) +
   annotate("text", x = 20, y = 110, 
-           label = "mass = 1.61 * day - 8.68") +
+           label = glue::glue("mass = { b1 } * day {if (b0<0) \"-\" else \"+\"} { abs(b0) }") ) +
   theme_classic()
 
 
 # note that we need to use the continuous versions of both scale_
 ```
 
+![](images/do_in_R.png) Save your figure to your `figures` folder. Make
+sure you [script figure saving with
+`ggsave()`](../../r4babs1/week-9/workshop.html#writing-figures-to-file).
+
 ```{r}
 #| include: false
 
-#---BONUS CODING ANSWER---
-# I'm not expecting you to know about this but it's a neat trick. 
-# The glue package allows
-# us to use R objects in strings so their values are printed. The R object
-# is put in curly brackets.
-ggplot(plant, aes(x = day, y = mass)) +
+#---CODING ANSWER---
+
+# Assign the figure to a variable
+fig2 <- ggplot(plant, aes(x = day, y = mass)) +
   geom_point() +
   geom_smooth(method = "lm", 
               se = FALSE, 
@@ -386,8 +414,9 @@ ggplot(plant, aes(x = day, y = mass)) +
                      limits = c(0, 120),
                      expand = c(0,0)) +
   annotate("text", x = 20, y = 110, 
-           label = glue::glue("mass = {b1} day {b0}")) +
+           label = glue::glue("mass = { b1 } * day {if (b0<0) \"-\" else \"+\"} { abs(b0) }") ) +
   theme_classic()
+
 ```
 
 ![](images/do_in_R.png) Save your figure to your `figures` folder. Make
@@ -435,27 +464,27 @@ ggsave("figures/plant-growth.png",
 ## Look after future you!
 
 Future you will submit scripts for the assessment and these need to be
-organised, well-formatted, concise and well-commented so others can 
+organised, well-formatted, concise and well-commented so others can
 understand what you did and why.
 
 You might need to:
 
 -   collect together library statements at the beginning of the code
 -   edit your comments for clarity and include a paragraph explaining
-    what the analysis is about
-    add code section headers (Ctrl+Shift+R)
+    what the analysis is about add code section headers (Ctrl+Shift+R)
 -   rename variables for consistency or clarity
 -   remove house keeping or exploratory code or mark it for later
     removal
 -   restyle code indentation (Ctrl+i) if needed
--   check whitespace and line length. 
+-   check whitespace and line length.
 
-You will find it useful to change some options in RStudio to make
-your life easier. Revisit [Changing some defaults to make life easier](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html#changing-some-defaults-to-make-life-easier).
+You will find it useful to change some options in RStudio to make your
+life easier. Revisit [Changing some defaults to make life
+easier](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html#changing-some-defaults-to-make-life-easier).
 
 If you need to make additional notes that do not belong in the script,
-you can add them a text file called `README.txt` that future you -- and anyone
-else will know exactly what to do with!
+you can add them a text file called `README.txt` that future you -- and
+anyone else will know exactly what to do with!
 
 You're finished!
 
@@ -476,14 +505,12 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages.  View
+interweaved to produce well-formatted reports including webpages. View
 the source code for this workshop using the `</> Code` button at the top
-of the page.
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+of the page. Coding and thinking answers are marked with
+`#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References
