@@ -292,6 +292,14 @@ fly_bristles_means <- read_excel("data-raw/bristles-mean.xlsx")
 From this point forward in the course, we will always create a
 `data-raw` folder each time we make a new Project.
 
+::: callout-tip
+## Organising your work
+
+Each time you start a new piece of work, make a new Project with a `data-raw`
+folder inside. Always using the same organisation will make it easier
+to find your files and to read them in.
+:::
+
 These are the most common forms of data file you will encounter at
 first. However, data can certainly come to you in other formats
 particularly when they have come from particular software. Usually,
@@ -611,7 +619,7 @@ making a new script for each of nominal, continuous and count data and
 copying the code which imports, summarises and plots it. This will make 
 it easier for future you to find the code you need. Here is an example:
 [nominal_data.R](assets/nominal_data.R). You may wish to comment your
-version much more.
+version more.
 
 You're finished!
 
@@ -631,9 +639,9 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [View
-the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd).
+interweaved to produce well-formatted reports including webpages.  View
+the source code for this workshop using the `</> Code` button at the top
+of the page.
 Coding and thinking answers are marked with `#---CODING ANSWER---` and
 `#---THINKING ANSWER---`
 

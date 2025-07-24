@@ -17,7 +17,7 @@ library(kableExtra)
 # Introduction
 
 ![Artwork by @allison_horst: "love this
-class"](images/love-this-class.png){fig-alt="A little monster flying a biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be awesomely life-changing."
+class"](images/love-this-class.png){fig-alt="A little monster flying a  biplane wearing aviator glasses, pulling a banner that says 'Fully expecting to hate this class.' Below, a teacher wearing a cheerleading outfit  labeled 'STATS' with a bullhorn labeled 'CODE' cheering desperately with pom-poms, trying to help students believe stats is actually going to be  awesomely life-changing."
 width="800"}
 
 ## Session overview
@@ -67,14 +67,14 @@ Record your answers in your script for future reference.
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Go the Files tab in the lower right pane and
-click on the `...` on the right. This will open a "Go to folder" window.
-Navigate to a place on your computer where you keep your work. Click
-Open.
+<!-- ![](images/do_in_R.png) Go the Files tab in the lower right pane and -->
+<!-- click on the `...` on the right. This will open a "Go to folder" window. -->
+<!-- Navigate to a place on your computer where you keep your work. Click -->
+<!-- Open. -->
 
-![](images/do_in_R.png) Also on the Files tab click on `New Folder`.
-Type "data-analysis-in-r-2" in to the box. This will be the folder that
-we work in throughout the Data Analysis in R part BABS2.
+<!-- ![](images/do_in_R.png) Also on the Files tab click on `New Folder`. -->
+<!-- Type "data-analysis-in-r-2" in to the box. This will be the folder that -->
+<!-- we work in throughout the Data Analysis in R part BABS2. -->
 
 ![](images/do_in_R.png) Make an RStudio project for this workshop by
 clicking on the drop-down menu on top right where it says
@@ -101,10 +101,8 @@ covered in BABS 1 [@rand2023] if you need to remind yourself.
 ## Check your settings
 
 [Changing some defaults to make life
-easier](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#changing-some-defaults-to-make-life-easier)
+easier](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html#changing-some-defaults-to-make-life-easier)
 
-[Some useful
-settings](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#some-useful-settings)
 
 ## Confidence intervals (large samples)
 
@@ -115,7 +113,7 @@ by:
 $\bar{x} \pm 1.96 \times s.e.$
 
 This means the upper limit is $\bar{x} + 1.96 \times s.e.$ and the lower
-limit is $\bar{x} - 1.96 \times s.e.$. 1.96 is the "quantile" for 95% 
+limit is $\bar{x} - 1.96 \times s.e.$. 1.96 is the "quantile" for 95%
 confidence and can be found using the `qnorm()` function.
 
 ![](images/do_on_your_computer.png) Save
@@ -134,9 +132,8 @@ str(beewing)
 ```
 
 ![](images/do_in_R.png) Use the `summarise()` function to calculate: the
-mean, standard deviation, sample size and standard error and save them 
+mean, standard deviation, sample size and standard error and save them
 in a dataframe called `beewing_summary`:
-
 
 ```{r}
 beewing_summary <- beewing |> 
@@ -146,34 +143,31 @@ beewing_summary <- beewing |>
             se = sd / sqrt(n))
 ```
 
-To see the values in the `beewing_summary` dataframe you can either
-type and run `beewing_summary` or click on the dataframe in the
-Environment tab.
-
+To see the values in the `beewing_summary` dataframe you can either type
+and run `beewing_summary` or click on the dataframe in the Environment
+tab.
 
 ::: callout-note
 ## Where did you do this before?
 
-In the BABS 1 week 8 workshop we [summarised the mass of cats](../../r4babs1/week-8/workshop.html#cat-mass) using this 
-method. You can look back at that if you need to.
-
+In the BABS 1 week 8 workshop we [summarised the mass of
+cats](../../r4babs1/week-8/workshop.html#cat-mass) using this method.
+You can look back at that if you need to.
 :::
 
-
-To calculate the 95% confidence interval we need to look up the 
-quantile (multiplier) using `qnorm()`:
+To calculate the 95% confidence interval we need to look up the quantile
+(multiplier) using `qnorm()`:
 
 ```{r}
 qnorm(0.975)
 ```
 
-This should be about 1.96. We can use this piece of code along with
-the `mean` and `se` columns to add the upper and lower confidence 
-limits to the `beewing_summary` dataframe using `mutate()`:
+This should be about 1.96. We can use this piece of code along with the
+`mean` and `se` columns to add the upper and lower confidence limits to
+the `beewing_summary` dataframe using `mutate()`:
 
-
-![](images/do_in_R.png) Add the upper and lower confidence 
-limits to the `beewing_summary` dataframe:
+![](images/do_in_R.png) Add the upper and lower confidence limits to the
+`beewing_summary` dataframe:
 
 ```{r}
 beewing_summary <- beewing_summary |> 
@@ -181,13 +175,11 @@ beewing_summary <- beewing_summary |>
          ucl95 = mean + qnorm(0.975) * se)
 ```
 
-
-I used the names `lcl95` and `ucl95` to stand for "95% lower confidence 
+I used the names `lcl95` and `ucl95` to stand for "95% lower confidence
 limit" and "95% upper confidence limit" respectively.
 
-
 This means we are 95% confident the population mean lies between
-`r round(beewing_summary$lcl95,2)` mm and 
+`r round(beewing_summary$lcl95,2)` mm and
 `r round(beewing_summary$ucl95,2)` mm.
 
 ![](images/do_in_R.png) How would you write this up in a report?
@@ -263,8 +255,8 @@ resulting dataframe
 neuron <- read_table("data-raw/neuron.txt")
 ```
 
-![](images/do_in_R.png) Calculate: the mean, standard deviation, 
-sample size and standard error and save them in a dataframe called 
+![](images/do_in_R.png) Calculate: the mean, standard deviation, sample
+size and standard error and save them in a dataframe called
 `neuron_summary`:
 
 ```{r}
@@ -279,19 +271,18 @@ To work out the confidence interval for our sample mean we need to use
 the *t* distribution because it is a small sample. This means we need to
 determine the degrees of freedom (the number in the sample minus one).
 
-The *t* value is found using:  `qt(0.975, df = n - 1)`. Note that we are 
-using `qt()` rather than `qnorm()` but that the probability, 0.975, 
-used is the same.
+The *t* value is found using: `qt(0.975, df = n - 1)`. Note that we are
+using `qt()` rather than `qnorm()` but that the probability, 0.975, used
+is the same.
 
 This should be about 2.36. This is bigger than 1.96 to reflect the lower
-confidence we have in a mean from a small sample. We can use this piece 
-of code along with the `mean` and `se` columns to add the upper and 
-lower confidence 
-limits to the `neuron_summary` dataframe using `mutate()`:
+confidence we have in a mean from a small sample. We can use this piece
+of code along with the `mean` and `se` columns to add the upper and
+lower confidence limits to the `neuron_summary` dataframe using
+`mutate()`:
 
-
-![](images/do_in_R.png) Add the upper and lower confidence 
-limits to the `neuron_summary` dataframe:
+![](images/do_in_R.png) Add the upper and lower confidence limits to the
+`neuron_summary` dataframe:
 
 ```{r}
 neuron_summary <- neuron_summary |> 
@@ -359,9 +350,9 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [View
-the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-1/workshop.qmd).
+interweaved to produce well-formatted reports including webpages. View
+the source code for this workshop using the `</> Code` button at the top
+of the page.
 Coding and thinking answers are marked with `#---CODING ANSWER---` and
 `#---THINKING ANSWER---`
 

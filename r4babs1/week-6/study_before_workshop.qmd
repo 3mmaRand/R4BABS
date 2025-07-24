@@ -10,9 +10,9 @@ toc-location: right
     and [An overview of Data Analysis in R for BABS 1](../r4babs1.qmd). Both are also 
     linked on the VLE.
 
-2.  📖 Read [What they forgot to teach you about computers](https://3mmarand.github.io/comp4biosci/what_they_forgot.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
+2.  📖 Read [What they forgot to teach you about computers](https://3mmarand.github.io/comp4biosci/what-they-forgot.html) in [Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
 
-3.  📖 Read [What are R and Rstudio?](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#what-are-r-and-rstudio). 
+3.  📖 Read [What are R and Rstudio?](https://3mmarand.github.io/comp4biosci/about-R-and-RStudio.html). 
     You only need to read *this* section, you do not need to the read the
     rest of the chapter (yet!)
 
