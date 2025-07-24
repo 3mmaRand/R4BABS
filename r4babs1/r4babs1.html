@@ -562,7 +562,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>Each week has:</p>
 <ul>
 <li><p>An overview on the “About” page which gives the Learning Objectives, a topic summary and the instructions for the week. You should read this first.</p></li>
-<li><p>Some independent study on the “Prepare!” page to prepare you for the workshop. This will be reading from the course book (<a href="https://3mmarand.github.io/comp4biosci/">Computational Analysis for Bioscientists</a>), watching a video, or doing some coding or set up. It is designed to take about 30-45 mins on average. You will most likely learn best if you can find people to study with.</p></li>
+<li><p>Some independent study on the “Prepare!” page to prepare you for the workshop. This will be reading from the course book: <a href="https://3mmarand.github.io/comp4biosci/">Computational Analysis for Bioscientists</a>, watching a video, or doing some coding or set up. It is designed to take about 30-45 mins on average. You will most likely learn best if you can find people to study with.</p></li>
 <li><p>A two-hour workshop using R. This will usually start with me doing a short demonstration of one or more of the examples that were in “Prepare!” but you will spend most of the session going through some exercises. Anything you have not done before is explained and guided but you will also have to use the skills gained in previous workshops. I often remind you to take care of future you by making notes so you can look up your previous work but you can also search the <a href="https://3mmarand.github.io/R4BABS/">R4BABS</a> site (search is top right). Talking to other people in the workshop about the exercises and working together will really help you understand more. There will be plenty of help from me and my demonstrators.</p></li>
 <li><p>Some independent study on the “Consolidate!” page to give you more practice. The exercises are usually similar to those in the workshop but with less guidance. Occasionally, there will be reading to do. It is designed to take about 30-45 mins on average but may be quicker if you understood the workshop very well or slower if you need to revisit the workshop.</p></li>
 </ul>
@@ -575,20 +575,20 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <section id="content" class="level1">
 <h1>Content</h1>
 <section id="understanding-file-systems" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-file-systems">Understanding file systems</h2>
-<p>You will learn about operating systems, files and file systems, working directories, absolute and relative paths, what R and RStudio are</p>
+<h2 class="anchored" data-anchor-id="understanding-file-systems"><a href="week-6/overview.html">Understanding file systems</a></h2>
+<p>This week you will carry out some independent study to ensure you have some understanding of computer file systems. We will introduce you to the concepts of paths and working directories. You will also set your own machine up to use the Virtual Desktop Service which allows you to log in to a university machine from your own computer so you can work easily at home outside of workshops.</p>
 </section>
 <section id="introduction-to-r-and-project-organisation" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-r-and-project-organisation">Introduction to R and project organisation</h2>
-<p>You will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.</p>
+<h2 class="anchored" data-anchor-id="introduction-to-r-and-project-organisation"><a href="week-7/overview.html">Introduction to R and project organisation</a></h2>
+<p>This week you will start using RStudio to write R code and you will create your first graph! You will learn about data types such as “numerics” and “characters” and object types such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn about the layout of RStudio and a workflow using scripts and RStudio Projects to keep your work organised.</p>
 </section>
 <section id="types-of-variable-summarising-and-plotting-data" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-variable-summarising-and-plotting-data">Types of variable, summarising and plotting data</h2>
-<p>The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. The focus will be on plotting and summarising single variables. You will also learn how to read in data in to RStudio from plain text files and Excel files.</p>
+<h2 class="anchored" data-anchor-id="types-of-variable-summarising-and-plotting-data"><a href="week-8/overview.html">Types of variable, summarising and plotting data</a></h2>
+<p>The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. You will also learn about the “normal distribution” which is the most important continuous distribution.</p>
 </section>
 <section id="summarising-data-with-several-variables" class="level2">
-<h2 class="anchored" data-anchor-id="summarising-data-with-several-variables">Summarising data with several variables</h2>
-<p>This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.</p>
+<h2 class="anchored" data-anchor-id="summarising-data-with-several-variables"><a href="week-9/overview.html">Summarising data with several variables</a></h2>
+<p>Last week you summarised and plotted data sets with one variable. This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures to file.</p>
 
 
 <!-- -->
@@ -1073,106 +1073,111 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This is the first of the four BABS modules. Over four weeks you will learn </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>some core concepts about scientific computing, types of variable, the role </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>of variables in analysis and how to use RStudio to organise analysis and </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>import, summarise and plot data. You may want to read the</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This is the first of the four BABS modules. Over four weeks you will</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>learn some core concepts about scientific computing, types of variable,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>the role of variables in analysis and how to use RStudio to organise</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>analysis and import, summarise and plot data. You may want to read the</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">overview of Data Analysis in R in your degree</span><span class="co">](../index.html)</span>.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Module Learning Objectives</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>The BABS1 Module Learning outcomes that relate to the Data Analysis in R </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>The BABS1 Module Learning outcomes that relate to the Data Analysis in R</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>content are:</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Methodically record scientific investigations with lab books, organise </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    data and use R to import, summarise and plot simple data sets.</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Explain the key features of effective written media for dissemination </span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    of scientific information and be able to communicate experimental results </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    through a scientific poster.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># How R4BABS 1 is organised</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>A key feature of R4BABS 1 is that you really do learn as you go along </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>and you should not need to revise very much. To support this learning,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>every week is structured in the same way with contact time and well-guided</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>independent study to prepare you for the contact time and consolidate </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>what you have learned. </span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Each week has:</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>An overview on the "About" page which gives the Learning Objectives, </span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    a topic summary and the instructions for the week. You should read </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    this first. </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some independent study on the "Prepare!" page to prepare </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    you for the workshop. This will be reading from the course book </span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    (<span class="co">[</span><span class="ot">Computational Analysis for Bioscientists</span><span class="co">](https://3mmarand.github.io/comp4biosci/)</span>),</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    watching a video, or doing some coding or set up. It is designed to </span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    take about 30-45 mins on average. You will most likely learn best</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    if you can find people to study with. </span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A two-hour workshop using R. This will usually start with me doing a</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    short demonstration of one or more of the examples that were in "Prepare!"</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    but you will spend most of the session going through some exercises. </span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    Anything you have not done before is explained and guided but you will </span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    also have to use the skills gained in previous workshops. I often remind </span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    you to take care of future you by making notes so you can look up your </span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    previous work but you can also search </span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    the <span class="co">[</span><span class="ot">R4BABS</span><span class="co">](https://3mmarand.github.io/R4BABS/)</span> site (search is top </span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    right). Talking to other people in the workshop about the exercises </span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    and working together will really help you understand more. There will </span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    be plenty of help from me and my demonstrators.</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some independent study on the "Consolidate!" page to give you more </span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    practice. The exercises are usually similar to those in the workshop </span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    but with less guidance. Occasionally, there will be reading to do. </span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    It is designed to take about 30-45 mins on average but may be quicker</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    if you understood the workshop very well or slower if you need to </span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    revisit the workshop. </span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Learning Data Analysis in R is like learning to speak a new language </span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>or play an instrument or a technical sport - you can't really rush it </span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>or cram for it. You need regular practice. </span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>a little bit of engagement and practice is always better than none</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Methodically record scientific investigations with lab books,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    organise data and use R to import, summarise and plot simple data</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    sets.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Explain the key features of effective written media for</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    dissemination of scientific information and be able to communicate</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    experimental results through a scientific poster.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># How R4BABS 1 is organised</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>A key feature of R4BABS 1 is that you really do learn as you go along</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>and you should not need to revise very much. To support this learning,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>every week is structured in the same way with contact time and</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>well-guided independent study to prepare you for the contact time and</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>consolidate what you have learned.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Each week has:</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>An overview on the "About" page which gives the Learning Objectives,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    a topic summary and the instructions for the week. You should read</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    this first.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some independent study on the "Prepare!" page to prepare you for the</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    workshop. This will be reading from the course book: [Computational</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    Analysis for</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    Bioscientists](https://3mmarand.github.io/comp4biosci/), watching a</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    video, or doing some coding or set up. It is designed to take about</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    30-45 mins on average. You will most likely learn best if you can</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    find people to study with.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A two-hour workshop using R. This will usually start with me doing a</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    short demonstration of one or more of the examples that were in</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    "Prepare!" but you will spend most of the session going through some</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    exercises. Anything you have not done before is explained and guided</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    but you will also have to use the skills gained in previous</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    workshops. I often remind you to take care of future you by making</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    notes so you can look up your previous work but you can also search</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    the <span class="co">[</span><span class="ot">R4BABS</span><span class="co">](https://3mmarand.github.io/R4BABS/)</span> site (search is top</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    right). Talking to other people in the workshop about the exercises</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    and working together will really help you understand more. There</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    will be plenty of help from me and my demonstrators.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some independent study on the "Consolidate!" page to give you more</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    practice. The exercises are usually similar to those in the workshop</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    but with less guidance. Occasionally, there will be reading to do.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    It is designed to take about 30-45 mins on average but may be</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    quicker if you understood the workshop very well or slower if you</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    need to revisit the workshop.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>Learning Data Analysis in R is like learning to speak a new language or</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>play an instrument or a technical sport - you can't really rush it or</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>cram for it. You need regular practice.</span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>if you get behind, just pick up where you left off rather than </span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    jumping in. It is fine to work on a previous week's workshop</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu"># Content</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>a little bit of engagement and practice is always better than none</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>if you get behind, just pick up where you left off rather than</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    jumping in. It is fine to work on a previous week's workshop</span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## Understanding file systems</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="fu"># Content</span></span>
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>You will learn about operating systems, files and file systems,</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>working directories, absolute and relative paths, what R and </span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>RStudio are</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to R and project organisation</span></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>You will start writing R code in RStudio and will create your first graph! </span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>You will learn about data types such as “numerics” and “characters” </span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>and some of the different types of objects in R such as “vectors” </span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>and “dataframes”. These are the building blocks for the rest of your </span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>R journey. You will also learn a workflow and about the layout of </span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>RStudio and using RStudio Projects.</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Types of variable, summarising and plotting data</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>The type of values our data can take is important in how we </span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>analyse and visualise it. This week you will learn the difference </span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>between continuous and discrete values and how we summarise </span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>and visualise them. The focus will be on plotting and summarising </span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>single variables. You will also learn how to read in data in to </span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>RStudio from plain text files and Excel files.</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarising data with several variables</span></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>This week you will start plotting data sets with more than one variable. </span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>This means you need to be able determine which variable is the response </span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>and which is the explanatory. You will find out what is meant by “tidy” </span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>data and how to perform a simple data tidying task. Finally you will </span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>discover how to save your figures and place them in documents.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Understanding file systems](week-6/overview.html)</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>This week you will carry out some independent study to ensure you have</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>some understanding of computer file systems. We will introduce you to</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>the concepts of paths and working directories. You will also set your</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>own machine up to use the Virtual Desktop Service which allows you to</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>log in to a university machine from your own computer so you can work</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>easily at home outside of workshops.</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Introduction to R and project organisation](week-7/overview.html)</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>This week you will start using RStudio to write R code and you will</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>create your first graph! You will learn about data types such as</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>“numerics” and “characters” and object types such as “vectors” and</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>“dataframes”. These are the building blocks for the rest of your R</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>journey. You will also learn about the layout of RStudio and a workflow</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>using scripts and RStudio Projects to keep your work organised.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Types of variable, summarising and plotting data](week-8/overview.html)</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>The type of values our data can take is important in how we analyse and</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>visualise it. This week you will learn the difference between continuous</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>and discrete values and how we summarise and visualise them. You will</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>also learn about the “normal distribution” which is the most important</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>continuous distribution.</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Summarising data with several variables](week-9/overview.html)</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>Last week you summarised and plotted data sets with one variable. This</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>week you will start plotting data sets with more than one variable. This</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>means you need to be able determine which variable is the response and</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>which is the explanatory. You will find out what is meant by “tidy” data</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>and how to perform a simple data tidying task. Finally you will discover</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>how to save your figures to file.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

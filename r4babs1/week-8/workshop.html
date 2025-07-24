@@ -712,6 +712,19 @@ Key
 </div>
 <p><img src="images/do_in_R.png" class="img-fluid"> Now you do the other files!</p>
 <p>From this point forward in the course, we will always create a <code>data-raw</code> folder each time we make a new Project.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Organising your work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each time you start a new piece of work, make a new Project with a <code>data-raw</code> folder inside. Always using the same organisation will make it easier to find your files and to read them in.</p>
+</div>
+</div>
 <p>These are the most common forms of data file you will encounter at first. However, data can certainly come to you in other formats particularly when they have come from particular software. Usually, there is an <code>R</code> package specially for that format.</p>
 <p>In the rest of the workshop we will take each dataset in turn and create summaries and plots appropriate for the data types. Data is summarised using the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> functions</p>
 </section><section id="summarising-discrete-data-cat-coat" class="level2"><h2 class="anchored" data-anchor-id="summarising-discrete-data-cat-coat">Summarising discrete data: Cat coat</h2>
@@ -867,7 +880,7 @@ Key
 <p>Many things are quite difficult to measure or count and in these cases we often do <strong>technical replicates</strong>. A technical replicate allows us the measure the exact same thing to check how variable the measurement process is. For example, <em>Drosophila</em> are small and counting their sternopleural bristles is tricky. In addition, where a bristle is short (young) or broken scientists might vary in whether they count it. Or people or machines might vary in measuring the concentration of the same solution.</p>
 <p>When we do technical replicates we calculate their mean and use that as the measure. This is what is in our <code>fly_bristles_means</code> dataframe - the bristles of each of the 96 flies was counted by 5 people and the data are those means. These has an impact on how we plot and summarise the dataset because the distribution of mean counts is continuous! We can use means, standard deviations and histograms. This will be an exercise in <a href="../../r4babs1/week-8/study_after_workshop.html">Consolidate</a>.</p>
 </section></section><section id="look-after-future-you" class="level2"><h2 class="anchored" data-anchor-id="look-after-future-you">Look after future you!</h2>
-<p>Future you is going to summarise and plot data from the “River practicals”. You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called <code>import-summarise-plot.R</code>. I recommend making a new script for each of nominal, continuous and count data and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: <a href="assets/nominal_data.R">nominal_data.R</a>. You may wish to comment your version much more.</p>
+<p>Future you is going to summarise and plot data from the “River practicals”. You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called <code>import-summarise-plot.R</code>. I recommend making a new script for each of nominal, continuous and count data and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: <a href="assets/nominal_data.R">nominal_data.R</a>. You may wish to comment your version more.</p>
 <p>You’re finished!</p>
 </section></section><section id="well-done" class="level1"><h1>🥳 Well Done! 🎉</h1>
 <div class="quarto-figure quarto-figure-center">
@@ -878,7 +891,7 @@ Key
 <p><a href="../../r4babs1/week-8/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
 <p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd">View the Qmd in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
+<p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. View the source code for this workshop using the <code>&lt;/&gt; Code</code> button at the top of the page. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
@@ -1682,356 +1695,364 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a>From this point forward in the course, we will always create a</span>
 <span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a><span class="in">`data-raw`</span> folder each time we make a new Project.</span>
 <span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a>These are the most common forms of data file you will encounter at</span>
-<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a>first. However, data can certainly come to you in other formats</span>
-<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a>particularly when they have come from particular software. Usually,</span>
-<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a>there is an <span class="in">`R`</span> package specially for that format.</span>
-<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a>In the rest of the workshop we will take each dataset in turn and create</span>
-<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a>summaries and plots appropriate for the data types. Data is summarised</span>
-<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a>using the <span class="in">`group_by()`</span> and <span class="in">`summarise()`</span> functions</span>
-<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarising discrete data: Cat coat</span></span>
-<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a>The most appropriate way to summarise nominal data like the colour of</span>
-<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a>cat coats is to tabulate the number of cats with each colour.</span>
-<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`cats`</span> dataframe by counting the</span>
-<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a>number of cats in each category</span>
+<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## Organising your work</span></span>
+<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a>Each time you start a new piece of work, make a new Project with a <span class="in">`data-raw`</span></span>
+<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a>folder inside. Always using the same organisation will make it easier</span>
+<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a>to find your files and to read them in.</span>
+<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a>These are the most common forms of data file you will encounter at</span>
+<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a>first. However, data can certainly come to you in other formats</span>
+<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a>particularly when they have come from particular software. Usually,</span>
+<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a>there is an <span class="in">`R`</span> package specially for that format.</span>
+<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a>In the rest of the workshop we will take each dataset in turn and create</span>
+<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a>summaries and plots appropriate for the data types. Data is summarised</span>
+<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a>using the <span class="in">`group_by()`</span> and <span class="in">`summarise()`</span> functions</span>
 <span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
-<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(coat) <span class="sc">|&gt;</span> </span>
-<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarising discrete data: Cat coat</span></span>
+<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a>The most appropriate way to summarise nominal data like the colour of</span>
+<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a>cat coats is to tabulate the number of cats with each colour.</span>
+<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`cats`</span> dataframe by counting the</span>
+<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a>number of cats in each category</span>
 <span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a><span class="in">`|&gt;`</span> is the pipe and can be produced with Ctrl+Shift+M</span>
-<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a>This sort of data might be represented with a barchart. You have two</span>
-<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a>options for producing that barchart:</span>
-<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>plot the summary table using <span class="in">`geom_col()`</span></span>
-<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>plot the raw data using <span class="in">`geom_bar()`</span></span>
-<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a>We did the first of these [last</span>
-<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a>week](../week-7/workshop.html#plotting-the-data-with-ggplot). The</span>
-<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a><span class="in">`geom_col()`</span> function uses the numbers in a second column to determine</span>
-<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a>how high the bars are. However, the <span class="in">`geom_bar()`</span> function will do the</span>
-<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a>tabulating for you.</span>
+<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
+<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(coat) <span class="sc">|&gt;</span> </span>
+<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a><span class="in">`|&gt;`</span> is the pipe and can be produced with Ctrl+Shift+M</span>
+<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a>This sort of data might be represented with a barchart. You have two</span>
+<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a>options for producing that barchart:</span>
+<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>plot the summary table using <span class="in">`geom_col()`</span></span>
 <span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot the coat data using <span class="in">`geom_bar`</span>:</span>
+<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>plot the raw data using <span class="in">`geom_bar()`</span></span>
 <span id="cb20-354"><a href="#cb20-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cats, <span class="fu">aes</span>(<span class="at">x =</span> coat)) <span class="sc">+</span></span>
-<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a>The gaps that <span class="in">`R`</span> put automatically between the bars reflects that the</span>
-<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a>coat colours are discrete categories.</span>
-<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarising Counts: Bristles</span></span>
-<span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a>Counts are discrete and can be thought of a categories with an order</span>
-<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a>(ordinal).</span>
+<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a>We did the first of these [last</span>
+<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a>week](../week-7/workshop.html#plotting-the-data-with-ggplot). The</span>
+<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a><span class="in">`geom_col()`</span> function uses the numbers in a second column to determine</span>
+<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a>how high the bars are. However, the <span class="in">`geom_bar()`</span> function will do the</span>
+<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a>tabulating for you.</span>
+<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot the coat data using <span class="in">`geom_bar`</span>:</span>
+<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cats, <span class="fu">aes</span>(<span class="at">x =</span> coat)) <span class="sc">+</span></span>
+<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-369"><a href="#cb20-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`fly_bristles`</span> dataframe by</span>
-<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a>counting the number of flies in each category of bristle number</span>
+<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a>The gaps that <span class="in">`R`</span> put automatically between the bars reflects that the</span>
+<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a>coat colours are discrete categories.</span>
 <span id="cb20-372"><a href="#cb20-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-373"><a href="#cb20-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarising Counts: Bristles</span></span>
+<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a>Counts are discrete and can be thought of a categories with an order</span>
+<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a>(ordinal).</span>
 <span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a>fly_bristles <span class="sc">|&gt;</span> </span>
-<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(number) <span class="sc">|&gt;</span> </span>
-<span id="cb20-381"><a href="#cb20-381" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
-<span id="cb20-382"><a href="#cb20-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a>Since counts are numbers, we might also want to calculate some summary</span>
-<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a>statistics such as the median and interquartile range.</span>
-<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`fly_bristles`</span> dataframe by</span>
-<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a>calculate the median and interquartile range</span>
-<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a>fly_bristles <span class="sc">|&gt;</span> </span>
-<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(number),</span>
-<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a>            <span class="fu">IQR</span>(number))</span>
-<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`fly_bristles`</span> dataframe by</span>
+<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a>counting the number of flies in each category of bristle number</span>
+<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a>fly_bristles <span class="sc">|&gt;</span> </span>
+<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(number) <span class="sc">|&gt;</span> </span>
+<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
+<span id="cb20-390"><a href="#cb20-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-391"><a href="#cb20-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a>Since counts are numbers, we might also want to calculate some summary</span>
+<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a>statistics such as the median and interquartile range.</span>
+<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`fly_bristles`</span> dataframe by</span>
+<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a>calculate the median and interquartile range</span>
 <span id="cb20-397"><a href="#cb20-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-398"><a href="#cb20-398" aria-hidden="true" tabindex="-1"></a>As the interquartile is <span class="in">`r IQR(fly_bristles$number)`</span> and the median is</span>
-<span id="cb20-399"><a href="#cb20-399" aria-hidden="true" tabindex="-1"></a><span class="in">`r median(fly_bristles$number)`</span> then 25% flies have</span>
-<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a><span class="in">`r median(fly_bristles$number) - IQR(fly_bristles$number)/2`</span> bristles or</span>
-<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a>fewer and 25% have</span>
-<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a><span class="in">`r median(fly_bristles$number) + IQR(fly_bristles$number)/2`</span> or more.</span>
-<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a>The distribution of counts<span class="ot">[^4]</span> is not symmetrical for lower counts so</span>
-<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a>the mean is not usually a good way to summarise count data.</span>
-<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: </span>Count data are usually "Poisson" distributed.</span>
-<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> If you want to save the table you created and</span>
-<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a>give the columns better names you can make two adjustments:</span>
+<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a>fly_bristles <span class="sc">|&gt;</span> </span>
+<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(number),</span>
+<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a>            <span class="fu">IQR</span>(number))</span>
+<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a>As the interquartile is <span class="in">`r IQR(fly_bristles$number)`</span> and the median is</span>
+<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a><span class="in">`r median(fly_bristles$number)`</span> then 25% flies have</span>
+<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a><span class="in">`r median(fly_bristles$number) - IQR(fly_bristles$number)/2`</span> bristles or</span>
+<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a>fewer and 25% have</span>
+<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a><span class="in">`r median(fly_bristles$number) + IQR(fly_bristles$number)/2`</span> or more.</span>
 <span id="cb20-411"><a href="#cb20-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a>fly_bristles_summary <span class="ot">&lt;-</span> fly_bristles <span class="sc">|&gt;</span> </span>
-<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">med =</span> <span class="fu">median</span>(number),</span>
-<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a>            <span class="at">interquartile =</span> <span class="fu">IQR</span>(number))</span>
-<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-412"><a href="#cb20-412" aria-hidden="true" tabindex="-1"></a>The distribution of counts<span class="ot">[^4]</span> is not symmetrical for lower counts so</span>
+<span id="cb20-413"><a href="#cb20-413" aria-hidden="true" tabindex="-1"></a>the mean is not usually a good way to summarise count data.</span>
+<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: </span>Count data are usually "Poisson" distributed.</span>
+<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> If you want to save the table you created and</span>
+<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a>give the columns better names you can make two adjustments:</span>
 <span id="cb20-419"><a href="#cb20-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-420"><a href="#cb20-420" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have saved the output to an object <span class="in">`fly_bristles_summary`</span> using </span>
-<span id="cb20-421"><a href="#cb20-421" aria-hidden="true" tabindex="-1"></a>    assignment <span class="in">`&lt;-`</span>. This means you will not see output from the command.</span>
-<span id="cb20-422"><a href="#cb20-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-423"><a href="#cb20-423" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have given the columns better names <span class="in">`med`</span> and <span class="in">`interquartile`</span> using</span>
-<span id="cb20-424"><a href="#cb20-424" aria-hidden="true" tabindex="-1"></a>    the <span class="in">`=`</span> operator.</span>
-<span id="cb20-425"><a href="#cb20-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-426"><a href="#cb20-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-427"><a href="#cb20-427" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot the bristles data using <span class="in">`geom_bar`</span>:</span>
-<span id="cb20-428"><a href="#cb20-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-431"><a href="#cb20-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-432"><a href="#cb20-432" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-422"><a href="#cb20-422" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-423"><a href="#cb20-423" aria-hidden="true" tabindex="-1"></a>fly_bristles_summary <span class="ot">&lt;-</span> fly_bristles <span class="sc">|&gt;</span> </span>
+<span id="cb20-424"><a href="#cb20-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">med =</span> <span class="fu">median</span>(number),</span>
+<span id="cb20-425"><a href="#cb20-425" aria-hidden="true" tabindex="-1"></a>            <span class="at">interquartile =</span> <span class="fu">IQR</span>(number))</span>
+<span id="cb20-426"><a href="#cb20-426" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-427"><a href="#cb20-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-428"><a href="#cb20-428" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have saved the output to an object <span class="in">`fly_bristles_summary`</span> using </span>
+<span id="cb20-429"><a href="#cb20-429" aria-hidden="true" tabindex="-1"></a>    assignment <span class="in">`&lt;-`</span>. This means you will not see output from the command.</span>
+<span id="cb20-430"><a href="#cb20-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-431"><a href="#cb20-431" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have given the columns better names <span class="in">`med`</span> and <span class="in">`interquartile`</span> using</span>
+<span id="cb20-432"><a href="#cb20-432" aria-hidden="true" tabindex="-1"></a>    the <span class="in">`=`</span> operator.</span>
 <span id="cb20-433"><a href="#cb20-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-434"><a href="#cb20-434" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb20-435"><a href="#cb20-435" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fly_bristles, <span class="fu">aes</span>(<span class="at">x =</span> number)) <span class="sc">+</span></span>
-<span id="cb20-436"><a href="#cb20-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb20-437"><a href="#cb20-437" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-438"><a href="#cb20-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-439"><a href="#cb20-439" aria-hidden="true" tabindex="-1"></a>If counts have a a high mean and big range, like number of hairs on a</span>
-<span id="cb20-440"><a href="#cb20-440" aria-hidden="true" tabindex="-1"></a>person's head, then you can often treat them as continuous. This means</span>
-<span id="cb20-441"><a href="#cb20-441" aria-hidden="true" tabindex="-1"></a>you can use statistics like the mean and standard deviation to summarise</span>
-<span id="cb20-442"><a href="#cb20-442" aria-hidden="true" tabindex="-1"></a>them, histograms to plot them and use some standard statistical tests on</span>
-<span id="cb20-443"><a href="#cb20-443" aria-hidden="true" tabindex="-1"></a>them.</span>
-<span id="cb20-444"><a href="#cb20-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-445"><a href="#cb20-445" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarising continuous data</span></span>
+<span id="cb20-434"><a href="#cb20-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-435"><a href="#cb20-435" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot the bristles data using <span class="in">`geom_bar`</span>:</span>
+<span id="cb20-436"><a href="#cb20-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-439"><a href="#cb20-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-440"><a href="#cb20-440" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-441"><a href="#cb20-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-442"><a href="#cb20-442" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb20-443"><a href="#cb20-443" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fly_bristles, <span class="fu">aes</span>(<span class="at">x =</span> number)) <span class="sc">+</span></span>
+<span id="cb20-444"><a href="#cb20-444" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb20-445"><a href="#cb20-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-446"><a href="#cb20-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-447"><a href="#cb20-447" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cat mass</span></span>
-<span id="cb20-448"><a href="#cb20-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-449"><a href="#cb20-449" aria-hidden="true" tabindex="-1"></a>The variable <span class="in">`mass`</span> in the <span class="in">`cats`</span> dataframe is continuous. Very many</span>
-<span id="cb20-450"><a href="#cb20-450" aria-hidden="true" tabindex="-1"></a>continuous variables have a normal distribution. e normal distribution</span>
-<span id="cb20-451"><a href="#cb20-451" aria-hidden="true" tabindex="-1"></a>is also known as the bell-shaped curve. If we had the mass of all the</span>
-<span id="cb20-452"><a href="#cb20-452" aria-hidden="true" tabindex="-1"></a>cats in the world, we would find many cats were near the mean and fewer</span>
-<span id="cb20-453"><a href="#cb20-453" aria-hidden="true" tabindex="-1"></a>would be away from the mean, either much lighter or much heavier. In</span>
-<span id="cb20-454"><a href="#cb20-454" aria-hidden="true" tabindex="-1"></a>fact 68% would be within one standard deviation of the mean and about</span>
-<span id="cb20-455"><a href="#cb20-455" aria-hidden="true" tabindex="-1"></a>96% would be within two standard deviations.</span>
+<span id="cb20-447"><a href="#cb20-447" aria-hidden="true" tabindex="-1"></a>If counts have a a high mean and big range, like number of hairs on a</span>
+<span id="cb20-448"><a href="#cb20-448" aria-hidden="true" tabindex="-1"></a>person's head, then you can often treat them as continuous. This means</span>
+<span id="cb20-449"><a href="#cb20-449" aria-hidden="true" tabindex="-1"></a>you can use statistics like the mean and standard deviation to summarise</span>
+<span id="cb20-450"><a href="#cb20-450" aria-hidden="true" tabindex="-1"></a>them, histograms to plot them and use some standard statistical tests on</span>
+<span id="cb20-451"><a href="#cb20-451" aria-hidden="true" tabindex="-1"></a>them.</span>
+<span id="cb20-452"><a href="#cb20-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-453"><a href="#cb20-453" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarising continuous data</span></span>
+<span id="cb20-454"><a href="#cb20-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-455"><a href="#cb20-455" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cat mass</span></span>
 <span id="cb20-456"><a href="#cb20-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-459"><a href="#cb20-459" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-460"><a href="#cb20-460" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb20-461"><a href="#cb20-461" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(cats<span class="sc">$</span>mass)</span>
-<span id="cb20-462"><a href="#cb20-462" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span>  <span class="fu">sd</span>(cats<span class="sc">$</span>mass)</span>
-<span id="cb20-463"><a href="#cb20-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-464"><a href="#cb20-464" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">9</span>)), <span class="fu">aes</span>(x)) <span class="sc">+</span></span>
-<span id="cb20-465"><a href="#cb20-465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">n =</span> <span class="dv">101</span>, <span class="at">args =</span> <span class="fu">list</span>(mean, sd)) <span class="sc">+</span> </span>
-<span id="cb20-466"><a href="#cb20-466" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>, </span>
-<span id="cb20-467"><a href="#cb20-467" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
-<span id="cb20-468"><a href="#cb20-468" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb20-469"><a href="#cb20-469" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Mass (kg)"</span>, </span>
-<span id="cb20-470"><a href="#cb20-470" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb20-471"><a href="#cb20-471" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb20-472"><a href="#cb20-472" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">-</span> sd, </span>
-<span id="cb20-473"><a href="#cb20-473" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"darkcyan"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-474"><a href="#cb20-474" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">+</span> sd, </span>
-<span id="cb20-475"><a href="#cb20-475" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"darkcyan"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-476"><a href="#cb20-476" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> mean, <span class="at">y =</span> <span class="fl">0.25</span>, </span>
-<span id="cb20-477"><a href="#cb20-477" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"68%"</span>, </span>
-<span id="cb20-478"><a href="#cb20-478" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"darkcyan"</span>, </span>
-<span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">10</span>, </span>
-<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a>             <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"lines"</span>)) <span class="sc">+</span></span>
-<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean <span class="sc">-</span> sd, <span class="at">y =</span> <span class="fl">0.225</span>, </span>
-<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span>  mean <span class="sc">+</span> sd, <span class="at">yend =</span> <span class="fl">0.225</span>),</span>
-<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"cm"</span>), <span class="at">ends =</span> <span class="st">"both"</span>),</span>
-<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"darkcyan"</span>, </span>
-<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> sd, </span>
-<span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> sd, </span>
-<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> mean, <span class="at">y =</span> <span class="fl">0.15</span>, </span>
-<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"96%"</span>, </span>
-<span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, </span>
-<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">10</span>, </span>
-<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a>             <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"lines"</span>),) <span class="sc">+</span></span>
-<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean <span class="sc">-</span>  <span class="dv">2</span> <span class="sc">*</span> sd, <span class="at">y =</span> <span class="fl">0.125</span>, </span>
-<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span>  mean <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> sd, <span class="at">yend =</span> <span class="fl">0.125</span>),</span>
-<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"cm"</span>), <span class="at">ends =</span> <span class="st">"both"</span>),</span>
-<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, </span>
-<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> We can find the mean mass with:</span>
-<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-509"><a href="#cb20-509" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
-<span id="cb20-510"><a href="#cb20-510" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass))</span>
-<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a>We can add any sort of summary by placing it inside the the summarise</span>
-<span id="cb20-514"><a href="#cb20-514" aria-hidden="true" tabindex="-1"></a>parentheses. Each one is separated by a comma. We did this to find the</span>
-<span id="cb20-515"><a href="#cb20-515" aria-hidden="true" tabindex="-1"></a>median and the interquatrile range for fly bristles.</span>
-<span id="cb20-516"><a href="#cb20-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-517"><a href="#cb20-517" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> For example, another way to calculate the number</span>
-<span id="cb20-518"><a href="#cb20-518" aria-hidden="true" tabindex="-1"></a>of values is to use the <span class="in">`length()`</span> function:</span>
-<span id="cb20-519"><a href="#cb20-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-522"><a href="#cb20-522" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-523"><a href="#cb20-523" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
-<span id="cb20-524"><a href="#cb20-524" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass),</span>
-<span id="cb20-525"><a href="#cb20-525" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(mass))</span>
-<span id="cb20-526"><a href="#cb20-526" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-457"><a href="#cb20-457" aria-hidden="true" tabindex="-1"></a>The variable <span class="in">`mass`</span> in the <span class="in">`cats`</span> dataframe is continuous. Very many</span>
+<span id="cb20-458"><a href="#cb20-458" aria-hidden="true" tabindex="-1"></a>continuous variables have a normal distribution. e normal distribution</span>
+<span id="cb20-459"><a href="#cb20-459" aria-hidden="true" tabindex="-1"></a>is also known as the bell-shaped curve. If we had the mass of all the</span>
+<span id="cb20-460"><a href="#cb20-460" aria-hidden="true" tabindex="-1"></a>cats in the world, we would find many cats were near the mean and fewer</span>
+<span id="cb20-461"><a href="#cb20-461" aria-hidden="true" tabindex="-1"></a>would be away from the mean, either much lighter or much heavier. In</span>
+<span id="cb20-462"><a href="#cb20-462" aria-hidden="true" tabindex="-1"></a>fact 68% would be within one standard deviation of the mean and about</span>
+<span id="cb20-463"><a href="#cb20-463" aria-hidden="true" tabindex="-1"></a>96% would be within two standard deviations.</span>
+<span id="cb20-464"><a href="#cb20-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-467"><a href="#cb20-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-468"><a href="#cb20-468" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb20-469"><a href="#cb20-469" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(cats<span class="sc">$</span>mass)</span>
+<span id="cb20-470"><a href="#cb20-470" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span>  <span class="fu">sd</span>(cats<span class="sc">$</span>mass)</span>
+<span id="cb20-471"><a href="#cb20-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-472"><a href="#cb20-472" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">9</span>)), <span class="fu">aes</span>(x)) <span class="sc">+</span></span>
+<span id="cb20-473"><a href="#cb20-473" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">n =</span> <span class="dv">101</span>, <span class="at">args =</span> <span class="fu">list</span>(mean, sd)) <span class="sc">+</span> </span>
+<span id="cb20-474"><a href="#cb20-474" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>, </span>
+<span id="cb20-475"><a href="#cb20-475" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb20-476"><a href="#cb20-476" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb20-477"><a href="#cb20-477" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Mass (kg)"</span>, </span>
+<span id="cb20-478"><a href="#cb20-478" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">-</span> sd, </span>
+<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"darkcyan"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">+</span> sd, </span>
+<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"darkcyan"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> mean, <span class="at">y =</span> <span class="fl">0.25</span>, </span>
+<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"68%"</span>, </span>
+<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"darkcyan"</span>, </span>
+<span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">10</span>, </span>
+<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a>             <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"lines"</span>)) <span class="sc">+</span></span>
+<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean <span class="sc">-</span> sd, <span class="at">y =</span> <span class="fl">0.225</span>, </span>
+<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span>  mean <span class="sc">+</span> sd, <span class="at">yend =</span> <span class="fl">0.225</span>),</span>
+<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"cm"</span>), <span class="at">ends =</span> <span class="st">"both"</span>),</span>
+<span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"darkcyan"</span>, </span>
+<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> sd, </span>
+<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mean <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> sd, </span>
+<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> mean, <span class="at">y =</span> <span class="fl">0.15</span>, </span>
+<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"96%"</span>, </span>
+<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, </span>
+<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">10</span>, </span>
+<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a>             <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"lines"</span>),) <span class="sc">+</span></span>
+<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean <span class="sc">-</span>  <span class="dv">2</span> <span class="sc">*</span> sd, <span class="at">y =</span> <span class="fl">0.125</span>, </span>
+<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span>  mean <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> sd, <span class="at">yend =</span> <span class="fl">0.125</span>),</span>
+<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"cm"</span>), <span class="at">ends =</span> <span class="st">"both"</span>),</span>
+<span id="cb20-506"><a href="#cb20-506" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"mediumpurple3"</span>, </span>
+<span id="cb20-507"><a href="#cb20-507" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb20-509"><a href="#cb20-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-510"><a href="#cb20-510" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> We can find the mean mass with:</span>
+<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-516"><a href="#cb20-516" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-517"><a href="#cb20-517" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
+<span id="cb20-518"><a href="#cb20-518" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass))</span>
+<span id="cb20-519"><a href="#cb20-519" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-520"><a href="#cb20-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-521"><a href="#cb20-521" aria-hidden="true" tabindex="-1"></a>We can add any sort of summary by placing it inside the the summarise</span>
+<span id="cb20-522"><a href="#cb20-522" aria-hidden="true" tabindex="-1"></a>parentheses. Each one is separated by a comma. We did this to find the</span>
+<span id="cb20-523"><a href="#cb20-523" aria-hidden="true" tabindex="-1"></a>median and the interquatrile range for fly bristles.</span>
+<span id="cb20-524"><a href="#cb20-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-525"><a href="#cb20-525" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> For example, another way to calculate the number</span>
+<span id="cb20-526"><a href="#cb20-526" aria-hidden="true" tabindex="-1"></a>of values is to use the <span class="in">`length()`</span> function:</span>
 <span id="cb20-527"><a href="#cb20-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-528"><a href="#cb20-528" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Adapt the code to calculate the mean, the sample</span>
-<span id="cb20-529"><a href="#cb20-529" aria-hidden="true" tabindex="-1"></a>size *and* the standard deviation (<span class="in">`sd()`</span>)</span>
-<span id="cb20-530"><a href="#cb20-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-533"><a href="#cb20-533" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-534"><a href="#cb20-534" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-530"><a href="#cb20-530" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-531"><a href="#cb20-531" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
+<span id="cb20-532"><a href="#cb20-532" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass),</span>
+<span id="cb20-533"><a href="#cb20-533" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(mass))</span>
+<span id="cb20-534"><a href="#cb20-534" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-535"><a href="#cb20-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-536"><a href="#cb20-536" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb20-537"><a href="#cb20-537" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
-<span id="cb20-538"><a href="#cb20-538" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass),</span>
-<span id="cb20-539"><a href="#cb20-539" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(mass),</span>
-<span id="cb20-540"><a href="#cb20-540" aria-hidden="true" tabindex="-1"></a>            <span class="at">standard_dev =</span> <span class="fu">sd</span>(mass))</span>
-<span id="cb20-541"><a href="#cb20-541" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-542"><a href="#cb20-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-543"><a href="#cb20-543" aria-hidden="true" tabindex="-1"></a>A single continuous variable can be plotted using a histogram to show</span>
-<span id="cb20-544"><a href="#cb20-544" aria-hidden="true" tabindex="-1"></a>the shape of the distribution.</span>
-<span id="cb20-545"><a href="#cb20-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-546"><a href="#cb20-546" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot a histogram of cats mass:</span>
-<span id="cb20-547"><a href="#cb20-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-550"><a href="#cb20-550" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-551"><a href="#cb20-551" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cats, <span class="fu">aes</span>(<span class="at">x =</span> mass)) <span class="sc">+</span></span>
-<span id="cb20-552"><a href="#cb20-552" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">colour =</span> <span class="st">"black"</span>) </span>
-<span id="cb20-553"><a href="#cb20-553" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-554"><a href="#cb20-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-555"><a href="#cb20-555" aria-hidden="true" tabindex="-1"></a>Notice that there are no gaps between the bars which reflects that</span>
-<span id="cb20-556"><a href="#cb20-556" aria-hidden="true" tabindex="-1"></a><span class="in">`mass`</span> is continuous. <span class="in">`bins`</span> determines how many groups the variable is</span>
-<span id="cb20-557"><a href="#cb20-557" aria-hidden="true" tabindex="-1"></a>divided up into (*i.e.*, the number of bars) and <span class="in">`colour`</span> sets the colour</span>
-<span id="cb20-558"><a href="#cb20-558" aria-hidden="true" tabindex="-1"></a>for the outline of the bars. A sample of 62 is a relatively small number</span>
-<span id="cb20-559"><a href="#cb20-559" aria-hidden="true" tabindex="-1"></a>of values for plotting a distribution and the number of bins used</span>
-<span id="cb20-560"><a href="#cb20-560" aria-hidden="true" tabindex="-1"></a>determines how smooth or normally distributed the values look.</span>
-<span id="cb20-561"><a href="#cb20-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-562"><a href="#cb20-562" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Experiment with the number of bins. Does the</span>
-<span id="cb20-563"><a href="#cb20-563" aria-hidden="true" tabindex="-1"></a>number of bins affect how you view the distribution.</span>
-<span id="cb20-564"><a href="#cb20-564" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-565"><a href="#cb20-565" aria-hidden="true" tabindex="-1"></a>Next week we will practice summarise and plotting data files with</span>
-<span id="cb20-566"><a href="#cb20-566" aria-hidden="true" tabindex="-1"></a>several variables but just to give you a taste, we will find summary</span>
-<span id="cb20-567"><a href="#cb20-567" aria-hidden="true" tabindex="-1"></a>statistics about mass for each of the coat types.</span>
-<span id="cb20-568"><a href="#cb20-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-536"><a href="#cb20-536" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Adapt the code to calculate the mean, the sample</span>
+<span id="cb20-537"><a href="#cb20-537" aria-hidden="true" tabindex="-1"></a>size *and* the standard deviation (<span class="in">`sd()`</span>)</span>
+<span id="cb20-538"><a href="#cb20-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-541"><a href="#cb20-541" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-542"><a href="#cb20-542" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-543"><a href="#cb20-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-544"><a href="#cb20-544" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb20-545"><a href="#cb20-545" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
+<span id="cb20-546"><a href="#cb20-546" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass),</span>
+<span id="cb20-547"><a href="#cb20-547" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(mass),</span>
+<span id="cb20-548"><a href="#cb20-548" aria-hidden="true" tabindex="-1"></a>            <span class="at">standard_dev =</span> <span class="fu">sd</span>(mass))</span>
+<span id="cb20-549"><a href="#cb20-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-550"><a href="#cb20-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-551"><a href="#cb20-551" aria-hidden="true" tabindex="-1"></a>A single continuous variable can be plotted using a histogram to show</span>
+<span id="cb20-552"><a href="#cb20-552" aria-hidden="true" tabindex="-1"></a>the shape of the distribution.</span>
+<span id="cb20-553"><a href="#cb20-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-554"><a href="#cb20-554" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot a histogram of cats mass:</span>
+<span id="cb20-555"><a href="#cb20-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-558"><a href="#cb20-558" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-559"><a href="#cb20-559" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cats, <span class="fu">aes</span>(<span class="at">x =</span> mass)) <span class="sc">+</span></span>
+<span id="cb20-560"><a href="#cb20-560" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">colour =</span> <span class="st">"black"</span>) </span>
+<span id="cb20-561"><a href="#cb20-561" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-562"><a href="#cb20-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-563"><a href="#cb20-563" aria-hidden="true" tabindex="-1"></a>Notice that there are no gaps between the bars which reflects that</span>
+<span id="cb20-564"><a href="#cb20-564" aria-hidden="true" tabindex="-1"></a><span class="in">`mass`</span> is continuous. <span class="in">`bins`</span> determines how many groups the variable is</span>
+<span id="cb20-565"><a href="#cb20-565" aria-hidden="true" tabindex="-1"></a>divided up into (*i.e.*, the number of bars) and <span class="in">`colour`</span> sets the colour</span>
+<span id="cb20-566"><a href="#cb20-566" aria-hidden="true" tabindex="-1"></a>for the outline of the bars. A sample of 62 is a relatively small number</span>
+<span id="cb20-567"><a href="#cb20-567" aria-hidden="true" tabindex="-1"></a>of values for plotting a distribution and the number of bins used</span>
+<span id="cb20-568"><a href="#cb20-568" aria-hidden="true" tabindex="-1"></a>determines how smooth or normally distributed the values look.</span>
 <span id="cb20-569"><a href="#cb20-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-570"><a href="#cb20-570" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> The <span class="in">`group_by()`</span> function is used before the</span>
-<span id="cb20-571"><a href="#cb20-571" aria-hidden="true" tabindex="-1"></a>summarise() to do calculations for each of the coats:</span>
+<span id="cb20-570"><a href="#cb20-570" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Experiment with the number of bins. Does the</span>
+<span id="cb20-571"><a href="#cb20-571" aria-hidden="true" tabindex="-1"></a>number of bins affect how you view the distribution.</span>
 <span id="cb20-572"><a href="#cb20-572" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-575"><a href="#cb20-575" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-576"><a href="#cb20-576" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
-<span id="cb20-577"><a href="#cb20-577" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(coat) <span class="sc">|&gt;</span> </span>
-<span id="cb20-578"><a href="#cb20-578" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass),</span>
-<span id="cb20-579"><a href="#cb20-579" aria-hidden="true" tabindex="-1"></a>                  <span class="at">standard_dev =</span> <span class="fu">sd</span>(mass))</span>
-<span id="cb20-580"><a href="#cb20-580" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-581"><a href="#cb20-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-582"><a href="#cb20-582" aria-hidden="true" tabindex="-1"></a>You can read this as:</span>
-<span id="cb20-583"><a href="#cb20-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-584"><a href="#cb20-584" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; take cats *and then* group by coat *and then* summarise by finding the</span></span>
-<span id="cb20-585"><a href="#cb20-585" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; mean of mass and the standard deviation of mass</span></span>
-<span id="cb20-586"><a href="#cb20-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-587"><a href="#cb20-587" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Why do we get an <span class="in">`NA`</span> for the standard deviation</span>
-<span id="cb20-588"><a href="#cb20-588" aria-hidden="true" tabindex="-1"></a>of the calico cats?</span>
+<span id="cb20-573"><a href="#cb20-573" aria-hidden="true" tabindex="-1"></a>Next week we will practice summarise and plotting data files with</span>
+<span id="cb20-574"><a href="#cb20-574" aria-hidden="true" tabindex="-1"></a>several variables but just to give you a taste, we will find summary</span>
+<span id="cb20-575"><a href="#cb20-575" aria-hidden="true" tabindex="-1"></a>statistics about mass for each of the coat types.</span>
+<span id="cb20-576"><a href="#cb20-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-577"><a href="#cb20-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-578"><a href="#cb20-578" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> The <span class="in">`group_by()`</span> function is used before the</span>
+<span id="cb20-579"><a href="#cb20-579" aria-hidden="true" tabindex="-1"></a>summarise() to do calculations for each of the coats:</span>
+<span id="cb20-580"><a href="#cb20-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-583"><a href="#cb20-583" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-584"><a href="#cb20-584" aria-hidden="true" tabindex="-1"></a>cats <span class="sc">|&gt;</span> </span>
+<span id="cb20-585"><a href="#cb20-585" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(coat) <span class="sc">|&gt;</span> </span>
+<span id="cb20-586"><a href="#cb20-586" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(mass),</span>
+<span id="cb20-587"><a href="#cb20-587" aria-hidden="true" tabindex="-1"></a>                  <span class="at">standard_dev =</span> <span class="fu">sd</span>(mass))</span>
+<span id="cb20-588"><a href="#cb20-588" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-589"><a href="#cb20-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-590"><a href="#cb20-590" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
+<span id="cb20-590"><a href="#cb20-590" aria-hidden="true" tabindex="-1"></a>You can read this as:</span>
 <span id="cb20-591"><a href="#cb20-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-592"><a href="#cb20-592" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Because there is only one calico cat. The mean of a single value is that  --&gt;</span></span>
-<span id="cb20-593"><a href="#cb20-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-594"><a href="#cb20-594" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- value but there can be no average by which the values deviation from the mean. --&gt;</span></span>
-<span id="cb20-595"><a href="#cb20-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-596"><a href="#cb20-596" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cells</span></span>
+<span id="cb20-592"><a href="#cb20-592" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; take cats *and then* group by coat *and then* summarise by finding the</span></span>
+<span id="cb20-593"><a href="#cb20-593" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; mean of mass and the standard deviation of mass</span></span>
+<span id="cb20-594"><a href="#cb20-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-595"><a href="#cb20-595" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Why do we get an <span class="in">`NA`</span> for the standard deviation</span>
+<span id="cb20-596"><a href="#cb20-596" aria-hidden="true" tabindex="-1"></a>of the calico cats?</span>
 <span id="cb20-597"><a href="#cb20-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-598"><a href="#cb20-598" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`cells`</span> dataframe by calculating</span>
-<span id="cb20-599"><a href="#cb20-599" aria-hidden="true" tabindex="-1"></a>the mean, median, sample size and standard deviation of <span class="in">`FSC`</span>.</span>
-<span id="cb20-600"><a href="#cb20-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-603"><a href="#cb20-603" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-604"><a href="#cb20-604" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-598"><a href="#cb20-598" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
+<span id="cb20-599"><a href="#cb20-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-600"><a href="#cb20-600" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Because there is only one calico cat. The mean of a single value is that  --&gt;</span></span>
+<span id="cb20-601"><a href="#cb20-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-602"><a href="#cb20-602" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- value but there can be no average by which the values deviation from the mean. --&gt;</span></span>
+<span id="cb20-603"><a href="#cb20-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-604"><a href="#cb20-604" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cells</span></span>
 <span id="cb20-605"><a href="#cb20-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-606"><a href="#cb20-606" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb20-607"><a href="#cb20-607" aria-hidden="true" tabindex="-1"></a>cells <span class="sc">|&gt;</span> </span>
-<span id="cb20-608"><a href="#cb20-608" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(FSC),</span>
-<span id="cb20-609"><a href="#cb20-609" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(FSC),</span>
-<span id="cb20-610"><a href="#cb20-610" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(FSC),</span>
-<span id="cb20-611"><a href="#cb20-611" aria-hidden="true" tabindex="-1"></a>            <span class="at">standard_dev =</span> <span class="fu">sd</span>(FSC))</span>
-<span id="cb20-612"><a href="#cb20-612" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-606"><a href="#cb20-606" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Summarise the <span class="in">`cells`</span> dataframe by calculating</span>
+<span id="cb20-607"><a href="#cb20-607" aria-hidden="true" tabindex="-1"></a>the mean, median, sample size and standard deviation of <span class="in">`FSC`</span>.</span>
+<span id="cb20-608"><a href="#cb20-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-611"><a href="#cb20-611" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-612"><a href="#cb20-612" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
 <span id="cb20-613"><a href="#cb20-613" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-614"><a href="#cb20-614" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Add a column for the standard error which is</span>
-<span id="cb20-615"><a href="#cb20-615" aria-hidden="true" tabindex="-1"></a>given by $\frac{s.d.}{\sqrt{n}}$</span>
-<span id="cb20-616"><a href="#cb20-616" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-619"><a href="#cb20-619" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-620"><a href="#cb20-620" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-614"><a href="#cb20-614" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb20-615"><a href="#cb20-615" aria-hidden="true" tabindex="-1"></a>cells <span class="sc">|&gt;</span> </span>
+<span id="cb20-616"><a href="#cb20-616" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(FSC),</span>
+<span id="cb20-617"><a href="#cb20-617" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(FSC),</span>
+<span id="cb20-618"><a href="#cb20-618" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(FSC),</span>
+<span id="cb20-619"><a href="#cb20-619" aria-hidden="true" tabindex="-1"></a>            <span class="at">standard_dev =</span> <span class="fu">sd</span>(FSC))</span>
+<span id="cb20-620"><a href="#cb20-620" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-621"><a href="#cb20-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-622"><a href="#cb20-622" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb20-623"><a href="#cb20-623" aria-hidden="true" tabindex="-1"></a>cells <span class="sc">|&gt;</span> </span>
-<span id="cb20-624"><a href="#cb20-624" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(FSC),</span>
-<span id="cb20-625"><a href="#cb20-625" aria-hidden="true" tabindex="-1"></a>            <span class="at">meadian =</span> <span class="fu">median</span>(FSC),</span>
-<span id="cb20-626"><a href="#cb20-626" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(FSC),</span>
-<span id="cb20-627"><a href="#cb20-627" aria-hidden="true" tabindex="-1"></a>            <span class="at">standard_dev =</span> <span class="fu">sd</span>(FSC),</span>
-<span id="cb20-628"><a href="#cb20-628" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> standard_dev<span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
-<span id="cb20-629"><a href="#cb20-629" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-630"><a href="#cb20-630" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-631"><a href="#cb20-631" aria-hidden="true" tabindex="-1"></a><span class="fu">### Means of counts</span></span>
-<span id="cb20-632"><a href="#cb20-632" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-633"><a href="#cb20-633" aria-hidden="true" tabindex="-1"></a>Many things are quite difficult to measure or count and in these cases</span>
-<span id="cb20-634"><a href="#cb20-634" aria-hidden="true" tabindex="-1"></a>we often do **technical replicates**. A technical replicate allows us</span>
-<span id="cb20-635"><a href="#cb20-635" aria-hidden="true" tabindex="-1"></a>the measure the exact same thing to check how variable the measurement</span>
-<span id="cb20-636"><a href="#cb20-636" aria-hidden="true" tabindex="-1"></a>process is. For example, *Drosophila* are small and counting their</span>
-<span id="cb20-637"><a href="#cb20-637" aria-hidden="true" tabindex="-1"></a>sternopleural bristles is tricky. In addition, where a bristle is short</span>
-<span id="cb20-638"><a href="#cb20-638" aria-hidden="true" tabindex="-1"></a>(young) or broken scientists might vary in whether they count it. Or</span>
-<span id="cb20-639"><a href="#cb20-639" aria-hidden="true" tabindex="-1"></a>people or machines might vary in measuring the concentration of the same</span>
-<span id="cb20-640"><a href="#cb20-640" aria-hidden="true" tabindex="-1"></a>solution.</span>
-<span id="cb20-641"><a href="#cb20-641" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-642"><a href="#cb20-642" aria-hidden="true" tabindex="-1"></a>When we do technical replicates we calculate their mean and use that as</span>
-<span id="cb20-643"><a href="#cb20-643" aria-hidden="true" tabindex="-1"></a>the measure. This is what is in our <span class="in">`fly_bristles_means`</span> dataframe - the</span>
-<span id="cb20-644"><a href="#cb20-644" aria-hidden="true" tabindex="-1"></a>bristles of each of the 96 flies was counted by 5 people and the data</span>
-<span id="cb20-645"><a href="#cb20-645" aria-hidden="true" tabindex="-1"></a>are those means. These has an impact on how we plot and summarise the</span>
-<span id="cb20-646"><a href="#cb20-646" aria-hidden="true" tabindex="-1"></a>dataset because the distribution of mean counts is continuous! We can</span>
-<span id="cb20-647"><a href="#cb20-647" aria-hidden="true" tabindex="-1"></a>use means, standard deviations and histograms. This will be an exercise</span>
-<span id="cb20-648"><a href="#cb20-648" aria-hidden="true" tabindex="-1"></a>in <span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span>.</span>
+<span id="cb20-622"><a href="#cb20-622" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Add a column for the standard error which is</span>
+<span id="cb20-623"><a href="#cb20-623" aria-hidden="true" tabindex="-1"></a>given by $\frac{s.d.}{\sqrt{n}}$</span>
+<span id="cb20-624"><a href="#cb20-624" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-627"><a href="#cb20-627" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-628"><a href="#cb20-628" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb20-629"><a href="#cb20-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-630"><a href="#cb20-630" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb20-631"><a href="#cb20-631" aria-hidden="true" tabindex="-1"></a>cells <span class="sc">|&gt;</span> </span>
+<span id="cb20-632"><a href="#cb20-632" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(FSC),</span>
+<span id="cb20-633"><a href="#cb20-633" aria-hidden="true" tabindex="-1"></a>            <span class="at">meadian =</span> <span class="fu">median</span>(FSC),</span>
+<span id="cb20-634"><a href="#cb20-634" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(FSC),</span>
+<span id="cb20-635"><a href="#cb20-635" aria-hidden="true" tabindex="-1"></a>            <span class="at">standard_dev =</span> <span class="fu">sd</span>(FSC),</span>
+<span id="cb20-636"><a href="#cb20-636" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> standard_dev<span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
+<span id="cb20-637"><a href="#cb20-637" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-638"><a href="#cb20-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-639"><a href="#cb20-639" aria-hidden="true" tabindex="-1"></a><span class="fu">### Means of counts</span></span>
+<span id="cb20-640"><a href="#cb20-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-641"><a href="#cb20-641" aria-hidden="true" tabindex="-1"></a>Many things are quite difficult to measure or count and in these cases</span>
+<span id="cb20-642"><a href="#cb20-642" aria-hidden="true" tabindex="-1"></a>we often do **technical replicates**. A technical replicate allows us</span>
+<span id="cb20-643"><a href="#cb20-643" aria-hidden="true" tabindex="-1"></a>the measure the exact same thing to check how variable the measurement</span>
+<span id="cb20-644"><a href="#cb20-644" aria-hidden="true" tabindex="-1"></a>process is. For example, *Drosophila* are small and counting their</span>
+<span id="cb20-645"><a href="#cb20-645" aria-hidden="true" tabindex="-1"></a>sternopleural bristles is tricky. In addition, where a bristle is short</span>
+<span id="cb20-646"><a href="#cb20-646" aria-hidden="true" tabindex="-1"></a>(young) or broken scientists might vary in whether they count it. Or</span>
+<span id="cb20-647"><a href="#cb20-647" aria-hidden="true" tabindex="-1"></a>people or machines might vary in measuring the concentration of the same</span>
+<span id="cb20-648"><a href="#cb20-648" aria-hidden="true" tabindex="-1"></a>solution.</span>
 <span id="cb20-649"><a href="#cb20-649" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-650"><a href="#cb20-650" aria-hidden="true" tabindex="-1"></a><span class="fu">## Look after future you!</span></span>
-<span id="cb20-651"><a href="#cb20-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-652"><a href="#cb20-652" aria-hidden="true" tabindex="-1"></a>Future you is going to summarise and plot data from the "River</span>
-<span id="cb20-653"><a href="#cb20-653" aria-hidden="true" tabindex="-1"></a>practicals". You can make this much easier by documenting what you have</span>
-<span id="cb20-654"><a href="#cb20-654" aria-hidden="true" tabindex="-1"></a>done now. At the moment all of your code from this workshop is in a</span>
-<span id="cb20-655"><a href="#cb20-655" aria-hidden="true" tabindex="-1"></a>single file, probably called <span class="in">`import-summarise-plot.R`</span>. I recommend </span>
-<span id="cb20-656"><a href="#cb20-656" aria-hidden="true" tabindex="-1"></a>making a new script for each of nominal, continuous and count data and </span>
-<span id="cb20-657"><a href="#cb20-657" aria-hidden="true" tabindex="-1"></a>copying the code which imports, summarises and plots it. This will make </span>
-<span id="cb20-658"><a href="#cb20-658" aria-hidden="true" tabindex="-1"></a>it easier for future you to find the code you need. Here is an example:</span>
-<span id="cb20-659"><a href="#cb20-659" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">nominal_data.R</span><span class="co">](assets/nominal_data.R)</span>. You may wish to comment your</span>
-<span id="cb20-660"><a href="#cb20-660" aria-hidden="true" tabindex="-1"></a>version much more.</span>
-<span id="cb20-661"><a href="#cb20-661" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-662"><a href="#cb20-662" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
-<span id="cb20-663"><a href="#cb20-663" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-664"><a href="#cb20-664" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
-<span id="cb20-665"><a href="#cb20-665" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-666"><a href="#cb20-666" aria-hidden="true" tabindex="-1"></a>![Artwork by @allison_horst: Not</span>
-<span id="cb20-667"><a href="#cb20-667" aria-hidden="true" tabindex="-1"></a>normal](images/not_normal.png){fig-alt="two distributions as characters. One is normal (bell-shaped) the other is not"}</span>
-<span id="cb20-668"><a href="#cb20-668" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-669"><a href="#cb20-669" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
-<span id="cb20-670"><a href="#cb20-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-671"><a href="#cb20-671" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
-<span id="cb20-672"><a href="#cb20-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-673"><a href="#cb20-673" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
-<span id="cb20-674"><a href="#cb20-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-675"><a href="#cb20-675" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
-<span id="cb20-676"><a href="#cb20-676" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
-<span id="cb20-677"><a href="#cb20-677" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-678"><a href="#cb20-678" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
-<span id="cb20-679"><a href="#cb20-679" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
-<span id="cb20-680"><a href="#cb20-680" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages. [View</span>
-<span id="cb20-681"><a href="#cb20-681" aria-hidden="true" tabindex="-1"></a>the Qmd in</span>
-<span id="cb20-682"><a href="#cb20-682" aria-hidden="true" tabindex="-1"></a>Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs1/week-8/workshop.qmd).</span>
-<span id="cb20-683"><a href="#cb20-683" aria-hidden="true" tabindex="-1"></a>Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span> and</span>
-<span id="cb20-684"><a href="#cb20-684" aria-hidden="true" tabindex="-1"></a><span class="in">`#---THINKING ANSWER---`</span></span>
+<span id="cb20-650"><a href="#cb20-650" aria-hidden="true" tabindex="-1"></a>When we do technical replicates we calculate their mean and use that as</span>
+<span id="cb20-651"><a href="#cb20-651" aria-hidden="true" tabindex="-1"></a>the measure. This is what is in our <span class="in">`fly_bristles_means`</span> dataframe - the</span>
+<span id="cb20-652"><a href="#cb20-652" aria-hidden="true" tabindex="-1"></a>bristles of each of the 96 flies was counted by 5 people and the data</span>
+<span id="cb20-653"><a href="#cb20-653" aria-hidden="true" tabindex="-1"></a>are those means. These has an impact on how we plot and summarise the</span>
+<span id="cb20-654"><a href="#cb20-654" aria-hidden="true" tabindex="-1"></a>dataset because the distribution of mean counts is continuous! We can</span>
+<span id="cb20-655"><a href="#cb20-655" aria-hidden="true" tabindex="-1"></a>use means, standard deviations and histograms. This will be an exercise</span>
+<span id="cb20-656"><a href="#cb20-656" aria-hidden="true" tabindex="-1"></a>in <span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span>.</span>
+<span id="cb20-657"><a href="#cb20-657" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-658"><a href="#cb20-658" aria-hidden="true" tabindex="-1"></a><span class="fu">## Look after future you!</span></span>
+<span id="cb20-659"><a href="#cb20-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-660"><a href="#cb20-660" aria-hidden="true" tabindex="-1"></a>Future you is going to summarise and plot data from the "River</span>
+<span id="cb20-661"><a href="#cb20-661" aria-hidden="true" tabindex="-1"></a>practicals". You can make this much easier by documenting what you have</span>
+<span id="cb20-662"><a href="#cb20-662" aria-hidden="true" tabindex="-1"></a>done now. At the moment all of your code from this workshop is in a</span>
+<span id="cb20-663"><a href="#cb20-663" aria-hidden="true" tabindex="-1"></a>single file, probably called <span class="in">`import-summarise-plot.R`</span>. I recommend </span>
+<span id="cb20-664"><a href="#cb20-664" aria-hidden="true" tabindex="-1"></a>making a new script for each of nominal, continuous and count data and </span>
+<span id="cb20-665"><a href="#cb20-665" aria-hidden="true" tabindex="-1"></a>copying the code which imports, summarises and plots it. This will make </span>
+<span id="cb20-666"><a href="#cb20-666" aria-hidden="true" tabindex="-1"></a>it easier for future you to find the code you need. Here is an example:</span>
+<span id="cb20-667"><a href="#cb20-667" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">nominal_data.R</span><span class="co">](assets/nominal_data.R)</span>. You may wish to comment your</span>
+<span id="cb20-668"><a href="#cb20-668" aria-hidden="true" tabindex="-1"></a>version more.</span>
+<span id="cb20-669"><a href="#cb20-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-670"><a href="#cb20-670" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
+<span id="cb20-671"><a href="#cb20-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-672"><a href="#cb20-672" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
+<span id="cb20-673"><a href="#cb20-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-674"><a href="#cb20-674" aria-hidden="true" tabindex="-1"></a>![Artwork by @allison_horst: Not</span>
+<span id="cb20-675"><a href="#cb20-675" aria-hidden="true" tabindex="-1"></a>normal](images/not_normal.png){fig-alt="two distributions as characters. One is normal (bell-shaped) the other is not"}</span>
+<span id="cb20-676"><a href="#cb20-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-677"><a href="#cb20-677" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
+<span id="cb20-678"><a href="#cb20-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-679"><a href="#cb20-679" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
+<span id="cb20-680"><a href="#cb20-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-681"><a href="#cb20-681" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
+<span id="cb20-682"><a href="#cb20-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-683"><a href="#cb20-683" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
+<span id="cb20-684"><a href="#cb20-684" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
 <span id="cb20-685"><a href="#cb20-685" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-686"><a href="#cb20-686" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> </span>
-<span id="cb20-687"><a href="#cb20-687" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@knitr1; @knitr2; @knitr3</span><span class="co">]</span>,</span>
-<span id="cb20-688"><a href="#cb20-688" aria-hidden="true" tabindex="-1"></a><span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
-<span id="cb20-689"><a href="#cb20-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-690"><a href="#cb20-690" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
+<span id="cb20-686"><a href="#cb20-686" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
+<span id="cb20-687"><a href="#cb20-687" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
+<span id="cb20-688"><a href="#cb20-688" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages.  View</span>
+<span id="cb20-689"><a href="#cb20-689" aria-hidden="true" tabindex="-1"></a>the source code for this workshop using the <span class="in">`&lt;/&gt; Code`</span> button at the top</span>
+<span id="cb20-690"><a href="#cb20-690" aria-hidden="true" tabindex="-1"></a>of the page.</span>
+<span id="cb20-691"><a href="#cb20-691" aria-hidden="true" tabindex="-1"></a>Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span> and</span>
+<span id="cb20-692"><a href="#cb20-692" aria-hidden="true" tabindex="-1"></a><span class="in">`#---THINKING ANSWER---`</span></span>
+<span id="cb20-693"><a href="#cb20-693" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-694"><a href="#cb20-694" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> </span>
+<span id="cb20-695"><a href="#cb20-695" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@knitr1; @knitr2; @knitr3</span><span class="co">]</span>,</span>
+<span id="cb20-696"><a href="#cb20-696" aria-hidden="true" tabindex="-1"></a><span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
+<span id="cb20-697"><a href="#cb20-697" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-698"><a href="#cb20-698" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
