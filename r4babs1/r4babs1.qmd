@@ -6,103 +6,108 @@ toc-location: right
 
 # Introduction
 
-This is the first of the four BABS modules. Over four weeks you will learn 
-some core concepts about scientific computing, types of variable, the role 
-of variables in analysis and how to use RStudio to organise analysis and 
-import, summarise and plot data. You may want to read the
+This is the first of the four BABS modules. Over four weeks you will
+learn some core concepts about scientific computing, types of variable,
+the role of variables in analysis and how to use RStudio to organise
+analysis and import, summarise and plot data. You may want to read the
 [overview of Data Analysis in R in your degree](../index.html).
 
 ## Module Learning Objectives
 
-The BABS1 Module Learning outcomes that relate to the Data Analysis in R 
+The BABS1 Module Learning outcomes that relate to the Data Analysis in R
 content are:
 
--   Methodically record scientific investigations with lab books, organise 
-    data and use R to import, summarise and plot simple data sets.
+-   Methodically record scientific investigations with lab books,
+    organise data and use R to import, summarise and plot simple data
+    sets.
 
--   Explain the key features of effective written media for dissemination 
-    of scientific information and be able to communicate experimental results 
-    through a scientific poster.
+-   Explain the key features of effective written media for
+    dissemination of scientific information and be able to communicate
+    experimental results through a scientific poster.
 
 # How R4BABS 1 is organised
 
-A key feature of R4BABS 1 is that you really do learn as you go along 
+A key feature of R4BABS 1 is that you really do learn as you go along
 and you should not need to revise very much. To support this learning,
-every week is structured in the same way with contact time and well-guided
-independent study to prepare you for the contact time and consolidate 
-what you have learned. 
+every week is structured in the same way with contact time and
+well-guided independent study to prepare you for the contact time and
+consolidate what you have learned.
 
 Each week has:
 
--   An overview on the "About" page which gives the Learning Objectives, 
-    a topic summary and the instructions for the week. You should read 
-    this first. 
+-   An overview on the "About" page which gives the Learning Objectives,
+    a topic summary and the instructions for the week. You should read
+    this first.
 
--   Some independent study on the "Prepare!" page to prepare 
-    you for the workshop. This will be reading from the course book 
-    ([Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)),
-    watching a video, or doing some coding or set up. It is designed to 
-    take about 30-45 mins on average. You will most likely learn best
-    if you can find people to study with. 
+-   Some independent study on the "Prepare!" page to prepare you for the
+    workshop. This will be reading from the course book: [Computational
+    Analysis for
+    Bioscientists](https://3mmarand.github.io/comp4biosci/), watching a
+    video, or doing some coding or set up. It is designed to take about
+    30-45 mins on average. You will most likely learn best if you can
+    find people to study with.
 
 -   A two-hour workshop using R. This will usually start with me doing a
-    short demonstration of one or more of the examples that were in "Prepare!"
-    but you will spend most of the session going through some exercises. 
-    Anything you have not done before is explained and guided but you will 
-    also have to use the skills gained in previous workshops. I often remind 
-    you to take care of future you by making notes so you can look up your 
-    previous work but you can also search 
-    the [R4BABS](https://3mmarand.github.io/R4BABS/) site (search is top 
-    right). Talking to other people in the workshop about the exercises 
-    and working together will really help you understand more. There will 
-    be plenty of help from me and my demonstrators.
+    short demonstration of one or more of the examples that were in
+    "Prepare!" but you will spend most of the session going through some
+    exercises. Anything you have not done before is explained and guided
+    but you will also have to use the skills gained in previous
+    workshops. I often remind you to take care of future you by making
+    notes so you can look up your previous work but you can also search
+    the [R4BABS](https://3mmarand.github.io/R4BABS/) site (search is top
+    right). Talking to other people in the workshop about the exercises
+    and working together will really help you understand more. There
+    will be plenty of help from me and my demonstrators.
 
--   Some independent study on the "Consolidate!" page to give you more 
-    practice. The exercises are usually similar to those in the workshop 
-    but with less guidance. Occasionally, there will be reading to do. 
-    It is designed to take about 30-45 mins on average but may be quicker
-    if you understood the workshop very well or slower if you need to 
-    revisit the workshop. 
+-   Some independent study on the "Consolidate!" page to give you more
+    practice. The exercises are usually similar to those in the workshop
+    but with less guidance. Occasionally, there will be reading to do.
+    It is designed to take about 30-45 mins on average but may be
+    quicker if you understood the workshop very well or slower if you
+    need to revisit the workshop.
 
-Learning Data Analysis in R is like learning to speak a new language 
-or play an instrument or a technical sport - you can't really rush it 
-or cram for it. You need regular practice. 
+Learning Data Analysis in R is like learning to speak a new language or
+play an instrument or a technical sport - you can't really rush it or
+cram for it. You need regular practice.
 
 -   a little bit of engagement and practice is always better than none
 
--   if you get behind, just pick up where you left off rather than 
+-   if you get behind, just pick up where you left off rather than
     jumping in. It is fine to work on a previous week's workshop
 
 # Content
 
-## Understanding file systems
+## [Understanding file systems](week-6/overview.html)
 
-You will learn about operating systems, files and file systems,
-working directories, absolute and relative paths, what R and 
-RStudio are
+This week you will carry out some independent study to ensure you have
+some understanding of computer file systems. We will introduce you to
+the concepts of paths and working directories. You will also set your
+own machine up to use the Virtual Desktop Service which allows you to
+log in to a university machine from your own computer so you can work
+easily at home outside of workshops.
 
-## Introduction to R and project organisation
+## [Introduction to R and project organisation](week-7/overview.html)
 
-You will start writing R code in RStudio and will create your first graph! 
-You will learn about data types such as “numerics” and “characters” 
-and some of the different types of objects in R such as “vectors” 
-and “dataframes”. These are the building blocks for the rest of your 
-R journey. You will also learn a workflow and about the layout of 
-RStudio and using RStudio Projects.
+This week you will start using RStudio to write R code and you will
+create your first graph! You will learn about data types such as
+“numerics” and “characters” and object types such as “vectors” and
+“dataframes”. These are the building blocks for the rest of your R
+journey. You will also learn about the layout of RStudio and a workflow
+using scripts and RStudio Projects to keep your work organised.
 
-## Types of variable, summarising and plotting data
+## [Types of variable, summarising and plotting data](week-8/overview.html)
 
-The type of values our data can take is important in how we 
-analyse and visualise it. This week you will learn the difference 
-between continuous and discrete values and how we summarise 
-and visualise them. The focus will be on plotting and summarising 
-single variables. You will also learn how to read in data in to 
-RStudio from plain text files and Excel files.
+The type of values our data can take is important in how we analyse and
+visualise it. This week you will learn the difference between continuous
+and discrete values and how we summarise and visualise them. You will
+also learn about the “normal distribution” which is the most important
+continuous distribution.
 
-## Summarising data with several variables
+## [Summarising data with several variables](week-9/overview.html)
 
-This week you will start plotting data sets with more than one variable. 
-This means you need to be able determine which variable is the response 
-and which is the explanatory. You will find out what is meant by “tidy” 
-data and how to perform a simple data tidying task. Finally you will 
-discover how to save your figures and place them in documents.
+Last week you summarised and plotted data sets with one variable. This
+week you will start plotting data sets with more than one variable. This
+means you need to be able determine which variable is the response and
+which is the explanatory. You will find out what is meant by “tidy” data
+and how to perform a simple data tidying task. Finally you will discover
+how to save your figures to file.

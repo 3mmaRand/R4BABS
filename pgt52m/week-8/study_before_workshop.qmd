@@ -5,9 +5,5 @@ toc: true
 toc-location: right
 ---
 
-1.  Prepare
-
-    i.  📖 Read [One-way ANOVA and Kruskal-Wallis](https://3mmarand.github.io/comp4biosci/one_way_anova_and_kw.html) 
-
-
-
+1.  📖 Read [One-way ANOVA and
+    Kruskal-Wallis](https://3mmarand.github.io/comp4biosci/one-way-anova-and-kw.html)

@@ -7,7 +7,8 @@ toc-location: right
 
 1.  **Either** 
     
-    -   📖 Read [First Steps in RStudio](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html) in 
+    -   📖 Read [Introduction to RStudio](https://3mmarand.github.io/comp4biosci/about-R-and-RStudio.html#introduction-to-rstudio)
+    -   📖 Read [First Steps in RStudio](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html)
     
     **OR** 
     

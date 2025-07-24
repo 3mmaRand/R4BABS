@@ -11,7 +11,8 @@ format:
 
 # Set up
 
-If you have just opened RStudio you will want to load the **`tidyverse`** package
+If you have just opened RStudio you will want to load the
+**`tidyverse`** package
 
 ```{r}
 #| code-fold: false
@@ -20,7 +21,9 @@ library(tidyverse)
 
 # Exercises
 
-1.  💻 In a maternity hospital, the total numbers of births induced on each day of the week over a six week period were recorded (see table below). Create a plot of these data with the days of week in order.
+1.  💻 In a maternity hospital, the total numbers of births induced on
+    each day of the week over a six week period were recorded (see table
+    below). Create a plot of these data with the days of week in order.
 
 ```{r}
 #| echo: false
@@ -60,7 +63,7 @@ inductions <- inductions |>
                                   "Saturday",
                                   "Sunday")))
 
-# plot the data as a barplot with the bars in
+# plot the data as a barplot with the bars in order
 ggplot(data = inductions, 
        aes(x = day, y = freq)) +
   geom_col(colour = "black",
@@ -73,4 +76,5 @@ ggplot(data = inductions,
   theme_classic()
 ```
 
-2.  📖 Read [Workflow in RStudio](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html)
+2.  📖 Read [Workflow in
+    RStudio](https://3mmarand.github.io/comp4biosci/workflow-rstudio.html)

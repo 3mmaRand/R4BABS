@@ -5,11 +5,5 @@ toc: true
 toc-location: right
 ---
 
-1.  📖 Read [Two-way ANOVA](https://3mmarand.github.io/comp4biosci/two_way_anova.html) 
-
-
-
-
-
-
-
+1.  📖 Read [Two-way
+    ANOVA](https://3mmarand.github.io/comp4biosci/two-way-anova.html)

@@ -5,9 +5,7 @@ toc: true
 toc-location: right
 ---
 
-1.  Prepare
-
-    i.  📖 Read [Two-Sample tests](https://3mmarand.github.io/comp4biosci/two_sample_tests.html) 
+1. 📖 Read [Two-Sample tests](https://3mmarand.github.io/comp4biosci/two-sample-tests.html) 
 
 
 

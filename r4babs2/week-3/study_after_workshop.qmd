@@ -122,7 +122,8 @@ fig1 <- ggplot() +
            y = 80, yend = 80,
            colour = "black") +
   annotate("text", x = 1.5,  y = 85, 
-           label = expression(italic(p)~"< 0.001")) +
+           label = "italic(p) < 0.001",
+           parse = TRUE) +
   theme_classic()
 
 # save figure to figures/csativa.png

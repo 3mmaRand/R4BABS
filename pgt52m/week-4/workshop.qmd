@@ -12,15 +12,25 @@ library(tidyverse)
 
 # Introduction
 
-![Data data Artwork from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst](images/ggplot2_masterpiece.png){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."}
+![Data data Artwork from the Openscapes blog Tidy Data for
+reproducibility, efficiency, and collaboration by Julia Lowndes and
+Allison
+Horst](images/ggplot2_masterpiece.png){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."}
 
 ## Session overview
 
-In this workshop you will learn to summarise and plot datasets with more than one variable and how to  write figures to files. You will also get more practice with working directories, importing data, formatting figures and the pipe. 
+In this workshop you will learn to summarise and plot datasets with more
+than one variable and how to write figures to files. You will also get
+more practice with working directories, importing data, formatting
+figures and the pipe.
 
 ## Philosophy
 
-Workshops are not a test. It is expected that you often don't know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips
+Workshops are not a test. It is expected that you often don't know how
+to start , make a lot of mistakes and need help. It is expected that you
+are familiar with independent study content before the workshop.
+However, you need not remember or understand every detail as the
+workshop should build and consolidate your understanding. Tips
 
 -   don't worry about making mistakes
 -   don't let what you can not do interfere with what you can do
@@ -32,56 +42,95 @@ Workshops are not a test. It is expected that you often don't know how to start,
 ::: callout-note
 ## Key
 
-These four symbols are used at the beginning of each instruction so you know where to carry out the instruction.
+These four symbols are used at the beginning of each instruction so you
+know where to carry out the instruction.
 
-![](images/do_on_your_computer.png) Something you need to do on your computer. It may be opening programs or documents or locating a file.
+![](images/do_on_your_computer.png) Something you need to do on your
+computer. It may be opening programs or documents or locating a file.
 
-![](images/do_in_R.png) Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.
+![](images/do_in_R.png) Something you should do in RStudio. It will
+often be typing a command or using the menus but might also be creating
+folders, locating or moving files.
 
-![](images/do_on_internet.png) Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.
+![](images/do_on_internet.png) Something you should do in your browser
+on the internet. It may be searching for information, going to the VLE
+or downloading a file.
 
-![](images/answer.png) A question for you to think about and answer. Record your answers in your script for future reference.
+![](images/answer.png) A question for you to think about and answer.
+Record your answers in your script for future reference.
 :::
 
 # Getting started
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-![](images/do_in_R.png) Make an RStudio project for this workshop by clicking on the drop-down menu on top right where it says `Project: (None)` and choosing New Project, then New Directory, then New Project. Navigate to the `data-analysis-in-r-1` folder and name the RStudio Project 'week-4'.
+![](images/do_in_R.png) Make an RStudio project for this workshop by
+clicking on the drop-down menu on top right where it says
+`Project: (None)` and choosing New Project, then New Directory, then New
+Project. Navigate to the `data-analysis-in-r-1` folder and name the
+RStudio Project 'week-4'.
 
-![](images/do_in_R.png) Make a new folder called `data-raw`. You can do this on the Files Pane by clicking New Folder and typing into the box that appears.
+![](images/do_in_R.png) Make a new folder called `data-raw`. You can do
+this on the Files Pane by clicking New Folder and typing into the box
+that appears.
 
-![](images/do_in_R.png) Make a new script then save it with a name like `analysis.R` to carry out the rest of the work.
+![](images/do_in_R.png) Make a new script then save it with a name like
+`summarise-plot-data-with-several-vars.R` to carry out the rest of the
+work.
 
-![](images/do_in_R.png) Add a comment to the script: `# Summarising data in with several variables and the role of variables in analysis`
+![](images/do_in_R.png) Add a comment to the script:
+`# Summarising data in      with several variables and the role of variables in analysis`
 
-![](images/do_in_R.png) Add code to load the **`tidyverse`** package [@tidyverse]
+![](images/do_in_R.png) Add code to load the **`tidyverse`** package
+[@tidyverse]
 
 # Exercises
 
-You are going to practice how to summarise and plot data as follows:
+The [Independent Study to prepare for
+workshop](study_before_workshop.qmd) explained how to summarise and plot
+a dataset containing one continuous response and one nominal explanatory
+variable with two groups.
 
+Here you are going to learn how to summarise the following types of data
+set:
 
--   one continuous response and one nominal explanatory variable with three groups
--   one continuous response and one nominal explanatory variable with two groups but the supplied data first need converting to tidy format
--   two continuous  variables
+-   one continuous response and one nominal explanatory variable with
+    three groups: myoglobin concentration in seal species
+-   one continuous response and one nominal explanatory variable with
+    two groups *but* the supplied data first need converting to tidy
+    format: interorbital width in pigeons from two populations
+-   two continuous variables: ulna length and height in humans
 
-Note that the [Independent Study to prepare for workshop](study_before_workshop.qmd) covered one continuous response and one nominal explanatory variable with two groups.
+You should start to notice how similar the code is for all of these and
+also where they differ.
 
+## Data already tidy: Myoglobin in seal muscle
 
-## Myoglobin in seal muscle
-
-The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in [seal.csv](data-raw/seal.csv). Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.
-
-
-
-
+The myoglobin concentration of skeletal muscle of three species of seal
+in grams per kilogram of muscle was determined and the data are given in
+[seal.csv](data-raw/seal.csv). Each row represents an individual seal.
+The first column gives the myoglobin concentration and the second column
+indicates species.
 
 ### Import
 
-![](images/do_on_your_computer.png) Save [seal.csv](data-raw/seal.csv) to your `data-raw` folder
+![](images/do_on_your_computer.png) Save [seal.csv](data-raw/seal.csv)
+to your `data-raw` folder.
 
-![](images/do_in_R.png) Read the data into a dataframe called `seal`. . You might want to look up [data import from last week](../week-3/workshop.html#importing-data-from-files).
+In the next step you will import the daya and I suggest you look up data
+import from last week. There are two ways you could do that.
+
+1.  Open your own script from last week. You do not need to open the
+    `week-8` RStudio Project itself - you can open the script you used
+    by navigating to through the File pane. After you have found it and
+    clicked on it to open, I suggest showing your working directory in
+    your File Pane again. You can do that by clicking on the little
+    arrow at the end of the path printed on the Console window.
+
+2.  Go the the [workshop page from last
+    week](../week-3/workshop.html#importing-data-from-files){target="_blank"}.
+
+![](images/do_in_R.png) Read the data into a dataframe called `seal`.
 
 ```{r}
 #| include: false
@@ -90,7 +139,8 @@ The myoglobin concentration of skeletal muscle of three species of seal in grams
 seal <- read_csv("data-raw/seal.csv")
 ```
 
-![](images/answer.png) What types of variables do you have in the `seal` dataframe? What role would you expect them to play in analysis?
+![](images/answer.png) What types of variables do you have in the `seal`
+dataframe? What role would you expect them to play in analysis?
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -100,34 +150,54 @@ seal <- read_csv("data-raw/seal.csv")
 
 <!-- levels (groups). -->
 
-
 The key point here is that the fundamental structure of:
 
--   one continuous response and one nominal explanatory variable with two groups ([adipocytes](data-raw/adipocytes.txt)), and 
+-   one continuous response and one nominal explanatory variable with
+    two groups ([adipocytes](data-raw/adipocytes.txt)), and
 
--   one continuous response and one nominal explanatory variable with three groups ([seals](data-raw/seal.csv))
+-   one continuous response and one nominal explanatory variable with
+    three groups ([seals](data-raw/seal.csv))
 
-is the same! The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is *identical* except for the variable names!
+is the same! The only thing that differs is the number of groups (the
+number of values in the nominal variable). This means the code for
+summarising and plotting is *identical* except for the variable names!
 
 ::: callout-tip
 ## Tip
 
-When two datasets have the same number of columns and the response variable and the explanatory variables have the same data types then the code you need is the same.
+When two datasets have the same number of columns and the response
+variable and the explanatory variables have the same data types then the
+code you need is the same.
 :::
-
-
-
 
 ### Summarise
 
-Summarising the data for each species is the next sensible step. The most useful summary statistics for a continuous variable like `myoglobin` are the means, standard deviations, sample sizes and standard errors. You might remember from last week that we use the `group_by()` and `summarise()` functions along with the functions that do the calculations.
+Summarising the data for each species is the next sensible step. The
+most useful summary statistics for a continuous variable like
+`myoglobin` are:
 
+-   mean
+-   standard deviation
+-   sample size
+-   standard error
 
-![](images/do_in_R.png) Create a data frame called `seal_summary` that contains the means, standard deviations, sample sizes and standard errors for the control and nicotinic acid treated samples.
+We *can* get those for the whole `myoglobin` column, like we did for the
+[`FSA` column in the cells dataset last
+week](../week-3/workshop.html#cells). However, it is likely to be more
+useful to summarise `myoglobin` separately for each seal species. We can
+achieve this using `group_by()` before `summarise()`.
+
+![](images/do_in_R.png) Create a data frame called `seal_summary`[^1]
+that contains the means, standard deviations, sample sizes and standard
+errors for each of the seal species:
+
+[^1]: "Create a dataframe called `seal_summary`" means assign the output
+    of the `group_by()` and `summarise()` code to something called
+    `seal_summary`.
 
 ```{r}
-seal_summary <- seal %>%
-  group_by(species) %>%
+seal_summary <- seal |> 
+  group_by(species) |> 
   summarise(mean = mean(myoglobin),
             std = sd(myoglobin),
             n = length(myoglobin),
@@ -139,13 +209,16 @@ You should get the following numbers:
 
 ```{r}
 #| echo: false
-knitr::kable(seal_summary) %>% kableExtra::kable_styling()
+knitr::kable(seal_summary) |> kableExtra::kable_styling()
 ```
-
 
 ### Visualise
 
-Most commonly, we put the explanatory variable on the *x* axis and the response variable on the *y* axis. A continuous response, particularly one that follows the normal distribution, is best summarised with the mean and the standard error. In my opinion, you should also show all the raw data points if possible.
+Most commonly, we put the explanatory variable on the *x* axis and the
+response variable on the *y* axis. A continuous response, particularly
+one that follows the normal distribution, is best summarised with the
+mean and the standard error. In my opinion, you should also show **all**
+the raw data points wherever possible.
 
 We are going to create a figure like this:
 
@@ -154,8 +227,7 @@ We are going to create a figure like this:
 
 ggplot() +
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
@@ -170,19 +242,70 @@ ggplot() +
 
 ```
 
-In this figure, we have the data points themselves which are in `seal` dataframe and the means and standard errors which are in the `seal_summary` dataframe. That is, we have two dataframes we want to plot.
+In this figure, we have two dataframes:
 
-Here you will learn that dataframes and aesthetics can be specified *within a `geom_xxxx`* (rather than in the `ggplot()`). This is very useful if the geom only applies to some of the data you want to plot.
+-   the `seal` dataframe which contains the raw data points
+-   the `seal_summary` dataframe which contains the means and standard
+    errors.
+
+So far we have plotted just one dataframe on a figure and we have
+specified the dataframe to be plotted and the columns to plot *inside*
+the `ggplot()` command. For examples:
+
+```{r}
+#| eval: false
+
+# YOU DO NOT NEED TO RUN THIS CODE
+# It is here to remind you that so far we have specified a single dataframe
+# to be plotted and did this by specifying the dataframe to be plotted and
+# the columns to plot INSIDE the `ggplot()` command
+# For a boxplot ...
+ggplot(cats, 
+       aes(x = reorder(coat, mass), y = mass)) +
+  geom_boxplot(fill = "darkcyan") +
+  scale_x_discrete(name = "Coat colour") +
+  scale_y_continuous(name = "Mass (kg)", 
+                     expand = c(0, 0),
+                     limits = c(0, 8)) +
+  theme_classic()
+```
+
+Or
+
+```{r}
+#| eval: false
+
+# YOU DO NOT NEED TO RUN THIS CODE
+# ... and for a histogram
+ggplot(fly_bristles_means, aes(x = mean_count)) +
+  geom_histogram(bins = 10, 
+                 colour = "black",
+                 fill = "skyblue") +
+  scale_x_continuous(name = "Number of bristles",
+                     expand = c(0, 0)) +
+  scale_y_continuous(name = "Frequency",
+                     expand = c(0, 0),
+                     limits = c(0, 35)) +
+  theme_classic()
+```
+
+Here you will learn that dataframes and aesthetics can be specified
+*within a `geom_xxxx`* rather than within `ggplot()`. This is very
+useful if the geom only applies to some of the data you want to plot.
 
 ::: callout-tip
 ## Tip: `ggplot()`
 
-You put the `data` argument and `aes()` inside `ggplot()` if you want all the `geoms` to use that dataframe and variables. If you want a different dataframe for a `geom`, put the `data` argument and `aes()` inside the `geom_xxxx()`
+You put the `data` argument and `aes()` inside `ggplot()` if you want
+all the `geoms` to use that dataframe and variables. If you want a
+different dataframe for a `geom`, put the `data` argument and `aes()`
+inside the `geom_xxxx()`
 :::
 
-I will build the plot up in small steps **but you should edit your *existing* `ggplot()` command as we go.**
+I will build the plot up in small steps **but you should edit your
+*existing*`ggplot()` command as we go.**
 
-![](images/do_in_R.png) Plot the data points first.
+![](images/do_in_R.png) Plot the raw data points first:
 
 ```{r}
 ggplot() +
@@ -190,9 +313,18 @@ ggplot() +
              aes(x = species, y = myoglobin))
 ```
 
-Notice how we have given the data argument and the aesthetics inside the geom. The variables `species` and `myoglobin` are in the `seal` dataframe
+Notice:
 
-![](images/do_in_R.png) So the data points don't overlap, we can add some random jitter in the *x* direction (edit your existing code):
+-   `geom_point()` is the geom to plot points
+
+-   we have given the data argument and the aesthetics inside the geom.
+
+-   the variables given in the aes(), `species` and `myoglobin`, are
+    columns in the dataframe, `seal`, given in the data argument.
+
+![](images/do_in_R.png) We can ensure the points do not overlap, by
+adding some random jitter in the *x* direction (edit your existing
+code):
 
 ```{r}
 ggplot() +
@@ -201,65 +333,78 @@ ggplot() +
              position = position_jitter(width = 0.1, height = 0))
 ```
 
-Note that `position = position_jitter(width = 0.1, height = 0)` is inside the `geom_point()` parentheses, after the `aes()` and a comma.
+Notice:
 
-We've set the vertical jitter to 0 because, in contrast to the categorical *x*-axis, movement on the *y*-axis has meaning (the myoglobin levels).
+-   `position = position_jitter(width = 0.1, height = 0)` is inside the
+    `geom_point()` parentheses, *after* the `aes()` and a comma.
 
-![](images/do_in_R.png) Let's make the points a light grey (edit your existing code):
+-   We've set the vertical jitter to 0 because, in contrast to the
+    categorical *x*-axis, movement on the *y*-axis has meaning (the
+    myoglobin levels).
 
-```{r}
-ggplot() +
-  geom_point(data = seal, 
-             aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50")
-```
+Now to add the errorbars. These go from one standard error below the
+mean to one standard error above the mean.
 
-Now to add the errorbars. These go from one standard error below the mean to one standard error above the mean.
-
-![](images/do_in_R.png) Add a `geom_errorbar()` for errorbars (edit your existing code):
+![](images/do_in_R.png) Add a `geom_errorbar()` for errorbars (edit your
+existing code):
 
 ```{r}
 ggplot() +
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) 
   
 ```
 
-We have specified the `seal_summary` dataframe and the variables `species`, `mean` and `se` are in that.
+Notice:
 
-There are several ways you could add the mean. You could use `geom_point()` but I like to use `geom_errorbar()` again with the `ymin` and `ymax` both set to the mean.
+-   `geom_errorbar()` is the geom to plot error bars
 
-![](images/do_in_R.png) Add a `geom_errorbar()` for the mean (edit your existing code):
+-   we have given the data argument and the aesthetics inside the geom.
+
+-   the variables given in the aes(), `species`, `mean` and `se`, are
+    columns in the dataframe, `seal_summary`, given in the data
+    argument.
+
+We would like to add the mean. You could use `geom_point()` but I like
+to use another `geom_errorbar()` to get a line by setting `ymin` and
+`ymax` to the mean.
+
+![](images/do_in_R.png) Add a `geom_errorbar()` for the mean (edit your
+existing code):
 
 ```{r}
 ggplot() +
+  # raw data
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
+             position = position_jitter(width = 0.1, height = 0)) +
+  # error bars
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
+  # line for the mean
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean, ymax = mean),
                 width = 0.2)
   
 ```
 
-![](images/do_in_R.png) Alter the axis labels and limits using `scale_y_continuous()` and `scale_x_discrete()` (edit your existing code):
+![](images/do_in_R.png) Alter the axis labels and limits using
+`scale_y_continuous()` and `scale_x_discrete()` (edit your existing
+code):
 
 ```{r}
 ggplot() +
+  # raw data
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
+             position = position_jitter(width = 0.1, height = 0)) +
+  # error bars
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
+  # line for the mean
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean, ymax = mean),
                 width = 0.2) +
@@ -270,18 +415,24 @@ ggplot() +
   
 ```
 
-You only need to use `scale_y_continuous()` and `scale_x_discrete()` to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.
+You only need to use name in `scale_y_continuous()` and
+`scale_x_discrete()` to use labels that are different from those in the
+dataset. Often this is to use proper terminology and captialisation.
 
-![](images/do_in_R.png) Format the figure in a way that is more suitable for including in a report using `theme_classic()` (edit your existing code):
+![](images/do_in_R.png) Format the figure in a way that is more suitable
+for including in a report using `theme_classic()` (edit your existing
+code):
 
 ```{r}
 ggplot() +
+  # raw data
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
+             position = position_jitter(width = 0.1, height = 0)) +
+  # error bars
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
+  # line for the mean
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean, ymax = mean),
                 width = 0.2) +
@@ -292,21 +443,33 @@ ggplot() +
   theme_classic()
 ```
 
-
 ### Writing figures to file
 
-![](images/do_in_R.png) Make a new folder called `figures`.
+It is a good idea to save figures to files so that you can include them
+in reports. By scripting figures saving you can ensure your work is
+reproducible. It means you can regenerate the figures identically if you
+change the data or exactly match figures in size. Aim to save figures
+the size they will appear in a report - that way the fonts and line
+widths will be appropriate. If you need a high resolution figure, you
+can save it larger than needed then scale it down in the report. Doing
+that will require you to make changes to font sizes and line widths to
+make them appropriate when scaled down.
 
-![](images/do_in_R.png) Edit you ggplot code so that you assign the figure to a variable.
+![](images/do_in_R.png) First make a new folder called `figures`.
+
+![](images/do_in_R.png) Now edit your ggplot code so that you assign the
+figure to a variable which you use use in the `ggsave()` command next.
 
 ```{r}
 sealfig <- ggplot() +
+  # raw data
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
+             position = position_jitter(width = 0.1, height = 0)) +
+  # error bars
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
+  # line for the mean
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean, ymax = mean),
                 width = 0.2) +
@@ -317,9 +480,12 @@ sealfig <- ggplot() +
   theme_classic()
 ```
 
-The figure won't be shown in the Plots tab - the output has gone into `sealfig` rather than to the Plots tab. To make it appear in the Plots tab type `sealfig`
+The figure won't be shown in the Plots tab - the output has gone into
+`sealfig` rather than to the Plots tab. To make it appear in the Plots
+tab type `sealfig`.
 
-![](images/do_in_R.png) The `ggsave()` command will write a ggplot figure to a file:
+![](images/do_in_R.png) The `ggsave()` command will write a ggplot
+figure to a file:
 
 ```{r}
 ggsave("figures/seal-muscle.png",
@@ -331,21 +497,27 @@ ggsave("figures/seal-muscle.png",
        dpi = 300)
 ```
 
-`figuresseal-muscle.png` is the name of the file, including the relative path. 
+`figures/seal-muscle.png` is the name of the file, including the
+relative path.
 
+![](images/do_in_R.png) Look up `ggsave()` in the manual to understand
+the arguments. You can do this by putting your cursor on the command and
+pressing F1
 
-![](images/do_in_R.png) Look up `ggsave()` in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1
+## Data needs tidying: Pigeons
 
+The data in [pigeon.txt](data-raw/pigeon.txt) are 40 measurements of
+interorbital width (in mm) for two populations of domestic pigeons
+measured to the nearest 0.1mm
 
-## Pigeons
-
-The data in [pigeon.txt](data-raw/pigeon.txt) are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm
-
-![Interorbital width is the distance between the eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on, with an arrow showing the distance between the eyes."} 
+![Interorbital width is the distance between the
+eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on,  
+with an arrow showing the distance between the eyes."}
 
 ### Import
 
-![](images/do_on_your_computer.png) Save [pigeon.txt](data-raw/pigeon.txt) to your `data-raw` folder
+![](images/do_on_your_computer.png) Save
+[pigeon.txt](data-raw/pigeon.txt) to your `data-raw` folder
 
 ![](images/do_in_R.png) Read the data into a dataframe called `pigeons`.
 
@@ -356,7 +528,8 @@ The data in [pigeon.txt](data-raw/pigeon.txt) are 40 measurements of interorbita
 pigeons <- read_table("data-raw/pigeon.txt")
 ```
 
-![](images/answer.png) What variables are there in the `pigeons` dataframe?
+![](images/answer.png) What variables are there in the `pigeons`
+dataframe?
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -366,18 +539,25 @@ pigeons <- read_table("data-raw/pigeon.txt")
 
 <!-- distances. The A and B seem to be the names of the populations -->
 
-Hummmm, these data are not organised like the other data sets we have used. The population is given as the column names and the interorbital distances for one population are given in a different column than those for the other population. The first row has data from two pigeons which have nothing in common, they just happen to be the first individual recorded in each population.
+Hummmm, these data are not organised like the other data sets we have
+used. The population is given as the column names and the interorbital
+distances for one population are given in a different column than those
+for the other population. The first row has data from two pigeons which
+have nothing in common, they just happen to be the first individual
+recorded in each population.
 
 ```{r}
 #| echo: false
-knitr::kable(pigeons) %>%
+knitr::kable(pigeons) |> 
   kableExtra::kable_styling() |> 
   kableExtra::scroll_box(height = "200px")
 ```
 
 This data is not in 'tidy' format [@Wickham2014-nl].
 
-Tidy format has variables in column and observations in rows. All of the distance measurements should be in one column and a second column should give the population.
+Tidy format has variables in column and observations in rows. All of 
+the distance measurements should be in one column and a second column
+should give the population.
 
 ```{r}
 #| echo: false
@@ -385,22 +565,29 @@ pigeons |>
   pivot_longer(cols = everything(),
                names_to = "population",
                values_to = "distance") |> 
-knitr::kable() %>% 
+knitr::kable() |>  
   kableExtra::kable_styling() |> 
   kableExtra::scroll_box(height = "200px")
 ```
 
-Data which is in tidy format is easier to summarise, analyses and plot because the organisation matches the conceptual structure of the data:
+Data which is in tidy format is easier to summarise, analyses and plot
+because the organisation matches the conceptual structure of the data:
 
--   it is more obvious what the variables are because they columns are named with them - in the untidy format, that the measures are distances is not clear and what A and B are isn't clear
--   it is more obvious that there is no relationship between any of the pigeons except for population
+-   it is more obvious what the variables are because they columns are
+    named with them - in the untidy format, that the measures are
+    distances is not clear and what A and B are isn't clear
+-   it is more obvious that there is no relationship between any of the
+    pigeons except for population
 -   functions are designed to work with variables in columns
 
 ### Tidying data
 
-We can put this data in such a format with the `pivot_longer()` function from the `tidyverse`:
+We can put this data in such a format with the `pivot_longer()` function
+from the `tidyverse`:
 
-`pivot_longer()` collects the values from specified columns (`cols`) into a single column (`values_to`) and creates a column to indicate the group (`names_to`).
+`pivot_longer()` collects the values from specified columns (`cols`)
+into a single column (`values_to`) and creates a column to indicate the
+group (`names_to`).
 
 ![](images/do_in_R.png) Put the data in tidy format:
 
@@ -412,21 +599,33 @@ pigeons <- pivot_longer(data = pigeons,
 
 ```
 
-We have overwritten the original dataframe. If you wanted to keep the original you would need to give a new name on the left side of the assignment `<-` Note: the data in the file are unchanged.
-
+We have overwritten the original dataframe. If you wanted to keep the
+original you would need to give a new name on the left side of the
+assignment `<-` Note: the actual data in the file are unchanged, only
+the dataframe in R is changed.
 
 ## Ulna and height
 
-The datasets we have used up to this point, have had a continuous variable and a categorical variable where it makes sense to summarise the response for each of the different groups in the categorical variable and plot the response on the *y*-axis. We will now summarise a dataset with two continuous variables. The data in [height.txt](data-raw/height.txt) are the ulna length (cm) and height (m) of 30 people. In this case, it is more appropriate to summarise both of thee variables and to plot them as a scatter plot.
+The datasets we have used up to this point, have had a continuous
+variable and a categorical variable where it makes sense to summarise
+the response for each of the different groups in the categorical
+variable and plot the response on the *y*-axis. We will now summarise a
+dataset with two continuous variables. The data in
+[height.txt](data-raw/height.txt) are the ulna length (cm) and height
+(m) of 30 people. In this case, it is more appropriate to summarise both
+of thee variables and to plot them as a scatter plot.
 
-We will use `summarise()` again but we do not need the `group_by()` function this time. We will also need to use each of the summary functions, such as `mean()`, twice, once for each variable.
-
+We will use `summarise()` again but we do not need the `group_by()`
+function this time. We will also need to use each of the summary
+functions, such as `mean()`, twice, once for each variable.
 
 ### Import
 
-![](images/do_on_your_computer.png) Save [height.txt](data-raw/height.txt) to your `data-raw` folder
+![](images/do_on_your_computer.png) Save
+[height.txt](data-raw/height.txt) to your `data-raw` folder
 
-![](images/do_in_R.png) Read the data into a dataframe called `ulna_heights`. 
+![](images/do_in_R.png) Read the data into a dataframe called
+`ulna_heights`.
 
 ```{r}
 #| include: false
@@ -437,10 +636,12 @@ ulna_heights <- read_table("data-raw/height.txt")
 
 ### Summarise
 
-![](images/do_in_R.png) Create a data frame called `ulna_heights_summary` that contains the sample size and means, standard deviations and standard errors for both variables.
+![](images/do_in_R.png) Create a data frame called
+`ulna_heights_summary` that contains the sample size and means, standard
+deviations and standard errors for both variables.
 
 ```{r}
-ulna_heights_summary <- ulna_heights %>%
+ulna_heights_summary <- ulna_heights |> 
   summarise(n = length(ulna),
             mean_ulna = mean(ulna),
             std_ulna = sd(ulna),
@@ -455,14 +656,17 @@ You should get the following numbers:
 
 ```{r}
 #| echo: false
-knitr::kable(ulna_heights_summary) %>% kableExtra::kable_styling()
+knitr::kable(ulna_heights_summary) |> kableExtra::kable_styling()
 ```
 
 ### Visualise
 
-To plot make a scatter plot we need to use `geom_point()` again but without any scatter. In this case, it does not really matter which variable is on the *x*-axis and which is on the *y*-axis.
+To plot make a scatter plot we need to use `geom_point()` again but
+without any scatter. In this case, it does not really matter which
+variable is on the *x*-axis and which is on the *y*-axis.
 
 ![](images/do_in_R.png) Make a simple scatter plot
+
 ```{r}
 ggplot(data = ulna_heights, aes(x = ulna, y = height)) +
   geom_point()
@@ -474,6 +678,7 @@ If you have time, you may want to format the figure more appropriately.
 #| echo: false
 
 #---CODING ANSWER---
+# figure
 ulnafig <- ggplot(data = ulna_heights, aes(x = ulna, y = height)) +
   geom_point() +
   scale_x_continuous(name = "Ulna length (cm)",
@@ -483,6 +688,7 @@ ulnafig <- ggplot(data = ulna_heights, aes(x = ulna, y = height)) +
                      limits = c(0, 2.1), 
                      expand = c(0, 0)) +
   theme_classic()
+# save to flie
 ggsave("figures/ulna_heights.png",
        plot = ulnafig,
        device = "png",
@@ -492,15 +698,25 @@ ggsave("figures/ulna_heights.png",
        dpi = 300)
 ```
 
+## Look after future you!
 
-<!-- ## Look after future you! -->
+Future you is going to summarise and plot data from other modules. You can 
+make this much easier by documenting what you have done now. Go through 
+your script (`summarise-plot-data-with-several-vars.R`) and remove code 
+that you do not need. Add comments to the code you do need to explain 
+what it does.
 
-<!-- Future you is going to summarise and plot data from the "River practicals". You can make this much easier by documenting what you have done now. At the moment all of your code from this workshop is in a single file, probably called `analysis.R`. I recommend making a new script for each of data set and copying the code which imports, summarises and plots it. This will make it easier for future you to find the code you need. Here is an example: [seals-analysis.R](assets/seals-analysis.R). You may wish to comment your version much more. -->
+<!-- Here is an example: [seals-analysis.R](assets/seals-analysis.R).  -->
+
+<!-- You may wish to comment your version much more. -->
+
 You're finished!
 
 # 🥳 Well Done! 🎉
 
-![Illustrations from the Openscapes blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst](images/tidy-data.jpg){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure"}
+![Illustrations from the Openscapes blog Tidy Data for reproducibility,
+efficiency, and collaboration by Julia Lowndes and Allison
+Horst](images/tidy-data.jpg){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure"}
 
 # Independent study following the workshop
 
@@ -508,10 +724,18 @@ You're finished!
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
+This contains all the code needed in the workshop even where it is not
+visible on the webpage.
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. [View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/pgt52m/week-4/workshop.qmd). Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
+The `workshop.qmd` file is the file I use to compile the practical. Qmd
+stands for Quarto markdown. It allows code and ordinary text to be
+interweaved to produce well-formatted reports including webpages. View
+the source code for this workshop using the `</> Code` button at the top
+of the page.
+Coding and thinking answers are marked with `#---CODING ANSWER---` and
+`#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr], `kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References

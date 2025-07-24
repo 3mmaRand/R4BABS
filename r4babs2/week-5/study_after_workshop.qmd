@@ -11,8 +11,8 @@ format:
 
 # Set up
 
-If you have just opened RStudio you will want to load the **`tidyverse`** and **`emmeans`** packages. 
-
+If you have just opened RStudio you will want to load the
+**`tidyverse`** and **`emmeans`** packages.
 
 ```{r}
 #| code-fold: false
@@ -22,13 +22,12 @@ library(emmeans)
 
 # Exercises
 
-1.  💻 Researchers suspect there may be regional differences between 
-    two species of butterfly, *F.concocti* and *F.flappa*. They catch
-    8 randomly chosen individuals of each species in two regions 
-    (North and South) and measure their wing lengths in mm. The data 
-    are in [butterf.txt](data-raw/butterf.txt). What do you conclude 
-    about the size of these species in the North and South?
-
+1.  💻 Researchers suspect there may be regional differences between two
+    species of butterfly, *F.concocti* and *F.flappa*. They catch 8
+    randomly chosen individuals of each species in two regions (North
+    and South) and measure their wing lengths in mm. The data are in
+    [butterf.txt](data-raw/butterf.txt). What do you conclude about the
+    size of these species in the North and South?
 
 ```{r}
 #| output: false
@@ -50,14 +49,12 @@ ggplot(data = butter,
 # is larger than F.flappa in the North.
 ```
 
-
-
 ```{r}
 #| output: false
 
 # create a summary of the data
-butter_summary <- butter %>%
-  group_by(region, spp) %>%
+butter_summary <- butter |> 
+  group_by(region, spp) |> 
   summarise(mean = mean(winglen),
             median = median(winglen),
             sd = sd(winglen),
@@ -122,6 +119,7 @@ anova(mod)
 
 ```{r}
 #| output: false
+# post-hoc comparisons
 emmeans(mod, ~ spp * region) |> pairs()
 
 # As we suspected all the difference are between  F.concocti north
@@ -139,6 +137,24 @@ emmeans(mod, ~ spp * region) |> pairs()
 # (F = 8.1; d.f. = 1, 28; p = 0.008) and region averaged over species
 ```
 
+```{r}
+#| output: false
+# extractpvalues
+ph_tidy <- emmeans(mod, ~ spp * region) |>
+  pairs() |>
+  broom::tidy()
+
+p_concn_v_flapn <- ph_tidy |> 
+  filter(contrast == "F.concocti north - F.flappa north") |> 
+  pull(adj.p.value) |> round(4)
+p_concn_v_concs <- ph_tidy |> 
+  filter(contrast == "F.concocti north - F.concocti south") |> 
+  pull(adj.p.value) |> round(4)
+p_concn_v_flaps <- ph_tidy |> 
+  filter(contrast == "F.concocti north - F.flappa south") |> 
+  pull(adj.p.value) |> round(4)
+
+```
 
 ```{r}
 #| output: false
@@ -167,8 +183,7 @@ butter_fig <- ggplot() +
              position = position_jitterdodge(dodge.width = 1,
                                              jitter.width = 0.2,
                                              jitter.height = 0),
-             size = 2,
-             colour = "gray50") +
+             size = 2) +
   geom_errorbar(data = butter_summary, 
                 aes(x = region, 
                     ymin = mean - se, 
@@ -198,21 +213,24 @@ butter_fig <- ggplot() +
            colour = "black") +
   annotate("text",
            x = 1,  y = 42,
-           label = "p = 0.0026") +
+           label = glue::glue("italic(p) == { p_concn_v_flapn }"),
+           parse = TRUE) +
   # F.concocti north - F.concocti south  p = 0.0010
   annotate("segment",
            x = 0.75, xend = 1.75,
            y = 44, yend = 44,
            colour = "black") +
   annotate("text", x = 1.25,  y = 46,
-           label = "p = 0.0010") +
+           label = glue::glue("italic(p) == { p_concn_v_concs }"),
+           parse = TRUE) +
   # F.concocti north - F.flappa south    p = 0.0008
   annotate("segment",
            x = 0.75, xend = 2.25,
            y = 48, yend = 48,
            colour = "black") +
   annotate("text", x = 1.5,  y = 50,
-           label = "p = 0.0008") +
+           label = glue::glue("italic(p) == { p_concn_v_flaps }"),
+           parse = TRUE) +
   theme_classic() +
   theme(legend.title = element_blank(),
         legend.position = "inside",

@@ -5,7 +5,7 @@ toc: true
 toc-location: right
 ---
 
-1.  📖 Read [Ideas about data](https://3mmarand.github.io/comp4biosci/ideas_about_data.html)
+1.  📖 Read [Ideas about data](https://3mmarand.github.io/comp4biosci/ideas-about-data.html)
 
 
 

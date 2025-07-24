@@ -11,7 +11,8 @@ format:
 
 # Set up
 
-If you have just opened RStudio you will want to load the **`tidyverse`** package
+If you have just opened RStudio you will want to load the
+**`tidyverse`** package
 
 ```{r}
 #| code-fold: false
@@ -20,10 +21,23 @@ library(tidyverse)
 
 # Exercises
 
-1.  💻 Adiponectin is exclusively secreted from adipose tissue and modulates a number of metabolic processes. Nicotinic acid can affect adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic acid or with a control treatment and adiponectin concentration (pg/mL) measured. The data are in [adipocytes.txt](data-raw/adipocytes.txt). Each row represents an independent sample of adipocytes and the first column gives the concentration adiponectin and the second column indicates whether they were treated with nicotinic acid or not. Estimate the mean Adiponectin concentration in each group - this means calculate the sample mean and construct a confidence interval around it for each group. This exercise forces you to bring together ideas from this workshop and from previous workshops
+1.  💻 Adiponectin is exclusively secreted from adipose tissue and
+    modulates a number of metabolic processes. Nicotinic acid can affect
+    adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic
+    acid or with a control treatment and adiponectin concentration
+    (pg/mL) measured. The data are in
+    [adipocytes.txt](data-raw/adipocytes.txt). Each row represents an
+    independent sample of adipocytes and the first column gives the
+    concentration adiponectin and the second column indicates whether
+    they were treated with nicotinic acid or not. Estimate the mean
+    Adiponectin concentration in each group - this means calculate the
+    sample mean and construct a confidence interval around it for each
+    group. This exercise forces you to bring together ideas from this
+    workshop and from previous workshops
 
--   How to calculate a confidence intervals (this workshop)  
--   How to summarise variables in more than one group (previous workshop)
+-   How to calculate a confidence intervals (this workshop)\
+-   How to summarise variables in more than one group ([previous 
+    workshop](../week-4/workshop.html#summarise))
 
 ```{r}
 #| output: false
@@ -35,15 +49,14 @@ adip <- read_table("data-raw/adipocytes.txt")
 str(adip)
 
 # summarise
-adip_summary <- adip %>% 
-  group_by(treatment) %>% 
+adip_summary <- adip |> 
+  group_by(treatment) |>  
   summarise(mean = mean(adiponectin),
             sd = sd(adiponectin),
             n = length(adiponectin),
             se = sd/sqrt(n),
-            dif = qt(0.975, df = n - 1) * se,
-            lower_ci = mean - dif,
-            uppp_ci = mean + dif)
+            lcl95 = mean - qt(0.975, df = n - 1) * se,
+            ucl95 = mean + qt(0.975, df = n - 1) * se)
 
 
 # we conclude we're 95% certain the mean for the control group is 
@@ -53,4 +66,3 @@ adip_summary <- adip %>%
 
 
 ```
-
