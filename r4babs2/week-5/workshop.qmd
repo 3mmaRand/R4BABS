@@ -112,7 +112,8 @@ excel workbook.
 library(readxl)
 
 excel_sheets("data-raw/neuron-csa.xlsx")
-# There are two sheets in the file. Each sheet contains a different brain region
+# There are two sheets in the file. Each sheet contains a different
+# brain region
 
 ```
 
@@ -193,8 +194,8 @@ neuron_summary <- neuron  |>
 
 ```
 
-You will get a message that you don't need to worry about
-summarise()`has grouped output by 'BrainRegion'. You can override using the`.groups`argument.>`
+You will get a message that you don't need to worry about summarise()
+`has grouped output by 'BrainRegion'. You can override using the`.groups`argument.>`
 
 You should get the following numbers:
 
@@ -386,7 +387,6 @@ ggplot() +
              position = position_jitterdodge(dodge.width = 1,
                                              jitter.width = 0.3,
                                              jitter.height = 0),
-             colour = "gray50",
              size = 3) +
   geom_errorbar(data = neuron_summary, 
                 aes(x = BrainRegion, 
@@ -448,7 +448,6 @@ ggplot() +
   geom_point(data = neuron, 
              aes(x = BrainRegion, y = CSA),
              position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50",
              size = 3) +
   geom_errorbar(data = neuron_summary, 
                 aes(x = BrainRegion, 
@@ -481,7 +480,6 @@ ggplot() +
   geom_point(data = neuron, 
              aes(x = BrainRegion, y = CSA, shape = Diet),
              position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50",
              size = 3) +
   geom_errorbar(data = neuron_summary, 
                 aes(x = BrainRegion, 
@@ -523,7 +521,6 @@ ggplot() +
              position = position_jitterdodge(dodge.width = 1,
                                              jitter.width = 0.3,
                                              jitter.height = 0),
-             colour = "gray50",
              size = 3) +
   geom_errorbar(data = neuron_summary, 
                 aes(x = BrainRegion, 
@@ -548,8 +545,9 @@ ggplot() +
 
 ```
 
-Now we need to add the statistical result. You can remind yourself 
-how to do that by looking at [the week 3 workshop](../week-3/workshop.html#illustrating). Remember, the lines go
+Now we need to add the statistical result. You can remind yourself how
+to do that by looking at [the week 3
+workshop](../week-3/workshop.html#illustrating). Remember, the lines go
 between two means that differ significantly.
 
 ![](images/do_in_R.png) Add the annotation of the statistical results
@@ -565,7 +563,6 @@ ggplot() +
              position = position_jitterdodge(dodge.width = 1,
                                              jitter.width = 0.3,
                                              jitter.height = 0),
-             colour = "gray50",
              size = 3) +
   geom_errorbar(data = neuron_summary, 
                 aes(x = BrainRegion, 
@@ -644,7 +641,6 @@ fig1 <- ggplot() +
              position = position_jitterdodge(dodge.width = 1,
                                              jitter.width = 0.3,
                                              jitter.height = 0),
-             colour = "gray50",
              size = 3) +
   geom_errorbar(data = neuron_summary, 
                 aes(x = BrainRegion, 
@@ -728,9 +724,10 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. 
-[View the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-5/workshop.qmd).
+interweaved to produce well-formatted reports including webpages. View
+the source code for this workshop using the `</> Code` button at the top
+of the page.
+
 Coding and thinking answers are marked with `#---CODING ANSWER---` and
 `#---THINKING ANSWER---`
 
