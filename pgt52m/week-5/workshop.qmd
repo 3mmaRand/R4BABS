@@ -3,9 +3,6 @@ title: "Workshop"
 subtitle: "The logic of hypothesis testing and confidence intervals"
 toc: true
 toc-location: right
-editor: 
-  markdown: 
-    wrap: 72
 ---
 
 ```{r}
@@ -67,14 +64,7 @@ Record your answers in your script for future reference.
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-
-
-
 <!-- steps not needed in 52M -->
-
-
-
-
 
 ![](images/do_in_R.png) Make an RStudio project for this workshop by
 clicking on the drop-down menu on top right where it says
@@ -95,14 +85,13 @@ package
 ## Remind yourself how to import files!
 
 [Importing data from
-files](../week-3/workshop.html#importing-data-from-files) was
-covered in BABS 1 [@rand2023] if you need to remind yourself.
+files](../week-3/workshop.html#importing-data-from-files) was covered in
+BABS 1 [@rand2023] if you need to remind yourself.
 
 ## Check your settings
 
 [Changing some defaults to make life
 easier](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html#changing-some-defaults-to-make-life-easier)
-
 
 ## Confidence intervals (large samples)
 
@@ -151,8 +140,8 @@ tab.
 ## Where did you do this before?
 
 In the week 3 workshop we [summarised the mass of
-cats](../week-3/workshop.html#cat-mass) using this method.
-You can look back at that if you need to.
+cats](../week-3/workshop.html#cat-mass) using this method. You can look
+back at that if you need to.
 :::
 
 To calculate the 95% confidence interval we need to look up the quantile
@@ -305,11 +294,10 @@ of the DHA deficient diet?
 ## Look after future you!
 
 Have a look at the Assessment Overview on the VLE. Part of the
-assessment for BIO00052M Data Analysis in R is to
-submit an RStudio Project You will zip up the RStudio Project folder 
-and submit it to the VLE. That folder should contain all the data, 
-code and figures you have used in your report and all of the results 
-should be reproducible.
+assessment for BIO00052M Data Analysis in R is to submit an RStudio
+Project You will zip up the RStudio Project folder and submit it to the
+VLE. That folder should contain all the data, code and figures you have
+used in your report and all of the results should be reproducible.
 Reproducible means that if someone downloads that zipped folder and
 unzips it they should be able to understand what the analysis was, what
 you did and why and be able to run all the code to reproduce the figures
@@ -352,9 +340,8 @@ The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
 interweaved to produce well-formatted reports including webpages. View
 the source code for this workshop using the `</> Code` button at the top
-of the page.
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+of the page. Coding and thinking answers are marked with
+`#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
 @knitr2; @knitr3], `kableExtra` [@kableExtra]
