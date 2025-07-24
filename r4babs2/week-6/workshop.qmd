@@ -3,9 +3,6 @@ title: "Workshop"
 subtitle: "Association: Correlation and Contingency"
 toc: true
 toc-location: right
-editor: 
-  markdown: 
-    wrap: 72
 ---
 
 ```{r}
@@ -368,7 +365,7 @@ how to create a vector of values. You can remind yourself from either:
 
 -   Computational Analysis for Bioscientists: [To create a vector called
     `ages` of several
-    numbers](https://3mmarand.github.io/comp4biosci/first_steps_rstudio.html#data-structures-vectors)
+    numbers](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html#data-structures-vectors)
 -   BABS 1 Week 7 Workshop (our first): [Making vector that hold cat
     coat
     colours](https://3mmarand.github.io/R4BABS/r4babs1/week-7/workshop.html#creating-the-data)
@@ -422,11 +419,11 @@ chisq.test(ulcers, correct = FALSE)
 
 ```
 
-This significant 
-($p = $ `r chisq.test(ulcers, correct = FALSE)$p.value |> round(4)`) 
-so we know that the proportion of people with an ulcer
-is different in the two blood groups. In other words, there is an
-association between ulcers and blood group.
+This significant (\$p = \$
+`r chisq.test(ulcers, correct = FALSE)$p.value |> round(4)`) so we know
+that the proportion of people with an ulcer is different in the two
+blood groups. In other words, there is an association between ulcers and
+blood group.
 
 It is not obvious from the printed test information, which blood group
 has a higher association with ulcers. We can find this out by examining
@@ -522,11 +519,10 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [View
-the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs2/week-6/workshop.qmd).
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+interweaved to produce well-formatted reports including webpages. View
+the source code for this workshop using the `</> Code` button at the top
+of the page. Coding and thinking answers are marked with
+`#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
 @knitr2; @knitr3], `kableExtra` [@kableExtra]

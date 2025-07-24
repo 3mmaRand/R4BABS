@@ -85,16 +85,14 @@ slugtab <- table(slugs$colour, slugs$pop)
 chisq.test(slugtab)
 ```
 
-
-3.  💻 The data in [marks.csv](data-raw/marks.csv) give the marks 
-    for ten students in two subjects: Data Analysis and Biology. 
-    We have previously asked if there is difference in marks between 
-    between the subjects and analysed with a paired-sample test. 
-    However, we might instead ask if there is a correlation between
-    subjects. Neither of these approaches is better - which you use
-    depends on the question you are asking.
-    Carry out a correlation on these data and create a figure suitable
-    for a report.
+3.  💻 The data in [marks.csv](data-raw/marks.csv) give the marks for
+    ten students in two subjects: Data Analysis and Biology. We have
+    previously asked if there is difference in marks between between the
+    subjects and analysed with a paired-sample test. However, we might
+    instead ask if there is a correlation between subjects. Neither of
+    these approaches is better - which you use depends on the question
+    you are asking. Carry out a correlation on these data and create a
+    figure suitable for a report.
 
 ```{r}
 #| output: false
@@ -132,7 +130,8 @@ ggplot(data = marks_wide,
   scale_x_continuous(name = "Data Analysis mark",
                      expand = c(0, 0), limits = c(0, 100)) +
   annotate("text", x = 15,  y = 80, 
-           label = expression(italic(r)~"= 0.96; "~italic(p)~"< 0.0001")) +
+           label = "italic(r) == 0.96 ~ italic(p) < 0.0001",
+           parse = TRUE) +
   theme_classic()
 
 
