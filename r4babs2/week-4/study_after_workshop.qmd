@@ -90,6 +90,23 @@ dunnTest(data = sweat, na ~ gp)
 
 ```{r}
 #| output: false
+
+# extract p values
+# extract values from dunn for ease of reporting
+dunn_tidy <- dunnTest(data = sweat, na ~ gp)$res
+
+p_FA_v_UU <- dunn_tidy |> 
+  filter(Comparison == "FA - UU") |> 
+  pull(P.adj) |> round(4)
+p_FU_v_UU <- dunn_tidy |> 
+  filter(Comparison == "FU - UU") |> 
+  pull(P.adj) |> round(4)
+
+
+```
+
+```{r}
+#| output: false
 ggplot(sweat, aes(x = gp, y = na) ) +
   geom_boxplot() +
   scale_x_discrete(labels = c("Fit Acclimatised", 
@@ -99,16 +116,20 @@ ggplot(sweat, aes(x = gp, y = na) ) +
   scale_y_continuous(limits = c(0, 110), 
                      expand = c(0, 0),
                      name = expression("Sodium"~mu*"mol"*l^{-1})) +
+  # FA - UU
   annotate("segment", x = 1, xend = 3, 
            y = 100, yend = 100,
            colour = "black") +
   annotate("text", x = 2,  y = 103, 
-           label = expression(italic(p)~"= 0.0026")) +
+           label = glue::glue("italic(p) == { p_FA_v_UU }"),
+           parse = TRUE) +
+  # FU - UU
   annotate("segment", x = 2, xend = 3, 
            y = 90, yend = 90,
            colour = "black") +
   annotate("text", x = 2.5,  y = 93, 
-           label = expression(italic(p)~"= 0.0340")) +
+           label = glue::glue("italic(p) == { p_FU_v_UU }"),
+           parse = TRUE) +
   theme_classic()
 
 # Figure 1. Sodium content of sweat for three groups: Fit and 
