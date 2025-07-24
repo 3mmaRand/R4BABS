@@ -259,8 +259,7 @@ emmeans(mod, ~ spray) |> pairs()
 
 ggplot() +
   geom_point(data = biom, aes(x = reorder(spray, biomass), y = biomass),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "gray50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = biom_summary, 
                 aes(x = spray, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +

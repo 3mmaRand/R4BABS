@@ -341,8 +341,7 @@ p_blad_v_harb <- emmeans(mod, ~ species) |>
 #---CODING ANSWER---
 ggplot() +
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
@@ -386,8 +385,7 @@ ggplot() +
 # Assign the figure to a variable
 fig1 <- ggplot() +
   geom_point(data = seal, aes(x = species, y = myoglobin),
-             position = position_jitter(width = 0.1, height = 0),
-             colour = "grey50") +
+             position = position_jitter(width = 0.1, height = 0)) +
   geom_errorbar(data = seal_summary, 
                 aes(x = species, ymin = mean - se, ymax = mean + se),
                 width = 0.3) +
