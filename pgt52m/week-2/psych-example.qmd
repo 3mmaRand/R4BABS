@@ -48,7 +48,7 @@ You will create a figure like this:
 ```{r}
 #| echo: false
 strategy_data <- data.frame(strategy, freq)
-ggplot(data = reg_data, 
+ggplot(data = strategy_data, 
        aes(x = reorder(strategy, freq, decreasing = TRUE), 
            y = freq)) +
   geom_col(colour = "black", fill = "lightblue", width = 1) +
@@ -485,4 +485,31 @@ ggplot(data = strategy_data,
 
 ```
 
-[Return](workshop.html) to the workshop page
+We have one more thing to do before we finish. The overlapping category
+labels are not great. One solution for this is to add "wrapping" to the
+labels so that they are not too long. We can use the `scales` package
+function `label_wrap(10)` to do this.
+
+![](images/do_in_R.png) Add `labels = scales::label_wrap(10)` to the
+`scale_x_discrete()` command.
+
+```{r}
+
+strategy_data <- data.frame(strategy, freq)
+ggplot(data = strategy_data, 
+       aes(x = reorder(strategy, freq, decreasing = TRUE), 
+           y = freq)) +
+  geom_col(colour = "black", fill = "lightblue", width = 1) +
+  scale_x_discrete(name = "Strategy",
+                   expand = c(0, 0),
+                   labels = scales::label_wrap(10)) +
+  scale_y_continuous(name = "Number of students",
+                     expand = c(0, 0),
+                     limits = c(0, 25)) +
+  theme_classic() 
+```
+
+The number is the maximum number of characters in a line before it wraps
+to the next line.
+
+## [Return](workshop.html#finished-w2) to the workshop page.
