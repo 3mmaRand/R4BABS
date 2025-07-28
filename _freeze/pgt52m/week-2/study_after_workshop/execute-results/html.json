@@ -1,0 +1,21 @@
+{
+  "hash": "5e61b158c122f4a060305c9c4828291a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Independent Study to consolidate this week\"\nsubtitle: \"Introduction to R, RStudio and project organisation\"\ntoc: true\ntoc-location: right\nformat:\n  html:\n    code-fold: true\n    code-summary: \"Answer - don't look until you have tried!\"\n---\n\n# Set up\n\nIf you have just opened RStudio you will want to load the\n**`tidyverse`** package\n\n\n::: {.cell}\n\n```{.r .cell-code  code-fold=\"false\"}\nlibrary(tidyverse)\n```\n:::\n\n\n# Exercises\n\n1.  💻 In a maternity hospital, the total numbers of births induced on\n    each day of the week over a six week period were recorded (see table\n    below). Create a plot of these data with the days of week in order.\n\n\n::: {.cell}\n::: {.cell-output-display}\n`````{=html}\n<table style=\"width:50%; margin-left: auto; margin-right: auto;\" class=\"table\">\n<caption>Number of inductions for each day of the week over six weeks.</caption>\n <thead>\n  <tr>\n   <th style=\"text-align:left;\"> Day </th>\n   <th style=\"text-align:right;\"> No. inductions </th>\n  </tr>\n </thead>\n<tbody>\n  <tr>\n   <td style=\"text-align:left;\"> Monday </td>\n   <td style=\"text-align:right;\"> 43 </td>\n  </tr>\n  <tr>\n   <td style=\"text-align:left;\"> Tuesday </td>\n   <td style=\"text-align:right;\"> 36 </td>\n  </tr>\n  <tr>\n   <td style=\"text-align:left;\"> Wednesday </td>\n   <td style=\"text-align:right;\"> 35 </td>\n  </tr>\n  <tr>\n   <td style=\"text-align:left;\"> Thursday </td>\n   <td style=\"text-align:right;\"> 38 </td>\n  </tr>\n  <tr>\n   <td style=\"text-align:left;\"> Friday </td>\n   <td style=\"text-align:right;\"> 48 </td>\n  </tr>\n  <tr>\n   <td style=\"text-align:left;\"> Saturday </td>\n   <td style=\"text-align:right;\"> 26 </td>\n  </tr>\n  <tr>\n   <td style=\"text-align:left;\"> Sunday </td>\n   <td style=\"text-align:right;\"> 24 </td>\n  </tr>\n</tbody>\n</table>\n\n`````\n:::\n:::\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# create a dataframe for the data\nday <- c(\"Monday\", \n         \"Tuesday\", \n         \"Wednesday\",\n         \"Thursday\",\n         \"Friday\",\n         \"Saturday\",\n         \"Sunday\")\nfreq <- c(43, 36, 35, 38, 48, 26, 24) \ninductions <- data.frame(day, freq)\n\n# make the order of the days correct rather than alphabetical\ninductions <- inductions |> \n  mutate(day = fct_relevel(day, c(\"Monday\",\n                                  \"Tuesday\",\n                                  \"Wednesday\",\n                                  \"Thursday\",\n                                  \"Friday\",\n                                  \"Saturday\",\n                                  \"Sunday\")))\n\n# plot the data as a barplot with the bars in order\nggplot(data = inductions, \n       aes(x = day, y = freq)) +\n  geom_col(colour = \"black\",\n           fill = \"lightseagreen\") +\n  scale_x_discrete(expand = c(0, 0),\n                   name = \"Day of the week\") + \n  scale_y_continuous(expand = c(0, 0),\n                     name = \"Number of inductions\",\n                     limits = c(0, 55)) +\n  theme_classic()\n```\n:::\n\n\n2.  📖 Read [Workflow in\n    RStudio](https://3mmarand.github.io/comp4biosci/workflow-rstudio.html)\n",
+    "supporting": [
+      "study_after_workshop_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<script src=\"../../site_libs/kePrint-0.0.1/kePrint.js\"></script>\n<link href=\"../../site_libs/lightable-0.0.1/lightable.css\" rel=\"stylesheet\" />\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
