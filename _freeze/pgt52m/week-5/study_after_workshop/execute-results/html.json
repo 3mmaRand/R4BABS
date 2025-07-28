@@ -1,0 +1,15 @@
+{
+  "hash": "96464eca3a262f7bdaa391f3ee69625d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Independent Study to consolidate this week\"\nsubtitle: \"The logic of hypothesis testing and confidence intervals\"\ntoc: true\ntoc-location: right\nformat:\n  html:\n    code-fold: true\n    code-summary: \"Answer - don't look until you have tried!\"\n---\n\n# Set up\n\nIf you have just opened RStudio you will want to load the\n**`tidyverse`** package\n\n\n::: {.cell}\n\n```{.r .cell-code  code-fold=\"false\"}\nlibrary(tidyverse)\n```\n:::\n\n\n# Exercises\n\n1.  💻 Adiponectin is exclusively secreted from adipose tissue and\n    modulates a number of metabolic processes. Nicotinic acid can affect\n    adiponectin secretion. 3T3-L1 adipocytes were treated with nicotinic\n    acid or with a control treatment and adiponectin concentration\n    (pg/mL) measured. The data are in\n    [adipocytes.txt](data-raw/adipocytes.txt). Each row represents an\n    independent sample of adipocytes and the first column gives the\n    concentration adiponectin and the second column indicates whether\n    they were treated with nicotinic acid or not. Estimate the mean\n    Adiponectin concentration in each group - this means calculate the\n    sample mean and construct a confidence interval around it for each\n    group. This exercise forces you to bring together ideas from this\n    workshop and from previous workshops\n\n-   How to calculate a confidence intervals (this workshop)\\\n-   How to summarise variables in more than one group ([previous \n    workshop](../week-4/workshop.html#summarise))\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# data import\nadip <- read_table(\"data-raw/adipocytes.txt\")\n\n# examine the structure\nstr(adip)\n\n# summarise\nadip_summary <- adip |> \n  group_by(treatment) |>  \n  summarise(mean = mean(adiponectin),\n            sd = sd(adiponectin),\n            n = length(adiponectin),\n            se = sd/sqrt(n),\n            lcl95 = mean - qt(0.975, df = n - 1) * se,\n            ucl95 = mean + qt(0.975, df = n - 1) * se)\n\n\n# we conclude we're 95% certain the mean for the control group is \n# between 4.73 and 6.36 and the mean for the nicotinic group is \n# between 6.52 and 8.50. More usually we might put is like this:\n# the mean for the control group is 5.55 +/- 0.82 and that for the nicotinic group is 7.51 +/- 0.99\n```\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

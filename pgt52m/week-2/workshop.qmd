@@ -14,15 +14,13 @@ library(kableExtra)
 # Introduction
 
 ![Artwork by @allison_horst: "Welcome to
-Rstats"](images/welcome_to_rstats_twitter.png){fig-alt="Two fuzzy monsters 
-standing side-by-side outside of a door frame through which is a magical 
-wonderland of different R communities, with a 'mind blown' rainbow coming 
-out of the one closest to the door. A welcome mat says 'Welcome'." width="800"}
+Rstats"](images/welcome_to_rstats_twitter.png){fig-alt="Two fuzzy monsters  standing side-by-side outside of a door frame through which is a magical  wonderland of different R communities, with a 'mind blown' rainbow coming  out of the one closest to the door. A welcome mat says 'Welcome'."
+width="800"}
 
 ## Session overview
 
-In this workshop you will use RStudio to write R code. You will type
-in some data, plot it and then customise your plot.
+In this workshop you will use RStudio to write R code. You will type in
+some data, plot it and then customise your plot.
 
 ## Philosophy
 
@@ -86,7 +84,7 @@ analysis.R to carry out the rest of the work.
 
 # Exercises
 
-## 🐈 Coat colour of cats
+## 🐈 Coat colour of cats or [Psych Eaxmple](psych-example.html)
 
 ### The goal
 
@@ -189,16 +187,16 @@ once and then loaded each session. **`ggplot2`** is one of the
 ## Important
 
 **If you are working on a University computer (or the VDS) you *do not*
-need to install **`tidyverse`**.**
+need to install** `tidyverse`**.**
 
 If you are working on your own computer or using RStudio cloud you *do*
 need to install **`tidyverse`**.
 
 To install a package:
 
-Go the Packages tab on the lower right pane.
-Click Install and type **`tidyverse`** into the box that appears. DO
-**not** do if working on a Uni computer.
+Go the Packages tab on the lower right pane. Click Install and type
+**`tidyverse`** into the box that appears. DO **not** do if working on a
+Uni computer.
 
 Wait until you get the prompt back. It will take a few moments, be
 patient!
@@ -546,7 +544,7 @@ ggplot(data = coat_data,
 
 ```
 
-You're finished!
+You're finished! {#finished-w2}
 
 # 🥳 Well Done! 🎉
 
@@ -563,14 +561,12 @@ visible on the webpage.
 
 The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [ View
-the source code for this workshop using the `</> Code` button at the top
-of the page.
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+interweaved to produce well-formatted reports including webpages. \[
+View the source code for this workshop using the `</> Code` button at
+the top of the page. Coding and thinking answers are marked with
+`#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References

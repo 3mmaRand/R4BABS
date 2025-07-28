@@ -6,74 +6,190 @@ toc-location: right
 
 # Introduction
 
-This module introduces you to data analysis in R. The first 4 weeks covers core concepts about scientific computing, types of variable, the role of variables in analysis and how to use RStudio to organise analysis and import, summarise and plot data. In weeks 5 to 8, you will learn about the logic of hypothesis testing, confidence intervals, what is meant by a statistical model, two-sample tests and one-way analysis of variance (ANOVA). You will learn how to write reproducible reports in Quarto in weeks 9 and 10. Finally, there will be a drop-in for your questions in week 11.
+This module introduces you to data analysis in R. The first 4 weeks
+covers core concepts about scientific computing, types of variable, the
+role of variables in analysis and how to use RStudio to organise
+analysis and import, summarise and plot data. In weeks 5 to 8, you will
+learn about the logic of hypothesis testing, confidence intervals, what
+is meant by a statistical model, two-sample tests and one-way analysis
+of variance (ANOVA). You will learn how to write reproducible reports in
+Quarto in weeks 9 and 10. Finally, there will be a drop-in for your
+questions in week 11.
 
-This module complement the work you will do in BIO00070M Research, Professional and Team Skills where you will you will learn how to organise reproducible data analyses using a project-oriented workflow and analyses RNA sequence data. It will be important to use the skills and tools you learn in 52M and apply them in 70M.
+This module complement the work you will do in BIO00070M Research,
+Professional and Team Skills where you will you will learn how to
+organise reproducible data analyses using a project-oriented workflow
+and analyses RNA sequence data. It will be important to use the skills
+and tools you learn in 52M and apply them in 70M.
 
 ## Module Learning Objectives
 
 The Module Learning outcomes are:
 
--  Explain the purpose of data analysis and the rationale for scripting analysis in the biosciences
+-   Explain the purpose of data analysis and the rationale for scripting
+    analysis in the biosciences
 
--  Recognise when statistics such as t-tests, one-way ANOVA, correlation and regression can be applied, and use R to perform these analyses on data in a variety of formats
+-   Recognise when statistics such as t-tests, one-way ANOVA,
+    correlation and regression can be applied, and use R to perform
+    these analyses on data in a variety of formats
 
--  Summarise data in single or multiple groups, recognise tidy data formats, and carry out some typical data tidying tasks
+-   Summarise data in single or multiple groups, recognise tidy data
+    formats, and carry out some typical data tidying tasks
 
--  Use markdown (through Quarto) to produce reproducible analyses, figures and reports
+-   Use markdown (through Quarto) to produce reproducible analyses,
+    figures and reports
 
 # How 52M is organised
 
-A key feature of 52M is that you really do learn as you go along and you should not need to revise very much. To support this learning, every week is structured in the same way with contact time and well-guided independent study to prepare you for the contact time and consolidate what you have learned.
+A key feature of 52M is that you really do learn as you go along and you
+should not need to revise very much. To support this learning, every
+week is structured in the same way with contact time and well-guided
+independent study to prepare you for the contact time and consolidate
+what you have learned.
 
 Each week has:
 
--   An overview on the "About" page which gives the Learning Objectives, a topic summary and the instructions for the week. You should read this first.
+-   An overview on the "About" page which gives the Learning Objectives,
+    a topic summary and the instructions for the week. You should read
+    this first.
 
--   Some independent study on the "Prepare!" page to prepare you for the workshop. This will be reading from the course book ([Computational Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)),  watching a video, or doing some coding or set up. It is designed to take about 30-45 mins on average. You will most likely learn best if you can find people to study with.
+-   Some independent study on the "Prepare!" page to prepare you for the
+    workshop. This will be reading from the course book [Computational
+    Analysis for Bioscientists](https://3mmarand.github.io/comp4biosci/)
+    [@Rand_Comp_Analysis], watching a video, or doing some coding or set
+    up. It is designed to take about 30-45 mins on average. You will
+    most likely learn best if you can find people to study with.
 
--   A two-hour workshop using R. This will usually start with me doing a short demonstration of one or more of the examples that were in "Prepare!" but you will spend most of the session going through some exercises. Anything you have not done before is explained and guided but you will also have to use the skills gained in previous workshops. I often remind you to take care of future you by making notes so you can look up your previous work but you can also search the [Data Analysis in R](https://3mmarand.github.io/R4BABS/) site (search is top right). Talking to other people in the workshop about the exercises and working together will really help you understand more. There will be plenty of help from me and my demonstrators.
+-   A two-hour workshop using R. This will usually start with me doing a
+    short demonstration of one or more of the examples that were in
+    "Prepare!" but you will spend most of the session going through some
+    exercises. Anything you have not done before is explained and guided
+    but you will also have to use the skills gained in previous
+    workshops. I often remind you to take care of future you by making
+    notes so you can look up your previous work but you can also search
+    the [Data Analysis in R](https://3mmarand.github.io/R4BABS/) site
+    (search is top right). Talking to other people in the workshop about
+    the exercises and working together will really help you understand
+    more. There will be plenty of help from me and my demonstrators.
 
--   Some independent study on the "Consolidate!" page to give you more practice. The exercises are usually similar to those in the workshop but with less guidance. Occasionally, there will be reading to do. It is designed to take about 30-45 mins on average but may be quicker if you understood the workshop very well or slower if you need to revisit the workshop.
+-   Some independent study on the "Consolidate!" page to give you more
+    practice. The exercises are usually similar to those in the workshop
+    but with less guidance. Occasionally, there will be reading to do.
+    It is designed to take about 30-45 mins on average but may be
+    quicker if you understood the workshop very well or slower if you
+    need to revisit the workshop.
 
-Learning Data Analysis in R is like learning to speak a new language or play an instrument or a technical sport - you can't really rush it or cram for it. You need regular practice.
+Learning Data Analysis in R is like learning to speak a new language or
+play an instrument or a technical sport - you can't really rush it or
+cram for it. You need regular practice.
 
 -   a little bit of engagement and practice is always better than none
 
--   if you get behind, just pick up where you left off rather than jumping in. It is fine to work on a previous week's workshop
+-   if you get behind, just pick up where you left off rather than
+    jumping in. It is fine to work on a previous week's workshop
 
 # Content
 
-## Week 1: Understanding file systems
-You will learn about operating systems, files and file systems, working directories, absolute and relative paths, what R and RStudio are
+## [Week 1: Understanding file systems](week-1/ovwerview.html)
 
-## Week 2:  Introduction to R and project organisation
-You will start writing R code in RStudio and will create your first graph! You will learn about data types such as “numerics” and “characters” and some of the different types of objects in R such as “vectors” and “dataframes”. These are the building blocks for the rest of your R journey. You will also learn a workflow and about the layout of RStudio and using RStudio Projects.
+This week you will carry out some independent study to ensure you have
+some understanding of computer file systems. We will introduce you to
+the concepts of paths and working directories.
 
-## Week 3: Types of variable, summarising and plotting data
-The type of values our data can take is important in how we analyse and visualise it. This week you will learn the difference between continuous and discrete values and how we summarise and visualise them. The focus will be on plotting and summarising single variables. You will also learn how to read in data in to RStudio from plain text files and Excel files.
+## [Week 2: Introduction to R and project organisation](week-2/ovwerview.html)
 
-## Week 4: Summarising data with several variables
-This week you will start plotting data sets with more than one variable. This means you need to be able determine which variable is the response and which is the explanatory. You will find out what is meant by “tidy” data and how to perform a simple data tidying task. Finally you will discover how to save your figures and place them in documents.
+This week you will start writing R code in RStudio and will create your
+first graph! You will learn about data types such as “numerics” and
+“characters” and some of the different types of objects in R such as
+“vectors” and “dataframes”. These are the building blocks for the rest
+of your R journey. You will also learn a workflow and about the layout
+of RStudio and using RStudio Projects.
 
-## Week 5: The logic of hypothesis testing and CI
-This week we will cover the logic of consider the logic of hypothesis testing and type 1 and type 2 errors. We will also find out what the sampling distribution of the mean and the standard error are, and how to calculate confidence intervals.
+## [Week 3: Types of variable, summarising and plotting data](week-3/ovwerview.html)
 
-## Week 6: Introduction to statistical models: Single regression
-This week you will be introduced to the idea of a statistical “model” in general and to general linear model in particular. Our first general linear model will be single linear regression which puts a line of best fit through data so the response can be predicted from the explanatory variable. We will consider the two “parameters” estimated by the model (the slope and the intercept) and whether these differ from zero
+This week you will start writing R code in RStudio and will create your
+first graph! You will learn about data types such as “numerics” and
+“characters” and some of the different types of objects in R such as
+“vectors” and “dataframes”. These are the building blocks for the rest
+of your R journey. You will also learn a workflow and about the layout
+of RStudio and using RStudio Projects.
 
-## Week 7: Two-sample tests
-This week you will how to use and interpret the general linear model when the x variable is categorical and has two groups. Just as with single linear regression, the model puts a line of best through data and the model parameters, the intercept and the slope, have the same in interpretation The intercept is one of the group means and the slope is the difference between that, mean and the other group mean. You will also learn about the non-parametric equivalents - the tests we use when the assumptions of the general linear model are not met.
+## [Week 4: Summarising data with several variables](week-4/ovwerview.html)
 
+Last week you summarised and plotted data sets with one variable. This
+week you will start plotting data sets with more than one variable. This
+means you need to be able determine which variable is the response and
+which is the explanatory. You will find out what is meant by “tidy” data
+and how to perform a simple data tidying task. Finally you will discover
+how to save your figures to file.
 
-## Week 8: One-way ANOVA and Kruskal-Wallis
-Last week you learnt how to use and interpret the general linear model when the x variable was categorical with two groups. You will now extend that to situations when there are more than two groups. This is often known as the one-way ANOVA (analysis of variance). You will also learn about the Kruskal- Wallis test which can be used when the assumptions of the general linear model are not met.
+## [Week 5: The logic of hypothesis testing and CI](week-5/ovwerview.html)
 
-## Week 9: Assessment intro
-This week, we will introduce you to the assessment for this module. We will look at a specimen assessment using techniques you have already learned and apply them to analysing a dataset. Your assessment will use a different dataset but you will apply the same principles. We will be covering what your assessment submission should contain using this example.
+This week we will cover the logic of consider the logic of hypothesis
+testing and type 1 and type 2 errors. We will also find out what the
+sampling distribution of the mean and the standard error are, and how to
+calculate confidence intervals.
 
-## Week 10: Reproducible Reporting
-Following on from last week's introduction to the assessment. You will be introduced to quarto, which is a way of generating reproducible reports and you will need for your assessment. This will cover how to embed sections and executable chunks of R code within your quarto files.
+## [Week 6: Introduction to statistical models: Single regression](week-6/ovwerview.html)
 
-## Week 11: Drop-in
-This session contains no set material however, we will cover topics that people have had difficulty with during the course and cover any material you may still be struggling with from the workshops. This will be our last timetabled session to ask questions prior to the asessment release and a good opportunity to ask any outstanding questions. No questions are silly questions!
+This week, you’ll learn about statistical *models*, which are
+mathematical representations of data relationships. Specifically, you’ll
+explore the *general linear model (GLM)*, a broad framework for
+analysing data patterns.
+
+Your first GLM will be *simple linear regression*, which fits a straight
+line to data to predict a *response variable* (outcome) based on an
+*explanatory variable* (predictor). We’ll examine the two key
+*parameters* estimated in this model: the *slope* (which shows how the
+predictor influences the outcome) and the *intercept* (the value when
+the predictor is zero). We’ll also assess whether these values are
+significantly different from zero.
+
+## [Week 7: Two-sample tests](week-7/ovwerview.html)
+
+This week you will how to use and interpret the general linear model
+when the explanatory (or *x*) variable is categorical with two possible
+values. These tests are also known as *t*-tests. Just as with single
+linear regression, the response variable is continuous, the model puts a
+line of best through data and has two parameters called the intercept
+and the slope. These have the same in interpretation as they do in
+linear regression. The intercept is one of the group means, and the
+slope is the difference between that mean and the other group mean. You
+will also learn about the non-parametric tests we use when the
+assumptions of the general linear model are not met.
+
+## [Week 8: One-way ANOVA and Kruskal-Wallis](week-8/ovwerview.html)
+
+Last week you learnt how to use and interpret the general linear model
+when the *x* variable was categorical with two groups. You will now
+extend that to situations when there are more than two groups. This is
+often known as the one-way ANOVA (**an**alysis **o**f **var**iance). You
+will also learn about the Kruskal-Wallis test which can be used when the
+assumptions of the general linear model are not met.
+
+## [Week 9: Assessment intro](week-9/ovwerview.html)
+
+This week we will be looking at the assessment for this module and
+introducing you to a specimen sample of the assessment so that you can
+familiarise yourself with the format and what we are expecting you to
+produce. We will be looking at a Rproject containing a quarto markdown
+file and a report results section. We will also look at the marking
+criteria. This material can also be found on the VLE under the module
+assessment marking criteria section. Next week we will cover how to
+reproduce a quarto markdown file yourself in more detail.
+
+## [Week 10: Reproducible Reporting](week-10/ovwerview.html)
+
+Following on from last week's introduction to the assessment. You will
+be introduced to quarto, which is a way of generating reproducible
+reports and you will need for your assessment. This will cover how to
+embed sections and executable chunks of R code within your quarto files.
+
+## \[Week 11: Drop-in\]
+
+This session contains no set material however, we will cover topics that
+people have had difficulty with during the course and cover any material
+you may still be struggling with from the workshops. This will be our
+last timetabled session to ask questions prior to the asessment release
+and a good opportunity to ask any outstanding questions. No questions
+are silly questions!
