@@ -100,18 +100,18 @@ calculate confidence intervals.
 
 ## [Introduction to statistical models: Single regression](week-2/overview.html)
 
-This week, you’ll learn about statistical models, which are mathematical
-representations of data relationships. Specifically, you’ll explore the
-general linear model (GLM), a broad framework for analyzing data
-patterns.
+This week, you’ll learn about statistical *models*, which are
+mathematical representations of data relationships. Specifically, you’ll
+explore the *general linear model (GLM)*, a broad framework for
+analysing data patterns.
 
-Your first GLM will be simple linear regression, which fits a straight
-line to data to predict a response variable (outcome) based on an
-explanatory variable (predictor). We’ll examine the two key parameters
-estimated in this model: the slope (which shows how the predictor
-influences the outcome) and the intercept (the value when the predictor
-is zero). We’ll also assess whether these values are significantly
-different from zero.
+Your first GLM will be *simple linear regression*, which fits a straight
+line to data to predict a *response variable* (outcome) based on an
+*explanatory variable* (predictor). We’ll examine the two key
+*parameters* estimated in this model: the *slope* (which shows how the
+predictor influences the outcome) and the *intercept* (the value when
+the predictor is zero). We’ll also assess whether these values are
+significantly different from zero.
 
 ## [Two-sample tests](week-3/overview.html)
 
@@ -135,7 +135,6 @@ known as the one-way ANOVA (analysis of variance). You will also learn
 about the Kruskal-Wallis test which can be used when the assumptions of
 the general linear model are not met.
 
-
 ## [Two-way ANOVA](week-5/overview.html)
 
 So far you have learnt how to use and interpret the general linear model
@@ -151,7 +150,6 @@ model is often known as the two-way ANOVA. It allows us to design
 experiments to test whether a response is influenced by two variables
 and whether those two variables act independently on the response or
 interact in some way.
-
 
 ## [Association: Correlation and Contingency](week-6/overview.html)
 
