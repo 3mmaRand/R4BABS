@@ -319,8 +319,8 @@ We will again use both our `seal` and `seal_summary` dataframes.
 ![](images/do_in_R.png) Create the plot
 
 ::: callout-tip
-Use method 1 (see [@week-4-annotation-method-1]) OR method 2 (see
-[@week-4-annotation-method-2]) to add the p value
+Use method 1 (see [@week-3-annotation-method-1]) OR method 2 (see
+[@week-3-annotation-method-2]) to add the p value
 
 If you want to use method 2 for annotating the *p*-value, you can
 extract the *p*-value with
