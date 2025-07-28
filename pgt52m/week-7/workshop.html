@@ -941,7 +941,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 </div>
 </div>
 <p>We now need to annotate the figure with the results from the statistical test. This most commonly done with a line linking the means being compared and the <em>p</em>-value. The <code>annotate()</code> function can be used to draw the line and then to add the value. The line is a <code>segment</code> and the <em>p</em>-value is a <code>text</code>.</p>
-<section id="annotation---method-1-week-7-annotation-method-1" class="level4"><h4 class="anchored" data-anchor-id="annotation---method-1-week-7-annotation-method-1">Annotation - method 1 {<span class="citation" data-cites="week-7-annotation-method-1">(<a href="#ref-week-7-annotation-method-1" role="doc-biblioref"><strong>week-7-annotation-method-1?</strong></a>)</span>}</h4>
+<section id="week-7-annotation-method-1" class="level4"><h4 class="anchored" data-anchor-id="week-7-annotation-method-1">Annotation - method 1</h4>
 <p>You can annotate the <em>p</em>-value manually by typing it in to the appropriate <code>annotate()</code> function.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add annotation to the figure by adding:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">......</span> <span class="op">+</span></span>
@@ -971,7 +971,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 <code>parse = TRUE</code> tells ggplot2 to interpret that string as a plotmath expression rather than literally adding “italic(p) == 0.0028”.</li>
 </ul>
 <p>However, it is more reproducible to extract the <em>p</em>-value from the model object.</p>
-</section><section id="annotation---method-2-week-7-annotation-method-2" class="level4"><h4 class="anchored" data-anchor-id="annotation---method-2-week-7-annotation-method-2">Annotation - method 2 {<span class="citation" data-cites="week-7-annotation-method-2">(<a href="#ref-week-7-annotation-method-2" role="doc-biblioref"><strong>week-7-annotation-method-2?</strong></a>)</span>}</h4>
+</section><section id="week-7-annotation-method-2" class="level4"><h4 class="anchored" data-anchor-id="week-7-annotation-method-2">Annotation - method 2</h4>
 <p><img src="images/do_in_R.png" class="img-fluid"> Extract the <em>p</em>-value from the model object:</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_value</span> <span class="op">&lt;-</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">pull</span><span class="op">(</span><span class="va">p.value</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1991,7 +1991,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb17-326"><a href="#cb17-326" aria-hidden="true" tabindex="-1"></a>draw the line and then to add the value. The line is a <span class="in">`segment`</span> and the</span>
 <span id="cb17-327"><a href="#cb17-327" aria-hidden="true" tabindex="-1"></a>*p*-value is a <span class="in">`text`</span>.</span>
 <span id="cb17-328"><a href="#cb17-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-329"><a href="#cb17-329" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 1 {@week-7-annotation-method-1}</span></span>
+<span id="cb17-329"><a href="#cb17-329" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 1 {#week-7-annotation-method-1}</span></span>
 <span id="cb17-330"><a href="#cb17-330" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-331"><a href="#cb17-331" aria-hidden="true" tabindex="-1"></a>You can annotate the *p*-value manually by typing it in to the</span>
 <span id="cb17-332"><a href="#cb17-332" aria-hidden="true" tabindex="-1"></a>appropriate <span class="in">`annotate()`</span> function.</span>
@@ -2023,7 +2023,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb17-358"><a href="#cb17-358" aria-hidden="true" tabindex="-1"></a>However, it is more reproducible to extract the *p*-value from the model</span>
 <span id="cb17-359"><a href="#cb17-359" aria-hidden="true" tabindex="-1"></a>object.</span>
 <span id="cb17-360"><a href="#cb17-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-361"><a href="#cb17-361" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 2 {@week-7-annotation-method-2}</span></span>
+<span id="cb17-361"><a href="#cb17-361" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 2 {#week-7-annotation-method-2}</span></span>
 <span id="cb17-362"><a href="#cb17-362" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-363"><a href="#cb17-363" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Extract the *p*-value from the model object:</span>
 <span id="cb17-364"><a href="#cb17-364" aria-hidden="true" tabindex="-1"></a></span>
