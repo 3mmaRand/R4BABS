@@ -305,7 +305,7 @@ compared and the *p*-value. The `annotate()` function can be used to
 draw the line and then to add the value. The line is a `segment` and the
 *p*-value is a `text`.
 
-#### Annotation - method 1 {#week-3-annotation-method-1}
+#### Annotation - method 1 {#sec-week-3-annotation-method-1}
 
 You can annotate the *p*-value manually by typing it in to the
 appropriate `annotate()` function.
@@ -337,7 +337,7 @@ annotate("text", x = 1.5,  y = 11.7,
 However, it is more reproducible to extract the *p*-value from the model
 object.
 
-#### Annotation - method 2 {#week-3-annotation-method-2}
+#### Annotation - method 2 {#sec-week-3-annotation-method-2}
 
 ![](images/do_in_R.png) Extract the *p*-value from the model object:
 
