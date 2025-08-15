@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.7.33">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Workshop – Data Analysis in R</title>
@@ -88,14 +88,14 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a03e91e75e70fe074cb6f9e1686248b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-efba4cb111cfd8b4774c90a6412e7cf1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-a03e91e75e70fe074cb6f9e1686248b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-72ac799c4abbddf31cb463dd8fc99f5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-25ac7be22ffa75a8e8541e30a6dcc9a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-72ac799c4abbddf31cb463dd8fc99f5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
@@ -941,7 +941,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 </div>
 </div>
 <p>We now need to annotate the figure with the results from the statistical test. This most commonly done with a line linking the means being compared and the <em>p</em>-value. The <code>annotate()</code> function can be used to draw the line and then to add the value. The line is a <code>segment</code> and the <em>p</em>-value is a <code>text</code>.</p>
-<section id="week-7-annotation-method-1" class="level4"><h4 class="anchored" data-anchor-id="week-7-annotation-method-1">Annotation - method 1</h4>
+<section id="sec-week-7-annotation-method-1" class="level4"><h4 class="anchored" data-anchor-id="sec-week-7-annotation-method-1">Annotation - method 1</h4>
 <p>You can annotate the <em>p</em>-value manually by typing it in to the appropriate <code>annotate()</code> function.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Add annotation to the figure by adding:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">......</span> <span class="op">+</span></span>
@@ -971,7 +971,7 @@ F-statistic: 10.71 on 1 and 28 DF,  p-value: 0.00283</code></pre>
 <code>parse = TRUE</code> tells ggplot2 to interpret that string as a plotmath expression rather than literally adding “italic(p) == 0.0028”.</li>
 </ul>
 <p>However, it is more reproducible to extract the <em>p</em>-value from the model object.</p>
-</section><section id="week-7-annotation-method-2" class="level4"><h4 class="anchored" data-anchor-id="week-7-annotation-method-2">Annotation - method 2</h4>
+</section><section id="sec-week-7-annotation-method-2" class="level4"><h4 class="anchored" data-anchor-id="sec-week-7-annotation-method-2">Annotation - method 2</h4>
 <p><img src="images/do_in_R.png" class="img-fluid"> Extract the <em>p</em>-value from the model object:</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_value</span> <span class="op">&lt;-</span> <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">pull</span><span class="op">(</span><span class="va">p.value</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1991,7 +1991,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb17-326"><a href="#cb17-326" aria-hidden="true" tabindex="-1"></a>draw the line and then to add the value. The line is a <span class="in">`segment`</span> and the</span>
 <span id="cb17-327"><a href="#cb17-327" aria-hidden="true" tabindex="-1"></a>*p*-value is a <span class="in">`text`</span>.</span>
 <span id="cb17-328"><a href="#cb17-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-329"><a href="#cb17-329" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 1 {#week-7-annotation-method-1}</span></span>
+<span id="cb17-329"><a href="#cb17-329" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 1 {#sec-week-7-annotation-method-1}</span></span>
 <span id="cb17-330"><a href="#cb17-330" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-331"><a href="#cb17-331" aria-hidden="true" tabindex="-1"></a>You can annotate the *p*-value manually by typing it in to the</span>
 <span id="cb17-332"><a href="#cb17-332" aria-hidden="true" tabindex="-1"></a>appropriate <span class="in">`annotate()`</span> function.</span>
@@ -2023,7 +2023,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb17-358"><a href="#cb17-358" aria-hidden="true" tabindex="-1"></a>However, it is more reproducible to extract the *p*-value from the model</span>
 <span id="cb17-359"><a href="#cb17-359" aria-hidden="true" tabindex="-1"></a>object.</span>
 <span id="cb17-360"><a href="#cb17-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-361"><a href="#cb17-361" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 2 {#week-7-annotation-method-2}</span></span>
+<span id="cb17-361"><a href="#cb17-361" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Annotation - method 2 {#sec-week-7-annotation-method-2}</span></span>
 <span id="cb17-362"><a href="#cb17-362" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-363"><a href="#cb17-363" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Extract the *p*-value from the model object:</span>
 <span id="cb17-364"><a href="#cb17-364" aria-hidden="true" tabindex="-1"></a></span>

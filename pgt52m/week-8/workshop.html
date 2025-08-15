@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.7.33">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Emma Rand">
 <title>Workshop – Data Analysis in R</title>
@@ -88,14 +88,14 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a03e91e75e70fe074cb6f9e1686248b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-efba4cb111cfd8b4774c90a6412e7cf1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-a03e91e75e70fe074cb6f9e1686248b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-72ac799c4abbddf31cb463dd8fc99f5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-25ac7be22ffa75a8e8541e30a6dcc9a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-72ac799c4abbddf31cb463dd8fc99f5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
@@ -947,7 +947,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use method 1 (see <span class="citation" data-cites="week-7-annotation-method-1">(<a href="#ref-week-7-annotation-method-1" role="doc-biblioref"><strong>week-7-annotation-method-1?</strong></a>)</span>) OR method 2 (see <span class="citation" data-cites="week-7-annotation-method-2">(<a href="#ref-week-7-annotation-method-2" role="doc-biblioref"><strong>week-7-annotation-method-2?</strong></a>)</span>) to add the p value</p>
+<p>Use method 1 (see <strong>?@sec-week-7-annotation-method-1</strong>) OR method 2 (see <strong>?@sec-week-7-annotation-method-2</strong>) to add the p value</p>
 <p>If you want to use method 2 for annotating the <em>p</em>-value, you can extract the <em>p</em>-value with</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_blad_v_harb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod</span>, <span class="op">~</span> <span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1885,8 +1885,8 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb12-341"><a href="#cb12-341" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Create the plot</span>
 <span id="cb12-342"><a href="#cb12-342" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-343"><a href="#cb12-343" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a>Use method 1 (see <span class="co">[</span><span class="ot">@week-7-annotation-method-1</span><span class="co">]</span>) OR method 2 (see</span>
-<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@week-7-annotation-method-2</span><span class="co">]</span>) to add the p value</span>
+<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a>Use method 1 (see <span class="co">[</span><span class="ot">@sec-week-7-annotation-method-1</span><span class="co">]</span>) OR method 2 (see</span>
+<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@sec-week-7-annotation-method-2</span><span class="co">]</span>) to add the p value</span>
 <span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-347"><a href="#cb12-347" aria-hidden="true" tabindex="-1"></a>If you want to use method 2 for annotating the *p*-value, you can</span>
 <span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a>extract the *p*-value with</span>
