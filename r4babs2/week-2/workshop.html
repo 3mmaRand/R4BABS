@@ -905,24 +905,28 @@ W = 0.96377, p-value = 0.1208</code></pre>
 <p>In this section we will use a linear regression to estimate the molecular weights of proteins from a gel. Gels are run with a marker lane containing proteins of known molecular weights. The positions of these marker proteins are used to create a standard curve that allows us to estimate the molecular weights of other proteins in the gel.</p>
 <p>This is a different use for linear regression than the previous example where we wanted to statistically test whether the an <em>x</em>-variable explained the variation in a <em>y</em>-variable.</p>
 <p>Here we already know there is a very tight linear relationship between the position of the marker proteins on the gel and their molecular weights. We are using the linear regression to find the equation of the line that describes this relationship so we can use it to estimate the molecular weights of other proteins in the gel.</p>
-<p>We will use this gel image (<strong>?@fig-gel</strong>) as an example: <a href="data-image/sds-page-gel.jpg">sds-page-gel.jpg</a>. This gel has two sets of results (one each side) – since only 4 lanes were for each practical group, we put two groups on one gel.</p>
+<p>We will use this gel image (<a href="#fig-gel" class="quarto-xref">Figure&nbsp;1</a>) as an example: <a href="data-image/sds-page-gel.jpg">sds-page-gel.jpg</a>. This gel has two sets of results (one each side) – since only 4 lanes were for each practical group, we put two groups on one gel.</p>
 <ul>
 <li><p>Lane 1 (and 10) is the protein ladder which are the proteins of known molecular weights.</p></li>
 <li><p>Lane 2 (and 9) is Uninduced E. coli lysate</p></li>
 <li><p>Lane 3 (and 8) is Induced E. coli lysate</p></li>
 <li><p>Lane 4 (and 7) is ShPatB</p></li>
 </ul>
-<p>You don’t need worry about the details of the gel, only that our aim is to estimate the molecule weight of the ShPatB protein in lane 4 from its position on the gel and the standard curve created from the marker proteins in lane 1. <strong>?@fig-gel</strong> illustrates the measurements needed from the gel image.</p>
-<div class="{fig-gel}">
+<p>You don’t need worry about the details of the gel, only that our aim is to estimate the molecule weight of the ShPatB protein in lane 4 from its position on the gel and the standard curve created from the marker proteins in lane 1. <a href="#fig-gel" class="quarto-xref">Figure&nbsp;1</a> illustrates the measurements needed from the gel image.</p>
+<div id="fig-gel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-gel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="workshop_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="4200"></a></p>
+<figure class="figure"><p><a href="workshop_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;1: SDS-PAGE gel provided as a sample in the BCH strand of 26C practicals with annotation. Lane 1 (and 10) is the protein ladder, Lane 2 (and 9) is Uninduced E. coli lysate, Lane 3 (and 8) is Induced E. coli lysate and Lane 4 (and 7) is ShPatB. The horizontal red lines indicate the top and bottom of the gel. The vertical black dashed line indicates the length of the gel, L. The distance of one marker protein – the heaviest – and that ShPatB from the top of the gel are indicated by vertical solid blue lines. Distance to all the marker proteins need to be measured from the top of the gel. These distances and the molecular weights of the marker proteins are used to create a standard curve that allows us to estimate the molecular weight of ShPatB from its position on the gel."><img src="workshop_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="4200"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>SDS-PAGE gel provided as a sample in the BCH strand of 26C practicals with annotation.</strong> Lane 1 (and 10) is the protein ladder, Lane 2 (and 9) is Uninduced E. coli lysate, Lane 3 (and 8) is Induced E. coli lysate and Lane 4 (and 7) is ShPatB. The horizontal red lines indicate the top and bottom of the gel. The vertical black dashed line indicates the length of the gel, <span class="math inline">\(L\)</span>. The distance of one marker protein – the heaviest – and that ShPatB from the top of the gel are indicated by vertical solid blue lines. Distance to all the marker proteins need to be measured from the top of the gel. These distances and the molecular weights of the marker proteins are used to create a standard curve that allows us to estimate the molecular weight of ShPatB from its position on the gel.</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: <strong>SDS-PAGE gel provided as a sample in the BCH strand of 26C practicals with annotation.</strong> Lane 1 (and 10) is the protein ladder, Lane 2 (and 9) is Uninduced E. coli lysate, Lane 3 (and 8) is Induced E. coli lysate and Lane 4 (and 7) is ShPatB. The horizontal red lines indicate the top and bottom of the gel. The vertical black dashed line indicates the length of the gel, <span class="math inline">\(L\)</span>. The distance of one marker protein – the heaviest – and that ShPatB from the top of the gel are indicated by vertical solid blue lines. Distance to all the marker proteins need to be measured from the top of the gel. These distances and the molecular weights of the marker proteins are used to create a standard curve that allows us to estimate the molecular weight of ShPatB from its position on the gel.
+</figcaption></figure>
 </div>
 <p>We will cover two options:</p>
 <ol type="1">
@@ -1090,7 +1094,7 @@ Coefficients:
 <div class="cell">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dist_to_patB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/locator.html">locator</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The (<em>x</em>,<em>y</em>) position of shPatB is now stored in an R object called `pos_patB.</p>
+<p>The (<em>x</em>,<em>y</em>) position of shPatB is now stored in an R object called <code>pos_patB</code>.</p>
 <p>The distance between the shPatB band and the top of the gel will be the <em>y</em>0value in <code>dist_to_patB</code> minus the distance to the top of the gel.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Calculate the distance from the top of the gel to shPatB:</p>
 <div class="cell">
@@ -2185,7 +2189,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb45-518"><a href="#cb45-518" aria-hidden="true" tabindex="-1"></a>pos_patB <span class="ot">&lt;-</span> <span class="dv">394</span></span>
 <span id="cb45-519"><a href="#cb45-519" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-520"><a href="#cb45-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-521"><a href="#cb45-521" aria-hidden="true" tabindex="-1"></a>::: {fig-gel}</span>
+<span id="cb45-521"><a href="#cb45-521" aria-hidden="true" tabindex="-1"></a>::: {#fig-gel}</span>
 <span id="cb45-524"><a href="#cb45-524" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb45-525"><a href="#cb45-525" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
 <span id="cb45-526"><a href="#cb45-526" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
@@ -2472,7 +2476,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb45-845"><a href="#cb45-845" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb45-846"><a href="#cb45-846" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-847"><a href="#cb45-847" aria-hidden="true" tabindex="-1"></a>The (*x*,*y*) position of shPatB is now stored in an R object called</span>
-<span id="cb45-848"><a href="#cb45-848" aria-hidden="true" tabindex="-1"></a><span class="sc">\`</span>pos_patB.</span>
+<span id="cb45-848"><a href="#cb45-848" aria-hidden="true" tabindex="-1"></a><span class="in">`pos_patB`</span>.</span>
 <span id="cb45-849"><a href="#cb45-849" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-850"><a href="#cb45-850" aria-hidden="true" tabindex="-1"></a>The distance between the shPatB band and the top of the gel will be the</span>
 <span id="cb45-851"><a href="#cb45-851" aria-hidden="true" tabindex="-1"></a>*y*0value in <span class="in">`dist_to_patB`</span> minus the distance to the top of the gel.</span>
