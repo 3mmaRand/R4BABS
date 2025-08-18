@@ -453,9 +453,9 @@ line that describes this relationship so we can use it to estimate the
 molecular weights of other proteins in the gel.
 
 We will use this gel image (@fig-gel) as an example:
-[26C-10-Coomassie-Blue.jpg](data-image/26C-10-Coomassie-Blue.jpg). This
-gel has two sets of results (one each side) -- since only 4 lanes were
-for each practical group, we put two groups on one gel.
+[sds-page-gel.jpg](data-image/sds-page-gel.jpg). This gel has two sets
+of results (one each side) -- since only 4 lanes were for each practical
+group, we put two groups on one gel.
 
 -   Lane 1 (and 10) is the protein ladder which are the proteins of
     known molecular weights.
@@ -478,15 +478,14 @@ the gel image.
 
 # import gel
 library(imager)
-gel <- load.image("data-image/26C-10-Coomassie-Blue.jpg")
+gel <- load.image("data-image/sds-page-gel.jpg")
 gel_cropped <- crop.borders(gel, nx = 300, ny = 150)
 gel_top <- 180
 gel_bottom <- 990
 pos_patB <- 394
 ```
 
-: :: {fig-gel}
-
+::: {fig-gel}
 ```{r}
 #| echo: false
 #| message: false
@@ -526,7 +525,6 @@ be measured from the top of the gel. These distances and the molecular
 weights of the marker proteins are used to create a standard curve that
 allows us to estimate the molecular weight of ShPatB from its position
 on the gel.
-
 :::
 
 We will cover two options:
@@ -643,12 +641,12 @@ patB_kda
 
 You have a file containing the molecular weights of the marker proteins
 [standard-mw.txt](data-image/standard-mw.txt) and the image of the gel
-[26C-10-Coomassie-Blue.jpg](data-image/26C-10-Coomassie-Blue.jpg). The
-molecular weights of the marker proteins are in kilodaltons (kDa)
+[sds-page-gel.jpg](data-image/sds-page-gel.jpg). The molecular weights
+of the marker proteins are in kilodaltons (kDa)
 
 ![](images/do_in_R.png) Make a folder call `data-image` and save
 [standard-mw.txt](data-image/standard-mw.txt) and
-[26C-10-Coomassie-Blue.jpg](data-image/26C-10-Coomassie-Blue.jpg) to it
+[sds-page-gel.jpg](data-image/sds-page-gel.jpg) to it
 
 ![](images/do_in_R.png) Imort the molecular weights of the marker
 proteins from [standard-mw.txt](data-image/standard-mw.txt)
@@ -666,7 +664,7 @@ library(imager)
 ![](images/do_in_R.png) Import the gel image:
 
 ```{r}
-gel <- load.image("data-image/26C-10-Coomassie-Blue.jpg")
+gel <- load.image("data-image/sds-page-gel.jpg")
 ```
 
 Base R's generic `plot()` function can handle image files and plot axes
