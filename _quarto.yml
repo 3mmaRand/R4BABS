@@ -285,7 +285,7 @@ website:
                text: Workshop
              - href: pgt52m/week-8/study_after_workshop.qmd
                text: Consolidate!
-          - section: "Week 9: Introduction to the Assessment"
+          - section: "Week 9: "
             contents:
              - href: pgt52m/week-9/overview.qmd
                text: About
@@ -295,15 +295,15 @@ website:
                text: Workshop
              - href: pgt52m/week-9/study_after_workshop.qmd
                text: Consolidate!
-          - section: "Week 10: "
+          - section: "Week 10: Introduction to the Assessment"
             contents:
-             - href:
+             - href: pgt52m/week-10/overview.qmd
                text: About
-             - href:
+             - href: pgt52m/week-10/study_before_workshop.qmd
                text: Prepare!
-             - href:
+             - href: pgt52m/week-10/workshop.qmd
                text: Workshop
-             - href:
+             - href: pgt52m/week-10/study_after_workshop.qmd
                text: Consolidate!
 
 execute:
