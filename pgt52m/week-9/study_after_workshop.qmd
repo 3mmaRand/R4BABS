@@ -1,0 +1,249 @@
+---
+title: "Independent Study to consolidate this week"
+subtitle: "Two-way ANOVA"
+toc: true
+toc-location: right
+format:
+  html:
+    code-fold: true
+    code-summary: "Answer - don't look until you have tried!"
+---
+
+# Set up
+
+If you have just opened RStudio you will want to load the
+**`tidyverse`** and **`emmeans`** packages.
+
+```{r}
+#| code-fold: false
+library(tidyverse)
+library(emmeans)
+```
+
+# Exercises
+
+1.  💻 Researchers suspect there may be regional differences between two
+    species of butterfly, *F.concocti* and *F.flappa*. They catch 8
+    randomly chosen individuals of each species in two regions (North
+    and South) and measure their wing lengths in mm. The data are in
+    [butterf.txt](data-raw/butterf.txt). What do you conclude about the
+    size of these species in the North and South?
+
+```{r}
+#| output: false
+
+butter  <-  read_table("data-raw/butterf.txt")
+str(butter)
+
+```
+
+```{r}
+#| output: false
+
+# create a rough plot of the data  
+ggplot(data = butter,
+       aes(x = region, y = winglen, fill = spp)) +
+  geom_violin()
+# There seems to be little difference between the two species in the
+# south but F.concocti
+# is larger than F.flappa in the North.
+```
+
+```{r}
+#| output: false
+
+# create a summary of the data
+butter_summary <- butter |> 
+  group_by(region, spp) |> 
+  summarise(mean = mean(winglen),
+            median = median(winglen),
+            sd = sd(winglen),
+            n = length(winglen),
+            se = sd/sqrt(n))
+```
+
+```{r}
+#| output: false
+
+# The data seem to be continuous so it is likely that a parametric
+# test will be fine
+# we will check the other assumptions after we have run the lm
+
+# build the statistical model
+mod <- lm(data = butter, winglen ~ spp * region)
+
+
+# examine it
+summary(mod)
+
+
+# the line starting (Intercept) is  β0  
+# the line starting sppF.flappa is β1
+# the line starting regionsouth is β2
+# the line starting sppF.flappa:regionsouth is β3
+
+# F.concocti-north mean is β0 i.e., 32.275
+# F.Flappa-north mean is β0 + β1 i.e., 32.275 - 7.875 = 24.4
+# F.concocti-south is β0 + β2  i.e., 32.275 - 8.638 = 23.637
+# F.Flappa--south is β0 + β1 + β2 + β3 
+#           i.e., 32.275 - 7.875 - 8.638 + 7.713 = 23.475
+
+# The model of spp and region overall explains a significant 
+# amount (49%) of the variation in wing lengths
+# (F = 8.1; d.f. = 3, 28; p = 0.0002). To see which of the three 
+# effects are significant we can use the `anova()` function on our
+# model.
+```
+
+```{r}
+#| output: false
+anova(mod)
+
+# There was a significant effect of species (F = 8.1; 
+# d.f. = 1, 28; p = 0.008) and region (F = 11.5; 
+# d.f. = 1, 28; p = 0.002) on wing length and these effects interact 
+# (F = 7.5; d.f. = 1, 28; p = 0.01)
+
+# It is important to consider how the interaction effect is
+# influencing our interpretation of the main effects.
+# Judging by the means and the rough plot, the significant
+# effect of both species and region is due to the fact that
+# F.concocti is larger than F.flappa in the North.
+# In other words, we only have a significant effect of species
+# in the North. 
+
+
+# the emmeans package will let us see exactly what comparisons
+# are significant
+```
+
+```{r}
+#| output: false
+# post-hoc comparisons
+emmeans(mod, ~ spp * region) |> pairs()
+
+# As we suspected all the difference are between  F.concocti north
+# and the other three groups. 
+ # F.concocti north - F.flappa north    p = 0.0026
+ # F.concocti north - F.concocti south  p = 0.0010
+ # F.concocti north - F.flappa south    p = 0.0008
+
+# There was a signifcant interaction between the effects of species 
+# and region (F = 7.5; d.f. = 1, 28; p = 0.01) with Northern
+# F.concocti being significantly larger than F.concocti in the 
+# south (Tukey HSD: p = 0.0010) and F.flappa in the 
+# north (p = 0.0026) and south (p = 0.0008). This creates a 
+# significant difference between species averaged over region 
+# (F = 8.1; d.f. = 1, 28; p = 0.008) and region averaged over species
+```
+
+```{r}
+#| output: false
+# extractpvalues
+ph_tidy <- emmeans(mod, ~ spp * region) |>
+  pairs() |>
+  broom::tidy()
+
+p_concn_v_flapn <- ph_tidy |> 
+  filter(contrast == "F.concocti north - F.flappa north") |> 
+  pull(adj.p.value) |> round(4)
+p_concn_v_concs <- ph_tidy |> 
+  filter(contrast == "F.concocti north - F.concocti south") |> 
+  pull(adj.p.value) |> round(4)
+p_concn_v_flaps <- ph_tidy |> 
+  filter(contrast == "F.concocti north - F.flappa south") |> 
+  pull(adj.p.value) |> round(4)
+
+```
+
+```{r}
+#| output: false
+
+# let's check the assumptions
+plot(mod, which = 1) 
+# we're looking for the variance in the residuals to be the same in both groups.
+# This looks OK. Maybe a bit higher in the wild plants (with the higher mean)
+ 
+hist(mod$residuals)
+shapiro.test(mod$residuals)
+# On balance the use of lm() is probably justifiable  The variance isn't quite equal 
+# and the histogram looks a bit off normal but the normality test is NS and the 
+# effect (in the figure) is clear.
+```
+
+```{r}
+#| output: false
+
+# A figure 
+butter_fig <- ggplot() +
+  geom_point(data = butter, 
+             aes(x = region,
+                 y = winglen,
+                 shape = spp),
+             position = position_jitterdodge(dodge.width = 1,
+                                             jitter.width = 0.2,
+                                             jitter.height = 0),
+             size = 2) +
+  geom_errorbar(data = butter_summary, 
+                aes(x = region, 
+                    ymin = mean - se, 
+                    ymax = mean + se, 
+                    group = spp),
+                width = 0.4, 
+                position = position_dodge(width = 1)) +
+  geom_errorbar(data = butter_summary, 
+                aes(x = region, 
+                    ymin = mean, 
+                    ymax = mean, 
+                    group = spp),
+                width = 0.3, 
+                position = position_dodge(width = 1) ) +
+  scale_x_discrete(name = "region") +
+  scale_y_continuous(name = "Wing length (mm)",
+                     expand = c(0, 0),
+                     limits = c(0, 55)) +
+  scale_shape_manual(values = c(19, 1),
+                     name = NULL,
+                     labels = c(bquote(italic("F.concocti")),
+                                bquote(italic("F.flappa")))) +
+  # F.concocti north - F.flappa north    p = 0.0026
+  annotate("segment",
+           x = 0.75, xend = 1.25,
+           y = 40, yend = 40,
+           colour = "black") +
+  annotate("text",
+           x = 1,  y = 42,
+           label = glue::glue("italic(p) == { p_concn_v_flapn }"),
+           parse = TRUE) +
+  # F.concocti north - F.concocti south  p = 0.0010
+  annotate("segment",
+           x = 0.75, xend = 1.75,
+           y = 44, yend = 44,
+           colour = "black") +
+  annotate("text", x = 1.25,  y = 46,
+           label = glue::glue("italic(p) == { p_concn_v_concs }"),
+           parse = TRUE) +
+  # F.concocti north - F.flappa south    p = 0.0008
+  annotate("segment",
+           x = 0.75, xend = 2.25,
+           y = 48, yend = 48,
+           colour = "black") +
+  annotate("text", x = 1.5,  y = 50,
+           label = glue::glue("italic(p) == { p_concn_v_flaps }"),
+           parse = TRUE) +
+  theme_classic() +
+  theme(legend.title = element_blank(),
+        legend.position = "inside",
+        legend.position.inside = c(0.2, 0.12),
+        legend.background = element_rect(colour = "black"))
+
+
+# save figure to figures/butter.png
+ggsave("figures/butter.png",
+       plot = butter_fig,
+       width = 3.5,
+       height = 3.5,
+       units = "in",
+       dpi = 300)
+
+```

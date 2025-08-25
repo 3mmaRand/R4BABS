@@ -285,7 +285,7 @@ website:
                text: Workshop
              - href: pgt52m/week-8/study_after_workshop.qmd
                text: Consolidate!
-          - section: "Week 9: "
+          - section: "Week 9: Two-way ANOVA"
             contents:
              - href: pgt52m/week-9/overview.qmd
                text: About
