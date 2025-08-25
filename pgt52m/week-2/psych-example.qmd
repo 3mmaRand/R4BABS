@@ -512,4 +512,6 @@ ggplot(data = strategy_data,
 The number is the maximum number of characters in a line before it wraps
 to the next line.
 
-## [Return](workshop.html#finished-w2) to the workshop page.
+[**Return**](workshop.html#finished-w2) **to the workshop page.**
+
+## References

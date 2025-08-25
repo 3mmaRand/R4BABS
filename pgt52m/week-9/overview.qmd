@@ -1,38 +1,53 @@
 ---
 title: "Overview"
-subtitle: "Assessment introduction"
+subtitle: "Two-way ANOVA"
 toc: true
 toc-location: right
-
 ---
 
-This week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will be looking at a Rproject containing a quarto markdown file and a report results section. We will also look at the marking criteria. This material can also be found on the VLE under the module assessment marking criteria section. Next week we will cover how to reproduce a quarto markdown file yourself in more detail.
+So far you have learnt how to use and interpret the general linear model
+when:
+
+-   the *x* variable was continuous
+-   the *x* variable was categorical with two groups
+-   the *x* variable was categorical with two or more groups
+
+This week we will extend of our understanding by learning how to include
+*two* categorical explanatory variables in a general linear model. This
+model is often known as the two-way ANOVA. It allows us to design
+experiments to test whether a response is influenced by two variables
+*and* whether those two variables act independently on the response or
+interact in some way.
 
 ### Learning objectives
 
 The successful student will be able to:
 
-- Understand the structure of the Rproject we will be expecting you to produce in the assessment (e.g. segregated into data-raw, figures etc).
+-   combine dataframes of the same structure
 
-- Understand the marking criteria so you understand how the assessment is going to be evaluated e.g. one aspect we will be looking at is whether the code within the quarto markdown generates the plots included within the report.
+-   select, appropriately, two-way ANOVA
 
-- Know where to look on the VLE for additional assessment information
+-   apply and interpret `lm()` for a two-way ANOVA
 
-- Know the appropriate dates for the release and submisison of the assessment.
+-   evaluate whether the assumptions of `lm()` are met
 
+-   understand the meaning of the interaction term
 
+-   scientifically report a two-way ANOVA result including appropriate
+    figures
 
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
 
-    i.  📖 Read the marking criteria available on the VLE
-
+    i.  📖 Read Two-way ANOVA
 
 2.  [Workshop](workshop.qmd)
 
-    i. 💻 Explore the specimen Rproject
+    i.  💻 Two-way ANOVA Choline deficiency on neuron size
+        <!-- ii. 💻 What to do when the assumptions are not met -->
 
 3.  [Consolidate](study_after_workshop.qmd)
 
-    i.  📖 Refamiliarise yourself with how Rprojects work
+    i.  💻 Appropriately test whether there are regional differences
+        between two species of butterfly.
