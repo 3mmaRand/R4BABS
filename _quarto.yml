@@ -295,7 +295,7 @@ website:
                text: Workshop
              - href: pgt52m/week-9/study_after_workshop.qmd
                text: Consolidate!
-          - section: "Week 10: Reproducible Reporting"
+          - section: "Week 10: "
             contents:
              - href:
                text: About
