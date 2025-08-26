@@ -104,7 +104,7 @@ set:
 You should start to notice how similar the code is for all of these and
 also where they differ.
 
-## Data already tidy: Myoglobin in seal muscle
+## Data already tidy: Myoglobin in seals or [Psych Example](psych-example.html)
 
 The myoglobin concentration of skeletal muscle of three species of seal
 in grams per kilogram of muscle was determined and the data are given in
@@ -117,11 +117,11 @@ indicates species.
 ![](images/do_on_your_computer.png) Save [seal.csv](data-raw/seal.csv)
 to your `data-raw` folder.
 
-In the next step you will import the daya and I suggest you look up data
+In the next step you will import the days and I suggest you look up data
 import from last week. There are two ways you could do that.
 
 1.  Open your own script from last week. You do not need to open the
-    `week-8` RStudio Project itself - you can open the script you used
+    `week-3` RStudio Project itself - you can open the script you used
     by navigating to through the File pane. After you have found it and
     clicked on it to open, I suggest showing your working directory in
     your File Pane again. You can do that by clicking on the little
@@ -152,11 +152,13 @@ dataframe? What role would you expect them to play in analysis?
 
 The key point here is that the fundamental structure of:
 
--   one continuous response and one nominal explanatory variable with
-    two groups ([adipocytes](data-raw/adipocytes.txt)), and
+-   the [adipocytes](data-raw/adipocytes.txt) example from the
+    [book](https://3mmarand.github.io/comp4biosci/import-to-report.html#importing-data-from-.txt-file)
+    which had a continuous response and one nominal explanatory variable
+    with two groups , and
 
--   one continuous response and one nominal explanatory variable with
-    three groups ([seals](data-raw/seal.csv))
+-   this example, one continuous response and one nominal explanatory
+    variable with three groups ([seals](data-raw/seal.csv))
 
 is the same! The only thing that differs is the number of groups (the
 number of values in the nominal variable). This means the code for
@@ -417,7 +419,7 @@ ggplot() +
 
 You only need to use name in `scale_y_continuous()` and
 `scale_x_discrete()` to use labels that are different from those in the
-dataset. Often this is to use proper terminology and captialisation.
+dataset. Often this is to use proper terminology and capitalisation.
 
 ![](images/do_in_R.png) Format the figure in a way that is more suitable
 for including in a report using `theme_classic()` (edit your existing
@@ -504,15 +506,14 @@ relative path.
 the arguments. You can do this by putting your cursor on the command and
 pressing F1
 
-## Data needs tidying: Pigeons
+## Data needs tidying: Pigeons {#pigeons-w4}
 
 The data in [pigeon.txt](data-raw/pigeon.txt) are 40 measurements of
 interorbital width (in mm) for two populations of domestic pigeons
 measured to the nearest 0.1mm
 
 ![Interorbital width is the distance between the
-eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on,  
-with an arrow showing the distance between the eyes."}
+eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on,   with an arrow showing the distance between the eyes."}
 
 ### Import
 
@@ -555,9 +556,9 @@ knitr::kable(pigeons) |>
 
 This data is not in 'tidy' format [@Wickham2014-nl].
 
-Tidy format has variables in column and observations in rows. All of 
-the distance measurements should be in one column and a second column
-should give the population.
+Tidy format has variables in column and observations in rows. All of the
+distance measurements should be in one column and a second column should
+give the population.
 
 ```{r}
 #| echo: false
@@ -700,11 +701,11 @@ ggsave("figures/ulna_heights.png",
 
 ## Look after future you!
 
-Future you is going to summarise and plot data from other modules. You can 
-make this much easier by documenting what you have done now. Go through 
-your script (`summarise-plot-data-with-several-vars.R`) and remove code 
-that you do not need. Add comments to the code you do need to explain 
-what it does.
+Future you is going to summarise and plot data from other modules. You
+can make this much easier by documenting what you have done now. Go
+through your script (`summarise-plot-data-with-several-vars.R`) and
+remove code that you do not need. Add comments to the code you do need
+to explain what it does.
 
 <!-- Here is an example: [seals-analysis.R](assets/seals-analysis.R).  -->
 
@@ -731,9 +732,8 @@ The `workshop.qmd` file is the file I use to compile the practical. Qmd
 stands for Quarto markdown. It allows code and ordinary text to be
 interweaved to produce well-formatted reports including webpages. View
 the source code for this workshop using the `</> Code` button at the top
-of the page.
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+of the page. Coding and thinking answers are marked with
+`#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
 @knitr2; @knitr3], `kableExtra` [@kableExtra]
