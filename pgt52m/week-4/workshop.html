@@ -728,7 +728,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
 <li>
-<a href="#data-already-tidy-myoglobin-in-seal-muscle" id="toc-data-already-tidy-myoglobin-in-seal-muscle" class="nav-link" data-scroll-target="#data-already-tidy-myoglobin-in-seal-muscle">Data already tidy: Myoglobin in seal muscle</a>
+<a href="#data-already-tidy-myoglobin-in-seals-or-psych-example" id="toc-data-already-tidy-myoglobin-in-seals-or-psych-example" class="nav-link" data-scroll-target="#data-already-tidy-myoglobin-in-seals-or-psych-example">Data already tidy: Myoglobin in seals or Psych Example</a>
   <ul class="collapse">
 <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
   <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise">Summarise</a></li>
@@ -737,7 +737,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   </ul>
 </li>
   <li>
-<a href="#data-needs-tidying-pigeons" id="toc-data-needs-tidying-pigeons" class="nav-link" data-scroll-target="#data-needs-tidying-pigeons">Data needs tidying: Pigeons</a>
+<a href="#pigeons-w4" id="toc-pigeons-w4" class="nav-link" data-scroll-target="#pigeons-w4">Data needs tidying: Pigeons</a>
   <ul class="collapse">
 <li><a href="#import-1" id="toc-import-1" class="nav-link" data-scroll-target="#import-1">Import</a></li>
   <li><a href="#tidying-data" id="toc-tidying-data" class="nav-link" data-scroll-target="#tidying-data">Tidying data</a></li>
@@ -827,13 +827,14 @@ Key
 <li>two continuous variables: ulna length and height in humans</li>
 </ul>
 <p>You should start to notice how similar the code is for all of these and also where they differ.</p>
-<section id="data-already-tidy-myoglobin-in-seal-muscle" class="level2"><h2 class="anchored" data-anchor-id="data-already-tidy-myoglobin-in-seal-muscle">Data already tidy: Myoglobin in seal muscle</h2>
+<section id="data-already-tidy-myoglobin-in-seals-or-psych-example" class="level2"><h2 class="anchored" data-anchor-id="data-already-tidy-myoglobin-in-seals-or-psych-example">Data already tidy: Myoglobin in seals or <a href="psych-example.html">Psych Example</a>
+</h2>
 <p>The myoglobin concentration of skeletal muscle of three species of seal in grams per kilogram of muscle was determined and the data are given in <a href="data-raw/seal.csv">seal.csv</a>. Each row represents an individual seal. The first column gives the myoglobin concentration and the second column indicates species.</p>
 <section id="import" class="level3"><h3 class="anchored" data-anchor-id="import">Import</h3>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/seal.csv">seal.csv</a> to your <code>data-raw</code> folder.</p>
-<p>In the next step you will import the daya and I suggest you look up data import from last week. There are two ways you could do that.</p>
+<p>In the next step you will import the days and I suggest you look up data import from last week. There are two ways you could do that.</p>
 <ol type="1">
-<li><p>Open your own script from last week. You do not need to open the <code>week-8</code> RStudio Project itself - you can open the script you used by navigating to through the File pane. After you have found it and clicked on it to open, I suggest showing your working directory in your File Pane again. You can do that by clicking on the little arrow at the end of the path printed on the Console window.</p></li>
+<li><p>Open your own script from last week. You do not need to open the <code>week-3</code> RStudio Project itself - you can open the script you used by navigating to through the File pane. After you have found it and clicked on it to open, I suggest showing your working directory in your File Pane again. You can do that by clicking on the little arrow at the end of the path printed on the Console window.</p></li>
 <li><p>Go the the <a href="../week-3/workshop.html#importing-data-from-files" target="_blank">workshop page from last week</a>.</p></li>
 </ol>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read the data into a dataframe called <code>seal</code>.</p>
@@ -844,8 +845,8 @@ Key
 <!-- levels (groups). -->
 <p>The key point here is that the fundamental structure of:</p>
 <ul>
-<li><p>one continuous response and one nominal explanatory variable with two groups (<a href="data-raw/adipocytes.txt">adipocytes</a>), and</p></li>
-<li><p>one continuous response and one nominal explanatory variable with three groups (<a href="data-raw/seal.csv">seals</a>)</p></li>
+<li><p>the <a href="data-raw/adipocytes.txt">adipocytes</a> example from the <a href="https://3mmarand.github.io/comp4biosci/import-to-report.html#importing-data-from-.txt-file">book</a> which had a continuous response and one nominal explanatory variable with two groups , and</p></li>
+<li><p>this example, one continuous response and one nominal explanatory variable with three groups (<a href="data-raw/seal.csv">seals</a>)</p></li>
 </ul>
 <p>is the same! The only thing that differs is the number of groups (the number of values in the nominal variable). This means the code for summarising and plotting is <em>identical</em> except for the variable names!</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1083,7 +1084,7 @@ Tip: <code>ggplot()</code>
 </div>
 </div>
 </div>
-<p>You only need to use name in <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> to use labels that are different from those in the dataset. Often this is to use proper terminology and captialisation.</p>
+<p>You only need to use name in <code>scale_y_continuous()</code> and <code>scale_x_discrete()</code> to use labels that are different from those in the dataset. Often this is to use proper terminology and capitalisation.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Format the figure in a way that is more suitable for including in a report using <code>theme_classic()</code> (edit your existing code):</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1146,7 +1147,7 @@ Tip: <code>ggplot()</code>
 </div>
 <p><code>figures/seal-muscle.png</code> is the name of the file, including the relative path.</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Look up <code>ggsave()</code> in the manual to understand the arguments. You can do this by putting your cursor on the command and pressing F1</p>
-</section></section><section id="data-needs-tidying-pigeons" class="level2"><h2 class="anchored" data-anchor-id="data-needs-tidying-pigeons">Data needs tidying: Pigeons</h2>
+</section></section><section id="pigeons-w4" class="level2"><h2 class="anchored" data-anchor-id="pigeons-w4">Data needs tidying: Pigeons</h2>
 <p>The data in <a href="data-raw/pigeon.txt">pigeon.txt</a> are 40 measurements of interorbital width (in mm) for two populations of domestic pigeons measured to the nearest 0.1mm</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><a href="images/interorbital.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Interorbital width is the distance between the eyes"><img src="images/interorbital.png" class="img-fluid figure-img" alt="Photo of a domestic pigeon, head on,   with an arrow showing the distance between the eyes."></a></p>
@@ -2368,7 +2369,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb15-106"><a href="#cb15-106" aria-hidden="true" tabindex="-1"></a>You should start to notice how similar the code is for all of these and</span>
 <span id="cb15-107"><a href="#cb15-107" aria-hidden="true" tabindex="-1"></a>also where they differ.</span>
 <span id="cb15-108"><a href="#cb15-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data already tidy: Myoglobin in seal muscle</span></span>
+<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data already tidy: Myoglobin in seals or [Psych Example](psych-example.html)</span></span>
 <span id="cb15-110"><a href="#cb15-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-111"><a href="#cb15-111" aria-hidden="true" tabindex="-1"></a>The myoglobin concentration of skeletal muscle of three species of seal</span>
 <span id="cb15-112"><a href="#cb15-112" aria-hidden="true" tabindex="-1"></a>in grams per kilogram of muscle was determined and the data are given in</span>
@@ -2381,11 +2382,11 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_on_your_computer.png)</span> Save <span class="co">[</span><span class="ot">seal.csv</span><span class="co">](data-raw/seal.csv)</span></span>
 <span id="cb15-120"><a href="#cb15-120" aria-hidden="true" tabindex="-1"></a>to your <span class="in">`data-raw`</span> folder.</span>
 <span id="cb15-121"><a href="#cb15-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a>In the next step you will import the daya and I suggest you look up data</span>
+<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a>In the next step you will import the days and I suggest you look up data</span>
 <span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a>import from last week. There are two ways you could do that.</span>
 <span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-125"><a href="#cb15-125" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Open your own script from last week. You do not need to open the</span>
-<span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a>    <span class="in">`week-8`</span> RStudio Project itself - you can open the script you used</span>
+<span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a>    <span class="in">`week-3`</span> RStudio Project itself - you can open the script you used</span>
 <span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a>    by navigating to through the File pane. After you have found it and</span>
 <span id="cb15-128"><a href="#cb15-128" aria-hidden="true" tabindex="-1"></a>    clicked on it to open, I suggest showing your working directory in</span>
 <span id="cb15-129"><a href="#cb15-129" aria-hidden="true" tabindex="-1"></a>    your File Pane again. You can do that by clicking on the little</span>
@@ -2416,588 +2417,588 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a>The key point here is that the fundamental structure of:</span>
 <span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>one continuous response and one nominal explanatory variable with</span>
-<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a>    two groups (<span class="co">[</span><span class="ot">adipocytes</span><span class="co">](data-raw/adipocytes.txt)</span>), and</span>
-<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>one continuous response and one nominal explanatory variable with</span>
-<span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a>    three groups (<span class="co">[</span><span class="ot">seals</span><span class="co">](data-raw/seal.csv)</span>)</span>
-<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a>is the same! The only thing that differs is the number of groups (the</span>
-<span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a>number of values in the nominal variable). This means the code for</span>
-<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a>summarising and plotting is *identical* except for the variable names!</span>
-<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tip</span></span>
-<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a>When two datasets have the same number of columns and the response</span>
-<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a>variable and the explanatory variables have the same data types then the</span>
-<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a>code you need is the same.</span>
-<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### Summarise</span></span>
+<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="co">[</span><span class="ot">adipocytes</span><span class="co">](data-raw/adipocytes.txt)</span> example from the</span>
+<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a>    <span class="co">[</span><span class="ot">book</span><span class="co">](https://3mmarand.github.io/comp4biosci/import-to-report.html#importing-data-from-.txt-file)</span></span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a>    which had a continuous response and one nominal explanatory variable</span>
+<span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a>    with two groups , and</span>
+<span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>this example, one continuous response and one nominal explanatory</span>
+<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a>    variable with three groups (<span class="co">[</span><span class="ot">seals</span><span class="co">](data-raw/seal.csv)</span>)</span>
+<span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a>is the same! The only thing that differs is the number of groups (the</span>
+<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a>number of values in the nominal variable). This means the code for</span>
+<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a>summarising and plotting is *identical* except for the variable names!</span>
+<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tip</span></span>
+<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a>When two datasets have the same number of columns and the response</span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a>variable and the explanatory variables have the same data types then the</span>
+<span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a>code you need is the same.</span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a>Summarising the data for each species is the next sensible step. The</span>
-<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a>most useful summary statistics for a continuous variable like</span>
-<span id="cb15-181"><a href="#cb15-181" aria-hidden="true" tabindex="-1"></a><span class="in">`myoglobin`</span> are:</span>
-<span id="cb15-182"><a href="#cb15-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>mean</span>
-<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>standard deviation</span>
-<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>sample size</span>
-<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>standard error</span>
-<span id="cb15-187"><a href="#cb15-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-188"><a href="#cb15-188" aria-hidden="true" tabindex="-1"></a>We *can* get those for the whole <span class="in">`myoglobin`</span> column, like we did for the</span>
-<span id="cb15-189"><a href="#cb15-189" aria-hidden="true" tabindex="-1"></a>[<span class="in">`FSA`</span> column in the cells dataset last</span>
-<span id="cb15-190"><a href="#cb15-190" aria-hidden="true" tabindex="-1"></a>week](../week-3/workshop.html#cells). However, it is likely to be more</span>
-<span id="cb15-191"><a href="#cb15-191" aria-hidden="true" tabindex="-1"></a>useful to summarise <span class="in">`myoglobin`</span> separately for each seal species. We can</span>
-<span id="cb15-192"><a href="#cb15-192" aria-hidden="true" tabindex="-1"></a>achieve this using <span class="in">`group_by()`</span> before <span class="in">`summarise()`</span>.</span>
-<span id="cb15-193"><a href="#cb15-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-194"><a href="#cb15-194" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Create a data frame called <span class="in">`seal_summary`</span><span class="ot">[^1]</span></span>
-<span id="cb15-195"><a href="#cb15-195" aria-hidden="true" tabindex="-1"></a>that contains the means, standard deviations, sample sizes and standard</span>
-<span id="cb15-196"><a href="#cb15-196" aria-hidden="true" tabindex="-1"></a>errors for each of the seal species:</span>
-<span id="cb15-197"><a href="#cb15-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-198"><a href="#cb15-198" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>"Create a dataframe called <span class="in">`seal_summary`</span>" means assign the output</span>
-<span id="cb15-199"><a href="#cb15-199" aria-hidden="true" tabindex="-1"></a>    of the <span class="in">`group_by()`</span> and <span class="in">`summarise()`</span> code to something called</span>
-<span id="cb15-200"><a href="#cb15-200" aria-hidden="true" tabindex="-1"></a>    <span class="in">`seal_summary`</span>.</span>
-<span id="cb15-201"><a href="#cb15-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-204"><a href="#cb15-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-205"><a href="#cb15-205" aria-hidden="true" tabindex="-1"></a>seal_summary <span class="ot">&lt;-</span> seal <span class="sc">|&gt;</span> </span>
-<span id="cb15-206"><a href="#cb15-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(myoglobin),</span>
-<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(myoglobin),</span>
-<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(myoglobin),</span>
-<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> std<span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
-<span id="cb15-211"><a href="#cb15-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-212"><a href="#cb15-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### Summarise</span></span>
+<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-181"><a href="#cb15-181" aria-hidden="true" tabindex="-1"></a>Summarising the data for each species is the next sensible step. The</span>
+<span id="cb15-182"><a href="#cb15-182" aria-hidden="true" tabindex="-1"></a>most useful summary statistics for a continuous variable like</span>
+<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a><span class="in">`myoglobin`</span> are:</span>
+<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>mean</span>
+<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>standard deviation</span>
+<span id="cb15-187"><a href="#cb15-187" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>sample size</span>
+<span id="cb15-188"><a href="#cb15-188" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>standard error</span>
+<span id="cb15-189"><a href="#cb15-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-190"><a href="#cb15-190" aria-hidden="true" tabindex="-1"></a>We *can* get those for the whole <span class="in">`myoglobin`</span> column, like we did for the</span>
+<span id="cb15-191"><a href="#cb15-191" aria-hidden="true" tabindex="-1"></a>[<span class="in">`FSA`</span> column in the cells dataset last</span>
+<span id="cb15-192"><a href="#cb15-192" aria-hidden="true" tabindex="-1"></a>week](../week-3/workshop.html#cells). However, it is likely to be more</span>
+<span id="cb15-193"><a href="#cb15-193" aria-hidden="true" tabindex="-1"></a>useful to summarise <span class="in">`myoglobin`</span> separately for each seal species. We can</span>
+<span id="cb15-194"><a href="#cb15-194" aria-hidden="true" tabindex="-1"></a>achieve this using <span class="in">`group_by()`</span> before <span class="in">`summarise()`</span>.</span>
+<span id="cb15-195"><a href="#cb15-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-196"><a href="#cb15-196" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Create a data frame called <span class="in">`seal_summary`</span><span class="ot">[^1]</span></span>
+<span id="cb15-197"><a href="#cb15-197" aria-hidden="true" tabindex="-1"></a>that contains the means, standard deviations, sample sizes and standard</span>
+<span id="cb15-198"><a href="#cb15-198" aria-hidden="true" tabindex="-1"></a>errors for each of the seal species:</span>
+<span id="cb15-199"><a href="#cb15-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-200"><a href="#cb15-200" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>"Create a dataframe called <span class="in">`seal_summary`</span>" means assign the output</span>
+<span id="cb15-201"><a href="#cb15-201" aria-hidden="true" tabindex="-1"></a>    of the <span class="in">`group_by()`</span> and <span class="in">`summarise()`</span> code to something called</span>
+<span id="cb15-202"><a href="#cb15-202" aria-hidden="true" tabindex="-1"></a>    <span class="in">`seal_summary`</span>.</span>
+<span id="cb15-203"><a href="#cb15-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-206"><a href="#cb15-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a>seal_summary <span class="ot">&lt;-</span> seal <span class="sc">|&gt;</span> </span>
+<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(myoglobin),</span>
+<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(myoglobin),</span>
+<span id="cb15-211"><a href="#cb15-211" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(myoglobin),</span>
+<span id="cb15-212"><a href="#cb15-212" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> std<span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
 <span id="cb15-213"><a href="#cb15-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a>You should get the following numbers:</span>
+<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-215"><a href="#cb15-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-218"><a href="#cb15-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb15-220"><a href="#cb15-220" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(seal_summary) <span class="sc">|&gt;</span> kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>()</span>
-<span id="cb15-221"><a href="#cb15-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-223"><a href="#cb15-223" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualise</span></span>
+<span id="cb15-216"><a href="#cb15-216" aria-hidden="true" tabindex="-1"></a>You should get the following numbers:</span>
+<span id="cb15-217"><a href="#cb15-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-220"><a href="#cb15-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-221"><a href="#cb15-221" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(seal_summary) <span class="sc">|&gt;</span> kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>()</span>
+<span id="cb15-223"><a href="#cb15-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-224"><a href="#cb15-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a>Most commonly, we put the explanatory variable on the *x* axis and the</span>
-<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a>response variable on the *y* axis. A continuous response, particularly</span>
-<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a>one that follows the normal distribution, is best summarised with the</span>
-<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a>mean and the standard error. In my opinion, you should also show **all**</span>
-<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a>the raw data points wherever possible.</span>
-<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a>We are going to create a figure like this:</span>
+<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualise</span></span>
+<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a>Most commonly, we put the explanatory variable on the *x* axis and the</span>
+<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a>response variable on the *y* axis. A continuous response, particularly</span>
+<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a>one that follows the normal distribution, is best summarised with the</span>
+<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a>mean and the standard error. In my opinion, you should also show **all**</span>
+<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a>the raw data points wherever possible.</span>
 <span id="cb15-232"><a href="#cb15-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-235"><a href="#cb15-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-236"><a href="#cb15-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb15-237"><a href="#cb15-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-238"><a href="#cb15-238" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-239"><a href="#cb15-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
-<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
-<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
-<span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-253"><a href="#cb15-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-233"><a href="#cb15-233" aria-hidden="true" tabindex="-1"></a>We are going to create a figure like this:</span>
+<span id="cb15-234"><a href="#cb15-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-237"><a href="#cb15-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-238"><a href="#cb15-238" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-239"><a href="#cb15-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb15-253"><a href="#cb15-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
 <span id="cb15-254"><a href="#cb15-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-255"><a href="#cb15-255" aria-hidden="true" tabindex="-1"></a>In this figure, we have two dataframes:</span>
+<span id="cb15-255"><a href="#cb15-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-256"><a href="#cb15-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-257"><a href="#cb15-257" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="in">`seal`</span> dataframe which contains the raw data points</span>
-<span id="cb15-258"><a href="#cb15-258" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="in">`seal_summary`</span> dataframe which contains the means and standard</span>
-<span id="cb15-259"><a href="#cb15-259" aria-hidden="true" tabindex="-1"></a>    errors.</span>
-<span id="cb15-260"><a href="#cb15-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-261"><a href="#cb15-261" aria-hidden="true" tabindex="-1"></a>So far we have plotted just one dataframe on a figure and we have</span>
-<span id="cb15-262"><a href="#cb15-262" aria-hidden="true" tabindex="-1"></a>specified the dataframe to be plotted and the columns to plot *inside*</span>
-<span id="cb15-263"><a href="#cb15-263" aria-hidden="true" tabindex="-1"></a>the <span class="in">`ggplot()`</span> command. For examples:</span>
-<span id="cb15-264"><a href="#cb15-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-267"><a href="#cb15-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-268"><a href="#cb15-268" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb15-269"><a href="#cb15-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-270"><a href="#cb15-270" aria-hidden="true" tabindex="-1"></a><span class="co"># YOU DO NOT NEED TO RUN THIS CODE</span></span>
-<span id="cb15-271"><a href="#cb15-271" aria-hidden="true" tabindex="-1"></a><span class="co"># It is here to remind you that so far we have specified a single dataframe</span></span>
-<span id="cb15-272"><a href="#cb15-272" aria-hidden="true" tabindex="-1"></a><span class="co"># to be plotted and did this by specifying the dataframe to be plotted and</span></span>
-<span id="cb15-273"><a href="#cb15-273" aria-hidden="true" tabindex="-1"></a><span class="co"># the columns to plot INSIDE the `ggplot()` command</span></span>
-<span id="cb15-274"><a href="#cb15-274" aria-hidden="true" tabindex="-1"></a><span class="co"># For a boxplot ...</span></span>
-<span id="cb15-275"><a href="#cb15-275" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cats, </span>
-<span id="cb15-276"><a href="#cb15-276" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(coat, mass), <span class="at">y =</span> mass)) <span class="sc">+</span></span>
-<span id="cb15-277"><a href="#cb15-277" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"darkcyan"</span>) <span class="sc">+</span></span>
-<span id="cb15-278"><a href="#cb15-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Coat colour"</span>) <span class="sc">+</span></span>
-<span id="cb15-279"><a href="#cb15-279" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Mass (kg)"</span>, </span>
-<span id="cb15-280"><a href="#cb15-280" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb15-281"><a href="#cb15-281" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>)) <span class="sc">+</span></span>
-<span id="cb15-282"><a href="#cb15-282" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb15-283"><a href="#cb15-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-284"><a href="#cb15-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-285"><a href="#cb15-285" aria-hidden="true" tabindex="-1"></a>Or</span>
+<span id="cb15-257"><a href="#cb15-257" aria-hidden="true" tabindex="-1"></a>In this figure, we have two dataframes:</span>
+<span id="cb15-258"><a href="#cb15-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-259"><a href="#cb15-259" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="in">`seal`</span> dataframe which contains the raw data points</span>
+<span id="cb15-260"><a href="#cb15-260" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="in">`seal_summary`</span> dataframe which contains the means and standard</span>
+<span id="cb15-261"><a href="#cb15-261" aria-hidden="true" tabindex="-1"></a>    errors.</span>
+<span id="cb15-262"><a href="#cb15-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-263"><a href="#cb15-263" aria-hidden="true" tabindex="-1"></a>So far we have plotted just one dataframe on a figure and we have</span>
+<span id="cb15-264"><a href="#cb15-264" aria-hidden="true" tabindex="-1"></a>specified the dataframe to be plotted and the columns to plot *inside*</span>
+<span id="cb15-265"><a href="#cb15-265" aria-hidden="true" tabindex="-1"></a>the <span class="in">`ggplot()`</span> command. For examples:</span>
+<span id="cb15-266"><a href="#cb15-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-269"><a href="#cb15-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-270"><a href="#cb15-270" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb15-271"><a href="#cb15-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-272"><a href="#cb15-272" aria-hidden="true" tabindex="-1"></a><span class="co"># YOU DO NOT NEED TO RUN THIS CODE</span></span>
+<span id="cb15-273"><a href="#cb15-273" aria-hidden="true" tabindex="-1"></a><span class="co"># It is here to remind you that so far we have specified a single dataframe</span></span>
+<span id="cb15-274"><a href="#cb15-274" aria-hidden="true" tabindex="-1"></a><span class="co"># to be plotted and did this by specifying the dataframe to be plotted and</span></span>
+<span id="cb15-275"><a href="#cb15-275" aria-hidden="true" tabindex="-1"></a><span class="co"># the columns to plot INSIDE the `ggplot()` command</span></span>
+<span id="cb15-276"><a href="#cb15-276" aria-hidden="true" tabindex="-1"></a><span class="co"># For a boxplot ...</span></span>
+<span id="cb15-277"><a href="#cb15-277" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cats, </span>
+<span id="cb15-278"><a href="#cb15-278" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(coat, mass), <span class="at">y =</span> mass)) <span class="sc">+</span></span>
+<span id="cb15-279"><a href="#cb15-279" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"darkcyan"</span>) <span class="sc">+</span></span>
+<span id="cb15-280"><a href="#cb15-280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Coat colour"</span>) <span class="sc">+</span></span>
+<span id="cb15-281"><a href="#cb15-281" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Mass (kg)"</span>, </span>
+<span id="cb15-282"><a href="#cb15-282" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb15-283"><a href="#cb15-283" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>)) <span class="sc">+</span></span>
+<span id="cb15-284"><a href="#cb15-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb15-285"><a href="#cb15-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-286"><a href="#cb15-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-289"><a href="#cb15-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-290"><a href="#cb15-290" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb15-291"><a href="#cb15-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-292"><a href="#cb15-292" aria-hidden="true" tabindex="-1"></a><span class="co"># YOU DO NOT NEED TO RUN THIS CODE</span></span>
-<span id="cb15-293"><a href="#cb15-293" aria-hidden="true" tabindex="-1"></a><span class="co"># ... and for a histogram</span></span>
-<span id="cb15-294"><a href="#cb15-294" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fly_bristles_means, <span class="fu">aes</span>(<span class="at">x =</span> mean_count)) <span class="sc">+</span></span>
-<span id="cb15-295"><a href="#cb15-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>, </span>
-<span id="cb15-296"><a href="#cb15-296" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="st">"black"</span>,</span>
-<span id="cb15-297"><a href="#cb15-297" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Number of bristles"</span>,</span>
-<span id="cb15-299"><a href="#cb15-299" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-300"><a href="#cb15-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb15-301"><a href="#cb15-301" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb15-302"><a href="#cb15-302" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">35</span>)) <span class="sc">+</span></span>
-<span id="cb15-303"><a href="#cb15-303" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb15-304"><a href="#cb15-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-305"><a href="#cb15-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-306"><a href="#cb15-306" aria-hidden="true" tabindex="-1"></a>Here you will learn that dataframes and aesthetics can be specified</span>
-<span id="cb15-307"><a href="#cb15-307" aria-hidden="true" tabindex="-1"></a>*within a `geom_xxxx`* rather than within <span class="in">`ggplot()`</span>. This is very</span>
-<span id="cb15-308"><a href="#cb15-308" aria-hidden="true" tabindex="-1"></a>useful if the geom only applies to some of the data you want to plot.</span>
-<span id="cb15-309"><a href="#cb15-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-310"><a href="#cb15-310" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb15-311"><a href="#cb15-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tip: `ggplot()`</span></span>
-<span id="cb15-312"><a href="#cb15-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-313"><a href="#cb15-313" aria-hidden="true" tabindex="-1"></a>You put the <span class="in">`data`</span> argument and <span class="in">`aes()`</span> inside <span class="in">`ggplot()`</span> if you want</span>
-<span id="cb15-314"><a href="#cb15-314" aria-hidden="true" tabindex="-1"></a>all the <span class="in">`geoms`</span> to use that dataframe and variables. If you want a</span>
-<span id="cb15-315"><a href="#cb15-315" aria-hidden="true" tabindex="-1"></a>different dataframe for a <span class="in">`geom`</span>, put the <span class="in">`data`</span> argument and <span class="in">`aes()`</span></span>
-<span id="cb15-316"><a href="#cb15-316" aria-hidden="true" tabindex="-1"></a>inside the <span class="in">`geom_xxxx()`</span></span>
-<span id="cb15-317"><a href="#cb15-317" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb15-318"><a href="#cb15-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-319"><a href="#cb15-319" aria-hidden="true" tabindex="-1"></a>I will build the plot up in small steps **but you should edit your</span>
-<span id="cb15-320"><a href="#cb15-320" aria-hidden="true" tabindex="-1"></a>*existing*`ggplot()` command as we go.**</span>
-<span id="cb15-321"><a href="#cb15-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-322"><a href="#cb15-322" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot the raw data points first:</span>
+<span id="cb15-287"><a href="#cb15-287" aria-hidden="true" tabindex="-1"></a>Or</span>
+<span id="cb15-288"><a href="#cb15-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-291"><a href="#cb15-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-292"><a href="#cb15-292" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb15-293"><a href="#cb15-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-294"><a href="#cb15-294" aria-hidden="true" tabindex="-1"></a><span class="co"># YOU DO NOT NEED TO RUN THIS CODE</span></span>
+<span id="cb15-295"><a href="#cb15-295" aria-hidden="true" tabindex="-1"></a><span class="co"># ... and for a histogram</span></span>
+<span id="cb15-296"><a href="#cb15-296" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fly_bristles_means, <span class="fu">aes</span>(<span class="at">x =</span> mean_count)) <span class="sc">+</span></span>
+<span id="cb15-297"><a href="#cb15-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>, </span>
+<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="st">"black"</span>,</span>
+<span id="cb15-299"><a href="#cb15-299" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb15-300"><a href="#cb15-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Number of bristles"</span>,</span>
+<span id="cb15-301"><a href="#cb15-301" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-302"><a href="#cb15-302" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb15-303"><a href="#cb15-303" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb15-304"><a href="#cb15-304" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">35</span>)) <span class="sc">+</span></span>
+<span id="cb15-305"><a href="#cb15-305" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb15-306"><a href="#cb15-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-307"><a href="#cb15-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-308"><a href="#cb15-308" aria-hidden="true" tabindex="-1"></a>Here you will learn that dataframes and aesthetics can be specified</span>
+<span id="cb15-309"><a href="#cb15-309" aria-hidden="true" tabindex="-1"></a>*within a `geom_xxxx`* rather than within <span class="in">`ggplot()`</span>. This is very</span>
+<span id="cb15-310"><a href="#cb15-310" aria-hidden="true" tabindex="-1"></a>useful if the geom only applies to some of the data you want to plot.</span>
+<span id="cb15-311"><a href="#cb15-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-312"><a href="#cb15-312" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb15-313"><a href="#cb15-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tip: `ggplot()`</span></span>
+<span id="cb15-314"><a href="#cb15-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-315"><a href="#cb15-315" aria-hidden="true" tabindex="-1"></a>You put the <span class="in">`data`</span> argument and <span class="in">`aes()`</span> inside <span class="in">`ggplot()`</span> if you want</span>
+<span id="cb15-316"><a href="#cb15-316" aria-hidden="true" tabindex="-1"></a>all the <span class="in">`geoms`</span> to use that dataframe and variables. If you want a</span>
+<span id="cb15-317"><a href="#cb15-317" aria-hidden="true" tabindex="-1"></a>different dataframe for a <span class="in">`geom`</span>, put the <span class="in">`data`</span> argument and <span class="in">`aes()`</span></span>
+<span id="cb15-318"><a href="#cb15-318" aria-hidden="true" tabindex="-1"></a>inside the <span class="in">`geom_xxxx()`</span></span>
+<span id="cb15-319"><a href="#cb15-319" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-320"><a href="#cb15-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-321"><a href="#cb15-321" aria-hidden="true" tabindex="-1"></a>I will build the plot up in small steps **but you should edit your</span>
+<span id="cb15-322"><a href="#cb15-322" aria-hidden="true" tabindex="-1"></a>*existing*`ggplot()` command as we go.**</span>
 <span id="cb15-323"><a href="#cb15-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-326"><a href="#cb15-326" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-327"><a href="#cb15-327" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-328"><a href="#cb15-328" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, </span>
-<span id="cb15-329"><a href="#cb15-329" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin))</span>
-<span id="cb15-330"><a href="#cb15-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-332"><a href="#cb15-332" aria-hidden="true" tabindex="-1"></a>Notice:</span>
+<span id="cb15-324"><a href="#cb15-324" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Plot the raw data points first:</span>
+<span id="cb15-325"><a href="#cb15-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-328"><a href="#cb15-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-329"><a href="#cb15-329" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-330"><a href="#cb15-330" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, </span>
+<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin))</span>
+<span id="cb15-332"><a href="#cb15-332" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-333"><a href="#cb15-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-334"><a href="#cb15-334" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_point()`</span> is the geom to plot points</span>
+<span id="cb15-334"><a href="#cb15-334" aria-hidden="true" tabindex="-1"></a>Notice:</span>
 <span id="cb15-335"><a href="#cb15-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-336"><a href="#cb15-336" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have given the data argument and the aesthetics inside the geom.</span>
+<span id="cb15-336"><a href="#cb15-336" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_point()`</span> is the geom to plot points</span>
 <span id="cb15-337"><a href="#cb15-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-338"><a href="#cb15-338" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the variables given in the aes(), <span class="in">`species`</span> and <span class="in">`myoglobin`</span>, are</span>
-<span id="cb15-339"><a href="#cb15-339" aria-hidden="true" tabindex="-1"></a>    columns in the dataframe, <span class="in">`seal`</span>, given in the data argument.</span>
-<span id="cb15-340"><a href="#cb15-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-341"><a href="#cb15-341" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> We can ensure the points do not overlap, by</span>
-<span id="cb15-342"><a href="#cb15-342" aria-hidden="true" tabindex="-1"></a>adding some random jitter in the *x* direction (edit your existing</span>
-<span id="cb15-343"><a href="#cb15-343" aria-hidden="true" tabindex="-1"></a>code):</span>
-<span id="cb15-344"><a href="#cb15-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-347"><a href="#cb15-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-348"><a href="#cb15-348" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-349"><a href="#cb15-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, </span>
-<span id="cb15-350"><a href="#cb15-350" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb15-351"><a href="#cb15-351" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>))</span>
-<span id="cb15-352"><a href="#cb15-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-353"><a href="#cb15-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-354"><a href="#cb15-354" aria-hidden="true" tabindex="-1"></a>Notice:</span>
+<span id="cb15-338"><a href="#cb15-338" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have given the data argument and the aesthetics inside the geom.</span>
+<span id="cb15-339"><a href="#cb15-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-340"><a href="#cb15-340" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the variables given in the aes(), <span class="in">`species`</span> and <span class="in">`myoglobin`</span>, are</span>
+<span id="cb15-341"><a href="#cb15-341" aria-hidden="true" tabindex="-1"></a>    columns in the dataframe, <span class="in">`seal`</span>, given in the data argument.</span>
+<span id="cb15-342"><a href="#cb15-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-343"><a href="#cb15-343" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> We can ensure the points do not overlap, by</span>
+<span id="cb15-344"><a href="#cb15-344" aria-hidden="true" tabindex="-1"></a>adding some random jitter in the *x* direction (edit your existing</span>
+<span id="cb15-345"><a href="#cb15-345" aria-hidden="true" tabindex="-1"></a>code):</span>
+<span id="cb15-346"><a href="#cb15-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-349"><a href="#cb15-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-350"><a href="#cb15-350" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-351"><a href="#cb15-351" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, </span>
+<span id="cb15-352"><a href="#cb15-352" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb15-353"><a href="#cb15-353" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>))</span>
+<span id="cb15-354"><a href="#cb15-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-355"><a href="#cb15-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-356"><a href="#cb15-356" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`position = position_jitter(width = 0.1, height = 0)`</span> is inside the</span>
-<span id="cb15-357"><a href="#cb15-357" aria-hidden="true" tabindex="-1"></a>    <span class="in">`geom_point()`</span> parentheses, *after* the <span class="in">`aes()`</span> and a comma.</span>
-<span id="cb15-358"><a href="#cb15-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-359"><a href="#cb15-359" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>We've set the vertical jitter to 0 because, in contrast to the</span>
-<span id="cb15-360"><a href="#cb15-360" aria-hidden="true" tabindex="-1"></a>    categorical *x*-axis, movement on the *y*-axis has meaning (the</span>
-<span id="cb15-361"><a href="#cb15-361" aria-hidden="true" tabindex="-1"></a>    myoglobin levels).</span>
-<span id="cb15-362"><a href="#cb15-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-363"><a href="#cb15-363" aria-hidden="true" tabindex="-1"></a>Now to add the errorbars. These go from one standard error below the</span>
-<span id="cb15-364"><a href="#cb15-364" aria-hidden="true" tabindex="-1"></a>mean to one standard error above the mean.</span>
-<span id="cb15-365"><a href="#cb15-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-366"><a href="#cb15-366" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Add a <span class="in">`geom_errorbar()`</span> for errorbars (edit your</span>
-<span id="cb15-367"><a href="#cb15-367" aria-hidden="true" tabindex="-1"></a>existing code):</span>
-<span id="cb15-368"><a href="#cb15-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-371"><a href="#cb15-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-372"><a href="#cb15-372" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-373"><a href="#cb15-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb15-374"><a href="#cb15-374" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-375"><a href="#cb15-375" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-376"><a href="#cb15-376" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb15-377"><a href="#cb15-377" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) </span>
-<span id="cb15-378"><a href="#cb15-378" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-379"><a href="#cb15-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-380"><a href="#cb15-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-381"><a href="#cb15-381" aria-hidden="true" tabindex="-1"></a>Notice:</span>
+<span id="cb15-356"><a href="#cb15-356" aria-hidden="true" tabindex="-1"></a>Notice:</span>
+<span id="cb15-357"><a href="#cb15-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-358"><a href="#cb15-358" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`position = position_jitter(width = 0.1, height = 0)`</span> is inside the</span>
+<span id="cb15-359"><a href="#cb15-359" aria-hidden="true" tabindex="-1"></a>    <span class="in">`geom_point()`</span> parentheses, *after* the <span class="in">`aes()`</span> and a comma.</span>
+<span id="cb15-360"><a href="#cb15-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-361"><a href="#cb15-361" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>We've set the vertical jitter to 0 because, in contrast to the</span>
+<span id="cb15-362"><a href="#cb15-362" aria-hidden="true" tabindex="-1"></a>    categorical *x*-axis, movement on the *y*-axis has meaning (the</span>
+<span id="cb15-363"><a href="#cb15-363" aria-hidden="true" tabindex="-1"></a>    myoglobin levels).</span>
+<span id="cb15-364"><a href="#cb15-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-365"><a href="#cb15-365" aria-hidden="true" tabindex="-1"></a>Now to add the errorbars. These go from one standard error below the</span>
+<span id="cb15-366"><a href="#cb15-366" aria-hidden="true" tabindex="-1"></a>mean to one standard error above the mean.</span>
+<span id="cb15-367"><a href="#cb15-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-368"><a href="#cb15-368" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Add a <span class="in">`geom_errorbar()`</span> for errorbars (edit your</span>
+<span id="cb15-369"><a href="#cb15-369" aria-hidden="true" tabindex="-1"></a>existing code):</span>
+<span id="cb15-370"><a href="#cb15-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-373"><a href="#cb15-373" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-374"><a href="#cb15-374" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-375"><a href="#cb15-375" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb15-376"><a href="#cb15-376" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-377"><a href="#cb15-377" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-378"><a href="#cb15-378" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb15-379"><a href="#cb15-379" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) </span>
+<span id="cb15-380"><a href="#cb15-380" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-381"><a href="#cb15-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-382"><a href="#cb15-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-383"><a href="#cb15-383" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_errorbar()`</span> is the geom to plot error bars</span>
+<span id="cb15-383"><a href="#cb15-383" aria-hidden="true" tabindex="-1"></a>Notice:</span>
 <span id="cb15-384"><a href="#cb15-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-385"><a href="#cb15-385" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have given the data argument and the aesthetics inside the geom.</span>
+<span id="cb15-385"><a href="#cb15-385" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom_errorbar()`</span> is the geom to plot error bars</span>
 <span id="cb15-386"><a href="#cb15-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-387"><a href="#cb15-387" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the variables given in the aes(), <span class="in">`species`</span>, <span class="in">`mean`</span> and <span class="in">`se`</span>, are</span>
-<span id="cb15-388"><a href="#cb15-388" aria-hidden="true" tabindex="-1"></a>    columns in the dataframe, <span class="in">`seal_summary`</span>, given in the data</span>
-<span id="cb15-389"><a href="#cb15-389" aria-hidden="true" tabindex="-1"></a>    argument.</span>
-<span id="cb15-390"><a href="#cb15-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-391"><a href="#cb15-391" aria-hidden="true" tabindex="-1"></a>We would like to add the mean. You could use <span class="in">`geom_point()`</span> but I like</span>
-<span id="cb15-392"><a href="#cb15-392" aria-hidden="true" tabindex="-1"></a>to use another <span class="in">`geom_errorbar()`</span> to get a line by setting <span class="in">`ymin`</span> and</span>
-<span id="cb15-393"><a href="#cb15-393" aria-hidden="true" tabindex="-1"></a><span class="in">`ymax`</span> to the mean.</span>
-<span id="cb15-394"><a href="#cb15-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-395"><a href="#cb15-395" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Add a <span class="in">`geom_errorbar()`</span> for the mean (edit your</span>
-<span id="cb15-396"><a href="#cb15-396" aria-hidden="true" tabindex="-1"></a>existing code):</span>
-<span id="cb15-397"><a href="#cb15-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-400"><a href="#cb15-400" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-401"><a href="#cb15-401" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-402"><a href="#cb15-402" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
-<span id="cb15-403"><a href="#cb15-403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb15-404"><a href="#cb15-404" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-405"><a href="#cb15-405" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
-<span id="cb15-406"><a href="#cb15-406" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-407"><a href="#cb15-407" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb15-408"><a href="#cb15-408" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb15-409"><a href="#cb15-409" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
-<span id="cb15-410"><a href="#cb15-410" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-411"><a href="#cb15-411" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb15-412"><a href="#cb15-412" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>)</span>
-<span id="cb15-413"><a href="#cb15-413" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-414"><a href="#cb15-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-415"><a href="#cb15-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-416"><a href="#cb15-416" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Alter the axis labels and limits using</span>
-<span id="cb15-417"><a href="#cb15-417" aria-hidden="true" tabindex="-1"></a><span class="in">`scale_y_continuous()`</span> and <span class="in">`scale_x_discrete()`</span> (edit your existing</span>
-<span id="cb15-418"><a href="#cb15-418" aria-hidden="true" tabindex="-1"></a>code):</span>
-<span id="cb15-419"><a href="#cb15-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-422"><a href="#cb15-422" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-423"><a href="#cb15-423" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-424"><a href="#cb15-424" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
-<span id="cb15-425"><a href="#cb15-425" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb15-426"><a href="#cb15-426" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-427"><a href="#cb15-427" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
-<span id="cb15-428"><a href="#cb15-428" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-429"><a href="#cb15-429" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb15-430"><a href="#cb15-430" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb15-431"><a href="#cb15-431" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
-<span id="cb15-432"><a href="#cb15-432" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-433"><a href="#cb15-433" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb15-434"><a href="#cb15-434" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb15-435"><a href="#cb15-435" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
-<span id="cb15-436"><a href="#cb15-436" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
-<span id="cb15-437"><a href="#cb15-437" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-438"><a href="#cb15-438" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>)</span>
-<span id="cb15-439"><a href="#cb15-439" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-440"><a href="#cb15-440" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-441"><a href="#cb15-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-442"><a href="#cb15-442" aria-hidden="true" tabindex="-1"></a>You only need to use name in <span class="in">`scale_y_continuous()`</span> and</span>
-<span id="cb15-443"><a href="#cb15-443" aria-hidden="true" tabindex="-1"></a><span class="in">`scale_x_discrete()`</span> to use labels that are different from those in the</span>
-<span id="cb15-444"><a href="#cb15-444" aria-hidden="true" tabindex="-1"></a>dataset. Often this is to use proper terminology and captialisation.</span>
-<span id="cb15-445"><a href="#cb15-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-446"><a href="#cb15-446" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Format the figure in a way that is more suitable</span>
-<span id="cb15-447"><a href="#cb15-447" aria-hidden="true" tabindex="-1"></a>for including in a report using <span class="in">`theme_classic()`</span> (edit your existing</span>
-<span id="cb15-448"><a href="#cb15-448" aria-hidden="true" tabindex="-1"></a>code):</span>
-<span id="cb15-449"><a href="#cb15-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-452"><a href="#cb15-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-453"><a href="#cb15-453" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-454"><a href="#cb15-454" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
-<span id="cb15-455"><a href="#cb15-455" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb15-456"><a href="#cb15-456" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-457"><a href="#cb15-457" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
-<span id="cb15-458"><a href="#cb15-458" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-459"><a href="#cb15-459" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb15-460"><a href="#cb15-460" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb15-461"><a href="#cb15-461" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
-<span id="cb15-462"><a href="#cb15-462" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-463"><a href="#cb15-463" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb15-464"><a href="#cb15-464" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb15-465"><a href="#cb15-465" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
-<span id="cb15-466"><a href="#cb15-466" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
-<span id="cb15-467"><a href="#cb15-467" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-468"><a href="#cb15-468" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
-<span id="cb15-469"><a href="#cb15-469" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb15-470"><a href="#cb15-470" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-471"><a href="#cb15-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-472"><a href="#cb15-472" aria-hidden="true" tabindex="-1"></a><span class="fu">### Writing figures to file</span></span>
+<span id="cb15-387"><a href="#cb15-387" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we have given the data argument and the aesthetics inside the geom.</span>
+<span id="cb15-388"><a href="#cb15-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-389"><a href="#cb15-389" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the variables given in the aes(), <span class="in">`species`</span>, <span class="in">`mean`</span> and <span class="in">`se`</span>, are</span>
+<span id="cb15-390"><a href="#cb15-390" aria-hidden="true" tabindex="-1"></a>    columns in the dataframe, <span class="in">`seal_summary`</span>, given in the data</span>
+<span id="cb15-391"><a href="#cb15-391" aria-hidden="true" tabindex="-1"></a>    argument.</span>
+<span id="cb15-392"><a href="#cb15-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-393"><a href="#cb15-393" aria-hidden="true" tabindex="-1"></a>We would like to add the mean. You could use <span class="in">`geom_point()`</span> but I like</span>
+<span id="cb15-394"><a href="#cb15-394" aria-hidden="true" tabindex="-1"></a>to use another <span class="in">`geom_errorbar()`</span> to get a line by setting <span class="in">`ymin`</span> and</span>
+<span id="cb15-395"><a href="#cb15-395" aria-hidden="true" tabindex="-1"></a><span class="in">`ymax`</span> to the mean.</span>
+<span id="cb15-396"><a href="#cb15-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-397"><a href="#cb15-397" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Add a <span class="in">`geom_errorbar()`</span> for the mean (edit your</span>
+<span id="cb15-398"><a href="#cb15-398" aria-hidden="true" tabindex="-1"></a>existing code):</span>
+<span id="cb15-399"><a href="#cb15-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-402"><a href="#cb15-402" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-403"><a href="#cb15-403" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-404"><a href="#cb15-404" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
+<span id="cb15-405"><a href="#cb15-405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb15-406"><a href="#cb15-406" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-407"><a href="#cb15-407" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
+<span id="cb15-408"><a href="#cb15-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-409"><a href="#cb15-409" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb15-410"><a href="#cb15-410" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb15-411"><a href="#cb15-411" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
+<span id="cb15-412"><a href="#cb15-412" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-413"><a href="#cb15-413" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb15-414"><a href="#cb15-414" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>)</span>
+<span id="cb15-415"><a href="#cb15-415" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-416"><a href="#cb15-416" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-417"><a href="#cb15-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-418"><a href="#cb15-418" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Alter the axis labels and limits using</span>
+<span id="cb15-419"><a href="#cb15-419" aria-hidden="true" tabindex="-1"></a><span class="in">`scale_y_continuous()`</span> and <span class="in">`scale_x_discrete()`</span> (edit your existing</span>
+<span id="cb15-420"><a href="#cb15-420" aria-hidden="true" tabindex="-1"></a>code):</span>
+<span id="cb15-421"><a href="#cb15-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-424"><a href="#cb15-424" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-425"><a href="#cb15-425" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-426"><a href="#cb15-426" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
+<span id="cb15-427"><a href="#cb15-427" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb15-428"><a href="#cb15-428" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-429"><a href="#cb15-429" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
+<span id="cb15-430"><a href="#cb15-430" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-431"><a href="#cb15-431" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb15-432"><a href="#cb15-432" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb15-433"><a href="#cb15-433" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
+<span id="cb15-434"><a href="#cb15-434" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-435"><a href="#cb15-435" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb15-436"><a href="#cb15-436" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-437"><a href="#cb15-437" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb15-438"><a href="#cb15-438" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb15-439"><a href="#cb15-439" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-440"><a href="#cb15-440" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>)</span>
+<span id="cb15-441"><a href="#cb15-441" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-442"><a href="#cb15-442" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-443"><a href="#cb15-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-444"><a href="#cb15-444" aria-hidden="true" tabindex="-1"></a>You only need to use name in <span class="in">`scale_y_continuous()`</span> and</span>
+<span id="cb15-445"><a href="#cb15-445" aria-hidden="true" tabindex="-1"></a><span class="in">`scale_x_discrete()`</span> to use labels that are different from those in the</span>
+<span id="cb15-446"><a href="#cb15-446" aria-hidden="true" tabindex="-1"></a>dataset. Often this is to use proper terminology and capitalisation.</span>
+<span id="cb15-447"><a href="#cb15-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-448"><a href="#cb15-448" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Format the figure in a way that is more suitable</span>
+<span id="cb15-449"><a href="#cb15-449" aria-hidden="true" tabindex="-1"></a>for including in a report using <span class="in">`theme_classic()`</span> (edit your existing</span>
+<span id="cb15-450"><a href="#cb15-450" aria-hidden="true" tabindex="-1"></a>code):</span>
+<span id="cb15-451"><a href="#cb15-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-454"><a href="#cb15-454" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-455"><a href="#cb15-455" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-456"><a href="#cb15-456" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
+<span id="cb15-457"><a href="#cb15-457" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb15-458"><a href="#cb15-458" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-459"><a href="#cb15-459" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
+<span id="cb15-460"><a href="#cb15-460" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-461"><a href="#cb15-461" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb15-462"><a href="#cb15-462" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb15-463"><a href="#cb15-463" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
+<span id="cb15-464"><a href="#cb15-464" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-465"><a href="#cb15-465" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb15-466"><a href="#cb15-466" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-467"><a href="#cb15-467" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb15-468"><a href="#cb15-468" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb15-469"><a href="#cb15-469" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-470"><a href="#cb15-470" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb15-471"><a href="#cb15-471" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb15-472"><a href="#cb15-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-473"><a href="#cb15-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-474"><a href="#cb15-474" aria-hidden="true" tabindex="-1"></a>It is a good idea to save figures to files so that you can include them</span>
-<span id="cb15-475"><a href="#cb15-475" aria-hidden="true" tabindex="-1"></a>in reports. By scripting figures saving you can ensure your work is</span>
-<span id="cb15-476"><a href="#cb15-476" aria-hidden="true" tabindex="-1"></a>reproducible. It means you can regenerate the figures identically if you</span>
-<span id="cb15-477"><a href="#cb15-477" aria-hidden="true" tabindex="-1"></a>change the data or exactly match figures in size. Aim to save figures</span>
-<span id="cb15-478"><a href="#cb15-478" aria-hidden="true" tabindex="-1"></a>the size they will appear in a report - that way the fonts and line</span>
-<span id="cb15-479"><a href="#cb15-479" aria-hidden="true" tabindex="-1"></a>widths will be appropriate. If you need a high resolution figure, you</span>
-<span id="cb15-480"><a href="#cb15-480" aria-hidden="true" tabindex="-1"></a>can save it larger than needed then scale it down in the report. Doing</span>
-<span id="cb15-481"><a href="#cb15-481" aria-hidden="true" tabindex="-1"></a>that will require you to make changes to font sizes and line widths to</span>
-<span id="cb15-482"><a href="#cb15-482" aria-hidden="true" tabindex="-1"></a>make them appropriate when scaled down.</span>
-<span id="cb15-483"><a href="#cb15-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-484"><a href="#cb15-484" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> First make a new folder called <span class="in">`figures`</span>.</span>
+<span id="cb15-474"><a href="#cb15-474" aria-hidden="true" tabindex="-1"></a><span class="fu">### Writing figures to file</span></span>
+<span id="cb15-475"><a href="#cb15-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-476"><a href="#cb15-476" aria-hidden="true" tabindex="-1"></a>It is a good idea to save figures to files so that you can include them</span>
+<span id="cb15-477"><a href="#cb15-477" aria-hidden="true" tabindex="-1"></a>in reports. By scripting figures saving you can ensure your work is</span>
+<span id="cb15-478"><a href="#cb15-478" aria-hidden="true" tabindex="-1"></a>reproducible. It means you can regenerate the figures identically if you</span>
+<span id="cb15-479"><a href="#cb15-479" aria-hidden="true" tabindex="-1"></a>change the data or exactly match figures in size. Aim to save figures</span>
+<span id="cb15-480"><a href="#cb15-480" aria-hidden="true" tabindex="-1"></a>the size they will appear in a report - that way the fonts and line</span>
+<span id="cb15-481"><a href="#cb15-481" aria-hidden="true" tabindex="-1"></a>widths will be appropriate. If you need a high resolution figure, you</span>
+<span id="cb15-482"><a href="#cb15-482" aria-hidden="true" tabindex="-1"></a>can save it larger than needed then scale it down in the report. Doing</span>
+<span id="cb15-483"><a href="#cb15-483" aria-hidden="true" tabindex="-1"></a>that will require you to make changes to font sizes and line widths to</span>
+<span id="cb15-484"><a href="#cb15-484" aria-hidden="true" tabindex="-1"></a>make them appropriate when scaled down.</span>
 <span id="cb15-485"><a href="#cb15-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-486"><a href="#cb15-486" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Now edit your ggplot code so that you assign the</span>
-<span id="cb15-487"><a href="#cb15-487" aria-hidden="true" tabindex="-1"></a>figure to a variable which you use use in the <span class="in">`ggsave()`</span> command next.</span>
-<span id="cb15-488"><a href="#cb15-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-491"><a href="#cb15-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-492"><a href="#cb15-492" aria-hidden="true" tabindex="-1"></a>sealfig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-493"><a href="#cb15-493" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
-<span id="cb15-494"><a href="#cb15-494" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb15-495"><a href="#cb15-495" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-496"><a href="#cb15-496" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
-<span id="cb15-497"><a href="#cb15-497" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-498"><a href="#cb15-498" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb15-499"><a href="#cb15-499" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb15-500"><a href="#cb15-500" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
-<span id="cb15-501"><a href="#cb15-501" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb15-502"><a href="#cb15-502" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb15-503"><a href="#cb15-503" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb15-504"><a href="#cb15-504" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
-<span id="cb15-505"><a href="#cb15-505" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
-<span id="cb15-506"><a href="#cb15-506" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-507"><a href="#cb15-507" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
-<span id="cb15-508"><a href="#cb15-508" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb15-509"><a href="#cb15-509" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-510"><a href="#cb15-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-511"><a href="#cb15-511" aria-hidden="true" tabindex="-1"></a>The figure won't be shown in the Plots tab - the output has gone into</span>
-<span id="cb15-512"><a href="#cb15-512" aria-hidden="true" tabindex="-1"></a><span class="in">`sealfig`</span> rather than to the Plots tab. To make it appear in the Plots</span>
-<span id="cb15-513"><a href="#cb15-513" aria-hidden="true" tabindex="-1"></a>tab type <span class="in">`sealfig`</span>.</span>
-<span id="cb15-514"><a href="#cb15-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-515"><a href="#cb15-515" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> The <span class="in">`ggsave()`</span> command will write a ggplot</span>
-<span id="cb15-516"><a href="#cb15-516" aria-hidden="true" tabindex="-1"></a>figure to a file:</span>
-<span id="cb15-517"><a href="#cb15-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-520"><a href="#cb15-520" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-521"><a href="#cb15-521" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/seal-muscle.png"</span>,</span>
-<span id="cb15-522"><a href="#cb15-522" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> sealfig,</span>
-<span id="cb15-523"><a href="#cb15-523" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
-<span id="cb15-524"><a href="#cb15-524" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">4</span>,</span>
-<span id="cb15-525"><a href="#cb15-525" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
-<span id="cb15-526"><a href="#cb15-526" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
-<span id="cb15-527"><a href="#cb15-527" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span>
-<span id="cb15-528"><a href="#cb15-528" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-529"><a href="#cb15-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-530"><a href="#cb15-530" aria-hidden="true" tabindex="-1"></a><span class="in">`figures/seal-muscle.png`</span> is the name of the file, including the</span>
-<span id="cb15-531"><a href="#cb15-531" aria-hidden="true" tabindex="-1"></a>relative path.</span>
-<span id="cb15-532"><a href="#cb15-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-533"><a href="#cb15-533" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Look up <span class="in">`ggsave()`</span> in the manual to understand</span>
-<span id="cb15-534"><a href="#cb15-534" aria-hidden="true" tabindex="-1"></a>the arguments. You can do this by putting your cursor on the command and</span>
-<span id="cb15-535"><a href="#cb15-535" aria-hidden="true" tabindex="-1"></a>pressing F1</span>
-<span id="cb15-536"><a href="#cb15-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-537"><a href="#cb15-537" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data needs tidying: Pigeons</span></span>
+<span id="cb15-486"><a href="#cb15-486" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> First make a new folder called <span class="in">`figures`</span>.</span>
+<span id="cb15-487"><a href="#cb15-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-488"><a href="#cb15-488" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Now edit your ggplot code so that you assign the</span>
+<span id="cb15-489"><a href="#cb15-489" aria-hidden="true" tabindex="-1"></a>figure to a variable which you use use in the <span class="in">`ggsave()`</span> command next.</span>
+<span id="cb15-490"><a href="#cb15-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-493"><a href="#cb15-493" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-494"><a href="#cb15-494" aria-hidden="true" tabindex="-1"></a>sealfig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb15-495"><a href="#cb15-495" aria-hidden="true" tabindex="-1"></a>  <span class="co"># raw data</span></span>
+<span id="cb15-496"><a href="#cb15-496" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb15-497"><a href="#cb15-497" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-498"><a href="#cb15-498" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error bars</span></span>
+<span id="cb15-499"><a href="#cb15-499" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-500"><a href="#cb15-500" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb15-501"><a href="#cb15-501" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb15-502"><a href="#cb15-502" aria-hidden="true" tabindex="-1"></a>  <span class="co"># line for the mean</span></span>
+<span id="cb15-503"><a href="#cb15-503" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb15-504"><a href="#cb15-504" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb15-505"><a href="#cb15-505" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-506"><a href="#cb15-506" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb15-507"><a href="#cb15-507" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb15-508"><a href="#cb15-508" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-509"><a href="#cb15-509" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb15-510"><a href="#cb15-510" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb15-511"><a href="#cb15-511" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-512"><a href="#cb15-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-513"><a href="#cb15-513" aria-hidden="true" tabindex="-1"></a>The figure won't be shown in the Plots tab - the output has gone into</span>
+<span id="cb15-514"><a href="#cb15-514" aria-hidden="true" tabindex="-1"></a><span class="in">`sealfig`</span> rather than to the Plots tab. To make it appear in the Plots</span>
+<span id="cb15-515"><a href="#cb15-515" aria-hidden="true" tabindex="-1"></a>tab type <span class="in">`sealfig`</span>.</span>
+<span id="cb15-516"><a href="#cb15-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-517"><a href="#cb15-517" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> The <span class="in">`ggsave()`</span> command will write a ggplot</span>
+<span id="cb15-518"><a href="#cb15-518" aria-hidden="true" tabindex="-1"></a>figure to a file:</span>
+<span id="cb15-519"><a href="#cb15-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-522"><a href="#cb15-522" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-523"><a href="#cb15-523" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/seal-muscle.png"</span>,</span>
+<span id="cb15-524"><a href="#cb15-524" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> sealfig,</span>
+<span id="cb15-525"><a href="#cb15-525" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
+<span id="cb15-526"><a href="#cb15-526" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">4</span>,</span>
+<span id="cb15-527"><a href="#cb15-527" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
+<span id="cb15-528"><a href="#cb15-528" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
+<span id="cb15-529"><a href="#cb15-529" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span>
+<span id="cb15-530"><a href="#cb15-530" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-531"><a href="#cb15-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-532"><a href="#cb15-532" aria-hidden="true" tabindex="-1"></a><span class="in">`figures/seal-muscle.png`</span> is the name of the file, including the</span>
+<span id="cb15-533"><a href="#cb15-533" aria-hidden="true" tabindex="-1"></a>relative path.</span>
+<span id="cb15-534"><a href="#cb15-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-535"><a href="#cb15-535" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Look up <span class="in">`ggsave()`</span> in the manual to understand</span>
+<span id="cb15-536"><a href="#cb15-536" aria-hidden="true" tabindex="-1"></a>the arguments. You can do this by putting your cursor on the command and</span>
+<span id="cb15-537"><a href="#cb15-537" aria-hidden="true" tabindex="-1"></a>pressing F1</span>
 <span id="cb15-538"><a href="#cb15-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-539"><a href="#cb15-539" aria-hidden="true" tabindex="-1"></a>The data in <span class="co">[</span><span class="ot">pigeon.txt</span><span class="co">](data-raw/pigeon.txt)</span> are 40 measurements of</span>
-<span id="cb15-540"><a href="#cb15-540" aria-hidden="true" tabindex="-1"></a>interorbital width (in mm) for two populations of domestic pigeons</span>
-<span id="cb15-541"><a href="#cb15-541" aria-hidden="true" tabindex="-1"></a>measured to the nearest 0.1mm</span>
-<span id="cb15-542"><a href="#cb15-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-543"><a href="#cb15-543" aria-hidden="true" tabindex="-1"></a>![Interorbital width is the distance between the</span>
-<span id="cb15-544"><a href="#cb15-544" aria-hidden="true" tabindex="-1"></a>eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on,  </span>
-<span id="cb15-545"><a href="#cb15-545" aria-hidden="true" tabindex="-1"></a>with an arrow showing the distance between the eyes."}</span>
-<span id="cb15-546"><a href="#cb15-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-547"><a href="#cb15-547" aria-hidden="true" tabindex="-1"></a><span class="fu">### Import</span></span>
-<span id="cb15-548"><a href="#cb15-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-549"><a href="#cb15-549" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_on_your_computer.png)</span> Save</span>
-<span id="cb15-550"><a href="#cb15-550" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">pigeon.txt</span><span class="co">](data-raw/pigeon.txt)</span> to your <span class="in">`data-raw`</span> folder</span>
-<span id="cb15-551"><a href="#cb15-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-552"><a href="#cb15-552" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Read the data into a dataframe called <span class="in">`pigeons`</span>.</span>
-<span id="cb15-553"><a href="#cb15-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-556"><a href="#cb15-556" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-557"><a href="#cb15-557" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb15-558"><a href="#cb15-558" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-559"><a href="#cb15-559" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb15-560"><a href="#cb15-560" aria-hidden="true" tabindex="-1"></a>pigeons <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"data-raw/pigeon.txt"</span>)</span>
-<span id="cb15-561"><a href="#cb15-561" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-562"><a href="#cb15-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-563"><a href="#cb15-563" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What variables are there in the <span class="in">`pigeons`</span></span>
-<span id="cb15-564"><a href="#cb15-564" aria-hidden="true" tabindex="-1"></a>dataframe?</span>
-<span id="cb15-565"><a href="#cb15-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-566"><a href="#cb15-566" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
-<span id="cb15-567"><a href="#cb15-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-568"><a href="#cb15-568" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- This is not obvious - there are two columns called A and B. --&gt;</span></span>
-<span id="cb15-569"><a href="#cb15-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-570"><a href="#cb15-570" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Both seem to contain contain continuous values, presumably the interorbital --&gt;</span></span>
-<span id="cb15-571"><a href="#cb15-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-572"><a href="#cb15-572" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- distances. The A and B seem to be the names of the populations --&gt;</span></span>
-<span id="cb15-573"><a href="#cb15-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-574"><a href="#cb15-574" aria-hidden="true" tabindex="-1"></a>Hummmm, these data are not organised like the other data sets we have</span>
-<span id="cb15-575"><a href="#cb15-575" aria-hidden="true" tabindex="-1"></a>used. The population is given as the column names and the interorbital</span>
-<span id="cb15-576"><a href="#cb15-576" aria-hidden="true" tabindex="-1"></a>distances for one population are given in a different column than those</span>
-<span id="cb15-577"><a href="#cb15-577" aria-hidden="true" tabindex="-1"></a>for the other population. The first row has data from two pigeons which</span>
-<span id="cb15-578"><a href="#cb15-578" aria-hidden="true" tabindex="-1"></a>have nothing in common, they just happen to be the first individual</span>
-<span id="cb15-579"><a href="#cb15-579" aria-hidden="true" tabindex="-1"></a>recorded in each population.</span>
-<span id="cb15-580"><a href="#cb15-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-583"><a href="#cb15-583" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-584"><a href="#cb15-584" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb15-585"><a href="#cb15-585" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(pigeons) <span class="sc">|&gt;</span> </span>
-<span id="cb15-586"><a href="#cb15-586" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb15-587"><a href="#cb15-587" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"200px"</span>)</span>
-<span id="cb15-588"><a href="#cb15-588" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-589"><a href="#cb15-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-590"><a href="#cb15-590" aria-hidden="true" tabindex="-1"></a>This data is not in 'tidy' format <span class="co">[</span><span class="ot">@Wickham2014-nl</span><span class="co">]</span>.</span>
-<span id="cb15-591"><a href="#cb15-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-592"><a href="#cb15-592" aria-hidden="true" tabindex="-1"></a>Tidy format has variables in column and observations in rows. All of </span>
-<span id="cb15-593"><a href="#cb15-593" aria-hidden="true" tabindex="-1"></a>the distance measurements should be in one column and a second column</span>
-<span id="cb15-594"><a href="#cb15-594" aria-hidden="true" tabindex="-1"></a>should give the population.</span>
-<span id="cb15-595"><a href="#cb15-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-598"><a href="#cb15-598" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-599"><a href="#cb15-599" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb15-600"><a href="#cb15-600" aria-hidden="true" tabindex="-1"></a>pigeons <span class="sc">|&gt;</span> </span>
-<span id="cb15-601"><a href="#cb15-601" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(),</span>
-<span id="cb15-602"><a href="#cb15-602" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"population"</span>,</span>
-<span id="cb15-603"><a href="#cb15-603" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"distance"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb15-604"><a href="#cb15-604" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>() <span class="sc">|&gt;</span>  </span>
-<span id="cb15-605"><a href="#cb15-605" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb15-606"><a href="#cb15-606" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"200px"</span>)</span>
-<span id="cb15-607"><a href="#cb15-607" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-608"><a href="#cb15-608" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-609"><a href="#cb15-609" aria-hidden="true" tabindex="-1"></a>Data which is in tidy format is easier to summarise, analyses and plot</span>
-<span id="cb15-610"><a href="#cb15-610" aria-hidden="true" tabindex="-1"></a>because the organisation matches the conceptual structure of the data:</span>
-<span id="cb15-611"><a href="#cb15-611" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-612"><a href="#cb15-612" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>it is more obvious what the variables are because they columns are</span>
-<span id="cb15-613"><a href="#cb15-613" aria-hidden="true" tabindex="-1"></a>    named with them - in the untidy format, that the measures are</span>
-<span id="cb15-614"><a href="#cb15-614" aria-hidden="true" tabindex="-1"></a>    distances is not clear and what A and B are isn't clear</span>
-<span id="cb15-615"><a href="#cb15-615" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>it is more obvious that there is no relationship between any of the</span>
-<span id="cb15-616"><a href="#cb15-616" aria-hidden="true" tabindex="-1"></a>    pigeons except for population</span>
-<span id="cb15-617"><a href="#cb15-617" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>functions are designed to work with variables in columns</span>
-<span id="cb15-618"><a href="#cb15-618" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-619"><a href="#cb15-619" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidying data</span></span>
-<span id="cb15-620"><a href="#cb15-620" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-621"><a href="#cb15-621" aria-hidden="true" tabindex="-1"></a>We can put this data in such a format with the <span class="in">`pivot_longer()`</span> function</span>
-<span id="cb15-622"><a href="#cb15-622" aria-hidden="true" tabindex="-1"></a>from the <span class="in">`tidyverse`</span>:</span>
-<span id="cb15-623"><a href="#cb15-623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-624"><a href="#cb15-624" aria-hidden="true" tabindex="-1"></a><span class="in">`pivot_longer()`</span> collects the values from specified columns (<span class="in">`cols`</span>)</span>
-<span id="cb15-625"><a href="#cb15-625" aria-hidden="true" tabindex="-1"></a>into a single column (<span class="in">`values_to`</span>) and creates a column to indicate the</span>
-<span id="cb15-626"><a href="#cb15-626" aria-hidden="true" tabindex="-1"></a>group (<span class="in">`names_to`</span>).</span>
-<span id="cb15-627"><a href="#cb15-627" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-628"><a href="#cb15-628" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Put the data in tidy format:</span>
-<span id="cb15-629"><a href="#cb15-629" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-632"><a href="#cb15-632" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-633"><a href="#cb15-633" aria-hidden="true" tabindex="-1"></a>pigeons <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> pigeons, </span>
-<span id="cb15-634"><a href="#cb15-634" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cols =</span> <span class="fu">everything</span>(), </span>
-<span id="cb15-635"><a href="#cb15-635" aria-hidden="true" tabindex="-1"></a>                        <span class="at">names_to =</span> <span class="st">"population"</span>, </span>
-<span id="cb15-636"><a href="#cb15-636" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values_to =</span> <span class="st">"distance"</span>)</span>
-<span id="cb15-637"><a href="#cb15-637" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-638"><a href="#cb15-638" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-639"><a href="#cb15-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-640"><a href="#cb15-640" aria-hidden="true" tabindex="-1"></a>We have overwritten the original dataframe. If you wanted to keep the</span>
-<span id="cb15-641"><a href="#cb15-641" aria-hidden="true" tabindex="-1"></a>original you would need to give a new name on the left side of the</span>
-<span id="cb15-642"><a href="#cb15-642" aria-hidden="true" tabindex="-1"></a>assignment <span class="in">`&lt;-`</span> Note: the actual data in the file are unchanged, only</span>
-<span id="cb15-643"><a href="#cb15-643" aria-hidden="true" tabindex="-1"></a>the dataframe in R is changed.</span>
-<span id="cb15-644"><a href="#cb15-644" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-645"><a href="#cb15-645" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ulna and height</span></span>
-<span id="cb15-646"><a href="#cb15-646" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-647"><a href="#cb15-647" aria-hidden="true" tabindex="-1"></a>The datasets we have used up to this point, have had a continuous</span>
-<span id="cb15-648"><a href="#cb15-648" aria-hidden="true" tabindex="-1"></a>variable and a categorical variable where it makes sense to summarise</span>
-<span id="cb15-649"><a href="#cb15-649" aria-hidden="true" tabindex="-1"></a>the response for each of the different groups in the categorical</span>
-<span id="cb15-650"><a href="#cb15-650" aria-hidden="true" tabindex="-1"></a>variable and plot the response on the *y*-axis. We will now summarise a</span>
-<span id="cb15-651"><a href="#cb15-651" aria-hidden="true" tabindex="-1"></a>dataset with two continuous variables. The data in</span>
-<span id="cb15-652"><a href="#cb15-652" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">height.txt</span><span class="co">](data-raw/height.txt)</span> are the ulna length (cm) and height</span>
-<span id="cb15-653"><a href="#cb15-653" aria-hidden="true" tabindex="-1"></a>(m) of 30 people. In this case, it is more appropriate to summarise both</span>
-<span id="cb15-654"><a href="#cb15-654" aria-hidden="true" tabindex="-1"></a>of thee variables and to plot them as a scatter plot.</span>
-<span id="cb15-655"><a href="#cb15-655" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-656"><a href="#cb15-656" aria-hidden="true" tabindex="-1"></a>We will use <span class="in">`summarise()`</span> again but we do not need the <span class="in">`group_by()`</span></span>
-<span id="cb15-657"><a href="#cb15-657" aria-hidden="true" tabindex="-1"></a>function this time. We will also need to use each of the summary</span>
-<span id="cb15-658"><a href="#cb15-658" aria-hidden="true" tabindex="-1"></a>functions, such as <span class="in">`mean()`</span>, twice, once for each variable.</span>
-<span id="cb15-659"><a href="#cb15-659" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-660"><a href="#cb15-660" aria-hidden="true" tabindex="-1"></a><span class="fu">### Import</span></span>
-<span id="cb15-661"><a href="#cb15-661" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-662"><a href="#cb15-662" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_on_your_computer.png)</span> Save</span>
-<span id="cb15-663"><a href="#cb15-663" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">height.txt</span><span class="co">](data-raw/height.txt)</span> to your <span class="in">`data-raw`</span> folder</span>
-<span id="cb15-664"><a href="#cb15-664" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-665"><a href="#cb15-665" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Read the data into a dataframe called</span>
-<span id="cb15-666"><a href="#cb15-666" aria-hidden="true" tabindex="-1"></a><span class="in">`ulna_heights`</span>.</span>
-<span id="cb15-667"><a href="#cb15-667" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-670"><a href="#cb15-670" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-671"><a href="#cb15-671" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb15-672"><a href="#cb15-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-673"><a href="#cb15-673" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb15-674"><a href="#cb15-674" aria-hidden="true" tabindex="-1"></a>ulna_heights <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"data-raw/height.txt"</span>)</span>
-<span id="cb15-675"><a href="#cb15-675" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-676"><a href="#cb15-676" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-677"><a href="#cb15-677" aria-hidden="true" tabindex="-1"></a><span class="fu">### Summarise</span></span>
-<span id="cb15-678"><a href="#cb15-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-679"><a href="#cb15-679" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Create a data frame called</span>
-<span id="cb15-680"><a href="#cb15-680" aria-hidden="true" tabindex="-1"></a><span class="in">`ulna_heights_summary`</span> that contains the sample size and means, standard</span>
-<span id="cb15-681"><a href="#cb15-681" aria-hidden="true" tabindex="-1"></a>deviations and standard errors for both variables.</span>
-<span id="cb15-682"><a href="#cb15-682" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-685"><a href="#cb15-685" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-686"><a href="#cb15-686" aria-hidden="true" tabindex="-1"></a>ulna_heights_summary <span class="ot">&lt;-</span> ulna_heights <span class="sc">|&gt;</span> </span>
-<span id="cb15-687"><a href="#cb15-687" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">length</span>(ulna),</span>
-<span id="cb15-688"><a href="#cb15-688" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_ulna =</span> <span class="fu">mean</span>(ulna),</span>
-<span id="cb15-689"><a href="#cb15-689" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_ulna =</span> <span class="fu">sd</span>(ulna),</span>
-<span id="cb15-690"><a href="#cb15-690" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_ulna =</span> std_ulna<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
-<span id="cb15-691"><a href="#cb15-691" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_height =</span> <span class="fu">mean</span>(height),</span>
-<span id="cb15-692"><a href="#cb15-692" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_height =</span> <span class="fu">sd</span>(height),</span>
-<span id="cb15-693"><a href="#cb15-693" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_height =</span> std_height<span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
-<span id="cb15-694"><a href="#cb15-694" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-695"><a href="#cb15-695" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-696"><a href="#cb15-696" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-697"><a href="#cb15-697" aria-hidden="true" tabindex="-1"></a>You should get the following numbers:</span>
-<span id="cb15-698"><a href="#cb15-698" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-701"><a href="#cb15-701" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-702"><a href="#cb15-702" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb15-703"><a href="#cb15-703" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(ulna_heights_summary) <span class="sc">|&gt;</span> kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>()</span>
-<span id="cb15-704"><a href="#cb15-704" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-705"><a href="#cb15-705" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-706"><a href="#cb15-706" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualise</span></span>
-<span id="cb15-707"><a href="#cb15-707" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-708"><a href="#cb15-708" aria-hidden="true" tabindex="-1"></a>To plot make a scatter plot we need to use <span class="in">`geom_point()`</span> again but</span>
-<span id="cb15-709"><a href="#cb15-709" aria-hidden="true" tabindex="-1"></a>without any scatter. In this case, it does not really matter which</span>
-<span id="cb15-710"><a href="#cb15-710" aria-hidden="true" tabindex="-1"></a>variable is on the *x*-axis and which is on the *y*-axis.</span>
-<span id="cb15-711"><a href="#cb15-711" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-712"><a href="#cb15-712" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Make a simple scatter plot</span>
-<span id="cb15-713"><a href="#cb15-713" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-716"><a href="#cb15-716" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-717"><a href="#cb15-717" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ulna_heights, <span class="fu">aes</span>(<span class="at">x =</span> ulna, <span class="at">y =</span> height)) <span class="sc">+</span></span>
-<span id="cb15-718"><a href="#cb15-718" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb15-719"><a href="#cb15-719" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-720"><a href="#cb15-720" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-721"><a href="#cb15-721" aria-hidden="true" tabindex="-1"></a>If you have time, you may want to format the figure more appropriately.</span>
-<span id="cb15-722"><a href="#cb15-722" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-725"><a href="#cb15-725" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-726"><a href="#cb15-726" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb15-727"><a href="#cb15-727" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-728"><a href="#cb15-728" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb15-729"><a href="#cb15-729" aria-hidden="true" tabindex="-1"></a><span class="co"># figure</span></span>
-<span id="cb15-730"><a href="#cb15-730" aria-hidden="true" tabindex="-1"></a>ulnafig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ulna_heights, <span class="fu">aes</span>(<span class="at">x =</span> ulna, <span class="at">y =</span> height)) <span class="sc">+</span></span>
-<span id="cb15-731"><a href="#cb15-731" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-732"><a href="#cb15-732" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Ulna length (cm)"</span>,</span>
-<span id="cb15-733"><a href="#cb15-733" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), </span>
-<span id="cb15-734"><a href="#cb15-734" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-735"><a href="#cb15-735" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Height (m)"</span>,</span>
-<span id="cb15-736"><a href="#cb15-736" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.1</span>), </span>
-<span id="cb15-737"><a href="#cb15-737" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-738"><a href="#cb15-738" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb15-739"><a href="#cb15-739" aria-hidden="true" tabindex="-1"></a><span class="co"># save to flie</span></span>
-<span id="cb15-740"><a href="#cb15-740" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/ulna_heights.png"</span>,</span>
-<span id="cb15-741"><a href="#cb15-741" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> ulnafig,</span>
-<span id="cb15-742"><a href="#cb15-742" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
-<span id="cb15-743"><a href="#cb15-743" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">3</span>,</span>
-<span id="cb15-744"><a href="#cb15-744" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
-<span id="cb15-745"><a href="#cb15-745" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
-<span id="cb15-746"><a href="#cb15-746" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span>
-<span id="cb15-747"><a href="#cb15-747" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-748"><a href="#cb15-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-749"><a href="#cb15-749" aria-hidden="true" tabindex="-1"></a><span class="fu">## Look after future you!</span></span>
-<span id="cb15-750"><a href="#cb15-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-751"><a href="#cb15-751" aria-hidden="true" tabindex="-1"></a>Future you is going to summarise and plot data from other modules. You can </span>
-<span id="cb15-752"><a href="#cb15-752" aria-hidden="true" tabindex="-1"></a>make this much easier by documenting what you have done now. Go through </span>
-<span id="cb15-753"><a href="#cb15-753" aria-hidden="true" tabindex="-1"></a>your script (<span class="in">`summarise-plot-data-with-several-vars.R`</span>) and remove code </span>
-<span id="cb15-754"><a href="#cb15-754" aria-hidden="true" tabindex="-1"></a>that you do not need. Add comments to the code you do need to explain </span>
-<span id="cb15-755"><a href="#cb15-755" aria-hidden="true" tabindex="-1"></a>what it does.</span>
-<span id="cb15-756"><a href="#cb15-756" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-757"><a href="#cb15-757" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Here is an example: [seals-analysis.R](assets/seals-analysis.R).  --&gt;</span></span>
-<span id="cb15-758"><a href="#cb15-758" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-759"><a href="#cb15-759" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- You may wish to comment your version much more. --&gt;</span></span>
-<span id="cb15-760"><a href="#cb15-760" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-761"><a href="#cb15-761" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
-<span id="cb15-762"><a href="#cb15-762" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-763"><a href="#cb15-763" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
-<span id="cb15-764"><a href="#cb15-764" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-765"><a href="#cb15-765" aria-hidden="true" tabindex="-1"></a>![Illustrations from the Openscapes blog Tidy Data for reproducibility,</span>
-<span id="cb15-766"><a href="#cb15-766" aria-hidden="true" tabindex="-1"></a>efficiency, and collaboration by Julia Lowndes and Allison</span>
-<span id="cb15-767"><a href="#cb15-767" aria-hidden="true" tabindex="-1"></a>Horst](images/tidy-data.jpg){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure"}</span>
-<span id="cb15-768"><a href="#cb15-768" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-769"><a href="#cb15-769" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
-<span id="cb15-770"><a href="#cb15-770" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-771"><a href="#cb15-771" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
-<span id="cb15-772"><a href="#cb15-772" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-773"><a href="#cb15-773" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
-<span id="cb15-774"><a href="#cb15-774" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-775"><a href="#cb15-775" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
-<span id="cb15-776"><a href="#cb15-776" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
-<span id="cb15-777"><a href="#cb15-777" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-778"><a href="#cb15-778" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
-<span id="cb15-779"><a href="#cb15-779" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
-<span id="cb15-780"><a href="#cb15-780" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages. View</span>
-<span id="cb15-781"><a href="#cb15-781" aria-hidden="true" tabindex="-1"></a>the source code for this workshop using the <span class="in">`&lt;/&gt; Code`</span> button at the top</span>
-<span id="cb15-782"><a href="#cb15-782" aria-hidden="true" tabindex="-1"></a>of the page.</span>
-<span id="cb15-783"><a href="#cb15-783" aria-hidden="true" tabindex="-1"></a>Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span> and</span>
-<span id="cb15-784"><a href="#cb15-784" aria-hidden="true" tabindex="-1"></a><span class="in">`#---THINKING ANSWER---`</span></span>
+<span id="cb15-539"><a href="#cb15-539" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data needs tidying: Pigeons {#pigeons-w4}</span></span>
+<span id="cb15-540"><a href="#cb15-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-541"><a href="#cb15-541" aria-hidden="true" tabindex="-1"></a>The data in <span class="co">[</span><span class="ot">pigeon.txt</span><span class="co">](data-raw/pigeon.txt)</span> are 40 measurements of</span>
+<span id="cb15-542"><a href="#cb15-542" aria-hidden="true" tabindex="-1"></a>interorbital width (in mm) for two populations of domestic pigeons</span>
+<span id="cb15-543"><a href="#cb15-543" aria-hidden="true" tabindex="-1"></a>measured to the nearest 0.1mm</span>
+<span id="cb15-544"><a href="#cb15-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-545"><a href="#cb15-545" aria-hidden="true" tabindex="-1"></a>![Interorbital width is the distance between the</span>
+<span id="cb15-546"><a href="#cb15-546" aria-hidden="true" tabindex="-1"></a>eyes](images/interorbital.png){fig-alt="Photo of a domestic pigeon, head on,   with an arrow showing the distance between the eyes."}</span>
+<span id="cb15-547"><a href="#cb15-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-548"><a href="#cb15-548" aria-hidden="true" tabindex="-1"></a><span class="fu">### Import</span></span>
+<span id="cb15-549"><a href="#cb15-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-550"><a href="#cb15-550" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_on_your_computer.png)</span> Save</span>
+<span id="cb15-551"><a href="#cb15-551" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">pigeon.txt</span><span class="co">](data-raw/pigeon.txt)</span> to your <span class="in">`data-raw`</span> folder</span>
+<span id="cb15-552"><a href="#cb15-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-553"><a href="#cb15-553" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Read the data into a dataframe called <span class="in">`pigeons`</span>.</span>
+<span id="cb15-554"><a href="#cb15-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-557"><a href="#cb15-557" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-558"><a href="#cb15-558" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb15-559"><a href="#cb15-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-560"><a href="#cb15-560" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb15-561"><a href="#cb15-561" aria-hidden="true" tabindex="-1"></a>pigeons <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"data-raw/pigeon.txt"</span>)</span>
+<span id="cb15-562"><a href="#cb15-562" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-563"><a href="#cb15-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-564"><a href="#cb15-564" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What variables are there in the <span class="in">`pigeons`</span></span>
+<span id="cb15-565"><a href="#cb15-565" aria-hidden="true" tabindex="-1"></a>dataframe?</span>
+<span id="cb15-566"><a href="#cb15-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-567"><a href="#cb15-567" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
+<span id="cb15-568"><a href="#cb15-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-569"><a href="#cb15-569" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- This is not obvious - there are two columns called A and B. --&gt;</span></span>
+<span id="cb15-570"><a href="#cb15-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-571"><a href="#cb15-571" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Both seem to contain contain continuous values, presumably the interorbital --&gt;</span></span>
+<span id="cb15-572"><a href="#cb15-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-573"><a href="#cb15-573" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- distances. The A and B seem to be the names of the populations --&gt;</span></span>
+<span id="cb15-574"><a href="#cb15-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-575"><a href="#cb15-575" aria-hidden="true" tabindex="-1"></a>Hummmm, these data are not organised like the other data sets we have</span>
+<span id="cb15-576"><a href="#cb15-576" aria-hidden="true" tabindex="-1"></a>used. The population is given as the column names and the interorbital</span>
+<span id="cb15-577"><a href="#cb15-577" aria-hidden="true" tabindex="-1"></a>distances for one population are given in a different column than those</span>
+<span id="cb15-578"><a href="#cb15-578" aria-hidden="true" tabindex="-1"></a>for the other population. The first row has data from two pigeons which</span>
+<span id="cb15-579"><a href="#cb15-579" aria-hidden="true" tabindex="-1"></a>have nothing in common, they just happen to be the first individual</span>
+<span id="cb15-580"><a href="#cb15-580" aria-hidden="true" tabindex="-1"></a>recorded in each population.</span>
+<span id="cb15-581"><a href="#cb15-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-584"><a href="#cb15-584" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-585"><a href="#cb15-585" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-586"><a href="#cb15-586" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(pigeons) <span class="sc">|&gt;</span> </span>
+<span id="cb15-587"><a href="#cb15-587" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-588"><a href="#cb15-588" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"200px"</span>)</span>
+<span id="cb15-589"><a href="#cb15-589" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-590"><a href="#cb15-590" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-591"><a href="#cb15-591" aria-hidden="true" tabindex="-1"></a>This data is not in 'tidy' format <span class="co">[</span><span class="ot">@Wickham2014-nl</span><span class="co">]</span>.</span>
+<span id="cb15-592"><a href="#cb15-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-593"><a href="#cb15-593" aria-hidden="true" tabindex="-1"></a>Tidy format has variables in column and observations in rows. All of the</span>
+<span id="cb15-594"><a href="#cb15-594" aria-hidden="true" tabindex="-1"></a>distance measurements should be in one column and a second column should</span>
+<span id="cb15-595"><a href="#cb15-595" aria-hidden="true" tabindex="-1"></a>give the population.</span>
+<span id="cb15-596"><a href="#cb15-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-599"><a href="#cb15-599" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-600"><a href="#cb15-600" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-601"><a href="#cb15-601" aria-hidden="true" tabindex="-1"></a>pigeons <span class="sc">|&gt;</span> </span>
+<span id="cb15-602"><a href="#cb15-602" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(),</span>
+<span id="cb15-603"><a href="#cb15-603" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"population"</span>,</span>
+<span id="cb15-604"><a href="#cb15-604" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"distance"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-605"><a href="#cb15-605" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb15-606"><a href="#cb15-606" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-607"><a href="#cb15-607" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"200px"</span>)</span>
+<span id="cb15-608"><a href="#cb15-608" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-609"><a href="#cb15-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-610"><a href="#cb15-610" aria-hidden="true" tabindex="-1"></a>Data which is in tidy format is easier to summarise, analyses and plot</span>
+<span id="cb15-611"><a href="#cb15-611" aria-hidden="true" tabindex="-1"></a>because the organisation matches the conceptual structure of the data:</span>
+<span id="cb15-612"><a href="#cb15-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-613"><a href="#cb15-613" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>it is more obvious what the variables are because they columns are</span>
+<span id="cb15-614"><a href="#cb15-614" aria-hidden="true" tabindex="-1"></a>    named with them - in the untidy format, that the measures are</span>
+<span id="cb15-615"><a href="#cb15-615" aria-hidden="true" tabindex="-1"></a>    distances is not clear and what A and B are isn't clear</span>
+<span id="cb15-616"><a href="#cb15-616" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>it is more obvious that there is no relationship between any of the</span>
+<span id="cb15-617"><a href="#cb15-617" aria-hidden="true" tabindex="-1"></a>    pigeons except for population</span>
+<span id="cb15-618"><a href="#cb15-618" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>functions are designed to work with variables in columns</span>
+<span id="cb15-619"><a href="#cb15-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-620"><a href="#cb15-620" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tidying data</span></span>
+<span id="cb15-621"><a href="#cb15-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-622"><a href="#cb15-622" aria-hidden="true" tabindex="-1"></a>We can put this data in such a format with the <span class="in">`pivot_longer()`</span> function</span>
+<span id="cb15-623"><a href="#cb15-623" aria-hidden="true" tabindex="-1"></a>from the <span class="in">`tidyverse`</span>:</span>
+<span id="cb15-624"><a href="#cb15-624" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-625"><a href="#cb15-625" aria-hidden="true" tabindex="-1"></a><span class="in">`pivot_longer()`</span> collects the values from specified columns (<span class="in">`cols`</span>)</span>
+<span id="cb15-626"><a href="#cb15-626" aria-hidden="true" tabindex="-1"></a>into a single column (<span class="in">`values_to`</span>) and creates a column to indicate the</span>
+<span id="cb15-627"><a href="#cb15-627" aria-hidden="true" tabindex="-1"></a>group (<span class="in">`names_to`</span>).</span>
+<span id="cb15-628"><a href="#cb15-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-629"><a href="#cb15-629" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Put the data in tidy format:</span>
+<span id="cb15-630"><a href="#cb15-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-633"><a href="#cb15-633" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-634"><a href="#cb15-634" aria-hidden="true" tabindex="-1"></a>pigeons <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> pigeons, </span>
+<span id="cb15-635"><a href="#cb15-635" aria-hidden="true" tabindex="-1"></a>                        <span class="at">cols =</span> <span class="fu">everything</span>(), </span>
+<span id="cb15-636"><a href="#cb15-636" aria-hidden="true" tabindex="-1"></a>                        <span class="at">names_to =</span> <span class="st">"population"</span>, </span>
+<span id="cb15-637"><a href="#cb15-637" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values_to =</span> <span class="st">"distance"</span>)</span>
+<span id="cb15-638"><a href="#cb15-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-639"><a href="#cb15-639" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-640"><a href="#cb15-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-641"><a href="#cb15-641" aria-hidden="true" tabindex="-1"></a>We have overwritten the original dataframe. If you wanted to keep the</span>
+<span id="cb15-642"><a href="#cb15-642" aria-hidden="true" tabindex="-1"></a>original you would need to give a new name on the left side of the</span>
+<span id="cb15-643"><a href="#cb15-643" aria-hidden="true" tabindex="-1"></a>assignment <span class="in">`&lt;-`</span> Note: the actual data in the file are unchanged, only</span>
+<span id="cb15-644"><a href="#cb15-644" aria-hidden="true" tabindex="-1"></a>the dataframe in R is changed.</span>
+<span id="cb15-645"><a href="#cb15-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-646"><a href="#cb15-646" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ulna and height</span></span>
+<span id="cb15-647"><a href="#cb15-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-648"><a href="#cb15-648" aria-hidden="true" tabindex="-1"></a>The datasets we have used up to this point, have had a continuous</span>
+<span id="cb15-649"><a href="#cb15-649" aria-hidden="true" tabindex="-1"></a>variable and a categorical variable where it makes sense to summarise</span>
+<span id="cb15-650"><a href="#cb15-650" aria-hidden="true" tabindex="-1"></a>the response for each of the different groups in the categorical</span>
+<span id="cb15-651"><a href="#cb15-651" aria-hidden="true" tabindex="-1"></a>variable and plot the response on the *y*-axis. We will now summarise a</span>
+<span id="cb15-652"><a href="#cb15-652" aria-hidden="true" tabindex="-1"></a>dataset with two continuous variables. The data in</span>
+<span id="cb15-653"><a href="#cb15-653" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">height.txt</span><span class="co">](data-raw/height.txt)</span> are the ulna length (cm) and height</span>
+<span id="cb15-654"><a href="#cb15-654" aria-hidden="true" tabindex="-1"></a>(m) of 30 people. In this case, it is more appropriate to summarise both</span>
+<span id="cb15-655"><a href="#cb15-655" aria-hidden="true" tabindex="-1"></a>of thee variables and to plot them as a scatter plot.</span>
+<span id="cb15-656"><a href="#cb15-656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-657"><a href="#cb15-657" aria-hidden="true" tabindex="-1"></a>We will use <span class="in">`summarise()`</span> again but we do not need the <span class="in">`group_by()`</span></span>
+<span id="cb15-658"><a href="#cb15-658" aria-hidden="true" tabindex="-1"></a>function this time. We will also need to use each of the summary</span>
+<span id="cb15-659"><a href="#cb15-659" aria-hidden="true" tabindex="-1"></a>functions, such as <span class="in">`mean()`</span>, twice, once for each variable.</span>
+<span id="cb15-660"><a href="#cb15-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-661"><a href="#cb15-661" aria-hidden="true" tabindex="-1"></a><span class="fu">### Import</span></span>
+<span id="cb15-662"><a href="#cb15-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-663"><a href="#cb15-663" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_on_your_computer.png)</span> Save</span>
+<span id="cb15-664"><a href="#cb15-664" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">height.txt</span><span class="co">](data-raw/height.txt)</span> to your <span class="in">`data-raw`</span> folder</span>
+<span id="cb15-665"><a href="#cb15-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-666"><a href="#cb15-666" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Read the data into a dataframe called</span>
+<span id="cb15-667"><a href="#cb15-667" aria-hidden="true" tabindex="-1"></a><span class="in">`ulna_heights`</span>.</span>
+<span id="cb15-668"><a href="#cb15-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-671"><a href="#cb15-671" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-672"><a href="#cb15-672" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb15-673"><a href="#cb15-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-674"><a href="#cb15-674" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb15-675"><a href="#cb15-675" aria-hidden="true" tabindex="-1"></a>ulna_heights <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"data-raw/height.txt"</span>)</span>
+<span id="cb15-676"><a href="#cb15-676" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-677"><a href="#cb15-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-678"><a href="#cb15-678" aria-hidden="true" tabindex="-1"></a><span class="fu">### Summarise</span></span>
+<span id="cb15-679"><a href="#cb15-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-680"><a href="#cb15-680" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Create a data frame called</span>
+<span id="cb15-681"><a href="#cb15-681" aria-hidden="true" tabindex="-1"></a><span class="in">`ulna_heights_summary`</span> that contains the sample size and means, standard</span>
+<span id="cb15-682"><a href="#cb15-682" aria-hidden="true" tabindex="-1"></a>deviations and standard errors for both variables.</span>
+<span id="cb15-683"><a href="#cb15-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-686"><a href="#cb15-686" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-687"><a href="#cb15-687" aria-hidden="true" tabindex="-1"></a>ulna_heights_summary <span class="ot">&lt;-</span> ulna_heights <span class="sc">|&gt;</span> </span>
+<span id="cb15-688"><a href="#cb15-688" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">length</span>(ulna),</span>
+<span id="cb15-689"><a href="#cb15-689" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_ulna =</span> <span class="fu">mean</span>(ulna),</span>
+<span id="cb15-690"><a href="#cb15-690" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_ulna =</span> <span class="fu">sd</span>(ulna),</span>
+<span id="cb15-691"><a href="#cb15-691" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_ulna =</span> std_ulna<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
+<span id="cb15-692"><a href="#cb15-692" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_height =</span> <span class="fu">mean</span>(height),</span>
+<span id="cb15-693"><a href="#cb15-693" aria-hidden="true" tabindex="-1"></a>            <span class="at">std_height =</span> <span class="fu">sd</span>(height),</span>
+<span id="cb15-694"><a href="#cb15-694" aria-hidden="true" tabindex="-1"></a>            <span class="at">se_height =</span> std_height<span class="sc">/</span><span class="fu">sqrt</span>(n))</span>
+<span id="cb15-695"><a href="#cb15-695" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-696"><a href="#cb15-696" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-697"><a href="#cb15-697" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-698"><a href="#cb15-698" aria-hidden="true" tabindex="-1"></a>You should get the following numbers:</span>
+<span id="cb15-699"><a href="#cb15-699" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-702"><a href="#cb15-702" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-703"><a href="#cb15-703" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-704"><a href="#cb15-704" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(ulna_heights_summary) <span class="sc">|&gt;</span> kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>()</span>
+<span id="cb15-705"><a href="#cb15-705" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-706"><a href="#cb15-706" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-707"><a href="#cb15-707" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualise</span></span>
+<span id="cb15-708"><a href="#cb15-708" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-709"><a href="#cb15-709" aria-hidden="true" tabindex="-1"></a>To plot make a scatter plot we need to use <span class="in">`geom_point()`</span> again but</span>
+<span id="cb15-710"><a href="#cb15-710" aria-hidden="true" tabindex="-1"></a>without any scatter. In this case, it does not really matter which</span>
+<span id="cb15-711"><a href="#cb15-711" aria-hidden="true" tabindex="-1"></a>variable is on the *x*-axis and which is on the *y*-axis.</span>
+<span id="cb15-712"><a href="#cb15-712" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-713"><a href="#cb15-713" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Make a simple scatter plot</span>
+<span id="cb15-714"><a href="#cb15-714" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-717"><a href="#cb15-717" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-718"><a href="#cb15-718" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ulna_heights, <span class="fu">aes</span>(<span class="at">x =</span> ulna, <span class="at">y =</span> height)) <span class="sc">+</span></span>
+<span id="cb15-719"><a href="#cb15-719" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb15-720"><a href="#cb15-720" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-721"><a href="#cb15-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-722"><a href="#cb15-722" aria-hidden="true" tabindex="-1"></a>If you have time, you may want to format the figure more appropriately.</span>
+<span id="cb15-723"><a href="#cb15-723" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-726"><a href="#cb15-726" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-727"><a href="#cb15-727" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-728"><a href="#cb15-728" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-729"><a href="#cb15-729" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb15-730"><a href="#cb15-730" aria-hidden="true" tabindex="-1"></a><span class="co"># figure</span></span>
+<span id="cb15-731"><a href="#cb15-731" aria-hidden="true" tabindex="-1"></a>ulnafig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ulna_heights, <span class="fu">aes</span>(<span class="at">x =</span> ulna, <span class="at">y =</span> height)) <span class="sc">+</span></span>
+<span id="cb15-732"><a href="#cb15-732" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-733"><a href="#cb15-733" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Ulna length (cm)"</span>,</span>
+<span id="cb15-734"><a href="#cb15-734" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), </span>
+<span id="cb15-735"><a href="#cb15-735" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-736"><a href="#cb15-736" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Height (m)"</span>,</span>
+<span id="cb15-737"><a href="#cb15-737" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.1</span>), </span>
+<span id="cb15-738"><a href="#cb15-738" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb15-739"><a href="#cb15-739" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb15-740"><a href="#cb15-740" aria-hidden="true" tabindex="-1"></a><span class="co"># save to flie</span></span>
+<span id="cb15-741"><a href="#cb15-741" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/ulna_heights.png"</span>,</span>
+<span id="cb15-742"><a href="#cb15-742" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> ulnafig,</span>
+<span id="cb15-743"><a href="#cb15-743" aria-hidden="true" tabindex="-1"></a>       <span class="at">device =</span> <span class="st">"png"</span>,</span>
+<span id="cb15-744"><a href="#cb15-744" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">3</span>,</span>
+<span id="cb15-745"><a href="#cb15-745" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">3</span>,</span>
+<span id="cb15-746"><a href="#cb15-746" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
+<span id="cb15-747"><a href="#cb15-747" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span>
+<span id="cb15-748"><a href="#cb15-748" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-749"><a href="#cb15-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-750"><a href="#cb15-750" aria-hidden="true" tabindex="-1"></a><span class="fu">## Look after future you!</span></span>
+<span id="cb15-751"><a href="#cb15-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-752"><a href="#cb15-752" aria-hidden="true" tabindex="-1"></a>Future you is going to summarise and plot data from other modules. You</span>
+<span id="cb15-753"><a href="#cb15-753" aria-hidden="true" tabindex="-1"></a>can make this much easier by documenting what you have done now. Go</span>
+<span id="cb15-754"><a href="#cb15-754" aria-hidden="true" tabindex="-1"></a>through your script (<span class="in">`summarise-plot-data-with-several-vars.R`</span>) and</span>
+<span id="cb15-755"><a href="#cb15-755" aria-hidden="true" tabindex="-1"></a>remove code that you do not need. Add comments to the code you do need</span>
+<span id="cb15-756"><a href="#cb15-756" aria-hidden="true" tabindex="-1"></a>to explain what it does.</span>
+<span id="cb15-757"><a href="#cb15-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-758"><a href="#cb15-758" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Here is an example: [seals-analysis.R](assets/seals-analysis.R).  --&gt;</span></span>
+<span id="cb15-759"><a href="#cb15-759" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-760"><a href="#cb15-760" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- You may wish to comment your version much more. --&gt;</span></span>
+<span id="cb15-761"><a href="#cb15-761" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-762"><a href="#cb15-762" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
+<span id="cb15-763"><a href="#cb15-763" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-764"><a href="#cb15-764" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
+<span id="cb15-765"><a href="#cb15-765" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-766"><a href="#cb15-766" aria-hidden="true" tabindex="-1"></a>![Illustrations from the Openscapes blog Tidy Data for reproducibility,</span>
+<span id="cb15-767"><a href="#cb15-767" aria-hidden="true" tabindex="-1"></a>efficiency, and collaboration by Julia Lowndes and Allison</span>
+<span id="cb15-768"><a href="#cb15-768" aria-hidden="true" tabindex="-1"></a>Horst](images/tidy-data.jpg){fig-alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure"}</span>
+<span id="cb15-769"><a href="#cb15-769" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-770"><a href="#cb15-770" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
+<span id="cb15-771"><a href="#cb15-771" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-772"><a href="#cb15-772" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
+<span id="cb15-773"><a href="#cb15-773" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-774"><a href="#cb15-774" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
+<span id="cb15-775"><a href="#cb15-775" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-776"><a href="#cb15-776" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
+<span id="cb15-777"><a href="#cb15-777" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
+<span id="cb15-778"><a href="#cb15-778" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-779"><a href="#cb15-779" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
+<span id="cb15-780"><a href="#cb15-780" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
+<span id="cb15-781"><a href="#cb15-781" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages. View</span>
+<span id="cb15-782"><a href="#cb15-782" aria-hidden="true" tabindex="-1"></a>the source code for this workshop using the <span class="in">`&lt;/&gt; Code`</span> button at the top</span>
+<span id="cb15-783"><a href="#cb15-783" aria-hidden="true" tabindex="-1"></a>of the page. Coding and thinking answers are marked with</span>
+<span id="cb15-784"><a href="#cb15-784" aria-hidden="true" tabindex="-1"></a><span class="in">`#---CODING ANSWER---`</span> and <span class="in">`#---THINKING ANSWER---`</span></span>
 <span id="cb15-785"><a href="#cb15-785" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-786"><a href="#cb15-786" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> [@knitr1;</span>
 <span id="cb15-787"><a href="#cb15-787" aria-hidden="true" tabindex="-1"></a>@knitr2; @knitr3], <span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
