@@ -84,7 +84,7 @@ analysis.R to carry out the rest of the work.
 
 # Exercises
 
-## 🐈 Coat colour of cats or [Psych Eaxmple](psych-example.html)
+## 🐈 Coat colour of cats or [Psych Example](psych-example.html)
 
 ### The goal
 
