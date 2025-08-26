@@ -1,0 +1,46 @@
+w1_therapy_interventions: 
+
+simple dataset simulating the effects of CBT (cognitive behavioral therapy) intervention on stress scores measured at 4 timepoints
+
+variables:
+-- therapy: CBT = cognitive behavioral therapy, MBT = mindfulness baseline training
+-- stress score: a continuous variable representing some hypothetical stress assessment
+-- time: baseline, midtreatment, post, followup
+
+
+w2_3_diagnosis_stress_activity: 
+
+larger dataset simulating multiple measures of activity-related metrics in patients with different mental health diagnoses attending different clinics.
+
+-- diagnosis: anxiety, depression, none
+-- clinic: region = north, south, east, west
+-- stress score: a continuous variable representing some hypothetical stress assessment
+-- sleep hours: a continuous variable representing hours of sleep measured from some device
+-- activity score: a continuous variable representing some hypothetical activity assessment
+-- BMI
+-- sex
+-- year
+
+w2_3_wellbing:
+
+larger dataset simulating a survey of patients from local clinics measuring perceived support level, wellbeing and other variables
+-- suppot_level: high medium low
+-- therapy: yes or no
+-- age
+-- loneliness_score: a continuous variable representing loneliness measured as a composite score from some hypothetical set of questions 
+-- wellbeing_score: a continuous variable representing wellbeing measured as a composite score from some hypothetical set of questions 
+-- sleep_quality: rating on a discrete scale
+-- sex
+-- year
+
+w4_interventions:
+
+larger dataset simulating effects of different interventions on symptom reduction in groups of patients
+
+-- intervention_id: each row represents a single intervention for multiple patients, which is given a unique ID
+-- participant_group: teens, adults, older adults
+-- intervention_type: support group, medication, CBT (cognitive behavioral therapy)
+-- session_region: north south east west central
+-- lead_clinician: clinician leading the intervention
+-- year
+-- symptom reduction: mean symptom reduction across patient group

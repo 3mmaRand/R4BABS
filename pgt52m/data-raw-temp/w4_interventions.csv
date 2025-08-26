@@ -1,0 +1,101 @@
+"intervention_id","participant_group","intervention_type","session_region","lead_clinician","year","symptom_reduction"
+1,"Older Adults","Support Group","South","Dr. Brown",2022,24.4
+2,"Older Adults","Medication","East","Dr. Smith",2021,3.8
+3,"Older Adults","Medication","North","Dr. Chen",2022,13.8
+4,"Adults","Support Group","North","Dr. Lee",2020,18.2
+5,"Older Adults","CBT","Central","Dr. Lee",2021,26.4
+6,"Adults","CBT","Central","Dr. Chen",2022,22.6
+7,"Adults","Support Group","East","Dr. Smith",2020,25.2
+8,"Adults","Medication","South","Dr. Chen",2019,19.6
+9,"Older Adults","Medication","Central","Dr. Brown",2021,11.7
+10,"Teens","Medication","Central","Dr. Brown",2022,11.9
+11,"Adults","Medication","East","Dr. Patel",2019,29.1
+12,"Adults","Medication","East","Dr. Brown",2019,18.9
+13,"Teens","Medication","North","Dr. Brown",2022,8.4
+14,"Adults","Support Group","West","Dr. Patel",2022,16.8
+15,"Older Adults","Medication","South","Dr. Smith",2023,13.7
+16,"Teens","CBT","North","Dr. Patel",2019,17.9
+17,"Older Adults","Medication","South","Dr. Chen",2022,21
+18,"Older Adults","Medication","West","Dr. Lee",2023,23.4
+19,"Teens","Medication","Central","Dr. Brown",2021,16.3
+20,"Teens","Support Group","North","Dr. Smith",2020,2.6
+21,"Teens","Medication","North","Dr. Chen",2023,10.8
+22,"Teens","Support Group","North","Dr. Patel",2022,10.4
+23,"Older Adults","Medication","Central","Dr. Smith",2022,23.6
+24,"Adults","Support Group","East","Dr. Lee",2019,19
+25,"Older Adults","CBT","North","Dr. Patel",2021,25.5
+26,"Adults","Support Group","South","Dr. Patel",2021,6.6
+27,"Teens","Support Group","South","Dr. Smith",2021,12.9
+28,"Adults","Support Group","North","Dr. Lee",2023,17.5
+29,"Older Adults","CBT","South","Dr. Smith",2020,25.9
+30,"Adults","Support Group","North","Dr. Lee",2023,15.8
+31,"Teens","Support Group","Central","Dr. Lee",2020,3.1
+32,"Older Adults","Medication","South","Dr. Lee",2019,15.8
+33,"Older Adults","Medication","East","Dr. Brown",2022,17.3
+34,"Teens","Medication","Central","Dr. Chen",2020,3.6
+35,"Older Adults","Support Group","West","Dr. Chen",2020,22.3
+36,"Adults","Support Group","Central","Dr. Brown",2021,16.7
+37,"Teens","Support Group","South","Dr. Chen",2023,8.2
+38,"Older Adults","Medication","North","Dr. Smith",2019,21.6
+39,"Teens","CBT","West","Dr. Lee",2021,25
+40,"Teens","Medication","South","Dr. Smith",2021,6.6
+41,"Adults","CBT","Central","Dr. Lee",2020,24.3
+42,"Older Adults","Support Group","North","Dr. Patel",2023,13.8
+43,"Older Adults","Support Group","Central","Dr. Lee",2019,10.5
+44,"Teens","Medication","North","Dr. Patel",2022,23.8
+45,"Older Adults","CBT","West","Dr. Smith",2022,18.8
+46,"Teens","Support Group","East","Dr. Chen",2019,0
+47,"Older Adults","CBT","North","Dr. Lee",2021,29.1
+48,"Adults","Support Group","North","Dr. Patel",2022,20.7
+49,"Teens","Medication","South","Dr. Brown",2022,14.9
+50,"Adults","Medication","West","Dr. Brown",2019,23.9
+51,"Teens","CBT","South","Dr. Patel",2023,21
+52,"Teens","Support Group","North","Dr. Lee",2021,0
+53,"Older Adults","Medication","Central","Dr. Brown",2022,22.2
+54,"Teens","CBT","Central","Dr. Chen",2020,13.1
+55,"Adults","Support Group","North","Dr. Lee",2021,13.8
+56,"Teens","Support Group","North","Dr. Smith",2020,0
+57,"Teens","Support Group","Central","Dr. Chen",2021,0.4
+58,"Older Adults","CBT","Central","Dr. Smith",2021,29
+59,"Teens","Medication","South","Dr. Chen",2019,14.8
+60,"Adults","Medication","South","Dr. Brown",2023,22.2
+61,"Teens","CBT","Central","Dr. Chen",2022,13.1
+62,"Older Adults","Medication","North","Dr. Lee",2022,25.1
+63,"Teens","Support Group","North","Dr. Lee",2023,0
+64,"Older Adults","Support Group","Central","Dr. Chen",2021,12.6
+65,"Adults","CBT","Central","Dr. Patel",2020,26.9
+66,"Older Adults","Medication","West","Dr. Brown",2022,13
+67,"Adults","CBT","Central","Dr. Lee",2023,30.6
+68,"Adults","Medication","Central","Dr. Patel",2020,18.2
+69,"Older Adults","Support Group","West","Dr. Patel",2021,13.3
+70,"Adults","Support Group","South","Dr. Patel",2021,19.2
+71,"Adults","CBT","Central","Dr. Smith",2019,32.5
+72,"Older Adults","Support Group","North","Dr. Smith",2021,14.7
+73,"Older Adults","Medication","North","Dr. Patel",2020,26.1
+74,"Teens","CBT","South","Dr. Chen",2021,13.8
+75,"Adults","CBT","North","Dr. Chen",2021,37.9
+76,"Adults","Medication","South","Dr. Brown",2019,20.3
+77,"Teens","Support Group","Central","Dr. Lee",2020,2.2
+78,"Adults","CBT","North","Dr. Lee",2020,33.5
+79,"Teens","Medication","East","Dr. Chen",2020,12.6
+80,"Teens","Medication","South","Dr. Lee",2022,15.5
+81,"Adults","CBT","South","Dr. Smith",2019,28.5
+82,"Older Adults","Medication","Central","Dr. Chen",2023,23.2
+83,"Older Adults","CBT","West","Dr. Patel",2023,26.5
+84,"Teens","CBT","North","Dr. Smith",2021,20.1
+85,"Adults","Medication","Central","Dr. Brown",2021,23.1
+86,"Teens","CBT","South","Dr. Patel",2023,25.5
+87,"Adults","Support Group","Central","Dr. Chen",2019,9.7
+88,"Teens","CBT","South","Dr. Lee",2022,10.9
+89,"Older Adults","CBT","South","Dr. Brown",2020,27
+90,"Older Adults","Medication","West","Dr. Brown",2023,27.7
+91,"Adults","CBT","East","Dr. Lee",2022,30.4
+92,"Older Adults","Medication","West","Dr. Lee",2023,16.7
+93,"Teens","CBT","East","Dr. Lee",2019,10.4
+94,"Adults","CBT","East","Dr. Smith",2020,35.3
+95,"Adults","CBT","East","Dr. Patel",2021,32.4
+96,"Older Adults","Support Group","Central","Dr. Chen",2019,13.7
+97,"Adults","Support Group","East","Dr. Patel",2019,20.9
+98,"Teens","Medication","South","Dr. Patel",2021,7.9
+99,"Older Adults","CBT","East","Dr. Patel",2020,27.2
+100,"Older Adults","Medication","North","Dr. Chen",2022,14
