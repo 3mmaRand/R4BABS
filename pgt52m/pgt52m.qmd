@@ -9,12 +9,13 @@ toc-location: right
 This module introduces you to data analysis in R. The first 4 weeks
 covers core concepts about scientific computing, types of variable, the
 role of variables in analysis and how to use RStudio to organise
-analysis and import, summarise and plot data. In weeks 5 to 8, you will
+analysis and import, summarise and plot data. In weeks 5 to 9, you will
 learn about the logic of hypothesis testing, confidence intervals, what
 is meant by a statistical model, two-sample tests and one-way analysis
-of variance (ANOVA). You will learn how to write reproducible reports in
-Quarto in weeks 9 and 10. Finally, there will be a drop-in for your
-questions in week 11.
+of variance (ANOVA). In week 10 we will introduce the format of the 
+assessment and in week 11 there will be a dedicated drop in session to
+consolidate learning and ask any further questions about the module or
+assessment.
 
 This module complement the work you will do in BIO00070M Research,
 Professional and Team Skills where you will you will learn how to
@@ -36,8 +37,7 @@ The Module Learning outcomes are:
 -   Summarise data in single or multiple groups, recognise tidy data
     formats, and carry out some typical data tidying tasks
 
--   Use markdown (through Quarto) to produce reproducible analyses,
-    figures and reports
+-   Understand what parts of your results are important to report
 
 # How 52M is organised
 
@@ -167,25 +167,24 @@ often known as the one-way ANOVA (**an**alysis **o**f **var**iance). You
 will also learn about the Kruskal-Wallis test which can be used when the
 assumptions of the general linear model are not met.
 
-## [Week 9: Assessment intro](week-9/ovwerview.html)
+## [Week 9: Two-way ANOVA](week-9/ovwerview.html)
 
-This week we will be looking at the assessment for this module and
-introducing you to a specimen sample of the assessment so that you can
-familiarise yourself with the format and what we are expecting you to
-produce. We will be looking at a Rproject containing a quarto markdown
-file and a report results section. We will also look at the marking
-criteria. This material can also be found on the VLE under the module
-assessment marking criteria section. Next week we will cover how to
-reproduce a quarto markdown file yourself in more detail.
+This week you will learn how to use and interpret a two-way ANOVA. 
+Last week you learnt how to interpret a general linear model with one
+categorical explanatory variable and this week we will extend this to
+include two categorical explanatory variables. It allows us to design
+experiments which test whether a response is influenced by two variables
+and whether those variables act independently or interact.
 
-## [Week 10: Reproducible Reporting](week-10/ovwerview.html)
+## [Week 10: Introduction to the assessment](week-10/ovwerview.html)
 
-Following on from last week's introduction to the assessment. You will
-be introduced to quarto, which is a way of generating reproducible
-reports and you will need for your assessment. This will cover how to
-embed sections and executable chunks of R code within your quarto files.
+This week, we will introduce you to the assessment for this module.
+We will look at a specimen assessment using techniques you have already
+learned and apply them to analysing a dataset. Your assessment will use
+a different dataset but you will apply the same principles. We will be
+covering what your assessment submission should contain using this example.
 
-## \[Week 11: Drop-in\]
+## Week 11: Drop-in
 
 This session contains no set material however, we will cover topics that
 people have had difficulty with during the course and cover any material
