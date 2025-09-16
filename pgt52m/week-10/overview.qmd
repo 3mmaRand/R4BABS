@@ -8,11 +8,9 @@ toc-location: right
 This week we will be looking at the assessment for this module and
 introducing you to a specimen sample of the assessment so that you can
 familiarise yourself with the format and what we are expecting you to
-produce. We will be looking at a Rproject containing a quarto markdown
-file and a report results section. We will also look at the marking
-criteria. This material can also be found on the VLE under the module
-assessment marking criteria section. Next week we will cover how to
-reproduce a quarto markdown file yourself in more detail.
+produce.  We will also look at the markingcriteria. This material can
+also be found on the VLE under the module assessment marking criteria 
+section. 
 
 ### Learning objectives
 
@@ -23,9 +21,7 @@ The successful student will be able to:
     etc).
 
 -   Understand the marking criteria so you understand how the assessment
-    is going to be evaluated e.g. one aspect we will be looking at is
-    whether the code within the quarto markdown generates the plots
-    included within the report.
+    is going to be evaluated 
 
 -   Know where to look on the VLE for additional assessment information
 
