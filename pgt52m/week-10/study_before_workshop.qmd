@@ -7,4 +7,5 @@ toc-location: right
 
 1.  Prepare
 
-    i.  📖 Read [Marking criteria for module assessment](https://docs.google.com/document/d/1zCuQUqUa3HtAcAn87tsNnolDiE2IRlcqj6y3_5gu5oM/edit?usp=sharing)
+    i.  📖 Read Marking criteria for module
+    ii. 📖 Read the assessment information on the VLE
