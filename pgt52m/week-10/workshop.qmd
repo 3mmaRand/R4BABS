@@ -93,8 +93,8 @@ available to you on the VLE under Module Assessment.
 
 # Specimen assessment
 
-![](images/do_on_your_computer.png) Here is a specimen
-Rproject
+![](images/do_on_your_computer.png) [Here is a specimen
+Rproject](data-raw/assessment.zip)
 
 ![](images/do_on_your_computer.png) You will need to first unzip this
 project so you can see the contents, this should contain the folders
