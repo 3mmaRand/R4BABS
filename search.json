@@ -694,7 +694,7 @@
     "href": "pgt52m/week-10/study_after_workshop.html",
     "title": "Independent Study to consolidate this week",
     "section": "",
-    "text": "Consolidate\n\n📖 Read Workflow and scripts - Projects\n📖 Read Intro to quarto",
+    "text": "Consolidate\n\n📖 Read Workflow and scripts - Projects",
     "crumbs": [
       "PGT 52M",
       "Week 10: Introduction to the Assessment",
@@ -706,7 +706,7 @@
     "href": "pgt52m/week-10/workshop.html",
     "title": "Workshop",
     "section": "",
-    "text": "Artwork by Horst (2023): “Behold R”\n\n\nThis week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will also look at the markingcriteria. This material can also be found on the VLE under the module assessment marking criteria section. Next week we will cover how to reproduce a quarto markdown file yourself in more detail.\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nNoteKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference.",
+    "text": "Artwork by Horst (2023): “Behold R”\n\n\nThis week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will also look at the markingcriteria. This material can also be found on the VLE under the module assessment marking criteria section.\n\nWorkshops are not a test. It is expected that you often don’t know how to start, make a lot of mistakes and need help. It is expected that you are familiar with independent study content before the workshop. However, you need not remember or understand every detail as the workshop should build and consolidate your understanding. Tips\n\ndon’t worry about making mistakes\ndon’t let what you can not do interfere with what you can do\ndiscussing code with your neighbours will help\nlook things up in the independent study material\nlook things up in your own code from earlier\nthere are no stupid questions\n\n\n\n\n\n\n\nNoteKey\n\n\n\nThese four symbols are used at the beginning of each instruction so you know where to carry out the instruction.\n Something you need to do on your computer. It may be opening programs or documents or locating a file.\n Something you should do in RStudio. It will often be typing a command or using the menus but might also be creating folders, locating or moving files.\n Something you should do in your browser on the internet. It may be searching for information, going to the VLE or downloading a file.\n A question for you to think about and answer. Record your answers in your script for future reference.",
     "crumbs": [
       "PGT 52M",
       "Week 10: Introduction to the Assessment",
@@ -718,7 +718,7 @@
     "href": "pgt52m/week-10/workshop.html#session-overview",
     "title": "Workshop",
     "section": "",
-    "text": "This week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will also look at the markingcriteria. This material can also be found on the VLE under the module assessment marking criteria section. Next week we will cover how to reproduce a quarto markdown file yourself in more detail.",
+    "text": "This week we will be looking at the assessment for this module and introducing you to a specimen sample of the assessment so that you can familiarise yourself with the format and what we are expecting you to produce. We will also look at the markingcriteria. This material can also be found on the VLE under the module assessment marking criteria section.",
     "crumbs": [
       "PGT 52M",
       "Week 10: Introduction to the Assessment",
@@ -2934,7 +2934,7 @@
     "href": "pgt52m/week-10/study_before_workshop.html",
     "title": "Independent Study to prepare for workshop",
     "section": "",
-    "text": "Prepare\n\n📖 Read Marking criteria for module\n📖 Read the assessment information on the VLE",
+    "text": "Prepare\n\n📖 Read the Marking criteria for the module\n📖 Read the assessment information on the VLE",
     "crumbs": [
       "PGT 52M",
       "Week 10: Introduction to the Assessment",
