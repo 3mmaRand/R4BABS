@@ -24,8 +24,7 @@ introducing you to a specimen sample of the assessment so that you can
 familiarise yourself with the format and what we are expecting you to
 produce.  We will also look at the markingcriteria. This material can
 also be found on the VLE under the module assessment marking criteria 
-section. Next week we will cover how to reproduce a quarto markdown 
-file yourself in more detail.
+section. 
 
 ## Philosophy
 
@@ -93,8 +92,8 @@ available to you on the VLE under Module Assessment.
 
 # Specimen assessment
 
-![](images/do_on_your_computer.png) Here is a specimen
-Rproject
+![](images/do_on_your_computer.png) [Here is a specimen
+Rproject](data-raw/assessment.zip)
 
 ![](images/do_on_your_computer.png) You will need to first unzip this
 project so you can see the contents, this should contain the folders
