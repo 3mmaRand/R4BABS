@@ -36,6 +36,8 @@ some advice for catching up before semester 2.
     Service](https://www.york.ac.uk/it-services/tools/vds/) for set up
     instructions. If you use the VDS you do not need to install R,
     RStudio or any packages
+-   All the code I use to write the materials (Data Analysis in R site
+    or the book) including code "answers" is available
 
 Don't forget that any progress is better than none
 
