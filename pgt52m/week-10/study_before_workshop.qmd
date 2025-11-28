@@ -7,5 +7,5 @@ toc-location: right
 
 1.  Prepare
 
-    i.  📖 Read Marking criteria for module
+    i.  📖 Read the [Marking criteria for the module](data-raw/Guidelines and marking criteria 2025.pdf)
     ii. 📖 Read the assessment information on the VLE
