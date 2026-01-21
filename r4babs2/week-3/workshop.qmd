@@ -683,15 +683,10 @@ You're finished!
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not
-visible on the webpage.
-
-The `workshop.qmd` file is the file I use to compile the practical. Qmd
-stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. View
-the source code for this workshop using the `</> Code` button at the top
-of the page. Coding and thinking answers are marked with
-`#---CODING ANSWER---` and `#---THINKING ANSWER---`
+All the answers (coding and thinking) are in the source code for the
+workshop. You can view it using the `</> Code` button at the top of the
+page. Coding and thinking answers are marked with `#---CODING ANSWER---`
+and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
 @knitr2; @knitr3], `kableExtra` [@kableExtra]
