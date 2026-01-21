@@ -1,57 +1,52 @@
-send early Week 5.
+send wed Week 2.
 
-# 🧡💻 BIO00027C-Week 6: Data Analysis in R for BABS 1
+# 💚💻 Week 3 26C Data Analysis in R for BABS 2
 
-👋 Hello Everyone, I am writing about the Data Analysis in R part of
-BABS 1 which begins in Week 6.
+🐦 Hello Everyone,
 
-## 🧑‍💻 About Data Analysis in R
+We are in week 2 and this email is about *week 3*.
 
-You can read an overview of Data Analysis in R in your degree, and in
-BABS 1 on the VLE. The material is also available without 2FA [Overview
-in degree](https://3mmarand.github.io/R4BABS/) and [Overview in BABS
-1](https://3mmarand.github.io/R4BABS/r4babs1/r4babs1.html).
+## 3️⃣ What is happening in week 3
 
-## 📋 Organisation of the teaching
+This week you will use many of same concepts and bits of code as you did
+last week. You will learn how to use and the general linear model when
+the explanatory (or x) variable is categorical with two possible values.
+These tests are also known as *t*-tests. You will also find out about
+independent- and dependent- (also known as paired-) samples and
+"non-parametric tests" which we use when the assumptions of the general
+linear model are not met.
 
-In each week there is
+The materials are on the VLE: Week 3 Data Analysis in R (or [Week 3
+without
+2FA](https://3mmarand.github.io/R4BABS/r4babs2/week-3/overview.html)).
+There is:
 
--   ℹ️ An overview on the “About” page which gives the Learning
-    Objectives, a summary and instructions. You should read this first.
--   📖 Some independent study of about 30-45 minutes on the “Prepare!”
-    page to get ready for the workshop
--   🖥️A two-hour workshop using R. This will usually start with me doing
-    a short demonstration but you will spend most of the session trying
-    things out yourself. There will be plenty of help from me and my
-    demonstrators.
--   💻 Some independent study of about 30-45 minutes on the
-    “Consolidate!” page to give you more practice. I will send an email
-    on Monday each week about the following week's material. Expect an
-    email on Monday of week 6 about week 7.
+-   An overview of the week.
 
-## 6️⃣ What is happening in week 6
+-   Some independent study to
+    [Prepare!](https://3mmarand.github.io/R4BABS/r4babs2/week-3/study_before_workshop.html)
+    for the workshop. It covers the ideas behind two-sample tests using
+    an example about [common
+    chaffinch, ](https://en.wikipedia.org/wiki/Common_chaffinch)*Fringilla
+    coelebs.*
 
-The week 6 materials are on the VLE: Week 6 Data Analysis in R (or [Week
-6 without
-2FA](https://3mmarand.github.io/R4BABS/r4babs1/week-6/overview.html)).
+![Adult male of the common chaffinch, Fringilla coelebs. Andreas Trepte,
+CC BY-SA 2.5 https://creativecommons.org/licenses/by-sa/2.5, via
+Wikimedia Commons](images/512px-Chaffinch_(Fringilla_coelebs).jpg)
 
-The key points about week 6 are:
+-   The
+    [workshop](https://3mmarand.github.io/R4BABS/r4babs2/week-3/workshop.html)
+    in which you will get practice in choosing between, performing, and
+    presenting the results of, two-sample tests and their non-parametric
+    equivalents in R. You'll learn to annotate graphs with results.
 
--   there is some reading to do about [computer file systems and
-    definitions for R and
-    RStudio](https://3mmarand.github.io/R4BABS/r4babs1/week-6/study_before_workshop.html)
--   there is no formal workshop but you should set up the [Virtual
-    Desktop
-    Service](https://3mmarand.github.io/R4BABS/r4babs1/week-6/workshop.html)
-    so you can easily code at home.
--   There is an online "lecture" (Intro: Data Handling - BIO00027C) on
-    your timetable for Wednesday, 5 November⋅10:00 – 11:00. The main
-    purpose of this session is to talk over the organisation and give
-    you an opportunity to ask questions.
+    ![A typical two-sample t-test figure with the p value annotated
+    on](images/annotated-t-test.png){width="500"}
 
-🤸 I really enjoy teaching this module so I'm looking forward to working
-with you after the consolidation week.
+-   And some independent study for after the workshop to
+    [Consolidate](https://3mmarand.github.io/R4BABS/r4babs2/week-3/study_after_workshop.html)
+    what you are learning.
 
-I do like an emoji!
+Bests,
 
-Bests, Emma
+Emma

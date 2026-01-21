@@ -25,7 +25,9 @@ when the predictor is zero). We’ll also assess whether these values are
 significantly different from zero.
 
 The materials are on the VLE: Week 2 Data Analysis in R (or [Week 2
-without 2FA](#0){style="font-size: 9pt;"}). There is:
+without
+2FA](https://3mmarand.github.io/R4BABS/r4babs2/week-2/overview.html)).
+There is:
 
 -   An overview of the week.
 
