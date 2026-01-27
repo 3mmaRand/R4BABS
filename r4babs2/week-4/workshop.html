@@ -825,7 +825,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use method 1 (see <strong>?@sec-week-3-annotation-method-1</strong>) OR method 2 (see <strong>?@sec-week-3-annotation-method-2</strong>) to add the p value</p>
+<p>Use method 1 (see <a href="../../r4babs2/week-3/workshop.html#sec-week-3-annotation-method-1">method 1</a>) OR Use method 2 (see <a href="../../r4babs2/week-3/workshop.html#sec-week-3-annotation-method-2">method 2</a>). to add the p value</p>
 <p>If you want to use method 2 for annotating the <em>p</em>-value, you can extract the <em>p</em>-value with</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_blad_v_harb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod</span>, <span class="op">~</span> <span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -930,8 +930,7 @@ Kruskal-Wallis chi-squared = 6.3393, df = 2, p-value = 0.04202</code></pre>
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs2/week-4/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
-<p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. View the source code for this workshop using the <code>&lt;/&gt; Code</code> button at the top of the page. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
+<p>All the answers (coding and thinking) are in the source code for the workshop. You can view it using the <code>&lt;/&gt; Code</code> button at the top of the page. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
@@ -1763,334 +1762,332 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb12-341"><a href="#cb12-341" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Create the plot</span>
 <span id="cb12-342"><a href="#cb12-342" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-343"><a href="#cb12-343" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a>Use method 1 (see <span class="co">[</span><span class="ot">@sec-week-3-annotation-method-1</span><span class="co">]</span>) OR method 2 (see</span>
-<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@sec-week-3-annotation-method-2</span><span class="co">]</span>) to add the p value</span>
-<span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-347"><a href="#cb12-347" aria-hidden="true" tabindex="-1"></a>If you want to use method 2 for annotating the *p*-value, you can</span>
-<span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a>extract the *p*-value with</span>
+<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a>Use method 1 (see [method</span>
+<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a>1](../week-3/workshop.qmd#sec-week-3-annotation-method-1)) OR Use method</span>
+<span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a>2 (see [method</span>
+<span id="cb12-347"><a href="#cb12-347" aria-hidden="true" tabindex="-1"></a>2](../week-3/workshop.qmd#sec-week-3-annotation-method-2)). to add the p</span>
+<span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a>value</span>
 <span id="cb12-349"><a href="#cb12-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-352"><a href="#cb12-352" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-353"><a href="#cb12-353" aria-hidden="true" tabindex="-1"></a>p_blad_v_harb <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mod, <span class="sc">~</span> species) <span class="sc">|&gt;</span> </span>
-<span id="cb12-354"><a href="#cb12-354" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb12-355"><a href="#cb12-355" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb12-356"><a href="#cb12-356" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(contrast <span class="sc">==</span> <span class="st">"Bladdernose Seal - Harbour Seal"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb12-357"><a href="#cb12-357" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(adj.p.value) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
-<span id="cb12-358"><a href="#cb12-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-359"><a href="#cb12-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-360"><a href="#cb12-360" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-350"><a href="#cb12-350" aria-hidden="true" tabindex="-1"></a>If you want to use method 2 for annotating the *p*-value, you can</span>
+<span id="cb12-351"><a href="#cb12-351" aria-hidden="true" tabindex="-1"></a>extract the *p*-value with</span>
+<span id="cb12-352"><a href="#cb12-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-355"><a href="#cb12-355" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-356"><a href="#cb12-356" aria-hidden="true" tabindex="-1"></a>p_blad_v_harb <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mod, <span class="sc">~</span> species) <span class="sc">|&gt;</span> </span>
+<span id="cb12-357"><a href="#cb12-357" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-358"><a href="#cb12-358" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-359"><a href="#cb12-359" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(contrast <span class="sc">==</span> <span class="st">"Bladdernose Seal - Harbour Seal"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-360"><a href="#cb12-360" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(adj.p.value) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
 <span id="cb12-361"><a href="#cb12-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-364"><a href="#cb12-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-365"><a href="#cb12-365" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb12-366"><a href="#cb12-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-367"><a href="#cb12-367" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-368"><a href="#cb12-368" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-369"><a href="#cb12-369" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb12-370"><a href="#cb12-370" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb12-371"><a href="#cb12-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb12-372"><a href="#cb12-372" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb12-373"><a href="#cb12-373" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb12-362"><a href="#cb12-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-363"><a href="#cb12-363" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-364"><a href="#cb12-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-367"><a href="#cb12-367" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-368"><a href="#cb12-368" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-369"><a href="#cb12-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-370"><a href="#cb12-370" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-371"><a href="#cb12-371" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-372"><a href="#cb12-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb12-373"><a href="#cb12-373" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
 <span id="cb12-374"><a href="#cb12-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb12-375"><a href="#cb12-375" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb12-376"><a href="#cb12-376" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb12-377"><a href="#cb12-377" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
-<span id="cb12-378"><a href="#cb12-378" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
-<span id="cb12-379"><a href="#cb12-379" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb12-380"><a href="#cb12-380" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
-<span id="cb12-381"><a href="#cb12-381" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">2</span>,   </span>
-<span id="cb12-382"><a href="#cb12-382" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">72</span>, <span class="at">yend =</span> <span class="dv">72</span>, </span>
-<span id="cb12-383"><a href="#cb12-383" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb12-384"><a href="#cb12-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>,  <span class="at">y =</span> <span class="dv">75</span>,</span>
-<span id="cb12-385"><a href="#cb12-385" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"italic(p) == 0.005"</span>, <span class="co"># Method 1</span></span>
-<span id="cb12-386"><a href="#cb12-386" aria-hidden="true" tabindex="-1"></a>         <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb12-387"><a href="#cb12-387" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb12-388"><a href="#cb12-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-389"><a href="#cb12-389" aria-hidden="true" tabindex="-1"></a><span class="co"># OR replace</span></span>
-<span id="cb12-390"><a href="#cb12-390" aria-hidden="true" tabindex="-1"></a><span class="co">#   annotate("text", x = 1.5,  y = 75,</span></span>
-<span id="cb12-391"><a href="#cb12-391" aria-hidden="true" tabindex="-1"></a><span class="co">#            label = "italic(p) == 0.005",</span></span>
-<span id="cb12-392"><a href="#cb12-392" aria-hidden="true" tabindex="-1"></a><span class="co">#          parse = TRUE) </span></span>
-<span id="cb12-393"><a href="#cb12-393" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
-<span id="cb12-394"><a href="#cb12-394" aria-hidden="true" tabindex="-1"></a><span class="co"># with Method 2  </span></span>
-<span id="cb12-395"><a href="#cb12-395" aria-hidden="true" tabindex="-1"></a><span class="co">#   annotate("text", x = 1.5,  y = 75,</span></span>
-<span id="cb12-396"><a href="#cb12-396" aria-hidden="true" tabindex="-1"></a><span class="co">#            label = glue::glue("italic(p) == { p_blad_v_harb }"),</span></span>
-<span id="cb12-397"><a href="#cb12-397" aria-hidden="true" tabindex="-1"></a><span class="co">#          parse = TRUE) </span></span>
-<span id="cb12-398"><a href="#cb12-398" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
-<span id="cb12-399"><a href="#cb12-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-400"><a href="#cb12-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-401"><a href="#cb12-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-402"><a href="#cb12-402" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-375"><a href="#cb12-375" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb12-376"><a href="#cb12-376" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb12-377"><a href="#cb12-377" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb12-378"><a href="#cb12-378" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb12-379"><a href="#cb12-379" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb12-380"><a href="#cb12-380" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb12-381"><a href="#cb12-381" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb12-382"><a href="#cb12-382" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb12-383"><a href="#cb12-383" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb12-384"><a href="#cb12-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">2</span>,   </span>
+<span id="cb12-385"><a href="#cb12-385" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">72</span>, <span class="at">yend =</span> <span class="dv">72</span>, </span>
+<span id="cb12-386"><a href="#cb12-386" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-387"><a href="#cb12-387" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>,  <span class="at">y =</span> <span class="dv">75</span>,</span>
+<span id="cb12-388"><a href="#cb12-388" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"italic(p) == 0.005"</span>, <span class="co"># Method 1</span></span>
+<span id="cb12-389"><a href="#cb12-389" aria-hidden="true" tabindex="-1"></a>         <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb12-390"><a href="#cb12-390" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb12-391"><a href="#cb12-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-392"><a href="#cb12-392" aria-hidden="true" tabindex="-1"></a><span class="co"># OR replace</span></span>
+<span id="cb12-393"><a href="#cb12-393" aria-hidden="true" tabindex="-1"></a><span class="co">#   annotate("text", x = 1.5,  y = 75,</span></span>
+<span id="cb12-394"><a href="#cb12-394" aria-hidden="true" tabindex="-1"></a><span class="co">#            label = "italic(p) == 0.005",</span></span>
+<span id="cb12-395"><a href="#cb12-395" aria-hidden="true" tabindex="-1"></a><span class="co">#          parse = TRUE) </span></span>
+<span id="cb12-396"><a href="#cb12-396" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb12-397"><a href="#cb12-397" aria-hidden="true" tabindex="-1"></a><span class="co"># with Method 2  </span></span>
+<span id="cb12-398"><a href="#cb12-398" aria-hidden="true" tabindex="-1"></a><span class="co">#   annotate("text", x = 1.5,  y = 75,</span></span>
+<span id="cb12-399"><a href="#cb12-399" aria-hidden="true" tabindex="-1"></a><span class="co">#            label = glue::glue("italic(p) == { p_blad_v_harb }"),</span></span>
+<span id="cb12-400"><a href="#cb12-400" aria-hidden="true" tabindex="-1"></a><span class="co">#          parse = TRUE) </span></span>
+<span id="cb12-401"><a href="#cb12-401" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
+<span id="cb12-402"><a href="#cb12-402" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-403"><a href="#cb12-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-404"><a href="#cb12-404" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Save your figure to your figures folder.</span>
-<span id="cb12-405"><a href="#cb12-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-408"><a href="#cb12-408" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-409"><a href="#cb12-409" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb12-410"><a href="#cb12-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-411"><a href="#cb12-411" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-412"><a href="#cb12-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-413"><a href="#cb12-413" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the figure to a variable</span></span>
-<span id="cb12-414"><a href="#cb12-414" aria-hidden="true" tabindex="-1"></a>fig1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-415"><a href="#cb12-415" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
-<span id="cb12-416"><a href="#cb12-416" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb12-418"><a href="#cb12-418" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
-<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb12-404"><a href="#cb12-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-405"><a href="#cb12-405" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-406"><a href="#cb12-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-407"><a href="#cb12-407" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Save your figure to your figures folder.</span>
+<span id="cb12-408"><a href="#cb12-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-411"><a href="#cb12-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-412"><a href="#cb12-412" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-413"><a href="#cb12-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-414"><a href="#cb12-414" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-415"><a href="#cb12-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-416"><a href="#cb12-416" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the figure to a variable</span></span>
+<span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a>fig1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-418"><a href="#cb12-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> seal, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> myoglobin),</span>
+<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
 <span id="cb12-420"><a href="#cb12-420" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
-<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
-<span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
-<span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
-<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
-<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">2</span>,   </span>
-<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">72</span>, <span class="at">yend =</span> <span class="dv">72</span>, </span>
-<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>,  <span class="at">y =</span> <span class="dv">75</span>,</span>
-<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"italic(p) == { p_blad_v_harb }"</span>),</span>
-<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a>           <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a><span class="co"># save figure to figures/seal.png</span></span>
-<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/seal.png"</span>,</span>
-<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> fig1,</span>
-<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="fl">3.5</span>,</span>
-<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="fl">3.5</span>,</span>
-<span id="cb12-449"><a href="#cb12-449" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
-<span id="cb12-450"><a href="#cb12-450" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span>
-<span id="cb12-451"><a href="#cb12-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-452"><a href="#cb12-452" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-453"><a href="#cb12-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-454"><a href="#cb12-454" aria-hidden="true" tabindex="-1"></a><span class="fu">## Leafminers on Birch</span></span>
-<span id="cb12-455"><a href="#cb12-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-456"><a href="#cb12-456" aria-hidden="true" tabindex="-1"></a>Larvae of the Ambermarked birch leafminer, *Profenusa thomsoni*, feed on</span>
-<span id="cb12-457"><a href="#cb12-457" aria-hidden="true" tabindex="-1"></a>the interior leaf tissues of Birch (Betula) species. They do not</span>
-<span id="cb12-458"><a href="#cb12-458" aria-hidden="true" tabindex="-1"></a>normally kill the tree but can weaken it making it susceptible to attack</span>
-<span id="cb12-459"><a href="#cb12-459" aria-hidden="true" tabindex="-1"></a>from other species. Researchers are interested in whether there is a</span>
-<span id="cb12-460"><a href="#cb12-460" aria-hidden="true" tabindex="-1"></a>difference in the rates at which white, grey and yellow birch are</span>
-<span id="cb12-461"><a href="#cb12-461" aria-hidden="true" tabindex="-1"></a>attacked. They introduce adult female *P.thomsoni* to a green house</span>
-<span id="cb12-462"><a href="#cb12-462" aria-hidden="true" tabindex="-1"></a>containing 30 young trees (ten of each type) and later count the egg</span>
-<span id="cb12-463"><a href="#cb12-463" aria-hidden="true" tabindex="-1"></a>laying events on each tree. The data are in</span>
-<span id="cb12-464"><a href="#cb12-464" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">leaf.txt</span><span class="co">](data-raw/leaf.txt)</span>.</span>
-<span id="cb12-465"><a href="#cb12-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-466"><a href="#cb12-466" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exploring</span></span>
-<span id="cb12-467"><a href="#cb12-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-468"><a href="#cb12-468" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Read in the data and check the structure. I used</span>
-<span id="cb12-469"><a href="#cb12-469" aria-hidden="true" tabindex="-1"></a>the name <span class="in">`leaf`</span> for the dataframe/tibble.</span>
+<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
+<span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> seal_summary, </span>
+<span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">ymin =</span> mean, <span class="at">ymax =</span> mean),</span>
+<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Myoglobin (g/kg)"</span>, </span>
+<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>), </span>
+<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">2</span>,   </span>
+<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">72</span>, <span class="at">yend =</span> <span class="dv">72</span>, </span>
+<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>,  <span class="at">y =</span> <span class="dv">75</span>,</span>
+<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"italic(p) == { p_blad_v_harb }"</span>),</span>
+<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a>           <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a><span class="co"># save figure to figures/seal.png</span></span>
+<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/seal.png"</span>,</span>
+<span id="cb12-449"><a href="#cb12-449" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> fig1,</span>
+<span id="cb12-450"><a href="#cb12-450" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="fl">3.5</span>,</span>
+<span id="cb12-451"><a href="#cb12-451" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="fl">3.5</span>,</span>
+<span id="cb12-452"><a href="#cb12-452" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"in"</span>,</span>
+<span id="cb12-453"><a href="#cb12-453" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span>
+<span id="cb12-454"><a href="#cb12-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-455"><a href="#cb12-455" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-456"><a href="#cb12-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-457"><a href="#cb12-457" aria-hidden="true" tabindex="-1"></a><span class="fu">## Leafminers on Birch</span></span>
+<span id="cb12-458"><a href="#cb12-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-459"><a href="#cb12-459" aria-hidden="true" tabindex="-1"></a>Larvae of the Ambermarked birch leafminer, *Profenusa thomsoni*, feed on</span>
+<span id="cb12-460"><a href="#cb12-460" aria-hidden="true" tabindex="-1"></a>the interior leaf tissues of Birch (Betula) species. They do not</span>
+<span id="cb12-461"><a href="#cb12-461" aria-hidden="true" tabindex="-1"></a>normally kill the tree but can weaken it making it susceptible to attack</span>
+<span id="cb12-462"><a href="#cb12-462" aria-hidden="true" tabindex="-1"></a>from other species. Researchers are interested in whether there is a</span>
+<span id="cb12-463"><a href="#cb12-463" aria-hidden="true" tabindex="-1"></a>difference in the rates at which white, grey and yellow birch are</span>
+<span id="cb12-464"><a href="#cb12-464" aria-hidden="true" tabindex="-1"></a>attacked. They introduce adult female *P.thomsoni* to a green house</span>
+<span id="cb12-465"><a href="#cb12-465" aria-hidden="true" tabindex="-1"></a>containing 30 young trees (ten of each type) and later count the egg</span>
+<span id="cb12-466"><a href="#cb12-466" aria-hidden="true" tabindex="-1"></a>laying events on each tree. The data are in</span>
+<span id="cb12-467"><a href="#cb12-467" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">leaf.txt</span><span class="co">](data-raw/leaf.txt)</span>.</span>
+<span id="cb12-468"><a href="#cb12-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-469"><a href="#cb12-469" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exploring</span></span>
 <span id="cb12-470"><a href="#cb12-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-473"><a href="#cb12-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-474"><a href="#cb12-474" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb12-475"><a href="#cb12-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-476"><a href="#cb12-476" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-477"><a href="#cb12-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-478"><a href="#cb12-478" aria-hidden="true" tabindex="-1"></a>leaf  <span class="ot">&lt;-</span>  <span class="fu">read_table</span>(<span class="st">"data-raw/leaf.txt"</span>)</span>
-<span id="cb12-479"><a href="#cb12-479" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(leaf)</span>
-<span id="cb12-480"><a href="#cb12-480" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-481"><a href="#cb12-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-482"><a href="#cb12-482" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What kind of variables do we have?</span>
-<span id="cb12-483"><a href="#cb12-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-484"><a href="#cb12-484" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
-<span id="cb12-485"><a href="#cb12-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-486"><a href="#cb12-486" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- we have birch, a categorical variable with three  --&gt;</span></span>
-<span id="cb12-487"><a href="#cb12-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-488"><a href="#cb12-488" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- groups, and counts in  eggs  which is the response.  --&gt;</span></span>
-<span id="cb12-489"><a href="#cb12-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-490"><a href="#cb12-490" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- counts are numeric but discrete. --&gt;</span></span>
-<span id="cb12-491"><a href="#cb12-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-492"><a href="#cb12-492" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Do a quick plot of the data.</span>
-<span id="cb12-493"><a href="#cb12-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-496"><a href="#cb12-496" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-497"><a href="#cb12-497" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb12-498"><a href="#cb12-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-499"><a href="#cb12-499" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-500"><a href="#cb12-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-501"><a href="#cb12-501" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> leaf, <span class="fu">aes</span>(<span class="at">x =</span> birch, <span class="at">y =</span> eggs)) <span class="sc">+</span></span>
-<span id="cb12-502"><a href="#cb12-502" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb12-503"><a href="#cb12-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-504"><a href="#cb12-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-505"><a href="#cb12-505" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Using your common sense, do these data look</span>
-<span id="cb12-506"><a href="#cb12-506" aria-hidden="true" tabindex="-1"></a>normally distributed?</span>
+<span id="cb12-471"><a href="#cb12-471" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Read in the data and check the structure. I used</span>
+<span id="cb12-472"><a href="#cb12-472" aria-hidden="true" tabindex="-1"></a>the name <span class="in">`leaf`</span> for the dataframe/tibble.</span>
+<span id="cb12-473"><a href="#cb12-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-476"><a href="#cb12-476" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-477"><a href="#cb12-477" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb12-478"><a href="#cb12-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-479"><a href="#cb12-479" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-480"><a href="#cb12-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-481"><a href="#cb12-481" aria-hidden="true" tabindex="-1"></a>leaf  <span class="ot">&lt;-</span>  <span class="fu">read_table</span>(<span class="st">"data-raw/leaf.txt"</span>)</span>
+<span id="cb12-482"><a href="#cb12-482" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(leaf)</span>
+<span id="cb12-483"><a href="#cb12-483" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-484"><a href="#cb12-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-485"><a href="#cb12-485" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What kind of variables do we have?</span>
+<span id="cb12-486"><a href="#cb12-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-487"><a href="#cb12-487" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
+<span id="cb12-488"><a href="#cb12-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-489"><a href="#cb12-489" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- we have birch, a categorical variable with three  --&gt;</span></span>
+<span id="cb12-490"><a href="#cb12-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-491"><a href="#cb12-491" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- groups, and counts in  eggs  which is the response.  --&gt;</span></span>
+<span id="cb12-492"><a href="#cb12-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-493"><a href="#cb12-493" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- counts are numeric but discrete. --&gt;</span></span>
+<span id="cb12-494"><a href="#cb12-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-495"><a href="#cb12-495" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Do a quick plot of the data.</span>
+<span id="cb12-496"><a href="#cb12-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-499"><a href="#cb12-499" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-500"><a href="#cb12-500" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb12-501"><a href="#cb12-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-502"><a href="#cb12-502" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-503"><a href="#cb12-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-504"><a href="#cb12-504" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> leaf, <span class="fu">aes</span>(<span class="at">x =</span> birch, <span class="at">y =</span> eggs)) <span class="sc">+</span></span>
+<span id="cb12-505"><a href="#cb12-505" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb12-506"><a href="#cb12-506" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-507"><a href="#cb12-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-508"><a href="#cb12-508" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
-<span id="cb12-509"><a href="#cb12-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-510"><a href="#cb12-510" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No and little need to test - they're counts, and have unequal  --&gt;</span></span>
-<span id="cb12-511"><a href="#cb12-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-512"><a href="#cb12-512" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- variances --&gt;</span></span>
-<span id="cb12-513"><a href="#cb12-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-514"><a href="#cb12-514" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Why is a Kruskal-Wallis appropriate in this case?</span>
-<span id="cb12-515"><a href="#cb12-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-516"><a href="#cb12-516" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
-<span id="cb12-517"><a href="#cb12-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-518"><a href="#cb12-518" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the data are counts hence they are not continuous. We can  --&gt;</span></span>
-<span id="cb12-519"><a href="#cb12-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-520"><a href="#cb12-520" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- sometimes treat count data as continuous if there is a large  --&gt;</span></span>
-<span id="cb12-521"><a href="#cb12-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-522"><a href="#cb12-522" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- number of possible values and the distance between each value  --&gt;</span></span>
-<span id="cb12-523"><a href="#cb12-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-524"><a href="#cb12-524" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- relative to the range is small but this is not the case here.  --&gt;</span></span>
-<span id="cb12-525"><a href="#cb12-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-526"><a href="#cb12-526" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- In addition there are only ten values in each group --&gt;</span></span>
-<span id="cb12-527"><a href="#cb12-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-528"><a href="#cb12-528" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Calculate the medians, means and sample sizes.</span>
-<span id="cb12-529"><a href="#cb12-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-532"><a href="#cb12-532" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-533"><a href="#cb12-533" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb12-534"><a href="#cb12-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-535"><a href="#cb12-535" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-536"><a href="#cb12-536" aria-hidden="true" tabindex="-1"></a>leaf <span class="sc">|&gt;</span> </span>
-<span id="cb12-537"><a href="#cb12-537" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(birch) <span class="sc">|&gt;</span> </span>
-<span id="cb12-538"><a href="#cb12-538" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(eggs),</span>
-<span id="cb12-539"><a href="#cb12-539" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(eggs),</span>
-<span id="cb12-540"><a href="#cb12-540" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(eggs))</span>
-<span id="cb12-541"><a href="#cb12-541" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-542"><a href="#cb12-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-543"><a href="#cb12-543" aria-hidden="true" tabindex="-1"></a><span class="fu">### Applying, interpreting and reporting</span></span>
-<span id="cb12-544"><a href="#cb12-544" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-545"><a href="#cb12-545" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Carry out a Kruskal-Wallis:</span>
-<span id="cb12-546"><a href="#cb12-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-549"><a href="#cb12-549" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-550"><a href="#cb12-550" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span>
-<span id="cb12-551"><a href="#cb12-551" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-552"><a href="#cb12-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-553"><a href="#cb12-553" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What do you conclude from the test?</span>
-<span id="cb12-554"><a href="#cb12-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-555"><a href="#cb12-555" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
-<span id="cb12-556"><a href="#cb12-556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-557"><a href="#cb12-557" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- There is a significant difference between birch types in  --&gt;</span></span>
-<span id="cb12-558"><a href="#cb12-558" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-559"><a href="#cb12-559" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the number of laying events by *P.thomsoni*  --&gt;</span></span>
-<span id="cb12-560"><a href="#cb12-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-561"><a href="#cb12-561" aria-hidden="true" tabindex="-1"></a>A significant Kruskal-Wallis tells us at least two of the groups differ</span>
-<span id="cb12-562"><a href="#cb12-562" aria-hidden="true" tabindex="-1"></a>but where do the differences lie? The Dunn test is a post-hoc multiple</span>
-<span id="cb12-563"><a href="#cb12-563" aria-hidden="true" tabindex="-1"></a>comparison test for a significant Kruskal-Wallis. It is available in the</span>
-<span id="cb12-564"><a href="#cb12-564" aria-hidden="true" tabindex="-1"></a>package **`FSA`**</span>
-<span id="cb12-565"><a href="#cb12-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-566"><a href="#cb12-566" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Load the package using:</span>
-<span id="cb12-567"><a href="#cb12-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-570"><a href="#cb12-570" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-571"><a href="#cb12-571" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FSA)</span>
-<span id="cb12-572"><a href="#cb12-572" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-573"><a href="#cb12-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-574"><a href="#cb12-574" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Run the post-hoc test with:</span>
-<span id="cb12-575"><a href="#cb12-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-578"><a href="#cb12-578" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-579"><a href="#cb12-579" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnTest</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span>
-<span id="cb12-580"><a href="#cb12-580" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-581"><a href="#cb12-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-582"><a href="#cb12-582" aria-hidden="true" tabindex="-1"></a>The <span class="in">`P.adj`</span> column gives *p*-value for the comparison listed in the</span>
-<span id="cb12-583"><a href="#cb12-583" aria-hidden="true" tabindex="-1"></a>first column. <span class="in">`Z`</span> is the test statistic.</span>
+<span id="cb12-508"><a href="#cb12-508" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Using your common sense, do these data look</span>
+<span id="cb12-509"><a href="#cb12-509" aria-hidden="true" tabindex="-1"></a>normally distributed?</span>
+<span id="cb12-510"><a href="#cb12-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-511"><a href="#cb12-511" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
+<span id="cb12-512"><a href="#cb12-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-513"><a href="#cb12-513" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No and little need to test - they're counts, and have unequal  --&gt;</span></span>
+<span id="cb12-514"><a href="#cb12-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-515"><a href="#cb12-515" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- variances --&gt;</span></span>
+<span id="cb12-516"><a href="#cb12-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-517"><a href="#cb12-517" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Why is a Kruskal-Wallis appropriate in this case?</span>
+<span id="cb12-518"><a href="#cb12-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-519"><a href="#cb12-519" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
+<span id="cb12-520"><a href="#cb12-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-521"><a href="#cb12-521" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the data are counts hence they are not continuous. We can  --&gt;</span></span>
+<span id="cb12-522"><a href="#cb12-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-523"><a href="#cb12-523" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- sometimes treat count data as continuous if there is a large  --&gt;</span></span>
+<span id="cb12-524"><a href="#cb12-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-525"><a href="#cb12-525" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- number of possible values and the distance between each value  --&gt;</span></span>
+<span id="cb12-526"><a href="#cb12-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-527"><a href="#cb12-527" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- relative to the range is small but this is not the case here.  --&gt;</span></span>
+<span id="cb12-528"><a href="#cb12-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-529"><a href="#cb12-529" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- In addition there are only ten values in each group --&gt;</span></span>
+<span id="cb12-530"><a href="#cb12-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-531"><a href="#cb12-531" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Calculate the medians, means and sample sizes.</span>
+<span id="cb12-532"><a href="#cb12-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-535"><a href="#cb12-535" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-536"><a href="#cb12-536" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb12-537"><a href="#cb12-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-538"><a href="#cb12-538" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-539"><a href="#cb12-539" aria-hidden="true" tabindex="-1"></a>leaf <span class="sc">|&gt;</span> </span>
+<span id="cb12-540"><a href="#cb12-540" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(birch) <span class="sc">|&gt;</span> </span>
+<span id="cb12-541"><a href="#cb12-541" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(eggs),</span>
+<span id="cb12-542"><a href="#cb12-542" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(eggs),</span>
+<span id="cb12-543"><a href="#cb12-543" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">length</span>(eggs))</span>
+<span id="cb12-544"><a href="#cb12-544" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-545"><a href="#cb12-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-546"><a href="#cb12-546" aria-hidden="true" tabindex="-1"></a><span class="fu">### Applying, interpreting and reporting</span></span>
+<span id="cb12-547"><a href="#cb12-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-548"><a href="#cb12-548" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Carry out a Kruskal-Wallis:</span>
+<span id="cb12-549"><a href="#cb12-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-552"><a href="#cb12-552" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-553"><a href="#cb12-553" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span>
+<span id="cb12-554"><a href="#cb12-554" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-555"><a href="#cb12-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-556"><a href="#cb12-556" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What do you conclude from the test?</span>
+<span id="cb12-557"><a href="#cb12-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-558"><a href="#cb12-558" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
+<span id="cb12-559"><a href="#cb12-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-560"><a href="#cb12-560" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- There is a significant difference between birch types in  --&gt;</span></span>
+<span id="cb12-561"><a href="#cb12-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-562"><a href="#cb12-562" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the number of laying events by *P.thomsoni*  --&gt;</span></span>
+<span id="cb12-563"><a href="#cb12-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-564"><a href="#cb12-564" aria-hidden="true" tabindex="-1"></a>A significant Kruskal-Wallis tells us at least two of the groups differ</span>
+<span id="cb12-565"><a href="#cb12-565" aria-hidden="true" tabindex="-1"></a>but where do the differences lie? The Dunn test is a post-hoc multiple</span>
+<span id="cb12-566"><a href="#cb12-566" aria-hidden="true" tabindex="-1"></a>comparison test for a significant Kruskal-Wallis. It is available in the</span>
+<span id="cb12-567"><a href="#cb12-567" aria-hidden="true" tabindex="-1"></a>package **`FSA`**</span>
+<span id="cb12-568"><a href="#cb12-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-569"><a href="#cb12-569" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Load the package using:</span>
+<span id="cb12-570"><a href="#cb12-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-573"><a href="#cb12-573" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-574"><a href="#cb12-574" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FSA)</span>
+<span id="cb12-575"><a href="#cb12-575" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-576"><a href="#cb12-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-577"><a href="#cb12-577" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> Run the post-hoc test with:</span>
+<span id="cb12-578"><a href="#cb12-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-581"><a href="#cb12-581" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-582"><a href="#cb12-582" aria-hidden="true" tabindex="-1"></a><span class="fu">dunnTest</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)</span>
+<span id="cb12-583"><a href="#cb12-583" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-584"><a href="#cb12-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-585"><a href="#cb12-585" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What do you conclude from the test?</span>
-<span id="cb12-586"><a href="#cb12-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-587"><a href="#cb12-587" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
-<span id="cb12-588"><a href="#cb12-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-589"><a href="#cb12-589" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- The significant difference is between yellow birch and white  --&gt;</span></span>
-<span id="cb12-590"><a href="#cb12-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-591"><a href="#cb12-591" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- birch (the highest and lowest number of eggs) --&gt;</span></span>
-<span id="cb12-592"><a href="#cb12-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-593"><a href="#cb12-593" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Write up the result is a form suitable for a</span>
-<span id="cb12-594"><a href="#cb12-594" aria-hidden="true" tabindex="-1"></a>report.</span>
+<span id="cb12-585"><a href="#cb12-585" aria-hidden="true" tabindex="-1"></a>The <span class="in">`P.adj`</span> column gives *p*-value for the comparison listed in the</span>
+<span id="cb12-586"><a href="#cb12-586" aria-hidden="true" tabindex="-1"></a>first column. <span class="in">`Z`</span> is the test statistic.</span>
+<span id="cb12-587"><a href="#cb12-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-588"><a href="#cb12-588" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> What do you conclude from the test?</span>
+<span id="cb12-589"><a href="#cb12-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-590"><a href="#cb12-590" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
+<span id="cb12-591"><a href="#cb12-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-592"><a href="#cb12-592" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- The significant difference is between yellow birch and white  --&gt;</span></span>
+<span id="cb12-593"><a href="#cb12-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-594"><a href="#cb12-594" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- birch (the highest and lowest number of eggs) --&gt;</span></span>
 <span id="cb12-595"><a href="#cb12-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-596"><a href="#cb12-596" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
-<span id="cb12-597"><a href="#cb12-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-598"><a href="#cb12-598" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- There is a significant difference in the rate of leafminer  --&gt;</span></span>
-<span id="cb12-599"><a href="#cb12-599" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-600"><a href="#cb12-600" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- attack between birch species (Kruskal-Wallis: chi-squared = 6.34, --&gt;</span></span>
-<span id="cb12-601"><a href="#cb12-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-602"><a href="#cb12-602" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- df = 2, p-value = 0.042). Post-hoc testing revealed that  --&gt;</span></span>
-<span id="cb12-603"><a href="#cb12-603" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-604"><a href="#cb12-604" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- difference to be between the White Birch with the lowest number  --&gt;</span></span>
-<span id="cb12-605"><a href="#cb12-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-606"><a href="#cb12-606" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- of eggs (median = 14) and Yellow Birch with the highest  --&gt;</span></span>
-<span id="cb12-607"><a href="#cb12-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-608"><a href="#cb12-608" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- (median = 54) (*z* = 2.52; *p* = 0.035). --&gt;</span></span>
-<span id="cb12-609"><a href="#cb12-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-610"><a href="#cb12-610" aria-hidden="true" tabindex="-1"></a><span class="fu">### Illustrating</span></span>
-<span id="cb12-611"><a href="#cb12-611" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-612"><a href="#cb12-612" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> A box plot is an appropriate choice for</span>
-<span id="cb12-613"><a href="#cb12-613" aria-hidden="true" tabindex="-1"></a>illustrating a Kruskal-Wallis. Can you produce a figure like this?</span>
+<span id="cb12-596"><a href="#cb12-596" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/answer.png)</span> Write up the result is a form suitable for a</span>
+<span id="cb12-597"><a href="#cb12-597" aria-hidden="true" tabindex="-1"></a>report.</span>
+<span id="cb12-598"><a href="#cb12-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-599"><a href="#cb12-599" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER---  --&gt;</span></span>
+<span id="cb12-600"><a href="#cb12-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-601"><a href="#cb12-601" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- There is a significant difference in the rate of leafminer  --&gt;</span></span>
+<span id="cb12-602"><a href="#cb12-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-603"><a href="#cb12-603" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- attack between birch species (Kruskal-Wallis: chi-squared = 6.34, --&gt;</span></span>
+<span id="cb12-604"><a href="#cb12-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-605"><a href="#cb12-605" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- df = 2, p-value = 0.042). Post-hoc testing revealed that  --&gt;</span></span>
+<span id="cb12-606"><a href="#cb12-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-607"><a href="#cb12-607" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- difference to be between the White Birch with the lowest number  --&gt;</span></span>
+<span id="cb12-608"><a href="#cb12-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-609"><a href="#cb12-609" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- of eggs (median = 14) and Yellow Birch with the highest  --&gt;</span></span>
+<span id="cb12-610"><a href="#cb12-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-611"><a href="#cb12-611" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- (median = 54) (*z* = 2.52; *p* = 0.035). --&gt;</span></span>
+<span id="cb12-612"><a href="#cb12-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-613"><a href="#cb12-613" aria-hidden="true" tabindex="-1"></a><span class="fu">### Illustrating</span></span>
 <span id="cb12-614"><a href="#cb12-614" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-617"><a href="#cb12-617" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-618"><a href="#cb12-618" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb12-619"><a href="#cb12-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-620"><a href="#cb12-620" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-621"><a href="#cb12-621" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaf, <span class="fu">aes</span>(<span class="at">x =</span> birch, <span class="at">y =</span> eggs) ) <span class="sc">+</span></span>
-<span id="cb12-622"><a href="#cb12-622" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb12-623"><a href="#cb12-623" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Birch"</span>) <span class="sc">+</span></span>
-<span id="cb12-624"><a href="#cb12-624" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Number of eggs"</span>, </span>
-<span id="cb12-625"><a href="#cb12-625" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">110</span>),</span>
-<span id="cb12-626"><a href="#cb12-626" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb12-627"><a href="#cb12-627" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">xend =</span> <span class="dv">3</span>, </span>
-<span id="cb12-628"><a href="#cb12-628" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">100</span>, <span class="at">yend =</span> <span class="dv">100</span>,</span>
-<span id="cb12-629"><a href="#cb12-629" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb12-630"><a href="#cb12-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.5</span>,  <span class="at">y =</span> <span class="dv">104</span>, </span>
-<span id="cb12-631"><a href="#cb12-631" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"italic(p) == 0.0355"</span>, <span class="co"># Method 1</span></span>
-<span id="cb12-632"><a href="#cb12-632" aria-hidden="true" tabindex="-1"></a>           <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb12-633"><a href="#cb12-633" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb12-634"><a href="#cb12-634" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-635"><a href="#cb12-635" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-638"><a href="#cb12-638" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-639"><a href="#cb12-639" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb12-640"><a href="#cb12-640" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb12-641"><a href="#cb12-641" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-642"><a href="#cb12-642" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb12-643"><a href="#cb12-643" aria-hidden="true" tabindex="-1"></a><span class="co"># or extract p value</span></span>
-<span id="cb12-644"><a href="#cb12-644" aria-hidden="true" tabindex="-1"></a><span class="co"># you most likely would not be able towork out how to do this.</span></span>
-<span id="cb12-645"><a href="#cb12-645" aria-hidden="true" tabindex="-1"></a><span class="co"># there is no broom::tidy() method for dunnTest but there is a </span></span>
-<span id="cb12-646"><a href="#cb12-646" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe called res inside the Dunn Test object</span></span>
-<span id="cb12-647"><a href="#cb12-647" aria-hidden="true" tabindex="-1"></a>p_whit_v_yell <span class="ot">&lt;-</span> <span class="fu">dunnTest</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)<span class="sc">$</span>res <span class="sc">|&gt;</span> </span>
-<span id="cb12-648"><a href="#cb12-648" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Comparison <span class="sc">==</span> <span class="st">"White - Yellow"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb12-649"><a href="#cb12-649" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(P.adj) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
-<span id="cb12-650"><a href="#cb12-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-651"><a href="#cb12-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-652"><a href="#cb12-652" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaf, <span class="fu">aes</span>(<span class="at">x =</span> birch, <span class="at">y =</span> eggs) ) <span class="sc">+</span></span>
-<span id="cb12-653"><a href="#cb12-653" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb12-654"><a href="#cb12-654" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Birch"</span>) <span class="sc">+</span></span>
-<span id="cb12-655"><a href="#cb12-655" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Number of eggs"</span>, </span>
-<span id="cb12-656"><a href="#cb12-656" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">110</span>),</span>
-<span id="cb12-657"><a href="#cb12-657" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb12-658"><a href="#cb12-658" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">xend =</span> <span class="dv">3</span>, </span>
-<span id="cb12-659"><a href="#cb12-659" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">100</span>, <span class="at">yend =</span> <span class="dv">100</span>,</span>
-<span id="cb12-660"><a href="#cb12-660" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb12-661"><a href="#cb12-661" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.5</span>,  <span class="at">y =</span> <span class="dv">104</span>, </span>
-<span id="cb12-662"><a href="#cb12-662" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"italic(p) == { p_whit_v_yell }"</span>),</span>
-<span id="cb12-663"><a href="#cb12-663" aria-hidden="true" tabindex="-1"></a>           <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb12-664"><a href="#cb12-664" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb12-665"><a href="#cb12-665" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-666"><a href="#cb12-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-667"><a href="#cb12-667" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
-<span id="cb12-668"><a href="#cb12-668" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-669"><a href="#cb12-669" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
-<span id="cb12-670"><a href="#cb12-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-671"><a href="#cb12-671" aria-hidden="true" tabindex="-1"></a>![Illustrations from the Openscapes blog Tidy Data for reproducibility,</span>
-<span id="cb12-672"><a href="#cb12-672" aria-hidden="true" tabindex="-1"></a>efficiency, and collaboration by Julia Lowndes and Allison</span>
-<span id="cb12-673"><a href="#cb12-673" aria-hidden="true" tabindex="-1"></a>Horst](images/tidy-complete.jpg){fig-alt="Cute fuzzy monsters putting rectangular data tables onto a conveyor belt. Along the conveyor belt line are different automated 'stations' that update the data, reading 'WRANGLE', 'VISUALIZE', and 'MODEL.' A monster at the end of the conveyor belt is carrying away a table that reads 'Complete analysis'."</span>
-<span id="cb12-674"><a href="#cb12-674" aria-hidden="true" tabindex="-1"></a>width="800"}</span>
-<span id="cb12-675"><a href="#cb12-675" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-676"><a href="#cb12-676" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
-<span id="cb12-677"><a href="#cb12-677" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-678"><a href="#cb12-678" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
-<span id="cb12-679"><a href="#cb12-679" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-680"><a href="#cb12-680" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
-<span id="cb12-681"><a href="#cb12-681" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-682"><a href="#cb12-682" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
-<span id="cb12-683"><a href="#cb12-683" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
+<span id="cb12-615"><a href="#cb12-615" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/do_in_R.png)</span> A box plot is an appropriate choice for</span>
+<span id="cb12-616"><a href="#cb12-616" aria-hidden="true" tabindex="-1"></a>illustrating a Kruskal-Wallis. Can you produce a figure like this?</span>
+<span id="cb12-617"><a href="#cb12-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-620"><a href="#cb12-620" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-621"><a href="#cb12-621" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-622"><a href="#cb12-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-623"><a href="#cb12-623" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-624"><a href="#cb12-624" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaf, <span class="fu">aes</span>(<span class="at">x =</span> birch, <span class="at">y =</span> eggs) ) <span class="sc">+</span></span>
+<span id="cb12-625"><a href="#cb12-625" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb12-626"><a href="#cb12-626" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Birch"</span>) <span class="sc">+</span></span>
+<span id="cb12-627"><a href="#cb12-627" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Number of eggs"</span>, </span>
+<span id="cb12-628"><a href="#cb12-628" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">110</span>),</span>
+<span id="cb12-629"><a href="#cb12-629" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb12-630"><a href="#cb12-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">xend =</span> <span class="dv">3</span>, </span>
+<span id="cb12-631"><a href="#cb12-631" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">100</span>, <span class="at">yend =</span> <span class="dv">100</span>,</span>
+<span id="cb12-632"><a href="#cb12-632" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-633"><a href="#cb12-633" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.5</span>,  <span class="at">y =</span> <span class="dv">104</span>, </span>
+<span id="cb12-634"><a href="#cb12-634" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"italic(p) == 0.0355"</span>, <span class="co"># Method 1</span></span>
+<span id="cb12-635"><a href="#cb12-635" aria-hidden="true" tabindex="-1"></a>           <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb12-636"><a href="#cb12-636" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb12-637"><a href="#cb12-637" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-638"><a href="#cb12-638" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-641"><a href="#cb12-641" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-642"><a href="#cb12-642" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-643"><a href="#cb12-643" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb12-644"><a href="#cb12-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-645"><a href="#cb12-645" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb12-646"><a href="#cb12-646" aria-hidden="true" tabindex="-1"></a><span class="co"># or extract p value</span></span>
+<span id="cb12-647"><a href="#cb12-647" aria-hidden="true" tabindex="-1"></a><span class="co"># you most likely would not be able towork out how to do this.</span></span>
+<span id="cb12-648"><a href="#cb12-648" aria-hidden="true" tabindex="-1"></a><span class="co"># there is no broom::tidy() method for dunnTest but there is a </span></span>
+<span id="cb12-649"><a href="#cb12-649" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe called res inside the Dunn Test object</span></span>
+<span id="cb12-650"><a href="#cb12-650" aria-hidden="true" tabindex="-1"></a>p_whit_v_yell <span class="ot">&lt;-</span> <span class="fu">dunnTest</span>(<span class="at">data =</span> leaf, eggs <span class="sc">~</span> birch)<span class="sc">$</span>res <span class="sc">|&gt;</span> </span>
+<span id="cb12-651"><a href="#cb12-651" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Comparison <span class="sc">==</span> <span class="st">"White - Yellow"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-652"><a href="#cb12-652" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(P.adj) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb12-653"><a href="#cb12-653" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-654"><a href="#cb12-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-655"><a href="#cb12-655" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaf, <span class="fu">aes</span>(<span class="at">x =</span> birch, <span class="at">y =</span> eggs) ) <span class="sc">+</span></span>
+<span id="cb12-656"><a href="#cb12-656" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb12-657"><a href="#cb12-657" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Birch"</span>) <span class="sc">+</span></span>
+<span id="cb12-658"><a href="#cb12-658" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Number of eggs"</span>, </span>
+<span id="cb12-659"><a href="#cb12-659" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">110</span>),</span>
+<span id="cb12-660"><a href="#cb12-660" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb12-661"><a href="#cb12-661" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">xend =</span> <span class="dv">3</span>, </span>
+<span id="cb12-662"><a href="#cb12-662" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">100</span>, <span class="at">yend =</span> <span class="dv">100</span>,</span>
+<span id="cb12-663"><a href="#cb12-663" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-664"><a href="#cb12-664" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.5</span>,  <span class="at">y =</span> <span class="dv">104</span>, </span>
+<span id="cb12-665"><a href="#cb12-665" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"italic(p) == { p_whit_v_yell }"</span>),</span>
+<span id="cb12-666"><a href="#cb12-666" aria-hidden="true" tabindex="-1"></a>           <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb12-667"><a href="#cb12-667" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb12-668"><a href="#cb12-668" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-669"><a href="#cb12-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-670"><a href="#cb12-670" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
+<span id="cb12-671"><a href="#cb12-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-672"><a href="#cb12-672" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
+<span id="cb12-673"><a href="#cb12-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-674"><a href="#cb12-674" aria-hidden="true" tabindex="-1"></a>![Illustrations from the Openscapes blog Tidy Data for reproducibility,</span>
+<span id="cb12-675"><a href="#cb12-675" aria-hidden="true" tabindex="-1"></a>efficiency, and collaboration by Julia Lowndes and Allison</span>
+<span id="cb12-676"><a href="#cb12-676" aria-hidden="true" tabindex="-1"></a>Horst](images/tidy-complete.jpg){fig-alt="Cute fuzzy monsters putting rectangular data tables onto a conveyor belt. Along the conveyor belt line are different automated 'stations' that update the data, reading 'WRANGLE', 'VISUALIZE', and 'MODEL.' A monster at the end of the conveyor belt is carrying away a table that reads 'Complete analysis'."</span>
+<span id="cb12-677"><a href="#cb12-677" aria-hidden="true" tabindex="-1"></a>width="800"}</span>
+<span id="cb12-678"><a href="#cb12-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-679"><a href="#cb12-679" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
+<span id="cb12-680"><a href="#cb12-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-681"><a href="#cb12-681" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
+<span id="cb12-682"><a href="#cb12-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-683"><a href="#cb12-683" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
 <span id="cb12-684"><a href="#cb12-684" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-685"><a href="#cb12-685" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
-<span id="cb12-686"><a href="#cb12-686" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
-<span id="cb12-687"><a href="#cb12-687" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages. View</span>
-<span id="cb12-688"><a href="#cb12-688" aria-hidden="true" tabindex="-1"></a>the source code for this workshop using the <span class="in">`&lt;/&gt; Code`</span> button at the top</span>
-<span id="cb12-689"><a href="#cb12-689" aria-hidden="true" tabindex="-1"></a>of the page. Coding and thinking answers are marked with</span>
-<span id="cb12-690"><a href="#cb12-690" aria-hidden="true" tabindex="-1"></a><span class="in">`#---CODING ANSWER---`</span> and <span class="in">`#---THINKING ANSWER---`</span></span>
-<span id="cb12-691"><a href="#cb12-691" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-692"><a href="#cb12-692" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> [@knitr1;</span>
-<span id="cb12-693"><a href="#cb12-693" aria-hidden="true" tabindex="-1"></a>@knitr2; @knitr3], <span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
-<span id="cb12-694"><a href="#cb12-694" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-695"><a href="#cb12-695" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
+<span id="cb12-685"><a href="#cb12-685" aria-hidden="true" tabindex="-1"></a>All the answers (coding and thinking) are in the source code for the</span>
+<span id="cb12-686"><a href="#cb12-686" aria-hidden="true" tabindex="-1"></a>workshop. You can view it using the <span class="in">`&lt;/&gt; Code`</span> button at the top of the</span>
+<span id="cb12-687"><a href="#cb12-687" aria-hidden="true" tabindex="-1"></a>page. Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span></span>
+<span id="cb12-688"><a href="#cb12-688" aria-hidden="true" tabindex="-1"></a>and <span class="in">`#---THINKING ANSWER---`</span></span>
+<span id="cb12-689"><a href="#cb12-689" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-690"><a href="#cb12-690" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> [@knitr1;</span>
+<span id="cb12-691"><a href="#cb12-691" aria-hidden="true" tabindex="-1"></a>@knitr2; @knitr3], <span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
+<span id="cb12-692"><a href="#cb12-692" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-693"><a href="#cb12-693" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
