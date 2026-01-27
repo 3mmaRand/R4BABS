@@ -1,57 +1,55 @@
-send early Week 5.
+send wed Week 5.
 
-# 🧡💻 BIO00027C-Week 6: Data Analysis in R for BABS 1
+# 💚💻 Week 6 26C Data Analysis in R for BABS 2
 
-👋 Hello Everyone, I am writing about the Data Analysis in R part of
-BABS 1 which begins in Week 6.
+Hello Everyone,
 
-## 🧑‍💻 About Data Analysis in R
+We are in week 5 and this email is about *week 6*.
 
-You can read an overview of Data Analysis in R in your degree, and in
-BABS 1 on the VLE. The material is also available without 2FA [Overview
-in degree](https://3mmarand.github.io/R4BABS/) and [Overview in BABS
-1](https://3mmarand.github.io/R4BABS/r4babs1/r4babs1.html).
+🎉🥳🪅 Congratulations! You've made it to the final week of stage 1 Data
+Analysis in R!
 
-## 📋 Organisation of the teaching
-
-In each week there is
-
--   ℹ️ An overview on the “About” page which gives the Learning
-    Objectives, a summary and instructions. You should read this first.
--   📖 Some independent study of about 30-45 minutes on the “Prepare!”
-    page to get ready for the workshop
--   🖥️A two-hour workshop using R. This will usually start with me doing
-    a short demonstration but you will spend most of the session trying
-    things out yourself. There will be plenty of help from me and my
-    demonstrators.
--   💻 Some independent study of about 30-45 minutes on the
-    “Consolidate!” page to give you more practice. I will send an email
-    on Monday each week about the following week's material. Expect an
-    email on Monday of week 6 about week 7.
+![](images/rainbowr.gif){width="200"}
 
 ## 6️⃣ What is happening in week 6
 
-The week 6 materials are on the VLE: Week 6 Data Analysis in R (or [Week
-6 without
-2FA](https://3mmarand.github.io/R4BABS/r4babs1/week-6/overview.html)).
+Up to this point, we have focused on methods that examine how one
+variable affects another. This week we shift our focus to situations
+where no causal relationship is assumed. Instead of asking whether one
+variable predicts another, we ask whether two variables are associated -
+whether they tend to change together. You will learn how to test whether
+there is an association between two categorical variables using the
+chi-squared contingency test and how to test whether there is an
+association between two continuous variables using the correlation test.
 
-The key points about week 6 are:
+The materials are on the VLE: Week 6 Data Analysis in R (or [Week 6
+without
+2FA](https://3mmarand.github.io/R4BABS/r4babs2/week-6/overview.html)).
+There is:
 
--   there is some reading to do about [computer file systems and
-    definitions for R and
-    RStudio](https://3mmarand.github.io/R4BABS/r4babs1/week-6/study_before_workshop.html)
--   there is no formal workshop but you should set up the [Virtual
-    Desktop
-    Service](https://3mmarand.github.io/R4BABS/r4babs1/week-6/workshop.html)
-    so you can easily code at home.
--   There is an online "lecture" (Intro: Data Handling - BIO00027C) on
-    your timetable for Wednesday, 5 November⋅10:00 – 11:00. The main
-    purpose of this session is to talk over the organisation and give
-    you an opportunity to ask questions.
+-   An overview of the week.
 
-🤸 I really enjoy teaching this module so I'm looking forward to working
-with you after the consolidation week.
+-   Some independent study to
+    [Prepare!](https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_before_workshop.html)
+    for the workshop. It covers the ideas behind correlation and the
+    chi-squared contingency test. There is an example about how systolic
+    blood pressure (SBP) is associated with kidney function and one
+    about what pigs like eating
 
-I do like an emoji!
+![Trougnouf (Benoit Brummer), CC BY 4.0
+https://creativecommons.org/licenses/by/4.0, via Wikimedia
+Commons](images/tamworth-pig.jpg){width="500"}
 
-Bests, Emma
+-   The
+    [workshop](https://3mmarand.github.io/R4BABS/r4babs2/week-6/workshop.html)
+    in which you will get practice in choosing and applying parametric
+    and non-parametric correlations and doing chi-squared contingency
+    tests.
+
+-   And some independent study for after the workshop to
+    [Consolidate](https://3mmarand.github.io/R4BABS/r4babs2/week-6/study_after_workshop.html)
+    what you are learning.
+
+Bests,
+
+Emma
