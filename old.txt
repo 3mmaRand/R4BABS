@@ -317,13 +317,6 @@ execute:
 
 engine: knitr
 
-knitr:
-  opts_chunk:
-    fig.width: 7
-    fig.height: 5
-    fig.retina: 2
-    dev: "ragg_png"
-
 
 format:
   html:

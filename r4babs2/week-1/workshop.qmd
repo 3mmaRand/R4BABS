@@ -67,14 +67,14 @@ Record your answers in your script for future reference.
 
 ![](images/do_on_your_computer.png) Start RStudio from the Start menu.
 
-<!-- ![](images/do_in_R.png) Go the Files tab in the lower right pane and -->
-<!-- click on the `...` on the right. This will open a "Go to folder" window. -->
-<!-- Navigate to a place on your computer where you keep your work. Click -->
-<!-- Open. -->
+![](images/do_in_R.png) Go the Files tab in the lower right pane and
+click on the `...` on the right. This will open a "Go to folder" window.
+Navigate to a place on your computer where you keep your work. Click
+Open.
 
-<!-- ![](images/do_in_R.png) Also on the Files tab click on `New Folder`. -->
-<!-- Type "data-analysis-in-r-2" in to the box. This will be the folder that -->
-<!-- we work in throughout the Data Analysis in R part BABS2. -->
+![](images/do_in_R.png) Also on the Files tab click on `New Folder`.
+Type "data-analysis-in-r-2" in to the box. This will be the folder that
+we work in throughout the Data Analysis in R part BABS2.
 
 ![](images/do_in_R.png) Make an RStudio project for this workshop by
 clicking on the drop-down menu on top right where it says
@@ -82,11 +82,11 @@ clicking on the drop-down menu on top right where it says
 Project. Name the RStudio Project 'week-1'.
 
 ![](images/do_in_R.png) Make a new script then save it with a name like
-`analysis.R` to carry out the rest of the work.
+`confidence-intervals.R` to carry out the rest of the work.
 
 ![](images/do_in_R.png) Add a comment to the script:
-`# confidence intervals` and load the **`tidyverse`** [@tidyverse]
-package
+`# confidence intervals: large and small samples` and load the
+**`tidyverse`** [@tidyverse] package
 
 ![](images/do_in_R.png) Make a new folder called `data-raw`.
 
@@ -102,7 +102,6 @@ covered in BABS 1 [@rand2023] if you need to remind yourself.
 
 [Changing some defaults to make life
 easier](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html#changing-some-defaults-to-make-life-easier)
-
 
 ## Confidence intervals (large samples)
 
@@ -345,16 +344,10 @@ width="800"}
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not
-visible on the webpage.
-
-The `workshop.qmd` file is the file I use to compile the practical. Qmd
-stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. View
-the source code for this workshop using the `</> Code` button at the top
-of the page.
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+All the answers (coding and thinking) are in the source code for the
+workshop. You can view it using the `</> Code` button at the top of the
+page. Coding and thinking answers are marked with `#---CODING ANSWER---`
+and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
 @knitr2; @knitr3], `kableExtra` [@kableExtra]

@@ -5,15 +5,15 @@ toc: true
 toc-location: right
 ---
 
-This week you will how to use and interpret the general linear model
-when the explanatory (or *x*) variable is categorical with two possible
-values. These tests are also known as *t*-tests. Just as with single
-linear regression, the response variable is continuous, the model puts a
-line of best through data and has two parameters called the intercept
-and the slope. These have the same in interpretation as they do in
-linear regression. The intercept is one of the group means, and the
-slope is the difference between that mean and the other group mean. You
-will also learn about the non-parametric tests we use when the
+This week you will learn how to use and interpret the general linear
+model when the explanatory (or *x*) variable is categorical with two
+possible values. These tests are also known as *t*-tests. Just as with
+single linear regression, the response variable is continuous, the model
+puts a line of best through data and has two parameters called the
+intercept and the slope. These have the same in interpretation as they
+do in linear regression. The intercept is one of the group means, and
+the slope is the difference between that mean and the other group mean.
+You will also learn about the non-parametric tests we use when the
 assumptions of the general linear model are not met.
 
 ### Learning objectives
