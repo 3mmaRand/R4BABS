@@ -1,0 +1,374 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Data Analysis in R"
+  # cookie-consent:
+  #   type: implied
+  #   style: simple
+  #   palette: light
+  google-analytics: "G-50FV9HPTRE"
+  repo-actions: [edit]  
+  repo-url: https://github.com/3mmaRand/comp4biosci
+  open-graph: true
+
+  other-links:
+    - text: "Make a suggestion"
+      icon: chat-left-dots
+      href: "#"                 # dummy, 
+
+  page-footer:
+    left: "Rand, E. (2025). Data Analysis in R for Becoming a Bioscientist (Version 0.2) <https://github.com/3mmaRand/R4BABS>"
+    right:
+      - icon: github
+        href: "https://github.com/3mmaRand"
+        text: "Emma on GitHub"  
+ 
+  navbar:
+    background: light
+    site-url: "https://3mmarand.github.io/R4BABS/"
+    repo-url: "https://github.com/3mmaRand/R4BABS"
+    page-navigation: true
+    search: true
+    left:
+      - text: "Welcome!"
+        file: index.qmd
+      - text: "BABS 1"
+        file:  r4babs1/r4babs1.qmd
+      - text: "BABS 2"
+        file:  r4babs2/r4babs2.qmd
+      - text: "BABS 4"
+        file:  r4babs4/r4babs4.qmd
+      - text: "PGT 52M"
+        file:  pgt52m/pgt52m.qmd
+    tools:
+      - icon: github
+        href: "https://github.com/3mmaRand"
+        text: "Emma on GitHub"  
+
+
+  sidebar:
+    - title: "BABS 1"
+      style: "floating"
+      contents:
+          - href: r4babs1/r4babs1.qmd
+          - section: "Week 6: Understanding file systems"
+            contents:
+             - href: r4babs1/week-6/overview.qmd
+               text: About
+             - href: r4babs1/week-6/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs1/week-6/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-6/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 7: Introduction to R and project organisation"
+            contents:
+             - href: r4babs1/week-7/overview.qmd
+               text: About
+             - href: r4babs1/week-7/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs1/week-7/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-7/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 8: Types of variable, summarising and plotting data"
+            contents:
+             - href: r4babs1/week-8/overview.qmd
+               text: About
+             - href: r4babs1/week-8/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs1/week-8/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-8/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 9: Summarising data with several variables"
+            contents:
+             - href: r4babs1/week-9/overview.qmd
+               text: About
+             - href: r4babs1/week-9/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs1/week-9/workshop.qmd
+               text: Workshop
+             - href: r4babs1/week-9/study_after_workshop.qmd
+               text: Consolidate!
+    - title: "BABS 2"
+      style: "floating"
+      contents:
+          - href: r4babs2/r4babs2.qmd
+          - section: "Week 1: The logic of hypothesis testing and CI"
+            contents:
+             - href: r4babs2/week-1/overview.qmd
+               text: About
+             - href: r4babs2/week-1/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs2/week-1/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-1/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 2: Introduction to statistical models: Single regression"
+            contents:
+             - href: r4babs2/week-2/overview.qmd
+               text: About
+             - href: r4babs2/week-2/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs2/week-2/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-2/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 3: Two-sample tests"
+            contents:
+             - href: r4babs2/week-3/overview.qmd
+               text: About
+             - href: r4babs2/week-3/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs2/week-3/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-3/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 4: One-way ANOVA and Kruskal-Wallis"
+            contents:
+             - href: r4babs2/week-4/overview.qmd
+               text: About
+             - href: r4babs2/week-4/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs2/week-4/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-4/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 5: Two-way ANOVA"
+            contents:
+             - href: r4babs2/week-5/overview.qmd
+               text: About
+             - href: r4babs2/week-5/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs2/week-5/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-5/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 6: Association"
+            contents:
+             - href: r4babs2/week-6/overview.qmd
+               text: About
+             - href: r4babs2/week-6/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs2/week-6/workshop.qmd
+               text: Workshop
+             - href: r4babs2/week-6/study_after_workshop.qmd
+               text: Consolidate!
+    - title: "BABS 4"
+      style: "floating"
+      contents:
+          - href: r4babs4/r4babs4.qmd
+          - section: "Week 1: DA 1 Core"
+            contents:
+             - href: r4babs4/week-1/overview.qmd
+               text: About
+             - href: r4babs4/week-1/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs4/week-1/workshop.qmd
+               text: Workshop
+             - href: r4babs4/week-1/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 2: DA 2 Biomed. Sci"
+            contents:
+             - href: r4babs4/week-2/overview.qmd
+               text: About
+             - href: r4babs4/week-2/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs4/week-2/workshop.qmd
+               text: Workshop
+             - href: r4babs4/week-2/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 4: DA 3 Biomed. Sci"
+            contents:
+             - href: r4babs4/week-4/overview.qmd
+               text: About
+             - href: r4babs4/week-4/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs4/week-4/workshop.qmd
+               text: Workshop
+             - href: r4babs4/week-4/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 6: DA 4 Biomed. Sci"
+            contents:
+             - href: r4babs4/week-6/overview.qmd
+               text: About
+             - href: r4babs4/week-6/study_before_workshop.qmd
+               text: Prepare!
+             - href: r4babs4/week-6/workshop.qmd
+               text: Workshop
+             - href: r4babs4/week-6/study_after_workshop.qmd
+               text: Consolidate!
+    - title: "PGT 52M"
+      style: "floating"
+      background: light
+      contents:
+          - href: pgt52m/pgt52m.qmd
+          - section: "Week 1: Understanding file systems"
+            contents:
+             - href: pgt52m/week-1/overview.qmd
+               text: About
+             - href: pgt52m/week-1/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-1/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-1/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 2: Introduction to R and project organisation"
+            contents:
+             - href: pgt52m/week-2/overview.qmd
+               text: About
+             - href: pgt52m/week-2/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-2/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-2/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 3: Types of variable, summarising and plotting data"
+            contents:
+             - href: pgt52m/week-3/overview.qmd
+               text: About
+             - href: pgt52m/week-3/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-3/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-3/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 4: Summarising data with several variables"
+            contents:
+             - href: pgt52m/week-4/overview.qmd
+               text: About
+             - href: pgt52m/week-4/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-4/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-4/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 5: The logic of hypothesis testing and CI"
+            contents:
+             - href: pgt52m/week-5/overview.qmd
+               text: About
+             - href: pgt52m/week-5/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-5/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-5/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 6: Introduction to statistical models: Single regression"
+            contents:
+             - href: pgt52m/week-6/overview.qmd
+               text: About
+             - href: pgt52m/week-6/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-6/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-6/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 7: Two-sample tests"
+            contents:
+             - href: pgt52m/week-7/overview.qmd
+               text: About
+             - href: pgt52m/week-7/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-7/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-7/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 8: One-way ANOVA and Kruskal-Wallis"
+            contents:
+             - href: pgt52m/week-8/overview.qmd
+               text: About
+             - href: pgt52m/week-8/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-8/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-8/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 9: Two-way ANOVA"
+            contents:
+             - href: pgt52m/week-9/overview.qmd
+               text: About
+             - href: pgt52m/week-9/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-9/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-9/study_after_workshop.qmd
+               text: Consolidate!
+          - section: "Week 10: Introduction to the Assessment"
+            contents:
+             - href: pgt52m/week-10/overview.qmd
+               text: About
+             - href: pgt52m/week-10/study_before_workshop.qmd
+               text: Prepare!
+             - href: pgt52m/week-10/workshop.qmd
+               text: Workshop
+             - href: pgt52m/week-10/study_after_workshop.qmd
+               text: Consolidate!
+
+execute:
+  echo: true
+  warning: false
+  output: true
+  error: true
+  collapse: true
+  freeze: auto
+
+engine: knitr
+
+
+format:
+  html:
+    link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/3mmarand\.github\.io\/R4BABS'
+    theme:
+      light: [cosmo, custom.scss]
+      dark:  [solar, custom.scss]
+    code-copy: true
+    code-link: true
+    code-tools: true
+    code-overflow: wrap
+    code-line-numbers: false
+    lightbox:
+      match: auto
+      loop: false
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+    include-after-body:
+      text: |
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // grab all links under “Other Links” in the right-hand TOC
+          const links = document.querySelectorAll('.quarto-other-links ul li a');
+          links.forEach(function(a) {
+            // find the one whose text is exactly “Make a suggestion”
+            if (a.textContent.trim() === 'Make a suggestion') {
+              const pageUrl   = encodeURIComponent(window.location.href);
+              const pageTitle = encodeURIComponent(document.title);
+              a.href = 'https://github.com/3mmaRand/R4BABS/issues/new'
+                     + '?title=' + pageTitle
+                     + '&body='  + pageUrl;
+              a.target = '_blank';
+            }
+          });
+        });
+        </script>
+
+    author-meta: Emma Rand
+
+
+metadata-files:
+  - _downlit.yml
+
+
+fig-dpi: 600
+
+bibliography: references.bib
+
+comments:
+  hypothesis: true
+
+editor: source
