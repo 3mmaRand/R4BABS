@@ -8,23 +8,21 @@ toc-location: right
 1.  💻 Open the RStudio Project you created in the [Consolidation
     exercise from week 2](../week-2/study_after_workshop.html).
 
-2.  💻 Save your data files to that project. Are the file names going to 
-    be easy for you to work with? 
-    [Remember](../week-2/workshop.html#make-data-easier-to-work-with) 
-    that we used the file names to label to rows with their treatment 
-    (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so if 
-    you do not match the names you will need to redesign the code to 
-    appropriately. It is easier to rename your files!
+2.  💻 Save your data files to that project. Are the file names going to
+    be easy for you to work with?
+    [Remember](../week-2/workshop.html#make-data-easier-to-work-with)
+    that we used the file names to label to rows with their treatment
+    (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so **if
+    you do not match the names you will need to redesign the code to
+    appropriately**. It is easier to rename your files!
 
-3.  📖  Go through the script and identify the parts that you will need
+3.  📖 Go through the script and identify the parts that you will need
     to change to make it work for your data.
 
-4.  📖  Can you identify code that you will not need to include?
+4.  📖 Can you identify code that you will not need to include?
 
-5.  📖 Go through the [Week 2 Workshop](../week-2/workshop.html) and 
-     read the text to check you understand what is happening to the 
-     data.
+5.  📖 Go through the [Week 2 Workshop](../week-2/workshop.html) and
+    read the text to check you understand what is happening to the data.
 
-6.  💻 Consider importing and analysing your own data so that you
-    can make good use of the workshop to resolve any issues you
-    encounter.
+6.  💻 Consider importing and analysing your own data so that you can
+    make good use of the workshop to resolve any issues you encounter.

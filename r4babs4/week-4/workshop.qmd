@@ -27,7 +27,7 @@ You will provide some key pieces of information for the class data set.
 
 🎬 If you have not already done so, save your data files to the project.
 Are the file names going to be easy for you to work with?
-[Remember](../week-2/workshop.html#make-data-easier-to-work-with) that we used the file names to label to rows with their treatment (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so if you do not match the names you will need to redesign the code appropriately.
+[Remember](../week-2/workshop.html#make-data-easier-to-work-with) that we used the file names to label to rows with their treatment (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so **if you do not match the names you will need to redesign the code appropriately**.
 It is easier to rename your files!
 
 🎬 Open your R script and begin to analyse your data.
@@ -38,11 +38,11 @@ You will learn how to produce a variety of other plots in Week 6
 ## Data for the class dataset.
 
 The class data will be summary information for the ECOLIGreen_TNFAPC, LPS_TNFAPC, and MEDIA_TNFAPC samples.
-You need to provide the following information:
+You need to provide the following information for the **TNFAPC antibody samples**:
 
 -   `group_name` A name for your group.
     Take care not to use a name used by others.
-    Take care to use the exactly the same name for each of your 3 rows
+    Take care to use the **exact** the same name for each of your 3 rows
 
 -   `cell_treatment`One of MEDIA, LPS or ECOLIGreen
 

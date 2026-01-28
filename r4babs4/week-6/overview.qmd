@@ -5,8 +5,6 @@ toc: true
 toc-location: right
 ---
 
-
-
 ### Learning objectives
 
 The successful student will be able to:
@@ -16,8 +14,8 @@ The successful student will be able to:
 -   create density plots to visualise the distribution, and gating of,
     the APC TNF-α and FTIC signals in live cells
 
--   calculate the the percentage of cells in each quadrant of a quadrant
-    gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin 
+-   calculate the percentage of cells in each quadrant of a quadrant
+    gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin
 
 -   annotate ggplots as desired
 
@@ -26,23 +24,22 @@ The successful student will be able to:
 ### Instructions
 
 1.  [Prepare](study_before_workshop.qmd)
+
     i.  Check where you are
 
 2.  [Workshop](workshop.qmd)
-    
-    i. 💻  Create density plots to visualise the distribution, and 
-    gating of, the APC TNF-α and FTIC signals in live cells
-    
-    ii. 💻  Calculate the the percentage of cells in each quadrant of
-    a quadrant gated plot of TNFa_APC_Lin signal against the 
-    E_coli_FITC_Lin
-    
-    iii. 💻  Annotate ggplots
-    
-    iv. 💻  Import data from a googlesheet
+
+    i.  💻 Create density plots to visualise the distribution, and
+        gating of, the APC TNF-α and FTIC signals in live cells
+
+    ii. 💻 Calculate the percentage of cells in each quadrant of a
+        quadrant gated plot of TNFa_APC_Lin signal against the
+        E_coli_FITC_Lin
+
+    iii. 💻 Annotate ggplots
+
+    iv. 💻 Import data from a googlesheet
 
 3.  [Consolidate](study_after_workshop.qmd)
 
     i.  💻 Continue with your analysis and reporting
-
-
