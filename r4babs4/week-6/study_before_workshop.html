@@ -532,7 +532,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </header>
 
 
-<p>The independent study allows you to check you have the files you need having applied the workflow from <a href="../week-2/overview.html">Week 2</a> to your own data (or the replacement data if you do not have your own data) in <a href="../week-2/overview.html">Week 4</a>. However, you will be able to use files prepared from the sample data for the week 6 workshop if you have not completed week 4.</p>
+<p>The independent study allows you to check you have the files you need having applied the workflow from <a href="../week-2/overview.html">Week 2</a> to your own data (or the replacement data if you do not have your own data) in <a href="../week-2/overview.html">Week 4</a>. However, you will be able to use files prepared from the sample data for the week 6 workshop if you have not completed the analysis of your own data.</p>
 <ol type="1">
 <li><p>You should have an RStudio Project with at least: folders for raw data, meta data, samples after quality control and processed data, a script</p></li>
 <li><p>You should have processed data files:</p>
@@ -1028,53 +1028,50 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>The independent study allows you to check you have the files you need</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>having applied the workflow from <span class="co">[</span><span class="ot">Week 2</span><span class="co">](../week-2/overview.html)</span> to </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>your own data (or the replacement data if you do not have your own </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>data) in <span class="co">[</span><span class="ot">Week 4</span><span class="co">](../week-2/overview.html)</span>. However, you will be able</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>to use files prepared from the sample data for the week 6 workshop if</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>you have not completed week 4.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>having applied the workflow from <span class="co">[</span><span class="ot">Week 2</span><span class="co">](../week-2/overview.html)</span> to</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>your own data (or the replacement data if you do not have your own data)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>in <span class="co">[</span><span class="ot">Week 4</span><span class="co">](../week-2/overview.html)</span>. However, you will be able to use</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>files prepared from the sample data for the week 6 workshop if you have</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>not completed the analysis of your own data.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>You should have an RStudio Project with at least: folders for </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    raw data, meta data, samples after quality control and processed </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    data, a script</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>You should have processed data files:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`ai_clean_logicle_trans.csv`</span>: Each row is a cell. These are the </span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>         AI cleaned cells with logicle-transformed TNFa_APC_Lin</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>         and E_coli_FITC_Lin signals. Each cell is </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>         labelled with the sample (filename) it came from, its </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>         treatment and antibody. The cells have not been gated -  </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>         *i.e.*, some of the "cells" in this dataset are</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>         dead/debris.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`clean_trans_live_tfna_pos.csv`</span>: Each row is a sample (a</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>         treatment-antibody combination). For each sample there is: </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>         the number of cells after AI cleaning, the number of live </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>         cells after gatting, the percentage of live cells, the number </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>         TNF-α postive cells, the percentage of TNF-α postive cells and</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>         the of the mean APC signal in the live cells and TNF-α postive</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>         cells</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`live_labelled.csv`</span>: Each row is a cell. These are the AI </span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>         cleaned, live cells with logicle-transformed TNFa_APC_Lin</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>         and E_coli_FITC_Lin signals. Each cell is </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>         labelled with the sample (filename) it came from, its </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>         treatment and antibody, and whether it is TNF-α positive</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>         (*i.e.* has a TNFa_APC_Lin level above the APC cut off used)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>         or negative and whether it is FITC positive</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>         (*i.e.* E_coli_FITC_Lin level above the FITC cut off</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>         used) or negative.</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">    -    </span>you may also have the FITC equivalent of</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>         <span class="in">`clean_trans_live_tfna_pos.csv`</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>         </span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Enter the values from your analysis to: </span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">[</span><span class="ot">BIO00066I Biomedical Sciences class data</span><span class="co">](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link)</span>. The column names are the same as those </span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    used in the <span class="co">[</span><span class="ot">Data Analysis 2: Biomedical sciences - Sample data analysis</span><span class="co">](../week-2/workshop.html)</span> workshop. The columns you must add</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    are marked in green. Other information helps you get to the </span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    required values and helps others determine the reliability of your </span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    data. The workshops show how to calculate all these values.</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>You should have an RStudio Project with at least: folders for raw</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    data, meta data, samples after quality control and processed data, a</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    script</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>You should have processed data files:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`ai_clean_logicle_trans.csv`</span>: Each row is a cell. These are the</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        AI cleaned cells with logicle-transformed TNFa_APC_Lin and</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        E_coli_FITC_Lin signals. Each cell is labelled with the sample</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        (filename) it came from, its treatment and antibody. The cells</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        have not been gated -\</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        *i.e.*, some of the "cells" in this dataset are dead/debris.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`clean_trans_live_tfna_pos.csv`</span>: Each row is a sample (a</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        treatment-antibody combination). For each sample there is: the</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        number of cells after AI cleaning, the number of live cells</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        after gatting, the percentage of live cells, the number TNF-α</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        postive cells, the percentage of TNF-α postive cells and the of</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        the mean APC signal in the live cells and TNF-α postive cells</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`live_labelled.csv`</span>: Each row is a cell. These are the AI</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        cleaned, live cells with logicle-transformed TNFa_APC_Lin and</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        E_coli_FITC_Lin signals. Each cell is labelled with the sample</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        (filename) it came from, its treatment and antibody, and whether</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        it is TNF-α positive (*i.e.* has a TNFa_APC_Lin level above the</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        APC cut off used) or negative and whether it is FITC positive</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        (*i.e.* E_coli_FITC_Lin level above the FITC cut off used) or</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        negative.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>you may also have the FITC equivalent of</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="in">`clean_trans_live_tfna_pos.csv`</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Enter the values from your analysis to: [BIO00066I Biomedical</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    Sciences class</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link).</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    The column names are the same as those used in the [Data Analysis 2:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    Biomedical sciences - Sample data analysis](../week-2/workshop.html)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    workshop. The columns you must add are marked in green. Other</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    information helps you get to the required values and helps others</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    determine the reliability of your data. The workshops show how to</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    calculate all these values.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

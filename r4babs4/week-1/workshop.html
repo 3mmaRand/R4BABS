@@ -584,7 +584,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <figcaption>futureself, CC-BY-NC, by Julen Colomb</figcaption></figure>
 </div>
 <ul>
-<li><p>Five selfish reasons to work reproducibly <span class="citation" data-cites="markowetz2015">(<a href="#ref-markowetz2015" role="doc-biblioref">Markowetz 2015</a>)</span>. Alternatively, see the very entertaining <a href="https://youtu.be/yVT07Sukv9Q">talk</a> which covers the the “Duke Scandal”.</p></li>
+<li><p>Five selfish reasons to work reproducibly <span class="citation" data-cites="markowetz2015">(<a href="#ref-markowetz2015" role="doc-biblioref">Markowetz 2015</a>)</span>. Alternatively, see the very entertaining <a href="https://youtu.be/yVT07Sukv9Q">talk</a> which covers the “Duke Scandal”.</p></li>
 <li><p>Many high profile cases of work which did not reproduce e.g.&nbsp;Anil Potti’s work unravelled by <span class="citation" data-cites="baggerly2009">Baggerly and Coombes (<a href="#ref-baggerly2009" role="doc-biblioref">2009</a>)</span> in the “Duke Scandal”</p></li>
 <li><p><strong>Will</strong> become standard in Science and publishing e.g OECD Global Science Forum Building digital workforce capacity and skills for data-intensive science <span class="citation" data-cites="oecdglobalscienceforum2020">(<a href="#ref-oecdglobalscienceforum2020" role="doc-biblioref">OECD Global Science Forum 2020</a>)</span></p></li>
 </ul></section><section id="how-to-achieve-reproducibility" class="level2"><h2 class="anchored" data-anchor-id="how-to-achieve-reproducibility">How to achieve reproducibility</h2>
@@ -665,19 +665,19 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>We will be working with the following data files in this workshop</p>
 <ul>
 <li><p><a href="data-raw/biotech-cts.txt">biotech-cts.txt</a>. These are RNA-Seq data from three replicates for each of two of wheat varieties (<u>S</u>usceptible and <u>T</u>olerant) grown at two potassium conditions (<u>C</u>ontrol <u>K</u> and <u>L</u>ow <u>K</u>). The data are counts of the number of reads.</p></li>
-<li><p><a href="data-raw/cell-bio.tsv">cell-bio.tsv</a>. These are measurements from a Livecyte microscope, which performs live cell imaging, tracking individual cells, and measurings cell shape and size parameters for thousands of cells as they grow and divide. Measurements are taken for three replicates from each of two cell lines A and B.</p></li>
+<li><p><a href="data-raw/cell-bio.tsv">cell-bio.tsv</a>. These are measurements from a Livecyte microscope, which performs live cell imaging, tracking individual cells, and measuring cell shape and size parameters for thousands of cells as they grow and divide. Measurements are taken for three replicates from each of two cell lines A and B.</p></li>
 <li><p><a href="data-raw/immuno.csv">immuno.csv</a>. These are flow cytometry data for three treatments with each of two antibodies. The measures are Forward scatter, side scatter, red fluorescence and green fluorescence.</p></li>
 <li><p><a href="data-raw/xlaevis_counts_S20.csv">xlaevis_counts_S20.csv</a>. These are RNA-Seq data from frogs. There are 2 siblings from each of three fertilisations and one sibling was treated with FGF and the other was a control. The data are counts of the number of reads.</p></li>
 </ul>
 <p>🎬 Save these data files to the <code>data-raw/</code> folder:</p>
-<p>🎬 Consider the file extensions. What you think the extensions indicate?</p>
+<p>🎬 Consider the file extensions. What you do think the extensions indicate?</p>
 <!-- #---THINKING ANSWER--- -->
 <!-- txt usually indicates a plain text file, where the columns are  -->
 <!-- often separated by a space but might also be separated by a tab,  -->
 <!-- a backslash or forward slash, or some other character.  -->
 <!-- Plain text files can be opened in notepad or other similar -->
 <!-- editor and still be readable. -->
-<!-- csv stands to comma separated values and tsv stands for tab  -->
+<!-- csv stands for comma separated values and tsv stands for tab  -->
 <!-- separated values. Both of these are plain text format. -->
 <p>🎬 Go to the Files pane click on the <code>xlaevis_counts_S20.csv</code> file and choose View File<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="quarto-figure quarto-figure-center">
@@ -763,7 +763,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </div>
 <p>🎬 Now you try. Create a dataframe called <code>immuno_live</code> that contains only the rows where <code>FS_Lin</code> is between 7500 and 28000 and <code>SS_Lin</code> is between 15000 and 35000:</p>
 </section><section id="selecting-columns" class="level3"><h3 class="anchored" data-anchor-id="selecting-columns">Selecting columns</h3>
-<p>Whilst we can always specify the columns we want to use when working with data, sometimes we find it less overwhelming to create a new dataframe with only the columns we want. The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function help us here.</p>
+<p>Whilst we can always specify the columns we want to use when working with data, sometimes we find it less overwhelming to create a new dataframe with only the columns we want. The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function helps us here.</p>
 <p>🎬 Suppose we only want to work with the Susceptible varieties of wheat in the <code>biotech</code> dataframe. We can create a new dataframe with only the columns we want:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">biotech_susceptible</span> <span class="op">&lt;-</span> <span class="va">biotech</span> <span class="op">|&gt;</span> </span>
@@ -789,10 +789,10 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <p>Note that you need to pay attention to the order of the columns in your dataframe to use this.</p>
 <p>🎬 You can use select and filter together. Try creating a dataframe from <code>frogs</code> which has only the columns from sibling “_A” and only the rows where <code>S20_C_5</code> is above 20.</p>
 </section><section id="visualisation" class="level3"><h3 class="anchored" data-anchor-id="visualisation">Visualisation</h3>
-<p>Histograms and density plots are useful for visualising the distribution of variables when we have many observations. Theya allow you to see features in the data that are not obvious from the summary statistics.</p>
+<p>Histograms and density plots are useful for visualising the distribution of variables when we have many observations. They allow you to see features in the data that are not obvious from the summary statistics.</p>
 <ul>
 <li><p>A histogram shows the number of values in each range (bin), it is composed of touching bars. How a histogram looks depends on the number of bins used.</p></li>
-<li><p>A density plot shows the proportions on values in a range. The appearance of the distribution is not affected by the number of bins.</p></li>
+<li><p>A density plot shows the proportions of values in a range. The appearance of the distribution is not affected by the number of bins.</p></li>
 </ul>
 <p>🎬 To plot a histogram of <code>S20_C_5</code> in the <code>frogs</code> dataframe:</p>
 <div class="cell">
@@ -831,7 +831,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>I’ve used base 10 only because it is easy to convert to the original scale (1 is 10, 2 is 100, 3 is 1000 etc). The warning about rows being removed is expected - these are the counts of 0 since you can’t log a value of 0. The peak at zero suggests quite a few counts of 1. We would expect we would expect the distribution of counts to be roughly log normal because this is expression of all the genes in the genome<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. That peak near the low end is not expected for this distribution and suggests that these lower counts might be anomalies.</p>
+<p>I’ve used base 10 only because it is easy to convert to the original scale (1 is 10, 2 is 100, 3 is 1000 etc). The warning about rows being removed is expected - these are the counts of 0 since you can’t log a value of 0. The peak at zero suggests quite a few counts of 1. We would expect the distribution of counts to be roughly log normal because this is expression of all the genes in the genome<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. That peak near the low end is not expected for this distribution and suggests that these lower counts might be anomalies.</p>
 <p>The excess number of low counts indicates we might want to create a cut off for quality control. The removal of low counts is a common processing step in ’omic data.</p>
 <p>If you have two groups of data, you can compare their distributions on the same plot using the <code>fill</code> aesthetic and making the fill transparent with the <code>alpha</code> argument.</p>
 <p>🎬 To plot the distribution of <code>area</code> in the <code>cell_bio</code> dataframe as a density plot, with the <code>clone</code> variable as the fill:</p>
@@ -921,8 +921,7 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs4/week-1/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
-<p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-1/workshop.qmd">View the Qmd in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
+<p>All the answers (coding and thinking) are in the source code for the workshop. You can view it using the <code>&lt;/&gt; Code</code> button at the top of the page. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
@@ -964,7 +963,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 <ol>
 <li id="fn1"><p><strong>Do not</strong> be tempted to import data this way. Unless you are careful, your data import will not be scripted or will not be scripted correctly. This means your work will not be reproducible.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>This a result of the&nbsp;<a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central limit theorem</a>,one consequence of which is that adding together lots of distributions - whatever distributions they are - will tend to a normal distribution.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This a result of the&nbsp;<a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central limit theorem</a>, one consequence of which is that adding together lots of distributions - whatever distributions they are - will tend to a normal distribution.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1470,7 +1469,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Five selfish reasons to work reproducibly <span class="co">[</span><span class="ot">@markowetz2015</span><span class="co">]</span>.</span>
 <span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>    Alternatively, see the very entertaining</span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">[</span><span class="ot">talk</span><span class="co">](https://youtu.be/yVT07Sukv9Q)</span> which covers the the "Duke</span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">[</span><span class="ot">talk</span><span class="co">](https://youtu.be/yVT07Sukv9Q)</span> which covers the "Duke</span>
 <span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>    Scandal".</span>
 <span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Many high profile cases of work which did not reproduce e.g. Anil</span>
@@ -1639,7 +1638,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb25-209"><a href="#cb25-209" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-210"><a href="#cb25-210" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">cell-bio.tsv</span><span class="co">](data-raw/cell-bio.tsv)</span>. These are measurements from a</span>
 <span id="cb25-211"><a href="#cb25-211" aria-hidden="true" tabindex="-1"></a>    Livecyte microscope, which performs live cell imaging, tracking</span>
-<span id="cb25-212"><a href="#cb25-212" aria-hidden="true" tabindex="-1"></a>    individual cells, and measurings cell shape and size parameters for</span>
+<span id="cb25-212"><a href="#cb25-212" aria-hidden="true" tabindex="-1"></a>    individual cells, and measuring cell shape and size parameters for</span>
 <span id="cb25-213"><a href="#cb25-213" aria-hidden="true" tabindex="-1"></a>    thousands of cells as they grow and divide. Measurements are taken</span>
 <span id="cb25-214"><a href="#cb25-214" aria-hidden="true" tabindex="-1"></a>    for three replicates from each of two cell lines A and B.</span>
 <span id="cb25-215"><a href="#cb25-215" aria-hidden="true" tabindex="-1"></a></span>
@@ -1655,416 +1654,416 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb25-225"><a href="#cb25-225" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-226"><a href="#cb25-226" aria-hidden="true" tabindex="-1"></a>🎬 Save these data files to the <span class="in">`data-raw/`</span> folder:</span>
 <span id="cb25-227"><a href="#cb25-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-228"><a href="#cb25-228" aria-hidden="true" tabindex="-1"></a>🎬 Consider the file extensions. What you think the extensions indicate?</span>
-<span id="cb25-229"><a href="#cb25-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-230"><a href="#cb25-230" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
-<span id="cb25-231"><a href="#cb25-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-232"><a href="#cb25-232" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- txt usually indicates a plain text file, where the columns are  --&gt;</span></span>
-<span id="cb25-233"><a href="#cb25-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-234"><a href="#cb25-234" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- often separated by a space but might also be separated by a tab,  --&gt;</span></span>
-<span id="cb25-235"><a href="#cb25-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-236"><a href="#cb25-236" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- a backslash or forward slash, or some other character.  --&gt;</span></span>
-<span id="cb25-237"><a href="#cb25-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-238"><a href="#cb25-238" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Plain text files can be opened in notepad or other similar --&gt;</span></span>
-<span id="cb25-239"><a href="#cb25-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-240"><a href="#cb25-240" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- editor and still be readable. --&gt;</span></span>
-<span id="cb25-241"><a href="#cb25-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-242"><a href="#cb25-242" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- csv stands to comma separated values and tsv stands for tab  --&gt;</span></span>
-<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- separated values. Both of these are plain text format. --&gt;</span></span>
-<span id="cb25-245"><a href="#cb25-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-246"><a href="#cb25-246" aria-hidden="true" tabindex="-1"></a>🎬 Go to the Files pane click on the <span class="in">`xlaevis_counts_S20.csv`</span> file and</span>
-<span id="cb25-247"><a href="#cb25-247" aria-hidden="true" tabindex="-1"></a>choose View File<span class="ot">[^1]</span></span>
-<span id="cb25-248"><a href="#cb25-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-249"><a href="#cb25-249" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>**Do not** be tempted to import data this way. Unless you are</span>
-<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a>    careful, your data import will not be scripted or will not be</span>
-<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a>    scripted correctly. This means your work will not be reproducible.</span>
-<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a>![RStudio Files</span>
-<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a>Pane](images/rstudio-filepane-viewfile.png){fig-alt="Rstudio Files pane showing the data files and the View File option that appears when you click on the a particular file"}</span>
-<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a>Any plain text file will open in the top left pane. Note that this is</span>
-<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>NOT importing the data, it's just viewing the file.</span>
-<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-259"><a href="#cb25-259" aria-hidden="true" tabindex="-1"></a>🎬 Does it seem to be a csv file?</span>
-<span id="cb25-260"><a href="#cb25-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a>🎬 Try opening the other files from the Files pane. What happens?</span>
-<span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-263"><a href="#cb25-263" aria-hidden="true" tabindex="-1"></a>🎬 Open each file in Excel. For the <span class="in">`.txt`</span> and <span class="in">`.tsv`</span> files you will</span>
-<span id="cb25-264"><a href="#cb25-264" aria-hidden="true" tabindex="-1"></a>need to show "All files (*.*)" in the file type dropdown to see them and</span>
-<span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a>you will need to work through the "Text Import Wizard" to open them.</span>
-<span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a>We are opening them each in Excel to see what they look like and to get</span>
-<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a>a sense of the structure of the data. We are not going to use Excel to</span>
-<span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a>do anything.</span>
-<span id="cb25-270"><a href="#cb25-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-271"><a href="#cb25-271" aria-hidden="true" tabindex="-1"></a>🎬 What do you notice? Does it look like this data will be easy to</span>
-<span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a>import and work with?</span>
-<span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-274"><a href="#cb25-274" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import the data</span></span>
-<span id="cb25-275"><a href="#cb25-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a>🎬 Import each of the data files into R:</span>
-<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-280"><a href="#cb25-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a>biotech <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"data-raw/biotech-cts.txt"</span>)</span>
-<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-283"><a href="#cb25-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"data-raw/cell-bio.tsv"</span>)</span>
-<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-292"><a href="#cb25-292" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-293"><a href="#cb25-293" aria-hidden="true" tabindex="-1"></a>immuno <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/immuno.csv"</span>)</span>
-<span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-298"><a href="#cb25-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a>frogs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/xlaevis_counts_S20.csv"</span>)</span>
-<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-301"><a href="#cb25-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-302"><a href="#cb25-302" aria-hidden="true" tabindex="-1"></a>🎬 Click on each of the dataframes in the Environment pane to see what</span>
-<span id="cb25-303"><a href="#cb25-303" aria-hidden="true" tabindex="-1"></a>they look like. An alternative to clicking is to use the <span class="in">`View()`</span></span>
-<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a>function:</span>
-<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-308"><a href="#cb25-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(cell_bio)</span>
-<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-312"><a href="#cb25-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-313"><a href="#cb25-313" aria-hidden="true" tabindex="-1"></a>🎬 In each case, describe what is in the rows and the columns of the</span>
-<span id="cb25-314"><a href="#cb25-314" aria-hidden="true" tabindex="-1"></a>dataframe. Where are the replicates/samples and where are the variables?</span>
-<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a>Are there any things you'd like to fix/change?</span>
-<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
-<span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a>🎬 Name of the first column in the <span class="in">`biotech`</span> dataframe:</span>
-<span id="cb25-320"><a href="#cb25-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(biotech)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"transcript"</span></span>
-<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a>🎬 Column names in the <span class="in">`cell_bio`</span> dataframe:</span>
-<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-331"><a href="#cb25-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(cell_bio)</span>
-<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-334"><a href="#cb25-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting an overview 1</span></span>
-<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a><span class="fu">### `summary()`</span></span>
-<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a>R's <span class="in">`summary()`</span> function is a quick way to get an overview of datasets.</span>
-<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a>It gives you a six number summary for every numeric variable (the</span>
-<span id="cb25-341"><a href="#cb25-341" aria-hidden="true" tabindex="-1"></a>minimum, lower quartile, median, mean, upper quartile, and maximum). It</span>
-<span id="cb25-342"><a href="#cb25-342" aria-hidden="true" tabindex="-1"></a>also gives you a count of the number of missing values.</span>
-<span id="cb25-343"><a href="#cb25-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-344"><a href="#cb25-344" aria-hidden="true" tabindex="-1"></a>🎬 Use the <span class="in">`summary()`</span> function to get an overview of each dataframe. It</span>
-<span id="cb25-345"><a href="#cb25-345" aria-hidden="true" tabindex="-1"></a>works well for these datasets. What types of dataset might this be less</span>
-<span id="cb25-346"><a href="#cb25-346" aria-hidden="true" tabindex="-1"></a>useful for? Which dataframes and columns have missing values? Which</span>
-<span id="cb25-347"><a href="#cb25-347" aria-hidden="true" tabindex="-1"></a>dataframes and variables seem very skewed? Which dataframe has more than</span>
-<span id="cb25-348"><a href="#cb25-348" aria-hidden="true" tabindex="-1"></a>one character variable?</span>
-<span id="cb25-349"><a href="#cb25-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-350"><a href="#cb25-350" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
-<span id="cb25-351"><a href="#cb25-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-352"><a href="#cb25-352" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- It is less useful for datasets with very many variables  --&gt;</span></span>
-<span id="cb25-353"><a href="#cb25-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-354"><a href="#cb25-354" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- (columns) because we aren't able to take that in all  --&gt;</span></span>
-<span id="cb25-355"><a href="#cb25-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-356"><a href="#cb25-356" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- at once. It fills up the screen buffer and we can't --&gt;</span></span>
-<span id="cb25-357"><a href="#cb25-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-358"><a href="#cb25-358" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- see all the output at once. --&gt;</span></span>
-<span id="cb25-359"><a href="#cb25-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-360"><a href="#cb25-360" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- It is also less useful for datasets with many  --&gt;</span></span>
-<span id="cb25-361"><a href="#cb25-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-362"><a href="#cb25-362" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- character variables --&gt;</span></span>
-<span id="cb25-363"><a href="#cb25-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-364"><a href="#cb25-364" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- cell_bio has a perimeter column with 19948 NAs --&gt;</span></span>
-<span id="cb25-365"><a href="#cb25-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-366"><a href="#cb25-366" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- skew is revealed by the difference between the mean and  --&gt;</span></span>
-<span id="cb25-367"><a href="#cb25-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-368"><a href="#cb25-368" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the median and a maximum that is much larger than all  --&gt;</span></span>
-<span id="cb25-369"><a href="#cb25-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-370"><a href="#cb25-370" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the other values. The frogs and biotech dataframes have --&gt;</span></span>
-<span id="cb25-371"><a href="#cb25-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-372"><a href="#cb25-372" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- skewed variables. Skew is typical in RNA-Seq counts. --&gt;</span></span>
-<span id="cb25-373"><a href="#cb25-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-374"><a href="#cb25-374" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- immuno is the only dataset with more than one character --&gt;</span></span>
-<span id="cb25-375"><a href="#cb25-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-376"><a href="#cb25-376" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- variable (it has three) --&gt;</span></span>
-<span id="cb25-377"><a href="#cb25-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-378"><a href="#cb25-378" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality Control</span></span>
-<span id="cb25-379"><a href="#cb25-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-380"><a href="#cb25-380" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filtering rows</span></span>
-<span id="cb25-381"><a href="#cb25-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-382"><a href="#cb25-382" aria-hidden="true" tabindex="-1"></a>The filter function selects/drops a whole row on a condition. The</span>
-<span id="cb25-383"><a href="#cb25-383" aria-hidden="true" tabindex="-1"></a>condition can be based on the value in one, or a combination, of</span>
-<span id="cb25-384"><a href="#cb25-384" aria-hidden="true" tabindex="-1"></a>columns. We specify what we want to keep with the <span class="in">`filter()`</span> function.</span>
-<span id="cb25-385"><a href="#cb25-385" aria-hidden="true" tabindex="-1"></a>This means you might often want to negate a condition with <span class="in">`!`</span>.</span>
-<span id="cb25-386"><a href="#cb25-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-387"><a href="#cb25-387" aria-hidden="true" tabindex="-1"></a>🎬 To remove the rows in <span class="in">`cell_bio`</span> with missing values in the</span>
-<span id="cb25-388"><a href="#cb25-388" aria-hidden="true" tabindex="-1"></a><span class="in">`perimeter`</span> column:</span>
-<span id="cb25-389"><a href="#cb25-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-392"><a href="#cb25-392" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-393"><a href="#cb25-393" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> cell_bio <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(perimeter))</span>
-<span id="cb25-394"><a href="#cb25-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-395"><a href="#cb25-395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-396"><a href="#cb25-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-397"><a href="#cb25-397" aria-hidden="true" tabindex="-1"></a><span class="in">`is.na(perimeter)`</span> returns a logical vector (a vector of <span class="in">`TRUE`</span>s and</span>
-<span id="cb25-398"><a href="#cb25-398" aria-hidden="true" tabindex="-1"></a><span class="in">`FALSE`</span>s) of the same length as the column. The <span class="in">`!`</span> negates the logical</span>
-<span id="cb25-399"><a href="#cb25-399" aria-hidden="true" tabindex="-1"></a>vector so the <span class="in">`TRUE`</span>s become <span class="in">`FALSE`</span>s and the <span class="in">`FALSE`</span>s become TRUE. This</span>
-<span id="cb25-400"><a href="#cb25-400" aria-hidden="true" tabindex="-1"></a>means that the <span class="in">`filter()`</span> function *keeps* the rows where the perimeter</span>
-<span id="cb25-401"><a href="#cb25-401" aria-hidden="true" tabindex="-1"></a>column is not missing.</span>
-<span id="cb25-402"><a href="#cb25-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-403"><a href="#cb25-403" aria-hidden="true" tabindex="-1"></a>🎬 There's actually a tidyverse function that does the same thing as</span>
-<span id="cb25-404"><a href="#cb25-404" aria-hidden="true" tabindex="-1"></a><span class="in">`filter(!is.na())`</span></span>
-<span id="cb25-405"><a href="#cb25-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-408"><a href="#cb25-408" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-409"><a href="#cb25-409" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> cell_bio <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(perimeter)</span>
-<span id="cb25-410"><a href="#cb25-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-411"><a href="#cb25-411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-412"><a href="#cb25-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-413"><a href="#cb25-413" aria-hidden="true" tabindex="-1"></a>Sometimes you might want to work with a subset of data. For example, you</span>
-<span id="cb25-414"><a href="#cb25-414" aria-hidden="true" tabindex="-1"></a>might want to examine just the Media treated cells in the <span class="in">`immuno`</span></span>
-<span id="cb25-415"><a href="#cb25-415" aria-hidden="true" tabindex="-1"></a>dataset.</span>
-<span id="cb25-416"><a href="#cb25-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-417"><a href="#cb25-417" aria-hidden="true" tabindex="-1"></a>🎬 Create a new dataframe called <span class="in">`immuno_media`</span> that contains only the</span>
-<span id="cb25-418"><a href="#cb25-418" aria-hidden="true" tabindex="-1"></a>rows where <span class="in">`treatment`</span> is "MEDIA"</span>
-<span id="cb25-419"><a href="#cb25-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-422"><a href="#cb25-422" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-423"><a href="#cb25-423" aria-hidden="true" tabindex="-1"></a>immuno_media <span class="ot">&lt;-</span> immuno <span class="sc">|&gt;</span> </span>
-<span id="cb25-424"><a href="#cb25-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treatment <span class="sc">==</span> <span class="st">"MEDIA"</span>)</span>
-<span id="cb25-425"><a href="#cb25-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-426"><a href="#cb25-426" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-427"><a href="#cb25-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-428"><a href="#cb25-428" aria-hidden="true" tabindex="-1"></a>Or just the Media treated cells with a <span class="in">`FS_Lin`</span> between two values. You</span>
-<span id="cb25-429"><a href="#cb25-429" aria-hidden="true" tabindex="-1"></a>can apply two filters and the <span class="in">`between()`</span> function to achieve this:</span>
-<span id="cb25-430"><a href="#cb25-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-431"><a href="#cb25-431" aria-hidden="true" tabindex="-1"></a>🎬 Create a new dataframe called <span class="in">`immuno_media_live`</span> that contains only</span>
-<span id="cb25-432"><a href="#cb25-432" aria-hidden="true" tabindex="-1"></a>the rows where <span class="in">`treatment`</span> is "MEDIA" and <span class="in">`FS_Lin`</span> is between 7500 and</span>
-<span id="cb25-433"><a href="#cb25-433" aria-hidden="true" tabindex="-1"></a>28000:</span>
-<span id="cb25-434"><a href="#cb25-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-437"><a href="#cb25-437" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-438"><a href="#cb25-438" aria-hidden="true" tabindex="-1"></a>immuno_media_live <span class="ot">&lt;-</span> immuno <span class="sc">|&gt;</span></span>
-<span id="cb25-439"><a href="#cb25-439" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treatment <span class="sc">==</span> <span class="st">"MEDIA"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-440"><a href="#cb25-440" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(FS_Lin, <span class="dv">7500</span>, <span class="dv">28000</span>))</span>
-<span id="cb25-441"><a href="#cb25-441" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-442"><a href="#cb25-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-443"><a href="#cb25-443" aria-hidden="true" tabindex="-1"></a>🎬 Now you try. Create a dataframe called <span class="in">`immuno_live`</span> that contains</span>
-<span id="cb25-444"><a href="#cb25-444" aria-hidden="true" tabindex="-1"></a>only the rows where <span class="in">`FS_Lin`</span> is between 7500 and 28000 and <span class="in">`SS_Lin`</span> is</span>
-<span id="cb25-445"><a href="#cb25-445" aria-hidden="true" tabindex="-1"></a>between 15000 and 35000:</span>
-<span id="cb25-446"><a href="#cb25-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-449"><a href="#cb25-449" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-450"><a href="#cb25-450" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb25-451"><a href="#cb25-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-452"><a href="#cb25-452" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb25-453"><a href="#cb25-453" aria-hidden="true" tabindex="-1"></a>immuno_live <span class="ot">&lt;-</span> immuno <span class="sc">|&gt;</span></span>
-<span id="cb25-454"><a href="#cb25-454" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(FS_Lin, <span class="dv">7500</span>, <span class="dv">28000</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb25-455"><a href="#cb25-455" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(SS_Lin, <span class="dv">15000</span>, <span class="dv">35000</span>))</span>
-<span id="cb25-456"><a href="#cb25-456" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-457"><a href="#cb25-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-458"><a href="#cb25-458" aria-hidden="true" tabindex="-1"></a><span class="fu">### Selecting columns</span></span>
-<span id="cb25-459"><a href="#cb25-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-460"><a href="#cb25-460" aria-hidden="true" tabindex="-1"></a>Whilst we can always specify the columns we want to use when working</span>
-<span id="cb25-461"><a href="#cb25-461" aria-hidden="true" tabindex="-1"></a>with data, sometimes we find it less overwhelming to create a new</span>
-<span id="cb25-462"><a href="#cb25-462" aria-hidden="true" tabindex="-1"></a>dataframe with only the columns we want. The <span class="in">`select()`</span> function help us</span>
-<span id="cb25-463"><a href="#cb25-463" aria-hidden="true" tabindex="-1"></a>here.</span>
-<span id="cb25-464"><a href="#cb25-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-465"><a href="#cb25-465" aria-hidden="true" tabindex="-1"></a>🎬 Suppose we only want to work with the Susceptible varieties of wheat</span>
-<span id="cb25-466"><a href="#cb25-466" aria-hidden="true" tabindex="-1"></a>in the <span class="in">`biotech`</span> dataframe. We can create a new dataframe with only the</span>
-<span id="cb25-467"><a href="#cb25-467" aria-hidden="true" tabindex="-1"></a>columns we want:</span>
-<span id="cb25-468"><a href="#cb25-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-471"><a href="#cb25-471" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-472"><a href="#cb25-472" aria-hidden="true" tabindex="-1"></a>biotech_susceptible <span class="ot">&lt;-</span> biotech <span class="sc">|&gt;</span> </span>
-<span id="cb25-473"><a href="#cb25-473" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SCK14_1,</span>
-<span id="cb25-474"><a href="#cb25-474" aria-hidden="true" tabindex="-1"></a>         SCK14_2,</span>
-<span id="cb25-475"><a href="#cb25-475" aria-hidden="true" tabindex="-1"></a>         SCK14_3,</span>
-<span id="cb25-476"><a href="#cb25-476" aria-hidden="true" tabindex="-1"></a>         SLK14_1,</span>
-<span id="cb25-477"><a href="#cb25-477" aria-hidden="true" tabindex="-1"></a>         SLK14_2,</span>
-<span id="cb25-478"><a href="#cb25-478" aria-hidden="true" tabindex="-1"></a>         SLK14_3)</span>
-<span id="cb25-479"><a href="#cb25-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-480"><a href="#cb25-480" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-481"><a href="#cb25-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-482"><a href="#cb25-482" aria-hidden="true" tabindex="-1"></a>In fact, there are a couple of alternatives to this. We can use the</span>
-<span id="cb25-483"><a href="#cb25-483" aria-hidden="true" tabindex="-1"></a><span class="in">`starts_with()`</span> function to select all the columns that start with a</span>
-<span id="cb25-484"><a href="#cb25-484" aria-hidden="true" tabindex="-1"></a>certain string:</span>
-<span id="cb25-485"><a href="#cb25-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-486"><a href="#cb25-486" aria-hidden="true" tabindex="-1"></a>🎬 Select columns starting with <span class="in">`S`</span></span>
-<span id="cb25-487"><a href="#cb25-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-490"><a href="#cb25-490" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-491"><a href="#cb25-491" aria-hidden="true" tabindex="-1"></a>biotech_susceptible <span class="ot">&lt;-</span> biotech <span class="sc">|&gt;</span> </span>
-<span id="cb25-492"><a href="#cb25-492" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"S"</span>))</span>
-<span id="cb25-493"><a href="#cb25-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-494"><a href="#cb25-494" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-495"><a href="#cb25-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-496"><a href="#cb25-496" aria-hidden="true" tabindex="-1"></a>There is an <span class="in">`ends_with()`</span> function too!</span>
-<span id="cb25-497"><a href="#cb25-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-498"><a href="#cb25-498" aria-hidden="true" tabindex="-1"></a>🎬 The colon notation allows us to select a range of columns. Select</span>
-<span id="cb25-499"><a href="#cb25-499" aria-hidden="true" tabindex="-1"></a>columns from <span class="in">`SCK14_1`</span> to <span class="in">`SLK14_3`</span></span>
-<span id="cb25-500"><a href="#cb25-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-503"><a href="#cb25-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-504"><a href="#cb25-504" aria-hidden="true" tabindex="-1"></a>biotech_susceptible <span class="ot">&lt;-</span> biotech <span class="sc">|&gt;</span> </span>
-<span id="cb25-505"><a href="#cb25-505" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SCK14_1<span class="sc">:</span>SLK14_3)</span>
-<span id="cb25-506"><a href="#cb25-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-507"><a href="#cb25-507" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-508"><a href="#cb25-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-509"><a href="#cb25-509" aria-hidden="true" tabindex="-1"></a>Note that you need to pay attention to the order of the columns in your</span>
-<span id="cb25-510"><a href="#cb25-510" aria-hidden="true" tabindex="-1"></a>dataframe to use this.</span>
-<span id="cb25-511"><a href="#cb25-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-512"><a href="#cb25-512" aria-hidden="true" tabindex="-1"></a>🎬 You can use select and filter together. Try creating a dataframe from</span>
-<span id="cb25-513"><a href="#cb25-513" aria-hidden="true" tabindex="-1"></a><span class="in">`frogs`</span> which has only the columns from sibling "<span class="sc">\_</span>A" and only the rows</span>
-<span id="cb25-514"><a href="#cb25-514" aria-hidden="true" tabindex="-1"></a>where <span class="in">`S20_C_5`</span> is above 20.</span>
-<span id="cb25-515"><a href="#cb25-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-518"><a href="#cb25-518" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-519"><a href="#cb25-519" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb25-520"><a href="#cb25-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-521"><a href="#cb25-521" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
-<span id="cb25-522"><a href="#cb25-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-523"><a href="#cb25-523" aria-hidden="true" tabindex="-1"></a>frogs_subset <span class="ot">&lt;-</span> frogs <span class="sc">|&gt;</span>   </span>
-<span id="cb25-524"><a href="#cb25-524" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(S20_C_5 <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-525"><a href="#cb25-525" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"_A"</span>))</span>
-<span id="cb25-526"><a href="#cb25-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-527"><a href="#cb25-527" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-528"><a href="#cb25-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-529"><a href="#cb25-529" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualisation</span></span>
-<span id="cb25-530"><a href="#cb25-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-531"><a href="#cb25-531" aria-hidden="true" tabindex="-1"></a>Histograms and density plots are useful for visualising the distribution</span>
-<span id="cb25-532"><a href="#cb25-532" aria-hidden="true" tabindex="-1"></a>of variables when we have many observations. Theya allow you to see</span>
-<span id="cb25-533"><a href="#cb25-533" aria-hidden="true" tabindex="-1"></a>features in the data that are not obvious from the summary statistics.</span>
-<span id="cb25-534"><a href="#cb25-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-535"><a href="#cb25-535" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A histogram shows the number of values in each range (bin), it is</span>
-<span id="cb25-536"><a href="#cb25-536" aria-hidden="true" tabindex="-1"></a>    composed of touching bars. How a histogram looks depends on the</span>
-<span id="cb25-537"><a href="#cb25-537" aria-hidden="true" tabindex="-1"></a>    number of bins used.</span>
-<span id="cb25-538"><a href="#cb25-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-539"><a href="#cb25-539" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A density plot shows the proportions on values in a range. The</span>
-<span id="cb25-540"><a href="#cb25-540" aria-hidden="true" tabindex="-1"></a>    appearance of the distribution is not affected by the number of</span>
-<span id="cb25-541"><a href="#cb25-541" aria-hidden="true" tabindex="-1"></a>    bins.</span>
-<span id="cb25-542"><a href="#cb25-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-543"><a href="#cb25-543" aria-hidden="true" tabindex="-1"></a>🎬 To plot a histogram of <span class="in">`S20_C_5`</span> in the <span class="in">`frogs`</span> dataframe:</span>
-<span id="cb25-544"><a href="#cb25-544" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-547"><a href="#cb25-547" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-548"><a href="#cb25-548" aria-hidden="true" tabindex="-1"></a>frogs <span class="sc">|&gt;</span> </span>
-<span id="cb25-549"><a href="#cb25-549" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> S20_C_5)) <span class="sc">+</span></span>
-<span id="cb25-550"><a href="#cb25-550" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span>
-<span id="cb25-551"><a href="#cb25-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-228"><a href="#cb25-228" aria-hidden="true" tabindex="-1"></a>🎬 Consider the file extensions. What you do think the extensions</span>
+<span id="cb25-229"><a href="#cb25-229" aria-hidden="true" tabindex="-1"></a>indicate?</span>
+<span id="cb25-230"><a href="#cb25-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-231"><a href="#cb25-231" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
+<span id="cb25-232"><a href="#cb25-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-233"><a href="#cb25-233" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- txt usually indicates a plain text file, where the columns are  --&gt;</span></span>
+<span id="cb25-234"><a href="#cb25-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-235"><a href="#cb25-235" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- often separated by a space but might also be separated by a tab,  --&gt;</span></span>
+<span id="cb25-236"><a href="#cb25-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-237"><a href="#cb25-237" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- a backslash or forward slash, or some other character.  --&gt;</span></span>
+<span id="cb25-238"><a href="#cb25-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-239"><a href="#cb25-239" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Plain text files can be opened in notepad or other similar --&gt;</span></span>
+<span id="cb25-240"><a href="#cb25-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-241"><a href="#cb25-241" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- editor and still be readable. --&gt;</span></span>
+<span id="cb25-242"><a href="#cb25-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- csv stands for comma separated values and tsv stands for tab  --&gt;</span></span>
+<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-245"><a href="#cb25-245" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- separated values. Both of these are plain text format. --&gt;</span></span>
+<span id="cb25-246"><a href="#cb25-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-247"><a href="#cb25-247" aria-hidden="true" tabindex="-1"></a>🎬 Go to the Files pane click on the <span class="in">`xlaevis_counts_S20.csv`</span> file and</span>
+<span id="cb25-248"><a href="#cb25-248" aria-hidden="true" tabindex="-1"></a>choose View File<span class="ot">[^1]</span></span>
+<span id="cb25-249"><a href="#cb25-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>**Do not** be tempted to import data this way. Unless you are</span>
+<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a>    careful, your data import will not be scripted or will not be</span>
+<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a>    scripted correctly. This means your work will not be reproducible.</span>
+<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a>![RStudio Files</span>
+<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a>Pane](images/rstudio-filepane-viewfile.png){fig-alt="Rstudio Files pane showing the data files and the View File option that appears when you click on the a particular file"}</span>
+<span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>Any plain text file will open in the top left pane. Note that this is</span>
+<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a>NOT importing the data, it's just viewing the file.</span>
+<span id="cb25-259"><a href="#cb25-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-260"><a href="#cb25-260" aria-hidden="true" tabindex="-1"></a>🎬 Does it seem to be a csv file?</span>
+<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a>🎬 Try opening the other files from the Files pane. What happens?</span>
+<span id="cb25-263"><a href="#cb25-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-264"><a href="#cb25-264" aria-hidden="true" tabindex="-1"></a>🎬 Open each file in Excel. For the <span class="in">`.txt`</span> and <span class="in">`.tsv`</span> files you will</span>
+<span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a>need to show "All files (*.*)" in the file type dropdown to see them and</span>
+<span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a>you will need to work through the "Text Import Wizard" to open them.</span>
+<span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a>We are opening them each in Excel to see what they look like and to get</span>
+<span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a>a sense of the structure of the data. We are not going to use Excel to</span>
+<span id="cb25-270"><a href="#cb25-270" aria-hidden="true" tabindex="-1"></a>do anything.</span>
+<span id="cb25-271"><a href="#cb25-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a>🎬 What do you notice? Does it look like this data will be easy to</span>
+<span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a>import and work with?</span>
+<span id="cb25-274"><a href="#cb25-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-275"><a href="#cb25-275" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import the data</span></span>
+<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a>🎬 Import each of the data files into R:</span>
+<span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a>biotech <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"data-raw/biotech-cts.txt"</span>)</span>
+<span id="cb25-283"><a href="#cb25-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"data-raw/cell-bio.tsv"</span>)</span>
+<span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-293"><a href="#cb25-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a>immuno <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/immuno.csv"</span>)</span>
+<span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-296"><a href="#cb25-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a>frogs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data-raw/xlaevis_counts_S20.csv"</span>)</span>
+<span id="cb25-301"><a href="#cb25-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-302"><a href="#cb25-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-303"><a href="#cb25-303" aria-hidden="true" tabindex="-1"></a>🎬 Click on each of the dataframes in the Environment pane to see what</span>
+<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a>they look like. An alternative to clicking is to use the <span class="in">`View()`</span></span>
+<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a>function:</span>
+<span id="cb25-306"><a href="#cb25-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(cell_bio)</span>
+<span id="cb25-312"><a href="#cb25-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-313"><a href="#cb25-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-314"><a href="#cb25-314" aria-hidden="true" tabindex="-1"></a>🎬 In each case, describe what is in the rows and the columns of the</span>
+<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a>dataframe. Where are the replicates/samples and where are the variables?</span>
+<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a>Are there any things you'd like to fix/change?</span>
+<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
+<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-320"><a href="#cb25-320" aria-hidden="true" tabindex="-1"></a>🎬 Name of the first column in the <span class="in">`biotech`</span> dataframe:</span>
+<span id="cb25-321"><a href="#cb25-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(biotech)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"transcript"</span></span>
+<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a>🎬 Column names in the <span class="in">`cell_bio`</span> dataframe:</span>
+<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(cell_bio)</span>
+<span id="cb25-334"><a href="#cb25-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting an overview 1</span></span>
+<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a><span class="fu">### `summary()`</span></span>
+<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a>R's <span class="in">`summary()`</span> function is a quick way to get an overview of datasets.</span>
+<span id="cb25-341"><a href="#cb25-341" aria-hidden="true" tabindex="-1"></a>It gives you a six number summary for every numeric variable (the</span>
+<span id="cb25-342"><a href="#cb25-342" aria-hidden="true" tabindex="-1"></a>minimum, lower quartile, median, mean, upper quartile, and maximum). It</span>
+<span id="cb25-343"><a href="#cb25-343" aria-hidden="true" tabindex="-1"></a>also gives you a count of the number of missing values.</span>
+<span id="cb25-344"><a href="#cb25-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-345"><a href="#cb25-345" aria-hidden="true" tabindex="-1"></a>🎬 Use the <span class="in">`summary()`</span> function to get an overview of each dataframe. It</span>
+<span id="cb25-346"><a href="#cb25-346" aria-hidden="true" tabindex="-1"></a>works well for these datasets. What types of dataset might this be less</span>
+<span id="cb25-347"><a href="#cb25-347" aria-hidden="true" tabindex="-1"></a>useful for? Which dataframes and columns have missing values? Which</span>
+<span id="cb25-348"><a href="#cb25-348" aria-hidden="true" tabindex="-1"></a>dataframes and variables seem very skewed? Which dataframe has more than</span>
+<span id="cb25-349"><a href="#cb25-349" aria-hidden="true" tabindex="-1"></a>one character variable?</span>
+<span id="cb25-350"><a href="#cb25-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-351"><a href="#cb25-351" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #---THINKING ANSWER--- --&gt;</span></span>
+<span id="cb25-352"><a href="#cb25-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-353"><a href="#cb25-353" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- It is less useful for datasets with very many variables  --&gt;</span></span>
+<span id="cb25-354"><a href="#cb25-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-355"><a href="#cb25-355" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- (columns) because we aren't able to take that in all  --&gt;</span></span>
+<span id="cb25-356"><a href="#cb25-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-357"><a href="#cb25-357" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- at once. It fills up the screen buffer and we can't --&gt;</span></span>
+<span id="cb25-358"><a href="#cb25-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-359"><a href="#cb25-359" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- see all the output at once. --&gt;</span></span>
+<span id="cb25-360"><a href="#cb25-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-361"><a href="#cb25-361" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- It is also less useful for datasets with many  --&gt;</span></span>
+<span id="cb25-362"><a href="#cb25-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-363"><a href="#cb25-363" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- character variables --&gt;</span></span>
+<span id="cb25-364"><a href="#cb25-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-365"><a href="#cb25-365" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- cell_bio has a perimeter column with 19948 NAs --&gt;</span></span>
+<span id="cb25-366"><a href="#cb25-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-367"><a href="#cb25-367" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- skew is revealed by the difference between the mean and  --&gt;</span></span>
+<span id="cb25-368"><a href="#cb25-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-369"><a href="#cb25-369" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the median and a maximum that is much larger than all  --&gt;</span></span>
+<span id="cb25-370"><a href="#cb25-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-371"><a href="#cb25-371" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the other values. The frogs and biotech dataframes have --&gt;</span></span>
+<span id="cb25-372"><a href="#cb25-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-373"><a href="#cb25-373" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- skewed variables. Skew is typical in RNA-Seq counts. --&gt;</span></span>
+<span id="cb25-374"><a href="#cb25-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-375"><a href="#cb25-375" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- immuno is the only dataset with more than one character --&gt;</span></span>
+<span id="cb25-376"><a href="#cb25-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-377"><a href="#cb25-377" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- variable (it has three) --&gt;</span></span>
+<span id="cb25-378"><a href="#cb25-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-379"><a href="#cb25-379" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality Control</span></span>
+<span id="cb25-380"><a href="#cb25-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-381"><a href="#cb25-381" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filtering rows</span></span>
+<span id="cb25-382"><a href="#cb25-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-383"><a href="#cb25-383" aria-hidden="true" tabindex="-1"></a>The filter function selects/drops a whole row on a condition. The</span>
+<span id="cb25-384"><a href="#cb25-384" aria-hidden="true" tabindex="-1"></a>condition can be based on the value in one, or a combination, of</span>
+<span id="cb25-385"><a href="#cb25-385" aria-hidden="true" tabindex="-1"></a>columns. We specify what we want to keep with the <span class="in">`filter()`</span> function.</span>
+<span id="cb25-386"><a href="#cb25-386" aria-hidden="true" tabindex="-1"></a>This means you might often want to negate a condition with <span class="in">`!`</span>.</span>
+<span id="cb25-387"><a href="#cb25-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-388"><a href="#cb25-388" aria-hidden="true" tabindex="-1"></a>🎬 To remove the rows in <span class="in">`cell_bio`</span> with missing values in the</span>
+<span id="cb25-389"><a href="#cb25-389" aria-hidden="true" tabindex="-1"></a><span class="in">`perimeter`</span> column:</span>
+<span id="cb25-390"><a href="#cb25-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-393"><a href="#cb25-393" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-394"><a href="#cb25-394" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> cell_bio <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(perimeter))</span>
+<span id="cb25-395"><a href="#cb25-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-396"><a href="#cb25-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-397"><a href="#cb25-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-398"><a href="#cb25-398" aria-hidden="true" tabindex="-1"></a><span class="in">`is.na(perimeter)`</span> returns a logical vector (a vector of <span class="in">`TRUE`</span>s and</span>
+<span id="cb25-399"><a href="#cb25-399" aria-hidden="true" tabindex="-1"></a><span class="in">`FALSE`</span>s) of the same length as the column. The <span class="in">`!`</span> negates the logical</span>
+<span id="cb25-400"><a href="#cb25-400" aria-hidden="true" tabindex="-1"></a>vector so the <span class="in">`TRUE`</span>s become <span class="in">`FALSE`</span>s and the <span class="in">`FALSE`</span>s become TRUE. This</span>
+<span id="cb25-401"><a href="#cb25-401" aria-hidden="true" tabindex="-1"></a>means that the <span class="in">`filter()`</span> function *keeps* the rows where the perimeter</span>
+<span id="cb25-402"><a href="#cb25-402" aria-hidden="true" tabindex="-1"></a>column is not missing.</span>
+<span id="cb25-403"><a href="#cb25-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-404"><a href="#cb25-404" aria-hidden="true" tabindex="-1"></a>🎬 There's actually a tidyverse function that does the same thing as</span>
+<span id="cb25-405"><a href="#cb25-405" aria-hidden="true" tabindex="-1"></a><span class="in">`filter(!is.na())`</span></span>
+<span id="cb25-406"><a href="#cb25-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-409"><a href="#cb25-409" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-410"><a href="#cb25-410" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="ot">&lt;-</span> cell_bio <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(perimeter)</span>
+<span id="cb25-411"><a href="#cb25-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-412"><a href="#cb25-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-413"><a href="#cb25-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-414"><a href="#cb25-414" aria-hidden="true" tabindex="-1"></a>Sometimes you might want to work with a subset of data. For example, you</span>
+<span id="cb25-415"><a href="#cb25-415" aria-hidden="true" tabindex="-1"></a>might want to examine just the Media treated cells in the <span class="in">`immuno`</span></span>
+<span id="cb25-416"><a href="#cb25-416" aria-hidden="true" tabindex="-1"></a>dataset.</span>
+<span id="cb25-417"><a href="#cb25-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-418"><a href="#cb25-418" aria-hidden="true" tabindex="-1"></a>🎬 Create a new dataframe called <span class="in">`immuno_media`</span> that contains only the</span>
+<span id="cb25-419"><a href="#cb25-419" aria-hidden="true" tabindex="-1"></a>rows where <span class="in">`treatment`</span> is "MEDIA"</span>
+<span id="cb25-420"><a href="#cb25-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-423"><a href="#cb25-423" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-424"><a href="#cb25-424" aria-hidden="true" tabindex="-1"></a>immuno_media <span class="ot">&lt;-</span> immuno <span class="sc">|&gt;</span> </span>
+<span id="cb25-425"><a href="#cb25-425" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treatment <span class="sc">==</span> <span class="st">"MEDIA"</span>)</span>
+<span id="cb25-426"><a href="#cb25-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-427"><a href="#cb25-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-428"><a href="#cb25-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-429"><a href="#cb25-429" aria-hidden="true" tabindex="-1"></a>Or just the Media treated cells with a <span class="in">`FS_Lin`</span> between two values. You</span>
+<span id="cb25-430"><a href="#cb25-430" aria-hidden="true" tabindex="-1"></a>can apply two filters and the <span class="in">`between()`</span> function to achieve this:</span>
+<span id="cb25-431"><a href="#cb25-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-432"><a href="#cb25-432" aria-hidden="true" tabindex="-1"></a>🎬 Create a new dataframe called <span class="in">`immuno_media_live`</span> that contains only</span>
+<span id="cb25-433"><a href="#cb25-433" aria-hidden="true" tabindex="-1"></a>the rows where <span class="in">`treatment`</span> is "MEDIA" and <span class="in">`FS_Lin`</span> is between 7500 and</span>
+<span id="cb25-434"><a href="#cb25-434" aria-hidden="true" tabindex="-1"></a>28000:</span>
+<span id="cb25-435"><a href="#cb25-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-438"><a href="#cb25-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-439"><a href="#cb25-439" aria-hidden="true" tabindex="-1"></a>immuno_media_live <span class="ot">&lt;-</span> immuno <span class="sc">|&gt;</span></span>
+<span id="cb25-440"><a href="#cb25-440" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(treatment <span class="sc">==</span> <span class="st">"MEDIA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-441"><a href="#cb25-441" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(FS_Lin, <span class="dv">7500</span>, <span class="dv">28000</span>))</span>
+<span id="cb25-442"><a href="#cb25-442" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-443"><a href="#cb25-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-444"><a href="#cb25-444" aria-hidden="true" tabindex="-1"></a>🎬 Now you try. Create a dataframe called <span class="in">`immuno_live`</span> that contains</span>
+<span id="cb25-445"><a href="#cb25-445" aria-hidden="true" tabindex="-1"></a>only the rows where <span class="in">`FS_Lin`</span> is between 7500 and 28000 and <span class="in">`SS_Lin`</span> is</span>
+<span id="cb25-446"><a href="#cb25-446" aria-hidden="true" tabindex="-1"></a>between 15000 and 35000:</span>
+<span id="cb25-447"><a href="#cb25-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-450"><a href="#cb25-450" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-451"><a href="#cb25-451" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb25-452"><a href="#cb25-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-453"><a href="#cb25-453" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb25-454"><a href="#cb25-454" aria-hidden="true" tabindex="-1"></a>immuno_live <span class="ot">&lt;-</span> immuno <span class="sc">|&gt;</span></span>
+<span id="cb25-455"><a href="#cb25-455" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(FS_Lin, <span class="dv">7500</span>, <span class="dv">28000</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-456"><a href="#cb25-456" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(SS_Lin, <span class="dv">15000</span>, <span class="dv">35000</span>))</span>
+<span id="cb25-457"><a href="#cb25-457" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-458"><a href="#cb25-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-459"><a href="#cb25-459" aria-hidden="true" tabindex="-1"></a><span class="fu">### Selecting columns</span></span>
+<span id="cb25-460"><a href="#cb25-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-461"><a href="#cb25-461" aria-hidden="true" tabindex="-1"></a>Whilst we can always specify the columns we want to use when working</span>
+<span id="cb25-462"><a href="#cb25-462" aria-hidden="true" tabindex="-1"></a>with data, sometimes we find it less overwhelming to create a new</span>
+<span id="cb25-463"><a href="#cb25-463" aria-hidden="true" tabindex="-1"></a>dataframe with only the columns we want. The <span class="in">`select()`</span> function helps</span>
+<span id="cb25-464"><a href="#cb25-464" aria-hidden="true" tabindex="-1"></a>us here.</span>
+<span id="cb25-465"><a href="#cb25-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-466"><a href="#cb25-466" aria-hidden="true" tabindex="-1"></a>🎬 Suppose we only want to work with the Susceptible varieties of wheat</span>
+<span id="cb25-467"><a href="#cb25-467" aria-hidden="true" tabindex="-1"></a>in the <span class="in">`biotech`</span> dataframe. We can create a new dataframe with only the</span>
+<span id="cb25-468"><a href="#cb25-468" aria-hidden="true" tabindex="-1"></a>columns we want:</span>
+<span id="cb25-469"><a href="#cb25-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-472"><a href="#cb25-472" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-473"><a href="#cb25-473" aria-hidden="true" tabindex="-1"></a>biotech_susceptible <span class="ot">&lt;-</span> biotech <span class="sc">|&gt;</span> </span>
+<span id="cb25-474"><a href="#cb25-474" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SCK14_1,</span>
+<span id="cb25-475"><a href="#cb25-475" aria-hidden="true" tabindex="-1"></a>         SCK14_2,</span>
+<span id="cb25-476"><a href="#cb25-476" aria-hidden="true" tabindex="-1"></a>         SCK14_3,</span>
+<span id="cb25-477"><a href="#cb25-477" aria-hidden="true" tabindex="-1"></a>         SLK14_1,</span>
+<span id="cb25-478"><a href="#cb25-478" aria-hidden="true" tabindex="-1"></a>         SLK14_2,</span>
+<span id="cb25-479"><a href="#cb25-479" aria-hidden="true" tabindex="-1"></a>         SLK14_3)</span>
+<span id="cb25-480"><a href="#cb25-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-481"><a href="#cb25-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-482"><a href="#cb25-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-483"><a href="#cb25-483" aria-hidden="true" tabindex="-1"></a>In fact, there are a couple of alternatives to this. We can use the</span>
+<span id="cb25-484"><a href="#cb25-484" aria-hidden="true" tabindex="-1"></a><span class="in">`starts_with()`</span> function to select all the columns that start with a</span>
+<span id="cb25-485"><a href="#cb25-485" aria-hidden="true" tabindex="-1"></a>certain string:</span>
+<span id="cb25-486"><a href="#cb25-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-487"><a href="#cb25-487" aria-hidden="true" tabindex="-1"></a>🎬 Select columns starting with <span class="in">`S`</span></span>
+<span id="cb25-488"><a href="#cb25-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-491"><a href="#cb25-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-492"><a href="#cb25-492" aria-hidden="true" tabindex="-1"></a>biotech_susceptible <span class="ot">&lt;-</span> biotech <span class="sc">|&gt;</span> </span>
+<span id="cb25-493"><a href="#cb25-493" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"S"</span>))</span>
+<span id="cb25-494"><a href="#cb25-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-495"><a href="#cb25-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-496"><a href="#cb25-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-497"><a href="#cb25-497" aria-hidden="true" tabindex="-1"></a>There is an <span class="in">`ends_with()`</span> function too!</span>
+<span id="cb25-498"><a href="#cb25-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-499"><a href="#cb25-499" aria-hidden="true" tabindex="-1"></a>🎬 The colon notation allows us to select a range of columns. Select</span>
+<span id="cb25-500"><a href="#cb25-500" aria-hidden="true" tabindex="-1"></a>columns from <span class="in">`SCK14_1`</span> to <span class="in">`SLK14_3`</span></span>
+<span id="cb25-501"><a href="#cb25-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-504"><a href="#cb25-504" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-505"><a href="#cb25-505" aria-hidden="true" tabindex="-1"></a>biotech_susceptible <span class="ot">&lt;-</span> biotech <span class="sc">|&gt;</span> </span>
+<span id="cb25-506"><a href="#cb25-506" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(SCK14_1<span class="sc">:</span>SLK14_3)</span>
+<span id="cb25-507"><a href="#cb25-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-508"><a href="#cb25-508" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-509"><a href="#cb25-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-510"><a href="#cb25-510" aria-hidden="true" tabindex="-1"></a>Note that you need to pay attention to the order of the columns in your</span>
+<span id="cb25-511"><a href="#cb25-511" aria-hidden="true" tabindex="-1"></a>dataframe to use this.</span>
+<span id="cb25-512"><a href="#cb25-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-513"><a href="#cb25-513" aria-hidden="true" tabindex="-1"></a>🎬 You can use select and filter together. Try creating a dataframe from</span>
+<span id="cb25-514"><a href="#cb25-514" aria-hidden="true" tabindex="-1"></a><span class="in">`frogs`</span> which has only the columns from sibling "<span class="sc">\_</span>A" and only the rows</span>
+<span id="cb25-515"><a href="#cb25-515" aria-hidden="true" tabindex="-1"></a>where <span class="in">`S20_C_5`</span> is above 20.</span>
+<span id="cb25-516"><a href="#cb25-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-519"><a href="#cb25-519" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-520"><a href="#cb25-520" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb25-521"><a href="#cb25-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-522"><a href="#cb25-522" aria-hidden="true" tabindex="-1"></a><span class="co">#---CODING ANSWER---</span></span>
+<span id="cb25-523"><a href="#cb25-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-524"><a href="#cb25-524" aria-hidden="true" tabindex="-1"></a>frogs_subset <span class="ot">&lt;-</span> frogs <span class="sc">|&gt;</span>   </span>
+<span id="cb25-525"><a href="#cb25-525" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(S20_C_5 <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb25-526"><a href="#cb25-526" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"_A"</span>))</span>
+<span id="cb25-527"><a href="#cb25-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-528"><a href="#cb25-528" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-529"><a href="#cb25-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-530"><a href="#cb25-530" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualisation</span></span>
+<span id="cb25-531"><a href="#cb25-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-532"><a href="#cb25-532" aria-hidden="true" tabindex="-1"></a>Histograms and density plots are useful for visualising the distribution</span>
+<span id="cb25-533"><a href="#cb25-533" aria-hidden="true" tabindex="-1"></a>of variables when we have many observations. They allow you to see</span>
+<span id="cb25-534"><a href="#cb25-534" aria-hidden="true" tabindex="-1"></a>features in the data that are not obvious from the summary statistics.</span>
+<span id="cb25-535"><a href="#cb25-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-536"><a href="#cb25-536" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A histogram shows the number of values in each range (bin), it is</span>
+<span id="cb25-537"><a href="#cb25-537" aria-hidden="true" tabindex="-1"></a>    composed of touching bars. How a histogram looks depends on the</span>
+<span id="cb25-538"><a href="#cb25-538" aria-hidden="true" tabindex="-1"></a>    number of bins used.</span>
+<span id="cb25-539"><a href="#cb25-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-540"><a href="#cb25-540" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A density plot shows the proportions of values in a range. The</span>
+<span id="cb25-541"><a href="#cb25-541" aria-hidden="true" tabindex="-1"></a>    appearance of the distribution is not affected by the number of</span>
+<span id="cb25-542"><a href="#cb25-542" aria-hidden="true" tabindex="-1"></a>    bins.</span>
+<span id="cb25-543"><a href="#cb25-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-544"><a href="#cb25-544" aria-hidden="true" tabindex="-1"></a>🎬 To plot a histogram of <span class="in">`S20_C_5`</span> in the <span class="in">`frogs`</span> dataframe:</span>
+<span id="cb25-545"><a href="#cb25-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-548"><a href="#cb25-548" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-549"><a href="#cb25-549" aria-hidden="true" tabindex="-1"></a>frogs <span class="sc">|&gt;</span> </span>
+<span id="cb25-550"><a href="#cb25-550" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> S20_C_5)) <span class="sc">+</span></span>
+<span id="cb25-551"><a href="#cb25-551" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span>
 <span id="cb25-552"><a href="#cb25-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-553"><a href="#cb25-553" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-554"><a href="#cb25-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-555"><a href="#cb25-555" aria-hidden="true" tabindex="-1"></a>This data is very skewed - there are so many low values that we can’t</span>
-<span id="cb25-556"><a href="#cb25-556" aria-hidden="true" tabindex="-1"></a>see the tiny bars for the higher values. Logging the counts is a way to</span>
-<span id="cb25-557"><a href="#cb25-557" aria-hidden="true" tabindex="-1"></a>make the distribution more visible.</span>
-<span id="cb25-558"><a href="#cb25-558" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-559"><a href="#cb25-559" aria-hidden="true" tabindex="-1"></a>🎬 To plot the distribution of log <span class="in">`S20_C_5`</span> in the <span class="in">`frogs`</span> dataframe as</span>
-<span id="cb25-560"><a href="#cb25-560" aria-hidden="true" tabindex="-1"></a>a histogram:</span>
-<span id="cb25-561"><a href="#cb25-561" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-564"><a href="#cb25-564" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-565"><a href="#cb25-565" aria-hidden="true" tabindex="-1"></a>frogs <span class="sc">|&gt;</span> </span>
-<span id="cb25-566"><a href="#cb25-566" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(S20_C_5))) <span class="sc">+</span></span>
-<span id="cb25-567"><a href="#cb25-567" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span>
-<span id="cb25-568"><a href="#cb25-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-553"><a href="#cb25-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-554"><a href="#cb25-554" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-555"><a href="#cb25-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-556"><a href="#cb25-556" aria-hidden="true" tabindex="-1"></a>This data is very skewed - there are so many low values that we can’t</span>
+<span id="cb25-557"><a href="#cb25-557" aria-hidden="true" tabindex="-1"></a>see the tiny bars for the higher values. Logging the counts is a way to</span>
+<span id="cb25-558"><a href="#cb25-558" aria-hidden="true" tabindex="-1"></a>make the distribution more visible.</span>
+<span id="cb25-559"><a href="#cb25-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-560"><a href="#cb25-560" aria-hidden="true" tabindex="-1"></a>🎬 To plot the distribution of log <span class="in">`S20_C_5`</span> in the <span class="in">`frogs`</span> dataframe as</span>
+<span id="cb25-561"><a href="#cb25-561" aria-hidden="true" tabindex="-1"></a>a histogram:</span>
+<span id="cb25-562"><a href="#cb25-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-565"><a href="#cb25-565" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-566"><a href="#cb25-566" aria-hidden="true" tabindex="-1"></a>frogs <span class="sc">|&gt;</span> </span>
+<span id="cb25-567"><a href="#cb25-567" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(S20_C_5))) <span class="sc">+</span></span>
+<span id="cb25-568"><a href="#cb25-568" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span>
 <span id="cb25-569"><a href="#cb25-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-570"><a href="#cb25-570" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-571"><a href="#cb25-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-572"><a href="#cb25-572" aria-hidden="true" tabindex="-1"></a>🎬 Or a density plot:</span>
-<span id="cb25-573"><a href="#cb25-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-576"><a href="#cb25-576" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-577"><a href="#cb25-577" aria-hidden="true" tabindex="-1"></a>frogs <span class="sc">|&gt;</span> </span>
-<span id="cb25-578"><a href="#cb25-578" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(S20_C_5))) <span class="sc">+</span></span>
-<span id="cb25-579"><a href="#cb25-579" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span>
-<span id="cb25-580"><a href="#cb25-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-581"><a href="#cb25-581" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-582"><a href="#cb25-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-583"><a href="#cb25-583" aria-hidden="true" tabindex="-1"></a>I’ve used base 10 only because it is easy to convert to the original</span>
-<span id="cb25-584"><a href="#cb25-584" aria-hidden="true" tabindex="-1"></a>scale (1 is 10, 2 is 100, 3 is 1000 etc). The warning about rows being</span>
-<span id="cb25-585"><a href="#cb25-585" aria-hidden="true" tabindex="-1"></a>removed is expected - these are the counts of 0 since you can’t log a</span>
-<span id="cb25-586"><a href="#cb25-586" aria-hidden="true" tabindex="-1"></a>value of 0. The peak at zero suggests quite a few counts of 1. We would</span>
-<span id="cb25-587"><a href="#cb25-587" aria-hidden="true" tabindex="-1"></a>expect we would expect the distribution of counts to be roughly log</span>
-<span id="cb25-588"><a href="#cb25-588" aria-hidden="true" tabindex="-1"></a>normal because this is expression of all the genes in the genome<span class="ot">[^2]</span>.</span>
-<span id="cb25-589"><a href="#cb25-589" aria-hidden="true" tabindex="-1"></a>That peak near the low end is not expected for this distribution and</span>
-<span id="cb25-590"><a href="#cb25-590" aria-hidden="true" tabindex="-1"></a>suggests that these lower counts might be anomalies.</span>
-<span id="cb25-591"><a href="#cb25-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-592"><a href="#cb25-592" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>This a result of the&nbsp;[Central limit</span>
-<span id="cb25-593"><a href="#cb25-593" aria-hidden="true" tabindex="-1"></a>    theorem](https://en.wikipedia.org/wiki/Central_limit_theorem),one</span>
-<span id="cb25-594"><a href="#cb25-594" aria-hidden="true" tabindex="-1"></a>    consequence of which is that adding together lots of distributions -</span>
-<span id="cb25-595"><a href="#cb25-595" aria-hidden="true" tabindex="-1"></a>    whatever distributions they are - will tend to a normal</span>
-<span id="cb25-596"><a href="#cb25-596" aria-hidden="true" tabindex="-1"></a>    distribution.</span>
-<span id="cb25-597"><a href="#cb25-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-598"><a href="#cb25-598" aria-hidden="true" tabindex="-1"></a>The excess number of low counts indicates we might want to create a cut</span>
-<span id="cb25-599"><a href="#cb25-599" aria-hidden="true" tabindex="-1"></a>off for quality control. The removal of low counts is a common</span>
-<span id="cb25-600"><a href="#cb25-600" aria-hidden="true" tabindex="-1"></a>processing step in ’omic data.</span>
-<span id="cb25-601"><a href="#cb25-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-602"><a href="#cb25-602" aria-hidden="true" tabindex="-1"></a>If you have two groups of data, you can compare their distributions on</span>
-<span id="cb25-603"><a href="#cb25-603" aria-hidden="true" tabindex="-1"></a>the same plot using the <span class="in">`fill`</span> aesthetic and making the fill transparent</span>
-<span id="cb25-604"><a href="#cb25-604" aria-hidden="true" tabindex="-1"></a>with the <span class="in">`alpha`</span> argument.</span>
-<span id="cb25-605"><a href="#cb25-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-606"><a href="#cb25-606" aria-hidden="true" tabindex="-1"></a>🎬 To plot the distribution of <span class="in">`area`</span> in the <span class="in">`cell_bio`</span> dataframe as a</span>
-<span id="cb25-607"><a href="#cb25-607" aria-hidden="true" tabindex="-1"></a>density plot, with the <span class="in">`clone`</span> variable as the fill:</span>
-<span id="cb25-608"><a href="#cb25-608" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-611"><a href="#cb25-611" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-612"><a href="#cb25-612" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="sc">|&gt;</span> </span>
-<span id="cb25-613"><a href="#cb25-613" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> area, <span class="at">fill =</span> clone)) <span class="sc">+</span></span>
-<span id="cb25-614"><a href="#cb25-614" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb25-615"><a href="#cb25-615" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-616"><a href="#cb25-616" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-617"><a href="#cb25-617" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-618"><a href="#cb25-618" aria-hidden="true" tabindex="-1"></a>Boxplots and violin plots are also useful for visualising the</span>
-<span id="cb25-619"><a href="#cb25-619" aria-hidden="true" tabindex="-1"></a>distribution of a variable, especially when there are more than about 5</span>
-<span id="cb25-620"><a href="#cb25-620" aria-hidden="true" tabindex="-1"></a>groups.</span>
-<span id="cb25-621"><a href="#cb25-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-622"><a href="#cb25-622" aria-hidden="true" tabindex="-1"></a>🎬 To plot the distribution of <span class="in">`area`</span> in the <span class="in">`cell_bio`</span> dataframe as a</span>
-<span id="cb25-623"><a href="#cb25-623" aria-hidden="true" tabindex="-1"></a>boxplot, with the <span class="in">`clone`</span> variable on the x-axis:</span>
-<span id="cb25-624"><a href="#cb25-624" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-627"><a href="#cb25-627" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-628"><a href="#cb25-628" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="sc">|&gt;</span> </span>
-<span id="cb25-629"><a href="#cb25-629" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> clone, <span class="at">y =</span> area)) <span class="sc">+</span></span>
-<span id="cb25-630"><a href="#cb25-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb25-631"><a href="#cb25-631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-632"><a href="#cb25-632" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-633"><a href="#cb25-633" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-634"><a href="#cb25-634" aria-hidden="true" tabindex="-1"></a>Suppose you want to see the distribution of many similar variables such</span>
-<span id="cb25-635"><a href="#cb25-635" aria-hidden="true" tabindex="-1"></a>as we have in <span class="in">`biotech`</span>. You cannot map a variable to <span class="in">`x`</span> or <span class="in">`fill`</span> as</span>
-<span id="cb25-636"><a href="#cb25-636" aria-hidden="true" tabindex="-1"></a>we did in the two previous cases because the values are in *separate*</span>
-<span id="cb25-637"><a href="#cb25-637" aria-hidden="true" tabindex="-1"></a>columns rather than than in *one* column with a second column giving a</span>
-<span id="cb25-638"><a href="#cb25-638" aria-hidden="true" tabindex="-1"></a>group. However, we can use the <span class="in">`pivot_longer()`</span> function to reformat the</span>
-<span id="cb25-639"><a href="#cb25-639" aria-hidden="true" tabindex="-1"></a>data and then pipe it into ggplot.</span>
-<span id="cb25-640"><a href="#cb25-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-641"><a href="#cb25-641" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the logged counts in the <span class="in">`biotech`</span> dataframe</span>
-<span id="cb25-642"><a href="#cb25-642" aria-hidden="true" tabindex="-1"></a>as a boxplot, the samples on the x axis:</span>
-<span id="cb25-643"><a href="#cb25-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-646"><a href="#cb25-646" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-647"><a href="#cb25-647" aria-hidden="true" tabindex="-1"></a>biotech <span class="sc">|&gt;</span> </span>
-<span id="cb25-648"><a href="#cb25-648" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>transcript,</span>
-<span id="cb25-649"><a href="#cb25-649" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"sample"</span>,</span>
-<span id="cb25-650"><a href="#cb25-650" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"count"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-651"><a href="#cb25-651" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample, <span class="at">y =</span> <span class="fu">log10</span>(count))) <span class="sc">+</span></span>
-<span id="cb25-652"><a href="#cb25-652" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb25-653"><a href="#cb25-653" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-654"><a href="#cb25-654" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-655"><a href="#cb25-655" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-570"><a href="#cb25-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-571"><a href="#cb25-571" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-572"><a href="#cb25-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-573"><a href="#cb25-573" aria-hidden="true" tabindex="-1"></a>🎬 Or a density plot:</span>
+<span id="cb25-574"><a href="#cb25-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-577"><a href="#cb25-577" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-578"><a href="#cb25-578" aria-hidden="true" tabindex="-1"></a>frogs <span class="sc">|&gt;</span> </span>
+<span id="cb25-579"><a href="#cb25-579" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(S20_C_5))) <span class="sc">+</span></span>
+<span id="cb25-580"><a href="#cb25-580" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span>
+<span id="cb25-581"><a href="#cb25-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-582"><a href="#cb25-582" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-583"><a href="#cb25-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-584"><a href="#cb25-584" aria-hidden="true" tabindex="-1"></a>I’ve used base 10 only because it is easy to convert to the original</span>
+<span id="cb25-585"><a href="#cb25-585" aria-hidden="true" tabindex="-1"></a>scale (1 is 10, 2 is 100, 3 is 1000 etc). The warning about rows being</span>
+<span id="cb25-586"><a href="#cb25-586" aria-hidden="true" tabindex="-1"></a>removed is expected - these are the counts of 0 since you can’t log a</span>
+<span id="cb25-587"><a href="#cb25-587" aria-hidden="true" tabindex="-1"></a>value of 0. The peak at zero suggests quite a few counts of 1. We would</span>
+<span id="cb25-588"><a href="#cb25-588" aria-hidden="true" tabindex="-1"></a>expect the distribution of counts to be roughly log normal because this</span>
+<span id="cb25-589"><a href="#cb25-589" aria-hidden="true" tabindex="-1"></a>is expression of all the genes in the genome<span class="ot">[^2]</span>. That peak near the low</span>
+<span id="cb25-590"><a href="#cb25-590" aria-hidden="true" tabindex="-1"></a>end is not expected for this distribution and suggests that these lower</span>
+<span id="cb25-591"><a href="#cb25-591" aria-hidden="true" tabindex="-1"></a>counts might be anomalies.</span>
+<span id="cb25-592"><a href="#cb25-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-593"><a href="#cb25-593" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>This a result of the&nbsp;[Central limit</span>
+<span id="cb25-594"><a href="#cb25-594" aria-hidden="true" tabindex="-1"></a>    theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), one</span>
+<span id="cb25-595"><a href="#cb25-595" aria-hidden="true" tabindex="-1"></a>    consequence of which is that adding together lots of distributions -</span>
+<span id="cb25-596"><a href="#cb25-596" aria-hidden="true" tabindex="-1"></a>    whatever distributions they are - will tend to a normal</span>
+<span id="cb25-597"><a href="#cb25-597" aria-hidden="true" tabindex="-1"></a>    distribution.</span>
+<span id="cb25-598"><a href="#cb25-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-599"><a href="#cb25-599" aria-hidden="true" tabindex="-1"></a>The excess number of low counts indicates we might want to create a cut</span>
+<span id="cb25-600"><a href="#cb25-600" aria-hidden="true" tabindex="-1"></a>off for quality control. The removal of low counts is a common</span>
+<span id="cb25-601"><a href="#cb25-601" aria-hidden="true" tabindex="-1"></a>processing step in ’omic data.</span>
+<span id="cb25-602"><a href="#cb25-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-603"><a href="#cb25-603" aria-hidden="true" tabindex="-1"></a>If you have two groups of data, you can compare their distributions on</span>
+<span id="cb25-604"><a href="#cb25-604" aria-hidden="true" tabindex="-1"></a>the same plot using the <span class="in">`fill`</span> aesthetic and making the fill transparent</span>
+<span id="cb25-605"><a href="#cb25-605" aria-hidden="true" tabindex="-1"></a>with the <span class="in">`alpha`</span> argument.</span>
+<span id="cb25-606"><a href="#cb25-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-607"><a href="#cb25-607" aria-hidden="true" tabindex="-1"></a>🎬 To plot the distribution of <span class="in">`area`</span> in the <span class="in">`cell_bio`</span> dataframe as a</span>
+<span id="cb25-608"><a href="#cb25-608" aria-hidden="true" tabindex="-1"></a>density plot, with the <span class="in">`clone`</span> variable as the fill:</span>
+<span id="cb25-609"><a href="#cb25-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-612"><a href="#cb25-612" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-613"><a href="#cb25-613" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="sc">|&gt;</span> </span>
+<span id="cb25-614"><a href="#cb25-614" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> area, <span class="at">fill =</span> clone)) <span class="sc">+</span></span>
+<span id="cb25-615"><a href="#cb25-615" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb25-616"><a href="#cb25-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-617"><a href="#cb25-617" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-618"><a href="#cb25-618" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-619"><a href="#cb25-619" aria-hidden="true" tabindex="-1"></a>Boxplots and violin plots are also useful for visualising the</span>
+<span id="cb25-620"><a href="#cb25-620" aria-hidden="true" tabindex="-1"></a>distribution of a variable, especially when there are more than about 5</span>
+<span id="cb25-621"><a href="#cb25-621" aria-hidden="true" tabindex="-1"></a>groups.</span>
+<span id="cb25-622"><a href="#cb25-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-623"><a href="#cb25-623" aria-hidden="true" tabindex="-1"></a>🎬 To plot the distribution of <span class="in">`area`</span> in the <span class="in">`cell_bio`</span> dataframe as a</span>
+<span id="cb25-624"><a href="#cb25-624" aria-hidden="true" tabindex="-1"></a>boxplot, with the <span class="in">`clone`</span> variable on the x-axis:</span>
+<span id="cb25-625"><a href="#cb25-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-628"><a href="#cb25-628" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-629"><a href="#cb25-629" aria-hidden="true" tabindex="-1"></a>cell_bio <span class="sc">|&gt;</span> </span>
+<span id="cb25-630"><a href="#cb25-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> clone, <span class="at">y =</span> area)) <span class="sc">+</span></span>
+<span id="cb25-631"><a href="#cb25-631" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb25-632"><a href="#cb25-632" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-633"><a href="#cb25-633" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-634"><a href="#cb25-634" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-635"><a href="#cb25-635" aria-hidden="true" tabindex="-1"></a>Suppose you want to see the distribution of many similar variables such</span>
+<span id="cb25-636"><a href="#cb25-636" aria-hidden="true" tabindex="-1"></a>as we have in <span class="in">`biotech`</span>. You cannot map a variable to <span class="in">`x`</span> or <span class="in">`fill`</span> as</span>
+<span id="cb25-637"><a href="#cb25-637" aria-hidden="true" tabindex="-1"></a>we did in the two previous cases because the values are in *separate*</span>
+<span id="cb25-638"><a href="#cb25-638" aria-hidden="true" tabindex="-1"></a>columns rather than than in *one* column with a second column giving a</span>
+<span id="cb25-639"><a href="#cb25-639" aria-hidden="true" tabindex="-1"></a>group. However, we can use the <span class="in">`pivot_longer()`</span> function to reformat the</span>
+<span id="cb25-640"><a href="#cb25-640" aria-hidden="true" tabindex="-1"></a>data and then pipe it into ggplot.</span>
+<span id="cb25-641"><a href="#cb25-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-642"><a href="#cb25-642" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the logged counts in the <span class="in">`biotech`</span> dataframe</span>
+<span id="cb25-643"><a href="#cb25-643" aria-hidden="true" tabindex="-1"></a>as a boxplot, the samples on the x axis:</span>
+<span id="cb25-644"><a href="#cb25-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-647"><a href="#cb25-647" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-648"><a href="#cb25-648" aria-hidden="true" tabindex="-1"></a>biotech <span class="sc">|&gt;</span> </span>
+<span id="cb25-649"><a href="#cb25-649" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>transcript,</span>
+<span id="cb25-650"><a href="#cb25-650" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"sample"</span>,</span>
+<span id="cb25-651"><a href="#cb25-651" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"count"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb25-652"><a href="#cb25-652" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample, <span class="at">y =</span> <span class="fu">log10</span>(count))) <span class="sc">+</span></span>
+<span id="cb25-653"><a href="#cb25-653" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb25-654"><a href="#cb25-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-655"><a href="#cb25-655" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-656"><a href="#cb25-656" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-659"><a href="#cb25-659" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb25-660"><a href="#cb25-660" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb25-661"><a href="#cb25-661" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-662"><a href="#cb25-662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-663"><a href="#cb25-663" aria-hidden="true" tabindex="-1"></a>This code takes the <span class="in">`biotech`</span> dataframe and transforms it dataset from </span>
-<span id="cb25-664"><a href="#cb25-664" aria-hidden="true" tabindex="-1"></a>wide format to long format. It takes all columns except <span class="in">`transcript`</span> (<span class="in">`cols = -transcript`</span>) and gathers them into two new columns:</span>
-<span id="cb25-665"><a href="#cb25-665" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-666"><a href="#cb25-666" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"sample"`</span> → Stores the original column names </span>
-<span id="cb25-667"><a href="#cb25-667" aria-hidden="true" tabindex="-1"></a>     (<span class="in">`SCK14_1`</span>, <span class="in">`SCK14_2`</span>, etc.).</span>
-<span id="cb25-668"><a href="#cb25-668" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span><span class="in">`"count"`</span> → Stores the values from those columns.</span>
-<span id="cb25-669"><a href="#cb25-669" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-670"><a href="#cb25-670" aria-hidden="true" tabindex="-1"></a>Now, instead of multiple sample columns, we have a table like this:</span>
-<span id="cb25-671"><a href="#cb25-671" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-672"><a href="#cb25-672" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> transcript <span class="pp">|</span> sample  <span class="pp">|</span> count <span class="pp">|</span></span>
-<span id="cb25-673"><a href="#cb25-673" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------|--------|-------|</span></span>
-<span id="cb25-674"><a href="#cb25-674" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.1   <span class="pp">|</span> SCK14_1 <span class="pp">|</span> 560   <span class="pp">|</span></span>
-<span id="cb25-675"><a href="#cb25-675" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.1   <span class="pp">|</span> SCK14_2 <span class="pp">|</span> 1526  <span class="pp">|</span></span>
-<span id="cb25-676"><a href="#cb25-676" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.1   <span class="pp">|</span> SCK14_3 <span class="pp">|</span> 4168  <span class="pp">|</span></span>
-<span id="cb25-677"><a href="#cb25-677" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.10  <span class="pp">|</span> SCK14_1 <span class="pp">|</span> 0     <span class="pp">|</span></span>
-<span id="cb25-678"><a href="#cb25-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-663"><a href="#cb25-663" aria-hidden="true" tabindex="-1"></a>This code takes the <span class="in">`biotech`</span> dataframe and transforms it dataset from</span>
+<span id="cb25-664"><a href="#cb25-664" aria-hidden="true" tabindex="-1"></a>wide format to long format. It takes all columns except <span class="in">`transcript`</span></span>
+<span id="cb25-665"><a href="#cb25-665" aria-hidden="true" tabindex="-1"></a>(<span class="in">`cols = -transcript`</span>) and gathers them into two new columns:</span>
+<span id="cb25-666"><a href="#cb25-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-667"><a href="#cb25-667" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`"sample"`</span> → Stores the original column names (<span class="in">`SCK14_1`</span>, <span class="in">`SCK14_2`</span>,</span>
+<span id="cb25-668"><a href="#cb25-668" aria-hidden="true" tabindex="-1"></a>    etc.).</span>
+<span id="cb25-669"><a href="#cb25-669" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`"count"`</span> → Stores the values from those columns.</span>
+<span id="cb25-670"><a href="#cb25-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-671"><a href="#cb25-671" aria-hidden="true" tabindex="-1"></a>Now, instead of multiple sample columns, we have a table like this:</span>
+<span id="cb25-672"><a href="#cb25-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-673"><a href="#cb25-673" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> transcript <span class="pp">|</span> sample  <span class="pp">|</span> count <span class="pp">|</span></span>
+<span id="cb25-674"><a href="#cb25-674" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------|---------|-------|</span></span>
+<span id="cb25-675"><a href="#cb25-675" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.1    <span class="pp">|</span> SCK14_1 <span class="pp">|</span> 560   <span class="pp">|</span></span>
+<span id="cb25-676"><a href="#cb25-676" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.1    <span class="pp">|</span> SCK14_2 <span class="pp">|</span> 1526  <span class="pp">|</span></span>
+<span id="cb25-677"><a href="#cb25-677" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.1    <span class="pp">|</span> SCK14_3 <span class="pp">|</span> 4168  <span class="pp">|</span></span>
+<span id="cb25-678"><a href="#cb25-678" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MSTRG.10   <span class="pp">|</span> SCK14_1 <span class="pp">|</span> 0     <span class="pp">|</span></span>
 <span id="cb25-679"><a href="#cb25-679" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-680"><a href="#cb25-680" aria-hidden="true" tabindex="-1"></a>which is piped straight into ggplot. The nice thing about the pipe, is </span>
-<span id="cb25-681"><a href="#cb25-681" aria-hidden="true" tabindex="-1"></a>that you need not create a new dataframe to do this. You can pipe the </span>
-<span id="cb25-682"><a href="#cb25-682" aria-hidden="true" tabindex="-1"></a>output of <span class="in">`pivot_longer()`</span> directly into <span class="in">`ggplot()`</span>. This is very useful </span>
-<span id="cb25-683"><a href="#cb25-683" aria-hidden="true" tabindex="-1"></a>when you are exploring the data and want to try out different </span>
+<span id="cb25-680"><a href="#cb25-680" aria-hidden="true" tabindex="-1"></a>which is piped straight into ggplot. The nice thing about the pipe, is</span>
+<span id="cb25-681"><a href="#cb25-681" aria-hidden="true" tabindex="-1"></a>that you need not create a new dataframe to do this. You can pipe the</span>
+<span id="cb25-682"><a href="#cb25-682" aria-hidden="true" tabindex="-1"></a>output of <span class="in">`pivot_longer()`</span> directly into <span class="in">`ggplot()`</span>. This is very useful</span>
+<span id="cb25-683"><a href="#cb25-683" aria-hidden="true" tabindex="-1"></a>when you are exploring the data and want to try out different</span>
 <span id="cb25-684"><a href="#cb25-684" aria-hidden="true" tabindex="-1"></a>visualisations.</span>
 <span id="cb25-685"><a href="#cb25-685" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-686"><a href="#cb25-686" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
@@ -2077,21 +2076,15 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb25-693"><a href="#cb25-693" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-694"><a href="#cb25-694" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
 <span id="cb25-695"><a href="#cb25-695" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-696"><a href="#cb25-696" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
-<span id="cb25-697"><a href="#cb25-697" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
-<span id="cb25-698"><a href="#cb25-698" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-699"><a href="#cb25-699" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
-<span id="cb25-700"><a href="#cb25-700" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
-<span id="cb25-701"><a href="#cb25-701" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages. [View</span>
-<span id="cb25-702"><a href="#cb25-702" aria-hidden="true" tabindex="-1"></a>the Qmd in</span>
-<span id="cb25-703"><a href="#cb25-703" aria-hidden="true" tabindex="-1"></a>Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-1/workshop.qmd).</span>
-<span id="cb25-704"><a href="#cb25-704" aria-hidden="true" tabindex="-1"></a>Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span> and</span>
-<span id="cb25-705"><a href="#cb25-705" aria-hidden="true" tabindex="-1"></a><span class="in">`#---THINKING ANSWER---`</span></span>
-<span id="cb25-706"><a href="#cb25-706" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-707"><a href="#cb25-707" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> [@knitr1;</span>
-<span id="cb25-708"><a href="#cb25-708" aria-hidden="true" tabindex="-1"></a>@knitr2; @knitr3], <span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
-<span id="cb25-709"><a href="#cb25-709" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-710"><a href="#cb25-710" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
+<span id="cb25-696"><a href="#cb25-696" aria-hidden="true" tabindex="-1"></a>All the answers (coding and thinking) are in the source code for the</span>
+<span id="cb25-697"><a href="#cb25-697" aria-hidden="true" tabindex="-1"></a>workshop. You can view it using the <span class="in">`&lt;/&gt; Code`</span> button at the top of the</span>
+<span id="cb25-698"><a href="#cb25-698" aria-hidden="true" tabindex="-1"></a>page. Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span></span>
+<span id="cb25-699"><a href="#cb25-699" aria-hidden="true" tabindex="-1"></a>and <span class="in">`#---THINKING ANSWER---`</span></span>
+<span id="cb25-700"><a href="#cb25-700" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-701"><a href="#cb25-701" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> [@knitr1;</span>
+<span id="cb25-702"><a href="#cb25-702" aria-hidden="true" tabindex="-1"></a>@knitr2; @knitr3], <span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
+<span id="cb25-703"><a href="#cb25-703" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-704"><a href="#cb25-704" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -614,7 +614,7 @@ window.Quarto = {
 <section id="make-a-rstudio-project" class="level3"><h3 class="anchored" data-anchor-id="make-a-rstudio-project">Make a RStudio Project</h3>
 <p>🎬 Start RStudio from the Start menu.</p>
 <p>🎬 Make an RStudio project. Be deliberate about where you create it so that it is a good place for you.</p>
-<p>🎬 Use the Files pane to make a folders for the data. I suggest <code>data-raw/</code>, <code>data-processed/</code> and <code>data-meta/</code></p>
+<p>🎬 Use the Files pane to make folders for the data. I suggest <code>data-raw/</code>, <code>data-processed/</code> and <code>data-meta/</code></p>
 <p>🎬 Make a new script called <code>sample-data-analysis.R</code> to carry out the rest of the work.</p>
 <p>🎬 Record what you do and what you find out. All of it! Make notes on the inputs and outputs of each command. This will help you work out problems analysing your own data.</p>
 </section><section id="load-packages" class="level3"><h3 class="anchored" data-anchor-id="load-packages">Load packages</h3>
@@ -622,7 +622,7 @@ window.Quarto = {
 <ul>
 <li><p><strong><code>tidyverse</code></strong> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>: importing the meta data which is in a text file, working with the data once it is in a dataframe to filter, summarise and plot.</p></li>
 <li><p><strong><code>flowCore</code></strong> <span class="citation" data-cites="flowCore">(<a href="#ref-flowCore" role="doc-biblioref">Ellis et al. 2024</a>)</span>: to import data from flow cytometry files (<code>.fcs</code>), apply the logicle transformation, and use functions for using a “flowSet” data structure.</p></li>
-<li><p><strong><code>flowAI</code></strong> <span class="citation" data-cites="flowAI">(<a href="#ref-flowAI" role="doc-biblioref">Monaco et al. 2016</a>)</span>: which performs automated quality control by checking for changes in instrument speed and signal intensity that indicate a problem for the reading for that cells</p></li>
+<li><p><strong><code>flowAI</code></strong> <span class="citation" data-cites="flowAI">(<a href="#ref-flowAI" role="doc-biblioref">Monaco et al. 2016</a>)</span>: which performs automated quality control by checking for changes in instrument speed and signal intensity that indicate a problem for the reading on a cell</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -647,7 +647,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I recommend working on the University computers for this work. You can still work from home by using the <a href="https://www.york.ac.uk/it-services/tools/vds/">Virtual Desktop Service</a>. The VDS allows you to log on to a university computer from your own computer. It means you can access all software and filestores. When using the VDS for R a nd RStudio, it usually makes sense to use other software - such as a browser or file explorer - also through the VDS. Go to the <a href="https://www.york.ac.uk/it-services/tools/vds/">Virtual Desktop Service</a> for set up instructions.</p>
+<p>I recommend working on the University computers for this work. You can still work from home by using the <a href="https://www.york.ac.uk/it-services/tools/vds/">Virtual Desktop Service</a>. The VDS allows you to log on to a university computer from your own computer. It means you can access all software and filestores. When using the VDS for R and RStudio, it usually makes sense to use other software - such as a browser or file explorer - also through the VDS. Go to the <a href="https://www.york.ac.uk/it-services/tools/vds/">Virtual Desktop Service</a> for set up instructions.</p>
 <p>However, If you are confident in your ability to set up your own machine, you will need to install these packages.</p>
 <p>You can install <strong><code>tidyverse</code></strong> from CRAN in the normal way.</p>
 <p><strong><code>flowCore</code></strong> and <strong><code>flowAI</code></strong> are not on CRAN but come from <a href="https://www.bioconductor.org/">Bioconductor</a>.</p>
@@ -866,7 +866,7 @@ Tip
 <p><strong><code>flowAI</code></strong> is a package that provides a set of tools for automated QC of flow cytometry data. It checks for:</p>
 <ul>
 <li>changes in instrument speed using the Time column,</li>
-<li>changes signal intensity</li>
+<li>changes in signal intensity</li>
 <li>cells that are outside the dynamic range</li>
 </ul>
 <p>It generates a new flowSet with the problematic events removed along with a folder containing filtered <code>.fcs</code> files and a quality control report in html format. It will take a few minutes to do all files.</p>
@@ -1338,7 +1338,7 @@ Quality control for the file: MEDIA_TNFAPC
 <p>We have two signals:</p>
 <ul>
 <li>
-<code>TNFa_APC_Lin</code> is should indicate the amount of TNF-α protein in the cell</li>
+<code>TNFa_APC_Lin</code> should indicate the amount of TNF-α protein in the cell</li>
 <li>
 <code>E_coli_FITC_Lin</code> should indicate the amount of <em>E. coli</em> in the cell</li>
 </ul>
@@ -1574,7 +1574,7 @@ Quality control for the file: MEDIA_TNFAPC
 </div>
 </div>
 </section><section id="a-figure-to-report-baselines-for-both-signals" class="level3"><h3 class="anchored" data-anchor-id="a-figure-to-report-baselines-for-both-signals">A figure to report baselines for both signals</h3>
-<p>🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for both signals:</p>
+<p>🎬 Plot <code>TNFa_APC_Lin</code> against <code>E_coli_FITC_Lin</code> with the thresholds for both signals:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">clean_trans_live</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">E_coli_FITC_Lin</span>, </span>
 <span>                                  y <span class="op">=</span> <span class="va">TNFa_APC_Lin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1606,8 +1606,7 @@ Quality control for the file: MEDIA_TNFAPC
 </section><section id="independent-study-following-the-workshop" class="level1"><h1>Independent study following the workshop</h1>
 <p><a href="../../r4babs4/week-2/study_after_workshop.html">Consolidate</a></p>
 </section><section id="the-code-file" class="level1"><h1>The Code file</h1>
-<p>This contains all the code needed in the workshop even where it is not visible on the webpage.</p>
-<p>The <code>workshop.qmd</code> file is the file I use to compile the practical. Qmd stands for Quarto markdown. It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages. <a href="https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-2/workshop.qmd">View the Qmd in Browser</a>. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
+<p>All the answers (coding and thinking) are in the source code for the workshop. You can view it using the <code>&lt;/&gt; Code</code> button at the top of the page. Coding and thinking answers are marked with <code>#---CODING ANSWER---</code> and <code>#---THINKING ANSWER---</code></p>
 <p>Pages made with R <span class="citation" data-cites="R-core">(<a href="#ref-R-core" role="doc-biblioref">R Core Team 2024</a>)</span>, Quarto <span class="citation" data-cites="allaire2022">(<a href="#ref-allaire2022" role="doc-biblioref">Allaire et al. 2022</a>)</span>, <code>knitr</code> <span class="citation" data-cites="knitr1 knitr2 knitr3">(<a href="#ref-knitr1" role="doc-biblioref">Xie 2024</a>, <a href="#ref-knitr2" role="doc-biblioref">2015</a>, <a href="#ref-knitr3" role="doc-biblioref">2014</a>)</span>, <code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span></p>
 </section><section id="references" class="level1">
 
@@ -2146,7 +2145,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb47-31"><a href="#cb47-31" aria-hidden="true" tabindex="-1"></a>🎬 Make an RStudio project. Be deliberate about where you create it so</span>
 <span id="cb47-32"><a href="#cb47-32" aria-hidden="true" tabindex="-1"></a>that it is a good place for you.</span>
 <span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a>🎬 Use the Files pane to make a folders for the data. I suggest</span>
+<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a>🎬 Use the Files pane to make folders for the data. I suggest</span>
 <span id="cb47-35"><a href="#cb47-35" aria-hidden="true" tabindex="-1"></a><span class="in">`data-raw/`</span>, <span class="in">`data-processed/`</span> and <span class="in">`data-meta/`</span></span>
 <span id="cb47-36"><a href="#cb47-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-37"><a href="#cb47-37" aria-hidden="true" tabindex="-1"></a>🎬 Make a new script called <span class="in">`sample-data-analysis.R`</span> to carry out the</span>
@@ -2170,7 +2169,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb47-55"><a href="#cb47-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-56"><a href="#cb47-56" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**`flowAI`** <span class="co">[</span><span class="ot">@flowAI</span><span class="co">]</span>: which performs automated quality control by</span>
 <span id="cb47-57"><a href="#cb47-57" aria-hidden="true" tabindex="-1"></a>    checking for changes in instrument speed and signal intensity that</span>
-<span id="cb47-58"><a href="#cb47-58" aria-hidden="true" tabindex="-1"></a>    indicate a problem for the reading for that cells</span>
+<span id="cb47-58"><a href="#cb47-58" aria-hidden="true" tabindex="-1"></a>    indicate a problem for the reading on a cell</span>
 <span id="cb47-59"><a href="#cb47-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-60"><a href="#cb47-60" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
 <span id="cb47-61"><a href="#cb47-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working on University computers or using the Virtual Desktop Service</span></span>
@@ -2186,8 +2185,8 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb47-71"><a href="#cb47-71" aria-hidden="true" tabindex="-1"></a>still work from home by using the [Virtual Desktop</span>
 <span id="cb47-72"><a href="#cb47-72" aria-hidden="true" tabindex="-1"></a>Service](https://www.york.ac.uk/it-services/tools/vds/). The VDS allows</span>
 <span id="cb47-73"><a href="#cb47-73" aria-hidden="true" tabindex="-1"></a>you to log on to a university computer from your own computer. It means</span>
-<span id="cb47-74"><a href="#cb47-74" aria-hidden="true" tabindex="-1"></a>you can access all software and filestores. When using the VDS for R a</span>
-<span id="cb47-75"><a href="#cb47-75" aria-hidden="true" tabindex="-1"></a>nd RStudio, it usually makes sense to use other software - such as a</span>
+<span id="cb47-74"><a href="#cb47-74" aria-hidden="true" tabindex="-1"></a>you can access all software and filestores. When using the VDS for R and</span>
+<span id="cb47-75"><a href="#cb47-75" aria-hidden="true" tabindex="-1"></a>RStudio, it usually makes sense to use other software - such as a</span>
 <span id="cb47-76"><a href="#cb47-76" aria-hidden="true" tabindex="-1"></a>browser or file explorer - also through the VDS. Go to the [Virtual</span>
 <span id="cb47-77"><a href="#cb47-77" aria-hidden="true" tabindex="-1"></a>Desktop Service](https://www.york.ac.uk/it-services/tools/vds/) for set</span>
 <span id="cb47-78"><a href="#cb47-78" aria-hidden="true" tabindex="-1"></a>up instructions.</span>
@@ -2335,7 +2334,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb47-234"><a href="#cb47-234" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-235"><a href="#cb47-235" aria-hidden="true" tabindex="-1"></a><span class="fu">## Improve the column names</span></span>
 <span id="cb47-236"><a href="#cb47-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-237"><a href="#cb47-237" aria-hidden="true" tabindex="-1"></a>Names like <span class="in">`FL 1 Lin`</span> meaning "fluorescence channel 1 linear" are not </span>
+<span id="cb47-237"><a href="#cb47-237" aria-hidden="true" tabindex="-1"></a>Names like <span class="in">`FL 1 Lin`</span> meaning "fluorescence channel 1 linear" are not</span>
 <span id="cb47-238"><a href="#cb47-238" aria-hidden="true" tabindex="-1"></a>very informative. A list of more useful column names are given in</span>
 <span id="cb47-239"><a href="#cb47-239" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">meta.csv</span><span class="co">](data-meta/meta.csv)</span>. We can import this file and use the</span>
 <span id="cb47-240"><a href="#cb47-240" aria-hidden="true" tabindex="-1"></a>resulting dataframe to rename columns in our flowFrames. This will make</span>
@@ -2369,667 +2368,641 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb47-274"><a href="#cb47-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-275"><a href="#cb47-275" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-276"><a href="#cb47-276" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb47-277"><a href="#cb47-277" aria-hidden="true" tabindex="-1"></a>You don't have to use the names I have used for your own analysis if</span>
-<span id="cb47-278"><a href="#cb47-278" aria-hidden="true" tabindex="-1"></a>you prefer different names. Simply edit the <span class="in">`meta.csv`</span> file. However,</span>
-<span id="cb47-279"><a href="#cb47-279" aria-hidden="true" tabindex="-1"></a>you do need to keep the Time column named that way for the next step</span>
-<span id="cb47-280"><a href="#cb47-280" aria-hidden="true" tabindex="-1"></a>to proceed.</span>
+<span id="cb47-277"><a href="#cb47-277" aria-hidden="true" tabindex="-1"></a>You don't have to use the names I have used for your own analysis if you</span>
+<span id="cb47-278"><a href="#cb47-278" aria-hidden="true" tabindex="-1"></a>prefer different names. Simply edit the <span class="in">`meta.csv`</span> file. However, you do</span>
+<span id="cb47-279"><a href="#cb47-279" aria-hidden="true" tabindex="-1"></a>need to keep the Time column named that way for the next step to</span>
+<span id="cb47-280"><a href="#cb47-280" aria-hidden="true" tabindex="-1"></a>proceed.</span>
 <span id="cb47-281"><a href="#cb47-281" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb47-282"><a href="#cb47-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-283"><a href="#cb47-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-284"><a href="#cb47-284" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 1: Automated instrument issues</span></span>
-<span id="cb47-285"><a href="#cb47-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-286"><a href="#cb47-286" aria-hidden="true" tabindex="-1"></a>**`flowAI`** is a package that provides a set of tools for automated QC</span>
-<span id="cb47-287"><a href="#cb47-287" aria-hidden="true" tabindex="-1"></a>of flow cytometry data. It checks for:</span>
-<span id="cb47-288"><a href="#cb47-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-289"><a href="#cb47-289" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>changes in instrument speed using the Time column,</span>
-<span id="cb47-290"><a href="#cb47-290" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>changes signal intensity</span>
-<span id="cb47-291"><a href="#cb47-291" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>cells that are outside the dynamic range</span>
-<span id="cb47-292"><a href="#cb47-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-293"><a href="#cb47-293" aria-hidden="true" tabindex="-1"></a>It generates a new flowSet with the problematic events removed along</span>
-<span id="cb47-294"><a href="#cb47-294" aria-hidden="true" tabindex="-1"></a>with a folder containing filtered <span class="in">`.fcs`</span> files and a quality control</span>
-<span id="cb47-295"><a href="#cb47-295" aria-hidden="true" tabindex="-1"></a>report in html format. It will take a few minutes to do all files.</span>
-<span id="cb47-296"><a href="#cb47-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-297"><a href="#cb47-297" aria-hidden="true" tabindex="-1"></a>🎬 Run the automated quality control:</span>
-<span id="cb47-298"><a href="#cb47-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-301"><a href="#cb47-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-302"><a href="#cb47-302" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb47-303"><a href="#cb47-303" aria-hidden="true" tabindex="-1"></a>fs_clean <span class="ot">&lt;-</span> <span class="fu">flow_auto_qc</span>(fs, </span>
-<span id="cb47-304"><a href="#cb47-304" aria-hidden="true" tabindex="-1"></a>                         <span class="at">html_report =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb47-305"><a href="#cb47-305" aria-hidden="true" tabindex="-1"></a>                         <span class="at">folder_results =</span> <span class="st">"sample-QC"</span>)</span>
-<span id="cb47-306"><a href="#cb47-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-307"><a href="#cb47-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-310"><a href="#cb47-310" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-311"><a href="#cb47-311" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb47-312"><a href="#cb47-312" aria-hidden="true" tabindex="-1"></a>fs_clean <span class="ot">&lt;-</span> <span class="fu">flow_auto_qc</span>(fs, </span>
-<span id="cb47-313"><a href="#cb47-313" aria-hidden="true" tabindex="-1"></a>                         <span class="at">folder_results =</span> <span class="st">"sample-QC"</span>)</span>
-<span id="cb47-314"><a href="#cb47-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-315"><a href="#cb47-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-316"><a href="#cb47-316" aria-hidden="true" tabindex="-1"></a>❓ What has been removed through the QC process?</span>
-<span id="cb47-317"><a href="#cb47-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-318"><a href="#cb47-318" aria-hidden="true" tabindex="-1"></a>❓ What is in the folder "sample-QC"?</span>
-<span id="cb47-319"><a href="#cb47-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-320"><a href="#cb47-320" aria-hidden="true" tabindex="-1"></a><span class="fu">### Get a feel of your data: Plot distributions</span></span>
-<span id="cb47-321"><a href="#cb47-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-322"><a href="#cb47-322" aria-hidden="true" tabindex="-1"></a>Plotting the distributions of our variables is very useful for getting</span>
-<span id="cb47-323"><a href="#cb47-323" aria-hidden="true" tabindex="-1"></a>an overview of our data. We'll just look at the first flowFrame to get</span>
-<span id="cb47-324"><a href="#cb47-324" aria-hidden="true" tabindex="-1"></a>over the principles. However, you may wish to examine all of the flow</span>
-<span id="cb47-325"><a href="#cb47-325" aria-hidden="true" tabindex="-1"></a>frames of your own data. </span>
-<span id="cb47-326"><a href="#cb47-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-327"><a href="#cb47-327" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the linear TNFa_APC signal in the first </span>
-<span id="cb47-328"><a href="#cb47-328" aria-hidden="true" tabindex="-1"></a>flowFrame in the flowSet:</span>
-<span id="cb47-329"><a href="#cb47-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-332"><a href="#cb47-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-333"><a href="#cb47-333" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
-<span id="cb47-334"><a href="#cb47-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb47-335"><a href="#cb47-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
-<span id="cb47-336"><a href="#cb47-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
-<span id="cb47-337"><a href="#cb47-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-338"><a href="#cb47-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-339"><a href="#cb47-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-340"><a href="#cb47-340" aria-hidden="true" tabindex="-1"></a>This is a very skewed distribution which makes visualisation hard. It is</span>
-<span id="cb47-341"><a href="#cb47-341" aria-hidden="true" tabindex="-1"></a>common to log skewed distributions to improve visualisation. </span>
-<span id="cb47-342"><a href="#cb47-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-343"><a href="#cb47-343" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the logged <span class="in">`TNFa_APC_Lin`</span> column:</span>
-<span id="cb47-344"><a href="#cb47-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-347"><a href="#cb47-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-348"><a href="#cb47-348" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
-<span id="cb47-349"><a href="#cb47-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb47-350"><a href="#cb47-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(TNFa_APC_Lin))) <span class="sc">+</span></span>
-<span id="cb47-351"><a href="#cb47-351" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
-<span id="cb47-352"><a href="#cb47-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-353"><a href="#cb47-353" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-354"><a href="#cb47-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-355"><a href="#cb47-355" aria-hidden="true" tabindex="-1"></a>Now our data are easier to see.</span>
-<span id="cb47-356"><a href="#cb47-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-357"><a href="#cb47-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## Transform the data</span></span>
-<span id="cb47-358"><a href="#cb47-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-359"><a href="#cb47-359" aria-hidden="true" tabindex="-1"></a>In fact, we will apply a different transformation called "logicle"</span>
-<span id="cb47-360"><a href="#cb47-360" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@parks2006</span><span class="co">]</span>. This transformation is has a similar effect as logging but</span>
-<span id="cb47-361"><a href="#cb47-361" aria-hidden="true" tabindex="-1"></a>avoids some problems that can occur with flow cytometry data and</span>
-<span id="cb47-362"><a href="#cb47-362" aria-hidden="true" tabindex="-1"></a>especially flow cytometry data that have been "compensated" .</span>
-<span id="cb47-363"><a href="#cb47-363" aria-hidden="true" tabindex="-1"></a>Compensation is routinely applied to flow cytometry data to correct for</span>
-<span id="cb47-364"><a href="#cb47-364" aria-hidden="true" tabindex="-1"></a>fluorophores being detected in in multiple channels. This was not a</span>
-<span id="cb47-365"><a href="#cb47-365" aria-hidden="true" tabindex="-1"></a>problem in our experiment.</span>
-<span id="cb47-366"><a href="#cb47-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-367"><a href="#cb47-367" aria-hidden="true" tabindex="-1"></a>The transformation is applied in two steps: the transformation needed </span>
-<span id="cb47-368"><a href="#cb47-368" aria-hidden="true" tabindex="-1"></a>is estimated from the data and then that transformation is applied.</span>
-<span id="cb47-369"><a href="#cb47-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-370"><a href="#cb47-370" aria-hidden="true" tabindex="-1"></a>We need to apply the transformation only to the <span class="in">`TNFa_APC_Lin`</span> and</span>
-<span id="cb47-371"><a href="#cb47-371" aria-hidden="true" tabindex="-1"></a><span class="in">`E_coli_FITC_Lin`</span> columns. The <span class="in">`estimateLogicle()`</span> function refers to </span>
-<span id="cb47-372"><a href="#cb47-372" aria-hidden="true" tabindex="-1"></a>columns as channels.</span>
-<span id="cb47-373"><a href="#cb47-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-374"><a href="#cb47-374" aria-hidden="true" tabindex="-1"></a>🎬 Estimate the transformation from the data:</span>
-<span id="cb47-375"><a href="#cb47-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-378"><a href="#cb47-378" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-379"><a href="#cb47-379" aria-hidden="true" tabindex="-1"></a>trans <span class="ot">&lt;-</span> <span class="fu">estimateLogicle</span>(fs_clean[[<span class="dv">1</span>]],</span>
-<span id="cb47-380"><a href="#cb47-380" aria-hidden="true" tabindex="-1"></a>                         <span class="at">channels =</span> <span class="fu">c</span>(<span class="st">"E_coli_FITC_Lin"</span>, <span class="st">"TNFa_APC_Lin"</span>))</span>
-<span id="cb47-381"><a href="#cb47-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-382"><a href="#cb47-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-383"><a href="#cb47-383" aria-hidden="true" tabindex="-1"></a>🎬 Apply the transformation to all the<span class="in">`TNFa_APC_Lin`</span> and</span>
-<span id="cb47-384"><a href="#cb47-384" aria-hidden="true" tabindex="-1"></a><span class="in">`E_coli_FITC_Lin`</span> columns the flowSet:</span>
-<span id="cb47-385"><a href="#cb47-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-388"><a href="#cb47-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-389"><a href="#cb47-389" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the transformation</span></span>
-<span id="cb47-390"><a href="#cb47-390" aria-hidden="true" tabindex="-1"></a>fs_clean_trans <span class="ot">&lt;-</span> <span class="fu">transform</span>(fs_clean, trans)</span>
-<span id="cb47-391"><a href="#cb47-391" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-392"><a href="#cb47-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-393"><a href="#cb47-393" aria-hidden="true" tabindex="-1"></a>🎬 Examine the effect on the first flow frame:</span>
-<span id="cb47-394"><a href="#cb47-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-397"><a href="#cb47-397" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-398"><a href="#cb47-398" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean_trans[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
-<span id="cb47-399"><a href="#cb47-399" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb47-400"><a href="#cb47-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
-<span id="cb47-401"><a href="#cb47-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
-<span id="cb47-402"><a href="#cb47-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-403"><a href="#cb47-403" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-404"><a href="#cb47-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-283"><a href="#cb47-283" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 1: Automated instrument issues</span></span>
+<span id="cb47-284"><a href="#cb47-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-285"><a href="#cb47-285" aria-hidden="true" tabindex="-1"></a>**`flowAI`** is a package that provides a set of tools for automated QC</span>
+<span id="cb47-286"><a href="#cb47-286" aria-hidden="true" tabindex="-1"></a>of flow cytometry data. It checks for:</span>
+<span id="cb47-287"><a href="#cb47-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-288"><a href="#cb47-288" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>changes in instrument speed using the Time column,</span>
+<span id="cb47-289"><a href="#cb47-289" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>changes in signal intensity</span>
+<span id="cb47-290"><a href="#cb47-290" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>cells that are outside the dynamic range</span>
+<span id="cb47-291"><a href="#cb47-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-292"><a href="#cb47-292" aria-hidden="true" tabindex="-1"></a>It generates a new flowSet with the problematic events removed along</span>
+<span id="cb47-293"><a href="#cb47-293" aria-hidden="true" tabindex="-1"></a>with a folder containing filtered <span class="in">`.fcs`</span> files and a quality control</span>
+<span id="cb47-294"><a href="#cb47-294" aria-hidden="true" tabindex="-1"></a>report in html format. It will take a few minutes to do all files.</span>
+<span id="cb47-295"><a href="#cb47-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-296"><a href="#cb47-296" aria-hidden="true" tabindex="-1"></a>🎬 Run the automated quality control:</span>
+<span id="cb47-297"><a href="#cb47-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-300"><a href="#cb47-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-301"><a href="#cb47-301" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-302"><a href="#cb47-302" aria-hidden="true" tabindex="-1"></a>fs_clean <span class="ot">&lt;-</span> <span class="fu">flow_auto_qc</span>(fs, </span>
+<span id="cb47-303"><a href="#cb47-303" aria-hidden="true" tabindex="-1"></a>                         <span class="at">html_report =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb47-304"><a href="#cb47-304" aria-hidden="true" tabindex="-1"></a>                         <span class="at">folder_results =</span> <span class="st">"sample-QC"</span>)</span>
+<span id="cb47-305"><a href="#cb47-305" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-306"><a href="#cb47-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-309"><a href="#cb47-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-310"><a href="#cb47-310" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb47-311"><a href="#cb47-311" aria-hidden="true" tabindex="-1"></a>fs_clean <span class="ot">&lt;-</span> <span class="fu">flow_auto_qc</span>(fs, </span>
+<span id="cb47-312"><a href="#cb47-312" aria-hidden="true" tabindex="-1"></a>                         <span class="at">folder_results =</span> <span class="st">"sample-QC"</span>)</span>
+<span id="cb47-313"><a href="#cb47-313" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-314"><a href="#cb47-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-315"><a href="#cb47-315" aria-hidden="true" tabindex="-1"></a>❓ What has been removed through the QC process?</span>
+<span id="cb47-316"><a href="#cb47-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-317"><a href="#cb47-317" aria-hidden="true" tabindex="-1"></a>❓ What is in the folder "sample-QC"?</span>
+<span id="cb47-318"><a href="#cb47-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-319"><a href="#cb47-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### Get a feel of your data: Plot distributions</span></span>
+<span id="cb47-320"><a href="#cb47-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-321"><a href="#cb47-321" aria-hidden="true" tabindex="-1"></a>Plotting the distributions of our variables is very useful for getting</span>
+<span id="cb47-322"><a href="#cb47-322" aria-hidden="true" tabindex="-1"></a>an overview of our data. We'll just look at the first flowFrame to get</span>
+<span id="cb47-323"><a href="#cb47-323" aria-hidden="true" tabindex="-1"></a>over the principles. However, you may wish to examine all of the flow</span>
+<span id="cb47-324"><a href="#cb47-324" aria-hidden="true" tabindex="-1"></a>frames of your own data.</span>
+<span id="cb47-325"><a href="#cb47-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-326"><a href="#cb47-326" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the linear TNFa_APC signal in the first</span>
+<span id="cb47-327"><a href="#cb47-327" aria-hidden="true" tabindex="-1"></a>flowFrame in the flowSet:</span>
+<span id="cb47-328"><a href="#cb47-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-331"><a href="#cb47-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-332"><a href="#cb47-332" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
+<span id="cb47-333"><a href="#cb47-333" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-334"><a href="#cb47-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-335"><a href="#cb47-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
+<span id="cb47-336"><a href="#cb47-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-337"><a href="#cb47-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-338"><a href="#cb47-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-339"><a href="#cb47-339" aria-hidden="true" tabindex="-1"></a>This is a very skewed distribution which makes visualisation hard. It is</span>
+<span id="cb47-340"><a href="#cb47-340" aria-hidden="true" tabindex="-1"></a>common to log skewed distributions to improve visualisation.</span>
+<span id="cb47-341"><a href="#cb47-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-342"><a href="#cb47-342" aria-hidden="true" tabindex="-1"></a>🎬 Plot the distribution of the logged <span class="in">`TNFa_APC_Lin`</span> column:</span>
+<span id="cb47-343"><a href="#cb47-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-346"><a href="#cb47-346" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-347"><a href="#cb47-347" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
+<span id="cb47-348"><a href="#cb47-348" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-349"><a href="#cb47-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(TNFa_APC_Lin))) <span class="sc">+</span></span>
+<span id="cb47-350"><a href="#cb47-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
+<span id="cb47-351"><a href="#cb47-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-352"><a href="#cb47-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-353"><a href="#cb47-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-354"><a href="#cb47-354" aria-hidden="true" tabindex="-1"></a>Now our data are easier to see.</span>
+<span id="cb47-355"><a href="#cb47-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-356"><a href="#cb47-356" aria-hidden="true" tabindex="-1"></a><span class="fu">## Transform the data</span></span>
+<span id="cb47-357"><a href="#cb47-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-358"><a href="#cb47-358" aria-hidden="true" tabindex="-1"></a>In fact, we will apply a different transformation called "logicle"</span>
+<span id="cb47-359"><a href="#cb47-359" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@parks2006</span><span class="co">]</span>. This transformation is has a similar effect as logging but</span>
+<span id="cb47-360"><a href="#cb47-360" aria-hidden="true" tabindex="-1"></a>avoids some problems that can occur with flow cytometry data and</span>
+<span id="cb47-361"><a href="#cb47-361" aria-hidden="true" tabindex="-1"></a>especially flow cytometry data that have been "compensated" .</span>
+<span id="cb47-362"><a href="#cb47-362" aria-hidden="true" tabindex="-1"></a>Compensation is routinely applied to flow cytometry data to correct for</span>
+<span id="cb47-363"><a href="#cb47-363" aria-hidden="true" tabindex="-1"></a>fluorophores being detected in in multiple channels. This was not a</span>
+<span id="cb47-364"><a href="#cb47-364" aria-hidden="true" tabindex="-1"></a>problem in our experiment.</span>
+<span id="cb47-365"><a href="#cb47-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-366"><a href="#cb47-366" aria-hidden="true" tabindex="-1"></a>The transformation is applied in two steps: the transformation needed is</span>
+<span id="cb47-367"><a href="#cb47-367" aria-hidden="true" tabindex="-1"></a>estimated from the data and then that transformation is applied.</span>
+<span id="cb47-368"><a href="#cb47-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-369"><a href="#cb47-369" aria-hidden="true" tabindex="-1"></a>We need to apply the transformation only to the <span class="in">`TNFa_APC_Lin`</span> and</span>
+<span id="cb47-370"><a href="#cb47-370" aria-hidden="true" tabindex="-1"></a><span class="in">`E_coli_FITC_Lin`</span> columns. The <span class="in">`estimateLogicle()`</span> function refers to</span>
+<span id="cb47-371"><a href="#cb47-371" aria-hidden="true" tabindex="-1"></a>columns as channels.</span>
+<span id="cb47-372"><a href="#cb47-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-373"><a href="#cb47-373" aria-hidden="true" tabindex="-1"></a>🎬 Estimate the transformation from the data:</span>
+<span id="cb47-374"><a href="#cb47-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-377"><a href="#cb47-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-378"><a href="#cb47-378" aria-hidden="true" tabindex="-1"></a>trans <span class="ot">&lt;-</span> <span class="fu">estimateLogicle</span>(fs_clean[[<span class="dv">1</span>]],</span>
+<span id="cb47-379"><a href="#cb47-379" aria-hidden="true" tabindex="-1"></a>                         <span class="at">channels =</span> <span class="fu">c</span>(<span class="st">"E_coli_FITC_Lin"</span>, <span class="st">"TNFa_APC_Lin"</span>))</span>
+<span id="cb47-380"><a href="#cb47-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-381"><a href="#cb47-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-382"><a href="#cb47-382" aria-hidden="true" tabindex="-1"></a>🎬 Apply the transformation to all the<span class="in">`TNFa_APC_Lin`</span> and</span>
+<span id="cb47-383"><a href="#cb47-383" aria-hidden="true" tabindex="-1"></a><span class="in">`E_coli_FITC_Lin`</span> columns the flowSet:</span>
+<span id="cb47-384"><a href="#cb47-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-387"><a href="#cb47-387" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-388"><a href="#cb47-388" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the transformation</span></span>
+<span id="cb47-389"><a href="#cb47-389" aria-hidden="true" tabindex="-1"></a>fs_clean_trans <span class="ot">&lt;-</span> <span class="fu">transform</span>(fs_clean, trans)</span>
+<span id="cb47-390"><a href="#cb47-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-391"><a href="#cb47-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-392"><a href="#cb47-392" aria-hidden="true" tabindex="-1"></a>🎬 Examine the effect on the first flow frame:</span>
+<span id="cb47-393"><a href="#cb47-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-396"><a href="#cb47-396" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-397"><a href="#cb47-397" aria-hidden="true" tabindex="-1"></a><span class="fu">exprs</span>(fs_clean_trans[[<span class="dv">1</span>]]) <span class="sc">|&gt;</span> </span>
+<span id="cb47-398"><a href="#cb47-398" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb47-399"><a href="#cb47-399" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-400"><a href="#cb47-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span>
+<span id="cb47-401"><a href="#cb47-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-402"><a href="#cb47-402" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-403"><a href="#cb47-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-404"><a href="#cb47-404" aria-hidden="true" tabindex="-1"></a>That looks better.</span>
 <span id="cb47-405"><a href="#cb47-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-406"><a href="#cb47-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-407"><a href="#cb47-407" aria-hidden="true" tabindex="-1"></a>That looks better.</span>
-<span id="cb47-408"><a href="#cb47-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-409"><a href="#cb47-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## Make data easier to work with</span></span>
-<span id="cb47-410"><a href="#cb47-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-411"><a href="#cb47-411" aria-hidden="true" tabindex="-1"></a>We are going to get the data from the flowSet and put in a dataframe.</span>
-<span id="cb47-412"><a href="#cb47-412" aria-hidden="true" tabindex="-1"></a>FlowCore contains many functions for gating (filtering), plotting and</span>
-<span id="cb47-413"><a href="#cb47-413" aria-hidden="true" tabindex="-1"></a>summarising flowSets but putting the data into a dataframe will make it</span>
-<span id="cb47-414"><a href="#cb47-414" aria-hidden="true" tabindex="-1"></a>easier for you to use tools you already know and more easily follow</span>
-<span id="cb47-415"><a href="#cb47-415" aria-hidden="true" tabindex="-1"></a>the priciples of what you are doing.</span>
+<span id="cb47-406"><a href="#cb47-406" aria-hidden="true" tabindex="-1"></a><span class="fu">## Make data easier to work with</span></span>
+<span id="cb47-407"><a href="#cb47-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-408"><a href="#cb47-408" aria-hidden="true" tabindex="-1"></a>We are going to get the data from the flowSet and put in a dataframe.</span>
+<span id="cb47-409"><a href="#cb47-409" aria-hidden="true" tabindex="-1"></a>FlowCore contains many functions for gating (filtering), plotting and</span>
+<span id="cb47-410"><a href="#cb47-410" aria-hidden="true" tabindex="-1"></a>summarising flowSets but putting the data into a dataframe will make it</span>
+<span id="cb47-411"><a href="#cb47-411" aria-hidden="true" tabindex="-1"></a>easier for you to use tools you already know and more easily follow the</span>
+<span id="cb47-412"><a href="#cb47-412" aria-hidden="true" tabindex="-1"></a>priciples of what you are doing.</span>
+<span id="cb47-413"><a href="#cb47-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-414"><a href="#cb47-414" aria-hidden="true" tabindex="-1"></a>We will be using familiar tools like <span class="in">`group_by()`</span> and <span class="in">`summarise()`</span>,</span>
+<span id="cb47-415"><a href="#cb47-415" aria-hidden="true" tabindex="-1"></a><span class="in">`filter()`</span> and <span class="in">`ggplot()`</span></span>
 <span id="cb47-416"><a href="#cb47-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-417"><a href="#cb47-417" aria-hidden="true" tabindex="-1"></a>We will be using familiar tools like <span class="in">`group_by()`</span> and <span class="in">`summarise()`</span>,</span>
-<span id="cb47-418"><a href="#cb47-418" aria-hidden="true" tabindex="-1"></a><span class="in">`filter()`</span> and <span class="in">`ggplot()`</span></span>
-<span id="cb47-419"><a href="#cb47-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-420"><a href="#cb47-420" aria-hidden="true" tabindex="-1"></a>🎬 Put the transformed data into a data frame:</span>
-<span id="cb47-421"><a href="#cb47-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-424"><a href="#cb47-424" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-425"><a href="#cb47-425" aria-hidden="true" tabindex="-1"></a><span class="co"># Put into a data frame for ease of use</span></span>
-<span id="cb47-426"><a href="#cb47-426" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> <span class="fu">fsApply</span>(fs_clean_trans, exprs) <span class="sc">|&gt;</span> <span class="fu">data.frame</span>() </span>
-<span id="cb47-427"><a href="#cb47-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-417"><a href="#cb47-417" aria-hidden="true" tabindex="-1"></a>🎬 Put the transformed data into a data frame:</span>
+<span id="cb47-418"><a href="#cb47-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-421"><a href="#cb47-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-422"><a href="#cb47-422" aria-hidden="true" tabindex="-1"></a><span class="co"># Put into a data frame for ease of use</span></span>
+<span id="cb47-423"><a href="#cb47-423" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> <span class="fu">fsApply</span>(fs_clean_trans, exprs) <span class="sc">|&gt;</span> <span class="fu">data.frame</span>() </span>
+<span id="cb47-424"><a href="#cb47-424" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-425"><a href="#cb47-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-426"><a href="#cb47-426" aria-hidden="true" tabindex="-1"></a><span class="in">`fsApply(flowSet, function)`</span> applies a function to every flowFrame in a</span>
+<span id="cb47-427"><a href="#cb47-427" aria-hidden="true" tabindex="-1"></a>flowSet. Here we have accessed the data matirx in each with <span class="in">`exprs()`</span>.</span>
 <span id="cb47-428"><a href="#cb47-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-429"><a href="#cb47-429" aria-hidden="true" tabindex="-1"></a><span class="in">`fsApply(flowSet, function)`</span> applies a function to every flowFrame in a</span>
-<span id="cb47-430"><a href="#cb47-430" aria-hidden="true" tabindex="-1"></a>flowSet. Here we have accessed the data matirx in each with <span class="in">`exprs()`</span>.</span>
-<span id="cb47-431"><a href="#cb47-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-432"><a href="#cb47-432" aria-hidden="true" tabindex="-1"></a>The are <span class="in">`r nrow(clean_trans)`</span> rows (cells) in the dataset. You can view </span>
-<span id="cb47-433"><a href="#cb47-433" aria-hidden="true" tabindex="-1"></a>it by clicking on the dataframe in the Environment. At the moment, </span>
-<span id="cb47-434"><a href="#cb47-434" aria-hidden="true" tabindex="-1"></a>we cannot tell which row (cell) is from which sample but we can add the </span>
-<span id="cb47-435"><a href="#cb47-435" aria-hidden="true" tabindex="-1"></a>sample names as a column in that dataframe.</span>
-<span id="cb47-436"><a href="#cb47-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-437"><a href="#cb47-437" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Each sample name needs to appear as many times as there are cells</span>
-<span id="cb47-438"><a href="#cb47-438" aria-hidden="true" tabindex="-1"></a>    (events) in the corresponding flowFrame. For example,</span>
-<span id="cb47-439"><a href="#cb47-439" aria-hidden="true" tabindex="-1"></a>    <span class="in">`dim(fs_clean_trans[[1]])["events"]`</span> is </span>
-<span id="cb47-440"><a href="#cb47-440" aria-hidden="true" tabindex="-1"></a>    <span class="in">`r dim(fs_clean_trans[[1]])["events"]`</span> cells.</span>
-<span id="cb47-441"><a href="#cb47-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-442"><a href="#cb47-442" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`sampleNames(fs_clean_trans)`</span> gives the names of the samples.</span>
+<span id="cb47-429"><a href="#cb47-429" aria-hidden="true" tabindex="-1"></a>The are <span class="in">`r nrow(clean_trans)`</span> rows (cells) in the dataset. You can view</span>
+<span id="cb47-430"><a href="#cb47-430" aria-hidden="true" tabindex="-1"></a>it by clicking on the dataframe in the Environment. At the moment, we</span>
+<span id="cb47-431"><a href="#cb47-431" aria-hidden="true" tabindex="-1"></a>cannot tell which row (cell) is from which sample but we can add the</span>
+<span id="cb47-432"><a href="#cb47-432" aria-hidden="true" tabindex="-1"></a>sample names as a column in that dataframe.</span>
+<span id="cb47-433"><a href="#cb47-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-434"><a href="#cb47-434" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Each sample name needs to appear as many times as there are cells</span>
+<span id="cb47-435"><a href="#cb47-435" aria-hidden="true" tabindex="-1"></a>    (events) in the corresponding flowFrame. For example,</span>
+<span id="cb47-436"><a href="#cb47-436" aria-hidden="true" tabindex="-1"></a>    <span class="in">`dim(fs_clean_trans[[1]])["events"]`</span> is</span>
+<span id="cb47-437"><a href="#cb47-437" aria-hidden="true" tabindex="-1"></a>    <span class="in">`r dim(fs_clean_trans[[1]])["events"]`</span> cells.</span>
+<span id="cb47-438"><a href="#cb47-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-439"><a href="#cb47-439" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`sampleNames(fs_clean_trans)`</span> gives the names of the samples.</span>
+<span id="cb47-440"><a href="#cb47-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-441"><a href="#cb47-441" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>We can use the <span class="in">`rep()`</span> function to repeat the sample names the</span>
+<span id="cb47-442"><a href="#cb47-442" aria-hidden="true" tabindex="-1"></a>    correct number of times.</span>
 <span id="cb47-443"><a href="#cb47-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-444"><a href="#cb47-444" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>We can use the <span class="in">`rep()`</span> function to repeat the sample names the</span>
-<span id="cb47-445"><a href="#cb47-445" aria-hidden="true" tabindex="-1"></a>    correct number of times.</span>
-<span id="cb47-446"><a href="#cb47-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-447"><a href="#cb47-447" aria-hidden="true" tabindex="-1"></a>🎬 Add the sample name to each row:</span>
-<span id="cb47-448"><a href="#cb47-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-451"><a href="#cb47-451" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-452"><a href="#cb47-452" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
-<span id="cb47-453"><a href="#cb47-453" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">sample =</span> <span class="fu">rep</span>(<span class="fu">sampleNames</span>(fs_clean_trans),</span>
-<span id="cb47-454"><a href="#cb47-454" aria-hidden="true" tabindex="-1"></a>                             <span class="at">times =</span> <span class="fu">c</span>(<span class="fu">dim</span>(fs_clean_trans[[<span class="dv">1</span>]])[<span class="st">"events"</span>],</span>
-<span id="cb47-455"><a href="#cb47-455" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">2</span>]])[<span class="st">"events"</span>],</span>
-<span id="cb47-456"><a href="#cb47-456" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">3</span>]])[<span class="st">"events"</span>],</span>
-<span id="cb47-457"><a href="#cb47-457" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">4</span>]])[<span class="st">"events"</span>],</span>
-<span id="cb47-458"><a href="#cb47-458" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">5</span>]])[<span class="st">"events"</span>],</span>
-<span id="cb47-459"><a href="#cb47-459" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">6</span>]])[<span class="st">"events"</span>])))</span>
-<span id="cb47-460"><a href="#cb47-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-461"><a href="#cb47-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-462"><a href="#cb47-462" aria-hidden="true" tabindex="-1"></a>The sample name contains the information about which antibody and</span>
-<span id="cb47-463"><a href="#cb47-463" aria-hidden="true" tabindex="-1"></a>treatment the sample was. Our analysis will be a little easier if we add</span>
-<span id="cb47-464"><a href="#cb47-464" aria-hidden="true" tabindex="-1"></a>this information to separate columns. We can extract the antibody and</span>
-<span id="cb47-465"><a href="#cb47-465" aria-hidden="true" tabindex="-1"></a>treatment from the sample name using the <span class="in">`extract()`</span> function and two</span>
-<span id="cb47-466"><a href="#cb47-466" aria-hidden="true" tabindex="-1"></a>"regular expressions".</span>
+<span id="cb47-444"><a href="#cb47-444" aria-hidden="true" tabindex="-1"></a>🎬 Add the sample name to each row:</span>
+<span id="cb47-445"><a href="#cb47-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-448"><a href="#cb47-448" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-449"><a href="#cb47-449" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-450"><a href="#cb47-450" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">sample =</span> <span class="fu">rep</span>(<span class="fu">sampleNames</span>(fs_clean_trans),</span>
+<span id="cb47-451"><a href="#cb47-451" aria-hidden="true" tabindex="-1"></a>                             <span class="at">times =</span> <span class="fu">c</span>(<span class="fu">dim</span>(fs_clean_trans[[<span class="dv">1</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-452"><a href="#cb47-452" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">2</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-453"><a href="#cb47-453" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">3</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-454"><a href="#cb47-454" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">4</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-455"><a href="#cb47-455" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">5</span>]])[<span class="st">"events"</span>],</span>
+<span id="cb47-456"><a href="#cb47-456" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">dim</span>(fs_clean_trans[[<span class="dv">6</span>]])[<span class="st">"events"</span>])))</span>
+<span id="cb47-457"><a href="#cb47-457" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-458"><a href="#cb47-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-459"><a href="#cb47-459" aria-hidden="true" tabindex="-1"></a>The sample name contains the information about which antibody and</span>
+<span id="cb47-460"><a href="#cb47-460" aria-hidden="true" tabindex="-1"></a>treatment the sample was. Our analysis will be a little easier if we add</span>
+<span id="cb47-461"><a href="#cb47-461" aria-hidden="true" tabindex="-1"></a>this information to separate columns. We can extract the antibody and</span>
+<span id="cb47-462"><a href="#cb47-462" aria-hidden="true" tabindex="-1"></a>treatment from the sample name using the <span class="in">`extract()`</span> function and two</span>
+<span id="cb47-463"><a href="#cb47-463" aria-hidden="true" tabindex="-1"></a>"regular expressions".</span>
+<span id="cb47-464"><a href="#cb47-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-465"><a href="#cb47-465" aria-hidden="true" tabindex="-1"></a>🎬 Add columns for treatment and antibody by extracting that information</span>
+<span id="cb47-466"><a href="#cb47-466" aria-hidden="true" tabindex="-1"></a>from the sample name:</span>
 <span id="cb47-467"><a href="#cb47-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-468"><a href="#cb47-468" aria-hidden="true" tabindex="-1"></a>🎬 Add columns for treatment and antibody by extracting that information</span>
-<span id="cb47-469"><a href="#cb47-469" aria-hidden="true" tabindex="-1"></a>from the sample name:</span>
-<span id="cb47-470"><a href="#cb47-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-473"><a href="#cb47-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-474"><a href="#cb47-474" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
-<span id="cb47-475"><a href="#cb47-475" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(sample, </span>
-<span id="cb47-476"><a href="#cb47-476" aria-hidden="true" tabindex="-1"></a>          <span class="at">remove =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb47-477"><a href="#cb47-477" aria-hidden="true" tabindex="-1"></a>          <span class="fu">c</span>(<span class="st">"treatment"</span>, <span class="st">"antibody"</span>),</span>
-<span id="cb47-478"><a href="#cb47-478" aria-hidden="true" tabindex="-1"></a>          <span class="st">"([a-zA-Z]+)_([a-zA-Z]+).fcs"</span>)</span>
-<span id="cb47-479"><a href="#cb47-479" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-480"><a href="#cb47-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-481"><a href="#cb47-481" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the sample name is treatment_antibody</span>
-<span id="cb47-482"><a href="#cb47-482" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>each pattern matching the treatment and antibody is enclosed in</span>
-<span id="cb47-483"><a href="#cb47-483" aria-hidden="true" tabindex="-1"></a>    parentheses</span>
-<span id="cb47-484"><a href="#cb47-484" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we want to keep those patterns to go in the new columns</span>
-<span id="cb47-485"><a href="#cb47-485" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the underscore is matched but not enclosed in parentheses so it is</span>
-<span id="cb47-486"><a href="#cb47-486" aria-hidden="true" tabindex="-1"></a>    not kept</span>
-<span id="cb47-487"><a href="#cb47-487" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`.fcs`</span> is matched but not enclosed in parentheses so it is not kept</span>
-<span id="cb47-488"><a href="#cb47-488" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="in">`remove = FALSE`</span> argument means that the original column is kept</span>
-<span id="cb47-489"><a href="#cb47-489" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`[]`</span> enclose a set of characters</span>
-<span id="cb47-490"><a href="#cb47-490" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`a-z`</span> means any lower case letter, <span class="in">`A-Z`</span> means any upper case letter</span>
-<span id="cb47-491"><a href="#cb47-491" aria-hidden="true" tabindex="-1"></a>    so <span class="in">`[a-zA-Z]`</span> means any letter</span>
-<span id="cb47-492"><a href="#cb47-492" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`+`</span> means one or more of the preceding character set</span>
-<span id="cb47-493"><a href="#cb47-493" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>so<span class="in">`[a-zA-Z]+`</span> means one or more letters</span>
+<span id="cb47-470"><a href="#cb47-470" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-471"><a href="#cb47-471" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-472"><a href="#cb47-472" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(sample, </span>
+<span id="cb47-473"><a href="#cb47-473" aria-hidden="true" tabindex="-1"></a>          <span class="at">remove =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb47-474"><a href="#cb47-474" aria-hidden="true" tabindex="-1"></a>          <span class="fu">c</span>(<span class="st">"treatment"</span>, <span class="st">"antibody"</span>),</span>
+<span id="cb47-475"><a href="#cb47-475" aria-hidden="true" tabindex="-1"></a>          <span class="st">"([a-zA-Z]+)_([a-zA-Z]+).fcs"</span>)</span>
+<span id="cb47-476"><a href="#cb47-476" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-477"><a href="#cb47-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-478"><a href="#cb47-478" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the sample name is treatment_antibody</span>
+<span id="cb47-479"><a href="#cb47-479" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>each pattern matching the treatment and antibody is enclosed in</span>
+<span id="cb47-480"><a href="#cb47-480" aria-hidden="true" tabindex="-1"></a>    parentheses</span>
+<span id="cb47-481"><a href="#cb47-481" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>we want to keep those patterns to go in the new columns</span>
+<span id="cb47-482"><a href="#cb47-482" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the underscore is matched but not enclosed in parentheses so it is</span>
+<span id="cb47-483"><a href="#cb47-483" aria-hidden="true" tabindex="-1"></a>    not kept</span>
+<span id="cb47-484"><a href="#cb47-484" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`.fcs`</span> is matched but not enclosed in parentheses so it is not kept</span>
+<span id="cb47-485"><a href="#cb47-485" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>the <span class="in">`remove = FALSE`</span> argument means that the original column is kept</span>
+<span id="cb47-486"><a href="#cb47-486" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`[]`</span> enclose a set of characters</span>
+<span id="cb47-487"><a href="#cb47-487" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`a-z`</span> means any lower case letter, <span class="in">`A-Z`</span> means any upper case letter</span>
+<span id="cb47-488"><a href="#cb47-488" aria-hidden="true" tabindex="-1"></a>    so <span class="in">`[a-zA-Z]`</span> means any letter</span>
+<span id="cb47-489"><a href="#cb47-489" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`+`</span> means one or more of the preceding character set</span>
+<span id="cb47-490"><a href="#cb47-490" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>so<span class="in">`[a-zA-Z]+`</span> means one or more letters</span>
+<span id="cb47-491"><a href="#cb47-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-492"><a href="#cb47-492" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb47-493"><a href="#cb47-493" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adding the treatment and antibody information</span></span>
 <span id="cb47-494"><a href="#cb47-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-495"><a href="#cb47-495" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb47-496"><a href="#cb47-496" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adding the treatment and antibody information</span></span>
-<span id="cb47-497"><a href="#cb47-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-498"><a href="#cb47-498" aria-hidden="true" tabindex="-1"></a>We have added the treatment and antibody information to each row by</span>
-<span id="cb47-499"><a href="#cb47-499" aria-hidden="true" tabindex="-1"></a>processing the names of the <span class="in">`fcs`</span> files. This works because the file </span>
-<span id="cb47-500"><a href="#cb47-500" aria-hidden="true" tabindex="-1"></a>names have a specific format which we have matched with the regex.</span>
-<span id="cb47-501"><a href="#cb47-501" aria-hidden="true" tabindex="-1"></a>When you work with your own data, the easist thing to do is ensure your</span>
-<span id="cb47-502"><a href="#cb47-502" aria-hidden="true" tabindex="-1"></a>files have the same names as the same data.</span>
-<span id="cb47-503"><a href="#cb47-503" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb47-504"><a href="#cb47-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-505"><a href="#cb47-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-506"><a href="#cb47-506" aria-hidden="true" tabindex="-1"></a>🎬 View the dataframe to see the new columns.</span>
+<span id="cb47-495"><a href="#cb47-495" aria-hidden="true" tabindex="-1"></a>We have added the treatment and antibody information to each row by</span>
+<span id="cb47-496"><a href="#cb47-496" aria-hidden="true" tabindex="-1"></a>processing the names of the <span class="in">`fcs`</span> files. This works because the file</span>
+<span id="cb47-497"><a href="#cb47-497" aria-hidden="true" tabindex="-1"></a>names have a specific format which we have matched with the regex. When</span>
+<span id="cb47-498"><a href="#cb47-498" aria-hidden="true" tabindex="-1"></a>you work with your own data, the easist thing to do is ensure your files</span>
+<span id="cb47-499"><a href="#cb47-499" aria-hidden="true" tabindex="-1"></a>have the same names as the same data.</span>
+<span id="cb47-500"><a href="#cb47-500" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb47-501"><a href="#cb47-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-502"><a href="#cb47-502" aria-hidden="true" tabindex="-1"></a>🎬 View the dataframe to see the new columns.</span>
+<span id="cb47-503"><a href="#cb47-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-504"><a href="#cb47-504" aria-hidden="true" tabindex="-1"></a>Our treatments have an order. Media is the control, LPS should be next</span>
+<span id="cb47-505"><a href="#cb47-505" aria-hidden="true" tabindex="-1"></a>and ECOLIGreen should be last. We can use the <span class="in">`fct_relevel()`</span> function</span>
+<span id="cb47-506"><a href="#cb47-506" aria-hidden="true" tabindex="-1"></a>to put groups in order so that our graphs are better to interpret.</span>
 <span id="cb47-507"><a href="#cb47-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-508"><a href="#cb47-508" aria-hidden="true" tabindex="-1"></a>Our treatments have an order. Media is the control, LPS should be next</span>
-<span id="cb47-509"><a href="#cb47-509" aria-hidden="true" tabindex="-1"></a>and ECOLIGreen should be last. We can use the <span class="in">`fct_relevel()`</span> function</span>
-<span id="cb47-510"><a href="#cb47-510" aria-hidden="true" tabindex="-1"></a>to put groups in order so that our graphs are better to interpret.</span>
-<span id="cb47-511"><a href="#cb47-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-514"><a href="#cb47-514" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-515"><a href="#cb47-515" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
-<span id="cb47-516"><a href="#cb47-516" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="fu">c</span>(<span class="st">"MEDIA"</span>,</span>
-<span id="cb47-517"><a href="#cb47-517" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"LPS"</span>,</span>
-<span id="cb47-518"><a href="#cb47-518" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"ECOLIGreen"</span>)))</span>
-<span id="cb47-519"><a href="#cb47-519" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-520"><a href="#cb47-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-510"><a href="#cb47-510" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-511"><a href="#cb47-511" aria-hidden="true" tabindex="-1"></a>clean_trans <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-512"><a href="#cb47-512" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="fu">c</span>(<span class="st">"MEDIA"</span>,</span>
+<span id="cb47-513"><a href="#cb47-513" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"LPS"</span>,</span>
+<span id="cb47-514"><a href="#cb47-514" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">"ECOLIGreen"</span>)))</span>
+<span id="cb47-515"><a href="#cb47-515" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-516"><a href="#cb47-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-517"><a href="#cb47-517" aria-hidden="true" tabindex="-1"></a><span class="fu">## Save the data</span></span>
+<span id="cb47-518"><a href="#cb47-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-519"><a href="#cb47-519" aria-hidden="true" tabindex="-1"></a>We have cleaned and transform our data. It is a good idea to save it at</span>
+<span id="cb47-520"><a href="#cb47-520" aria-hidden="true" tabindex="-1"></a>this point so that we can start from here if we need to.</span>
 <span id="cb47-521"><a href="#cb47-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-522"><a href="#cb47-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-522"><a href="#cb47-522" aria-hidden="true" tabindex="-1"></a>🎬 Save the data:</span>
 <span id="cb47-523"><a href="#cb47-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-524"><a href="#cb47-524" aria-hidden="true" tabindex="-1"></a><span class="fu">## Save the data</span></span>
-<span id="cb47-525"><a href="#cb47-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-526"><a href="#cb47-526" aria-hidden="true" tabindex="-1"></a>We have cleaned and transform our data. It is a good idea to save it at</span>
-<span id="cb47-527"><a href="#cb47-527" aria-hidden="true" tabindex="-1"></a>this point so that we can start from here if we need to.</span>
+<span id="cb47-526"><a href="#cb47-526" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-527"><a href="#cb47-527" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans, <span class="st">"data-processed/ai_clean_logicle_trans.csv"</span>)</span>
 <span id="cb47-528"><a href="#cb47-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-529"><a href="#cb47-529" aria-hidden="true" tabindex="-1"></a>🎬 Save the data:</span>
+<span id="cb47-529"><a href="#cb47-529" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-530"><a href="#cb47-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-533"><a href="#cb47-533" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-534"><a href="#cb47-534" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans, <span class="st">"data-processed/ai_clean_logicle_trans.csv"</span>)</span>
-<span id="cb47-535"><a href="#cb47-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-536"><a href="#cb47-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-537"><a href="#cb47-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-538"><a href="#cb47-538" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 2: 'Gating' to Removing debris</span></span>
-<span id="cb47-539"><a href="#cb47-539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-540"><a href="#cb47-540" aria-hidden="true" tabindex="-1"></a>Some of the cells will have died and broken during the experiment. We</span>
-<span id="cb47-541"><a href="#cb47-541" aria-hidden="true" tabindex="-1"></a>need to perform quality control on our data to remove observations that</span>
-<span id="cb47-542"><a href="#cb47-542" aria-hidden="true" tabindex="-1"></a>have that have the size and granularity that is not typical of a live</span>
-<span id="cb47-543"><a href="#cb47-543" aria-hidden="true" tabindex="-1"></a>cell. This is done by filtering on the forward scatter (size) and side</span>
-<span id="cb47-544"><a href="#cb47-544" aria-hidden="true" tabindex="-1"></a>scatter (granularity) channels.</span>
-<span id="cb47-545"><a href="#cb47-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-546"><a href="#cb47-546" aria-hidden="true" tabindex="-1"></a>In flow cytometry, it is common to describe filtering as "gating" and</span>
-<span id="cb47-547"><a href="#cb47-547" aria-hidden="true" tabindex="-1"></a>the observations (cells) being kept as "in the gate".</span>
+<span id="cb47-531"><a href="#cb47-531" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 2: 'Gating' to Removing debris</span></span>
+<span id="cb47-532"><a href="#cb47-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-533"><a href="#cb47-533" aria-hidden="true" tabindex="-1"></a>Some of the cells will have died and broken during the experiment. We</span>
+<span id="cb47-534"><a href="#cb47-534" aria-hidden="true" tabindex="-1"></a>need to perform quality control on our data to remove observations that</span>
+<span id="cb47-535"><a href="#cb47-535" aria-hidden="true" tabindex="-1"></a>have that have the size and granularity that is not typical of a live</span>
+<span id="cb47-536"><a href="#cb47-536" aria-hidden="true" tabindex="-1"></a>cell. This is done by filtering on the forward scatter (size) and side</span>
+<span id="cb47-537"><a href="#cb47-537" aria-hidden="true" tabindex="-1"></a>scatter (granularity) channels.</span>
+<span id="cb47-538"><a href="#cb47-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-539"><a href="#cb47-539" aria-hidden="true" tabindex="-1"></a>In flow cytometry, it is common to describe filtering as "gating" and</span>
+<span id="cb47-540"><a href="#cb47-540" aria-hidden="true" tabindex="-1"></a>the observations (cells) being kept as "in the gate".</span>
+<span id="cb47-541"><a href="#cb47-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-542"><a href="#cb47-542" aria-hidden="true" tabindex="-1"></a>We create a scatter plot of the forward scatter (size) and side scatter</span>
+<span id="cb47-543"><a href="#cb47-543" aria-hidden="true" tabindex="-1"></a>(granularity) for each sample to see where we should put the gate.</span>
+<span id="cb47-544"><a href="#cb47-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-545"><a href="#cb47-545" aria-hidden="true" tabindex="-1"></a>We could use <span class="in">`geom_point()`</span> but many points will overlap so it is</span>
+<span id="cb47-546"><a href="#cb47-546" aria-hidden="true" tabindex="-1"></a>difficult to see the density of points. <span class="in">`geom_hex()`</span> puts the points in</span>
+<span id="cb47-547"><a href="#cb47-547" aria-hidden="true" tabindex="-1"></a>bins and colours the bin with the number of points.</span>
 <span id="cb47-548"><a href="#cb47-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-549"><a href="#cb47-549" aria-hidden="true" tabindex="-1"></a>We create a scatter plot of the forward scatter (size) and side scatter</span>
-<span id="cb47-550"><a href="#cb47-550" aria-hidden="true" tabindex="-1"></a>(granularity) for each sample to see where we should put the gate.</span>
-<span id="cb47-551"><a href="#cb47-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-552"><a href="#cb47-552" aria-hidden="true" tabindex="-1"></a>We could use <span class="in">`geom_point()`</span> but many points will overlap so it is</span>
-<span id="cb47-553"><a href="#cb47-553" aria-hidden="true" tabindex="-1"></a>difficult to see the density of points. <span class="in">`geom_hex()`</span> puts the points in</span>
-<span id="cb47-554"><a href="#cb47-554" aria-hidden="true" tabindex="-1"></a>bins and colours the bin with the number of points.</span>
-<span id="cb47-555"><a href="#cb47-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-556"><a href="#cb47-556" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample</span>
-<span id="cb47-557"><a href="#cb47-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-560"><a href="#cb47-560" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-561"><a href="#cb47-561" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
-<span id="cb47-562"><a href="#cb47-562" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
-<span id="cb47-563"><a href="#cb47-563" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb47-564"><a href="#cb47-564" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
-<span id="cb47-565"><a href="#cb47-565" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb47-566"><a href="#cb47-566" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-549"><a href="#cb47-549" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample</span>
+<span id="cb47-550"><a href="#cb47-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-553"><a href="#cb47-553" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-554"><a href="#cb47-554" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
+<span id="cb47-555"><a href="#cb47-555" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-556"><a href="#cb47-556" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-557"><a href="#cb47-557" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-558"><a href="#cb47-558" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-559"><a href="#cb47-559" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-560"><a href="#cb47-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-561"><a href="#cb47-561" aria-hidden="true" tabindex="-1"></a>We can see a cloud of points in the middle of the plot. This is where</span>
+<span id="cb47-562"><a href="#cb47-562" aria-hidden="true" tabindex="-1"></a>the live cells are. Points towards the corners, especially in the bottom</span>
+<span id="cb47-563"><a href="#cb47-563" aria-hidden="true" tabindex="-1"></a>left corner are likely to be cell debris. We can draw a gate around the</span>
+<span id="cb47-564"><a href="#cb47-564" aria-hidden="true" tabindex="-1"></a>cloud of points to remove the debris. We should use the same filter/gate</span>
+<span id="cb47-565"><a href="#cb47-565" aria-hidden="true" tabindex="-1"></a>on all six data sets for consistency. The gates can be a rectangle,</span>
+<span id="cb47-566"><a href="#cb47-566" aria-hidden="true" tabindex="-1"></a>polygon, or ellipse. We will use a rectangle.</span>
 <span id="cb47-567"><a href="#cb47-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-568"><a href="#cb47-568" aria-hidden="true" tabindex="-1"></a>We can see a cloud of points in the middle of the plot. This is where</span>
-<span id="cb47-569"><a href="#cb47-569" aria-hidden="true" tabindex="-1"></a>the live cells are. Points towards the corners, especially in the bottom</span>
-<span id="cb47-570"><a href="#cb47-570" aria-hidden="true" tabindex="-1"></a>left corner are likely to be cell debris. We can draw a gate around the </span>
-<span id="cb47-571"><a href="#cb47-571" aria-hidden="true" tabindex="-1"></a>cloud of points to remove the debris. We should use the same filter/gate</span>
-<span id="cb47-572"><a href="#cb47-572" aria-hidden="true" tabindex="-1"></a>on all six data sets for consistency. The gates can be a rectangle, </span>
-<span id="cb47-573"><a href="#cb47-573" aria-hidden="true" tabindex="-1"></a>polygon, or ellipse. We will use a rectangle.</span>
-<span id="cb47-574"><a href="#cb47-574" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-575"><a href="#cb47-575" aria-hidden="true" tabindex="-1"></a><span class="fu">### Manual rectangular gate</span></span>
-<span id="cb47-576"><a href="#cb47-576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-577"><a href="#cb47-577" aria-hidden="true" tabindex="-1"></a>Use the zoom on the plot window to better see the cloud of points and</span>
-<span id="cb47-578"><a href="#cb47-578" aria-hidden="true" tabindex="-1"></a>the axis values. You need to use minimum and maximum $x$ and $y$ values</span>
-<span id="cb47-579"><a href="#cb47-579" aria-hidden="true" tabindex="-1"></a>to define the rectangle. </span>
-<span id="cb47-580"><a href="#cb47-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-581"><a href="#cb47-581" aria-hidden="true" tabindex="-1"></a>🎬 Define the minimum and maximum $x$ and $y$ values for the gate:</span>
-<span id="cb47-582"><a href="#cb47-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-585"><a href="#cb47-585" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-586"><a href="#cb47-586" aria-hidden="true" tabindex="-1"></a>xmin <span class="ot">&lt;-</span> <span class="dv">15000</span></span>
-<span id="cb47-587"><a href="#cb47-587" aria-hidden="true" tabindex="-1"></a>xmax <span class="ot">&lt;-</span> <span class="dv">35000</span></span>
-<span id="cb47-588"><a href="#cb47-588" aria-hidden="true" tabindex="-1"></a>ymin <span class="ot">&lt;-</span> <span class="dv">7500</span></span>
-<span id="cb47-589"><a href="#cb47-589" aria-hidden="true" tabindex="-1"></a>ymax <span class="ot">&lt;-</span> <span class="dv">28000</span></span>
-<span id="cb47-590"><a href="#cb47-590" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-591"><a href="#cb47-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-568"><a href="#cb47-568" aria-hidden="true" tabindex="-1"></a><span class="fu">### Manual rectangular gate</span></span>
+<span id="cb47-569"><a href="#cb47-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-570"><a href="#cb47-570" aria-hidden="true" tabindex="-1"></a>Use the zoom on the plot window to better see the cloud of points and</span>
+<span id="cb47-571"><a href="#cb47-571" aria-hidden="true" tabindex="-1"></a>the axis values. You need to use minimum and maximum $x$ and $y$ values</span>
+<span id="cb47-572"><a href="#cb47-572" aria-hidden="true" tabindex="-1"></a>to define the rectangle.</span>
+<span id="cb47-573"><a href="#cb47-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-574"><a href="#cb47-574" aria-hidden="true" tabindex="-1"></a>🎬 Define the minimum and maximum $x$ and $y$ values for the gate:</span>
+<span id="cb47-575"><a href="#cb47-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-578"><a href="#cb47-578" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-579"><a href="#cb47-579" aria-hidden="true" tabindex="-1"></a>xmin <span class="ot">&lt;-</span> <span class="dv">15000</span></span>
+<span id="cb47-580"><a href="#cb47-580" aria-hidden="true" tabindex="-1"></a>xmax <span class="ot">&lt;-</span> <span class="dv">35000</span></span>
+<span id="cb47-581"><a href="#cb47-581" aria-hidden="true" tabindex="-1"></a>ymin <span class="ot">&lt;-</span> <span class="dv">7500</span></span>
+<span id="cb47-582"><a href="#cb47-582" aria-hidden="true" tabindex="-1"></a>ymax <span class="ot">&lt;-</span> <span class="dv">28000</span></span>
+<span id="cb47-583"><a href="#cb47-583" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-584"><a href="#cb47-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-585"><a href="#cb47-585" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb47-586"><a href="#cb47-586" aria-hidden="true" tabindex="-1"></a><span class="fu">## Choosing values for your own data</span></span>
+<span id="cb47-587"><a href="#cb47-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-588"><a href="#cb47-588" aria-hidden="true" tabindex="-1"></a>I chose theses values but you might judge the gate differently. You will</span>
+<span id="cb47-589"><a href="#cb47-589" aria-hidden="true" tabindex="-1"></a>certainly need to use different values for your own data. The next plot</span>
+<span id="cb47-590"><a href="#cb47-590" aria-hidden="true" tabindex="-1"></a>will help you refine them.</span>
+<span id="cb47-591"><a href="#cb47-591" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb47-592"><a href="#cb47-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-593"><a href="#cb47-593" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb47-594"><a href="#cb47-594" aria-hidden="true" tabindex="-1"></a><span class="fu">## Choosing values for your own data</span></span>
+<span id="cb47-593"><a href="#cb47-593" aria-hidden="true" tabindex="-1"></a>🎬 Put those values in a dataframe so we can plot the gate on the hexbin</span>
+<span id="cb47-594"><a href="#cb47-594" aria-hidden="true" tabindex="-1"></a>plot:</span>
 <span id="cb47-595"><a href="#cb47-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-596"><a href="#cb47-596" aria-hidden="true" tabindex="-1"></a>I chose theses values but you might judge the gate differently.</span>
-<span id="cb47-597"><a href="#cb47-597" aria-hidden="true" tabindex="-1"></a>You will certainly need to use different values for your own data.</span>
-<span id="cb47-598"><a href="#cb47-598" aria-hidden="true" tabindex="-1"></a>The next plot will help you refine them.</span>
-<span id="cb47-599"><a href="#cb47-599" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb47-600"><a href="#cb47-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-601"><a href="#cb47-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-602"><a href="#cb47-602" aria-hidden="true" tabindex="-1"></a>🎬 Put those values in a dataframe so we can plot the gate on the hexbin</span>
-<span id="cb47-603"><a href="#cb47-603" aria-hidden="true" tabindex="-1"></a>plot:</span>
-<span id="cb47-604"><a href="#cb47-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-607"><a href="#cb47-607" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-608"><a href="#cb47-608" aria-hidden="true" tabindex="-1"></a>box <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(xmin, xmin, xmax, xmax),</span>
-<span id="cb47-609"><a href="#cb47-609" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> <span class="fu">c</span>(ymin, ymax, ymax, ymin))</span>
-<span id="cb47-610"><a href="#cb47-610" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-611"><a href="#cb47-611" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-612"><a href="#cb47-612" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample with the</span>
-<span id="cb47-613"><a href="#cb47-613" aria-hidden="true" tabindex="-1"></a>gate:</span>
-<span id="cb47-614"><a href="#cb47-614" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-617"><a href="#cb47-617" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-618"><a href="#cb47-618" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
-<span id="cb47-619"><a href="#cb47-619" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
-<span id="cb47-620"><a href="#cb47-620" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb47-621"><a href="#cb47-621" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> box, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), </span>
-<span id="cb47-622"><a href="#cb47-622" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="cn">NA</span>, </span>
-<span id="cb47-623"><a href="#cb47-623" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"red"</span>,</span>
-<span id="cb47-624"><a href="#cb47-624" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb47-625"><a href="#cb47-625" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
-<span id="cb47-626"><a href="#cb47-626" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb47-627"><a href="#cb47-627" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-628"><a href="#cb47-628" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-629"><a href="#cb47-629" aria-hidden="true" tabindex="-1"></a>🎬 Adjust the values of <span class="in">`xmin`</span>, <span class="in">`xmax`</span>, <span class="in">`ymin`</span>, and <span class="in">`ymax`</span> to get a gate</span>
-<span id="cb47-630"><a href="#cb47-630" aria-hidden="true" tabindex="-1"></a>that you are happy with.</span>
-<span id="cb47-631"><a href="#cb47-631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-632"><a href="#cb47-632" aria-hidden="true" tabindex="-1"></a>We have drawn the gate on the plot but we need to use it to filter out</span>
-<span id="cb47-633"><a href="#cb47-633" aria-hidden="true" tabindex="-1"></a>the debris (rows) from our data. We want only the cells with <span class="in">`FS_Lin`</span></span>
-<span id="cb47-634"><a href="#cb47-634" aria-hidden="true" tabindex="-1"></a>values that are between the <span class="in">`xmin`</span> and <span class="in">`xmax`</span> and <span class="in">`SS_Lin`</span> that are</span>
-<span id="cb47-635"><a href="#cb47-635" aria-hidden="true" tabindex="-1"></a>between <span class="in">`ymin`</span> and <span class="in">`ymax`</span> values we chose.</span>
-<span id="cb47-636"><a href="#cb47-636" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-637"><a href="#cb47-637" aria-hidden="true" tabindex="-1"></a>🎬 Filter the data to remove the debris:</span>
-<span id="cb47-638"><a href="#cb47-638" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-641"><a href="#cb47-641" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-642"><a href="#cb47-642" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out the debris</span></span>
-<span id="cb47-643"><a href="#cb47-643" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
-<span id="cb47-644"><a href="#cb47-644" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(FS_Lin, xmin, xmax),</span>
-<span id="cb47-645"><a href="#cb47-645" aria-hidden="true" tabindex="-1"></a>         <span class="fu">between</span>(SS_Lin, ymin, ymax)) </span>
-<span id="cb47-646"><a href="#cb47-646" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-647"><a href="#cb47-647" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-648"><a href="#cb47-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-649"><a href="#cb47-649" aria-hidden="true" tabindex="-1"></a><span class="in">`clean_trans_live`</span> now has <span class="in">`r nrow(clean_trans_live)`</span> cells. </span>
-<span id="cb47-650"><a href="#cb47-650" aria-hidden="true" tabindex="-1"></a>We should report how many cells were *in the gate* for each sample.</span>
-<span id="cb47-651"><a href="#cb47-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-652"><a href="#cb47-652" aria-hidden="true" tabindex="-1"></a>🎬 Find the number of cells in each sample after flowAI cleaning:</span>
+<span id="cb47-598"><a href="#cb47-598" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-599"><a href="#cb47-599" aria-hidden="true" tabindex="-1"></a>box <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(xmin, xmin, xmax, xmax),</span>
+<span id="cb47-600"><a href="#cb47-600" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> <span class="fu">c</span>(ymin, ymax, ymax, ymin))</span>
+<span id="cb47-601"><a href="#cb47-601" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-602"><a href="#cb47-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-603"><a href="#cb47-603" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample with the</span>
+<span id="cb47-604"><a href="#cb47-604" aria-hidden="true" tabindex="-1"></a>gate:</span>
+<span id="cb47-605"><a href="#cb47-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-608"><a href="#cb47-608" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-609"><a href="#cb47-609" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
+<span id="cb47-610"><a href="#cb47-610" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-611"><a href="#cb47-611" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-612"><a href="#cb47-612" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> box, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), </span>
+<span id="cb47-613"><a href="#cb47-613" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="cn">NA</span>, </span>
+<span id="cb47-614"><a href="#cb47-614" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb47-615"><a href="#cb47-615" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb47-616"><a href="#cb47-616" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-617"><a href="#cb47-617" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-618"><a href="#cb47-618" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-619"><a href="#cb47-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-620"><a href="#cb47-620" aria-hidden="true" tabindex="-1"></a>🎬 Adjust the values of <span class="in">`xmin`</span>, <span class="in">`xmax`</span>, <span class="in">`ymin`</span>, and <span class="in">`ymax`</span> to get a gate</span>
+<span id="cb47-621"><a href="#cb47-621" aria-hidden="true" tabindex="-1"></a>that you are happy with.</span>
+<span id="cb47-622"><a href="#cb47-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-623"><a href="#cb47-623" aria-hidden="true" tabindex="-1"></a>We have drawn the gate on the plot but we need to use it to filter out</span>
+<span id="cb47-624"><a href="#cb47-624" aria-hidden="true" tabindex="-1"></a>the debris (rows) from our data. We want only the cells with <span class="in">`FS_Lin`</span></span>
+<span id="cb47-625"><a href="#cb47-625" aria-hidden="true" tabindex="-1"></a>values that are between the <span class="in">`xmin`</span> and <span class="in">`xmax`</span> and <span class="in">`SS_Lin`</span> that are</span>
+<span id="cb47-626"><a href="#cb47-626" aria-hidden="true" tabindex="-1"></a>between <span class="in">`ymin`</span> and <span class="in">`ymax`</span> values we chose.</span>
+<span id="cb47-627"><a href="#cb47-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-628"><a href="#cb47-628" aria-hidden="true" tabindex="-1"></a>🎬 Filter the data to remove the debris:</span>
+<span id="cb47-629"><a href="#cb47-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-632"><a href="#cb47-632" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-633"><a href="#cb47-633" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out the debris</span></span>
+<span id="cb47-634"><a href="#cb47-634" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-635"><a href="#cb47-635" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(FS_Lin, xmin, xmax),</span>
+<span id="cb47-636"><a href="#cb47-636" aria-hidden="true" tabindex="-1"></a>         <span class="fu">between</span>(SS_Lin, ymin, ymax)) </span>
+<span id="cb47-637"><a href="#cb47-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-638"><a href="#cb47-638" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-639"><a href="#cb47-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-640"><a href="#cb47-640" aria-hidden="true" tabindex="-1"></a><span class="in">`clean_trans_live`</span> now has <span class="in">`r nrow(clean_trans_live)`</span> cells. We should</span>
+<span id="cb47-641"><a href="#cb47-641" aria-hidden="true" tabindex="-1"></a>report how many cells were *in the gate* for each sample.</span>
+<span id="cb47-642"><a href="#cb47-642" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-643"><a href="#cb47-643" aria-hidden="true" tabindex="-1"></a>🎬 Find the number of cells in each sample after flowAI cleaning:</span>
+<span id="cb47-644"><a href="#cb47-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-647"><a href="#cb47-647" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-648"><a href="#cb47-648" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb47-649"><a href="#cb47-649" aria-hidden="true" tabindex="-1"></a>clean_trans_n <span class="ot">&lt;-</span>  clean_trans <span class="sc">|&gt;</span> </span>
+<span id="cb47-650"><a href="#cb47-650" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span> </span>
+<span id="cb47-651"><a href="#cb47-651" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) </span>
+<span id="cb47-652"><a href="#cb47-652" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-653"><a href="#cb47-653" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-656"><a href="#cb47-656" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-657"><a href="#cb47-657" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb47-658"><a href="#cb47-658" aria-hidden="true" tabindex="-1"></a>clean_trans_n <span class="ot">&lt;-</span>  clean_trans <span class="sc">|&gt;</span> </span>
-<span id="cb47-659"><a href="#cb47-659" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span> </span>
-<span id="cb47-660"><a href="#cb47-660" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) </span>
-<span id="cb47-661"><a href="#cb47-661" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-662"><a href="#cb47-662" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-663"><a href="#cb47-663" aria-hidden="true" tabindex="-1"></a>Note than we use the clean and transformed data for summarising the</span>
-<span id="cb47-664"><a href="#cb47-664" aria-hidden="true" tabindex="-1"></a>number in each set after cleaning.</span>
-<span id="cb47-665"><a href="#cb47-665" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-668"><a href="#cb47-668" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-669"><a href="#cb47-669" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb47-670"><a href="#cb47-670" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_n)</span>
-<span id="cb47-671"><a href="#cb47-671" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-672"><a href="#cb47-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-673"><a href="#cb47-673" aria-hidden="true" tabindex="-1"></a>🎬 Find the number of cells in each sample after flowAI cleaning *and*</span>
-<span id="cb47-674"><a href="#cb47-674" aria-hidden="true" tabindex="-1"></a>removing debris</span>
+<span id="cb47-654"><a href="#cb47-654" aria-hidden="true" tabindex="-1"></a>Note than we use the clean and transformed data for summarising the</span>
+<span id="cb47-655"><a href="#cb47-655" aria-hidden="true" tabindex="-1"></a>number in each set after cleaning.</span>
+<span id="cb47-656"><a href="#cb47-656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-659"><a href="#cb47-659" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-660"><a href="#cb47-660" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-661"><a href="#cb47-661" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_n)</span>
+<span id="cb47-662"><a href="#cb47-662" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-663"><a href="#cb47-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-664"><a href="#cb47-664" aria-hidden="true" tabindex="-1"></a>🎬 Find the number of cells in each sample after flowAI cleaning *and*</span>
+<span id="cb47-665"><a href="#cb47-665" aria-hidden="true" tabindex="-1"></a>removing debris</span>
+<span id="cb47-666"><a href="#cb47-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-669"><a href="#cb47-669" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-670"><a href="#cb47-670" aria-hidden="true" tabindex="-1"></a><span class="co"># number of cells in each sample</span></span>
+<span id="cb47-671"><a href="#cb47-671" aria-hidden="true" tabindex="-1"></a>clean_trans_live_n <span class="ot">&lt;-</span>  clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-672"><a href="#cb47-672" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span> </span>
+<span id="cb47-673"><a href="#cb47-673" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_live =</span> <span class="fu">n</span>()) </span>
+<span id="cb47-674"><a href="#cb47-674" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-675"><a href="#cb47-675" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-678"><a href="#cb47-678" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-679"><a href="#cb47-679" aria-hidden="true" tabindex="-1"></a><span class="co"># number of cells in each sample</span></span>
-<span id="cb47-680"><a href="#cb47-680" aria-hidden="true" tabindex="-1"></a>clean_trans_live_n <span class="ot">&lt;-</span>  clean_trans_live <span class="sc">|&gt;</span> </span>
-<span id="cb47-681"><a href="#cb47-681" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span> </span>
-<span id="cb47-682"><a href="#cb47-682" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_live =</span> <span class="fu">n</span>()) </span>
+<span id="cb47-676"><a href="#cb47-676" aria-hidden="true" tabindex="-1"></a>Now we use the clean, transformed and gated data.</span>
+<span id="cb47-677"><a href="#cb47-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-680"><a href="#cb47-680" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-681"><a href="#cb47-681" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-682"><a href="#cb47-682" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_n)</span>
 <span id="cb47-683"><a href="#cb47-683" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-684"><a href="#cb47-684" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-685"><a href="#cb47-685" aria-hidden="true" tabindex="-1"></a>Now we use the clean, transformed and gated data.</span>
-<span id="cb47-686"><a href="#cb47-686" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-687"><a href="#cb47-687" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-690"><a href="#cb47-690" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-691"><a href="#cb47-691" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb47-692"><a href="#cb47-692" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_n)</span>
-<span id="cb47-693"><a href="#cb47-693" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-694"><a href="#cb47-694" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-695"><a href="#cb47-695" aria-hidden="true" tabindex="-1"></a>🎬 Join two data frames together using the combination of the treatment</span>
-<span id="cb47-696"><a href="#cb47-696" aria-hidden="true" tabindex="-1"></a>and the antibody and calculate what % cells remained in each</span>
-<span id="cb47-697"><a href="#cb47-697" aria-hidden="true" tabindex="-1"></a>sample after gating (*i.e.*, the % live cells):</span>
-<span id="cb47-698"><a href="#cb47-698" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-701"><a href="#cb47-701" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-702"><a href="#cb47-702" aria-hidden="true" tabindex="-1"></a>clean_trans_live_n <span class="ot">&lt;-</span> clean_trans_live_n <span class="sc">|&gt;</span> </span>
-<span id="cb47-703"><a href="#cb47-703" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clean_trans_n, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"antibody"</span>, <span class="st">"treatment"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb47-704"><a href="#cb47-704" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_live =</span> <span class="fu">round</span>(n_live<span class="sc">/</span>n <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>) )</span>
-<span id="cb47-705"><a href="#cb47-705" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-685"><a href="#cb47-685" aria-hidden="true" tabindex="-1"></a>🎬 Join two data frames together using the combination of the treatment</span>
+<span id="cb47-686"><a href="#cb47-686" aria-hidden="true" tabindex="-1"></a>and the antibody and calculate what % cells remained in each sample</span>
+<span id="cb47-687"><a href="#cb47-687" aria-hidden="true" tabindex="-1"></a>after gating (*i.e.*, the % live cells):</span>
+<span id="cb47-688"><a href="#cb47-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-691"><a href="#cb47-691" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-692"><a href="#cb47-692" aria-hidden="true" tabindex="-1"></a>clean_trans_live_n <span class="ot">&lt;-</span> clean_trans_live_n <span class="sc">|&gt;</span> </span>
+<span id="cb47-693"><a href="#cb47-693" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clean_trans_n, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"antibody"</span>, <span class="st">"treatment"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-694"><a href="#cb47-694" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_live =</span> <span class="fu">round</span>(n_live<span class="sc">/</span>n <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>) )</span>
+<span id="cb47-695"><a href="#cb47-695" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-696"><a href="#cb47-696" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-699"><a href="#cb47-699" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-700"><a href="#cb47-700" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-701"><a href="#cb47-701" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_n)</span>
+<span id="cb47-702"><a href="#cb47-702" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-703"><a href="#cb47-703" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-704"><a href="#cb47-704" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample with the</span>
+<span id="cb47-705"><a href="#cb47-705" aria-hidden="true" tabindex="-1"></a>gate and the number of cells in each sample.</span>
 <span id="cb47-706"><a href="#cb47-706" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-709"><a href="#cb47-709" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-710"><a href="#cb47-710" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb47-711"><a href="#cb47-711" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_n)</span>
-<span id="cb47-712"><a href="#cb47-712" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-713"><a href="#cb47-713" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-714"><a href="#cb47-714" aria-hidden="true" tabindex="-1"></a>🎬 Plot the forward scatter and side scatter for each sample with the</span>
-<span id="cb47-715"><a href="#cb47-715" aria-hidden="true" tabindex="-1"></a>gate and the number of cells in each sample.</span>
-<span id="cb47-716"><a href="#cb47-716" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-719"><a href="#cb47-719" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-720"><a href="#cb47-720" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
-<span id="cb47-721"><a href="#cb47-721" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
-<span id="cb47-722"><a href="#cb47-722" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb47-723"><a href="#cb47-723" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> box, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), </span>
-<span id="cb47-724"><a href="#cb47-724" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="cn">NA</span>, </span>
-<span id="cb47-725"><a href="#cb47-725" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"red"</span>,</span>
-<span id="cb47-726"><a href="#cb47-726" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb47-727"><a href="#cb47-727" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> clean_trans_live_n, </span>
-<span id="cb47-728"><a href="#cb47-728" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(perc_live, <span class="st">"%"</span>)), </span>
-<span id="cb47-729"><a href="#cb47-729" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="dv">45000</span>, </span>
-<span id="cb47-730"><a href="#cb47-730" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="dv">1000</span>,</span>
-<span id="cb47-731"><a href="#cb47-731" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb47-732"><a href="#cb47-732" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb47-733"><a href="#cb47-733" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
-<span id="cb47-734"><a href="#cb47-734" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span>
-<span id="cb47-735"><a href="#cb47-735" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-710"><a href="#cb47-710" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans, <span class="fu">aes</span>(<span class="at">x =</span> FS_Lin, <span class="at">y =</span> SS_Lin)) <span class="sc">+</span></span>
+<span id="cb47-711"><a href="#cb47-711" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-712"><a href="#cb47-712" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-713"><a href="#cb47-713" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> box, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), </span>
+<span id="cb47-714"><a href="#cb47-714" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="cn">NA</span>, </span>
+<span id="cb47-715"><a href="#cb47-715" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb47-716"><a href="#cb47-716" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb47-717"><a href="#cb47-717" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> clean_trans_live_n, </span>
+<span id="cb47-718"><a href="#cb47-718" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(perc_live, <span class="st">"%"</span>)), </span>
+<span id="cb47-719"><a href="#cb47-719" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="dv">45000</span>, </span>
+<span id="cb47-720"><a href="#cb47-720" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="dv">1000</span>,</span>
+<span id="cb47-721"><a href="#cb47-721" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"red"</span>,</span>
+<span id="cb47-722"><a href="#cb47-722" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb47-723"><a href="#cb47-723" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-724"><a href="#cb47-724" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span>
+<span id="cb47-725"><a href="#cb47-725" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-726"><a href="#cb47-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-727"><a href="#cb47-727" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-728"><a href="#cb47-728" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-729"><a href="#cb47-729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-730"><a href="#cb47-730" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb47-731"><a href="#cb47-731" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reporting</span></span>
+<span id="cb47-732"><a href="#cb47-732" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-733"><a href="#cb47-733" aria-hidden="true" tabindex="-1"></a>This figure allows you to report what data you included in your analysis</span>
+<span id="cb47-734"><a href="#cb47-734" aria-hidden="true" tabindex="-1"></a>of the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> signals.</span>
+<span id="cb47-735"><a href="#cb47-735" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb47-736"><a href="#cb47-736" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-737"><a href="#cb47-737" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-738"><a href="#cb47-738" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-737"><a href="#cb47-737" aria-hidden="true" tabindex="-1"></a>🎬 Plot the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> signals for these live</span>
+<span id="cb47-738"><a href="#cb47-738" aria-hidden="true" tabindex="-1"></a>cells:</span>
 <span id="cb47-739"><a href="#cb47-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-740"><a href="#cb47-740" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb47-741"><a href="#cb47-741" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reporting</span></span>
-<span id="cb47-742"><a href="#cb47-742" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-743"><a href="#cb47-743" aria-hidden="true" tabindex="-1"></a>This figure allows you to report what data you included in your analysis</span>
-<span id="cb47-744"><a href="#cb47-744" aria-hidden="true" tabindex="-1"></a>of the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> signals.</span>
-<span id="cb47-745"><a href="#cb47-745" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb47-746"><a href="#cb47-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-747"><a href="#cb47-747" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-748"><a href="#cb47-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-749"><a href="#cb47-749" aria-hidden="true" tabindex="-1"></a>🎬 Plot the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> signals for these live</span>
-<span id="cb47-750"><a href="#cb47-750" aria-hidden="true" tabindex="-1"></a>cells:</span>
-<span id="cb47-751"><a href="#cb47-751" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-754"><a href="#cb47-754" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-755"><a href="#cb47-755" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
-<span id="cb47-756"><a href="#cb47-756" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
-<span id="cb47-757"><a href="#cb47-757" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
-<span id="cb47-758"><a href="#cb47-758" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb47-759"><a href="#cb47-759" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
-<span id="cb47-760"><a href="#cb47-760" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb47-761"><a href="#cb47-761" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-742"><a href="#cb47-742" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-743"><a href="#cb47-743" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
+<span id="cb47-744"><a href="#cb47-744" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-745"><a href="#cb47-745" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-746"><a href="#cb47-746" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-747"><a href="#cb47-747" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-748"><a href="#cb47-748" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-749"><a href="#cb47-749" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-750"><a href="#cb47-750" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-751"><a href="#cb47-751" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 3: Gating to determine a 'real' signal?</span></span>
+<span id="cb47-752"><a href="#cb47-752" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-753"><a href="#cb47-753" aria-hidden="true" tabindex="-1"></a>From now on we are working with the cleaned and gated data, that is, the</span>
+<span id="cb47-754"><a href="#cb47-754" aria-hidden="true" tabindex="-1"></a>dataframe <span class="in">`clean_trans_live`</span>.</span>
+<span id="cb47-755"><a href="#cb47-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-756"><a href="#cb47-756" aria-hidden="true" tabindex="-1"></a>We have two signals:</span>
+<span id="cb47-757"><a href="#cb47-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-758"><a href="#cb47-758" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`TNFa_APC_Lin`</span> should indicate the amount of TNF-α protein in the</span>
+<span id="cb47-759"><a href="#cb47-759" aria-hidden="true" tabindex="-1"></a>    cell</span>
+<span id="cb47-760"><a href="#cb47-760" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`E_coli_FITC_Lin`</span> should indicate the amount of *E. coli* in the</span>
+<span id="cb47-761"><a href="#cb47-761" aria-hidden="true" tabindex="-1"></a>    cell</span>
 <span id="cb47-762"><a href="#cb47-762" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-763"><a href="#cb47-763" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality control 3: Gating to determine a 'real' signal?</span></span>
+<span id="cb47-763"><a href="#cb47-763" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `TNFa_APC_Lin` signal</span></span>
 <span id="cb47-764"><a href="#cb47-764" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-765"><a href="#cb47-765" aria-hidden="true" tabindex="-1"></a>From now on we are working with the cleaned and gated data, that is,</span>
-<span id="cb47-766"><a href="#cb47-766" aria-hidden="true" tabindex="-1"></a>the dataframe <span class="in">`clean_trans_live`</span>.</span>
-<span id="cb47-767"><a href="#cb47-767" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-768"><a href="#cb47-768" aria-hidden="true" tabindex="-1"></a>We have two signals:</span>
-<span id="cb47-769"><a href="#cb47-769" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-770"><a href="#cb47-770" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`TNFa_APC_Lin`</span> is should indicate the amount of TNF-α protein in the</span>
-<span id="cb47-771"><a href="#cb47-771" aria-hidden="true" tabindex="-1"></a>    cell</span>
-<span id="cb47-772"><a href="#cb47-772" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`E_coli_FITC_Lin`</span> should indicate the amount of *E. coli* in the</span>
-<span id="cb47-773"><a href="#cb47-773" aria-hidden="true" tabindex="-1"></a>    cell</span>
-<span id="cb47-774"><a href="#cb47-774" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-775"><a href="#cb47-775" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `TNFa_APC_Lin` signal</span></span>
-<span id="cb47-776"><a href="#cb47-776" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-777"><a href="#cb47-777" aria-hidden="true" tabindex="-1"></a>When the antibody is ISOTYPE there is no TNF-α so that level of</span>
-<span id="cb47-778"><a href="#cb47-778" aria-hidden="true" tabindex="-1"></a><span class="in">`TNFa_APC_Lin`</span> signal means no TNF-α. In other words, that signal is a </span>
-<span id="cb47-779"><a href="#cb47-779" aria-hidden="true" tabindex="-1"></a>control. If you look at the top row of scatter plots, that level seems </span>
-<span id="cb47-780"><a href="#cb47-780" aria-hidden="true" tabindex="-1"></a>to be about 3.8. In the rest of the data set we should assume any signal</span>
-<span id="cb47-781"><a href="#cb47-781" aria-hidden="true" tabindex="-1"></a>below 3.8 means there is no TNF-α.</span>
-<span id="cb47-782"><a href="#cb47-782" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-783"><a href="#cb47-783" aria-hidden="true" tabindex="-1"></a>We can use this to set a threshold for the <span class="in">`TNFa_APC_Lin`</span> signal and</span>
-<span id="cb47-784"><a href="#cb47-784" aria-hidden="true" tabindex="-1"></a>then label cells as either positive or negative for TNF-α.</span>
-<span id="cb47-785"><a href="#cb47-785" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-786"><a href="#cb47-786" aria-hidden="true" tabindex="-1"></a>🎬 Define the threshold for the <span class="in">`TNFa_APC_Lin`</span> signal:</span>
-<span id="cb47-787"><a href="#cb47-787" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-790"><a href="#cb47-790" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-791"><a href="#cb47-791" aria-hidden="true" tabindex="-1"></a>apc_cut <span class="ot">&lt;-</span> <span class="fl">3.8</span></span>
-<span id="cb47-792"><a href="#cb47-792" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-793"><a href="#cb47-793" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-794"><a href="#cb47-794" aria-hidden="true" tabindex="-1"></a>🎬 Plot the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> with the threshold for</span>
-<span id="cb47-795"><a href="#cb47-795" aria-hidden="true" tabindex="-1"></a>the <span class="in">`TNFa_APC_Lin`</span> signal:</span>
-<span id="cb47-796"><a href="#cb47-796" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-799"><a href="#cb47-799" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-800"><a href="#cb47-800" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
-<span id="cb47-801"><a href="#cb47-801" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
-<span id="cb47-802"><a href="#cb47-802" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
-<span id="cb47-803"><a href="#cb47-803" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> apc_cut, </span>
-<span id="cb47-804"><a href="#cb47-804" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb47-805"><a href="#cb47-805" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb47-806"><a href="#cb47-806" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
-<span id="cb47-807"><a href="#cb47-807" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb47-808"><a href="#cb47-808" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-809"><a href="#cb47-809" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-810"><a href="#cb47-810" aria-hidden="true" tabindex="-1"></a>That looks about right. We will use this value to label each cell as </span>
-<span id="cb47-811"><a href="#cb47-811" aria-hidden="true" tabindex="-1"></a>positive or negative for TNF-α.</span>
-<span id="cb47-812"><a href="#cb47-812" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-813"><a href="#cb47-813" aria-hidden="true" tabindex="-1"></a>🎬 Add a label, <span class="in">`tnfa`</span>, to the data to indicate if the cell is positive</span>
-<span id="cb47-814"><a href="#cb47-814" aria-hidden="true" tabindex="-1"></a>or negative for TNF-α</span>
-<span id="cb47-815"><a href="#cb47-815" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-818"><a href="#cb47-818" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-819"><a href="#cb47-819" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
-<span id="cb47-820"><a href="#cb47-820" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tnfa =</span> <span class="fu">case_when</span>(TNFa_APC_Lin <span class="sc">&lt;</span> apc_cut <span class="sc">~</span> <span class="st">"TNF-α -'ve"</span>,</span>
-<span id="cb47-821"><a href="#cb47-821" aria-hidden="true" tabindex="-1"></a>                               TNFa_APC_Lin <span class="sc">&gt;=</span> apc_cut <span class="sc">~</span> <span class="st">"TNF-α +'ve"</span>))</span>
-<span id="cb47-822"><a href="#cb47-822" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-823"><a href="#cb47-823" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-824"><a href="#cb47-824" aria-hidden="true" tabindex="-1"></a>🎬 Summarise each group by finding the number of TNF-α positive cells</span>
-<span id="cb47-825"><a href="#cb47-825" aria-hidden="true" tabindex="-1"></a>and the mean <span class="in">`TNFa_APC_Lin`</span> signal for each group:</span>
-<span id="cb47-826"><a href="#cb47-826" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-829"><a href="#cb47-829" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-830"><a href="#cb47-830" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
-<span id="cb47-831"><a href="#cb47-831" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tnfa <span class="sc">==</span> <span class="st">"TNF-α +'ve"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb47-832"><a href="#cb47-832" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span></span>
-<span id="cb47-833"><a href="#cb47-833" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_pos_tnfa =</span> <span class="fu">n</span>(),</span>
-<span id="cb47-834"><a href="#cb47-834" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_apc =</span> <span class="fu">mean</span>(TNFa_APC_Lin))</span>
-<span id="cb47-835"><a href="#cb47-835" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-836"><a href="#cb47-836" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-839"><a href="#cb47-839" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-840"><a href="#cb47-840" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb47-841"><a href="#cb47-841" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_tfna_pos)</span>
+<span id="cb47-765"><a href="#cb47-765" aria-hidden="true" tabindex="-1"></a>When the antibody is ISOTYPE there is no TNF-α so that level of</span>
+<span id="cb47-766"><a href="#cb47-766" aria-hidden="true" tabindex="-1"></a><span class="in">`TNFa_APC_Lin`</span> signal means no TNF-α. In other words, that signal is a</span>
+<span id="cb47-767"><a href="#cb47-767" aria-hidden="true" tabindex="-1"></a>control. If you look at the top row of scatter plots, that level seems</span>
+<span id="cb47-768"><a href="#cb47-768" aria-hidden="true" tabindex="-1"></a>to be about 3.8. In the rest of the data set we should assume any signal</span>
+<span id="cb47-769"><a href="#cb47-769" aria-hidden="true" tabindex="-1"></a>below 3.8 means there is no TNF-α.</span>
+<span id="cb47-770"><a href="#cb47-770" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-771"><a href="#cb47-771" aria-hidden="true" tabindex="-1"></a>We can use this to set a threshold for the <span class="in">`TNFa_APC_Lin`</span> signal and</span>
+<span id="cb47-772"><a href="#cb47-772" aria-hidden="true" tabindex="-1"></a>then label cells as either positive or negative for TNF-α.</span>
+<span id="cb47-773"><a href="#cb47-773" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-774"><a href="#cb47-774" aria-hidden="true" tabindex="-1"></a>🎬 Define the threshold for the <span class="in">`TNFa_APC_Lin`</span> signal:</span>
+<span id="cb47-775"><a href="#cb47-775" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-778"><a href="#cb47-778" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-779"><a href="#cb47-779" aria-hidden="true" tabindex="-1"></a>apc_cut <span class="ot">&lt;-</span> <span class="fl">3.8</span></span>
+<span id="cb47-780"><a href="#cb47-780" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-781"><a href="#cb47-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-782"><a href="#cb47-782" aria-hidden="true" tabindex="-1"></a>🎬 Plot the <span class="in">`TNFa_APC_Lin`</span> and <span class="in">`E_coli_FITC_Lin`</span> with the threshold for</span>
+<span id="cb47-783"><a href="#cb47-783" aria-hidden="true" tabindex="-1"></a>the <span class="in">`TNFa_APC_Lin`</span> signal:</span>
+<span id="cb47-784"><a href="#cb47-784" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-787"><a href="#cb47-787" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-788"><a href="#cb47-788" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
+<span id="cb47-789"><a href="#cb47-789" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-790"><a href="#cb47-790" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-791"><a href="#cb47-791" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> apc_cut, </span>
+<span id="cb47-792"><a href="#cb47-792" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb47-793"><a href="#cb47-793" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-794"><a href="#cb47-794" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-795"><a href="#cb47-795" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-796"><a href="#cb47-796" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-797"><a href="#cb47-797" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-798"><a href="#cb47-798" aria-hidden="true" tabindex="-1"></a>That looks about right. We will use this value to label each cell as</span>
+<span id="cb47-799"><a href="#cb47-799" aria-hidden="true" tabindex="-1"></a>positive or negative for TNF-α.</span>
+<span id="cb47-800"><a href="#cb47-800" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-801"><a href="#cb47-801" aria-hidden="true" tabindex="-1"></a>🎬 Add a label, <span class="in">`tnfa`</span>, to the data to indicate if the cell is positive</span>
+<span id="cb47-802"><a href="#cb47-802" aria-hidden="true" tabindex="-1"></a>or negative for TNF-α</span>
+<span id="cb47-803"><a href="#cb47-803" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-806"><a href="#cb47-806" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-807"><a href="#cb47-807" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-808"><a href="#cb47-808" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tnfa =</span> <span class="fu">case_when</span>(TNFa_APC_Lin <span class="sc">&lt;</span> apc_cut <span class="sc">~</span> <span class="st">"TNF-α -'ve"</span>,</span>
+<span id="cb47-809"><a href="#cb47-809" aria-hidden="true" tabindex="-1"></a>                               TNFa_APC_Lin <span class="sc">&gt;=</span> apc_cut <span class="sc">~</span> <span class="st">"TNF-α +'ve"</span>))</span>
+<span id="cb47-810"><a href="#cb47-810" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-811"><a href="#cb47-811" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-812"><a href="#cb47-812" aria-hidden="true" tabindex="-1"></a>🎬 Summarise each group by finding the number of TNF-α positive cells</span>
+<span id="cb47-813"><a href="#cb47-813" aria-hidden="true" tabindex="-1"></a>and the mean <span class="in">`TNFa_APC_Lin`</span> signal for each group:</span>
+<span id="cb47-814"><a href="#cb47-814" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-817"><a href="#cb47-817" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-818"><a href="#cb47-818" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-819"><a href="#cb47-819" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tnfa <span class="sc">==</span> <span class="st">"TNF-α +'ve"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb47-820"><a href="#cb47-820" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(antibody, treatment) <span class="sc">|&gt;</span></span>
+<span id="cb47-821"><a href="#cb47-821" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_pos_tnfa =</span> <span class="fu">n</span>(),</span>
+<span id="cb47-822"><a href="#cb47-822" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_apc =</span> <span class="fu">mean</span>(TNFa_APC_Lin))</span>
+<span id="cb47-823"><a href="#cb47-823" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-824"><a href="#cb47-824" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-827"><a href="#cb47-827" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-828"><a href="#cb47-828" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-829"><a href="#cb47-829" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_tfna_pos)</span>
+<span id="cb47-830"><a href="#cb47-830" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-831"><a href="#cb47-831" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-832"><a href="#cb47-832" aria-hidden="true" tabindex="-1"></a>🎬 We can add the number of live cells to this data frame and calculate</span>
+<span id="cb47-833"><a href="#cb47-833" aria-hidden="true" tabindex="-1"></a>the percentage of live cells that are positive for TNF-α:</span>
+<span id="cb47-834"><a href="#cb47-834" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-837"><a href="#cb47-837" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-838"><a href="#cb47-838" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> </span>
+<span id="cb47-839"><a href="#cb47-839" aria-hidden="true" tabindex="-1"></a>  clean_trans_live_tfna_pos <span class="sc">|&gt;</span> </span>
+<span id="cb47-840"><a href="#cb47-840" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clean_trans_live_n, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"antibody"</span>, <span class="st">"treatment"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-841"><a href="#cb47-841" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_pos_tnfa =</span> <span class="fu">round</span>(n_pos_tnfa<span class="sc">/</span>n_live <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>) )</span>
 <span id="cb47-842"><a href="#cb47-842" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-843"><a href="#cb47-843" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-844"><a href="#cb47-844" aria-hidden="true" tabindex="-1"></a>🎬 We can add the number of live cells to this data frame and</span>
-<span id="cb47-845"><a href="#cb47-845" aria-hidden="true" tabindex="-1"></a>calculate the percentage of live cells that are positive for</span>
-<span id="cb47-846"><a href="#cb47-846" aria-hidden="true" tabindex="-1"></a>TNF-α:</span>
-<span id="cb47-847"><a href="#cb47-847" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-850"><a href="#cb47-850" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-851"><a href="#cb47-851" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> </span>
-<span id="cb47-852"><a href="#cb47-852" aria-hidden="true" tabindex="-1"></a>  clean_trans_live_tfna_pos <span class="sc">|&gt;</span> </span>
-<span id="cb47-853"><a href="#cb47-853" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clean_trans_live_n, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"antibody"</span>, <span class="st">"treatment"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb47-854"><a href="#cb47-854" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_pos_tnfa =</span> <span class="fu">round</span>(n_pos_tnfa<span class="sc">/</span>n_live <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>) )</span>
-<span id="cb47-855"><a href="#cb47-855" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-856"><a href="#cb47-856" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-857"><a href="#cb47-857" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-858"><a href="#cb47-858" aria-hidden="true" tabindex="-1"></a>🎬 And put the columns into a more logical order:</span>
+<span id="cb47-844"><a href="#cb47-844" aria-hidden="true" tabindex="-1"></a>🎬 And put the columns into a more logical order:</span>
+<span id="cb47-845"><a href="#cb47-845" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-848"><a href="#cb47-848" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-849"><a href="#cb47-849" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> </span>
+<span id="cb47-850"><a href="#cb47-850" aria-hidden="true" tabindex="-1"></a>  clean_trans_live_tfna_pos <span class="sc">|&gt;</span> </span>
+<span id="cb47-851"><a href="#cb47-851" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(antibody,</span>
+<span id="cb47-852"><a href="#cb47-852" aria-hidden="true" tabindex="-1"></a>         treatment,</span>
+<span id="cb47-853"><a href="#cb47-853" aria-hidden="true" tabindex="-1"></a>         n,</span>
+<span id="cb47-854"><a href="#cb47-854" aria-hidden="true" tabindex="-1"></a>         n_live,</span>
+<span id="cb47-855"><a href="#cb47-855" aria-hidden="true" tabindex="-1"></a>         perc_live,</span>
+<span id="cb47-856"><a href="#cb47-856" aria-hidden="true" tabindex="-1"></a>         mean_apc,</span>
+<span id="cb47-857"><a href="#cb47-857" aria-hidden="true" tabindex="-1"></a>         n_pos_tnfa,</span>
+<span id="cb47-858"><a href="#cb47-858" aria-hidden="true" tabindex="-1"></a>         perc_pos_tnfa)</span>
 <span id="cb47-859"><a href="#cb47-859" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-862"><a href="#cb47-862" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-863"><a href="#cb47-863" aria-hidden="true" tabindex="-1"></a>clean_trans_live_tfna_pos <span class="ot">&lt;-</span> </span>
-<span id="cb47-864"><a href="#cb47-864" aria-hidden="true" tabindex="-1"></a>  clean_trans_live_tfna_pos <span class="sc">|&gt;</span> </span>
-<span id="cb47-865"><a href="#cb47-865" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(antibody,</span>
-<span id="cb47-866"><a href="#cb47-866" aria-hidden="true" tabindex="-1"></a>         treatment,</span>
-<span id="cb47-867"><a href="#cb47-867" aria-hidden="true" tabindex="-1"></a>         n,</span>
-<span id="cb47-868"><a href="#cb47-868" aria-hidden="true" tabindex="-1"></a>         n_live,</span>
-<span id="cb47-869"><a href="#cb47-869" aria-hidden="true" tabindex="-1"></a>         perc_live,</span>
-<span id="cb47-870"><a href="#cb47-870" aria-hidden="true" tabindex="-1"></a>         mean_apc,</span>
-<span id="cb47-871"><a href="#cb47-871" aria-hidden="true" tabindex="-1"></a>         n_pos_tnfa,</span>
-<span id="cb47-872"><a href="#cb47-872" aria-hidden="true" tabindex="-1"></a>         perc_pos_tnfa)</span>
-<span id="cb47-873"><a href="#cb47-873" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-874"><a href="#cb47-874" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-860"><a href="#cb47-860" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-861"><a href="#cb47-861" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-864"><a href="#cb47-864" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-865"><a href="#cb47-865" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-866"><a href="#cb47-866" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_tfna_pos)</span>
+<span id="cb47-867"><a href="#cb47-867" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-868"><a href="#cb47-868" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-869"><a href="#cb47-869" aria-hidden="true" tabindex="-1"></a>The fact that a very low percentage of cells are positive for TNF-α in</span>
+<span id="cb47-870"><a href="#cb47-870" aria-hidden="true" tabindex="-1"></a>the isotype control is a good indication that cut off we used for the</span>
+<span id="cb47-871"><a href="#cb47-871" aria-hidden="true" tabindex="-1"></a><span class="in">`TNFa_APC_Lin`</span> signal is a good one.</span>
+<span id="cb47-872"><a href="#cb47-872" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-873"><a href="#cb47-873" aria-hidden="true" tabindex="-1"></a>TNFAPC-MEDIA combination tells us how much TNF-α we expect in</span>
+<span id="cb47-874"><a href="#cb47-874" aria-hidden="true" tabindex="-1"></a>unstimulated cells.</span>
 <span id="cb47-875"><a href="#cb47-875" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-876"><a href="#cb47-876" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-877"><a href="#cb47-877" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-880"><a href="#cb47-880" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-881"><a href="#cb47-881" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb47-882"><a href="#cb47-882" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(clean_trans_live_tfna_pos)</span>
-<span id="cb47-883"><a href="#cb47-883" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-884"><a href="#cb47-884" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-885"><a href="#cb47-885" aria-hidden="true" tabindex="-1"></a>The fact that a very low percentage of cells are positive for TNF-α in</span>
-<span id="cb47-886"><a href="#cb47-886" aria-hidden="true" tabindex="-1"></a>the isotype control is a good indication that cut off we used for the</span>
-<span id="cb47-887"><a href="#cb47-887" aria-hidden="true" tabindex="-1"></a><span class="in">`TNFa_APC_Lin`</span> signal is a good one.</span>
-<span id="cb47-888"><a href="#cb47-888" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-889"><a href="#cb47-889" aria-hidden="true" tabindex="-1"></a>TNFAPC-MEDIA combination tells us how much TNF-α we expect in </span>
-<span id="cb47-890"><a href="#cb47-890" aria-hidden="true" tabindex="-1"></a>unstimulated cells.</span>
+<span id="cb47-876"><a href="#cb47-876" aria-hidden="true" tabindex="-1"></a>This is important data for your write up and will be your contribution</span>
+<span id="cb47-877"><a href="#cb47-877" aria-hidden="true" tabindex="-1"></a>to the class data set so you should write it to file.</span>
+<span id="cb47-878"><a href="#cb47-878" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-879"><a href="#cb47-879" aria-hidden="true" tabindex="-1"></a>🎬 Write <span class="in">`clean_trans_live_tfna_pos`</span> to file:</span>
+<span id="cb47-880"><a href="#cb47-880" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-883"><a href="#cb47-883" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-884"><a href="#cb47-884" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans_live_tfna_pos, </span>
+<span id="cb47-885"><a href="#cb47-885" aria-hidden="true" tabindex="-1"></a>          <span class="st">"data-processed/clean_trans_live_tfna_pos.csv"</span>)</span>
+<span id="cb47-886"><a href="#cb47-886" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-887"><a href="#cb47-887" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-888"><a href="#cb47-888" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `E_coli_FITC_Lin` signal</span></span>
+<span id="cb47-889"><a href="#cb47-889" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-890"><a href="#cb47-890" aria-hidden="true" tabindex="-1"></a>We can apply the same logic to the <span class="in">`E_coli_FITC_Lin`</span> signal.</span>
 <span id="cb47-891"><a href="#cb47-891" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-892"><a href="#cb47-892" aria-hidden="true" tabindex="-1"></a>This is important data for your write up and will be your contribution </span>
-<span id="cb47-893"><a href="#cb47-893" aria-hidden="true" tabindex="-1"></a>to the class data set so you should write it to file.</span>
-<span id="cb47-894"><a href="#cb47-894" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-895"><a href="#cb47-895" aria-hidden="true" tabindex="-1"></a>🎬 Write <span class="in">`clean_trans_live_tfna_pos`</span> to file:</span>
-<span id="cb47-896"><a href="#cb47-896" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-899"><a href="#cb47-899" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-900"><a href="#cb47-900" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans_live_tfna_pos, </span>
-<span id="cb47-901"><a href="#cb47-901" aria-hidden="true" tabindex="-1"></a>          <span class="st">"data-processed/clean_trans_live_tfna_pos.csv"</span>)</span>
+<span id="cb47-892"><a href="#cb47-892" aria-hidden="true" tabindex="-1"></a>For either antibody, when the treatment is media or LPS there is no</span>
+<span id="cb47-893"><a href="#cb47-893" aria-hidden="true" tabindex="-1"></a>*E.coli* so that level of <span class="in">`E_coli_FITC_Lin`</span> signal means zero. That</span>
+<span id="cb47-894"><a href="#cb47-894" aria-hidden="true" tabindex="-1"></a>level looks to be about 2.</span>
+<span id="cb47-895"><a href="#cb47-895" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-896"><a href="#cb47-896" aria-hidden="true" tabindex="-1"></a>🎬 Define the threshold for the <span class="in">`E_coli_FITC_Lin`</span> signal:</span>
+<span id="cb47-897"><a href="#cb47-897" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-900"><a href="#cb47-900" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-901"><a href="#cb47-901" aria-hidden="true" tabindex="-1"></a>fitc_cut <span class="ot">&lt;-</span> <span class="dv">2</span></span>
 <span id="cb47-902"><a href="#cb47-902" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-903"><a href="#cb47-903" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-904"><a href="#cb47-904" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `E_coli_FITC_Lin` signal</span></span>
-<span id="cb47-905"><a href="#cb47-905" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-906"><a href="#cb47-906" aria-hidden="true" tabindex="-1"></a>We can apply the same logic to the <span class="in">`E_coli_FITC_Lin`</span> signal.</span>
-<span id="cb47-907"><a href="#cb47-907" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-908"><a href="#cb47-908" aria-hidden="true" tabindex="-1"></a>For either antibody, when the treatment is media or LPS there is no</span>
-<span id="cb47-909"><a href="#cb47-909" aria-hidden="true" tabindex="-1"></a>*E.coli* so that level of <span class="in">`E_coli_FITC_Lin`</span> signal means zero. That </span>
-<span id="cb47-910"><a href="#cb47-910" aria-hidden="true" tabindex="-1"></a>level looks to be about 2.</span>
-<span id="cb47-911"><a href="#cb47-911" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-912"><a href="#cb47-912" aria-hidden="true" tabindex="-1"></a>🎬 Define the threshold for the <span class="in">`E_coli_FITC_Lin`</span> signal:</span>
-<span id="cb47-913"><a href="#cb47-913" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-916"><a href="#cb47-916" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-917"><a href="#cb47-917" aria-hidden="true" tabindex="-1"></a>fitc_cut <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb47-918"><a href="#cb47-918" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-919"><a href="#cb47-919" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-920"><a href="#cb47-920" aria-hidden="true" tabindex="-1"></a>🎬 Add a label, <span class="in">`fitc`</span>, to the data to indicate if the cell is positive</span>
-<span id="cb47-921"><a href="#cb47-921" aria-hidden="true" tabindex="-1"></a>or negative for FITC</span>
+<span id="cb47-904"><a href="#cb47-904" aria-hidden="true" tabindex="-1"></a>🎬 Add a label, <span class="in">`fitc`</span>, to the data to indicate if the cell is positive</span>
+<span id="cb47-905"><a href="#cb47-905" aria-hidden="true" tabindex="-1"></a>or negative for FITC</span>
+<span id="cb47-906"><a href="#cb47-906" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-909"><a href="#cb47-909" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-910"><a href="#cb47-910" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
+<span id="cb47-911"><a href="#cb47-911" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fitc =</span> <span class="fu">case_when</span>(E_coli_FITC_Lin <span class="sc">&lt;</span> fitc_cut <span class="sc">~</span> <span class="st">"FITC -'ve"</span>,</span>
+<span id="cb47-912"><a href="#cb47-912" aria-hidden="true" tabindex="-1"></a>                               E_coli_FITC_Lin <span class="sc">&gt;=</span> fitc_cut <span class="sc">~</span> <span class="st">"FITC +'ve"</span>))</span>
+<span id="cb47-913"><a href="#cb47-913" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-914"><a href="#cb47-914" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-915"><a href="#cb47-915" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb47-916"><a href="#cb47-916" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tip for your own summaries</span></span>
+<span id="cb47-917"><a href="#cb47-917" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-918"><a href="#cb47-918" aria-hidden="true" tabindex="-1"></a>You may wish to repeat the process we used for the <span class="in">`TNFa_APC_Lin`</span> signal</span>
+<span id="cb47-919"><a href="#cb47-919" aria-hidden="true" tabindex="-1"></a>to find out the number of cells that are FITC positive in each sample</span>
+<span id="cb47-920"><a href="#cb47-920" aria-hidden="true" tabindex="-1"></a>and the mean intensity of the FITC signal in the FITC positive cells.</span>
+<span id="cb47-921"><a href="#cb47-921" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb47-922"><a href="#cb47-922" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-925"><a href="#cb47-925" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-926"><a href="#cb47-926" aria-hidden="true" tabindex="-1"></a>clean_trans_live <span class="ot">&lt;-</span> clean_trans_live <span class="sc">|&gt;</span> </span>
-<span id="cb47-927"><a href="#cb47-927" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fitc =</span> <span class="fu">case_when</span>(E_coli_FITC_Lin <span class="sc">&lt;</span> fitc_cut <span class="sc">~</span> <span class="st">"FITC -'ve"</span>,</span>
-<span id="cb47-928"><a href="#cb47-928" aria-hidden="true" tabindex="-1"></a>                               E_coli_FITC_Lin <span class="sc">&gt;=</span> fitc_cut <span class="sc">~</span> <span class="st">"FITC +'ve"</span>))</span>
-<span id="cb47-929"><a href="#cb47-929" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb47-930"><a href="#cb47-930" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-931"><a href="#cb47-931" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb47-932"><a href="#cb47-932" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tip for your own summaries</span></span>
-<span id="cb47-933"><a href="#cb47-933" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-934"><a href="#cb47-934" aria-hidden="true" tabindex="-1"></a>You may wish to repeat the process we used for the <span class="in">`TNFa_APC_Lin`</span></span>
-<span id="cb47-935"><a href="#cb47-935" aria-hidden="true" tabindex="-1"></a>signal to find out the number of cells that are FITC positive in each </span>
-<span id="cb47-936"><a href="#cb47-936" aria-hidden="true" tabindex="-1"></a>sample and the mean intensity of the FITC signal in the FITC positive </span>
-<span id="cb47-937"><a href="#cb47-937" aria-hidden="true" tabindex="-1"></a>cells.</span>
-<span id="cb47-938"><a href="#cb47-938" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb47-939"><a href="#cb47-939" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-940"><a href="#cb47-940" aria-hidden="true" tabindex="-1"></a><span class="fu">### A figure to report baselines for both signals</span></span>
-<span id="cb47-941"><a href="#cb47-941" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-942"><a href="#cb47-942" aria-hidden="true" tabindex="-1"></a>🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for</span>
-<span id="cb47-943"><a href="#cb47-943" aria-hidden="true" tabindex="-1"></a>both signals:</span>
+<span id="cb47-923"><a href="#cb47-923" aria-hidden="true" tabindex="-1"></a><span class="fu">### A figure to report baselines for both signals</span></span>
+<span id="cb47-924"><a href="#cb47-924" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-925"><a href="#cb47-925" aria-hidden="true" tabindex="-1"></a>🎬 Plot <span class="in">`TNFa_APC_Lin`</span> against <span class="in">`E_coli_FITC_Lin`</span> with the thresholds for</span>
+<span id="cb47-926"><a href="#cb47-926" aria-hidden="true" tabindex="-1"></a>both signals:</span>
+<span id="cb47-927"><a href="#cb47-927" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-930"><a href="#cb47-930" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-931"><a href="#cb47-931" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
+<span id="cb47-932"><a href="#cb47-932" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
+<span id="cb47-933"><a href="#cb47-933" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
+<span id="cb47-934"><a href="#cb47-934" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> apc_cut, </span>
+<span id="cb47-935"><a href="#cb47-935" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb47-936"><a href="#cb47-936" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> fitc_cut, </span>
+<span id="cb47-937"><a href="#cb47-937" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb47-938"><a href="#cb47-938" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb47-939"><a href="#cb47-939" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
+<span id="cb47-940"><a href="#cb47-940" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-941"><a href="#cb47-941" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-942"><a href="#cb47-942" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-943"><a href="#cb47-943" aria-hidden="true" tabindex="-1"></a><span class="fu">## Save the data</span></span>
 <span id="cb47-944"><a href="#cb47-944" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-947"><a href="#cb47-947" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-948"><a href="#cb47-948" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_trans_live, <span class="fu">aes</span>(<span class="at">x =</span> E_coli_FITC_Lin, </span>
-<span id="cb47-949"><a href="#cb47-949" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> TNFa_APC_Lin)) <span class="sc">+</span></span>
-<span id="cb47-950"><a href="#cb47-950" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">128</span>) <span class="sc">+</span></span>
-<span id="cb47-951"><a href="#cb47-951" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> apc_cut, </span>
-<span id="cb47-952"><a href="#cb47-952" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb47-953"><a href="#cb47-953" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> fitc_cut, </span>
-<span id="cb47-954"><a href="#cb47-954" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb47-955"><a href="#cb47-955" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb47-956"><a href="#cb47-956" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(antibody <span class="sc">~</span> treatment) <span class="sc">+</span></span>
-<span id="cb47-957"><a href="#cb47-957" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb47-945"><a href="#cb47-945" aria-hidden="true" tabindex="-1"></a>We have filtered out the dead cells and debris and added labels to the</span>
+<span id="cb47-946"><a href="#cb47-946" aria-hidden="true" tabindex="-1"></a>data to indicate if the cells are positive or negative for TNF-α and *E.</span>
+<span id="cb47-947"><a href="#cb47-947" aria-hidden="true" tabindex="-1"></a>coli*. It would be a good idea to save this data to file so we can start</span>
+<span id="cb47-948"><a href="#cb47-948" aria-hidden="true" tabindex="-1"></a>from importing this data in the future rather than having to repeat all</span>
+<span id="cb47-949"><a href="#cb47-949" aria-hidden="true" tabindex="-1"></a>of the steps we have done so far.</span>
+<span id="cb47-950"><a href="#cb47-950" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-951"><a href="#cb47-951" aria-hidden="true" tabindex="-1"></a>🎬 Save the data:</span>
+<span id="cb47-952"><a href="#cb47-952" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-955"><a href="#cb47-955" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb47-956"><a href="#cb47-956" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans_live, <span class="st">"data-processed/live_labelled.csv"</span>)</span>
+<span id="cb47-957"><a href="#cb47-957" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-958"><a href="#cb47-958" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb47-959"><a href="#cb47-959" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-960"><a href="#cb47-960" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-960"><a href="#cb47-960" aria-hidden="true" tabindex="-1"></a><span class="fu">## Look after future you!</span></span>
 <span id="cb47-961"><a href="#cb47-961" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-962"><a href="#cb47-962" aria-hidden="true" tabindex="-1"></a><span class="fu">## Save the data</span></span>
-<span id="cb47-963"><a href="#cb47-963" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-964"><a href="#cb47-964" aria-hidden="true" tabindex="-1"></a>We have filtered out the dead cells and debris and added labels to the</span>
-<span id="cb47-965"><a href="#cb47-965" aria-hidden="true" tabindex="-1"></a>data to indicate if the cells are positive or negative for TNF-α and *E.</span>
-<span id="cb47-966"><a href="#cb47-966" aria-hidden="true" tabindex="-1"></a>coli*. It would be a good idea to save this data to file so we can start</span>
-<span id="cb47-967"><a href="#cb47-967" aria-hidden="true" tabindex="-1"></a>from importing this data in the future rather than having to repeat all</span>
-<span id="cb47-968"><a href="#cb47-968" aria-hidden="true" tabindex="-1"></a>of the steps we have done so far.</span>
-<span id="cb47-969"><a href="#cb47-969" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-970"><a href="#cb47-970" aria-hidden="true" tabindex="-1"></a>🎬 Save the data:</span>
-<span id="cb47-971"><a href="#cb47-971" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-974"><a href="#cb47-974" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb47-975"><a href="#cb47-975" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_trans_live, <span class="st">"data-processed/live_labelled.csv"</span>)</span>
+<span id="cb47-962"><a href="#cb47-962" aria-hidden="true" tabindex="-1"></a>🎬 This workshop is a template for the analysis of your own data. Go</span>
+<span id="cb47-963"><a href="#cb47-963" aria-hidden="true" tabindex="-1"></a>back through your script and check you understand what you have done.</span>
+<span id="cb47-964"><a href="#cb47-964" aria-hidden="true" tabindex="-1"></a>Can you identify where you will need to edit? Do you understand what you</span>
+<span id="cb47-965"><a href="#cb47-965" aria-hidden="true" tabindex="-1"></a>will need to assess in order to make edits needed for your own data?</span>
+<span id="cb47-966"><a href="#cb47-966" aria-hidden="true" tabindex="-1"></a>Examine all of the objects in the environment to check you understand</span>
+<span id="cb47-967"><a href="#cb47-967" aria-hidden="true" tabindex="-1"></a>what they are and why they are there.</span>
+<span id="cb47-968"><a href="#cb47-968" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-969"><a href="#cb47-969" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
+<span id="cb47-970"><a href="#cb47-970" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-971"><a href="#cb47-971" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
+<span id="cb47-972"><a href="#cb47-972" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-973"><a href="#cb47-973" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
+<span id="cb47-974"><a href="#cb47-974" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-975"><a href="#cb47-975" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
 <span id="cb47-976"><a href="#cb47-976" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-977"><a href="#cb47-977" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb47-977"><a href="#cb47-977" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
 <span id="cb47-978"><a href="#cb47-978" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-979"><a href="#cb47-979" aria-hidden="true" tabindex="-1"></a><span class="fu">## Look after future you!</span></span>
-<span id="cb47-980"><a href="#cb47-980" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-981"><a href="#cb47-981" aria-hidden="true" tabindex="-1"></a>🎬 This workshop is a template for the analysis of your own data. Go</span>
-<span id="cb47-982"><a href="#cb47-982" aria-hidden="true" tabindex="-1"></a>back through your script and check you understand what you have done.</span>
-<span id="cb47-983"><a href="#cb47-983" aria-hidden="true" tabindex="-1"></a>Can you identify where you will need to edit? Do you understand what you</span>
-<span id="cb47-984"><a href="#cb47-984" aria-hidden="true" tabindex="-1"></a>will need to assess in order to make edits needed for your own data?</span>
-<span id="cb47-985"><a href="#cb47-985" aria-hidden="true" tabindex="-1"></a>Examine all of the objects in the environment to check you understand</span>
-<span id="cb47-986"><a href="#cb47-986" aria-hidden="true" tabindex="-1"></a>what they are and why they are there.</span>
-<span id="cb47-987"><a href="#cb47-987" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-988"><a href="#cb47-988" aria-hidden="true" tabindex="-1"></a>You're finished!</span>
-<span id="cb47-989"><a href="#cb47-989" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-990"><a href="#cb47-990" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🥳 Well Done! 🎉</span></span>
-<span id="cb47-991"><a href="#cb47-991" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-992"><a href="#cb47-992" aria-hidden="true" tabindex="-1"></a><span class="fu"># Independent study following the workshop</span></span>
-<span id="cb47-993"><a href="#cb47-993" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-994"><a href="#cb47-994" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Consolidate</span><span class="co">](study_after_workshop.qmd)</span></span>
-<span id="cb47-995"><a href="#cb47-995" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-996"><a href="#cb47-996" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Code file</span></span>
-<span id="cb47-997"><a href="#cb47-997" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-998"><a href="#cb47-998" aria-hidden="true" tabindex="-1"></a>This contains all the code needed in the workshop even where it is not</span>
-<span id="cb47-999"><a href="#cb47-999" aria-hidden="true" tabindex="-1"></a>visible on the webpage.</span>
-<span id="cb47-1000"><a href="#cb47-1000" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-1001"><a href="#cb47-1001" aria-hidden="true" tabindex="-1"></a>The <span class="in">`workshop.qmd`</span> file is the file I use to compile the practical. Qmd</span>
-<span id="cb47-1002"><a href="#cb47-1002" aria-hidden="true" tabindex="-1"></a>stands for Quarto markdown. It allows code and ordinary text to be</span>
-<span id="cb47-1003"><a href="#cb47-1003" aria-hidden="true" tabindex="-1"></a>interweaved to produce well-formatted reports including webpages. [View</span>
-<span id="cb47-1004"><a href="#cb47-1004" aria-hidden="true" tabindex="-1"></a>the Qmd in</span>
-<span id="cb47-1005"><a href="#cb47-1005" aria-hidden="true" tabindex="-1"></a>Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-2/workshop.qmd).</span>
-<span id="cb47-1006"><a href="#cb47-1006" aria-hidden="true" tabindex="-1"></a>Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span> and</span>
-<span id="cb47-1007"><a href="#cb47-1007" aria-hidden="true" tabindex="-1"></a><span class="in">`#---THINKING ANSWER---`</span></span>
-<span id="cb47-1008"><a href="#cb47-1008" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-1009"><a href="#cb47-1009" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> </span>
-<span id="cb47-1010"><a href="#cb47-1010" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@knitr1; @knitr2; @knitr3</span><span class="co">]</span>,</span>
-<span id="cb47-1011"><a href="#cb47-1011" aria-hidden="true" tabindex="-1"></a><span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
-<span id="cb47-1012"><a href="#cb47-1012" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-1013"><a href="#cb47-1013" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
+<span id="cb47-979"><a href="#cb47-979" aria-hidden="true" tabindex="-1"></a>All the answers (coding and thinking) are in the source code for the</span>
+<span id="cb47-980"><a href="#cb47-980" aria-hidden="true" tabindex="-1"></a>workshop. You can view it using the <span class="in">`&lt;/&gt; Code`</span> button at the top of the</span>
+<span id="cb47-981"><a href="#cb47-981" aria-hidden="true" tabindex="-1"></a>page. Coding and thinking answers are marked with <span class="in">`#---CODING ANSWER---`</span></span>
+<span id="cb47-982"><a href="#cb47-982" aria-hidden="true" tabindex="-1"></a>and <span class="in">`#---THINKING ANSWER---`</span></span>
+<span id="cb47-983"><a href="#cb47-983" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-984"><a href="#cb47-984" aria-hidden="true" tabindex="-1"></a>Pages made with R <span class="co">[</span><span class="ot">@R-core</span><span class="co">]</span>, Quarto <span class="co">[</span><span class="ot">@allaire2022</span><span class="co">]</span>, <span class="in">`knitr`</span> [@knitr1;</span>
+<span id="cb47-985"><a href="#cb47-985" aria-hidden="true" tabindex="-1"></a>@knitr2; @knitr3], <span class="in">`kableExtra`</span> <span class="co">[</span><span class="ot">@kableExtra</span><span class="co">]</span></span>
+<span id="cb47-986"><a href="#cb47-986" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-987"><a href="#cb47-987" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
