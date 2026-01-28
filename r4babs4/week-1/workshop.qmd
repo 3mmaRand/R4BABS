@@ -603,32 +603,31 @@ biotech |>
 
 ```
 
-
 ```{r}
 library(tidyverse)
 ```
 
-This code takes the `biotech` dataframe and transforms it dataset from 
-wide format to long format. It takes all columns except `transcript` (`cols = -transcript`) and gathers them into two new columns:
+This code takes the `biotech` dataframe and transforms it dataset from
+wide format to long format. It takes all columns except `transcript`
+(`cols = -transcript`) and gathers them into two new columns:
 
-  - `"sample"` → Stores the original column names 
-     (`SCK14_1`, `SCK14_2`, etc.).
-  - `"count"` → Stores the values from those columns.
+-   `"sample"` → Stores the original column names (`SCK14_1`, `SCK14_2`,
+    etc.).
+-   `"count"` → Stores the values from those columns.
 
 Now, instead of multiple sample columns, we have a table like this:
 
 | transcript | sample  | count |
-|------------|--------|-------|
-| MSTRG.1   | SCK14_1 | 560   |
-| MSTRG.1   | SCK14_2 | 1526  |
-| MSTRG.1   | SCK14_3 | 4168  |
-| MSTRG.10  | SCK14_1 | 0     |
+|------------|---------|-------|
+| MSTRG.1    | SCK14_1 | 560   |
+| MSTRG.1    | SCK14_2 | 1526  |
+| MSTRG.1    | SCK14_3 | 4168  |
+| MSTRG.10   | SCK14_1 | 0     |
 
-
-which is piped straight into ggplot. The nice thing about the pipe, is 
-that you need not create a new dataframe to do this. You can pipe the 
-output of `pivot_longer()` directly into `ggplot()`. This is very useful 
-when you are exploring the data and want to try out different 
+which is piped straight into ggplot. The nice thing about the pipe, is
+that you need not create a new dataframe to do this. You can pipe the
+output of `pivot_longer()` directly into `ggplot()`. This is very useful
+when you are exploring the data and want to try out different
 visualisations.
 
 You're finished!
@@ -641,16 +640,10 @@ You're finished!
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not
-visible on the webpage.
-
-The `workshop.qmd` file is the file I use to compile the practical. Qmd
-stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [View
-the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-1/workshop.qmd).
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
+All the answers (coding and thinking) are in the source code for the
+workshop. You can view it using the `</> Code` button at the top of the
+page. Coding and thinking answers are marked with `#---CODING ANSWER---`
+and \`#---THINKING ANSWER---\`\`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
 @knitr2; @knitr3], `kableExtra` [@kableExtra]
