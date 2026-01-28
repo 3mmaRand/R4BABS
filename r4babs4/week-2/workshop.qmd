@@ -29,7 +29,7 @@ produce.
 🎬 Make an RStudio project. Be deliberate about where you create it so
 that it is a good place for you.
 
-🎬 Use the Files pane to make a folders for the data. I suggest
+🎬 Use the Files pane to make folders for the data. I suggest
 `data-raw/`, `data-processed/` and `data-meta/`
 
 🎬 Make a new script called `sample-data-analysis.R` to carry out the
@@ -53,7 +53,7 @@ We need three packages for this workshop:
 
 -   **`flowAI`** [@flowAI]: which performs automated quality control by
     checking for changes in instrument speed and signal intensity that
-    indicate a problem for the reading for that cells
+    indicate a problem for the reading on a cell
 
 ::: callout-tip
 ## Working on University computers or using the Virtual Desktop Service
@@ -69,8 +69,8 @@ I recommend working on the University computers for this work. You can
 still work from home by using the [Virtual Desktop
 Service](https://www.york.ac.uk/it-services/tools/vds/). The VDS allows
 you to log on to a university computer from your own computer. It means
-you can access all software and filestores. When using the VDS for R a
-nd RStudio, it usually makes sense to use other software - such as a
+you can access all software and filestores. When using the VDS for R and
+RStudio, it usually makes sense to use other software - such as a
 browser or file explorer - also through the VDS. Go to the [Virtual
 Desktop Service](https://www.york.ac.uk/it-services/tools/vds/) for set
 up instructions.
@@ -264,7 +264,7 @@ proceed.
 of flow cytometry data. It checks for:
 
 -   changes in instrument speed using the Time column,
--   changes signal intensity
+-   changes in signal intensity
 -   cells that are outside the dynamic range
 
 It generates a new flowSet with the problematic events removed along
@@ -683,7 +683,7 @@ dataframe `clean_trans_live`.
 
 We have two signals:
 
--   `TNFa_APC_Lin` is should indicate the amount of TNF-α protein in the
+-   `TNFa_APC_Lin` should indicate the amount of TNF-α protein in the
     cell
 -   `E_coli_FITC_Lin` should indicate the amount of *E. coli* in the
     cell
@@ -828,7 +828,7 @@ and the mean intensity of the FITC signal in the FITC positive cells.
 
 ### A figure to report baselines for both signals
 
-🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for
+🎬 Plot `TNFa_APC_Lin` against `E_coli_FITC_Lin` with the thresholds for
 both signals:
 
 ```{r}
