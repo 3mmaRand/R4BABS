@@ -29,7 +29,7 @@ produce.
 🎬 Make an RStudio project. Be deliberate about where you create it so
 that it is a good place for you.
 
-🎬 Use the Files pane to make a folders for the data. I suggest
+🎬 Use the Files pane to make folders for the data. I suggest
 `data-raw/`, `data-processed/` and `data-meta/`
 
 🎬 Make a new script called `sample-data-analysis.R` to carry out the
@@ -53,7 +53,7 @@ We need three packages for this workshop:
 
 -   **`flowAI`** [@flowAI]: which performs automated quality control by
     checking for changes in instrument speed and signal intensity that
-    indicate a problem for the reading for that cells
+    indicate a problem for the reading on a cell
 
 ::: callout-tip
 ## Working on University computers or using the Virtual Desktop Service
@@ -69,8 +69,8 @@ I recommend working on the University computers for this work. You can
 still work from home by using the [Virtual Desktop
 Service](https://www.york.ac.uk/it-services/tools/vds/). The VDS allows
 you to log on to a university computer from your own computer. It means
-you can access all software and filestores. When using the VDS for R a
-nd RStudio, it usually makes sense to use other software - such as a
+you can access all software and filestores. When using the VDS for R and
+RStudio, it usually makes sense to use other software - such as a
 browser or file explorer - also through the VDS. Go to the [Virtual
 Desktop Service](https://www.york.ac.uk/it-services/tools/vds/) for set
 up instructions.
@@ -218,7 +218,7 @@ have. They are not essential parts of the analysis.
 
 ## Improve the column names
 
-Names like `FL 1 Lin` meaning "fluorescence channel 1 linear" are not 
+Names like `FL 1 Lin` meaning "fluorescence channel 1 linear" are not
 very informative. A list of more useful column names are given in
 [meta.csv](data-meta/meta.csv). We can import this file and use the
 resulting dataframe to rename columns in our flowFrames. This will make
@@ -252,12 +252,11 @@ colnames(fs)
 ```
 
 ::: callout-tip
-You don't have to use the names I have used for your own analysis if
-you prefer different names. Simply edit the `meta.csv` file. However,
-you do need to keep the Time column named that way for the next step
-to proceed.
+You don't have to use the names I have used for your own analysis if you
+prefer different names. Simply edit the `meta.csv` file. However, you do
+need to keep the Time column named that way for the next step to
+proceed.
 :::
-
 
 ## Quality control 1: Automated instrument issues
 
@@ -265,7 +264,7 @@ to proceed.
 of flow cytometry data. It checks for:
 
 -   changes in instrument speed using the Time column,
--   changes signal intensity
+-   changes in signal intensity
 -   cells that are outside the dynamic range
 
 It generates a new flowSet with the problematic events removed along
@@ -296,9 +295,9 @@ fs_clean <- flow_auto_qc(fs,
 Plotting the distributions of our variables is very useful for getting
 an overview of our data. We'll just look at the first flowFrame to get
 over the principles. However, you may wish to examine all of the flow
-frames of your own data. 
+frames of your own data.
 
-🎬 Plot the distribution of the linear TNFa_APC signal in the first 
+🎬 Plot the distribution of the linear TNFa_APC signal in the first
 flowFrame in the flowSet:
 
 ```{r}
@@ -310,7 +309,7 @@ exprs(fs_clean[[1]]) |>
 ```
 
 This is a very skewed distribution which makes visualisation hard. It is
-common to log skewed distributions to improve visualisation. 
+common to log skewed distributions to improve visualisation.
 
 🎬 Plot the distribution of the logged `TNFa_APC_Lin` column:
 
@@ -334,11 +333,11 @@ Compensation is routinely applied to flow cytometry data to correct for
 fluorophores being detected in in multiple channels. This was not a
 problem in our experiment.
 
-The transformation is applied in two steps: the transformation needed 
-is estimated from the data and then that transformation is applied.
+The transformation is applied in two steps: the transformation needed is
+estimated from the data and then that transformation is applied.
 
 We need to apply the transformation only to the `TNFa_APC_Lin` and
-`E_coli_FITC_Lin` columns. The `estimateLogicle()` function refers to 
+`E_coli_FITC_Lin` columns. The `estimateLogicle()` function refers to
 columns as channels.
 
 🎬 Estimate the transformation from the data:
@@ -366,8 +365,6 @@ exprs(fs_clean_trans[[1]]) |>
 
 ```
 
-
-
 That looks better.
 
 ## Make data easier to work with
@@ -375,8 +372,8 @@ That looks better.
 We are going to get the data from the flowSet and put in a dataframe.
 FlowCore contains many functions for gating (filtering), plotting and
 summarising flowSets but putting the data into a dataframe will make it
-easier for you to use tools you already know and more easily follow
-the priciples of what you are doing.
+easier for you to use tools you already know and more easily follow the
+priciples of what you are doing.
 
 We will be using familiar tools like `group_by()` and `summarise()`,
 `filter()` and `ggplot()`
@@ -391,14 +388,14 @@ clean_trans <- fsApply(fs_clean_trans, exprs) |> data.frame()
 `fsApply(flowSet, function)` applies a function to every flowFrame in a
 flowSet. Here we have accessed the data matirx in each with `exprs()`.
 
-The are `r nrow(clean_trans)` rows (cells) in the dataset. You can view 
-it by clicking on the dataframe in the Environment. At the moment, 
-we cannot tell which row (cell) is from which sample but we can add the 
+The are `r nrow(clean_trans)` rows (cells) in the dataset. You can view
+it by clicking on the dataframe in the Environment. At the moment, we
+cannot tell which row (cell) is from which sample but we can add the
 sample names as a column in that dataframe.
 
 -   Each sample name needs to appear as many times as there are cells
     (events) in the corresponding flowFrame. For example,
-    `dim(fs_clean_trans[[1]])["events"]` is 
+    `dim(fs_clean_trans[[1]])["events"]` is
     `r dim(fs_clean_trans[[1]])["events"]` cells.
 
 -   `sampleNames(fs_clean_trans)` gives the names of the samples.
@@ -454,12 +451,11 @@ clean_trans <- clean_trans |>
 ## Adding the treatment and antibody information
 
 We have added the treatment and antibody information to each row by
-processing the names of the `fcs` files. This works because the file 
-names have a specific format which we have matched with the regex.
-When you work with your own data, the easist thing to do is ensure your
-files have the same names as the same data.
+processing the names of the `fcs` files. This works because the file
+names have a specific format which we have matched with the regex. When
+you work with your own data, the easist thing to do is ensure your files
+have the same names as the same data.
 :::
-
 
 🎬 View the dataframe to see the new columns.
 
@@ -473,9 +469,6 @@ clean_trans <- clean_trans |>
                                               "LPS",
                                               "ECOLIGreen")))
 ```
-
-
-
 
 ## Save the data
 
@@ -519,16 +512,16 @@ ggplot(clean_trans, aes(x = FS_Lin, y = SS_Lin)) +
 
 We can see a cloud of points in the middle of the plot. This is where
 the live cells are. Points towards the corners, especially in the bottom
-left corner are likely to be cell debris. We can draw a gate around the 
+left corner are likely to be cell debris. We can draw a gate around the
 cloud of points to remove the debris. We should use the same filter/gate
-on all six data sets for consistency. The gates can be a rectangle, 
+on all six data sets for consistency. The gates can be a rectangle,
 polygon, or ellipse. We will use a rectangle.
 
 ### Manual rectangular gate
 
 Use the zoom on the plot window to better see the cloud of points and
 the axis values. You need to use minimum and maximum $x$ and $y$ values
-to define the rectangle. 
+to define the rectangle.
 
 🎬 Define the minimum and maximum $x$ and $y$ values for the gate:
 
@@ -539,15 +532,13 @@ ymin <- 7500
 ymax <- 28000
 ```
 
-
 ::: callout-important
 ## Choosing values for your own data
 
-I chose theses values but you might judge the gate differently.
-You will certainly need to use different values for your own data.
-The next plot will help you refine them.
+I chose theses values but you might judge the gate differently. You will
+certainly need to use different values for your own data. The next plot
+will help you refine them.
 :::
-
 
 🎬 Put those values in a dataframe so we can plot the gate on the hexbin
 plot:
@@ -590,8 +581,8 @@ clean_trans_live <- clean_trans |>
 
 ```
 
-`clean_trans_live` now has `r nrow(clean_trans_live)` cells. 
-We should report how many cells were *in the gate* for each sample.
+`clean_trans_live` now has `r nrow(clean_trans_live)` cells. We should
+report how many cells were *in the gate* for each sample.
 
 🎬 Find the number of cells in each sample after flowAI cleaning:
 
@@ -622,15 +613,14 @@ clean_trans_live_n <-  clean_trans_live |>
 
 Now we use the clean, transformed and gated data.
 
-
 ```{r}
 #| echo: false
 knitr::kable(clean_trans_live_n)
 ```
 
 🎬 Join two data frames together using the combination of the treatment
-and the antibody and calculate what % cells remained in each
-sample after gating (*i.e.*, the % live cells):
+and the antibody and calculate what % cells remained in each sample
+after gating (*i.e.*, the % live cells):
 
 ```{r}
 clean_trans_live_n <- clean_trans_live_n |> 
@@ -674,8 +664,6 @@ This figure allows you to report what data you included in your analysis
 of the `TNFa_APC_Lin` and `E_coli_FITC_Lin` signals.
 :::
 
-
-
 🎬 Plot the `TNFa_APC_Lin` and `E_coli_FITC_Lin` signals for these live
 cells:
 
@@ -690,12 +678,12 @@ ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin,
 
 ## Quality control 3: Gating to determine a 'real' signal?
 
-From now on we are working with the cleaned and gated data, that is,
-the dataframe `clean_trans_live`.
+From now on we are working with the cleaned and gated data, that is, the
+dataframe `clean_trans_live`.
 
 We have two signals:
 
--   `TNFa_APC_Lin` is should indicate the amount of TNF-α protein in the
+-   `TNFa_APC_Lin` should indicate the amount of TNF-α protein in the
     cell
 -   `E_coli_FITC_Lin` should indicate the amount of *E. coli* in the
     cell
@@ -703,8 +691,8 @@ We have two signals:
 ### The `TNFa_APC_Lin` signal
 
 When the antibody is ISOTYPE there is no TNF-α so that level of
-`TNFa_APC_Lin` signal means no TNF-α. In other words, that signal is a 
-control. If you look at the top row of scatter plots, that level seems 
+`TNFa_APC_Lin` signal means no TNF-α. In other words, that signal is a
+control. If you look at the top row of scatter plots, that level seems
 to be about 3.8. In the rest of the data set we should assume any signal
 below 3.8 means there is no TNF-α.
 
@@ -731,7 +719,7 @@ ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin,
   theme_bw()
 ```
 
-That looks about right. We will use this value to label each cell as 
+That looks about right. We will use this value to label each cell as
 positive or negative for TNF-α.
 
 🎬 Add a label, `tnfa`, to the data to indicate if the cell is positive
@@ -759,9 +747,8 @@ clean_trans_live_tfna_pos <- clean_trans_live |>
 knitr::kable(clean_trans_live_tfna_pos)
 ```
 
-🎬 We can add the number of live cells to this data frame and
-calculate the percentage of live cells that are positive for
-TNF-α:
+🎬 We can add the number of live cells to this data frame and calculate
+the percentage of live cells that are positive for TNF-α:
 
 ```{r}
 clean_trans_live_tfna_pos <- 
@@ -769,7 +756,6 @@ clean_trans_live_tfna_pos <-
   left_join(clean_trans_live_n, by = c("antibody", "treatment")) |> 
   mutate(perc_pos_tnfa = round(n_pos_tnfa/n_live * 100, 1) )
 ```
-
 
 🎬 And put the columns into a more logical order:
 
@@ -787,8 +773,6 @@ clean_trans_live_tfna_pos <-
 
 ```
 
-
-
 ```{r}
 #| echo: false
 knitr::kable(clean_trans_live_tfna_pos)
@@ -798,10 +782,10 @@ The fact that a very low percentage of cells are positive for TNF-α in
 the isotype control is a good indication that cut off we used for the
 `TNFa_APC_Lin` signal is a good one.
 
-TNFAPC-MEDIA combination tells us how much TNF-α we expect in 
+TNFAPC-MEDIA combination tells us how much TNF-α we expect in
 unstimulated cells.
 
-This is important data for your write up and will be your contribution 
+This is important data for your write up and will be your contribution
 to the class data set so you should write it to file.
 
 🎬 Write `clean_trans_live_tfna_pos` to file:
@@ -816,7 +800,7 @@ write_csv(clean_trans_live_tfna_pos,
 We can apply the same logic to the `E_coli_FITC_Lin` signal.
 
 For either antibody, when the treatment is media or LPS there is no
-*E.coli* so that level of `E_coli_FITC_Lin` signal means zero. That 
+*E.coli* so that level of `E_coli_FITC_Lin` signal means zero. That
 level looks to be about 2.
 
 🎬 Define the threshold for the `E_coli_FITC_Lin` signal:
@@ -837,15 +821,14 @@ clean_trans_live <- clean_trans_live |>
 ::: callout-tip
 ## Tip for your own summaries
 
-You may wish to repeat the process we used for the `TNFa_APC_Lin`
-signal to find out the number of cells that are FITC positive in each 
-sample and the mean intensity of the FITC signal in the FITC positive 
-cells.
+You may wish to repeat the process we used for the `TNFa_APC_Lin` signal
+to find out the number of cells that are FITC positive in each sample
+and the mean intensity of the FITC signal in the FITC positive cells.
 :::
 
 ### A figure to report baselines for both signals
 
-🎬 Plot the TNFa_APC_Lin and E_coli_FITC_Lin with the thresholds for
+🎬 Plot `TNFa_APC_Lin` against `E_coli_FITC_Lin` with the thresholds for
 both signals:
 
 ```{r}
@@ -860,8 +843,6 @@ ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin,
   facet_grid(antibody ~ treatment) +
   theme_bw()
 ```
-
-
 
 ## Save the data
 
@@ -897,19 +878,12 @@ You're finished!
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not
-visible on the webpage.
+All the answers (coding and thinking) are in the source code for the
+workshop. You can view it using the `</> Code` button at the top of the
+page. Coding and thinking answers are marked with `#---CODING ANSWER---`
+and `#---THINKING ANSWER---`
 
-The `workshop.qmd` file is the file I use to compile the practical. Qmd
-stands for Quarto markdown. It allows code and ordinary text to be
-interweaved to produce well-formatted reports including webpages. [View
-the Qmd in
-Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-2/workshop.qmd).
-Coding and thinking answers are marked with `#---CODING ANSWER---` and
-`#---THINKING ANSWER---`
-
-Pages made with R [@R-core], Quarto [@allaire2022], `knitr` 
-[@knitr1; @knitr2; @knitr3],
-`kableExtra` [@kableExtra]
+Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
+@knitr2; @knitr3], `kableExtra` [@kableExtra]
 
 # References

@@ -10,42 +10,21 @@ editor:
 
 In this workshop you will learn how to:
 
--   create density plots to visualise the distribution and gating of 
-    the signals
--   create a quadrant gated plot of TNFa_APC_Lin signal against the 
-    E_coli_FITC_Lin signal.
--   calculate the the percentage of cells in each quadrant
+-   create density plots to visualise the distribution and gating of the signals
+-   create a quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal.
+-   calculate the percentage of cells in each quadrant
 -   annotate plots
 -   import from a googlesheet.
 
-You will learn how to make a variety of plots but not *which* plots you 
-should include in your report.
-You should select plots to match your narrative and you may need to 
-apply your understanding of picking data for, faceting and annotating 
-plots to get the plot you want.
+You will learn how to make a variety of plots but not *which* plots you should include in your report.
+You should select plots to match your narrative and you may need to apply your understanding of picking data for, faceting and annotating plots to get the plot you want.
 
-You should have the processed data files listed below for your own 
-data/the model data.
-However, if you do not, you can use the linked files prepared from 
-the sample data
+You should have the processed data files listed below for your own data/the model data.
+However, if you do not, you can use the linked files prepared from the sample data
 
--   [`clean_trans_live_tfna_pos.csv`](data-processed/clean_trans_live_tfna_pos.csv): 
-    Each row is a sample (a treatment-antibody combination). For each 
-    sample there is: the number of cells after AI cleaning, the 
-    number of live cells after gatting, the percentage of live 
-    cells, the number TNF-α postive cells, the percentage of 
-    TNF-α postive cells and the of the mean APC signal in the live 
-    cells and TNF-α postive cells
--   [`live_labelled.csv`](data-processed/live_labelled.csv): Each row 
-    is a cell. These are the AI cleaned, live cells with 
-    logicle-transformed TNFa_APC_Lin and E_coli_FITC_Lin signals. Each 
-    cell is labelled with the sample (filename) it came from, its 
-    treatment and antibody, and whether it is TNF-α positive (*i.e.* 
-    has a TNFa_APC_Lin level above the APC cut off used) or negative 
-    and whether it is FITC positive (*i.e.* E_coli_FITC_Lin level above 
-    the FITC cut off used) or negative.
--   you may also have the FITC equivalent of 
-    `clean_trans_live_tfna_pos.csv`
+-   [`clean_trans_live_tfna_pos.csv`](data-processed/clean_trans_live_tfna_pos.csv): Each row is a sample (a treatment-antibody combination). For each sample there is: the number of cells after AI cleaning, the number of live cells after gating, the percentage of live cells, the number TNF-α positive cells, the percentage of TNF-α positive cells and the mean APC signal in the live cells and TNF-α positive cells
+-   [`live_labelled.csv`](data-processed/live_labelled.csv): Each row is a cell. These are the AI cleaned, live cells with logicle-transformed TNFa_APC_Lin and E_coli_FITC_Lin signals. Each cell is labelled with the sample (filename) it came from, its treatment and antibody, and whether it is TNF-α positive (*i.e.* has a TNFa_APC_Lin level above the APC cut off used) or negative and whether it is FITC positive (*i.e.* E_coli_FITC_Lin level above the FITC cut off used) or negative.
+-   you may also have the FITC equivalent of `clean_trans_live_tfna_pos.csv`
 
 # Exercises
 
@@ -74,10 +53,8 @@ clean_trans_live_n <- read_csv("data-processed/clean_trans_live_tfna_pos.csv")
 
 ```
 
-It can helpful to select only the columns we need, especially for the 
-`clean_trans_live` data. These are: `FS_Lin`, `SS_Lin`, 
-`E_coli_FITC_Lin`, `TNFa_APC_Lin`, `treatment`, `antibody`, 
-`tnfa` and `fitc`
+It can be helpful to select only the columns we need, especially for the `clean_trans_live` data.
+These are: `FS_Lin`, `SS_Lin`, `E_coli_FITC_Lin`, `TNFa_APC_Lin`, `treatment`, `antibody`, `tnfa` and `fitc`
 
 🎬 Select columns of interest:
 
@@ -92,14 +69,13 @@ clean_trans_live <- clean_trans_live |>
          fitc)
 ```
 
-🎬 View each of the resulting dataframes (click on the name in the 
-environment or use `View()`) to ensure you understand what they contain.
+🎬 View each of the resulting dataframes (click on the name in the environment or use `View()`) to ensure you understand what they contain.
 
 ```{r}
 #| echo: false
 clean_trans_live |> 
   head(n = 100) |> 
-  knitr::kable(caption = "clean_trans_live: The AI cleaned, logical transformed, live, labelled cell data (first 100 rows only") |> 
+  knitr::kable(caption = "clean_trans_live: The AI cleaned, logical transformed, live, labelled cell data (first 100 rows only)") |> 
   kableExtra::kable_styling() |> 
   kableExtra::scroll_box(height = "200px")
 
@@ -114,14 +90,11 @@ clean_trans_live_n |>
 ```
 
 By default, categorical variables are plotted in alphabetical order.
-The alphabetical order of the antibody type - ISOTYPE, TNFAPC - makes 
-sense since ISOTYPE is the control.
+The alphabetical order of the antibody type - ISOTYPE, TNFAPC - makes sense since ISOTYPE is the control.
 However, that of treatment - ECOLIGreen, LPS, MEDIA - is not.
-We will put these in a better order with MEDIA first for the live 
-cell data.
+We will put these in a better order with MEDIA first for the live cell data.
 
-🎬 Use `fct_relevel()` to put treatment groups in order so that our 
-graphs are better to interpret.
+🎬 Use `fct_relevel()` to put treatment groups in order so that our graphs are better to interpret.
 
 ```{r}
 clean_trans_live <- clean_trans_live |> 
@@ -133,19 +106,14 @@ clean_trans_live <- clean_trans_live |>
 
 ## Distribution of APC TNF-α signal with APC gate
 
-We often want to show the distribution of a signal with the value we 
-used as a threshold (gate) so that readers can evaluate whether the 
-value chosen is appropriate in their opinion.
+We often want to show the distribution of a signal with the value we used as a threshold (gate) so that readers can evaluate whether the value chosen is appropriate in their opinion.
 A distribution is best shown with a histogram or density plot.
-We will annotate the distribution of APC TNF-α signal with the gate 
-used to define whether the cells are positive or negative for TNF-α.
-it is useful to assign that value to a variable that we can use in our 
-plots[^1].
+We will annotate the distribution of APC TNF-α signal with the gate used to define whether the cells are positive or negative for TNF-α.
+it is useful to assign that value to a variable that we can use in our plots[^1].
 
 [^1]: You might want to look back at [Quality control 3: Gating to determine a ‘real’ signal](../week-2/workshop.html#quality-control-3-gating-to-determine-a-real-signal) in the week 2 workshop to remind yourself how we determined the gate values for the sample data.
 
-🎬 Assign the TNF-α gate value a variable remembering that your number 
-will differ:
+🎬 Assign the TNF-α gate value a variable remembering that your number will differ:
 
 ```{r}
 apc_cut <- 3.8
@@ -165,14 +133,11 @@ fitc_cut <- 2
 
 ### Plotting one sample
 
-Since the control sample (MEDIA, ISOTYPE) is crucial in determining the 
-APC gating threshold, this is a useful plot.
+Since the control sample (MEDIA, ISOTYPE) is crucial in determining the APC gating threshold, this is a useful plot.
 
-We first filter the dataframe before plotting it which allows us to 
-pick the sample we want to plot.
+We first filter the dataframe before plotting it which allows us to pick the sample we want to plot.
 
-🎬 Plot the distribution of the APC TNF-α signal for the MEDIA 
-`treatment` and the ISOTYPE `antibody`:
+🎬 Plot the distribution of the APC TNF-α signal for the MEDIA `treatment` and the ISOTYPE `antibody`:
 
 ```{r}
 clean_trans_live |> 
@@ -190,34 +155,26 @@ clean_trans_live |>
 
 ```
 
--   `geom_vline()` adds a vertical line to the plot at the value of 
-    `apc_cut` which is the gate value we determined for the APC TNF-α 
-    signal.
+-   `geom_vline()` adds a vertical line to the plot at the value of `apc_cut` which is the gate value we determined for the APC TNF-α signal.
 
--   `geom_density()` is a smoothed version of a histogram[^2] and 
-     shows the distribution of the data. The fill argument sets the 
-     colour of the plot to a light grey.
+-   `geom_density()` is a smoothed version of a histogram[^2] and shows the distribution of the data.
+    The fill argument sets the colour of the plot to a light grey.
 
--   the expand argument in a `scale_x_....` or `scale_y_....` sets 
-    the axis line at zero rather than being below it.
+-   the expand argument in a `scale_x_....` or `scale_y_....` sets the axis line at zero rather than being below it.
 
 [^2]: You can use a histogram if you prefer.
     You will need different limits on the *y* axis.
 
 #### Plot annotation
 
-You have (at least) three options for adding the summary statistics 
-to the plot.
+You have (at least) three options for adding the summary statistics to the plot.
 
-1.  Most simple: adding in word/googledocs (or whatever you write your
-    report in).
+1.  Most simple: adding in word/googledocs (or whatever you write your report in).
 
-    Save the plot using `ggsave()`, insert as an image into your report 
-    and a text box.
+    Save the plot using `ggsave()`, insert as an image into your report and a text box.
 
 2.  In R by hard coding the values in the `annotate()` function.
-    The values themselves you have calculated and are in the 
-    `clean_trans_live_n` dataframe
+    The values themselves you have calculated and are in the `clean_trans_live_n` dataframe
 
 ```{r}
 
@@ -241,10 +198,7 @@ clean_trans_live |>
 
 ```
 
-3.  In R and fully reproducibly by using the `clean_trans_live_n` 
-    dataframe with the summary statistics in `geom_text()`. That 
-    dataframe also needs filtering to the sample you are plotting. I 
-    have also rounded the `mean_apc` value to 2 decimal places.
+3.  In R and fully reproducibly by using the `clean_trans_live_n` dataframe with the summary statistics in `geom_text()`. That dataframe also needs filtering to the sample you are plotting. I have also rounded the `mean_apc` value to 2 decimal places.
 
 ```{r}
 clean_trans_live |> 
@@ -273,15 +227,13 @@ clean_trans_live |>
 
 This has several advantages:
 
--   if the data changes, the plot annotation will update automatically 
-    just as the distribution will.
+-   if the data changes, the plot annotation will update automatically just as the distribution will.
 
 -   extending to multiple facets requires little extra work.
 
 ### Write to file
 
-Whatever method you decide to use for annotation, you will need to 
-save your figure as an image.
+Whatever method you decide to use for annotation, you will need to save your figure as an image.
 
 🎬 Assign the plot to `apc_distibution_media_isotype`
 
@@ -324,8 +276,7 @@ ggsave("figures/apc_distibution_media_isotype.png",
 ### Multiple facets
 
 To plot all the samples in one go we can use `facet_grid()`.
-`treatment ~ antibody` puts the treatments in rows and the antibodies 
-in columns.
+`treatment ~ antibody` puts the treatments in rows and the antibodies in columns.
 Now do not need to filter the data to a single sample.
 
 🎬 Plot the distribution of the APC TNF-α signal for all samples:
@@ -355,31 +306,23 @@ clean_trans_live |>
 ::: callout-important
 ## Methods of annotation for faceted plots
 
-Note that adding plot annotations manually (method 1) and using R fully 
-reproducibly (method 3) are possible on faceted plots but method 2 is 
-not because you need the annotations to change with values in treatment 
-and antibody.
+Note that adding plot annotations manually (method 1) and using R fully reproducibly (method 3) are possible on faceted plots but method 2 is not because you need the annotations to change with values in treatment and antibody.
 :::
 
 ::: callout-tip
 ## Tip for your own plots
 
-You can combine filtering data and faceted plots to do facet plots of 
-a subset of the samples.
-For example, you could filter for the ISOTYPE antibody and facet 
-for the treatment.
+You can combine filtering data and faceted plots to do facet plots of a subset of the samples.
+For example, you could filter for the ISOTYPE antibody and facet for the treatment.
 :::
 
 ### Overlay instead of facets
 
 Using facets is *one* way to show multiple samples in one plot.
-Another is to overlay the plots by mapping the `fill` aesthetic to 
-the `antibody` variable.
-Making the fill semi-transparent with `alpha = 0.3` allows you to 
-see the overlap of the distributions.
+Another is to overlay the plots by mapping the `fill` aesthetic to the `antibody` variable.
+Making the fill semi-transparent with `alpha = 0.3` allows you to see the overlap of the distributions.
 
-🎬 Overlay the distribution of the APC TNF-α signals for the media 
-treated samples:
+🎬 Overlay the distribution of the APC TNF-α signals for the media treated samples:
 
 ```{r}
 clean_trans_live |> 
@@ -459,7 +402,7 @@ clean_trans_live |>
                                round(mean_apc, 2))), 
             x = 4.8,
             y = 2,
-            colour = viridisLite::viridis(2, end = 0.8)[2])+
+            colour = viridisLite::viridis(2, end = 0.8)[2]) +
   scale_y_continuous(expand = c(0, 0),
                      limits = c(0, 2.5)) +
   scale_x_continuous(name = "Logicle transformed APC TNF-α signal") +
@@ -476,11 +419,11 @@ We created the figure below in [Week 2](../week-2/workshop.html#a-figure-to-repo
 
 ```{r}
 ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin, 
-                                  y = TNFa_APC_Lin)) +
+                             y = TNFa_APC_Lin)) +
   geom_hex(bins = 128) +
   geom_hline(yintercept = apc_cut, 
              color = "red") +
-    geom_vline(xintercept = fitc_cut, 
+  geom_vline(xintercept = fitc_cut, 
              color = "red") +
   scale_fill_viridis_c() +
   facet_grid(antibody ~ treatment) +
@@ -488,12 +431,12 @@ ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin,
 ```
 
 We might want to annotate this figure with the percentage of cells in each quadrant in each sample.
-To do that, we need to Calculate % of cells in each quadrant.
+To do that, we need to Calculate the % of cells in each quadrant.
 
-### Calculate % of cells in each quadrant
+### Calculate the % of cells in each quadrant
 
-We want to calculate the the percentage of cells in each quadrant of the quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal.
-The means finding the number of cells labelled as:
+We want to calculate the percentage of cells in each quadrant of the quadrant gated plot of TNFa_APC_Lin signal against the E_coli_FITC_Lin signal.
+This means finding the number of cells labelled as:
 
 -   TNF-α -'ve and FITC -'ve
 -   TNF-α -'ve and FITC +'ve
@@ -503,10 +446,10 @@ The means finding the number of cells labelled as:
 ```{r}
 #| echo: false
 ggplot(clean_trans_live, aes(x = E_coli_FITC_Lin, 
-                                  y = TNFa_APC_Lin)) +
+                             y = TNFa_APC_Lin)) +
   geom_hline(yintercept = apc_cut, 
              color = "red") +
-    geom_vline(xintercept = fitc_cut, 
+  geom_vline(xintercept = fitc_cut, 
              color = "red") +
   scale_x_continuous(limits = c(1, 4.5)) +
   scale_y_continuous(limits = c(2.5, 6.5)) +
@@ -528,12 +471,10 @@ all_combin_n <- clean_trans_live |>
 
 ```
 
-Grouping by `antibody` and `treatment` ensures we get values for each 
-sample. The `tnfa` and `fitc` columns give whether a cell is positive 
-or negative for that signal.
+Grouping by `antibody` and `treatment` ensures we get values for each sample.
+The `tnfa` and `fitc` columns give whether a cell is positive or negative for that signal.
 
-🎬 Click on the data frame in the environment window to view it and 
-make sure you have an understanding of the data.
+🎬 Click on the data frame in the environment window to view it and make sure you have an understanding of the data.
 
 ```{r}
 #| echo: false
@@ -545,16 +486,12 @@ all_combin_n |>
 
 ```
 
-As there are four quadrants and six samples, you would expect 24 rows 
-in the data frame. However, there are only 23 rows. This is because 
-for one sample, TNFAPC-LPS. there are no cells in one quadrant, TNF-α -'ve
-FITC +'ve (the bottom right quadrant). 
-Since we are probably happy not to annotate a figure with 0 %, this is 
-fine.
+As there are four quadrants and six samples, you would expect 24 rows in the data frame.
+However, there are only 23 rows.
+This is because for one sample, TNFAPC-LPS, there are no cells in one quadrant, TNF-α -'ve FITC +'ve (the bottom right quadrant).
+Since we are probably happy not to annotate a figure with 0 %, this is fine.
 
-To calculate the percentage of cells in each quadrant, we need to join 
-this dataframe with the number of non-debris cells for each sample, 
-*i.e.,* `clean_trans_live_n`
+To calculate the percentage of cells in each quadrant, we need to join this dataframe with the number of non-debris cells for each sample, *i.e.,* `clean_trans_live_n`
 
 🎬 Calculate the percentage of cells in each quadrant for each sample:
 
@@ -570,8 +507,7 @@ all_combin_perc <- all_combin_n |>
 I have additionally filtered out rows where the % cells rounds to 0.
 This is again because we are probably happy not to annotate a figure with 0 %.
 
-🎬 Click on the data frame in the environment window to view it and
-make sure you have an understanding of the data.
+🎬 Click on the data frame in the environment window to view it and make sure you have an understanding of the data.
 
 ```{r}
 #| echo: false
@@ -606,7 +542,7 @@ You have a couple of options for importing this:
 ::: callout-important
 ## Google sheet closure
 
-The spreadsheet will be closed for input on **Friday 21 March (week 6)** so people can make conclusions about the class data without being concerned it will change.
+The spreadsheet will be closed for input on **1700** **Friday 20 March (week 6)** so people can make conclusions about the class data without being concerned it will change.
 :::
 
 ### Importing from a googlesheet
@@ -652,7 +588,7 @@ We did this in the [Data Analysis 1: Core](../week-1/workshop.html#quality-contr
 ## Analysis of the class data
 
 The class data has the summary statistics.
-You do not need to apply flowcytometry methods to these that.
+You do not need to apply flowcytometry methods to these data.
 You should be able to apply techniques you have learned in stage 1 to the class data.
 
 Stage 1
@@ -671,12 +607,8 @@ Stage 1
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
-
-The `workshop.qmd` file is the file I use to compile the practical.
-Qmd stands for Quarto markdown.
-It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages.
-[View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-6/workshop.qmd).
+All the answers (coding and thinking) are in the source code for the workshop.
+You can view it using the `</> Code` button at the top of the page.
 Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1; @knitr2; @knitr3], `kableExtra` [@kableExtra]

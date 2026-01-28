@@ -16,8 +16,7 @@ library(kableExtra)
 
 # Introduction
 
-In this workshop you will use the tools you used in the previous 
-workshop (and before!) to analyse the data you have collected.
+In this workshop you will use the tools you used in the previous workshop (and before!) to analyse the data you have collected.
 You will provide some key pieces of information for the class data set.
 
 # Exercises
@@ -28,46 +27,35 @@ You will provide some key pieces of information for the class data set.
 
 🎬 If you have not already done so, save your data files to the project.
 Are the file names going to be easy for you to work with?
-[Remember](../week-2/workshop.html#make-data-easier-to-work-with) that 
-we used the file names to label to rows with their treatment (Media, 
-LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so if you do not 
-match the names you will need to redesign the code appropriately. It is 
-easier to rename your files!
+[Remember](../week-2/workshop.html#make-data-easier-to-work-with) that we used the file names to label to rows with their treatment (Media, LPS or ECOLIGreen) and antibody (ISOTYPE or TNFAPC) so **if you do not match the names you will need to redesign the code appropriately**.
+It is easier to rename your files!
 
 🎬 Open your R script and begin to analyse your data.
-
 
 🎬 Use `ggsave()` to write plots you might use in your report to file.
 You will learn how to produce a variety of other plots in Week 6
 
-
-
 ## Data for the class dataset.
 
-The class data will be summary information for the ECOLIGreen_TNFAPC, 
-LPS_TNFAPC, and MEDIA_TNFAPC samples.  You need to provide the 
-following information:
+The class data will be summary information for the ECOLIGreen_TNFAPC, LPS_TNFAPC, and MEDIA_TNFAPC samples.
+You need to provide the following information for the **TNFAPC antibody samples**:
 
--   `group_name` A name for your group. Take care not to use a name used
-    by others. Take care to use the exactly the same name for each of 
-    your 3 rows
+-   `group_name` A name for your group.
+    Take care not to use a name used by others.
+    Take care to use the **exact** the same name for each of your 3 rows
 
--   `cell_treatment`One of MEDIA, LPS or ECOLIGreen 
+-   `cell_treatment`One of MEDIA, LPS or ECOLIGreen
 
 -   `n` The number of cells in sample after flowAI cleaning
 
--   `n_live` The number of cells in sample after flowAI cleaning *and* 
-     removing dead cells/debris ("gating") (*i.e.*, the % live cells)
+-   `n_live` The number of cells in sample after flowAI cleaning *and* removing dead cells/debris ("gating") (*i.e.*, the % live cells)
 
--   `perc_live` The % of cells in sample after flowAI cleaning *and* 
-     removing dead cells/debris ("gating") (*i.e.*, the % live cells)
+-   `perc_live` The % of cells in sample after flowAI cleaning *and* removing dead cells/debris ("gating") (*i.e.*, the % live cells)
 
--   `apc_cut` threshold for logicle transformed TNFa_APC_Lin. This 
-     should be the *same* for all your samples and indicates the level 
-     at which cells are postive for TNF-α positive
+-   `apc_cut` threshold for logicle transformed TNFa_APC_Lin.
+    This should be the *same* for all your samples and indicates the level at which cells are postive for TNF-α positive
 
--   `mean_apc` Mean fluorescence intensity of the logicle transformed 
-     TNFa_APC_Lin in the TNF-α positive cells
+-   `mean_apc` Mean fluorescence intensity of the logicle transformed TNFa_APC_Lin in the TNF-α positive cells
 
 -   `n_pos_tnfa` Number of TNF-α positive cells
 
@@ -76,14 +64,12 @@ following information:
 Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?gid=1267502769#gid=1267502769)
 
 Some columns are required for the class analysis.
-Other columns help you get to the required values and help others 
-determine the reliability of your data.
+Other columns help you get to the required values and help others determine the reliability of your data.
 
 ## How to change the name of an RStudio project.
 
-You will need to rename your RStudio Project to your exam number 
-before you submit. You can change the name of an RStudio project at 
-any time by:
+You will need to rename your RStudio Project to your exam number before you submit.
+You can change the name of an RStudio project at any time by:
 
 -   closing the project
 
@@ -95,12 +81,8 @@ any time by:
 
 # The Code file
 
-This contains all the code needed in the workshop even where it is not visible on the webpage.
-
-The `workshop.qmd` file is the file I use to compile the practical.
-Qmd stands for Quarto markdown.
-It allows code and ordinary text to be interweaved to produce well-formatted reports including webpages.
-[View the Qmd in Browser](https://github.com/3mmaRand/R4BABS/blob/main/r4babs4/week-4/workshop.qmd).
+All the answers (coding and thinking) are in the source code for the workshop.
+You can view it using the `</> Code` button at the top of the page.
 Coding and thinking answers are marked with `#---CODING ANSWER---` and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1; @knitr2; @knitr3], `kableExtra` [@kableExtra]

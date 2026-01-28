@@ -12,9 +12,9 @@ format:
 1.  💻 Set up the Virtual Desktop
 
     I very strongly recommend working on the University computers for
-    this work. You will be using more specialised R packages than you
+    this work as you will be using more specialised R packages than you
     might be used to. This is especially important if you often have
-    difficulty updating and or installing software on your own machine,
+    difficulty updating and/or installing software on your own machine,
     wouldn't know what what version of R you are using or don't realise
     there is a difference between R and RStudio. The uni machines always
     have up-to-date R and R packages and all the packages that appear in
@@ -33,9 +33,8 @@ format:
     need:
 
     -   to know the difference between R and RStudio
-    -   to use R 4.4 and RStudio 2024.09.0 Build 375 ("Cranberry
-        Hibiscus")
-    -   be certain you are actually using R 4.4 - it is written in the
+    -   to use R 4.5 and RStudio 2025.05.0 ("Mariposa Orchid")
+    -   be certain you are actually using R 4.5 - it is written in the
         top edge of the console window. By default RStudio uses the
         latest version on R on your machine. However, windows users are
         able to change this to a "specific version". You might have done
@@ -47,12 +46,13 @@ format:
 
     It is possible to access all your files on your university account
     without using the VDS. For example, if you want to work on uni
-    machines at uni and your machine at home. You can best do this by
-    mapping a drive:
-    https://support.york.ac.uk/s/topic/0TO4K000000lA5ZWAU/filestores. If
-    you store everything on google drive you can also read/write to that
-    like any other drive using google drive app.
+    machines at uni and but your own machine at home. You can best do
+    this by mapping a drive:
+    https://support.york.ac.uk/s/topic/0TO4K000000lA5ZWAU/filestores.
+    Alternative is to store everything on google drive. You can
+    read/write to that like any other drive using google drive App
+    (installed on uni computers or available in App stores).
 
     Even if you plan to use your own machine I really recommend you take
-    the time to set the VDS up now while you're not time pressured so 
+    the time to set the VDS up now while you're not time pressured so
     you always have that option ready.

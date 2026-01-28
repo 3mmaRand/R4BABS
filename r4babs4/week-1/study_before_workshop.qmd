@@ -6,14 +6,14 @@ toc-location: right
 ---
 
 1.  📖 Read [Understanding file
-    systems](https://3mmarand.github.io/comp4biosci/file_systems.html).
+    systems](https://3mmarand.github.io/comp4biosci/file-systems.html).
     Approximately 15 - 20 minutes. This is revision of some stage 1 core
-    concepts. It covers file types, filesystems. working directories and
+    concepts. It covers file types, filesystems, working directories and
     paths. You may feel completely confident with them but many students
     will benefit from a refresher.
 
 2.  📖 Read [RStudio
-    Projects](https://3mmarand.github.io/comp4biosci/workflow_rstudio.html#rstudio-projects).
+    Projects](https://3mmarand.github.io/comp4biosci/workflow-rstudio.html#rstudio-projects).
     Section 7.1 only. Approximately 5 - 10 minutes. This is revision but
     part of the assessment requires that you use an RStudio project so
     if you aren't sure you are using them, you might want to check.

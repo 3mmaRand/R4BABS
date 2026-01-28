@@ -6,51 +6,47 @@ toc-location: right
 ---
 
 The independent study allows you to check you have the files you need
-having applied the workflow from [Week 2](../week-2/overview.html) to 
-your own data (or the replacement data if you do not have your own 
-data) in [Week 4](../week-2/overview.html). However, you will be able
-to use files prepared from the sample data for the week 6 workshop if
-you have not completed week 4.
+having applied the workflow from [Week 2](../week-2/overview.html) to
+your own data (or the replacement data if you do not have your own data)
+in [Week 4](../week-2/overview.html). However, you will be able to use
+files prepared from the sample data for the week 6 workshop if you have
+not completed the analysis of your own data.
 
-
-1.  You should have an RStudio Project with at least: folders for 
-    raw data, meta data, samples after quality control and processed 
-    data, a script
+1.  You should have an RStudio Project with at least: folders for raw
+    data, meta data, samples after quality control and processed data, a
+    script
 
 2.  You should have processed data files:
 
-    -   `ai_clean_logicle_trans.csv`: Each row is a cell. These are the 
-         AI cleaned cells with logicle-transformed TNFa_APC_Lin
-         and E_coli_FITC_Lin signals. Each cell is 
-         labelled with the sample (filename) it came from, its 
-         treatment and antibody. The cells have not been gated -  
-         *i.e.*, some of the "cells" in this dataset are
-         dead/debris.
+    -   `ai_clean_logicle_trans.csv`: Each row is a cell. These are the
+        AI cleaned cells with logicle-transformed TNFa_APC_Lin and
+        E_coli_FITC_Lin signals. Each cell is labelled with the sample
+        (filename) it came from, its treatment and antibody. The cells
+        have not been gated -\
+        *i.e.*, some of the "cells" in this dataset are dead/debris.
     -   `clean_trans_live_tfna_pos.csv`: Each row is a sample (a
-         treatment-antibody combination). For each sample there is: 
-         the number of cells after AI cleaning, the number of live 
-         cells after gatting, the percentage of live cells, the number 
-         TNF-α postive cells, the percentage of TNF-α postive cells and
-         the of the mean APC signal in the live cells and TNF-α postive
-         cells
-    -   `live_labelled.csv`: Each row is a cell. These are the AI 
-         cleaned, live cells with logicle-transformed TNFa_APC_Lin
-         and E_coli_FITC_Lin signals. Each cell is 
-         labelled with the sample (filename) it came from, its 
-         treatment and antibody, and whether it is TNF-α positive
-         (*i.e.* has a TNFa_APC_Lin level above the APC cut off used)
-         or negative and whether it is FITC positive
-         (*i.e.* E_coli_FITC_Lin level above the FITC cut off
-         used) or negative.
-    -    you may also have the FITC equivalent of
-         `clean_trans_live_tfna_pos.csv`
-         
-3.  Enter the values from your analysis to: 
-    [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link). The column names are the same as those 
-    used in the [Data Analysis 2: Biomedical sciences - Sample data analysis](../week-2/workshop.html) workshop. The columns you must add
-    are marked in green. Other information helps you get to the 
-    required values and helps others determine the reliability of your 
-    data. The workshops show how to calculate all these values.
+        treatment-antibody combination). For each sample there is: the
+        number of cells after AI cleaning, the number of live cells
+        after gatting, the percentage of live cells, the number TNF-α
+        postive cells, the percentage of TNF-α postive cells and the of
+        the mean APC signal in the live cells and TNF-α postive cells
+    -   `live_labelled.csv`: Each row is a cell. These are the AI
+        cleaned, live cells with logicle-transformed TNFa_APC_Lin and
+        E_coli_FITC_Lin signals. Each cell is labelled with the sample
+        (filename) it came from, its treatment and antibody, and whether
+        it is TNF-α positive (*i.e.* has a TNFa_APC_Lin level above the
+        APC cut off used) or negative and whether it is FITC positive
+        (*i.e.* E_coli_FITC_Lin level above the FITC cut off used) or
+        negative.
+    -   you may also have the FITC equivalent of
+        `clean_trans_live_tfna_pos.csv`
 
-
-
+3.  Enter the values from your analysis to: [BIO00066I Biomedical
+    Sciences class
+    data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link).
+    The column names are the same as those used in the [Data Analysis 2:
+    Biomedical sciences - Sample data analysis](../week-2/workshop.html)
+    workshop. The columns you must add are marked in green. Other
+    information helps you get to the required values and helps others
+    determine the reliability of your data. The workshops show how to
+    calculate all these values.
