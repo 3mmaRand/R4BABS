@@ -34,7 +34,7 @@ width="400"}
 
 -   Five selfish reasons to work reproducibly [@markowetz2015].
     Alternatively, see the very entertaining
-    [talk](https://youtu.be/yVT07Sukv9Q) which covers the the "Duke
+    [talk](https://youtu.be/yVT07Sukv9Q) which covers the "Duke
     Scandal".
 
 -   Many high profile cases of work which did not reproduce e.g. Anil
@@ -203,7 +203,7 @@ We will be working with the following data files in this workshop
 
 -   [cell-bio.tsv](data-raw/cell-bio.tsv). These are measurements from a
     Livecyte microscope, which performs live cell imaging, tracking
-    individual cells, and measurings cell shape and size parameters for
+    individual cells, and measuring cell shape and size parameters for
     thousands of cells as they grow and divide. Measurements are taken
     for three replicates from each of two cell lines A and B.
 
@@ -219,7 +219,8 @@ We will be working with the following data files in this workshop
 
 🎬 Save these data files to the `data-raw/` folder:
 
-🎬 Consider the file extensions. What you think the extensions indicate?
+🎬 Consider the file extensions. What you do think the extensions
+indicate?
 
 <!-- #---THINKING ANSWER--- -->
 
@@ -233,7 +234,7 @@ We will be working with the following data files in this workshop
 
 <!-- editor and still be readable. -->
 
-<!-- csv stands to comma separated values and tsv stands for tab  -->
+<!-- csv stands for comma separated values and tsv stands for tab  -->
 
 <!-- separated values. Both of these are plain text format. -->
 
@@ -429,8 +430,8 @@ immuno_live <- immuno |>
 
 Whilst we can always specify the columns we want to use when working
 with data, sometimes we find it less overwhelming to create a new
-dataframe with only the columns we want. The `select()` function help us
-here.
+dataframe with only the columns we want. The `select()` function helps
+us here.
 
 🎬 Suppose we only want to work with the Susceptible varieties of wheat
 in the `biotech` dataframe. We can create a new dataframe with only the
@@ -491,14 +492,14 @@ frogs_subset <- frogs |>
 ### Visualisation
 
 Histograms and density plots are useful for visualising the distribution
-of variables when we have many observations. Theya allow you to see
+of variables when we have many observations. They allow you to see
 features in the data that are not obvious from the summary statistics.
 
 -   A histogram shows the number of values in each range (bin), it is
     composed of touching bars. How a histogram looks depends on the
     number of bins used.
 
--   A density plot shows the proportions on values in a range. The
+-   A density plot shows the proportions of values in a range. The
     appearance of the distribution is not affected by the number of
     bins.
 
@@ -540,13 +541,13 @@ I’ve used base 10 only because it is easy to convert to the original
 scale (1 is 10, 2 is 100, 3 is 1000 etc). The warning about rows being
 removed is expected - these are the counts of 0 since you can’t log a
 value of 0. The peak at zero suggests quite a few counts of 1. We would
-expect we would expect the distribution of counts to be roughly log
-normal because this is expression of all the genes in the genome[^2].
-That peak near the low end is not expected for this distribution and
-suggests that these lower counts might be anomalies.
+expect the distribution of counts to be roughly log normal because this
+is expression of all the genes in the genome[^2]. That peak near the low
+end is not expected for this distribution and suggests that these lower
+counts might be anomalies.
 
 [^2]: This a result of the [Central limit
-    theorem](https://en.wikipedia.org/wiki/Central_limit_theorem),one
+    theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), one
     consequence of which is that adding together lots of distributions -
     whatever distributions they are - will tend to a normal
     distribution.
@@ -643,7 +644,7 @@ You're finished!
 All the answers (coding and thinking) are in the source code for the
 workshop. You can view it using the `</> Code` button at the top of the
 page. Coding and thinking answers are marked with `#---CODING ANSWER---`
-and \`#---THINKING ANSWER---\`\`
+and `#---THINKING ANSWER---`
 
 Pages made with R [@R-core], Quarto [@allaire2022], `knitr` [@knitr1;
 @knitr2; @knitr3], `kableExtra` [@kableExtra]
