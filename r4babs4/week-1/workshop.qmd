@@ -53,7 +53,9 @@ width="400"}
 
 -   Documentation: Comment your code.
 
-## Project-oriented workflow
+-   Critical curation of your project and code
+
+# Project-oriented workflow
 
 -   use folders to organise your work
 
@@ -112,6 +114,150 @@ Example
 #| echo: false
 dir("../week-2/data-raw")
 ```
+
+# Comment your code
+
+Effective commenting is crucial for making your analysis reproducible
+and understandable. Good commenting is about quality, not quantity. You
+do not need to teach a person to program in the comments, but you should
+explain the logic of the code and the decisions you make based on what
+you see in your analysis. If you remove the code, the comments should
+still make sense. You need not interpret the results in any depth, but
+you should comment on interpretation where it impacts what you do in the
+code.
+
+Comments should
+
+-   Give an overview of the work and analysis. This should give enough
+    information for someone to understand what the analysis is about. It
+    should be concise and only give information needed to understand the
+    data and analysis - you don't need biological information unless it
+    is essential to understand the analysis. - Structure the code into
+    sections with section headers
+
+-   Say what was done where it is not obvious
+
+-   Explain the reasoning behind analytical and technical decisions
+    relevant to the direction of the analysis.
+
+## Example comments
+
+**Bad example** No structure. Comments are self-explanatory or try to
+explain R (variable names are also meaningless).
+
+```{r}
+#| eval: false
+# Load the readr package
+library(readr)
+
+# Read the data file
+data <- read_csv("experiment_data.csv")
+
+# Make a new variable named average_value using the standard R 
+# assignment operator (<-) to store the result. We use the mean() 
+# function, which is used to calculate the arithmetic average of 
+# a numeric vector. Inside the function parentheses, we give the 
+# data frame object called data and use the dollar sign ($) to 
+# specifically select the column named measurement. 
+average_value <- mean(data$measurement)
+
+```
+
+**Good example** Structure. We say why we do things and what the code is
+for.
+
+```{r}
+#| eval: false
+
+# Packages -----------------------------------------------------------
+
+library(flowCore)      # for importing flow cytometry format (FCS) 
+                       # files. Analysis is carried out with tidyverse
+library(tidyverse)     # for importing, processing and plotting
+library(viridisLite)   # for colour scales on Figure 2 only
+
+# Import -------------------------------------------------------------
+
+# List all 6 FCS files in the data-raw folder
+myfiles <- list.files("data-raw", pattern = ".fcs$")
+
+# Read the FCS files into a flowSet object (6 flowFrames)
+fs <- read.flowSet(myfiles, 
+                   path = "data-raw")
+
+
+# Reformat -----------------------------------------------------------
+
+# Put flowFrames into a single data frame for ease of use in tidyverse
+# workflows
+macrophages <- fsApply(fs, exprs) |> data.frame() 
+
+```
+
+```{r}
+#| eval: false
+
+```
+
+# Critical Curation
+
+-   Regularly review your project
+-   Remove unnecessary files
+-   Ensure your code is clear and well commented
+
+You might need to:
+
+-   collect together library statements at the top of the script
+-   edit your comments for clarity
+-   rename variables for consistency or clarity
+-   remove house keeping or exploratory code or mark it for later
+    removal
+-   restyle code, add code section headers etc
+
+# Generative AI for the RStudio Project
+
+[Google Gemini](https://gemini.google.com/app) is the University's
+preferred generative AI, but [Claude AI](https://claude.ai/new) is also
+good.
+
+Each time you use a generative AI tool, you should consider whether
+generative AI is the right tool.
+
+-   You want to avoid **false authorship** or anything else that is
+    against the University's guidelines on using AI tools ([student
+    guidance on using AI and translation
+    tools](https://www.york.ac.uk/students/studying/assessment-and-examination/ai/))
+-   You might be able to do the task quicker without generative AI by
+    reading workshop materials because you won't have to evaluate and
+    edit so much.
+
++---------------------------------+---------------------------------+
+| This is OK                      | This is NOT ok                  |
++=================================+=================================+
+| It is OK to ask an AI to        | Do not use an AI to             |
+| **explain** code and coding     | **generate** code               |
+| concepts.                       |                                 |
+|                                 | Do not **uncritically accept**  |
+| It is OK to use an AI to        | code modifications without      |
+| **modify** your code but you    | evaluating their accuracy or    |
+| must understand the inputs, the | relevance.                      |
+| outputs and what the code does. |                                 |
+| This is important because AIs   | Do not use an AI to             |
+| like to add things you don't    | **generate** comments.          |
+| need and the marking scheme     |                                 |
+| takes account relevance.        |                                 |
+|                                 |                                 |
+| Do [Acknowledge and             |                                 |
+| re                              |                                 |
+| ference](https://%20sub%20jectg |                                 |
+| uides.york.ac.uk/referen%20%20c |                                 |
+| ing-style-guides/generative-ai) |                                 |
+| generative AI (you should also  |                                 |
+| acknowledge and reference other |                                 |
+| sources of code such as         |                                 |
+| workshop, text books, online    |                                 |
+| tutorials)                      |                                 |
++---------------------------------+---------------------------------+
 
 # Big data
 
