@@ -3608,7 +3608,7 @@
     "href": "r4babs4/week-1/workshop.html#how-to-achieve-reproducibility",
     "title": "Workshop",
     "section": "How to achieve reproducibility",
-    "text": "How to achieve reproducibility\n\nScripting\nOrganisation: Project-oriented workflows with file and folder structure, naming things\nDocumentation: Comment your code.",
+    "text": "How to achieve reproducibility\n\nScripting\nOrganisation: Project-oriented workflows with file and folder structure, naming things\nDocumentation: Comment your code.\nCritical curation of your project and code",
     "crumbs": [
       "BABS 4",
       "Week 1: DA 1 Core",
@@ -3616,11 +3616,11 @@
     ]
   },
   {
-    "objectID": "r4babs4/week-1/workshop.html#project-oriented-workflow",
-    "href": "r4babs4/week-1/workshop.html#project-oriented-workflow",
+    "objectID": "r4babs4/week-1/workshop.html#example-comments",
+    "href": "r4babs4/week-1/workshop.html#example-comments",
     "title": "Workshop",
-    "section": "Project-oriented workflow",
-    "text": "Project-oriented workflow\n\nuse folders to organise your work\nyou are aiming for structured, systematic and repeatable.\ninputs and outputs should be clearly identifiable from structure and/or naming\n\nExample\n-- stem-cells\n   |__stem-cells.Rproj\n   |__analysis.R\n   |__data-raw\n      |__2019-03-21_donor_1.csv\n      |__2019-03-21_donor_2.csv\n      |__2019-03-21_donor_3.csv\n   |__figures\n      |__01_volcano_donor_1_vs_donor_2.png\n      |__02_volcano_donor_1_vs_donor_3.png",
+    "section": "Example comments",
+    "text": "Example comments\nBad example No structure. Comments are self-explanatory or try to explain R (variable names are also meaningless).\n\n# Load the readr package\nlibrary(readr)\n\n# Read the data file\ndata &lt;- read_csv(\"experiment_data.csv\")\n\n# Make a new variable named average_value using the standard R \n# assignment operator (&lt;-) to store the result. We use the mean() \n# function, which is used to calculate the arithmetic average of \n# a numeric vector. Inside the function parentheses, we give the \n# data frame object called data and use the dollar sign ($) to \n# specifically select the column named measurement. \naverage_value &lt;- mean(data$measurement)\n\nGood example Structure. We say why we do things and what the code is for.\n\n# Packages -----------------------------------------------------------\n\nlibrary(flowCore)      # for importing flow cytometry format (FCS) \n                       # files. Analysis is carried out with tidyverse\nlibrary(tidyverse)     # for importing, processing and plotting\nlibrary(viridisLite)   # for colour scales on Figure 2 only\n\n# Import -------------------------------------------------------------\n\n# List all 6 FCS files in the data-raw folder\nmyfiles &lt;- list.files(\"data-raw\", pattern = \".fcs$\")\n\n# Read the FCS files into a flowSet object (6 flowFrames)\nfs &lt;- read.flowSet(myfiles, \n                   path = \"data-raw\")\n\n\n# Reformat -----------------------------------------------------------\n\n# Put flowFrames into a single data frame for ease of use in tidyverse\n# workflows\nmacrophages &lt;- fsApply(fs, exprs) |&gt; data.frame()",
     "crumbs": [
       "BABS 4",
       "Week 1: DA 1 Core",
