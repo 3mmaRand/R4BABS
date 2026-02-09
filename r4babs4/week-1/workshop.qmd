@@ -231,33 +231,33 @@ generative AI is the right tool.
     reading workshop materials because you won't have to evaluate and
     edit so much.
 
-+---------------------------------+---------------------------------+
-| This is OK                      | This is NOT ok                  |
-+=================================+=================================+
-| It is OK to ask an AI to        | Do not use an AI to             |
-| **explain** code and coding     | **generate** code               |
-| concepts.                       |                                 |
-|                                 | Do not **uncritically accept**  |
-| It is OK to use an AI to        | code modifications without      |
-| **modify** your code but you    | evaluating their accuracy or    |
-| must understand the inputs, the | relevance.                      |
-| outputs and what the code does. |                                 |
-| This is important because AIs   | Do not use an AI to             |
-| like to add things you don't    | **generate** comments.          |
-| need and the marking scheme     |                                 |
-| takes account relevance.        |                                 |
-|                                 |                                 |
-| Do [Acknowledge and             |                                 |
-| re                              |                                 |
-| ference](https://%20sub%20jectg |                                 |
-| uides.york.ac.uk/referen%20%20c |                                 |
-| ing-style-guides/generative-ai) |                                 |
-| generative AI (you should also  |                                 |
-| acknowledge and reference other |                                 |
-| sources of code such as         |                                 |
-| workshop, text books, online    |                                 |
-| tutorials)                      |                                 |
-+---------------------------------+---------------------------------+
++-------------------------------+-------------------------------+
+| This is OK                    | This is NOT ok                |
++===============================+===============================+
+| It is OK to ask an AI to      | Do not use an AI to           |
+| **explain** code and coding   | **generate** code             |
+| concepts.                     |                               |
+|                               | Do not **uncritically         |
+| It is OK to use an AI to      | accept** code modifications   |
+| **modify** your code but you  | without evaluating their      |
+| must understand the inputs,   | accuracy or relevance.        |
+| the outputs and what the code |                               |
+| does. This is important       | Do not use an AI to           |
+| because AIs like to add       | **generate** comments.        |
+| things you don't need and the |                               |
+| marking scheme takes account  |                               |
+| relevance.                    |                               |
+|                               |                               |
+| Do [Acknowledge and           |                               |
+| reference](https://subjec     |                               |
+| tguides.york.ac.uk/referencin |                               |
+| g-style-guides/generative-ai) |                               |
+| generative AI (you should     |                               |
+| also acknowledge and          |                               |
+| reference other sources of    |                               |
+| code such as workshop, text   |                               |
+| books, online tutorials)      |                               |
++-------------------------------+-------------------------------+
 
 # Big data
 
