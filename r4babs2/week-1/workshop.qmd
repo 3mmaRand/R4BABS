@@ -230,7 +230,7 @@ samples we use the "the standard normal distribution" accessed with
 `qnorm()`; for small samples we use the "*t* distribution" assessed with
 `qt()`.
 
-The value returned by `q(t)` is larger than that by `qnorm()` which
+The value returned by `qt()` is larger than that by `qnorm()` which
 reflects the greater uncertainty we have on estimations of population
 means based on small samples.
 
