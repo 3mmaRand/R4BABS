@@ -94,9 +94,9 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bd31597842da8e70aa6de660987a7f7b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-0724b92bd66eafb47a2b216599690d49.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-bd31597842da8e70aa6de660987a7f7b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-544ee3fff9c16920f419adc657a19e5e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f2c3aaac4770586a2f35a604a8a3d564.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-544ee3fff9c16920f419adc657a19e5e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
@@ -764,7 +764,7 @@ window.Quarto = {
 <p>The confidence interval for small samples is given by:</p>
 <p><span class="math inline">\(\bar{x} \pm t_{[d.f]} \times s.e.\)</span></p>
 <p>The only difference between the C.I. calculation for small samples and the C.I. calculation for large sample is the multiplier. For large samples we use the “the standard normal distribution” accessed with <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>; for small samples we use the “<em>t</em> distribution” assessed with <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code>.</p>
-<p>The value returned by <code>q(t)</code> is larger than that by <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> which reflects the greater uncertainty we have on estimations of population means based on small samples.</p>
+<p>The value returned by <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code> is larger than that by <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> which reflects the greater uncertainty we have on estimations of population means based on small samples.</p>
 <p>The fatty acid Docosahexaenoic acid (DHA) is a major component of membrane phospholipids in nerve cells and deficiency leads to many behavioural and functional deficits. The cross sectional area of neurons in the CA 1 region of the hippocampus of normal rats is 155 <span class="math inline">\(\mu m^2\)</span>. A DHA deficient diet was fed to 8 animals and the cross sectional area (csa) of neurons is given in <a href="data-raw/neuron.txt">neuron.txt</a></p>
 <p><img src="images/do_on_your_computer.png" class="img-fluid"> Save <a href="data-raw/neuron.txt">neuron.txt</a> to your <code>data-raw</code> folder</p>
 <p><img src="images/do_in_R.png" class="img-fluid"> Read in the data and check the structure of the resulting dataframe</p>
@@ -1541,7 +1541,7 @@ Zhu, Hao. 2024. <em>kableExtra: Construct Complex Table with ’Kable’ and Pip
 <span id="cb7-242"><a href="#cb7-242" aria-hidden="true" tabindex="-1"></a><span class="in">`qnorm()`</span>; for small samples we use the "*t* distribution" assessed with</span>
 <span id="cb7-243"><a href="#cb7-243" aria-hidden="true" tabindex="-1"></a><span class="in">`qt()`</span>.</span>
 <span id="cb7-244"><a href="#cb7-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-245"><a href="#cb7-245" aria-hidden="true" tabindex="-1"></a>The value returned by <span class="in">`q(t)`</span> is larger than that by <span class="in">`qnorm()`</span> which</span>
+<span id="cb7-245"><a href="#cb7-245" aria-hidden="true" tabindex="-1"></a>The value returned by <span class="in">`qt()`</span> is larger than that by <span class="in">`qnorm()`</span> which</span>
 <span id="cb7-246"><a href="#cb7-246" aria-hidden="true" tabindex="-1"></a>reflects the greater uncertainty we have on estimations of population</span>
 <span id="cb7-247"><a href="#cb7-247" aria-hidden="true" tabindex="-1"></a>means based on small samples.</span>
 <span id="cb7-248"><a href="#cb7-248" aria-hidden="true" tabindex="-1"></a></span>
