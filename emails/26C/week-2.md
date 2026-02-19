@@ -39,7 +39,7 @@ There is:
     to the relationship between temperature and respiration rate. The
     model has two coefficients (parameters) estimated from the data. The
     first estimate is the intercept and the second estimate is the
-    slope.](../images/linear-model.png){fig-alt="The a linear model fitted to the relationship between temperature and respiration rate. The model has two coefficients (parameters) estimated from the data. The first estimate is the intercept and the second estimate is the slope."
+    slope.](images/linear-model.png){fig-alt="The a linear model fitted to the relationship between temperature and respiration rate. The model has two coefficients (parameters) estimated from the data. The first estimate is the intercept and the second estimate is the slope."
     width="500"}
 
 -   The
