@@ -61,7 +61,7 @@ You need to provide the following information for the **TNFAPC antibody samples*
 
 -   `perc_pos_tnfa` Percent of live cells that are TNF-α positive
 
-Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?gid=1267502769#gid=1267502769)
+Enter these in the [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1aMWvzRRT86SWFuCGaO_yjnbeH3XtxralaKsO5ffVMfE/edit?usp=drive_link)
 
 Some columns are required for the class analysis.
 Other columns help you get to the required values and help others determine the reliability of your data.

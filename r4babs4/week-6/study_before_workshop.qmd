@@ -43,7 +43,7 @@ not completed the analysis of your own data.
 
 3.  Enter the values from your analysis to: [BIO00066I Biomedical
     Sciences class
-    data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link).
+    data](https://docs.google.com/spreadsheets/d/1aMWvzRRT86SWFuCGaO_yjnbeH3XtxralaKsO5ffVMfE/edit?usp=drive_link).
     The column names are the same as those used in the [Data Analysis 2:
     Biomedical sciences - Sample data analysis](../week-2/workshop.html)
     workshop. The columns you must add are marked in green. Other

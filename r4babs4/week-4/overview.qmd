@@ -20,13 +20,12 @@ The successful student will be able to:
 -   Edit the workflow provided in week 2 and apply it to their own data
 
 -   Determine values from their data that contribute to the [class data
-    set](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?gid=1267502769#gid=1267502769).
+    set](https://docs.google.com/spreadsheets/d/1aMWvzRRT86SWFuCGaO_yjnbeH3XtxralaKsO5ffVMfE/edit?usp=drive_link).
 
 -   change the name of an RStudio project
 
 -   Apply the principles covered in [Data Analysis 1:
-    Core](../week-1/overview.html)
-    to their analysis
+    Core](../week-1/overview.html) to their analysis
 
 ### Instructions
 

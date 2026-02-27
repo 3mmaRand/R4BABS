@@ -530,7 +530,7 @@ Remember you also have the option to annotate manually.
 
 ## Importing class data
 
-The [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?usp=drive_link) are in a google sheet.
+The [BIO00066I Biomedical Sciences class data](https://docs.google.com/spreadsheets/d/1aMWvzRRT86SWFuCGaO_yjnbeH3XtxralaKsO5ffVMfE/edit?usp=drive_link) are in a google sheet.
 
 You have a couple of options for importing this:
 
@@ -556,7 +556,7 @@ library(googlesheets4)
 
 ```{r}
 #| eval: false
-file <- "https://docs.google.com/spreadsheets/d/1wgQ9goCvYnO44sSHVvP37nFJM12mG8nibdpOOx7ZP9Q/edit?gid=0#gid=0"
+file <- "https://docs.google.com/spreadsheets/d/1aMWvzRRT86SWFuCGaO_yjnbeH3XtxralaKsO5ffVMfE/edit?usp=drive_link"
 ```
 
 ```{r}
