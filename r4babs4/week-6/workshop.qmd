@@ -48,7 +48,7 @@ library(tidyverse)
 clean_trans_live <- read_csv("data-processed/live_labelled.csv")
 
 # import % live summary
-clean_trans_live_n <- read_csv("data-processed/clean_trans_live_tfna_pos.csv") 
+clean_trans_live_tfna_pos <- read_csv("data-processed/clean_trans_live_tfna_pos.csv") 
 
 
 ```
@@ -83,8 +83,8 @@ clean_trans_live |>
 
 ```{r}
 #| echo: false
-clean_trans_live_n |> 
-  knitr::kable(caption = "clean_trans_live_n: sample summaries") |> 
+clean_trans_live_tfna_pos |> 
+  knitr::kable(caption = "clean_trans_live_tfna_pos: sample summaries") |> 
   kableExtra::kable_styling() 
 
 ```
@@ -208,7 +208,7 @@ clean_trans_live |>
   geom_density(fill = "gray80") +
   geom_vline(xintercept = apc_cut, 
              color = "red") +
-  geom_text(data = clean_trans_live_n |> 
+  geom_text(data = clean_trans_live_tfna_pos |> 
               filter(treatment == "MEDIA",
                      antibody == "ISOTYPE"), 
             aes(label = paste0(perc_pos_tnfa, 
@@ -245,7 +245,7 @@ apc_distibution_media_isotype <- clean_trans_live |>
   geom_density(fill = "gray80") +
   geom_vline(xintercept = apc_cut, 
              color = "red") +
-  geom_text(data = clean_trans_live_n |> 
+  geom_text(data = clean_trans_live_tfna_pos |> 
               filter(treatment == "MEDIA",
                      antibody == "ISOTYPE"), 
             aes(label = paste0(perc_pos_tnfa, 
@@ -288,7 +288,7 @@ clean_trans_live |>
   geom_density(fill = "gray80") +
   geom_vline(xintercept = apc_cut, 
              color = "red") +
-   geom_text(data = clean_trans_live_n, 
+   geom_text(data = clean_trans_live_tfna_pos, 
              aes(label = paste0(perc_pos_tnfa, 
                                 "% cells\nTNF-α +'ve\nMFI = ",
                                 round(mean_apc, 2))), 
@@ -385,7 +385,7 @@ clean_trans_live |>
   geom_vline(xintercept = apc_cut, 
              color = "red") +
   scale_fill_viridis_d(name = NULL, end = 0.8) +
-  geom_text(data = clean_trans_live_n |> 
+  geom_text(data = clean_trans_live_tfna_pos |> 
               filter(treatment == "MEDIA",
                      antibody == "ISOTYPE"), 
             aes(label = paste0(perc_pos_tnfa, 
@@ -394,7 +394,7 @@ clean_trans_live |>
             x = 4.8,
             y = 2.25,
             colour = viridisLite::viridis(2, end = 0.8)[1]) +
-  geom_text(data = clean_trans_live_n |> 
+  geom_text(data = clean_trans_live_tfna_pos |> 
               filter(treatment == "MEDIA",
                      antibody == "TNFAPC"), 
             aes(label = paste0(perc_pos_tnfa, 
@@ -497,7 +497,7 @@ To calculate the percentage of cells in each quadrant, we need to join this data
 
 ```{r}
 all_combin_perc <- all_combin_n |> 
-  left_join(clean_trans_live_n, 
+  left_join(clean_trans_live_tfna_pos, 
             by = c("antibody", "treatment")) |> 
   mutate(perc_quad = round(n_quad / n_live * 100, 1)) |> 
   filter(perc_quad > 0)
@@ -561,7 +561,7 @@ file <- "https://docs.google.com/spreadsheets/d/1aMWvzRRT86SWFuCGaO_yjnbeH3Xtxra
 
 ```{r}
 #| eval: false
-class_data <- read_sheet(file, sheet = "data")
+class_data <- read_sheet(file, sheet = "data-2026")
 ```
 
 You will be asked to authenticate in your browser.
@@ -579,7 +579,7 @@ The data should then read in.
 ```         
 Authentication complete.
 ✔ Reading from BIO00066I Biomedical Sciences class data.
-✔ Range ''data''.
+✔ Range ''data-2026''.
 ```
 
 Note that you will probably want to do some quality control such has filtering out rows with missing data in important columns.
