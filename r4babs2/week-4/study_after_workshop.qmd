@@ -270,44 +270,77 @@ ggplot() +
                      limits = c(0, 540),
                      expand = c(0, 0)) +
   scale_x_discrete("Spray treatment") +
-  # E and control are one group
-  annotate("segment", x = 4.5, xend = 6.5, 
+ 
+   # E and control are one group
+  annotate("segment", x = 5, xend = 6, 
            y = 397, yend = 397,
            colour = "black", linewidth = 1) +
-  annotate("text", x = 5.5,  y = 385, 
+  annotate("text", x = 5.5,  y = 388, 
            label = "N.S", size = 4) +
-  # WaterControl-D and E-D    ***
-  annotate("segment", x = 4, xend = 5.5, 
-           y = 410, yend = 410,
+ 
+   # D - WaterControl    ***
+  annotate("segment", x = 4, xend = 6, 
+           y = 463, yend = 463,
            colour = "black") +
-  annotate("text", x = 4.5,  y = 420, 
+  annotate("text", x = 4.5,  y = 466, 
            label = "***", size = 5) +
-  # WaterControl-B ***
-  annotate("segment", x = 3, xend = 5.5, 
-         y = 440, yend = 440,
-         colour = "black") +
-  annotate("text", x = 4,  y = 450,
-           label = "***", size = 5) +
-  # WaterControl-C ***
-  annotate("segment", x = 2, xend = 5.5, 
-           y = 475, yend = 475,
+
+  # D -E    ***
+  annotate("segment", x = 4, xend = 5, 
+           y = 390, yend = 390,
            colour = "black") +
-  annotate("text", x = 3.5,  y = 485, 
+  annotate("text", x = 4.5,  y = 393, 
+           label = "***", size = 5) + 
+   
+   # WaterControl-B ***
+  annotate("segment", x = 3, xend = 6, 
+           y = 481, yend = 481,
+           colour = "black") +
+  annotate("text", x = 4,  y = 484,
            label = "***", size = 5) +
-  # WaterControl-A ***
-  annotate("segment", x = 1, xend = 5.5, 
-         y = 510, yend = 510,
-         colour = "black") +
+
+    # WaterControl-C ***
+  annotate("segment", x = 2, xend = 6, 
+           y = 499, yend = 499,
+           colour = "black") +
+  annotate("text", x = 3.5,  y = 502, 
+           label = "***", size = 5) +
+
+    # WaterControl-A ***
+  annotate("segment", x = 1, xend = 6, 
+           y = 517, yend = 517,
+           colour = "black") +
   annotate("text", x = 3.5,  y = 520, 
            label = "***", size = 5) +  
-# A-D ***
-  annotate("segment", x = 1, xend = 4, 
-         y = 330, yend = 330,
-         colour = "black") +
-  annotate("text", x = 2.5,  y = 335, 
+
+  #  B - E ***
+  annotate("segment", x = 3, xend = 5, 
+           y = 408, yend = 408,
+           colour = "black") +
+  annotate("text", x = 4,  y = 411, 
+           label = "***", size = 5) +   
+  
+  #  C - E ***
+  annotate("segment", x = 2, xend = 5, 
+           y = 426, yend = 426,
+           colour = "black") +
+  annotate("text", x = 3.5,  y = 429, 
+           label = "***", size = 5) +    
+  
+  #  A - E ***
+  annotate("segment", x = 1, xend = 5, 
+           y = 442, yend = 442,
+           colour = "black") +
+  annotate("text", x = 3,  y = 445, 
+           label = "***", size = 5) + 
+  
+    # A-D ***
+  annotate("segment", x = 1, xend = 4,
+           y = 330, yend = 330,
+           colour = "black") +
+  annotate("text", x = 2.5,  y = 335,
            label = "*", size = 5) +
   theme_classic()
-
 # Figure 1. The mean pest biomass following various insecticide 
 # treatments. # Error bars are +/- 1 S.E. Significant comparisons 
 # are indicated: * is p < 0.05, ** p < 0.01 and *** is p < 0.001
