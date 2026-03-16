@@ -134,6 +134,43 @@ ggsave("figures/csativa.png",
        units = "in",
        dpi = 300)
 
+
+# If you want to extract the p value using method 2 you can
+# do it like this
+
+p_value <- broom::glance(mod) |> pull(p.value) |> round(4)
+# However, because the p value is so small this will round to zero.
+# We don't want to display p = 0 but something like p < 0.001 
+# instead. We can do this with an ifelse statement. If the 
+# p value is less than 0.001 we will display "< 0.001" otherwise we
+# will round the p value to 3 decimal places.
+p_value <- broom::glance(mod) |> pull(p.value) |> 
+  (\(x) ifelse(x < 0.001, "< 0.001", round(x, 3)))()
+
+fig1 <- ggplot() +
+  geom_point(data = csativa, aes(x = plant, y = omega),
+             position = position_jitter(width = 0.1, height = 0),
+             colour = "gray50") +
+  geom_errorbar(data = csativa_summary, 
+                aes(x = plant, ymin = mean - se, ymax = mean + se),
+                width = 0.3) +
+  geom_errorbar(data = csativa_summary, 
+                aes(x = plant, ymin = mean, ymax = mean),
+                width = 0.2) +
+  scale_x_discrete(name = "Plant type", labels = c("GMO", "WT")) +
+  scale_y_continuous(name = "Amount of Omega 3 (units)",
+                     expand = c(0, 0),
+                     limits = c(0, 90)) +
+    annotate("segment", x = 1, xend = 2, 
+           y = 80, yend = 80,
+           colour = "black") +
+  annotate("text", x = 1.5,  y = 85, 
+           label = glue::glue("italic(p) { p_value }"),
+           parse = TRUE) +
+  theme_classic()
+
+
+
 ```
 
 <!-- 1.  💻 another example -->
