@@ -789,41 +789,75 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <span>                     limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">540</span><span class="op">)</span>,</span>
 <span>                     expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span><span class="st">"Spray treatment"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># E and control are one group</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">4.5</span>, xend <span class="op">=</span> <span class="fl">6.5</span>, </span>
+<span> </span>
+<span>   <span class="co"># E and control are one group</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">5</span>, xend <span class="op">=</span> <span class="fl">6</span>, </span>
 <span>           y <span class="op">=</span> <span class="fl">397</span>, yend <span class="op">=</span> <span class="fl">397</span>,</span>
 <span>           colour <span class="op">=</span> <span class="st">"black"</span>, linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">5.5</span>,  y <span class="op">=</span> <span class="fl">385</span>, </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">5.5</span>,  y <span class="op">=</span> <span class="fl">388</span>, </span>
 <span>           label <span class="op">=</span> <span class="st">"N.S"</span>, size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># WaterControl-D and E-D    ***</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">4</span>, xend <span class="op">=</span> <span class="fl">5.5</span>, </span>
-<span>           y <span class="op">=</span> <span class="fl">410</span>, yend <span class="op">=</span> <span class="fl">410</span>,</span>
+<span> </span>
+<span>   <span class="co"># D - WaterControl    ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">4</span>, xend <span class="op">=</span> <span class="fl">6</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">463</span>, yend <span class="op">=</span> <span class="fl">463</span>,</span>
 <span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">4.5</span>,  y <span class="op">=</span> <span class="fl">420</span>, </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">4.5</span>,  y <span class="op">=</span> <span class="fl">466</span>, </span>
 <span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># WaterControl-B ***</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">3</span>, xend <span class="op">=</span> <span class="fl">5.5</span>, </span>
-<span>         y <span class="op">=</span> <span class="fl">440</span>, yend <span class="op">=</span> <span class="fl">440</span>,</span>
-<span>         colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">4</span>,  y <span class="op">=</span> <span class="fl">450</span>,</span>
-<span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># WaterControl-C ***</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">2</span>, xend <span class="op">=</span> <span class="fl">5.5</span>, </span>
-<span>           y <span class="op">=</span> <span class="fl">475</span>, yend <span class="op">=</span> <span class="fl">475</span>,</span>
+<span></span>
+<span>  <span class="co"># D -E    ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">4</span>, xend <span class="op">=</span> <span class="fl">5</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">390</span>, yend <span class="op">=</span> <span class="fl">390</span>,</span>
 <span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">3.5</span>,  y <span class="op">=</span> <span class="fl">485</span>, </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">4.5</span>,  y <span class="op">=</span> <span class="fl">393</span>, </span>
+<span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   </span>
+<span>   <span class="co"># WaterControl-B ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">3</span>, xend <span class="op">=</span> <span class="fl">6</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">481</span>, yend <span class="op">=</span> <span class="fl">481</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">4</span>,  y <span class="op">=</span> <span class="fl">484</span>,</span>
 <span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># WaterControl-A ***</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">1</span>, xend <span class="op">=</span> <span class="fl">5.5</span>, </span>
-<span>         y <span class="op">=</span> <span class="fl">510</span>, yend <span class="op">=</span> <span class="fl">510</span>,</span>
-<span>         colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span></span>
+<span>    <span class="co"># WaterControl-C ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">2</span>, xend <span class="op">=</span> <span class="fl">6</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">499</span>, yend <span class="op">=</span> <span class="fl">499</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">3.5</span>,  y <span class="op">=</span> <span class="fl">502</span>, </span>
+<span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
+<span></span>
+<span>    <span class="co"># WaterControl-A ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">1</span>, xend <span class="op">=</span> <span class="fl">6</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">517</span>, yend <span class="op">=</span> <span class="fl">517</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">3.5</span>,  y <span class="op">=</span> <span class="fl">520</span>, </span>
 <span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>  </span>
-<span><span class="co"># A-D ***</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">1</span>, xend <span class="op">=</span> <span class="fl">4</span>, </span>
-<span>         y <span class="op">=</span> <span class="fl">330</span>, yend <span class="op">=</span> <span class="fl">330</span>,</span>
-<span>         colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">2.5</span>,  y <span class="op">=</span> <span class="fl">335</span>, </span>
+<span></span>
+<span>  <span class="co">#  B - E ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">3</span>, xend <span class="op">=</span> <span class="fl">5</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">408</span>, yend <span class="op">=</span> <span class="fl">408</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">4</span>,  y <span class="op">=</span> <span class="fl">411</span>, </span>
+<span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>   </span>
+<span>  </span>
+<span>  <span class="co">#  C - E ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">2</span>, xend <span class="op">=</span> <span class="fl">5</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">426</span>, yend <span class="op">=</span> <span class="fl">426</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">3.5</span>,  y <span class="op">=</span> <span class="fl">429</span>, </span>
+<span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>    </span>
+<span>  </span>
+<span>  <span class="co">#  A - E ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">1</span>, xend <span class="op">=</span> <span class="fl">5</span>, </span>
+<span>           y <span class="op">=</span> <span class="fl">442</span>, yend <span class="op">=</span> <span class="fl">442</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">3</span>,  y <span class="op">=</span> <span class="fl">445</span>, </span>
+<span>           label <span class="op">=</span> <span class="st">"***"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  </span>
+<span>    <span class="co"># A-D ***</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"segment"</span>, x <span class="op">=</span> <span class="fl">1</span>, xend <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>           y <span class="op">=</span> <span class="fl">330</span>, yend <span class="op">=</span> <span class="fl">330</span>,</span>
+<span>           colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">2.5</span>,  y <span class="op">=</span> <span class="fl">335</span>,</span>
 <span>           label <span class="op">=</span> <span class="st">"*"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><details class="code-fold"><summary>Answer - don’t look until you have tried!</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Figure 1. The mean pest biomass following various insecticide </span></span>
@@ -1576,49 +1610,82 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
 <span id="cb20-300"><a href="#cb20-300" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">540</span>),</span>
 <span id="cb20-301"><a href="#cb20-301" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
 <span id="cb20-302"><a href="#cb20-302" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="st">"Spray treatment"</span>) <span class="sc">+</span></span>
-<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a>  <span class="co"># E and control are one group</span></span>
-<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="fl">4.5</span>, <span class="at">xend =</span> <span class="fl">6.5</span>, </span>
-<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">397</span>, <span class="at">yend =</span> <span class="dv">397</span>,</span>
-<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">5.5</span>,  <span class="at">y =</span> <span class="dv">385</span>, </span>
-<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"N.S"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WaterControl-D and E-D    ***</span></span>
-<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">4</span>, <span class="at">xend =</span> <span class="fl">5.5</span>, </span>
-<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">410</span>, <span class="at">yend =</span> <span class="dv">410</span>,</span>
-<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">4.5</span>,  <span class="at">y =</span> <span class="dv">420</span>, </span>
-<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WaterControl-B ***</span></span>
-<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">3</span>, <span class="at">xend =</span> <span class="fl">5.5</span>, </span>
-<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="dv">440</span>, <span class="at">yend =</span> <span class="dv">440</span>,</span>
-<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a>         <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">4</span>,  <span class="at">y =</span> <span class="dv">450</span>,</span>
-<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WaterControl-C ***</span></span>
-<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">xend =</span> <span class="fl">5.5</span>, </span>
-<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">475</span>, <span class="at">yend =</span> <span class="dv">475</span>,</span>
-<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">3.5</span>,  <span class="at">y =</span> <span class="dv">485</span>, </span>
-<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WaterControl-A ***</span></span>
-<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="fl">5.5</span>, </span>
-<span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="dv">510</span>, <span class="at">yend =</span> <span class="dv">510</span>,</span>
-<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a>         <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">3.5</span>,  <span class="at">y =</span> <span class="dv">520</span>, </span>
-<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span>  </span>
-<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a><span class="co"># A-D ***</span></span>
-<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">4</span>, </span>
-<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="dv">330</span>, <span class="at">yend =</span> <span class="dv">330</span>,</span>
-<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a>         <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.5</span>,  <span class="at">y =</span> <span class="dv">335</span>, </span>
-<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"*"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure 1. The mean pest biomass following various insecticide </span></span>
-<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a><span class="co"># treatments. # Error bars are +/- 1 S.E. Significant comparisons </span></span>
-<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a><span class="co"># are indicated: * is p &lt; 0.05, ** p &lt; 0.01 and *** is p &lt; 0.001</span></span>
-<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a>   <span class="co"># E and control are one group</span></span>
+<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">xend =</span> <span class="dv">6</span>, </span>
+<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">397</span>, <span class="at">yend =</span> <span class="dv">397</span>,</span>
+<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">5.5</span>,  <span class="at">y =</span> <span class="dv">388</span>, </span>
+<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"N.S"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a>   <span class="co"># D - WaterControl    ***</span></span>
+<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">4</span>, <span class="at">xend =</span> <span class="dv">6</span>, </span>
+<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">463</span>, <span class="at">yend =</span> <span class="dv">463</span>,</span>
+<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">4.5</span>,  <span class="at">y =</span> <span class="dv">466</span>, </span>
+<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a>  <span class="co"># D -E    ***</span></span>
+<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">4</span>, <span class="at">xend =</span> <span class="dv">5</span>, </span>
+<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">390</span>, <span class="at">yend =</span> <span class="dv">390</span>,</span>
+<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">4.5</span>,  <span class="at">y =</span> <span class="dv">393</span>, </span>
+<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a>   <span class="co"># WaterControl-B ***</span></span>
+<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">3</span>, <span class="at">xend =</span> <span class="dv">6</span>, </span>
+<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">481</span>, <span class="at">yend =</span> <span class="dv">481</span>,</span>
+<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">4</span>,  <span class="at">y =</span> <span class="dv">484</span>,</span>
+<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WaterControl-C ***</span></span>
+<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">xend =</span> <span class="dv">6</span>, </span>
+<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">499</span>, <span class="at">yend =</span> <span class="dv">499</span>,</span>
+<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">3.5</span>,  <span class="at">y =</span> <span class="dv">502</span>, </span>
+<span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WaterControl-A ***</span></span>
+<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">6</span>, </span>
+<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">517</span>, <span class="at">yend =</span> <span class="dv">517</span>,</span>
+<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">3.5</span>,  <span class="at">y =</span> <span class="dv">520</span>, </span>
+<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span>  </span>
+<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  B - E ***</span></span>
+<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">3</span>, <span class="at">xend =</span> <span class="dv">5</span>, </span>
+<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">408</span>, <span class="at">yend =</span> <span class="dv">408</span>,</span>
+<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">4</span>,  <span class="at">y =</span> <span class="dv">411</span>, </span>
+<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span>   </span>
+<span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  C - E ***</span></span>
+<span id="cb20-354"><a href="#cb20-354" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">xend =</span> <span class="dv">5</span>, </span>
+<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">426</span>, <span class="at">yend =</span> <span class="dv">426</span>,</span>
+<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">3.5</span>,  <span class="at">y =</span> <span class="dv">429</span>, </span>
+<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span>    </span>
+<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  A - E ***</span></span>
+<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">5</span>, </span>
+<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">442</span>, <span class="at">yend =</span> <span class="dv">442</span>,</span>
+<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">3</span>,  <span class="at">y =</span> <span class="dv">445</span>, </span>
+<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"***"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a>    <span class="co"># A-D ***</span></span>
+<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">4</span>,</span>
+<span id="cb20-369"><a href="#cb20-369" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">330</span>, <span class="at">yend =</span> <span class="dv">330</span>,</span>
+<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.5</span>,  <span class="at">y =</span> <span class="dv">335</span>,</span>
+<span id="cb20-372"><a href="#cb20-372" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"*"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb20-373"><a href="#cb20-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure 1. The mean pest biomass following various insecticide </span></span>
+<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a><span class="co"># treatments. # Error bars are +/- 1 S.E. Significant comparisons </span></span>
+<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a><span class="co"># are indicated: * is p &lt; 0.05, ** p &lt; 0.01 and *** is p &lt; 0.001</span></span>
+<span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
