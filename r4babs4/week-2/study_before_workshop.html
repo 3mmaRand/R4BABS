@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Emma Rand">
   <title>Data Analysis in R – Independent Study to prepare for workshop</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -32,7 +38,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -49,7 +54,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-50FV9HPTRE"></script>
 
   <script type="text/javascript">
@@ -173,7 +178,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Emma Rand 
+Emma Rand
 </div>
 </div>
 </div>
@@ -283,7 +288,7 @@ Emma Rand
 <ul>
 <li class="fragment"><p>Import the data into R and improve the column names</p></li>
 <li class="fragment"><p>Apply automated quality control</p></li>
-<li class="fragment"><p>Apply a “logicle” transformation <span class="citation" data-cites="parks2006">(<a href="#/references" role="doc-biblioref" onclick="">Parks, Roederer, and Moore 2006</a>)</span> to the fluorescence channels (similar to logging)</p></li>
+<li class="fragment"><p>Apply a “logicle” transformation <span class="citation" data-cites="parks2006">(<a href="#/references" role="doc-biblioref" onclick="">Parks et al. 2006</a>)</span> to the fluorescence channels (similar to logging)</p></li>
 <li class="fragment"><p>Explore the data with scatter plots and histograms/density plots</p></li>
 <li class="fragment"><p>Use FS Lin and SS Lin to determine what cells (rows) to remove as dead/debris</p></li>
 <li class="fragment"><p>Determine cut-offs for cells being positive for TNF-α and <em>E. coli</em></p></li>
@@ -334,18 +339,18 @@ Emma Rand
 <h2>References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-flowCore" class="csl-entry" role="listitem">
-Ellis, B, Perry Haaland, Florian Hahne, Nolwenn Le Meur, Nishant Gopalakrishnan, Josef Spidlen, Mike Jiang, and Greg Finak. 2024. <span>“flowCore: flowCore: Basic Structures for Flow Cytometry Data.”</span>
+Ellis, B, Perry Haaland, Florian Hahne, et al. 2024. <em>flowCore: flowCore: Basic Structures for Flow Cytometry Data</em>.
 </div>
 <div id="ref-flowAI" class="csl-entry" role="listitem">
-Monaco, Gianni, Hao Chen, Michael Poidinger, Jinmiao Chen, Joao Pedro de Magalhaes, and Anis Larbi. 2016. <span>“flowAI: Automatic and Interactive Anomaly Discerning Tools for Flow Cytometry Data”</span> 32. <a href="https://10.1093/bioinformatics/btw191">10.1093/bioinformatics/btw191</a>.
+Monaco, Gianni, Hao Chen, Michael Poidinger, Jinmiao Chen, Joao Pedro de Magalhaes, and Anis Larbi. 2016. <em>flowAI: Automatic and Interactive Anomaly Discerning Tools for Flow Cytometry Data</em>. 32. <a href="https://10.1093/bioinformatics/btw191">10.1093/bioinformatics/btw191</a>.
 </div>
 <div id="ref-parks2006" class="csl-entry" role="listitem">
 Parks, David R., Mario Roederer, and Wayne A. Moore. 2006. <span>“A New <span>“</span>Logicle<span>”</span> Display Method Avoids Deceptive Effects of Logarithmic Scaling for Low Signals and Compensated Data.”</span> <em>Cytometry Part A</em> 69A (6): 541–51. <a href="https://doi.org/10.1002/cyto.a.20258">https://doi.org/10.1002/cyto.a.20258</a>.
 </div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019. <em>Welcome to the <span></span>Tidyverse<span></span></em>. 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 </div>
 </section></section>
