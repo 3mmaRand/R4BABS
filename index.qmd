@@ -78,10 +78,10 @@ together and is searchable. The search icon is on the top right.
 
 Those with
 [GitHub](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#where-do-i-start)
-accounts can make a suggestion dorrectly from a site webpage. When you find
-errors – from simple typos to more troublesome issues – or want to make a
-suggestion, please use the "Make a suggestion" link on the right. This will open
-an "issue" on github (where the site is hosted) where you can let me know about
-the error or suggestion.
+accounts can make a suggestion directly from the webpage. When you find errors –
+from simple typos to more troublesome issues – or want to make a suggestion,
+please use the "Make a suggestion" link on the right. This will open an "issue"
+on github (where the site is hosted) where you can let me know about the error
+or suggestion.
 
 **There is absolutely no requirement to use Git or GitHub in the BABS modules**.
