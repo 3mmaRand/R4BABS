@@ -46,4 +46,4 @@ is worth doing before you feel any time pressure.
 Set up the [Virtual Desktop
 Service](https://www.york.ac.uk/it-services/tools/vds/) NOW even if you plan to
 use your own machine. This means you will always have that option if your own
-set causes a problem.
+set up causes a problem.
