@@ -12,7 +12,8 @@ email](https://github.com/3mmaRand/R4BABS/blob/main/emails/27C/week-6.md).
 ## 7️⃣ What is happening in week 7
 
 Week 7 is an Introduction to R and RStudio and organising your work. The
-materials are on the VLE: Week 7 Data Analysis in R (or [Week 7 without
+materials are on the VLE in the "Week 7 Data Analysis in R" folder (or available
+outside the VLE [Week 7 without
 2FA](https://3mmarand.github.io/R4BABS/r4babs1/week-7/overview.html)). There is:
 
 - An overview of the week.
@@ -26,13 +27,13 @@ materials are on the VLE: Week 7 Data Analysis in R (or [Week 7 without
   blocks for the rest of your R journey.
 - The [workshop](https://3mmarand.github.io/R4BABS/r4babs1/week-7/workshop.html)
   where you will start writing R code in RStudio and will create your first
-  graph
+  graph of the number of cats with different coloured fur.
 
 ![The number of cats with each coat
 colour](first-plot.png){fig-alt="a bar chart with bars for black, white, ginger, tabby, tortoiseshell and calico cats. The are arranged in frequency order from 23 black cats to 1 calico cat"}
 
 I am not sure why I didn't include grey as a colour because I have a grey cat
-called Boo:
+called Boo and here she is:
 
 ![Boo curled up
 asleep](boo-hands-over-face.jpg){fig-alt="Boo curled up asleep and looking very cute!"

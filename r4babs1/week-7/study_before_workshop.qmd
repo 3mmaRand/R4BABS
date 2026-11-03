@@ -5,17 +5,17 @@ toc: true
 toc-location: right
 ---
 
-1.  **Either** 
-    
-    -   📖 Read [Introduction to RStudio](https://3mmarand.github.io/comp4biosci/about-R-and-RStudio.html#introduction-to-rstudio)
-    -   📖 Read [First Steps in RStudio](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html)
-    
-    **OR** 
-    
-    -   📹 Watch
+1.  **Either**
 
-        {{< video https://www.youtube.com/watch?v=7oLLjkTNrjY >}}
+    - 📖 Read [Introduction to
+      RStudio](https://3mmarand.github.io/comp4biosci/about-R-and-RStudio.html)
+    - 📖 Read [First Steps in
+      RStudio](https://3mmarand.github.io/comp4biosci/first-steps-rstudio.html)
 
-        {{< video https://youtu.be/2Ke1FGdaMSI >}}
+    **OR**
 
+    - 📹 Watch
 
+      {{< video https://www.youtube.com/watch?v=7oLLjkTNrjY >}}
+
+      {{< video https://youtu.be/2Ke1FGdaMSI >}}
