@@ -6,8 +6,8 @@ send early Week 8.
 
 We are in week 8 and this email is about *week 9*.
 
-The week 8 email was sent at the start of week 7 and you can see it here: [Week
-7 email](https://github.com/3mmaRand/R4BABS/blob/main/emails/27C/week-7.md).
+The week 8 email was sent at the start of week 8 and you can see it here: [Week
+8 email](https://github.com/3mmaRand/R4BABS/blob/main/emails/27C/week-8.md).
 
 ## 9️⃣ What is happening in week 9
 
