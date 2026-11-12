@@ -1756,14 +1756,23 @@ gtag('config', 'G-50FV9HPTRE', { 'anonymize_ip': true});
   </div>
 </footer><script>
 document.addEventListener("DOMContentLoaded", function() {
-  // grab all links under “Other Links” in the right-hand TOC
+  // grab all links under "Other Links" in the right-hand TOC
   const links = document.querySelectorAll('.quarto-other-links ul li a');
   links.forEach(function(a) {
-    // find the one whose text is exactly “Make a suggestion”
+    // find the one whose text is exactly "Make a suggestion"
     if (a.textContent.trim() === 'Make a suggestion') {
+      const titleEl    = document.querySelector('h1.title');
+      const subtitleEl = document.querySelector('.quarto-title .subtitle');
+
+      const title    = titleEl ? titleEl.textContent.trim() : document.title;
+      const subtitle = subtitleEl ? subtitleEl.textContent.trim() : '';
+
+      // subtitle first, then title (skips the subtitle if there isn't one)
+      const fullTitle = [subtitle, title].filter(Boolean).join(' - ');
+
       const pageUrl   = encodeURIComponent(window.location.href);
-      const pageTitle = encodeURIComponent(document.title);
-      a.href = 'https://github.com/3mmaRand/R4BABS/issues/new'
+      const pageTitle = encodeURIComponent(fullTitle);
+      a.href = 'https://github.com/3mmaRand/comp4biosci/issues/new'
              + '?title=' + pageTitle
              + '&body='  + pageUrl;
       a.target = '_blank';
